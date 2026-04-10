@@ -1,91 +1,209 @@
 from __future__ import annotations
 
-from src.components.state_store import StateStore
-from src.pipeline.normal_round_executor import NormalRoundExecutor, NormalRoundExecutorConfig
-from src.pipeline.repair_round_executor import RepairRoundExecutor, RepairRoundExecutorConfig
-from src.pipeline.debate_orchestrator import DebateOrchestrator, DebateOrchestratorConfig
-from src.pipeline.repair_orchestrator import RepairOrchestrator, RepairOrchestratorConfig
+import re
+import pandas as pd
+
 from src.components.action_mapper import ActionMapper
+from src.components.agent_runner import AgentRunner
 from src.components.evaluator import Evaluator
-from src.components.rollback_controller import RollbackController
-from src.components.repair_brief_generator import RepairBriefGenerator
-from src.components.repair_action_mapper import RepairActionMapper
-from src.components.repair_evaluator import RepairEvaluator
-from src.components.repair_agent_runner import RepairAgentRunner
+from src.components.history_manager import HistoryManager
+from src.components.qianfan_client import QianfanClient
 from src.components.recorder import Recorder
-from src.schemas import StateRecord
+from src.components.repair_action_mapper import RepairActionMapper
+from src.components.repair_agent_runner import RepairAgentRunner
+from src.components.repair_brief_generator import RepairBriefGenerator
+from src.components.repair_evaluator import RepairEvaluator
+from src.components.rollback_controller import RollbackController
+from src.components.state_store import StateStore
+from src.pipeline.debate_orchestrator import (
+    DebateOrchestrator,
+    DebateOrchestratorConfig,
+)
+from src.pipeline.normal_round_executor import (
+    NormalRoundExecutor,
+    NormalRoundExecutorConfig,
+)
+from src.pipeline.repair_orchestrator import (
+    RepairOrchestrator,
+    RepairOrchestratorConfig,
+)
+from src.pipeline.repair_round_executor import (
+    RepairRoundExecutor,
+    RepairRoundExecutorConfig,
+)
+from src.utils.result_writer import ResultWriter
+from src.utils.result_utils import (
+    build_trace,
+    get_final_answers,
+    get_round_1_answers,
+    get_rounds_used,
+    get_stop_reason,
+    is_correct,
+    majority_vote,
+)
+
+AGENT_IDS = ["A", "B", "C"]
+MAX_ROUND = 5
+import os
+# 强制禁用代理，直连国内网络
+os.environ["HTTP_PROXY"] = ""
+os.environ["HTTPS_PROXY"] = ""
+os.environ["NO_PROXY"] = "qianfan.baidubce.com,localhost,127.0.0.1"
+
+def build_llm_client() -> QianfanClient:
+    return QianfanClient(
+        api_key="bce-v3/ALTAK-CXj6a7G9bgZLuyol7710b/10a27611f48c83c85723b42b066cae31462a921c",
+        model="qwen2.5-7b-instruct",
+    )
 
 
-def run_normal_mode():
-    """
-    Run the normal stage (before rollback).
-    """
-    # Mocking components (in a real system, these would be implemented with actual logic)
+def load_gsm8k_samples(
+    parquet_path: str = r"datasets\gsm8k\main\train-00000-of-00001.parquet",
+    limit: int = 1,
+) -> list[tuple[str, str, str]]:
+    df = pd.read_parquet(parquet_path)
+
+    samples = []
+    for i in range(min(limit, len(df))):
+        row = df.iloc[i]
+
+        question = str(row["question"]).strip()
+        answer_text = str(row["answer"])
+
+        result = re.findall(r"####\s*(-?\d+(?:\.\d+)?)", answer_text)
+        gold_answer = result[0] if result else answer_text.strip()
+
+        sample_id = f"gsm8k_{i+1:04d}"
+        samples.append((sample_id, question, gold_answer))
+
+    return samples
+
+
+def run_normal_mode(
+    llm_client: QianfanClient,
+    question: str,
+    gold_answer: str,
+    sample_id: str,
+):
     state_store = StateStore()
+
+    agent_runner = AgentRunner(llm_client=llm_client)
+    history_manager = HistoryManager()
+    recorder = Recorder(llm_client=llm_client)
+    evaluator = Evaluator(llm_client=llm_client)
+
     normal_round_executor = NormalRoundExecutor(
         config=NormalRoundExecutorConfig(
-            question="How many gems are in the chest?",
-            agent_ids=["A", "B", "C"],
-            max_round=6,
+            question=question,
+            agent_ids=AGENT_IDS,
+            max_round=MAX_ROUND,
         ),
-        agent_runner=MockAgentRunner(),
+        agent_runner=agent_runner,
         state_store=state_store,
-        history_manager=MockHistoryManager(),
-        recorder=MockRecorder(),
-        evaluator=Evaluator(llm_client=MockLLMClient()),
+        history_manager=history_manager,
+        recorder=recorder,
+        evaluator=evaluator,
         action_mapper=ActionMapper(),
         rollback_controller=RollbackController(),
     )
 
     debate_orchestrator = DebateOrchestrator(
         config=DebateOrchestratorConfig(
-            question="How many gems are in the chest?", agent_ids=["A", "B", "C"], max_round=6
+            question=question,
+            agent_ids=AGENT_IDS,
+            max_round=MAX_ROUND,
         ),
         state_store=state_store,
         normal_round_executor=normal_round_executor,
     )
 
-    # Start the debate
+    print(f"\n===== Running {sample_id} =====")
+    print("Question:", question)
+    print("Gold answer:", gold_answer)
     print("Starting the debate in normal mode...")
-    rollback_context = debate_orchestrator.run_debate()
+
+    debate_result = debate_orchestrator.run_debate()
+
+    rollback_context = debate_result["rollback_context"]
+    early_stopped = debate_result["early_stopped"]
 
     if rollback_context:
-        print("Rollback detected, switching to repair mode...")
-        run_repair_mode(rollback_context)
+        anchor_round = rollback_context.get("anchor_round")
+        anchor_state = rollback_context.get("anchor_state")
+
+        if anchor_round is not None and anchor_state is not None:
+            print("Rollback detected, switching to repair mode...")
+            run_repair_mode(
+                llm_client=llm_client,
+                question=question,
+                rollback_context=rollback_context,
+            )
+        else:
+            print("Rollback detected, but no valid anchor is available. Skip repair mode.")
+
+    round_1_answers = get_round_1_answers(state_store)
+    final_answers = get_final_answers(state_store)
+
+    single_agent_baseline_answer = round_1_answers[0] if round_1_answers else ""
+    majority_voting_baseline_answer = majority_vote(round_1_answers)
+    scrd_final_answer = majority_vote(final_answers)
+
+    result = {
+        "sample_id": sample_id,
+        "question": question,
+        "gold_answer": gold_answer,
+        "round_1_answers": round_1_answers,
+        "single_agent_baseline_answer": single_agent_baseline_answer,
+        "majority_voting_baseline_answer": majority_voting_baseline_answer,
+        "scrd_final_answer": scrd_final_answer,
+        "single_agent_correct": is_correct(single_agent_baseline_answer, gold_answer),
+        "majority_voting_correct": is_correct(majority_voting_baseline_answer, gold_answer),
+        "scrd_correct": is_correct(scrd_final_answer, gold_answer),
+        "rounds_used": get_rounds_used(state_store),
+        "stop_reason": get_stop_reason(rollback_context, early_stopped),
+    }
+
+    trace = build_trace(state_store)
+    return result, trace
 
 
-def run_repair_mode(rollback_context: dict):
-    """
-    Run the repair stage (after rollback).
-    """
-    # Mocking components (same here for repair phase)
+def run_repair_mode(
+    llm_client: QianfanClient,
+    question: str,
+    rollback_context: dict,
+):
     state_store = StateStore()
-    repair_brief_generator = RepairBriefGenerator(llm_client=MockLLMClient())
-    repair_evaluator = RepairEvaluator(llm_client=MockLLMClient())
+
+    recorder = Recorder(llm_client=llm_client)
+    repair_brief_generator = RepairBriefGenerator(llm_client=llm_client)
+    repair_evaluator = RepairEvaluator(llm_client=llm_client)
     repair_action_mapper = RepairActionMapper()
-    repair_agent_runner = RepairAgentRunner(llm_client=MockLLMClient())
+    repair_agent_runner = RepairAgentRunner(llm_client=llm_client)
 
     repair_round_executor = RepairRoundExecutor(
         config=RepairRoundExecutorConfig(
-            question="How many gems are in the chest?", agent_ids=["A", "B", "C"], max_round=6
+            question=question,
+            agent_ids=AGENT_IDS,
+            max_round=MAX_ROUND,
         ),
         repair_agent_runner=repair_agent_runner,
         state_store=state_store,
         repair_brief_generator=repair_brief_generator,
-        recorder=MockRecorder(),
+        recorder=recorder,
         repair_evaluator=repair_evaluator,
         repair_action_mapper=repair_action_mapper,
     )
 
     repair_orchestrator = RepairOrchestrator(
         config=RepairOrchestratorConfig(
-            question="How many gems are in the chest?", agent_ids=["A", "B", "C"], max_round=6
+            question=question,
+            agent_ids=AGENT_IDS,
+            max_round=MAX_ROUND,
         ),
         state_store=state_store,
         repair_round_executor=repair_round_executor,
     )
 
-    # Start the repair process after rollback
     print("Starting the repair mode...")
     repair_orchestrator.run_repair(rollback_context=rollback_context)
 
@@ -93,5 +211,36 @@ def run_repair_mode(rollback_context: dict):
 if __name__ == "__main__":
     print("Starting the debate system...")
 
-    # Start the normal mode first
-    run_normal_mode()
+    llm_client = build_llm_client()
+    writer = ResultWriter(output_dir="outputs")
+
+    samples = load_gsm8k_samples(limit=1)
+
+    total = 0
+    single_correct_count = 0
+    majority_correct_count = 0
+    scrd_correct_count = 0
+
+    for sample_id, question, gold_answer in samples:
+        result, trace = run_normal_mode(
+            llm_client=llm_client,
+            question=question,
+            gold_answer=gold_answer,
+            sample_id=sample_id,
+        )
+
+        writer.append_result(result)
+        writer.write_trace(sample_id, trace)
+
+        total += 1
+        single_correct_count += int(result["single_agent_correct"])
+        majority_correct_count += int(result["majority_voting_correct"])
+        scrd_correct_count += int(result["scrd_correct"])
+
+        print("Result saved:", result)
+
+    print("\n===== Final Summary =====")
+    print(f"Total samples: {total}")
+    print(f"Single-agent baseline accuracy: {single_correct_count}/{total} = {single_correct_count / total:.4f}")
+    print(f"Majority-voting baseline accuracy: {majority_correct_count}/{total} = {majority_correct_count / total:.4f}")
+    print(f"SCRD accuracy: {scrd_correct_count}/{total} = {scrd_correct_count / total:.4f}")

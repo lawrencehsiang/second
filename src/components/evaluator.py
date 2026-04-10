@@ -204,7 +204,7 @@ Return JSON only.
         info = self._sanitize_score(data.get("information_quality_score"))
         future = self._sanitize_score(data.get("future_utility_score"))
         rationale = self._sanitize_optional_string(data.get("rationale"))
-
+        print("打分结果: ", progress, info, future, rationale)
         return EvaluatorScores(
             progress_score=progress,
             information_quality_score=info,

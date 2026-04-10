@@ -1,31 +1,28 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Protocol, Optional
+from typing import Optional
 
 from src.pipeline.normal_round_executor import NormalRoundExecutor
 from src.components.state_store import StateStore
-from src.components.rollback_controller import RollbackController
-from src.schemas import RoundResult, RollbackDecision, StateRecord
+from src.schemas import StateRecord
 
 
+@dataclass
 class DebateOrchestratorConfig:
-    def __init__(self, question: str, agent_ids: list[str], max_round: int = 6):
-        self.question = question
-        self.agent_ids = agent_ids
-        self.max_round = max_round
+    question: str
+    agent_ids: list[str]
+    max_round: int = 6
 
 
 class DebateOrchestrator:
     """
-    Orchestrates the debate in normal mode, controlling each round and managing
-    rollback decisions.
+    Orchestrates the debate in normal mode.
 
-    Responsibilities:
-    - Execute each round in normal mode
-    - Decide whether to rollback based on evaluator scores
-    - Manage state transitions between rounds
-    - Store each round's results in the StateStore
+    End conditions:
+    1. rollback is triggered
+    2. early-stop is triggered
+    3. max_round is reached
     """
 
     def __init__(
@@ -38,13 +35,13 @@ class DebateOrchestrator:
         self.state_store = state_store
         self.normal_round_executor = normal_round_executor
 
-    def run_debate(self) -> Optional[dict]:
+    def run_debate(self) -> dict:
         """
-        Runs the debate by executing multiple rounds until the final state is reached.
-
-        If any round's action decision is rollback, the debate will be restarted with the appropriate round.
-        If a rollback is triggered, returns a dictionary with information for repair mode.
-        Otherwise, returns None.
+        Returns:
+        {
+            "rollback_context": dict | None,
+            "early_stopped": bool,
+        }
         """
         round_id = 1
         used_rollback_count = 0
@@ -52,10 +49,10 @@ class DebateOrchestrator:
         while round_id <= self.config.max_round:
             print(f"Executing Round {round_id}...")
 
-            # Get the previous state record if exists
             previous_state_record = self.state_store.get_state_record(round_id - 1)
+            print(f"Previous state record for round {round_id - 1}: {previous_state_record}")
 
-            if previous_state_record:
+            if previous_state_record is not None:
                 round_result = self.normal_round_executor.execute_round(
                     round_id=round_id,
                     used_rollback_count=used_rollback_count,
@@ -65,33 +62,88 @@ class DebateOrchestrator:
                     round_id=round_id,
                 )
 
+            # 兼容当前工程：即使 executor 里已经写入过，这里仍保留一次
             self.state_store.add_state_record(round_result.state_record)
 
+            # 1. rollback 优先
             if round_result.rollback_decision.trigger_rollback:
                 print(f"Rollback decision made: {round_result.rollback_decision.reason}")
                 rollback_decision = round_result.rollback_decision
                 used_rollback_count += 1
-                # Return the context needed for repair mode
-                return {
+
+                rollback_context = {
                     "trigger_round": round_id,
                     "anchor_round": rollback_decision.rollback_to_round,
-                    "anchor_state": self.state_store.get_state_record(rollback_decision.rollback_to_round),
+                    "anchor_state": self.state_store.get_state_record(
+                        rollback_decision.rollback_to_round
+                    ),
                     "failed_suffix_state_records": self._get_failed_suffix(round_id),
                 }
 
-            # Proceed to the next round
+                return {
+                    "rollback_context": rollback_context,
+                    "early_stopped": False,
+                }
+
+            # 2. early stop（只在 normal mode 做）
+            if self._should_early_stop(current_round_id=round_id):
+                print(
+                    f"Early stop triggered at round {round_id}: "
+                    f"debate has converged with no new information."
+                )
+                return {
+                    "rollback_context": None,
+                    "early_stopped": True,
+                }
+
             round_id += 1
 
         print("Debate completed.")
-        return None
+        return {
+            "rollback_context": None,
+            "early_stopped": False,
+        }
 
     def _get_failed_suffix(self, round_id: int) -> list[StateRecord]:
         """
-        Retrieve all failed suffix state records up to the given round_id.
-        This is used to collect all state records that occurred after the anchor round.
+        Retrieve all failed suffix state records from the trigger round onward.
         """
-        failed_suffix = []
-        for state_record in self.state_store.get_all_state_records():
+        failed_suffix: list[StateRecord] = []
+        for state_record in self.state_store.list_state_records():
             if state_record.round_id >= round_id:
                 failed_suffix.append(state_record)
         return failed_suffix
+
+    def _should_early_stop(self, current_round_id: int) -> bool:
+        """
+        Early-stop rule:
+        Stop only if the last TWO rounds both satisfy:
+        - all current_answers are identical
+        - unresolved_conflicts is empty
+        - newly_added_claims is empty
+        """
+        if current_round_id < 2:
+            return False
+
+        prev_state = self.state_store.get_state_record(current_round_id - 1)
+        curr_state = self.state_store.get_state_record(current_round_id)
+
+        if prev_state is None or curr_state is None:
+            return False
+
+        return self._is_converged_state(prev_state) and self._is_converged_state(curr_state)
+
+    def _is_converged_state(self, state_record: StateRecord) -> bool:
+        """
+        A converged state means:
+        - all answers are identical
+        """
+        if not state_record.current_answers:
+            return False
+
+        all_answers_same = len(set(state_record.current_answers)) == 1
+        #no_unresolved_conflicts = len(state_record.unresolved_conflicts) == 0
+        #no_new_claims = len(state_record.newly_added_claims) == 0
+
+        #return all_answers_same and no_unresolved_conflicts and no_new_claims
+        return all_answers_same

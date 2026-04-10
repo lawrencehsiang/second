@@ -39,6 +39,7 @@ class RepairActionMapper:
             RepairActionDecision
         """
         if repair_scores.completion_readiness_score >= 4:
+            print("completion_readiness_score >= 4，状态被评估为修复完成准备就绪，进入finalize阶段。")
             return RepairActionDecision(
                 repair_action="finalize",
                 reason=(
@@ -48,6 +49,7 @@ class RepairActionMapper:
             )
 
         if current_round >= max_round:
+            print("current_round has reached max_round，状态被评估为达到最大轮数，进入finalize阶段。")
             return RepairActionDecision(
                 repair_action="finalize",
                 reason=(
@@ -57,6 +59,7 @@ class RepairActionMapper:
             )
 
         return RepairActionDecision(
+            print("completion_readiness_score < 4且current_round未达到max_round，状态被评估为修复继续中。"),  
             repair_action="continue",
             reason=(
                 "completion_readiness_score is below finalize threshold "

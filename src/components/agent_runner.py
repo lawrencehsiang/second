@@ -92,7 +92,9 @@ class AgentRunner:
         for _ in range(self.max_retries + 1):
             try:
                 raw_text = self.llm_client.generate(prompt)
+                print(f"Raw model output for agent {agent_id}: {raw_text}")
                 data = self._extract_json(raw_text)
+                print(f"Normal round output for agent {agent_id}: {data}")
                 return self._parse_normal_round_output(
                     agent_id=agent_id,
                     data=data,

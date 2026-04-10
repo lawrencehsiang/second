@@ -7,7 +7,7 @@ from src.schemas import AgentOutputNormal
 
 KeepOrUpdate = Literal["keep", "update"]
 
-
+# 这里是一个专门的后处理模块，负责根据当前回合的AgentOutputNormal和前一回合的答案，推断出每个AgentOutputNormal的keep_or_update字段应该是"keep"还是"update"。
 def normalize_answer_text(text: str) -> str:
     """
     Lightweight normalization for answer comparison.

@@ -236,7 +236,7 @@ Return JSON only.
         info = self._sanitize_score(data.get("information_quality_score"))
         readiness = self._sanitize_score(data.get("completion_readiness_score"))
         rationale = self._sanitize_optional_string(data.get("rationale"))
-
+        print("rollback阶段打分结果: ", progress, info, readiness, rationale)
         return RepairScores(
             progress_score=progress,
             information_quality_score=info,
