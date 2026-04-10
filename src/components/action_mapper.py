@@ -66,8 +66,8 @@ class ActionMapper:
             )
 
         # watch
+        print("评分处于中间区域，状态被评估为不够健康但也不算差，继续观察。")
         return ActionDecision(
-            print("评分处于中间区域，状态被评估为不够健康但也不算差，继续观察。"),
             action="watch",
             reason=(
                 "The evaluator scores are mixed: not strong enough for continue, "

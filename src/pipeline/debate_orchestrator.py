@@ -50,7 +50,7 @@ class DebateOrchestrator:
             print(f"Executing Round {round_id}...")
 
             previous_state_record = self.state_store.get_state_record(round_id - 1)
-            print(f"Previous state record for round {round_id - 1}: {previous_state_record}")
+            # print(f"Previous state record for round {round_id - 1}: {previous_state_record}")
 
             if previous_state_record is not None:
                 round_result = self.normal_round_executor.execute_round(
@@ -67,7 +67,7 @@ class DebateOrchestrator:
 
             # 1. rollback 优先
             if round_result.rollback_decision.trigger_rollback:
-                print(f"Rollback decision made: {round_result.rollback_decision.reason}")
+                # print(f"Rollback decision made: {round_result.rollback_decision.reason}")
                 rollback_decision = round_result.rollback_decision
                 used_rollback_count += 1
 

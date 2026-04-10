@@ -16,14 +16,10 @@ from src.schemas import (
 
 
 class LLMClientProtocol(Protocol):
-    """
-    Minimal protocol expected by AgentRunner.
-    """
+    """Minimal protocol expected by AgentRunner."""
 
     def generate(self, prompt: str) -> str:
-        """
-        Generate raw text from the model.
-        """
+        """Generate raw text from the model."""
         ...
 
 
@@ -32,10 +28,14 @@ class AgentRunner:
     LLM-based runner for normal-stage agents.
 
     Responsibilities:
-    1. Build prompts for round 1 and normal rounds.
-    2. Ask the LLM to return strict JSON.
-    3. Parse and validate the JSON.
-    4. Return AgentOutputRound1 / AgentOutputNormal.
+    1. Build prompts for round 1 and normal rounds
+    2. Ask the LLM to return strict JSON
+    3. Parse basic JSON fields into schema objects
+    4. Keep protocol simple and robust
+
+    Note:
+    - This version intentionally does NOT implement semantic consistency parsing.
+    - It relies mainly on prompt design + output order to reduce inconsistency.
     """
 
     def __init__(
@@ -49,7 +49,6 @@ class AgentRunner:
     # ------------------------------------------------------------------
     # Public API
     # ------------------------------------------------------------------
-
     def run_round_1(
         self,
         agent_id: str,
@@ -61,20 +60,24 @@ class AgentRunner:
         )
 
         last_error: Exception | None = None
-
         for _ in range(self.max_retries + 1):
             try:
                 raw_text = self.llm_client.generate(prompt)
+                # print(f"Raw model output for round 1 agent {agent_id}: {raw_text}")
+
                 data = self._extract_json(raw_text)
-                return self._parse_round_1_output(
+                output = self._parse_round_1_output(
                     agent_id=agent_id,
                     data=data,
                 )
+                # print(f"Round 1 output for agent {agent_id}: {output.model_dump()}")
+                return output
             except Exception as exc:
                 last_error = exc
 
         raise RuntimeError(
-            f"AgentRunner round 1 failed after retries for agent {agent_id}. Last error: {last_error}"
+            f"AgentRunner round 1 failed after retries for agent {agent_id}. "
+            f"Last error: {last_error}"
         ) from last_error
 
     def run_normal_round(
@@ -88,29 +91,29 @@ class AgentRunner:
         )
 
         last_error: Exception | None = None
-
         for _ in range(self.max_retries + 1):
             try:
                 raw_text = self.llm_client.generate(prompt)
-                print(f"Raw model output for agent {agent_id}: {raw_text}")
+                # print(f"Raw model output for agent {agent_id}: {raw_text}")
+
                 data = self._extract_json(raw_text)
-                print(f"Normal round output for agent {agent_id}: {data}")
-                return self._parse_normal_round_output(
+                output = self._parse_normal_round_output(
                     agent_id=agent_id,
                     data=data,
-                    agent_input=agent_input,
                 )
+                # print(f"Normal round output for agent {agent_id}: {output.model_dump()}")
+                return output
             except Exception as exc:
                 last_error = exc
 
         raise RuntimeError(
-            f"AgentRunner normal round failed after retries for agent {agent_id}. Last error: {last_error}"
+            f"AgentRunner normal round failed after retries for agent {agent_id}. "
+            f"Last error: {last_error}"
         ) from last_error
 
     # ------------------------------------------------------------------
     # Prompt builders
     # ------------------------------------------------------------------
-
     def _build_round_1_prompt(
         self,
         agent_id: str,
@@ -123,31 +126,31 @@ You are agent {agent_id} in round 1 of a multi-agent debate system.
 
 This is the independent initialization round.
 You must answer the question independently.
-Do not assume access to other agents' outputs.
+You do not have access to any other agents' answers.
 
 Return JSON only.
 Do not output markdown.
-Do not output explanation outside JSON.
+Do not output any explanation outside JSON.
 
-JSON schema:
+Output JSON schema:
 {{
   "agent_id": "{agent_id}",
-  "current_answer": <string>,
-  "brief_reason": <string>
+  "brief_reason": "string",
+  "current_answer": "string"
 }}
 
-Requirements:
-- current_answer: your current best answer to the question
-- brief_reason: a short reason explaining your answer
-- Keep the answer concise but meaningful
-- Be faithful to the question only
+IMPORTANT RULES:
+1. First decide your reasoning briefly.
+2. Then output your final answer in current_answer.
+3. current_answer is the final answer for this round.
+4. Keep brief_reason short but informative.
+5. Do not include extra fields.
 
 Input:
 {json.dumps(payload, ensure_ascii=False, indent=2)}
 
 Return JSON only.
-""".strip()
-
+        """.strip()
         return prompt
 
     def _build_normal_round_prompt(
@@ -162,63 +165,82 @@ You are agent {agent_id} in a normal round (t >= 2) of a multi-agent debate syst
 
 You are given:
 - the original question
-- your own previous-round answer
+- your own previous answer
 - structured historical information selected by the system
 
-You must:
-1. produce your current answer
-2. respond to the unresolved conflicts contained in the input history_units
-3. provide a short reason
-
-Important behavioral rules:
-- You are NOT fixed to your previous answer; you may keep it or change it
-- You do NOT see other agents' new outputs from this same round
-- You should use only the provided structured information
-- Focus on unresolved conflicts and useful progress
-- Do not output judge-like meta-evaluation
-- Keep your response concise and structured
+You do NOT see other agents' new outputs from this same round.
+You may keep your previous answer or revise it.
 
 Return JSON only.
 Do not output markdown.
-Do not output explanation outside JSON.
+Do not output any explanation outside JSON.
 
-JSON schema:
+Output JSON schema:
 {{
   "agent_id": "{agent_id}",
-  "current_answer": <string>,
   "response_to_conflicts": [
     {{
-      "conflict": <string>,
-      "response": <string>,
-      "status": "resolved" | "partially_resolved" | "still_open"
+      "conflict": "string",
+      "response": "string",
+      "status": "resolved|partially_resolved|still_open"
     }}
   ],
-  "brief_reason": <string>
+  "brief_reason": "string",
+  "current_answer": "string"
 }}
 
-Rules for response_to_conflicts:
-- You should respond to the unresolved conflicts represented in history_units of type "core_unresolved_conflict"
-- If no such history unit exists, response_to_conflicts may be an empty list
-- status meanings:
-  - resolved: you think this conflict is now fully resolved
-  - partially_resolved: some progress is made but not fully solved
-  - still_open: the conflict remains unresolved
+VERY IMPORTANT RULES:
+1. You must complete the fields in this order:
+   (a) response_to_conflicts
+   (b) brief_reason
+   (c) current_answer
+
+2. current_answer is the FINAL answer for this round.
+
+3. If your reasoning changes anywhere in response_to_conflicts or brief_reason,
+   you MUST update current_answer so that it matches your final view.
+
+4. current_answer is the single source of truth used by the system.
+
+5. Do NOT let current_answer disagree with response_to_conflicts or brief_reason.
+
+6. If you revise your answer during reasoning, the final revised answer must appear in current_answer.
+
+7. Keep response_to_conflicts concise and directly tied to the structured conflicts in the input.
+
+8. If there is no true unresolved conflict to respond to, response_to_conflicts may be [].
+
+Field instructions:
+- response_to_conflicts:
+  Respond only to the unresolved conflicts represented in the structured input.
+  Each item should contain:
+  - conflict: the conflict text
+  - response: your direct response to that conflict
+  - status:
+      resolved = fully addressed
+      partially_resolved = some progress but not fully solved
+      still_open = remains unresolved
+
+- brief_reason:
+  A short summary of why you keep or revise your answer.
+
+- current_answer:
+  The final answer after considering all conflict responses and reasoning above.
 
 Input:
 {json.dumps(payload, ensure_ascii=False, indent=2)}
 
 Return JSON only.
-""".strip()
-
+        """.strip()
         return prompt
 
     # ------------------------------------------------------------------
-    # Parsing
+    # JSON extraction
     # ------------------------------------------------------------------
-
     def _extract_json(self, raw_text: str) -> dict[str, Any]:
         raw_text = raw_text.strip()
 
+        # Case 1: pure JSON
         try:
             data = json.loads(raw_text)
             if not isinstance(data, dict):
@@ -227,6 +249,7 @@ Return JSON only.
         except json.JSONDecodeError:
             pass
 
+        # Case 2: JSON embedded in text
         match = re.search(r"\{.*\}", raw_text, re.DOTALL)
         if not match:
             raise ValueError("No JSON object found in model output.")
@@ -237,18 +260,21 @@ Return JSON only.
             raise ValueError("Extracted JSON is not an object.")
         return data
 
+    # ------------------------------------------------------------------
+    # Output parsing
+    # ------------------------------------------------------------------
     def _parse_round_1_output(
         self,
         agent_id: str,
         data: dict[str, Any],
     ) -> AgentOutputRound1:
-        current_answer = self._sanitize_required_string(
-            data.get("current_answer"),
-            fallback="UNKNOWN",
-        )
         brief_reason = self._sanitize_required_string(
             data.get("brief_reason"),
             fallback="No brief reason provided.",
+        )
+        current_answer = self._sanitize_required_string(
+            data.get("current_answer"),
+            fallback="UNKNOWN",
         )
 
         return AgentOutputRound1(
@@ -261,19 +287,17 @@ Return JSON only.
         self,
         agent_id: str,
         data: dict[str, Any],
-        agent_input: AgentInputNormal,
     ) -> AgentOutputNormal:
-        current_answer = self._sanitize_required_string(
-            data.get("current_answer"),
-            fallback=agent_input.own_previous_answer,
+        response_to_conflicts = self._parse_conflict_responses(
+            data.get("response_to_conflicts", [])
         )
         brief_reason = self._sanitize_required_string(
             data.get("brief_reason"),
             fallback="No brief reason provided.",
         )
-
-        response_to_conflicts = self._parse_conflict_responses(
-            value=data.get("response_to_conflicts", []),
+        current_answer = self._sanitize_required_string(
+            data.get("current_answer"),
+            fallback="UNKNOWN",
         )
 
         return AgentOutputNormal(
@@ -319,16 +343,15 @@ Return JSON only.
     # ------------------------------------------------------------------
     # Sanitizers
     # ------------------------------------------------------------------
-
     def _sanitize_required_string(
         self,
         value: Any,
         fallback: str,
     ) -> str:
         if isinstance(value, str):
-            value = value.strip()
-            if value:
-                return value
+            cleaned = value.strip()
+            if cleaned:
+                return cleaned
         return fallback
 
     def _sanitize_optional_string(
@@ -336,8 +359,9 @@ Return JSON only.
         value: Any,
     ) -> str | None:
         if isinstance(value, str):
-            value = value.strip()
-            return value if value else None
+            cleaned = value.strip()
+            if cleaned:
+                return cleaned
         return None
 
     def _sanitize_conflict_status(
@@ -346,7 +370,7 @@ Return JSON only.
     ) -> str:
         valid = {"resolved", "partially_resolved", "still_open"}
         if isinstance(value, str):
-            value = value.strip().lower()
-            if value in valid:
-                return value
+            cleaned = value.strip().lower()
+            if cleaned in valid:
+                return cleaned
         return "still_open"

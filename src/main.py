@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import os
 import re
 import pandas as pd
+from dotenv import load_dotenv
 
 from src.components.action_mapper import ActionMapper
 from src.components.agent_runner import AgentRunner
@@ -44,15 +46,19 @@ from src.utils.result_utils import (
 
 AGENT_IDS = ["A", "B", "C"]
 MAX_ROUND = 5
-import os
 # 强制禁用代理，直连国内网络
 os.environ["HTTP_PROXY"] = ""
 os.environ["HTTPS_PROXY"] = ""
 os.environ["NO_PROXY"] = "qianfan.baidubce.com,localhost,127.0.0.1"
+load_dotenv()
 
 def build_llm_client() -> QianfanClient:
+    api_key = os.getenv("QIANFAN_API_KEY")
+    if not api_key:
+        raise ValueError("Missing QIANFAN_API_KEY. Please set it in your .env file.")
+
     return QianfanClient(
-        api_key="bce-v3/ALTAK-CXj6a7G9bgZLuyol7710b/10a27611f48c83c85723b42b066cae31462a921c",
+        api_key=api_key,
         model="qwen2.5-7b-instruct",
     )
 
@@ -214,7 +220,7 @@ if __name__ == "__main__":
     llm_client = build_llm_client()
     writer = ResultWriter(output_dir="outputs")
 
-    samples = load_gsm8k_samples(limit=1)
+    samples = load_gsm8k_samples(limit=100)
 
     total = 0
     single_correct_count = 0
