@@ -22,9 +22,7 @@ class LLMClientProtocol(Protocol):
     """
 
     def generate(self, prompt: str) -> str:
-        """
-        Generate raw text from the model.
-        """
+        """Generate raw text from the model."""
         ...
 
 
@@ -34,11 +32,16 @@ class Recorder:
 
     Responsibilities:
     1. Summarize one round of agent outputs into a compact StateRecord.
-    2. Ask the LLM to produce strictly structured JSON.
-    3. Parse and validate the JSON into StateRecord.
+    2. Ask the LLM to produce strictly structured JSON for:
+       - newly_added_claims
+       - unresolved_conflicts
+       - key_raw_snippets
+    3. Build current_answers programmatically from agent_outputs
+       (instead of trusting the LLM to preserve one entry per agent).
+    4. Parse and validate the LLM-generated fields into StateRecord.
 
     Notes:
-    - This is the primary Recorder implementation.
+    - This version intentionally makes `current_answers` deterministic.
     - A fallback recorder can be injected if desired.
     """
 
@@ -64,16 +67,21 @@ class Recorder:
         Build a StateRecord for the given round.
 
         Strategy:
-        1. Build a structured prompt.
-        2. Ask LLM to return JSON only.
-        3. Parse + validate.
-        4. Retry if parsing fails.
-        5. Fall back to fallback_recorder if available.
+        1. Build `fixed_current_answers` programmatically from agent_outputs
+        2. Build a structured prompt for the remaining 3 fields
+        3. Ask LLM to return JSON only
+        4. Parse + validate
+        5. Merge deterministic current_answers with LLM-generated summary fields
+        6. Retry if parsing fails
+        7. Fall back to fallback_recorder if available
         """
+        fixed_current_answers = self._build_current_answers(agent_outputs)
+
         prompt = self._build_prompt(
             round_id=round_id,
             agent_outputs=agent_outputs,
             previous_state_record=previous_state_record,
+            fixed_current_answers=fixed_current_answers,
         )
 
         last_error: Exception | None = None
@@ -82,7 +90,11 @@ class Recorder:
             try:
                 raw_text = self.llm_client.generate(prompt)
                 data = self._extract_json(raw_text)
-                state_record = self._parse_state_record(data, round_id=round_id)
+                state_record = self._parse_state_record(
+                    data=data,
+                    round_id=round_id,
+                    fixed_current_answers=fixed_current_answers,
+                )
                 return state_record
             except Exception as exc:
                 last_error = exc
@@ -95,21 +107,55 @@ class Recorder:
             )
 
         raise RuntimeError(
-            f"Recorder failed to build StateRecord after retries. Last error: {last_error}"
+            f"Recorder failed to build StateRecord after retries. "
+            f"Last error: {last_error}"
         ) from last_error
+
+    # ------------------------------------------------------------------
+    # Deterministic current_answers
+    # ------------------------------------------------------------------
+    def _build_current_answers(
+        self,
+        agent_outputs: list[AgentOutputRound1] | list[AgentOutputNormal],
+    ) -> list[str]:
+        """
+        Build current_answers deterministically from the agent outputs.
+
+        Important:
+        - Preserve one entry per agent output
+        - Preserve order exactly as provided by the caller
+        - Do not deduplicate
+        """
+        results: list[str] = []
+
+        for output in agent_outputs:
+            answer = getattr(output, "current_answer", None)
+            if isinstance(answer, str) and answer.strip():
+                results.append(answer.strip())
+            else:
+                results.append("UNKNOWN")
+
+        return results
 
     # ------------------------------------------------------------------
     # Prompt
     # ------------------------------------------------------------------
-
     def _build_prompt(
         self,
         round_id: int,
         agent_outputs: list[AgentOutputRound1] | list[AgentOutputNormal],
         previous_state_record: StateRecord | None,
+        fixed_current_answers: list[str],
     ) -> str:
         """
         Build the Recorder prompt.
+
+        Key idea:
+        - current_answers is already fixed by the system and should NOT be regenerated
+        - the LLM only needs to summarize:
+          1. newly_added_claims
+          2. unresolved_conflicts
+          3. key_raw_snippets
         """
         agent_outputs_payload = [output.model_dump() for output in agent_outputs]
         previous_state_payload = (
@@ -119,39 +165,42 @@ class Recorder:
         prompt = f"""
 You are a structured debate state recorder.
 
-Your task is to convert the current round's agent outputs into ONE compact JSON object
-called StateRecord.
+Your task is to summarize the current round's agent outputs into ONE compact JSON object.
 
-You must output JSON only. Do not output markdown. Do not output explanation.
+IMPORTANT:
+- The system has already fixed the field `current_answers`.
+- You must NOT regenerate, compress, merge, or modify `current_answers`.
+- You only need to produce the following three fields:
+  1. newly_added_claims
+  2. unresolved_conflicts
+  3. key_raw_snippets
+
+You must output JSON only.
+Do not output markdown.
+Do not output explanation.
 
 The JSON schema is:
-
 {{
-  "round_id": <int>,
-  "current_answers": [<string>, ...],
   "newly_added_claims": [
     {{
-      "text": <string>,
+      "text": "string",
       "claim_type": "support" | "rebuttal" | "constraint" | "explanation",
-      "related_answer": <string or null>
+      "related_answer": "string or null"
     }}
   ],
   "unresolved_conflicts": [
     {{
-      "conflict": <string>,
-      "why_still_open": <string>,
-      "involved_answers": [<string>, ...]
+      "conflict": "string",
+      "why_still_open": "string",
+      "involved_answers": ["string", ...]
     }}
   ],
-  "key_raw_snippets": [<string>, ...]
+  "key_raw_snippets": ["string", ...]
 }}
 
 Definitions:
-1. current_answers:
-- Include the current_answer from each agent in this round.
-- Preserve one entry per agent.
 
-2. newly_added_claims:
+1. newly_added_claims:
 - Include only the key claims newly surfaced or meaningfully expressed in this round.
 - A claim should be useful for future debate continuation.
 - Do NOT include every sentence.
@@ -163,13 +212,13 @@ Definitions:
   - explanation: explains how a conclusion is derived
 - related_answer should be the answer this claim mainly supports or targets, if clear; otherwise null.
 
-3. unresolved_conflicts:
+2. unresolved_conflicts:
 - Include only conflicts that remain unresolved after considering all agent outputs in this round.
 - If a conflict is only partially resolved, it should still remain here.
 - why_still_open should summarize why the conflict remains open.
 - involved_answers should list the answers directly involved in the conflict, if clear.
 
-4. key_raw_snippets:
+3. key_raw_snippets:
 - Preserve a few short raw snippets from this round that are especially informative.
 - Maximum {self.max_snippets} snippets.
 - Prefer snippets that are useful for future debate.
@@ -187,18 +236,20 @@ Previous StateRecord (for reference, may be null):
 Current round_id:
 {round_id}
 
+System-fixed current_answers (for reference only; DO NOT output them):
+{json.dumps(fixed_current_answers, ensure_ascii=False, indent=2)}
+
 Current round agent_outputs:
 {json.dumps(agent_outputs_payload, ensure_ascii=False, indent=2)}
 
 Return JSON only.
-""".strip()
+        """.strip()
 
         return prompt
 
     # ------------------------------------------------------------------
     # Parsing
     # ------------------------------------------------------------------
-
     def _extract_json(self, raw_text: str) -> dict[str, Any]:
         """
         Extract a JSON object from raw model text.
@@ -233,41 +284,37 @@ Return JSON only.
         self,
         data: dict[str, Any],
         round_id: int,
+        fixed_current_answers: list[str],
     ) -> StateRecord:
         """
         Convert raw dict into validated StateRecord.
+
+        Important:
+        - current_answers always comes from fixed_current_answers
+        - even if the LLM outputs a current_answers field, we ignore it
         """
-        current_answers = self._parse_current_answers(data.get("current_answers", []))
         newly_added_claims = self._parse_claims(data.get("newly_added_claims", []))
         unresolved_conflicts = self._parse_conflicts(data.get("unresolved_conflicts", []))
         key_raw_snippets = self._parse_snippets(data.get("key_raw_snippets", []))
 
-        # force round_id consistency
         return StateRecord(
             round_id=round_id,
-            current_answers=current_answers,
+            current_answers=fixed_current_answers,
             newly_added_claims=newly_added_claims,
             unresolved_conflicts=unresolved_conflicts,
             key_raw_snippets=key_raw_snippets[: self.max_snippets],
         )
-
-    def _parse_current_answers(self, value: Any) -> list[str]:
-        if not isinstance(value, list):
-            return []
-        results: list[str] = []
-        for item in value:
-            if isinstance(item, str) and item.strip():
-                results.append(item.strip())
-        return results
 
     def _parse_claims(self, value: Any) -> list[Claim]:
         if not isinstance(value, list):
             return []
 
         results: list[Claim] = []
+
         for item in value:
             if not isinstance(item, dict):
                 continue
+
             try:
                 claim = Claim(
                     text=str(item.get("text", "")).strip(),
@@ -286,6 +333,7 @@ Return JSON only.
             return []
 
         results: list[UnresolvedConflict] = []
+
         for item in value:
             if not isinstance(item, dict):
                 continue
@@ -302,6 +350,7 @@ Return JSON only.
 
             if not conflict_text:
                 continue
+
             if not why_still_open:
                 why_still_open = "Conflict remains unresolved."
 
@@ -320,22 +369,26 @@ Return JSON only.
     def _parse_snippets(self, value: Any) -> list[str]:
         if not isinstance(value, list):
             return []
+
         results: list[str] = []
+
         for item in value:
             if isinstance(item, str) and item.strip():
                 results.append(item.strip())
+
         return self._deduplicate_strings(results)
 
     # ------------------------------------------------------------------
     # Sanitizers
     # ------------------------------------------------------------------
-
     def _sanitize_claim_type(self, value: Any) -> str:
         valid_types = {"support", "rebuttal", "constraint", "explanation"}
+
         if isinstance(value, str):
             value = value.strip().lower()
             if value in valid_types:
                 return value
+
         return "support"
 
     def _sanitize_optional_string(self, value: Any) -> str | None:
@@ -347,7 +400,6 @@ Return JSON only.
     # ------------------------------------------------------------------
     # Dedup
     # ------------------------------------------------------------------
-
     def _deduplicate_claims(self, claims: list[Claim]) -> list[Claim]:
         seen = set()
         results: list[Claim] = []

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 import re
+import traceback
 import pandas as pd
 from dotenv import load_dotenv
 
@@ -221,32 +222,64 @@ if __name__ == "__main__":
     writer = ResultWriter(output_dir="outputs")
 
     samples = load_gsm8k_samples(limit=100)
+    completed_sample_ids = writer.load_completed_sample_ids()
+    if completed_sample_ids:
+        print(f"Resume mode: found {len(completed_sample_ids)} completed samples in outputs/results.jsonl")
 
     total = 0
     single_correct_count = 0
     majority_correct_count = 0
     scrd_correct_count = 0
+    skipped_count = 0
+    failed_count = 0
 
     for sample_id, question, gold_answer in samples:
-        result, trace = run_normal_mode(
-            llm_client=llm_client,
-            question=question,
-            gold_answer=gold_answer,
-            sample_id=sample_id,
-        )
+        if sample_id in completed_sample_ids:
+            skipped_count += 1
+            print(f"Skipping completed sample: {sample_id}")
+            continue
 
-        writer.append_result(result)
-        writer.write_trace(sample_id, trace)
+        try:
+            result, trace = run_normal_mode(
+                llm_client=llm_client,
+                question=question,
+                gold_answer=gold_answer,
+                sample_id=sample_id,
+            )
 
-        total += 1
-        single_correct_count += int(result["single_agent_correct"])
-        majority_correct_count += int(result["majority_voting_correct"])
-        scrd_correct_count += int(result["scrd_correct"])
+            writer.append_result(result)
+            writer.write_trace(sample_id, trace)
 
-        print("Result saved:", result)
+            total += 1
+            single_correct_count += int(result["single_agent_correct"])
+            majority_correct_count += int(result["majority_voting_correct"])
+            scrd_correct_count += int(result["scrd_correct"])
+
+            print("Result saved:", result)
+        except KeyboardInterrupt:
+            print("\nInterrupted by user. Progress has been saved. You can rerun to resume.")
+            break
+        except Exception as exc:
+            failed_count += 1
+            writer.append_error(
+                {
+                    "sample_id": sample_id,
+                    "question": question,
+                    "gold_answer": gold_answer,
+                    "error": str(exc),
+                    "traceback": traceback.format_exc(),
+                }
+            )
+            print(f"Failed sample {sample_id}: {exc}. Logged to outputs/errors.jsonl. Continuing...")
+            continue
 
     print("\n===== Final Summary =====")
-    print(f"Total samples: {total}")
-    print(f"Single-agent baseline accuracy: {single_correct_count}/{total} = {single_correct_count / total:.4f}")
-    print(f"Majority-voting baseline accuracy: {majority_correct_count}/{total} = {majority_correct_count / total:.4f}")
-    print(f"SCRD accuracy: {scrd_correct_count}/{total} = {scrd_correct_count / total:.4f}")
+    print(f"Processed successfully in this run: {total}")
+    print(f"Skipped (already completed): {skipped_count}")
+    print(f"Failed in this run: {failed_count}")
+    if total > 0:
+        print(f"Single-agent baseline accuracy: {single_correct_count}/{total} = {single_correct_count / total:.4f}")
+        print(f"Majority-voting baseline accuracy: {majority_correct_count}/{total} = {majority_correct_count / total:.4f}")
+        print(f"SCRD accuracy: {scrd_correct_count}/{total} = {scrd_correct_count / total:.4f}")
+    else:
+        print("No new successful samples were processed in this run.")

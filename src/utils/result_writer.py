@@ -13,6 +13,7 @@ class ResultWriter:
         self.trace_dir.mkdir(parents=True, exist_ok=True)
 
         self.results_file = self.output_dir / "results.jsonl"
+        self.errors_file = self.output_dir / "errors.jsonl"
 
     def append_result(self, result: dict[str, Any]) -> None:
         with self.results_file.open("a", encoding="utf-8") as f:
@@ -22,3 +23,26 @@ class ResultWriter:
         trace_path = self.trace_dir / f"{sample_id}_trace.json"
         with trace_path.open("w", encoding="utf-8") as f:
             json.dump(trace, f, ensure_ascii=False, indent=2)
+
+    def append_error(self, error_item: dict[str, Any]) -> None:
+        with self.errors_file.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(error_item, ensure_ascii=False) + "\n")
+
+    def load_completed_sample_ids(self) -> set[str]:
+        completed: set[str] = set()
+        if not self.results_file.exists():
+            return completed
+
+        with self.results_file.open("r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    item = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                sample_id = item.get("sample_id")
+                if isinstance(sample_id, str) and sample_id:
+                    completed.add(sample_id)
+        return completed
