@@ -109,6 +109,11 @@ class RepairRoundExecutor:
             RepairRoundResult
         """
         self._validate_round_id(round_id)
+        self.state_store.add_event({
+            "type": "repair_round_executed",
+            "round_id": round_id,
+            "mode": "repair",
+        })
 
         if repair_brief is None:
             repair_brief = self.repair_brief_generator.generate_brief_from_parts(

@@ -52,6 +52,11 @@ class RepairOrchestrator:
         print(f"Repair Mode initiated after rollback at round {round_id}...")
 
         used_rollback_count = 0
+        self.state_store.add_event({
+            "type": "repair_started",
+            "start_round": round_id,
+            "anchor_round": anchor_state.round_id,
+        })
 
         while round_id <= self.config.max_round:
             print(f"Executing Repair Round {round_id}...")
@@ -72,14 +77,11 @@ class RepairOrchestrator:
 
             if round_result.repair_action == "finalize":
                 print(f"Repair mode finalized in round {round_id}.")
+                self.state_store.add_event({
+                    "type": "repair_finalized",
+                    "final_round": round_id,
+                })
                 break
-
-            if round_result.rollback_decision.trigger_rollback:
-                print(f"Rollback decision made: {round_result.rollback_decision.reason}")
-                rollback_decision = round_result.rollback_decision
-                used_rollback_count += 1
-                round_id = rollback_decision.rollback_to_round
-                continue  # Restart with the rollback round
 
             # Proceed to the next round
             round_id += 1

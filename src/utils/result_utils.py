@@ -1,25 +1,17 @@
 from __future__ import annotations
-
-import re
 from collections import Counter
-from typing import Optional
+import re
 
 from src.components.state_store import StateStore
 
 
-def extract_last_number(text: str) -> str:
-    """
-    Extract the last integer/decimal number from text.
-    For GSM8K, this is usually enough for a first pass.
-    """
-    if text is None:
+def normalize_answer(answer: str) -> str:
+    if answer is None:
         return ""
-    matches = re.findall(r"-?\d+(?:\.\d+)?", str(text))
-    return matches[-1] if matches else str(text).strip()
-
-
-def normalize_answer(text: str) -> str:
-    return extract_last_number(text)
+    answer = str(answer).strip().lower()
+    answer = re.sub(r"[\$,]", "", answer)
+    answer = answer.replace("dollars", "").replace("dollar", "").strip()
+    return answer
 
 
 def is_correct(pred: str, gold: str) -> bool:
@@ -29,38 +21,60 @@ def is_correct(pred: str, gold: str) -> bool:
 def majority_vote(answers: list[str]) -> str:
     if not answers:
         return ""
-    normalized_answers = [normalize_answer(a) for a in answers]
-    counter = Counter(normalized_answers)
-    return counter.most_common(1)[0][0]
+    normalized_to_original = {}
+    normalized_answers = []
+    for ans in answers:
+        norm = normalize_answer(ans)
+        normalized_answers.append(norm)
+        if norm not in normalized_to_original:
+            normalized_to_original[norm] = ans
+    count = Counter(normalized_answers)
+    majority_norm = count.most_common(1)[0][0]
+    return normalized_to_original[majority_norm]
 
 
 def get_round_1_answers(state_store: StateStore) -> list[str]:
-    round_1 = state_store.get_state_record(1)
-    if round_1 is None:
+    state = state_store.get_state_record(1)
+    if state is None:
         return []
-    return round_1.current_answers
+    return state.current_answers
 
 
 def get_final_answers(state_store: StateStore) -> list[str]:
-    all_records = state_store.list_state_records()
-    if not all_records:
+    state = state_store.get_latest_state_record()
+    if state is None:
         return []
-    final_record = all_records[-1]
-    return final_record.current_answers
+    return state.current_answers
 
 
-def build_trace(state_store: StateStore) -> list[dict]:
-    trace = []
-    for state in state_store.list_state_records():
-        trace.append(state.model_dump())
-    return trace
+def build_final_trace(state_store: StateStore) -> list[dict]:
+    return [state.model_dump() for state in state_store.list_state_records()]
 
 
-def get_rounds_used(state_store: StateStore) -> int:
+def build_execution_events(state_store: StateStore) -> list[dict]:
+    return state_store.list_events()
+
+
+def build_trace_bundle(state_store: StateStore) -> dict:
+    return {
+        "final_trace": build_final_trace(state_store),
+        "execution_events": build_execution_events(state_store),
+    }
+
+
+def get_effective_rounds_used(state_store: StateStore) -> int:
     return len(state_store.list_state_records())
 
 
-def get_stop_reason(rollback_context: Optional[dict], early_stopped: bool) -> str:
+def get_actual_rounds_executed(state_store: StateStore) -> int:
+    return sum(
+        1
+        for event in state_store.list_events()
+        if event["type"] in {"normal_round_executed", "repair_round_executed"}
+    )
+
+
+def get_stop_reason(rollback_context: dict | None, early_stopped: bool) -> str:
     if rollback_context is not None:
         return "rollback"
     if early_stopped:

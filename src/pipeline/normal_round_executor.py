@@ -135,6 +135,11 @@ class NormalRoundExecutor:
     ) -> RoundResult:
         agent_inputs: list[AgentInputRound1] = []
         agent_outputs: list[AgentOutputRound1] = []
+        self.state_store.add_event({
+            "type": "normal_round_executed",
+            "round_id": round_id,
+            "mode": "normal",
+        })
 
         for agent_id in self.config.agent_ids:
             agent_input = AgentInputRound1(
@@ -203,6 +208,11 @@ class NormalRoundExecutor:
             state_store=self.state_store,
         )
         self.state_store.set_history_units(round_id, history_units)
+        self.state_store.add_event({
+            "type": "normal_round_executed",
+            "round_id": round_id,
+            "mode": "normal",
+        })
 
         previous_answer_map = self._build_previous_answer_map(previous_state_record)
 

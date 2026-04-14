@@ -65,6 +65,12 @@ class DebateOrchestrator:
             # 兼容当前工程：即使 executor 里已经写入过，这里仍保留一次
             self.state_store.add_state_record(round_result.state_record)
 
+            self.state_store.add_event({
+                "type": "rollback_triggered",
+                "trigger_round": round_id,
+                "anchor_round": rollback_decision.rollback_to_round,
+            })
+
             # 1. rollback 优先
             if round_result.rollback_decision.trigger_rollback:
                 # print(f"Rollback decision made: {round_result.rollback_decision.reason}")
@@ -77,7 +83,10 @@ class DebateOrchestrator:
                     "anchor_state": self.state_store.get_state_record(
                         rollback_decision.rollback_to_round
                     ),
-                    "failed_suffix_state_records": self._get_failed_suffix(round_id),
+                    "failed_suffix_state_records": self._get_failed_suffix(
+                                                        rollback_decision.rollback_to_round,
+                                                        round_id,
+                                                    ),
                 }
 
                 return {
@@ -104,13 +113,10 @@ class DebateOrchestrator:
             "early_stopped": False,
         }
 
-    def _get_failed_suffix(self, round_id: int) -> list[StateRecord]:
-        """
-        Retrieve all failed suffix state records from the trigger round onward.
-        """
-        failed_suffix: list[StateRecord] = []
+    def _get_failed_suffix(self, anchor_round: int, trigger_round: int) -> list:
+        failed_suffix = []
         for state_record in self.state_store.list_state_records():
-            if state_record.round_id >= round_id:
+            if anchor_round < state_record.round_id <= trigger_round:
                 failed_suffix.append(state_record)
         return failed_suffix
 

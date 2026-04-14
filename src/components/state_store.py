@@ -7,11 +7,16 @@ from src.schemas import RoundAction, StateRecord
 @dataclass
 class StateStore:
     """
-    In-memory store for debate states, round actions, and cached history units.
+    In-memory store for:
+    1. final effective state records
+    2. round action history
+    3. cached history units used by each round
+    4. execution events (do NOT delete on rollback cleanup)
     """
     state_record_pool: list[StateRecord] = field(default_factory=list)
     round_action_history: dict[int, RoundAction] = field(default_factory=dict)
     history_unit_history: dict[int, list] = field(default_factory=dict)
+    execution_events: list[dict] = field(default_factory=list)
 
     # ------------------------------------------------------------------
     # StateRecord operations
@@ -43,8 +48,14 @@ class StateStore:
     def list_state_records(self) -> list[StateRecord]:
         return list(self.state_record_pool)
 
-    def has_round(self, round_id: int) -> bool:
-        return self.get_state_record(round_id) is not None
+    # ------------------------------------------------------------------
+    # RoundAction operations
+    # ------------------------------------------------------------------
+    def set_round_action(self, round_id: int, action: RoundAction) -> None:
+        self.round_action_history[round_id] = action
+
+    def get_round_action(self, round_id: int) -> RoundAction | None:
+        return self.round_action_history.get(round_id)
 
     # ------------------------------------------------------------------
     # History unit cache
@@ -56,37 +67,25 @@ class StateStore:
         return self.history_unit_history.get(round_id)
 
     # ------------------------------------------------------------------
-    # RoundAction operations
+    # Execution events
     # ------------------------------------------------------------------
-    def set_round_action(self, round_id: int, action: RoundAction) -> None:
-        self.round_action_history[round_id] = action
+    def add_event(self, event: dict) -> None:
+        self.execution_events.append(event)
 
-    def get_round_action(self, round_id: int) -> RoundAction | None:
-        return self.round_action_history.get(round_id)
-
-    def get_action_history(self) -> dict[int, RoundAction]:
-        return dict(self.round_action_history)
+    def list_events(self) -> list[dict]:
+        return list(self.execution_events)
 
     # ------------------------------------------------------------------
-    # Rollback helpers
+    # Rollback cleanup
     # ------------------------------------------------------------------
-    def get_latest_continue_round(self) -> int | None:
-        continue_rounds = [
-            round_id
-            for round_id, action in self.round_action_history.items()
-            if action == "continue"
-        ]
-        if not continue_rounds:
-            return None
-        return max(continue_rounds)
-
-    def get_round_ids(self) -> list[int]:
-        return [state.round_id for state in self.state_record_pool]
-
     def remove_rounds_after(self, round_id: int) -> None:
         """
-        Keep round_id itself, remove all later failed suffix states/actions/history.
-        Used AFTER repair_brief has already been generated.
+        Keep the anchor round itself.
+        Remove failed suffix from final effective state/action/history cache.
+
+        IMPORTANT:
+        execution_events are NOT removed, because they represent the real
+        execution history.
         """
         self.state_record_pool = [
             state for state in self.state_record_pool
@@ -102,11 +101,6 @@ class StateStore:
             for rid, units in self.history_unit_history.items()
             if rid <= round_id
         }
-
-    def clear(self) -> None:
-        self.state_record_pool.clear()
-        self.round_action_history.clear()
-        self.history_unit_history.clear()
 
     # ------------------------------------------------------------------
     # Internal helpers

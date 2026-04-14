@@ -36,13 +36,14 @@ from src.pipeline.repair_round_executor import (
 )
 from src.utils.result_writer import ResultWriter
 from src.utils.result_utils import (
-    build_trace,
+    build_trace_bundle,
     get_final_answers,
     get_round_1_answers,
-    get_rounds_used,
     get_stop_reason,
     is_correct,
     majority_vote,
+    get_actual_rounds_executed,
+    get_effective_rounds_used
 )
 
 AGENT_IDS = ["A", "B", "C"]
@@ -171,11 +172,12 @@ def run_normal_mode(
         "single_agent_correct": is_correct(single_agent_baseline_answer, gold_answer),
         "majority_voting_correct": is_correct(majority_voting_baseline_answer, gold_answer),
         "scrd_correct": is_correct(scrd_final_answer, gold_answer),
-        "rounds_used": get_rounds_used(state_store),
+        "effective_rounds_used": get_effective_rounds_used(state_store),
+        "actual_rounds_executed": get_actual_rounds_executed(state_store),
         "stop_reason": get_stop_reason(rollback_context, early_stopped),
     }
 
-    trace = build_trace(state_store)
+    trace = build_trace_bundle(state_store)
     return result, trace
 
 
