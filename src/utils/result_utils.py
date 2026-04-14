@@ -113,10 +113,15 @@ def build_execution_events(state_store: StateStore) -> list[dict]:
     return state_store.list_events()
 
 
-def build_trace_bundle(state_store: StateStore) -> dict:
+def build_trace_bundle(state_store: StateStore, usage_logger) -> dict:
+    usage_summary = build_usage_summary(usage_logger)
     return {
         "final_trace": build_final_trace(state_store),
         "execution_events": build_execution_events(state_store),
+        "usage_records": usage_summary["usage_records"],
+        "usage_summary": {
+            k: v for k, v in usage_summary.items() if k != "usage_records"
+        },
     }
 
 
@@ -146,3 +151,45 @@ def get_stop_reason(rollback_context: dict | None, early_stopped: bool) -> str:
     if early_stopped:
         return "early_stop"
     return "max_round"
+
+def build_usage_summary(usage_logger) -> dict:
+    records = usage_logger.list_records()
+
+    prompt_tokens = sum(r["prompt_tokens"] for r in records)
+    completion_tokens = sum(r["completion_tokens"] for r in records)
+    total_tokens = sum(r["total_tokens"] for r in records)
+
+    def sum_component(name: str) -> int:
+        return sum(r["total_tokens"] for r in records if r["component"] == name)
+
+    # baseline token 定义
+    round1_agent_records = [
+        r for r in records
+        if r["component"] == "agent_round_1"
+    ]
+
+    single_agent_total_tokens = (
+        round1_agent_records[0]["total_tokens"] if round1_agent_records else 0
+    )
+    majority_vote_total_tokens = sum(r["total_tokens"] for r in round1_agent_records)
+
+    agent_total_tokens = sum(
+        r["total_tokens"]
+        for r in records
+        if r["component"] in {"agent_round_1", "agent_normal", "repair_agent"}
+    )
+
+    return {
+        "single_agent_total_tokens": single_agent_total_tokens,
+        "majority_vote_total_tokens": majority_vote_total_tokens,
+        "scrd_total_tokens": total_tokens,
+        "scrd_prompt_tokens": prompt_tokens,
+        "scrd_completion_tokens": completion_tokens,
+        "agent_total_tokens": agent_total_tokens,
+        "recorder_total_tokens": sum_component("recorder"),
+        "evaluator_total_tokens": sum_component("evaluator"),
+        "repair_brief_total_tokens": sum_component("repair_brief_generator"),
+        "repair_evaluator_total_tokens": sum_component("repair_evaluator"),
+        "repair_agent_total_tokens": sum_component("repair_agent"),
+        "usage_records": records,
+    }

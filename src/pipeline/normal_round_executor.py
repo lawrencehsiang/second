@@ -34,22 +34,24 @@ class AgentRunnerProtocol(Protocol):
         self,
         agent_id: str,
         agent_input: AgentInputRound1,
-    ) -> AgentOutputRound1:
-        ...
+        round_id: int = 1,
+        sample_id: str | None = None,
+    ) -> AgentOutputRound1: ...
 
     def run_normal_round(
         self,
         agent_id: str,
         agent_input: AgentInputNormal,
-    ) -> AgentOutputNormal:
-        ...
-
+        round_id: int | None = None,
+        sample_id: str | None = None,
+    ) -> AgentOutputNormal: ...
 
 @dataclass
 class NormalRoundExecutorConfig:
     question: str
     agent_ids: list[str]
     max_round: int = 6
+    sample_id: str | None = None
 
 
 class NormalRoundExecutor:
@@ -148,6 +150,8 @@ class NormalRoundExecutor:
             agent_output = self.agent_runner.run_round_1(
                 agent_id=agent_id,
                 agent_input=agent_input,
+                round_id=round_id,
+                sample_id=self.config.sample_id,
             )
 
             agent_inputs.append(agent_input)
@@ -157,6 +161,8 @@ class NormalRoundExecutor:
             round_id=round_id,
             agent_outputs=agent_outputs,
             previous_state_record=None,
+            sample_id=self.config.sample_id,
+            mode="normal",
         )
         self.state_store.set_history_units(round_id, [])
 
@@ -231,6 +237,8 @@ class NormalRoundExecutor:
             agent_output = self.agent_runner.run_normal_round(
                 agent_id=agent_id,
                 agent_input=agent_input,
+                round_id=round_id,
+                sample_id=self.config.sample_id,
             )
 
             agent_inputs.append(agent_input)
@@ -245,12 +253,17 @@ class NormalRoundExecutor:
             round_id=round_id,
             agent_outputs=agent_outputs,
             previous_state_record=previous_state_record,
+            sample_id=self.config.sample_id,
+            mode="normal",
         )
 
         evaluator_scores = self.evaluator.evaluate_state(
             question=self.config.question,
             previous_state_record=previous_state_record,
             current_state_record=state_record,
+            round_id=round_id,
+            sample_id=self.config.sample_id,
+            mode="normal",
         )
 
         action_decision = self.action_mapper.map_action(evaluator_scores)

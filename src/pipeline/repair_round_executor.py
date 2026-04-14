@@ -32,6 +32,8 @@ class RepairAgentRunnerProtocol(Protocol):
         self,
         agent_id: str,
         repair_agent_input: RepairAgentInput,
+        round_id:str,
+        sample_id:str
     ) -> AgentOutputNormal:
         ...
 
@@ -41,7 +43,7 @@ class RepairRoundExecutorConfig:
     question: str
     agent_ids: list[str]
     max_round: int = 6
-
+    sample_id: str | None = None
 
 class RepairRoundExecutor:
     """
@@ -145,6 +147,8 @@ class RepairRoundExecutor:
             agent_output = self.repair_agent_runner.run_repair_round(
                 agent_id=agent_id,
                 repair_agent_input=agent_input,
+                round_id=round_id,
+                sample_id=self.config.sample_id,
             )
 
             agent_inputs.append(agent_input)
@@ -163,6 +167,8 @@ class RepairRoundExecutor:
             round_id=round_id,
             agent_outputs=agent_outputs,
             previous_state_record=recorder_previous_state,
+            sample_id=self.config.sample_id,
+            mode="repair",
         )
 
         repair_scores = self.repair_evaluator.evaluate_repair(
@@ -171,6 +177,9 @@ class RepairRoundExecutor:
             repair_brief=repair_brief,
             current_state_record=state_record,
             previous_repair_state_record=previous_repair_state_record,
+            round_id=round_id,
+            sample_id=self.config.sample_id,
+            mode="repair",
         )
 
         repair_action_decision = self.repair_action_mapper.map_action(

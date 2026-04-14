@@ -20,8 +20,21 @@ class LLMClientProtocol(Protocol):
     """
 
     def generate(self, prompt: str) -> str:
+        """Generate raw text from the model."""
+        ...
+
+    def generate_with_usage(self, prompt: str) -> dict[str, Any]:
         """
-        Generate raw text from the model.
+        Optional richer interface:
+        {
+            "content": str,
+            "usage": {
+                "prompt_tokens": int,
+                "completion_tokens": int,
+                "total_tokens": int
+            },
+            "raw_response": dict
+        }
         """
         ...
 
@@ -36,6 +49,7 @@ class RepairBriefGenerator:
        - remaining_conflicts
        - failure_summary
     3. Return validated RepairBrief.
+    4. Optionally log token usage.
 
     Notes:
     - This is the primary implementation.
@@ -48,28 +62,45 @@ class RepairBriefGenerator:
         max_remaining_conflicts: int = 2,
         max_retries: int = 2,
         fallback_generator: Any | None = None,
+        usage_logger: Any | None = None,
+        sample_id: str | None = None,
     ) -> None:
         self.llm_client = llm_client
         self.max_remaining_conflicts = max_remaining_conflicts
         self.max_retries = max_retries
         self.fallback_generator = fallback_generator
+        self.usage_logger = usage_logger
+        self.sample_id = sample_id
 
     def generate_brief(
         self,
         generator_input: RepairBriefGeneratorInput,
+        round_id: int | None = None,
+        sample_id: str | None = None,
+        mode: str | None = "repair",
     ) -> RepairBrief:
         """
         Generate RepairBrief from structured input object.
         """
         prompt = self._build_prompt(generator_input)
-
         last_error: Exception | None = None
 
         for _ in range(self.max_retries + 1):
             try:
-                raw_text = self.llm_client.generate(prompt)
+                raw_text, usage = self._generate_with_optional_usage(prompt)
+
+                self._log_usage(
+                    sample_id=sample_id or self.sample_id,
+                    round_id=round_id,
+                    mode=mode,
+                    component="repair_brief_generator",
+                    agent_id=None,
+                    usage=usage,
+                )
+
                 data = self._extract_json(raw_text)
                 return self._parse_repair_brief(data)
+
             except Exception as exc:
                 last_error = exc
 
@@ -77,7 +108,8 @@ class RepairBriefGenerator:
             return self.fallback_generator.generate_brief(generator_input)
 
         raise RuntimeError(
-            f"RepairBriefGenerator failed after retries. Last error: {last_error}"
+            f"RepairBriefGenerator failed after retries. "
+            f"Last error: {last_error}"
         ) from last_error
 
     def generate_brief_from_parts(
@@ -85,22 +117,29 @@ class RepairBriefGenerator:
         question: str,
         anchor_state: StateRecord,
         failed_suffix_state_records: list[StateRecord],
+        round_id: int | None = None,
+        sample_id: str | None = None,
+        mode: str | None = "repair",
     ) -> RepairBrief:
         """
-        Convenience wrapper when caller does not want to manually construct
-        RepairBriefGeneratorInput.
+        Convenience wrapper when caller does not want to manually
+        construct RepairBriefGeneratorInput.
         """
         generator_input = RepairBriefGeneratorInput(
             question=question,
             anchor_state=anchor_state,
             failed_suffix_state_records=failed_suffix_state_records,
         )
-        return self.generate_brief(generator_input)
+        return self.generate_brief(
+            generator_input=generator_input,
+            round_id=round_id,
+            sample_id=sample_id,
+            mode=mode,
+        )
 
     # ------------------------------------------------------------------
     # Prompt
     # ------------------------------------------------------------------
-
     def _build_prompt(
         self,
         generator_input: RepairBriefGeneratorInput,
@@ -110,8 +149,7 @@ class RepairBriefGenerator:
         prompt = f"""
 You are a structured repair-brief generator for a multi-agent debate system.
 
-Your task is to compress the failed suffix after rollback into ONE compact JSON object
-called RepairBrief.
+Your task is to compress the failed suffix after rollback into ONE compact JSON object called RepairBrief.
 
 You must output JSON only.
 Do not output markdown.
@@ -121,11 +159,11 @@ JSON schema:
 {{
   "remaining_conflicts": [
     {{
-      "conflict": <string>,
-      "why_still_open": <string>
+      "conflict": "string",
+      "why_still_open": "string"
     }}
   ],
-  "failure_summary": <string>
+  "failure_summary": "string"
 }}
 
 Task definition:
@@ -135,6 +173,7 @@ Task definition:
 - Your job is to produce a very compact repair brief that helps the system restart from the anchor state.
 
 Output requirements:
+
 1. remaining_conflicts
 - Keep only the key conflicts that are still unresolved after reviewing the failed suffix.
 - These should be the conflicts most worth focusing on in repair mode.
@@ -166,9 +205,47 @@ Return JSON only.
         return prompt
 
     # ------------------------------------------------------------------
+    # LLM helpers
+    # ------------------------------------------------------------------
+    def _generate_with_optional_usage(
+        self,
+        prompt: str,
+    ) -> tuple[str, dict[str, int] | None]:
+        """
+        Prefer generate_with_usage if available; otherwise fall back to generate.
+        """
+        if hasattr(self.llm_client, "generate_with_usage"):
+            resp = self.llm_client.generate_with_usage(prompt)
+            return resp["content"], resp.get("usage")
+
+        raw_text = self.llm_client.generate(prompt)
+        return raw_text, None
+
+    def _log_usage(
+        self,
+        *,
+        sample_id: str | None,
+        round_id: int | None,
+        mode: str | None,
+        component: str,
+        agent_id: str | None,
+        usage: dict[str, Any] | None,
+    ) -> None:
+        if self.usage_logger is None:
+            return
+
+        self.usage_logger.log(
+            sample_id=sample_id,
+            round_id=round_id,
+            mode=mode,
+            component=component,
+            agent_id=agent_id,
+            usage=usage,
+        )
+
+    # ------------------------------------------------------------------
     # Parsing
     # ------------------------------------------------------------------
-
     def _extract_json(self, raw_text: str) -> dict[str, Any]:
         raw_text = raw_text.strip()
 
@@ -186,8 +263,10 @@ Return JSON only.
 
         json_block = match.group(0)
         data = json.loads(json_block)
+
         if not isinstance(data, dict):
             raise ValueError("Extracted JSON is not an object.")
+
         return data
 
     def _parse_repair_brief(self, data: dict[str, Any]) -> RepairBrief:
@@ -197,7 +276,10 @@ Return JSON only.
         failure_summary = self._sanitize_optional_string(data.get("failure_summary"))
 
         if not failure_summary:
-            failure_summary = "The previous suffix did not resolve the core conflict and failed to produce stable progress."
+            failure_summary = (
+                "The previous suffix did not resolve the core conflict "
+                "and failed to produce stable progress."
+            )
 
         return RepairBrief(
             remaining_conflicts=remaining_conflicts[: self.max_remaining_conflicts],
@@ -212,6 +294,7 @@ Return JSON only.
             return []
 
         results: list[RemainingConflict] = []
+
         for item in value:
             if not isinstance(item, dict):
                 continue
@@ -221,6 +304,7 @@ Return JSON only.
 
             if not conflict:
                 continue
+
             if not why_still_open:
                 why_still_open = "The conflict remains unresolved."
 
@@ -238,7 +322,6 @@ Return JSON only.
     # ------------------------------------------------------------------
     # Helpers
     # ------------------------------------------------------------------
-
     def _sanitize_optional_string(self, value: Any) -> str | None:
         if isinstance(value, str):
             value = value.strip()

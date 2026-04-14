@@ -13,9 +13,9 @@ class QianfanClient:
     """
     Minimal Qianfan chat client for text generation.
 
-    Current design goal:
-    - Keep it simple so it can plug into the existing repo quickly
-    - Return plain assistant text
+    Current design goals:
+    - Keep existing generate()/chat() interface unchanged (return plain text)
+    - Add generate_with_usage()/chat_with_usage() for token logging
     - Support both system + user messages
     """
 
@@ -29,7 +29,6 @@ class QianfanClient:
     ) -> None:
         if not api_key:
             raise ValueError("api_key must not be empty.")
-
         self.api_key = api_key
         self.model = model
         self.base_url = base_url
@@ -70,12 +69,34 @@ class QianfanClient:
         if isinstance(data, dict) and "error" in data:
             raise QianfanAPIError(f"Qianfan API error: {data}")
 
-        if isinstance(data, dict) and "code" in data and "message" in data and "choices" not in data:
+        if (
+            isinstance(data, dict)
+            and "code" in data
+            and "message" in data
+            and "choices" not in data
+        ):
             raise QianfanAPIError(
-                f"Qianfan API error: code={data.get('code')}, message={data.get('message')}, full={data}"
+                f"Qianfan API error: code={data.get('code')}, "
+                f"message={data.get('message')}, full={data}"
             )
 
         return data
+
+    def _extract_content(self, data: Dict[str, Any]) -> str:
+        try:
+            return data["choices"][0]["message"]["content"]
+        except Exception as e:
+            raise QianfanAPIError(
+                f"Unexpected Qianfan response format: {data}"
+            ) from e
+
+    def _extract_usage(self, data: Dict[str, Any]) -> Dict[str, int]:
+        usage = data.get("usage", {}) if isinstance(data, dict) else {}
+        return {
+            "prompt_tokens": int(usage.get("prompt_tokens", 0)),
+            "completion_tokens": int(usage.get("completion_tokens", 0)),
+            "total_tokens": int(usage.get("total_tokens", 0)),
+        }
 
     def chat(
         self,
@@ -85,11 +106,38 @@ class QianfanClient:
         max_output_tokens: Optional[int] = None,
     ) -> str:
         """
-        Direct chat call with OpenAI-like messages format, e.g.
-        [
-            {"role": "system", "content": "..."},
-            {"role": "user", "content": "..."}
-        ]
+        Direct chat call with OpenAI-like messages format.
+
+        Returns plain assistant text only.
+        """
+        result = self.chat_with_usage(
+            messages=messages,
+            temperature=temperature,
+            top_p=top_p,
+            max_output_tokens=max_output_tokens,
+        )
+        return result["content"]
+
+    def chat_with_usage(
+        self,
+        messages: List[Dict[str, str]],
+        temperature: Optional[float] = None,
+        top_p: Optional[float] = None,
+        max_output_tokens: Optional[int] = None,
+    ) -> Dict[str, Any]:
+        """
+        Direct chat call with OpenAI-like messages format.
+
+        Returns:
+        {
+            "content": str,
+            "usage": {
+                "prompt_tokens": int,
+                "completion_tokens": int,
+                "total_tokens": int
+            },
+            "raw_response": dict
+        }
         """
         if not messages:
             raise ValueError("messages must not be empty.")
@@ -108,12 +156,11 @@ class QianfanClient:
 
         data = self._post(payload)
 
-        try:
-            return data["choices"][0]["message"]["content"]
-        except Exception as e:
-            raise QianfanAPIError(
-                f"Unexpected Qianfan response format: {data}"
-            ) from e
+        return {
+            "content": self._extract_content(data),
+            "usage": self._extract_usage(data),
+            "raw_response": data,
+        }
 
     def generate(
         self,
@@ -125,18 +172,50 @@ class QianfanClient:
     ) -> str:
         """
         Convenience wrapper for single-turn generation.
+
+        Returns plain assistant text only.
+        """
+        result = self.generate_with_usage(
+            user_prompt=user_prompt,
+            system_prompt=system_prompt,
+            temperature=temperature,
+            top_p=top_p,
+            max_output_tokens=max_output_tokens,
+        )
+        return result["content"]
+
+    def generate_with_usage(
+        self,
+        user_prompt: str,
+        system_prompt: Optional[str] = None,
+        temperature: Optional[float] = None,
+        top_p: Optional[float] = None,
+        max_output_tokens: Optional[int] = None,
+    ) -> Dict[str, Any]:
+        """
+        Convenience wrapper for single-turn generation.
+
+        Returns:
+        {
+            "content": str,
+            "usage": {
+                "prompt_tokens": int,
+                "completion_tokens": int,
+                "total_tokens": int
+            },
+            "raw_response": dict
+        }
         """
         if not user_prompt:
             raise ValueError("user_prompt must not be empty.")
 
         final_system_prompt = system_prompt or self.default_system_prompt
-
         messages = [
             {"role": "system", "content": final_system_prompt},
             {"role": "user", "content": user_prompt},
         ]
 
-        return self.chat(
+        return self.chat_with_usage(
             messages=messages,
             temperature=temperature,
             top_p=top_p,

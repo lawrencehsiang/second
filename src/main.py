@@ -5,7 +5,8 @@ import re
 import traceback
 import pandas as pd
 from dotenv import load_dotenv
-
+from src.components.usage_logger import UsageLogger
+from src.utils.result_utils import build_usage_summary
 from src.components.action_mapper import ActionMapper
 from src.components.agent_runner import AgentRunner
 from src.components.evaluator import Evaluator
@@ -100,17 +101,31 @@ def run_normal_mode(
     sample_id: str,
 ):
     state_store = StateStore()
+    usage_logger = UsageLogger()
 
-    agent_runner = AgentRunner(llm_client=llm_client)
+    agent_runner = AgentRunner(
+        llm_client=llm_client,
+        usage_logger=usage_logger,
+        sample_id=sample_id,
+    )
     history_manager = HistoryManager()
-    recorder = Recorder(llm_client=llm_client)
-    evaluator = Evaluator(llm_client=llm_client)
+    recorder = Recorder(
+        llm_client=llm_client,
+        usage_logger=usage_logger,
+        sample_id=sample_id,
+    )
+    evaluator = Evaluator(
+        llm_client=llm_client,
+        usage_logger=usage_logger,
+        sample_id=sample_id,
+    )
 
     normal_round_executor = NormalRoundExecutor(
         config=NormalRoundExecutorConfig(
             question=question,
             agent_ids=AGENT_IDS,
             max_round=MAX_ROUND,
+            sample_id=sample_id,
         ),
         agent_runner=agent_runner,
         state_store=state_store,
@@ -156,6 +171,8 @@ def run_normal_mode(
                 rollback_context=rollback_context,
                 state_store=state_store,
                 history_manager=history_manager,
+                usage_logger=usage_logger,
+                sample_id=sample_id,
             )
         else:
             print("Rollback detected, but no valid anchor is available. Skip repair mode.")
@@ -166,7 +183,7 @@ def run_normal_mode(
     single_agent_baseline_answer = round_1_answers[0] if round_1_answers else ""
     majority_voting_baseline_answer = majority_vote(round_1_answers)
     scrd_final_answer = majority_vote(final_answers)
-
+    usage_summary = build_usage_summary(usage_logger)
     result = {
         "sample_id": sample_id,
         "question": question,
@@ -181,9 +198,24 @@ def run_normal_mode(
         "effective_rounds_used": get_effective_rounds_used(state_store),
         "actual_rounds_executed": get_actual_rounds_executed(state_store),
         "stop_reason": get_stop_reason(rollback_context, early_stopped),
+
+        # token summary
+        "single_agent_total_tokens": usage_summary["single_agent_total_tokens"],
+        "majority_vote_total_tokens": usage_summary["majority_vote_total_tokens"],
+        "scrd_total_tokens": usage_summary["scrd_total_tokens"],
+        "scrd_prompt_tokens": usage_summary["scrd_prompt_tokens"],
+        "scrd_completion_tokens": usage_summary["scrd_completion_tokens"],
+
+        # component totals
+        "agent_total_tokens": usage_summary["agent_total_tokens"],
+        "recorder_total_tokens": usage_summary["recorder_total_tokens"],
+        "evaluator_total_tokens": usage_summary["evaluator_total_tokens"],
+        "repair_brief_total_tokens": usage_summary["repair_brief_total_tokens"],
+        "repair_evaluator_total_tokens": usage_summary["repair_evaluator_total_tokens"],
+        "repair_agent_total_tokens": usage_summary["repair_agent_total_tokens"],
     }
 
-    trace = build_trace_bundle(state_store)
+    trace = build_trace_bundle(state_store, usage_logger)
     return result, trace
 
 
@@ -193,12 +225,31 @@ def run_repair_mode(
     rollback_context: dict,
     state_store: StateStore,
     history_manager: HistoryManager,
+    usage_logger: UsageLogger,
+    sample_id: str,
 ) -> None:
-    recorder = Recorder(llm_client=llm_client)
-    repair_brief_generator = RepairBriefGenerator(llm_client=llm_client)
-    repair_evaluator = RepairEvaluator(llm_client=llm_client)
+    
     repair_action_mapper = RepairActionMapper()
-    repair_agent_runner = RepairAgentRunner(llm_client=llm_client)
+    recorder = Recorder(
+        llm_client=llm_client,
+        usage_logger=usage_logger,
+        sample_id=sample_id,
+    )
+    repair_brief_generator = RepairBriefGenerator(
+        llm_client=llm_client,
+        usage_logger=usage_logger,
+        sample_id=sample_id,
+    )
+    repair_evaluator = RepairEvaluator(
+        llm_client=llm_client,
+        usage_logger=usage_logger,
+        sample_id=sample_id,
+    )
+    repair_agent_runner = RepairAgentRunner(
+        llm_client=llm_client,
+        usage_logger=usage_logger,
+        sample_id=sample_id,
+    )
 
     anchor_round = rollback_context["anchor_round"]
     anchor_state = rollback_context["anchor_state"]

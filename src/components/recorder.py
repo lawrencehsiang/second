@@ -18,11 +18,25 @@ from src.schemas import (
 class LLMClientProtocol(Protocol):
     """
     Minimal protocol expected by Recorder.
-    You can later replace this with your real client class.
     """
 
     def generate(self, prompt: str) -> str:
         """Generate raw text from the model."""
+        ...
+
+    def generate_with_usage(self, prompt: str) -> dict[str, Any]:
+        """
+        Optional richer interface:
+        {
+            "content": str,
+            "usage": {
+                "prompt_tokens": int,
+                "completion_tokens": int,
+                "total_tokens": int
+            },
+            "raw_response": dict
+        }
+        """
         ...
 
 
@@ -39,10 +53,11 @@ class Recorder:
     3. Build current_answers programmatically from agent_outputs
        (instead of trusting the LLM to preserve one entry per agent).
     4. Parse and validate the LLM-generated fields into StateRecord.
+    5. Optionally log token usage.
 
     Notes:
-    - This version intentionally makes `current_answers` deterministic.
-    - A fallback recorder can be injected if desired.
+    - current_answers is always deterministic.
+    - fallback_recorder can still be injected.
     """
 
     def __init__(
@@ -51,23 +66,29 @@ class Recorder:
         max_snippets: int = 5,
         max_retries: int = 2,
         fallback_recorder: Any | None = None,
+        usage_logger: Any | None = None,
+        sample_id: str | None = None,
     ) -> None:
         self.llm_client = llm_client
         self.max_snippets = max_snippets
         self.max_retries = max_retries
         self.fallback_recorder = fallback_recorder
+        self.usage_logger = usage_logger
+        self.sample_id = sample_id
 
     def build_state_record(
         self,
         round_id: int,
         agent_outputs: list[AgentOutputRound1] | list[AgentOutputNormal],
         previous_state_record: StateRecord | None = None,
+        sample_id: str | None = None,
+        mode: str | None = None,
     ) -> StateRecord:
         """
         Build a StateRecord for the given round.
 
         Strategy:
-        1. Build `fixed_current_answers` programmatically from agent_outputs
+        1. Build fixed_current_answers programmatically from agent_outputs
         2. Build a structured prompt for the remaining 3 fields
         3. Ask LLM to return JSON only
         4. Parse + validate
@@ -88,7 +109,17 @@ class Recorder:
 
         for _ in range(self.max_retries + 1):
             try:
-                raw_text = self.llm_client.generate(prompt)
+                raw_text, usage = self._generate_with_optional_usage(prompt)
+
+                self._log_usage(
+                    sample_id=sample_id or self.sample_id,
+                    round_id=round_id,
+                    mode=mode,
+                    component="recorder",
+                    agent_id=None,
+                    usage=usage,
+                )
+
                 data = self._extract_json(raw_text)
                 state_record = self._parse_state_record(
                     data=data,
@@ -96,6 +127,7 @@ class Recorder:
                     fixed_current_answers=fixed_current_answers,
                 )
                 return state_record
+
             except Exception as exc:
                 last_error = exc
 
@@ -159,7 +191,9 @@ class Recorder:
         """
         agent_outputs_payload = [output.model_dump() for output in agent_outputs]
         previous_state_payload = (
-            previous_state_record.model_dump() if previous_state_record is not None else None
+            previous_state_record.model_dump()
+            if previous_state_record is not None
+            else None
         )
 
         prompt = f"""
@@ -199,7 +233,6 @@ The JSON schema is:
 }}
 
 Definitions:
-
 1. newly_added_claims:
 - Include only the key claims newly surfaced or meaningfully expressed in this round.
 - A claim should be useful for future debate continuation.
@@ -243,9 +276,48 @@ Current round agent_outputs:
 {json.dumps(agent_outputs_payload, ensure_ascii=False, indent=2)}
 
 Return JSON only.
-        """.strip()
+""".strip()
 
         return prompt
+
+    # ------------------------------------------------------------------
+    # LLM helpers
+    # ------------------------------------------------------------------
+    def _generate_with_optional_usage(
+        self,
+        prompt: str,
+    ) -> tuple[str, dict[str, int] | None]:
+        """
+        Prefer generate_with_usage if available; otherwise fall back to generate.
+        """
+        if hasattr(self.llm_client, "generate_with_usage"):
+            resp = self.llm_client.generate_with_usage(prompt)
+            return resp["content"], resp.get("usage")
+
+        raw_text = self.llm_client.generate(prompt)
+        return raw_text, None
+
+    def _log_usage(
+        self,
+        *,
+        sample_id: str | None,
+        round_id: int | None,
+        mode: str | None,
+        component: str,
+        agent_id: str | None,
+        usage: dict[str, Any] | None,
+    ) -> None:
+        if self.usage_logger is None:
+            return
+
+        self.usage_logger.log(
+            sample_id=sample_id,
+            round_id=round_id,
+            mode=mode,
+            component=component,
+            agent_id=agent_id,
+            usage=usage,
+        )
 
     # ------------------------------------------------------------------
     # Parsing
@@ -276,8 +348,10 @@ Return JSON only.
 
         json_block = match.group(0)
         data = json.loads(json_block)
+
         if not isinstance(data, dict):
             raise ValueError("Extracted JSON is not an object.")
+
         return data
 
     def _parse_state_record(
@@ -340,9 +414,10 @@ Return JSON only.
 
             conflict_text = self._sanitize_optional_string(item.get("conflict"))
             why_still_open = self._sanitize_optional_string(item.get("why_still_open"))
-            involved_answers_raw = item.get("involved_answers", [])
 
+            involved_answers_raw = item.get("involved_answers", [])
             involved_answers: list[str] = []
+
             if isinstance(involved_answers_raw, list):
                 for ans in involved_answers_raw:
                     if isinstance(ans, str) and ans.strip():
@@ -371,7 +446,6 @@ Return JSON only.
             return []
 
         results: list[str] = []
-
         for item in value:
             if isinstance(item, str) and item.strip():
                 results.append(item.strip())

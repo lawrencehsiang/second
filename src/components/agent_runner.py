@@ -22,6 +22,21 @@ class LLMClientProtocol(Protocol):
         """Generate raw text from the model."""
         ...
 
+    def generate_with_usage(self, prompt: str) -> dict[str, Any]:
+        """
+        Optional richer interface:
+        {
+            "content": str,
+            "usage": {
+                "prompt_tokens": int,
+                "completion_tokens": int,
+                "total_tokens": int
+            },
+            "raw_response": dict
+        }
+        """
+        ...
+
 
 class AgentRunner:
     """
@@ -32,19 +47,24 @@ class AgentRunner:
     2. Ask the LLM to return strict JSON
     3. Parse basic JSON fields into schema objects
     4. Keep protocol simple and robust
+    5. Optionally log token usage
 
-    Note:
-    - This version intentionally does NOT implement semantic consistency parsing.
-    - It relies mainly on prompt design + output order to reduce inconsistency.
+    Notes:
+    - This version does NOT change your existing parsing logic.
+    - It only adds optional usage logging support.
     """
 
     def __init__(
         self,
         llm_client: LLMClientProtocol,
         max_retries: int = 2,
+        usage_logger: Any | None = None,
+        sample_id: str | None = None,
     ) -> None:
         self.llm_client = llm_client
         self.max_retries = max_retries
+        self.usage_logger = usage_logger
+        self.sample_id = sample_id
 
     # ------------------------------------------------------------------
     # Public API
@@ -53,6 +73,8 @@ class AgentRunner:
         self,
         agent_id: str,
         agent_input: AgentInputRound1,
+        round_id: int = 1,
+        sample_id: str | None = None,
     ) -> AgentOutputRound1:
         prompt = self._build_round_1_prompt(
             agent_id=agent_id,
@@ -60,11 +82,21 @@ class AgentRunner:
         )
 
         last_error: Exception | None = None
+
         for _ in range(self.max_retries + 1):
             try:
-                raw_text = self.llm_client.generate(prompt)
-                # print(f"Raw model output for round 1 agent {agent_id}: {raw_text}")
+                raw_text, usage = self._generate_with_optional_usage(prompt)
 
+                self._log_usage(
+                    sample_id=sample_id or self.sample_id,
+                    round_id=round_id,
+                    mode="normal",
+                    component="agent_round_1",
+                    agent_id=agent_id,
+                    usage=usage,
+                )
+
+                # print(f"Raw model output for round 1 agent {agent_id}: {raw_text}")
                 data = self._extract_json(raw_text)
                 output = self._parse_round_1_output(
                     agent_id=agent_id,
@@ -72,6 +104,7 @@ class AgentRunner:
                 )
                 # print(f"Round 1 output for agent {agent_id}: {output.model_dump()}")
                 return output
+
             except Exception as exc:
                 last_error = exc
 
@@ -84,6 +117,8 @@ class AgentRunner:
         self,
         agent_id: str,
         agent_input: AgentInputNormal,
+        round_id: int | None = None,
+        sample_id: str | None = None,
     ) -> AgentOutputNormal:
         prompt = self._build_normal_round_prompt(
             agent_id=agent_id,
@@ -91,11 +126,21 @@ class AgentRunner:
         )
 
         last_error: Exception | None = None
+
         for _ in range(self.max_retries + 1):
             try:
-                raw_text = self.llm_client.generate(prompt)
-                # print(f"Raw model output for agent {agent_id}: {raw_text}")
+                raw_text, usage = self._generate_with_optional_usage(prompt)
 
+                self._log_usage(
+                    sample_id=sample_id or self.sample_id,
+                    round_id=round_id,
+                    mode="normal",
+                    component="agent_normal",
+                    agent_id=agent_id,
+                    usage=usage,
+                )
+
+                # print(f"Raw model output for agent {agent_id}: {raw_text}")
                 data = self._extract_json(raw_text)
                 output = self._parse_normal_round_output(
                     agent_id=agent_id,
@@ -103,6 +148,7 @@ class AgentRunner:
                 )
                 # print(f"Normal round output for agent {agent_id}: {output.model_dump()}")
                 return output
+
             except Exception as exc:
                 last_error = exc
 
@@ -150,7 +196,8 @@ Input:
 {json.dumps(payload, ensure_ascii=False, indent=2)}
 
 Return JSON only.
-        """.strip()
+""".strip()
+
         return prompt
 
     def _build_normal_round_prompt(
@@ -194,20 +241,13 @@ VERY IMPORTANT RULES:
    (a) response_to_conflicts
    (b) brief_reason
    (c) current_answer
-
 2. current_answer is the FINAL answer for this round.
-
 3. If your reasoning changes anywhere in response_to_conflicts or brief_reason,
    you MUST update current_answer so that it matches your final view.
-
 4. current_answer is the single source of truth used by the system.
-
 5. Do NOT let current_answer disagree with response_to_conflicts or brief_reason.
-
 6. If you revise your answer during reasoning, the final revised answer must appear in current_answer.
-
 7. Keep response_to_conflicts concise and directly tied to the structured conflicts in the input.
-
 8. If there is no true unresolved conflict to respond to, response_to_conflicts may be [].
 
 Field instructions:
@@ -220,10 +260,8 @@ Field instructions:
       resolved = fully addressed
       partially_resolved = some progress but not fully solved
       still_open = remains unresolved
-
 - brief_reason:
   A short summary of why you keep or revise your answer.
-
 - current_answer:
   The final answer after considering all conflict responses and reasoning above.
 
@@ -231,16 +269,71 @@ Input:
 {json.dumps(payload, ensure_ascii=False, indent=2)}
 
 Return JSON only.
-        """.strip()
+""".strip()
+
         return prompt
+
+    # ------------------------------------------------------------------
+    # LLM call helpers
+    # ------------------------------------------------------------------
+    def _generate_with_optional_usage(
+        self,
+        prompt: str,
+    ) -> tuple[str, dict[str, int] | None]:
+        """
+        Prefer generate_with_usage if available; otherwise fall back to generate.
+        """
+        if hasattr(self.llm_client, "generate_with_usage"):
+            resp = self.llm_client.generate_with_usage(prompt)
+            return resp["content"], resp.get("usage")
+
+        raw_text = self.llm_client.generate(prompt)
+        return raw_text, None
+
+    def _log_usage(
+        self,
+        *,
+        sample_id: str | None,
+        round_id: int | None,
+        mode: str | None,
+        component: str,
+        agent_id: str | None,
+        usage: dict[str, Any] | None,
+    ) -> None:
+        if self.usage_logger is None:
+            return
+
+        self.usage_logger.log(
+            sample_id=sample_id,
+            round_id=round_id,
+            mode=mode,
+            component=component,
+            agent_id=agent_id,
+            usage=usage,
+        )
 
     # ------------------------------------------------------------------
     # JSON extraction
     # ------------------------------------------------------------------
+    def _repair_invalid_backslashes(self, text: str) -> str:
+        """
+        Repair invalid backslash escapes that often appear in model-generated pseudo-JSON.
+
+        Example:
+        - "\\("  -> "\\\\("
+        - "\\*"  -> "\\\\*"
+
+        Valid JSON escapes are:
+        \", \\, \/, \b, \f, \n, \r, \t, \uXXXX
+
+        Any backslash not followed by one of the valid escape chars
+        is converted into a double backslash.
+        """
+        return re.sub(r'\\(?!["\\/bfnrtu])', r"\\\\", text)
     def _extract_json(self, raw_text: str) -> dict[str, Any]:
         raw_text = raw_text.strip()
 
-        # Case 1: pure JSON
+        # Case 1: direct parse
         try:
             data = json.loads(raw_text)
             if not isinstance(data, dict):
@@ -249,15 +342,38 @@ Return JSON only.
         except json.JSONDecodeError:
             pass
 
-        # Case 2: JSON embedded in text
+        # Case 2: repair invalid backslashes, then retry direct parse
+        repaired_text = self._repair_invalid_backslashes(raw_text)
+        try:
+            data = json.loads(repaired_text)
+            if not isinstance(data, dict):
+                raise ValueError("Top-level JSON is not an object.")
+            return data
+        except json.JSONDecodeError:
+            pass
+
+        # Case 3: extract first {...} block
         match = re.search(r"\{.*\}", raw_text, re.DOTALL)
         if not match:
-            raise ValueError("No JSON object found in model output.")
+            raise ValueError(f"No JSON object found in model output:\n{raw_text}")
 
         json_block = match.group(0)
-        data = json.loads(json_block)
+
+        # Try original block
+        try:
+            data = json.loads(json_block)
+            if not isinstance(data, dict):
+                raise ValueError("Extracted JSON is not an object.")
+            return data
+        except json.JSONDecodeError:
+            pass
+
+        # Try repaired block
+        repaired_block = self._repair_invalid_backslashes(json_block)
+        data = json.loads(repaired_block)
         if not isinstance(data, dict):
-            raise ValueError("Extracted JSON is not an object.")
+            raise ValueError("Extracted repaired JSON is not an object.")
+
         return data
 
     # ------------------------------------------------------------------
@@ -369,8 +485,10 @@ Return JSON only.
         value: Any,
     ) -> str:
         valid = {"resolved", "partially_resolved", "still_open"}
+
         if isinstance(value, str):
             cleaned = value.strip().lower()
             if cleaned in valid:
                 return cleaned
+
         return "still_open"
