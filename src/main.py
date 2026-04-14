@@ -46,6 +46,12 @@ from src.utils.result_utils import (
     get_effective_rounds_used
 )
 
+from src.components.state_store import StateStore
+import inspect
+
+print("StateStore loaded from:", inspect.getfile(StateStore))
+print("Has get_action_history:", hasattr(StateStore, "get_action_history"))
+
 AGENT_IDS = ["A", "B", "C"]
 MAX_ROUND = 5
 # 强制禁用代理，直连国内网络

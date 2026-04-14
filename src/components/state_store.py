@@ -56,6 +56,9 @@ class StateStore:
 
     def get_round_action(self, round_id: int) -> RoundAction | None:
         return self.round_action_history.get(round_id)
+    
+    def get_action_history(self) -> dict[int, RoundAction]:
+        return dict(self.round_action_history)
 
     # ------------------------------------------------------------------
     # History unit cache
@@ -65,6 +68,7 @@ class StateStore:
 
     def get_history_units(self, round_id: int) -> list | None:
         return self.history_unit_history.get(round_id)
+    
 
     # ------------------------------------------------------------------
     # Execution events
