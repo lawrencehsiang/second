@@ -20,7 +20,7 @@ class ResultWriter:
             f.write(json.dumps(result, ensure_ascii=False) + "\n")
 
     def write_trace(self, sample_id: str, trace) -> None:
-        trace_path = self.output_dir / f"{sample_id}_trace.json"
+        trace_path = self.trace_dir / f"{sample_id}_trace.json"
         with open(trace_path, "w", encoding="utf-8") as f:
             json.dump(trace, f, ensure_ascii=False, indent=2)
 

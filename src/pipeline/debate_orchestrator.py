@@ -67,26 +67,55 @@ class DebateOrchestrator:
 
             # 1. rollback 优先
             if round_result.rollback_decision.trigger_rollback:
-                # print(f"Rollback decision made: {round_result.rollback_decision.reason}")
+
+                previous_state = self.state_store.get_state_record(round_id - 1)
+                current_state = round_result.state_record
+
+                if self._should_force_early_stop_on_stable_consensus(
+                    previous_state=previous_state,
+                    current_state=current_state,
+                ):
+                    self.state_store.add_event({
+                        "type": "stable_consensus_early_stop",
+                        "round_id": round_id,
+                        "mode": "normal",
+                    })
+                    print(
+                        f"Stable consensus detected at round {round_id}: "
+                        f"no unresolved conflicts and answers are already aligned. Early stop."
+                    )
+                    return {
+                        "rollback_context": None,
+                        "early_stopped": True,
+                    }
+                
                 rollback_decision = round_result.rollback_decision
                 used_rollback_count += 1
+
+                anchor_round = rollback_decision.rollback_to_round
+                anchor_state = (
+                    self.state_store.get_state_record(anchor_round)
+                    if anchor_round is not None
+                    else None
+                )
 
                 self.state_store.add_event({
                     "type": "rollback_triggered",
                     "trigger_round": round_id,
-                    "anchor_round": rollback_decision.rollback_to_round,
+                    "anchor_round": anchor_round,
                 })
+
+                failed_suffix_state_records = (
+                    self._get_failed_suffix(anchor_round, round_id)
+                    if anchor_round is not None
+                    else []
+                )
 
                 rollback_context = {
                     "trigger_round": round_id,
-                    "anchor_round": rollback_decision.rollback_to_round,
-                    "anchor_state": self.state_store.get_state_record(
-                        rollback_decision.rollback_to_round
-                    ),
-                    "failed_suffix_state_records": self._get_failed_suffix(
-                                                        rollback_decision.rollback_to_round,
-                                                        round_id,
-                                                    ),
+                    "anchor_round": anchor_round,
+                    "anchor_state": anchor_state,
+                    "failed_suffix_state_records": failed_suffix_state_records,
                 }
 
                 return {
@@ -153,3 +182,53 @@ class DebateOrchestrator:
 
         #return all_answers_same and no_unresolved_conflicts and no_new_claims
         return all_answers_same
+    
+
+    def _answers_are_equivalent(self, answers: list[str]) -> bool:
+        if not answers:
+            return False
+
+        normalized = []
+        for ans in answers:
+            try:
+                import re
+                text = str(ans).strip().lower()
+                text = text.replace(",", "")
+                text = text.replace("$", "")
+                text = text.replace("dollars", "").replace("dollar", "").strip()
+                nums = re.findall(r"-?\d+(?:\.\d+)?", text)
+                if nums:
+                    normalized.append(f"num:{int(round(float(nums[-1])))}")
+                else:
+                    normalized.append(f"text:{text}")
+            except Exception:
+                normalized.append(f"text:{str(ans).strip().lower()}")
+
+        return len(set(normalized)) == 1
+
+
+    def _should_force_early_stop_on_stable_consensus(
+            self,
+            previous_state,
+            current_state,
+        ) -> bool:
+            if current_state is None:
+                return False
+
+            # 1. 当前没有冲突
+            if current_state.unresolved_conflicts:
+                return False
+
+            # 2. 当前答案已经一致 / 数值等价
+            if not self._answers_are_equivalent(current_state.current_answers):
+                return False
+
+            # 3. 第一轮之后才有意义
+            if previous_state is None:
+                return False
+
+            # 4. 上一轮如果也已经一致，说明只是稳定延续，不该 rollback
+            if self._answers_are_equivalent(previous_state.current_answers):
+                return True
+
+            return False

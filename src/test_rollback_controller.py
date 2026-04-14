@@ -39,7 +39,7 @@ store.set_round_action(3, "continue")
 
 controller = RollbackController(
     max_rollbacks=1,
-    round_1_not_rollback_target=True,
+    round_1_not_rollback_target=False,
 )
 
 # case 1: immediate rollback

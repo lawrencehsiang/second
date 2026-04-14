@@ -17,7 +17,7 @@ class RollbackController:
     def __init__(
         self,
         max_rollbacks: int = 1,
-        round_1_not_rollback_target: bool = True,
+        round_1_not_rollback_target: bool = False,
     ) -> None:
         self.max_rollbacks = max_rollbacks
         self.round_1_not_rollback_target = round_1_not_rollback_target
