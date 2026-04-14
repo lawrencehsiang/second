@@ -16,7 +16,7 @@ from src.schemas import (
     RepairRoundResult,
     StateRecord,
 )
-
+from src.components.history_manager import HistoryManager
 
 class RepairAgentRunnerProtocol(Protocol):
     """
@@ -72,6 +72,7 @@ class RepairRoundExecutor:
         recorder: Recorder,
         repair_evaluator: RepairEvaluator,
         repair_action_mapper: RepairActionMapper,
+        history_manager: HistoryManager,
     ) -> None:
         self.config = config
         self.repair_agent_runner = repair_agent_runner
@@ -80,6 +81,7 @@ class RepairRoundExecutor:
         self.recorder = recorder
         self.repair_evaluator = repair_evaluator
         self.repair_action_mapper = repair_action_mapper
+        self.history_manager = history_manager
 
     # ------------------------------------------------------------------
     # Public API
@@ -119,6 +121,7 @@ class RepairRoundExecutor:
         agent_outputs: list[AgentOutputNormal] = []
 
         history_units = self._build_repair_history_units(
+            round_id=round_id,
             previous_repair_state_record=previous_repair_state_record,
             anchor_state=anchor_state,
         )
@@ -225,18 +228,29 @@ class RepairRoundExecutor:
 
     def _build_repair_history_units(
         self,
+        round_id: int,
         previous_repair_state_record: StateRecord | None,
         anchor_state: StateRecord,
     ) -> list:
         """
-        Current lightweight design:
-        - if previous repair state exists, no extra history units yet
-        - otherwise use no additional repair history units
-
-        Rationale:
-        repair mode already gets explicit guidance through repair_brief.
-        If later needed, this method can be upgraded to:
-        - reuse HistoryManager over repair states
-        - or inject anchor-derived minimal history units
+        First repair round:
+            reuse the real cached history units of anchor round.
+        Later repair rounds:
+            rebuild history from anchor + previous repair states only.
+            Old failed suffix has already been removed from the main store.
         """
-        return []
+        if previous_repair_state_record is None:
+            cached_anchor_history = self.state_store.get_history_units(anchor_state.round_id)
+            if cached_anchor_history is None:
+                raise ValueError(
+                    f"Missing cached history units for anchor round {anchor_state.round_id}."
+                )
+            return cached_anchor_history
+
+        history_units = self.history_manager.build_history_units(
+            question=self.config.question,
+            current_round_id=round_id,
+            state_store=self.state_store,
+        )
+        self.state_store.set_history_units(round_id, history_units)
+        return history_units

@@ -153,6 +153,7 @@ class NormalRoundExecutor:
             agent_outputs=agent_outputs,
             previous_state_record=None,
         )
+        self.state_store.set_history_units(round_id, [])
 
         action_decision = ActionDecision(
             action="continue",
@@ -201,6 +202,7 @@ class NormalRoundExecutor:
             current_round_id=round_id,
             state_store=self.state_store,
         )
+        self.state_store.set_history_units(round_id, history_units)
 
         previous_answer_map = self._build_previous_answer_map(previous_state_record)
 

@@ -137,13 +137,18 @@ def run_normal_mode(
     if rollback_context:
         anchor_round = rollback_context.get("anchor_round")
         anchor_state = rollback_context.get("anchor_state")
+        failed_suffix_state_records = rollback_context.get("failed_suffix_state_records", [])
 
         if anchor_round is not None and anchor_state is not None:
             print("Rollback detected, switching to repair mode...")
+
+            # 先保留 failed suffix，用它生成 repair_brief
             run_repair_mode(
                 llm_client=llm_client,
                 question=question,
                 rollback_context=rollback_context,
+                state_store=state_store,
+                history_manager=history_manager,
             )
         else:
             print("Rollback detected, but no valid anchor is available. Skip repair mode.")
@@ -178,15 +183,30 @@ def run_repair_mode(
     llm_client: QianfanClient,
     question: str,
     rollback_context: dict,
-):
-    state_store = StateStore()
-
+    state_store: StateStore,
+    history_manager: HistoryManager,
+) -> None:
     recorder = Recorder(llm_client=llm_client)
     repair_brief_generator = RepairBriefGenerator(llm_client=llm_client)
     repair_evaluator = RepairEvaluator(llm_client=llm_client)
     repair_action_mapper = RepairActionMapper()
     repair_agent_runner = RepairAgentRunner(llm_client=llm_client)
 
+    anchor_round = rollback_context["anchor_round"]
+    anchor_state = rollback_context["anchor_state"]
+    failed_suffix_state_records = rollback_context["failed_suffix_state_records"]
+
+    # Step 1: 先生成 repair_brief
+    repair_brief = repair_brief_generator.generate_brief_from_parts(
+        question=question,
+        anchor_state=anchor_state,
+        failed_suffix_state_records=failed_suffix_state_records,
+    )
+
+    # Step 2: 再删掉 anchor 之后的旧失败后缀
+    state_store.remove_rounds_after(anchor_round)
+
+    # Step 3: 用同一个主 store 跑 repair
     repair_round_executor = RepairRoundExecutor(
         config=RepairRoundExecutorConfig(
             question=question,
@@ -199,6 +219,7 @@ def run_repair_mode(
         recorder=recorder,
         repair_evaluator=repair_evaluator,
         repair_action_mapper=repair_action_mapper,
+        history_manager=history_manager,
     )
 
     repair_orchestrator = RepairOrchestrator(
@@ -212,7 +233,12 @@ def run_repair_mode(
     )
 
     print("Starting the repair mode...")
-    repair_orchestrator.run_repair(rollback_context=rollback_context)
+    repair_orchestrator.run_repair(
+        rollback_context={
+            **rollback_context,
+            "repair_brief": repair_brief,
+        }
+    )
 
 
 if __name__ == "__main__":
@@ -221,7 +247,7 @@ if __name__ == "__main__":
     llm_client = build_llm_client()
     writer = ResultWriter(output_dir="outputs")
 
-    samples = load_gsm8k_samples(limit=100)
+    samples = load_gsm8k_samples(limit=2)
     completed_sample_ids = writer.load_completed_sample_ids()
     if completed_sample_ids:
         print(f"Resume mode: found {len(completed_sample_ids)} completed samples in outputs/results.jsonl")
