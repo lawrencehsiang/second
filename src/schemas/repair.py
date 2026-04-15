@@ -63,9 +63,9 @@ class RepairAgentInput(BaseModel):
         description="Reused / newly prepared history units for repair mode.",
     )
     repair_brief: RepairBrief = Field(
-        ...,
+        None,
         description="Compact repair brief injected into repair-mode agent input.",
-    )
+    ) 
 
 
 class RepairScores(BaseModel):

@@ -115,50 +115,93 @@ class RepairAgentRunner:
     ) -> str:
         payload = repair_agent_input.model_dump()
 
-        prompt = f"""
-            You are agent {agent_id} in repair mode after rollback.
+        if repair_agent_input.repair_brief is not None:
+            prompt = f"""
+                You are agent {agent_id} in the FIRST repair round after rollback.
 
-            You are given:
-            - the original question
-            - anchor-derived history units
-            - a repair brief summarizing the failed suffix
+                You are given:
+                - the original question
+                - anchor-derived history units
+                - a repair brief summarizing the failed suffix
 
-            Use the anchor-derived history as the stable base.
-            Use the repair brief to understand what went wrong and what still needs repair.
+                Use the anchor-derived history as the stable base.
+                Use the repair brief to understand what went wrong and what still needs repair.
 
-            Return JSON only. No markdown. No extra text.
-            Do NOT use LaTeX.
-            Do NOT use backslashes.
-            Do NOT write things like \\( \\) or \\[ \\].
+                Return JSON only. No markdown. No extra text.
+                Do NOT use LaTeX.
+                Do NOT use backslashes.
+                Do NOT write things like \\( \\) or \\[ \\].
 
-            Schema:
-            {{
-            "agent_id": "{agent_id}",
-            "response_to_conflicts": [
+                Schema:
                 {{
-                "conflict": "string",
-                "response": "string",
-                "status": "resolved|partially_resolved|still_open"
+                "agent_id": "{agent_id}",
+                "response_to_conflicts": [
+                    {{
+                    "conflict": "string",
+                    "response": "string",
+                    "status": "resolved|partially_resolved|still_open"
+                    }}
+                ],
+                "brief_reason": "string",
+                "current_answer": "string"
                 }}
-            ],
-            "brief_reason": "string",
-            "current_answer": "string"
-            }}
 
-            Rules:
-            - response_to_conflicts should address the conflicts in the repair brief.
-            - brief_reason should explain why your repaired answer is justified.
-            - current_answer is your FINAL repaired answer for this round.
-            - If your reasoning changes, current_answer must match your final view.
-            - If there is no real remaining conflict, response_to_conflicts may be [].
-            - Do not output extra fields.
+                Rules:
+                - response_to_conflicts should address the conflicts in the repair brief.
+                - brief_reason should explain why your repaired answer is justified.
+                - current_answer is your FINAL repaired answer for this round.
+                - If your reasoning changes, current_answer must match your final view.
+                - If there is no real remaining conflict, response_to_conflicts may be [].
+                - Do not output extra fields.
 
-            Input:
-            {json.dumps(payload, ensure_ascii=False, indent=2)}
+                Input:
+                {json.dumps(payload, ensure_ascii=False, indent=2)}
 
-            Return JSON only.
-            """.strip()
+                Return JSON only.
+                """.strip()
+        else:
+            prompt = f"""
+                You are agent {agent_id} in a later repair round.
 
+                You are given:
+                - the original question
+                - structured history from the repaired trajectory so far
+
+                Continue the repaired discussion normally.
+                Use the history to decide whether to keep or revise your answer.
+
+                Return JSON only. No markdown. No extra text.
+                Do NOT use LaTeX.
+                Do NOT use backslashes.
+                Do NOT write things like \\( \\) or \\[ \\].
+
+                Schema:
+                {{
+                "agent_id": "{agent_id}",
+                "response_to_conflicts": [
+                    {{
+                    "conflict": "string",
+                    "response": "string",
+                    "status": "resolved|partially_resolved|still_open"
+                    }}
+                ],
+                "brief_reason": "string",
+                "current_answer": "string"
+                }}
+
+                Rules:
+                - respond to any unresolved conflicts present in the structured history
+                - brief_reason should explain why you keep or revise your answer
+                - current_answer is your FINAL answer for this round
+                - if your reasoning changes, current_answer must match your final view
+                - if there is no real unresolved conflict, response_to_conflicts may be []
+                - do not output extra fields
+
+                Input:
+                {json.dumps(payload, ensure_ascii=False, indent=2)}
+
+                Return JSON only.
+                """.strip()
         return prompt
 
     # ------------------------------------------------------------------

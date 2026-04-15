@@ -117,11 +117,16 @@ class RepairRoundExecutor:
             "mode": "repair",
         })
 
-        if repair_brief is None:
+        # Only the first repair round should use repair_brief.
+        # Later repair rounds should proceed without it.
+        if repair_brief is None and previous_repair_state_record is None:
             repair_brief = self.repair_brief_generator.generate_brief_from_parts(
                 question=self.config.question,
                 anchor_state=anchor_state,
                 failed_suffix_state_records=failed_suffix_state_records,
+                round_id=round_id,
+                sample_id=self.config.sample_id,
+                mode="repair",
             )
 
         agent_inputs: list[RepairAgentInput] = []

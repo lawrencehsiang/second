@@ -48,6 +48,7 @@ class RepairOrchestrator:
         round_id = rollback_context["trigger_round"]
         anchor_state = rollback_context["anchor_state"]
         failed_suffix_state_records = rollback_context["failed_suffix_state_records"]
+        anchor_round = rollback_context["anchor_round"]
 
         print(f"Repair Mode initiated after rollback at round {round_id}...")
 
@@ -65,12 +66,14 @@ class RepairOrchestrator:
             previous_state_record = self.state_store.get_state_record(round_id - 1)
 
             # Execute repair round
+            is_first_repair_round = (round_id == anchor_round + 1)
+
             round_result = self.repair_round_executor.execute_repair_round(
                 round_id=round_id,
                 anchor_state=anchor_state,
                 failed_suffix_state_records=failed_suffix_state_records,
                 previous_repair_state_record=previous_state_record,
-                repair_brief=rollback_context.get("repair_brief"),
+                repair_brief=rollback_context.get("repair_brief") if is_first_repair_round else None,
             )
 
             self.state_store.add_state_record(round_result.state_record)

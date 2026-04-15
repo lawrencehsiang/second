@@ -232,6 +232,13 @@ class Recorder:
             - newly_added_claims: keep only useful claims that are newly introduced or meaningfully advanced this round.
             - unresolved_conflicts: keep only conflicts still open after this round.
             - key_raw_snippets: keep at most {self.max_snippets} short, useful, non-redundant snippets.
+            - For key_raw_snippets, prefer compact paraphrases over verbatim copying.
+            - Preserve the logical content, not the exact wording.
+            - Use short numeric or symbolic forms when clearer, e.g.:
+            - "50/60*12=10"
+            - "50 min < 1 hr -> pay < $12"
+            - "Apr=48, May=24, Total=72"
+            - Keep each snippet as short as possible while retaining the key reasoning.
             - Be faithful to the inputs.
             - Avoid duplicates.
             - Do not hallucinate.

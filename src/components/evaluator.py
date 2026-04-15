@@ -134,8 +134,8 @@ class Evaluator:
         """
         Build the Evaluator prompt.
         """
-        previous_payload = previous_state_record.model_dump()
-        current_payload = current_state_record.model_dump()
+        previous_payload = self._build_state_view(previous_state_record)
+        current_payload = self._build_state_view(current_state_record)
 
         prompt = f"""
             You are a debate state evaluator.
@@ -228,6 +228,15 @@ class Evaluator:
             agent_id=agent_id,
             usage=usage,
         )
+
+
+    def _build_state_view(self, state_record: StateRecord) -> dict:
+        return {
+            "round_id": state_record.round_id,
+            "current_answers": state_record.current_answers,
+            "newly_added_claims": [claim.model_dump() for claim in state_record.newly_added_claims],
+            "unresolved_conflicts": [conflict.model_dump() for conflict in state_record.unresolved_conflicts],
+        }
 
     # ------------------------------------------------------------------
     # Parsing

@@ -306,7 +306,7 @@ if __name__ == "__main__":
     llm_client = build_llm_client()
     writer = ResultWriter(output_dir="outputs")
 
-    samples = load_gsm8k_samples(limit=2)
+    samples = load_gsm8k_samples(limit=5)
     completed_sample_ids = writer.load_completed_sample_ids()
     if completed_sample_ids:
         print(f"Resume mode: found {len(completed_sample_ids)} completed samples in outputs/results.jsonl")
