@@ -168,35 +168,33 @@ class AgentRunner:
         payload = agent_input.model_dump()
 
         prompt = f"""
-You are agent {agent_id} in round 1 of a multi-agent debate system.
+            You are agent {agent_id} in round 1 of a multi-agent debate system.
 
-This is the independent initialization round.
-You must answer the question independently.
-You do not have access to any other agents' answers.
+            This is the independent initialization round.
+            You do not have access to other agents' answers.
 
-Return JSON only.
-Do not output markdown.
-Do not output any explanation outside JSON.
+            Return JSON only. No markdown. No extra text.
+            Do NOT use LaTeX.
+            Do NOT use backslashes.
+            Do NOT write things like \\( \\) or \\[ \\].
 
-Output JSON schema:
-{{
-  "agent_id": "{agent_id}",
-  "brief_reason": "string",
-  "current_answer": "string"
-}}
+            Schema:
+            {{
+            "agent_id": "{agent_id}",
+            "brief_reason": "string",
+            "current_answer": "string"
+            }}
 
-IMPORTANT RULES:
-1. First decide your reasoning briefly.
-2. Then output your final answer in current_answer.
-3. current_answer is the final answer for this round.
-4. Keep brief_reason short but informative.
-5. Do not include extra fields.
+            Rules:
+            - brief_reason: short reasoning
+            - current_answer: your final answer for this round
+            - do not output extra fields
 
-Input:
-{json.dumps(payload, ensure_ascii=False, indent=2)}
+            Input:
+            {json.dumps(payload, ensure_ascii=False, indent=2)}
 
-Return JSON only.
-""".strip()
+            Return JSON only.
+            """.strip()
 
         return prompt
 
@@ -208,68 +206,51 @@ Return JSON only.
         payload = agent_input.model_dump()
 
         prompt = f"""
-You are agent {agent_id} in a normal round (t >= 2) of a multi-agent debate system.
+            You are agent {agent_id} in a normal debate round (t >= 2).
 
-You are given:
-- the original question
-- your own previous answer
-- structured historical information selected by the system
+            You are given:
+            - the original question
+            - your own previous answer
+            - structured history selected by the system
 
-You do NOT see other agents' new outputs from this same round.
-You may keep your previous answer or revise it.
+            You do NOT see other agents' new outputs from this same round.
+            You may keep or revise your answer.
 
-Return JSON only.
-Do not output markdown.
-Do not output any explanation outside JSON.
+            Return JSON only. No markdown. No extra text.
+            Do NOT use LaTeX.
+            Do NOT use backslashes.
+            Do NOT write things like \\( \\) or \\[ \\].
 
-Output JSON schema:
-{{
-  "agent_id": "{agent_id}",
-  "response_to_conflicts": [
-    {{
-      "conflict": "string",
-      "response": "string",
-      "status": "resolved|partially_resolved|still_open"
-    }}
-  ],
-  "brief_reason": "string",
-  "current_answer": "string"
-}}
+            Schema:
+            {{
+            "agent_id": "{agent_id}",
+            "response_to_conflicts": [
+                {{
+                "conflict": "string",
+                "response": "string",
+                "status": "resolved|partially_resolved|still_open"
+                }}
+            ],
+            "brief_reason": "string",
+            "current_answer": "string"
+            }}
 
-VERY IMPORTANT RULES:
-1. You must complete the fields in this order:
-   (a) response_to_conflicts
-   (b) brief_reason
-   (c) current_answer
-2. current_answer is the FINAL answer for this round.
-3. If your reasoning changes anywhere in response_to_conflicts or brief_reason,
-   you MUST update current_answer so that it matches your final view.
-4. current_answer is the single source of truth used by the system.
-5. Do NOT let current_answer disagree with response_to_conflicts or brief_reason.
-6. If you revise your answer during reasoning, the final revised answer must appear in current_answer.
-7. Keep response_to_conflicts concise and directly tied to the structured conflicts in the input.
-8. If there is no true unresolved conflict to respond to, response_to_conflicts may be [].
+            Rules:
+            - Fill fields in this order:
+            1. response_to_conflicts
+            2. brief_reason
+            3. current_answer
+            - current_answer is your FINAL answer for this round.
+            - If your reasoning changes, current_answer must match your final view.
+            - Do not let current_answer contradict brief_reason or response_to_conflicts.
+            - If there is no real unresolved conflict, response_to_conflicts may be [].
+            - Do not output extra fields.
 
-Field instructions:
-- response_to_conflicts:
-  Respond only to the unresolved conflicts represented in the structured input.
-  Each item should contain:
-  - conflict: the conflict text
-  - response: your direct response to that conflict
-  - status:
-      resolved = fully addressed
-      partially_resolved = some progress but not fully solved
-      still_open = remains unresolved
-- brief_reason:
-  A short summary of why you keep or revise your answer.
-- current_answer:
-  The final answer after considering all conflict responses and reasoning above.
+            Input:
+            {json.dumps(payload, ensure_ascii=False, indent=2)}
 
-Input:
-{json.dumps(payload, ensure_ascii=False, indent=2)}
-
-Return JSON only.
-""".strip()
+            Return JSON only.
+            """.strip()
 
         return prompt
 
@@ -324,7 +305,7 @@ Return JSON only.
         - "\\*"  -> "\\\\*"
 
         Valid JSON escapes are:
-        \", \\, \/, \b, \f, \n, \r, \t, \uXXXX
+        \", \\, \/, \b, \f, \n, \r, \t, \\uXXXX
 
         Any backslash not followed by one of the valid escape chars
         is converted into a double backslash.

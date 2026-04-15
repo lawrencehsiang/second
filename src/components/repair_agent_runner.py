@@ -116,52 +116,48 @@ class RepairAgentRunner:
         payload = repair_agent_input.model_dump()
 
         prompt = f"""
-You are agent {agent_id} in REPAIR MODE of a multi-agent debate system.
+            You are agent {agent_id} in repair mode after rollback.
 
-This is NOT a normal round.
-The debate has rolled back to a healthier anchor state.
-You are given:
-- the original question
-- anchor-derived history units
-- a repair brief summarizing the failed suffix
+            You are given:
+            - the original question
+            - anchor-derived history units
+            - a repair brief summarizing the failed suffix
 
-Your job:
-1. use the anchor-derived history as the stable base
-2. use the repair brief to understand what went wrong
-3. directly respond to remaining conflicts if any
-4. give your repaired current answer
+            Use the anchor-derived history as the stable base.
+            Use the repair brief to understand what went wrong and what still needs repair.
 
-Return JSON only.
-Do not output markdown.
-Do not output any explanation outside JSON.
+            Return JSON only. No markdown. No extra text.
+            Do NOT use LaTeX.
+            Do NOT use backslashes.
+            Do NOT write things like \\( \\) or \\[ \\].
 
-Output JSON schema:
-{{
-  "agent_id": "{agent_id}",
-  "response_to_conflicts": [
-    {{
-      "conflict": "string",
-      "response": "string",
-      "status": "resolved|partially_resolved|still_open"
-    }}
-  ],
-  "brief_reason": "string",
-  "current_answer": "string"
-}}
+            Schema:
+            {{
+            "agent_id": "{agent_id}",
+            "response_to_conflicts": [
+                {{
+                "conflict": "string",
+                "response": "string",
+                "status": "resolved|partially_resolved|still_open"
+                }}
+            ],
+            "brief_reason": "string",
+            "current_answer": "string"
+            }}
 
-VERY IMPORTANT RULES:
-1. response_to_conflicts should address the conflicts in the repair brief.
-2. brief_reason should explain why your repaired answer is justified.
-3. current_answer must be your FINAL repaired answer for this round.
-4. If your reasoning changes, current_answer must reflect that final view.
-5. If there are no real remaining conflicts, response_to_conflicts may be [].
-6. Keep your reasoning brief and grounded in the provided information.
+            Rules:
+            - response_to_conflicts should address the conflicts in the repair brief.
+            - brief_reason should explain why your repaired answer is justified.
+            - current_answer is your FINAL repaired answer for this round.
+            - If your reasoning changes, current_answer must match your final view.
+            - If there is no real remaining conflict, response_to_conflicts may be [].
+            - Do not output extra fields.
 
-Input:
-{json.dumps(payload, ensure_ascii=False, indent=2)}
+            Input:
+            {json.dumps(payload, ensure_ascii=False, indent=2)}
 
-Return JSON only.
-""".strip()
+            Return JSON only.
+            """.strip()
 
         return prompt
 
@@ -213,7 +209,7 @@ Return JSON only.
         - "\\*"  -> "\\\\*"
 
         Valid JSON escapes are:
-        \", \\, \/, \b, \f, \n, \r, \t, \uXXXX
+        \", \\, \/, \b, \f, \n, \r, \t, \\uXXXX
 
         Any backslash not followed by one of the valid escape chars
         is converted into a double backslash.

@@ -197,86 +197,60 @@ class Recorder:
         )
 
         prompt = f"""
-You are a structured debate state recorder.
+            You are a debate state recorder.
 
-Your task is to summarize the current round's agent outputs into ONE compact JSON object.
+            The system has already fixed `current_answers`.
+            Do NOT generate or modify `current_answers`.
 
-IMPORTANT:
-- The system has already fixed the field `current_answers`.
-- You must NOT regenerate, compress, merge, or modify `current_answers`.
-- You only need to produce the following three fields:
-  1. newly_added_claims
-  2. unresolved_conflicts
-  3. key_raw_snippets
+            Your job is to output JSON with ONLY these fields:
+            1. newly_added_claims
+            2. unresolved_conflicts
+            3. key_raw_snippets
 
-You must output JSON only.
-Do not output markdown.
-Do not output explanation.
+            Return JSON only. No markdown. No extra text.
 
-The JSON schema is:
-{{
-  "newly_added_claims": [
-    {{
-      "text": "string",
-      "claim_type": "support" | "rebuttal" | "constraint" | "explanation",
-      "related_answer": "string or null"
-    }}
-  ],
-  "unresolved_conflicts": [
-    {{
-      "conflict": "string",
-      "why_still_open": "string",
-      "involved_answers": ["string", ...]
-    }}
-  ],
-  "key_raw_snippets": ["string", ...]
-}}
+            Schema:
+            {{
+            "newly_added_claims": [
+                {{
+                "text": "string",
+                "claim_type": "support|rebuttal|constraint|explanation",
+                "related_answer": "string or null"
+                }}
+            ],
+            "unresolved_conflicts": [
+                {{
+                "conflict": "string",
+                "why_still_open": "string",
+                "involved_answers": ["string", ...]
+                }}
+            ],
+            "key_raw_snippets": ["string", ...]
+            }}
 
-Definitions:
-1. newly_added_claims:
-- Include only the key claims newly surfaced or meaningfully expressed in this round.
-- A claim should be useful for future debate continuation.
-- Do NOT include every sentence.
-- Prefer concise, non-redundant claims.
-- claim_type meanings:
-  - support: supports a conclusion/answer
-  - rebuttal: challenges another answer/reasoning
-  - constraint: states a requirement/condition/limitation
-  - explanation: explains how a conclusion is derived
-- related_answer should be the answer this claim mainly supports or targets, if clear; otherwise null.
+            Rules:
+            - newly_added_claims: keep only useful claims that are newly introduced or meaningfully advanced this round.
+            - unresolved_conflicts: keep only conflicts still open after this round.
+            - key_raw_snippets: keep at most {self.max_snippets} short, useful, non-redundant snippets.
+            - Be faithful to the inputs.
+            - Avoid duplicates.
+            - Do not hallucinate.
+            - Do not output extra fields.
 
-2. unresolved_conflicts:
-- Include only conflicts that remain unresolved after considering all agent outputs in this round.
-- If a conflict is only partially resolved, it should still remain here.
-- why_still_open should summarize why the conflict remains open.
-- involved_answers should list the answers directly involved in the conflict, if clear.
+            Previous StateRecord:
+            {json.dumps(previous_state_payload, ensure_ascii=False, indent=2)}
 
-3. key_raw_snippets:
-- Preserve a few short raw snippets from this round that are especially informative.
-- Maximum {self.max_snippets} snippets.
-- Prefer snippets that are useful for future debate.
-- Avoid redundancy.
+            Current round_id:
+            {round_id}
 
-Additional requirements:
-- Be faithful to the agent outputs.
-- Keep the output compact.
-- Avoid duplicate claims and duplicate conflicts.
-- Do not hallucinate information not present in the inputs.
+            Fixed current_answers (for reference only; do NOT output them):
+            {json.dumps(fixed_current_answers, ensure_ascii=False, indent=2)}
 
-Previous StateRecord (for reference, may be null):
-{json.dumps(previous_state_payload, ensure_ascii=False, indent=2)}
+            Current round agent_outputs:
+            {json.dumps(agent_outputs_payload, ensure_ascii=False, indent=2)}
 
-Current round_id:
-{round_id}
-
-System-fixed current_answers (for reference only; DO NOT output them):
-{json.dumps(fixed_current_answers, ensure_ascii=False, indent=2)}
-
-Current round agent_outputs:
-{json.dumps(agent_outputs_payload, ensure_ascii=False, indent=2)}
-
-Return JSON only.
-""".strip()
+            Return JSON only.
+            """.strip()
 
         return prompt
 

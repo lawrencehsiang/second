@@ -138,61 +138,55 @@ class Evaluator:
         current_payload = current_state_record.model_dump()
 
         prompt = f"""
-You are a structured evaluator for a multi-agent debate system.
+            You are a debate state evaluator.
 
-Your task is to compare the PREVIOUS round state and the CURRENT round state,
-then output ONE JSON object only.
+            Compare the PREVIOUS state and the CURRENT state.
+            Return JSON only. No markdown. No extra text.
 
-Do not output markdown.
-Do not output explanation outside JSON.
+            Schema:
+            {{
+            "progress_score": 1-5,
+            "information_quality_score": 1-5,
+            "future_utility_score": 1-5,
+            "rationale": "string"
+            }}
 
-JSON schema:
-{{
-  "progress_score": 1-5,
-  "information_quality_score": 1-5,
-  "future_utility_score": 1-5,
-  "rationale": "string"
-}}
+            Scoring:
+            - progress_score:
+            1 = little or no progress / regression
+            3 = some progress
+            5 = clear substantial progress
 
-Scoring rubric:
+            - information_quality_score:
+            1 = low-quality, vague, noisy, or contradictory
+            3 = mixed quality
+            5 = clear, coherent, specific, useful
 
-1) progress_score
-- 1: compared with the previous round, there is almost no meaningful progress or even regression
-- 3: compared with the previous round, there is moderate progress with some advancement
-- 5: compared with the previous round, there is clear and substantial progress toward resolving the question
+            - future_utility_score:
+            1 = low value for next round
+            3 = somewhat useful
+            5 = highly useful for continuation
 
-2) information_quality_score
-- 1: the current state contains low-quality, vague, contradictory, or mostly noisy information
-- 3: the current state is partially useful but mixed in quality
-- 5: the current state is clear, specific, coherent, and highly decision-useful
+            Focus on:
+            - whether answers become more stable, informative, or justified
+            - whether conflicts become fewer, clearer, or more actionable
+            - whether newly added claims are useful and non-redundant
+            - whether the current state is worth continuing from
 
-3) future_utility_score
-- 1: the current state has low value for subsequent rounds
-- 3: the current state is somewhat useful for continuation
-- 5: the current state is highly reusable and strongly supports next-round reasoning
+            Use integer scores only.
+            Keep rationale short (1-2 sentences).
 
-Evaluation guidance:
-- Compare the current state against the previous state.
-- Focus on whether the current state improves the debate trajectory.
-- Consider:
-  - whether answers become more stable, more informative, or more justified
-  - whether unresolved conflicts become clearer, fewer, or more actionable
-  - whether newly added claims are useful and non-redundant
-  - whether the current state would help the next round continue productively
-- Keep rationale concise (1-3 sentences).
-- Return integers only for the three scores.
+            Question:
+            {question}
 
-Question:
-{question}
+            Previous StateRecord:
+            {json.dumps(previous_payload, ensure_ascii=False, indent=2)}
 
-Previous StateRecord:
-{json.dumps(previous_payload, ensure_ascii=False, indent=2)}
+            Current StateRecord:
+            {json.dumps(current_payload, ensure_ascii=False, indent=2)}
 
-Current StateRecord:
-{json.dumps(current_payload, ensure_ascii=False, indent=2)}
-
-Return JSON only.
-""".strip()
+            Return JSON only.
+            """.strip()
 
         return prompt
 

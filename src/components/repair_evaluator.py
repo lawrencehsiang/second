@@ -161,73 +161,66 @@ class RepairEvaluator:
         )
 
         prompt = f"""
-You are a structured evaluator for the repair stage of a multi-agent debate system.
+            You are a repair-stage evaluator for a multi-agent debate system.
 
-Your task is to evaluate the CURRENT repair-round state and output ONE JSON object only.
+            Evaluate the CURRENT repair state using:
+            - anchor_state
+            - repair_brief
+            - previous_repair_state_record (if any)
+            - current_state_record
 
-Do not output markdown.
-Do not output explanation outside JSON.
+            Return JSON only. No markdown. No extra text.
 
-JSON schema:
-{{
-  "progress_score": 1-5,
-  "information_quality_score": 1-5,
-  "completion_readiness_score": 1-5,
-  "rationale": "string"
-}}
+            Schema:
+            {{
+            "progress_score": 1-5,
+            "information_quality_score": 1-5,
+            "completion_readiness_score": 1-5,
+            "rationale": "string"
+            }}
 
-Repair-stage context:
-- anchor_state: the last healthy state before rollback
-- repair_brief: compact summary of what went wrong in the failed suffix and what conflicts remain
-- previous_repair_state_record: the previous repair-round state if available
-- current_state_record: the current repair-round state to evaluate
+            Scoring:
+            - progress_score:
+            1 = little or no repair progress
+            3 = some repair progress
+            5 = clear substantial repair progress
 
-Scoring rubric:
+            - information_quality_score:
+            1 = vague, repetitive, low-quality, or not useful
+            3 = mixed quality
+            5 = clear, coherent, specific, and useful
 
-1) progress_score
-- 1: the current repair round makes almost no meaningful progress relative to the anchor/previous repair state
-- 3: the current repair round makes moderate progress, clarifies some issues, or partially advances repair
-- 5: the current repair round makes clear and substantial progress in addressing the repair brief
+            - completion_readiness_score:
+            1 = not ready to finalize
+            3 = partly mature but still needs another repair round
+            5 = ready to finalize
 
-2) information_quality_score
-- 1: the current repair state is vague, repetitive, low-quality, or not useful for repair
-- 3: the current repair state is partially useful but still mixed in quality
-- 5: the current repair state is clear, coherent, specific, and highly useful for resolving the remaining conflicts
+            Focus on:
+            - whether remaining conflicts in the repair brief are being addressed
+            - whether the current repair state avoids repeating the failure pattern
+            - whether the repair state is becoming clearer, more stable, and more useful
+            - whether another repair round is still necessary
 
-3) completion_readiness_score
-- 1: the current repair state is clearly not ready to finalize
-- 3: the repair state is somewhat mature but still needs another repair round
-- 5: the repair state is ready to finalize because the remaining conflicts are largely resolved or the answer state is sufficiently stable and justified
+            Use integer scores only.
+            Keep rationale short (1-2 sentences).
 
-Evaluation guidance:
-- Use anchor_state as the healthy rollback point.
-- Use repair_brief as the core repair objective.
-- If previous_repair_state_record is provided, compare whether the current repair round improves over it.
-- Focus on:
-  - whether the current state addresses the remaining_conflicts in the repair_brief
-  - whether the current state avoids repeating the same failure pattern described in failure_summary
-  - whether the current state is becoming clearer, more stable, and more decision-useful
-  - whether another repair round is still necessary
-- Keep rationale concise (1-3 sentences).
-- Return integers only for the three scores.
+            Question:
+            {question}
 
-Question:
-{question}
+            Anchor StateRecord:
+            {json.dumps(anchor_payload, ensure_ascii=False, indent=2)}
 
-Anchor StateRecord:
-{json.dumps(anchor_payload, ensure_ascii=False, indent=2)}
+            Repair Brief:
+            {json.dumps(repair_brief_payload, ensure_ascii=False, indent=2)}
 
-Repair Brief:
-{json.dumps(repair_brief_payload, ensure_ascii=False, indent=2)}
+            Previous Repair StateRecord (may be null):
+            {json.dumps(previous_repair_payload, ensure_ascii=False, indent=2)}
 
-Previous Repair StateRecord (may be null):
-{json.dumps(previous_repair_payload, ensure_ascii=False, indent=2)}
+            Current Repair StateRecord:
+            {json.dumps(current_payload, ensure_ascii=False, indent=2)}
 
-Current Repair StateRecord:
-{json.dumps(current_payload, ensure_ascii=False, indent=2)}
-
-Return JSON only.
-""".strip()
+            Return JSON only.
+            """.strip()
 
         return prompt
 

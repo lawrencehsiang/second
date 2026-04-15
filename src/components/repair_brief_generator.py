@@ -147,60 +147,43 @@ class RepairBriefGenerator:
         payload = generator_input.model_dump()
 
         prompt = f"""
-You are a structured repair-brief generator for a multi-agent debate system.
+            You are a repair-brief generator for a multi-agent debate system.
 
-Your task is to compress the failed suffix after rollback into ONE compact JSON object called RepairBrief.
+            The anchor_state is the last healthy state before rollback.
+            The failed_suffix_state_records are the later states that led to rollback.
 
-You must output JSON only.
-Do not output markdown.
-Do not output explanation outside JSON.
+            Your job is to output ONE compact JSON object with only:
+            1. remaining_conflicts
+            2. failure_summary
 
-JSON schema:
-{{
-  "remaining_conflicts": [
-    {{
-      "conflict": "string",
-      "why_still_open": "string"
-    }}
-  ],
-  "failure_summary": "string"
-}}
+            Return JSON only. No markdown. No extra text.
 
-Task definition:
-- The anchor_state is the last healthy state before rollback.
-- The failed_suffix_state_records are the old states after the anchor that eventually led to rollback.
-- Your job is NOT to restate everything.
-- Your job is to produce a very compact repair brief that helps the system restart from the anchor state.
+            Schema:
+            {{
+            "remaining_conflicts": [
+                {{
+                "conflict": "string",
+                "why_still_open": "string"
+                }}
+            ],
+            "failure_summary": "string"
+            }}
 
-Output requirements:
+            Rules:
+            - remaining_conflicts: keep only the most important unresolved conflicts still worth focusing on in repair mode.
+            - Keep at most {self.max_remaining_conflicts} conflicts.
+            - Merge duplicates if they refer to the same issue.
+            - failure_summary: briefly explain why the failed suffix did not progress well.
+            - Focus on patterns like stagnation, repeated support without progress, unresolved core conflict, or circular disagreement.
+            - Keep the output compact, faithful, and non-redundant.
+            - Do not hallucinate.
+            - Do not output extra fields.
 
-1. remaining_conflicts
-- Keep only the key conflicts that are still unresolved after reviewing the failed suffix.
-- These should be the conflicts most worth focusing on in repair mode.
-- Maximum {self.max_remaining_conflicts} items.
-- Merge duplicates if they refer to the same underlying issue.
+            Input:
+            {json.dumps(payload, ensure_ascii=False, indent=2)}
 
-2. failure_summary
-- Write a short summary of why the failed suffix went wrong.
-- Focus on patterns like:
-  - repeated defense of the same answer without progress
-  - failure to directly resolve the core conflict
-  - repeated but low-value support
-  - drift, stagnation, or circular disagreement
-- Keep it concise and actionable.
-- Do not make the summary too long.
-
-Important constraints:
-- Be faithful to the provided states.
-- Do not hallucinate conflicts not supported by the failed suffix.
-- Do not output extra fields.
-- The goal is repair usefulness, not detailed retrospective analysis.
-
-Input:
-{json.dumps(payload, ensure_ascii=False, indent=2)}
-
-Return JSON only.
-""".strip()
+            Return JSON only.
+            """.strip()
 
         return prompt
 
