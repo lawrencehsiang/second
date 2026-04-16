@@ -1,0 +1,448 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "5",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tobias's total savings plus earnings from driveways equal his final amount of $7.",
+          "claim_type": "constraint",
+          "related_answer": "7"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C have the same answer but different reasoning.",
+          "why_still_open": "Both agents arrived at the same answer through different methods, requiring verification.",
+          "involved_answers": [
+            "5",
+            "7"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate Tobias's total savings and then determine how much he earned from shoveling driveways.",
+        "Calculate the total amount Tobias saved and then determine how many driveways he shoveled based on the remaining money after buying the shoes.",
+        "Tobias's total savings plus earnings from driveways equal his final amount of $7."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "5",
+        "7"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C have the same answer but different reasoning.",
+          "why_still_open": "C's calculations need further verification.",
+          "involved_answers": [
+            "5",
+            "7"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate Tobias's total savings and then determine how much he earned from shoveling driveways.",
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "7",
+        "7",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tobias shoveled approximately 2.86 driveways, which rounds to 3 driveways.",
+          "claim_type": "constraint",
+          "related_answer": "3"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Tobias saved $15 over 3 months and earned $60 from mowing 4 lawns, totaling $75 before buying the shoes.",
+        "With $15 left after buying the shoes, Tobias earned $20 from shoveling driveways."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "5",
+        "5",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tobias shoveled 2 driveways, which rounds down from 2.14.",
+          "claim_type": "constraint",
+          "related_answer": "2"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Tobias saved $15 over 3 months and earned $60 from mowing 4 lawns, totaling $75 before buying the shoes.",
+        "Tobias shoveled 2 driveways, which rounds down from 2.14."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "5",
+        "3",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tobias mowed 4 lawns, earning $60.",
+          "claim_type": "support",
+          "related_answer": "3"
+        },
+        {
+          "text": "Tobias saved $15 over 3 months and earned $60 from mowing 4 lawns, totaling $75 before buying the shoes.",
+          "claim_type": "support",
+          "related_answer": "3"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C have the same answer but different reasoning.",
+          "why_still_open": "Agent C's response was partially resolved but did not fully align with Agents A and B.",
+          "involved_answers": [
+            "3",
+            "7"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Tobias saved $15 over 3 months and earned $60 from mowing 4 lawns, totaling $75 before buying the shoes.",
+        "Tobias shoveled 5 driveways."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 259,
+      "completion_tokens": 43,
+      "total_tokens": 302,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 259,
+      "completion_tokens": 50,
+      "total_tokens": 309,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 259,
+      "completion_tokens": 50,
+      "total_tokens": 309,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 207,
+      "total_tokens": 812,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 624,
+      "completion_tokens": 103,
+      "total_tokens": 727,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 624,
+      "completion_tokens": 100,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 624,
+      "completion_tokens": 86,
+      "total_tokens": 710,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1028,
+      "completion_tokens": 153,
+      "total_tokens": 1181,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 642,
+      "completion_tokens": 60,
+      "total_tokens": 702,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 726,
+      "completion_tokens": 93,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 726,
+      "completion_tokens": 109,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 726,
+      "completion_tokens": 243,
+      "total_tokens": 969,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1121,
+      "completion_tokens": 184,
+      "total_tokens": 1305,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 582,
+      "completion_tokens": 63,
+      "total_tokens": 645,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 715,
+      "completion_tokens": 100,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 715,
+      "completion_tokens": 139,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 715,
+      "completion_tokens": 285,
+      "total_tokens": 1000,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1223,
+      "completion_tokens": 180,
+      "total_tokens": 1403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 573,
+      "completion_tokens": 58,
+      "total_tokens": 631,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 716,
+      "completion_tokens": 107,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 716,
+      "completion_tokens": 208,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 716,
+      "completion_tokens": 100,
+      "total_tokens": 816,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1118,
+      "completion_tokens": 285,
+      "total_tokens": 1403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 691,
+      "completion_tokens": 56,
+      "total_tokens": 747,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 302,
+    "majority_vote_total_tokens": 920,
+    "scrd_total_tokens": 19765,
+    "scrd_prompt_tokens": 16703,
+    "scrd_completion_tokens": 3062,
+    "agent_total_tokens": 10936,
+    "recorder_total_tokens": 6104,
+    "evaluator_total_tokens": 2725,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

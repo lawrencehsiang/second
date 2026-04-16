@@ -1,0 +1,457 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "24",
+        "32 hours",
+        "32 hours"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total biking distance divided by speed equals 24 hours.",
+          "claim_type": "support",
+          "related_answer": "24"
+        },
+        {
+          "text": "Total biking distance divided by speed equals 32 hours.",
+          "claim_type": "rebuttal",
+          "related_answer": "32 hours"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and Agent C support 32 hours while Agent A supports 24 hours.",
+          "why_still_open": "The calculation methods used by Agents B and C differ from Agent A's, leading to conflicting results.",
+          "involved_answers": [
+            "24",
+            "32 hours"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "total biking distance / speed = 24",
+        "total biking distance / speed = 32",
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "32",
+        "32 hours",
+        "32 hours"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the total biking distance and speed to ensure the correct calculation method is applied.",
+          "claim_type": "constraint",
+          "related_answer": "32"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and Agent C support 32 hours while Agent A supports 24 hours.",
+          "why_still_open": "Agent A's calculation differs due to a different interpretation of the problem.",
+          "involved_answers": [
+            "24",
+            "32 hours"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "total biking distance / speed = 32",
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "200 miles on weekends + 100 miles for workdays / 25 mph = 32 hours"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "24",
+        "32 hours",
+        "12 hours"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct approach involves calculating the daily commute and the weekend ride separately.",
+          "claim_type": "explanation",
+          "related_answer": "24"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and Agent C support 32 hours while Agent A supports 24 hours.",
+          "why_still_open": "Agent A's calculation differs due to a different interpretation of the problem.",
+          "involved_answers": [
+            "24",
+            "32 hours"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "200 miles on weekends + 100 miles for workdays / 25 mph = 32 hours",
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "total biking distance / speed = 32"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "9.6",
+        "24 hours",
+        "18 hours"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total weekly biking distance is 240 miles for the commute and 200 miles for the weekend ride.",
+          "claim_type": "explanation",
+          "related_answer": "24 hours"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and Agent C support 18 hours while Agent A supports 24 hours.",
+          "why_still_open": "There is a discrepancy in how the total biking distance is calculated and rounded.",
+          "involved_answers": [
+            "18 hours",
+            "24 hours"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "200 miles on weekends + 40 miles for workdays / 25 mph = 24 hours",
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "240 + 200 = 440 miles / 25 mph = 17.6 hours, rounded to 18 hours"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "12.8",
+        "32 hours",
+        "32 hours"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "200 miles on weekends + 400 miles for workdays / 25 mph = 32 hours",
+        "240 + 200 = 440 miles / 25 mph = 17.6 hours, rounded to 18 hours"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 224,
+      "completion_tokens": 34,
+      "total_tokens": 258,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 224,
+      "completion_tokens": 47,
+      "total_tokens": 271,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 224,
+      "completion_tokens": 39,
+      "total_tokens": 263,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 587,
+      "completion_tokens": 255,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 691,
+      "completion_tokens": 103,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 692,
+      "completion_tokens": 106,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 692,
+      "completion_tokens": 180,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1190,
+      "completion_tokens": 236,
+      "total_tokens": 1426,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 734,
+      "completion_tokens": 57,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 692,
+      "completion_tokens": 116,
+      "total_tokens": 808,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 693,
+      "completion_tokens": 121,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 693,
+      "completion_tokens": 198,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1212,
+      "completion_tokens": 232,
+      "total_tokens": 1444,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 690,
+      "completion_tokens": 56,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 798,
+      "completion_tokens": 203,
+      "total_tokens": 1001,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 799,
+      "completion_tokens": 129,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 799,
+      "completion_tokens": 247,
+      "total_tokens": 1046,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1345,
+      "completion_tokens": 269,
+      "total_tokens": 1614,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 701,
+      "completion_tokens": 69,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 606,
+      "completion_tokens": 182,
+      "total_tokens": 788,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 606,
+      "completion_tokens": 147,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 606,
+      "completion_tokens": 161,
+      "total_tokens": 767,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1311,
+      "completion_tokens": 93,
+      "total_tokens": 1404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 587,
+      "completion_tokens": 57,
+      "total_tokens": 644,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 258,
+    "majority_vote_total_tokens": 792,
+    "scrd_total_tokens": 20733,
+    "scrd_prompt_tokens": 17396,
+    "scrd_completion_tokens": 3337,
+    "agent_total_tokens": 11052,
+    "recorder_total_tokens": 6730,
+    "evaluator_total_tokens": 2951,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

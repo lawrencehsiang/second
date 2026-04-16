@@ -1,0 +1,450 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4300000",
+        "4300000",
+        "3400000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the selling price, daily revenue, weekly revenue, and total revenue over 20 weeks, then subtract the initial movie creation cost and total production cost.",
+          "claim_type": "constraint",
+          "related_answer": "4300000"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and Agent C agree on calculating total revenue and total cost over 20 weeks, but there's no consensus on further steps.",
+          "why_still_open": "Agents B and C have different final answers (4300000 vs 3400000).",
+          "involved_answers": [
+            "4300000",
+            "3400000"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3400000",
+        "3400000",
+        "4300000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the profit after subtracting the initial movie creation cost and total production cost from the total revenue over 20 weeks.",
+          "claim_type": "constraint",
+          "related_answer": "3400000"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Profit = Total Revenue - Total Cost",
+        "3400000"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "3400000",
+        "3400000",
+        "4300000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct profit calculation involves subtracting the initial movie creation cost and total production cost from the total revenue over 20 weeks.",
+          "claim_type": "constraint",
+          "related_answer": "3400000"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and Agent C have different final answers ($3400000 vs $4300000).",
+          "why_still_open": "There is a discrepancy in the final profit calculation despite agreement on the method.",
+          "involved_answers": [
+            "3400000",
+            "4300000"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Profit = Total Revenue - Total Cost",
+        "3750000 - 1200000 - 2000 = 2548000"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "3400000",
+        "3400000",
+        "3400000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of $4300000 contradicts the agreed method and is therefore incorrect.",
+          "claim_type": "explanation",
+          "related_answer": "3400000"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Profit = Total Revenue - Total Cost",
+        "3750000 - 1200000 - 2000 = 2548000"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "3400000",
+        "3400000",
+        "4300000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent C revised their answer to $4300000 after re-evaluating the calculation.",
+          "claim_type": "explanation",
+          "related_answer": "4300000"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A's agreement with $3400000 vs. the new answer from Agent C of $4300000.",
+          "why_still_open": "There is no clear resolution on which answer is correct between $3400000 and $4300000.",
+          "involved_answers": [
+            "3400000",
+            "4300000"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Profit = Total Revenue - Total Cost",
+        "3750000 - 1200000 - 2000 = 2548000"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 230,
+      "completion_tokens": 62,
+      "total_tokens": 292,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 230,
+      "completion_tokens": 42,
+      "total_tokens": 272,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 230,
+      "completion_tokens": 47,
+      "total_tokens": 277,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 631,
+      "completion_tokens": 240,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 649,
+      "completion_tokens": 130,
+      "total_tokens": 779,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 649,
+      "completion_tokens": 133,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 649,
+      "completion_tokens": 135,
+      "total_tokens": 784,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1218,
+      "completion_tokens": 154,
+      "total_tokens": 1372,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 713,
+      "completion_tokens": 61,
+      "total_tokens": 774,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 776,
+      "completion_tokens": 134,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 776,
+      "completion_tokens": 472,
+      "total_tokens": 1248,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 776,
+      "completion_tokens": 142,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1461,
+      "completion_tokens": 266,
+      "total_tokens": 1727,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 695,
+      "completion_tokens": 50,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 765,
+      "completion_tokens": 171,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 765,
+      "completion_tokens": 151,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 765,
+      "completion_tokens": 163,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1315,
+      "completion_tokens": 176,
+      "total_tokens": 1491,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 693,
+      "completion_tokens": 51,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 743,
+      "completion_tokens": 126,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 743,
+      "completion_tokens": 172,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 743,
+      "completion_tokens": 128,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1169,
+      "completion_tokens": 280,
+      "total_tokens": 1449,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 707,
+      "completion_tokens": 66,
+      "total_tokens": 773,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 292,
+    "majority_vote_total_tokens": 841,
+    "scrd_total_tokens": 21643,
+    "scrd_prompt_tokens": 18091,
+    "scrd_completion_tokens": 3552,
+    "agent_total_tokens": 11697,
+    "recorder_total_tokens": 6910,
+    "evaluator_total_tokens": 3036,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}
