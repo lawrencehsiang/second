@@ -26,13 +26,13 @@ class LLMClientProtocol(Protocol):
         """
         Optional richer interface:
         {
-            "content": str,
-            "usage": {
-                "prompt_tokens": int,
-                "completion_tokens": int,
-                "total_tokens": int
-            },
-            "raw_response": dict
+          "content": str,
+          "usage": {
+              "prompt_tokens": int,
+              "completion_tokens": int,
+              "total_tokens": int
+          },
+          "raw_response": dict
         }
         """
         ...
@@ -41,17 +41,6 @@ class LLMClientProtocol(Protocol):
 class AgentRunner:
     """
     LLM-based runner for normal-stage agents.
-
-    Responsibilities:
-    1. Build prompts for round 1 and normal rounds
-    2. Ask the LLM to return strict JSON
-    3. Parse basic JSON fields into schema objects
-    4. Keep protocol simple and robust
-    5. Optionally log token usage
-
-    Notes:
-    - This version does NOT change your existing parsing logic.
-    - It only adds optional usage logging support.
     """
 
     def __init__(
@@ -60,11 +49,13 @@ class AgentRunner:
         max_retries: int = 2,
         usage_logger: Any | None = None,
         sample_id: str | None = None,
+        dataset_name: str = "gsm8k",
     ) -> None:
         self.llm_client = llm_client
         self.max_retries = max_retries
         self.usage_logger = usage_logger
         self.sample_id = sample_id
+        self.dataset_name = dataset_name
 
     # ------------------------------------------------------------------
     # Public API
@@ -82,11 +73,9 @@ class AgentRunner:
         )
 
         last_error: Exception | None = None
-
         for _ in range(self.max_retries + 1):
             try:
                 raw_text, usage = self._generate_with_optional_usage(prompt)
-
                 self._log_usage(
                     sample_id=sample_id or self.sample_id,
                     round_id=round_id,
@@ -95,16 +84,12 @@ class AgentRunner:
                     agent_id=agent_id,
                     usage=usage,
                 )
-
-                # print(f"Raw model output for round 1 agent {agent_id}: {raw_text}")
                 data = self._extract_json(raw_text)
                 output = self._parse_round_1_output(
                     agent_id=agent_id,
                     data=data,
                 )
-                # print(f"Round 1 output for agent {agent_id}: {output.model_dump()}")
                 return output
-
             except Exception as exc:
                 last_error = exc
 
@@ -126,11 +111,9 @@ class AgentRunner:
         )
 
         last_error: Exception | None = None
-
         for _ in range(self.max_retries + 1):
             try:
                 raw_text, usage = self._generate_with_optional_usage(prompt)
-
                 self._log_usage(
                     sample_id=sample_id or self.sample_id,
                     round_id=round_id,
@@ -139,16 +122,12 @@ class AgentRunner:
                     agent_id=agent_id,
                     usage=usage,
                 )
-
-                # print(f"Raw model output for agent {agent_id}: {raw_text}")
                 data = self._extract_json(raw_text)
                 output = self._parse_normal_round_output(
                     agent_id=agent_id,
                     data=data,
                 )
-                # print(f"Normal round output for agent {agent_id}: {output.model_dump()}")
                 return output
-
             except Exception as exc:
                 last_error = exc
 
@@ -160,20 +139,42 @@ class AgentRunner:
     # ------------------------------------------------------------------
     # Prompt builders
     # ------------------------------------------------------------------
+    def _dataset_instruction(self) -> str:
+        if self.dataset_name == "strategyqa":
+            return (
+                'Task type: boolean question answering.\n'
+                '- current_answer must be exactly "true" or "false".\n'
+                '- Do not output yes/no.\n'
+                '- Do not output explanations inside current_answer.\n'
+            )
+
+        if self.dataset_name == "gsm8k":
+            return (
+                "Task type: math reasoning.\n"
+                "- current_answer should be the final numeric answer for this round.\n"
+                "- Keep brief_reason short, but make sure current_answer matches your final computation.\n"
+            )
+
+        return ""
+
     def _build_round_1_prompt(
         self,
         agent_id: str,
         agent_input: AgentInputRound1,
     ) -> str:
         payload = agent_input.model_dump()
+        dataset_instruction = self._dataset_instruction()
 
         prompt = f"""
             You are agent {agent_id} in round 1 of a multi-agent debate system.
-
             This is the independent initialization round.
             You do not have access to other agents' answers.
 
-            Return JSON only. No markdown. No extra text.
+            {dataset_instruction}
+
+            Return JSON only.
+            No markdown.
+            No extra text.
             Do NOT use LaTeX.
             Do NOT use backslashes.
             Do NOT write things like \\( \\) or \\[ \\].
@@ -194,8 +195,7 @@ class AgentRunner:
             {json.dumps(payload, ensure_ascii=False, indent=2)}
 
             Return JSON only.
-            """.strip()
-
+                    """.strip()
         return prompt
 
     def _build_normal_round_prompt(
@@ -204,10 +204,10 @@ class AgentRunner:
         agent_input: AgentInputNormal,
     ) -> str:
         payload = agent_input.model_dump()
+        dataset_instruction = self._dataset_instruction()
 
         prompt = f"""
             You are agent {agent_id} in a normal debate round (t >= 2).
-
             You are given:
             - the original question
             - your own previous answer
@@ -216,7 +216,11 @@ class AgentRunner:
             You do NOT see other agents' new outputs from this same round.
             You may keep or revise your answer.
 
-            Return JSON only. No markdown. No extra text.
+            {dataset_instruction}
+
+            Return JSON only.
+            No markdown.
+            No extra text.
             Do NOT use LaTeX.
             Do NOT use backslashes.
             Do NOT write things like \\( \\) or \\[ \\].
@@ -250,8 +254,7 @@ class AgentRunner:
             {json.dumps(payload, ensure_ascii=False, indent=2)}
 
             Return JSON only.
-            """.strip()
-
+                    """.strip()
         return prompt
 
     # ------------------------------------------------------------------
@@ -261,13 +264,9 @@ class AgentRunner:
         self,
         prompt: str,
     ) -> tuple[str, dict[str, int] | None]:
-        """
-        Prefer generate_with_usage if available; otherwise fall back to generate.
-        """
         if hasattr(self.llm_client, "generate_with_usage"):
             resp = self.llm_client.generate_with_usage(prompt)
             return resp["content"], resp.get("usage")
-
         raw_text = self.llm_client.generate(prompt)
         return raw_text, None
 
@@ -283,7 +282,6 @@ class AgentRunner:
     ) -> None:
         if self.usage_logger is None:
             return
-
         self.usage_logger.log(
             sample_id=sample_id,
             round_id=round_id,
@@ -297,24 +295,11 @@ class AgentRunner:
     # JSON extraction
     # ------------------------------------------------------------------
     def _repair_invalid_backslashes(self, text: str) -> str:
-        """
-        Repair invalid backslash escapes that often appear in model-generated pseudo-JSON.
-
-        Example:
-        - "\\("  -> "\\\\("
-        - "\\*"  -> "\\\\*"
-
-        Valid JSON escapes are:
-        \", \\, \/, \b, \f, \n, \r, \t, \\uXXXX
-
-        Any backslash not followed by one of the valid escape chars
-        is converted into a double backslash.
-        """
         return re.sub(r'\\(?!["\\/bfnrtu])', r"\\\\", text)
+
     def _extract_json(self, raw_text: str) -> dict[str, Any]:
         raw_text = raw_text.strip()
 
-        # Case 1: direct parse
         try:
             data = json.loads(raw_text)
             if not isinstance(data, dict):
@@ -323,7 +308,6 @@ class AgentRunner:
         except json.JSONDecodeError:
             pass
 
-        # Case 2: repair invalid backslashes, then retry direct parse
         repaired_text = self._repair_invalid_backslashes(raw_text)
         try:
             data = json.loads(repaired_text)
@@ -333,14 +317,12 @@ class AgentRunner:
         except json.JSONDecodeError:
             pass
 
-        # Case 3: extract first {...} block
         match = re.search(r"\{.*\}", raw_text, re.DOTALL)
         if not match:
             raise ValueError(f"No JSON object found in model output:\n{raw_text}")
 
         json_block = match.group(0)
 
-        # Try original block
         try:
             data = json.loads(json_block)
             if not isinstance(data, dict):
@@ -349,12 +331,10 @@ class AgentRunner:
         except json.JSONDecodeError:
             pass
 
-        # Try repaired block
         repaired_block = self._repair_invalid_backslashes(json_block)
         data = json.loads(repaired_block)
         if not isinstance(data, dict):
             raise ValueError("Extracted repaired JSON is not an object.")
-
         return data
 
     # ------------------------------------------------------------------
@@ -412,7 +392,6 @@ class AgentRunner:
             return []
 
         results: list[ConflictResponse] = []
-
         for item in value:
             if not isinstance(item, dict):
                 continue
@@ -466,10 +445,8 @@ class AgentRunner:
         value: Any,
     ) -> str:
         valid = {"resolved", "partially_resolved", "still_open"}
-
         if isinstance(value, str):
             cleaned = value.strip().lower()
             if cleaned in valid:
                 return cleaned
-
         return "still_open"

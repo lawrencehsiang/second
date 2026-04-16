@@ -49,9 +49,9 @@ from src.utils.result_utils import (
 
 from src.components.state_store import StateStore
 import inspect
+import json
+from pathlib import Path
 
-print("StateStore loaded from:", inspect.getfile(StateStore))
-print("Has get_action_history:", hasattr(StateStore, "get_action_history"))
 
 AGENT_IDS = ["A", "B", "C"]
 MAX_ROUND = 5
@@ -71,27 +71,64 @@ def build_llm_client() -> QianfanClient:
         model="qwen2.5-7b-instruct",
     )
 
-
 def load_gsm8k_samples(
     parquet_path: str = r"datasets\gsm8k\main\train-00000-of-00001.parquet",
     limit: int = 1,
 ) -> list[tuple[str, str, str]]:
     df = pd.read_parquet(parquet_path)
+    samples: list[tuple[str, str, str]] = []
 
-    samples = []
     for i in range(min(limit, len(df))):
         row = df.iloc[i]
-
         question = str(row["question"]).strip()
         answer_text = str(row["answer"])
-
         result = re.findall(r"####\s*(-?\d+(?:\.\d+)?)", answer_text)
         gold_answer = result[0] if result else answer_text.strip()
-
         sample_id = f"gsm8k_{i+1:04d}"
         samples.append((sample_id, question, gold_answer))
 
     return samples
+
+
+def load_strategyqa_samples(
+    json_path: str = r"datasets\strategyqa\strategyqa_train_filtered.json",
+    limit: int = 1,
+) -> list[tuple[str, str, str]]:
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    samples: list[tuple[str, str, str]] = []
+
+    for i, item in enumerate(data[:limit]):
+        question = str(item["question"]).strip()
+        raw_answer = item["answer"]
+
+        if isinstance(raw_answer, bool):
+            gold_answer = "true" if raw_answer else "false"
+        else:
+            answer_text = str(raw_answer).strip().lower()
+            if answer_text in {"true", "false"}:
+                gold_answer = answer_text
+            else:
+                raise ValueError(
+                    f"Unsupported StrategyQA answer format at index {i}: {raw_answer}"
+                )
+
+        sample_id = f"strategyqa_{i+1:04d}"
+        samples.append((sample_id, question, gold_answer))
+
+    return samples
+
+def load_samples(dataset_name: str, limit: int) -> list[tuple[str, str, str]]:
+    if dataset_name == "gsm8k":
+        return load_gsm8k_samples(limit=limit)
+    if dataset_name == "strategyqa":
+        return load_strategyqa_samples(limit=limit)
+    raise ValueError(f"Unsupported dataset: {dataset_name}")
+
+print("StateStore loaded from:", inspect.getfile(StateStore))
+print("Has get_action_history:", hasattr(StateStore, "get_action_history"))
+
 
 
 def run_normal_mode(
@@ -99,6 +136,7 @@ def run_normal_mode(
     question: str,
     gold_answer: str,
     sample_id: str,
+    dataset_name: str,
 ):
     state_store = StateStore()
     usage_logger = UsageLogger()
@@ -107,6 +145,7 @@ def run_normal_mode(
         llm_client=llm_client,
         usage_logger=usage_logger,
         sample_id=sample_id,
+        dataset_name=dataset_name,
     )
     history_manager = HistoryManager()
     recorder = Recorder(
@@ -147,6 +186,7 @@ def run_normal_mode(
     )
 
     print(f"\n===== Running {sample_id} =====")
+    print("Dataset:", dataset_name)
     print("Question:", question)
     print("Gold answer:", gold_answer)
     print("Starting the debate in normal mode...")
@@ -173,6 +213,7 @@ def run_normal_mode(
                 history_manager=history_manager,
                 usage_logger=usage_logger,
                 sample_id=sample_id,
+                dataset_name=dataset_name,
             )
         else:
             print("Rollback detected, but no valid anchor is available. Skip repair mode.")
@@ -181,20 +222,21 @@ def run_normal_mode(
     final_answers = get_final_answers(state_store)
 
     single_agent_baseline_answer = round_1_answers[0] if round_1_answers else ""
-    majority_voting_baseline_answer = majority_vote(round_1_answers)
-    scrd_final_answer = majority_vote(final_answers)
+    majority_voting_baseline_answer = majority_vote(round_1_answers,dataset_name=dataset_name)
+    scrd_final_answer = majority_vote(final_answers,dataset_name=dataset_name)
     usage_summary = build_usage_summary(usage_logger)
     result = {
         "sample_id": sample_id,
+        "dataset_name": dataset_name,
         "question": question,
         "gold_answer": gold_answer,
         "round_1_answers": round_1_answers,
         "single_agent_baseline_answer": single_agent_baseline_answer,
         "majority_voting_baseline_answer": majority_voting_baseline_answer,
         "scrd_final_answer": scrd_final_answer,
-        "single_agent_correct": is_correct(single_agent_baseline_answer, gold_answer),
-        "majority_voting_correct": is_correct(majority_voting_baseline_answer, gold_answer),
-        "scrd_correct": is_correct(scrd_final_answer, gold_answer),
+        "single_agent_correct": is_correct(single_agent_baseline_answer, gold_answer, dataset_name=dataset_name),
+        "majority_voting_correct": is_correct(majority_voting_baseline_answer, gold_answer, dataset_name=dataset_name),
+        "scrd_correct": is_correct(scrd_final_answer, gold_answer, dataset_name=dataset_name),
         "effective_rounds_used": get_effective_rounds_used(state_store),
         "actual_rounds_executed": get_actual_rounds_executed(state_store),
         "stop_reason": get_stop_reason(rollback_context, early_stopped),
@@ -227,6 +269,7 @@ def run_repair_mode(
     history_manager: HistoryManager,
     usage_logger: UsageLogger,
     sample_id: str,
+    dataset_name: str,
 ) -> None:
     
     repair_action_mapper = RepairActionMapper()
@@ -249,6 +292,7 @@ def run_repair_mode(
         llm_client=llm_client,
         usage_logger=usage_logger,
         sample_id=sample_id,
+        dataset_name=dataset_name,
     )
 
     anchor_round = rollback_context["anchor_round"]
@@ -271,6 +315,7 @@ def run_repair_mode(
             question=question,
             agent_ids=AGENT_IDS,
             max_round=MAX_ROUND,
+            sample_id=sample_id,
         ),
         repair_agent_runner=repair_agent_runner,
         state_store=state_store,
@@ -304,12 +349,15 @@ if __name__ == "__main__":
     print("Starting the debate system...")
 
     llm_client = build_llm_client()
-    writer = ResultWriter(output_dir="outputs")
+    DATASET_NAME = "strategyqa"
+    OUTPUT_DIR = f"outputs/{DATASET_NAME}"
+    writer = ResultWriter(output_dir=OUTPUT_DIR)
 
-    samples = load_gsm8k_samples(limit=100)
+    samples = load_samples(DATASET_NAME, limit=101)
     completed_sample_ids = writer.load_completed_sample_ids()
     if completed_sample_ids:
-        print(f"Resume mode: found {len(completed_sample_ids)} completed samples in outputs/results.jsonl")
+        print(f"Resume mode: found {len(completed_sample_ids)} completed samples in"
+              f"{OUTPUT_DIR}/results.jsonl")
 
     total = 0
     single_correct_count = 0
@@ -330,6 +378,7 @@ if __name__ == "__main__":
                 question=question,
                 gold_answer=gold_answer,
                 sample_id=sample_id,
+                dataset_name=DATASET_NAME,
             )
 
             writer.append_result(result)
@@ -349,13 +398,15 @@ if __name__ == "__main__":
             writer.append_error(
                 {
                     "sample_id": sample_id,
+                    "dataset_name": DATASET_NAME,
                     "question": question,
                     "gold_answer": gold_answer,
                     "error": str(exc),
                     "traceback": traceback.format_exc(),
                 }
             )
-            print(f"Failed sample {sample_id}: {exc}. Logged to outputs/errors.jsonl. Continuing...")
+            print(f"Failed sample {sample_id}: {exc}. Logged to "
+                  f"{OUTPUT_DIR}/errors.jsonl. Continuing...")
             continue
 
     print("\n===== Final Summary =====")
