@@ -25,7 +25,7 @@ class ActionMapper:
 
         # continue
         if all(v >= 3 for v in values):
-            print("所有维度评分均>=3，状态被评估为健康，继续前进。")
+            # print("所有维度评分均>=3，状态被评估为健康，继续前进。")
             return ActionDecision(
                 action="continue",
                 reason=(
@@ -35,7 +35,7 @@ class ActionMapper:
             )
 
         if avg_score >= 3.0 and min_score >= 2:
-            print("平均分>=3且没有维度弱于2，状态被评估为总体健康，继续前进。")
+            # print("平均分>=3且没有维度弱于2，状态被评估为总体健康，继续前进。")
             return ActionDecision(
                 action="continue",
                 reason=(
@@ -46,7 +46,7 @@ class ActionMapper:
 
         # rollback
         if low_count >= 2:
-            print("至少两个维度评分<=2，状态被评估为较差，回滚。")
+            # print("至少两个维度评分<=2，状态被评估为较差，回滚。")
             return ActionDecision(
                 action="rollback",
                 reason=(
@@ -56,7 +56,7 @@ class ActionMapper:
             )
 
         if avg_score < 2.0:
-            print("平均分<2，状态被评估为较差，回滚。")
+            # print("平均分<2，状态被评估为较差，回滚。")
             return ActionDecision(
                 action="rollback",
                 reason=(
@@ -66,7 +66,7 @@ class ActionMapper:
             )
 
         # watch
-        print("评分处于中间区域，状态被评估为不够健康但也不算差，继续观察。")
+        # print("评分处于中间区域，状态被评估为不够健康但也不算差，继续观察。")
         return ActionDecision(
             action="watch",
             reason=(

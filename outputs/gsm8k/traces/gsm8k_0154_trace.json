@@ -1,0 +1,298 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "135",
+        "90",
+        "105"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tim paid 25% of $300 for his doctor's visit.",
+          "claim_type": "support",
+          "related_answer": "90"
+        },
+        {
+          "text": "Cat's visit cost $60 after insurance coverage.",
+          "claim_type": "support",
+          "related_answer": "90"
+        },
+        {
+          "text": "Total cost after insurance: 75 + 60 = 135.",
+          "claim_type": "support",
+          "related_answer": "135"
+        },
+        {
+          "text": "C's claim is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "105"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A's total cost of 135 differs from B's and C's totals of 90 and 105 respectively.",
+          "why_still_open": "The calculations provided by A, B, and C do not match, indicating an unresolved conflict in the total cost.",
+          "involved_answers": [
+            "135",
+            "90",
+            "105"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "300 * (1 - 0.75)",
+        "120 - 60",
+        "75 + 60",
+        "25% of $300",
+        "$60 after insurance"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "135",
+        "135",
+        "135"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A's total cost of 135 differs from B's and C's totals of 90 and 105 respectively.",
+          "why_still_open": "Agent B has not resolved the conflict by recomputing the total cost.",
+          "involved_answers": [
+            "135",
+            "90",
+            "105"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "300 * (1 - 0.75)",
+        "120 - 60",
+        "75 + 60",
+        "25% of $300",
+        "$60 after insurance"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "135",
+        "135",
+        "135"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tim's doctor's visit cost $300 with 75% coverage, and the cat's visit cost $120 with $60 covered.",
+          "claim_type": "explanation",
+          "related_answer": "135"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A's total cost of 135 differs from B's and C's totals of 90 and 105 respectively.",
+          "why_still_open": "Agent B has not fully resolved the conflict by providing a clear computation.",
+          "involved_answers": [
+            "135",
+            "90",
+            "105"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "300 * (1 - 0.75)",
+        "120 - 60",
+        "75 + 60",
+        "25% of $300",
+        "$60 after insurance"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 258,
+      "completion_tokens": 88,
+      "total_tokens": 346,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 258,
+      "completion_tokens": 85,
+      "total_tokens": 343,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 258,
+      "completion_tokens": 56,
+      "total_tokens": 314,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 696,
+      "completion_tokens": 334,
+      "total_tokens": 1030,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 736,
+      "completion_tokens": 167,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 735,
+      "completion_tokens": 108,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 736,
+      "completion_tokens": 160,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1325,
+      "completion_tokens": 170,
+      "total_tokens": 1495,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 799,
+      "completion_tokens": 50,
+      "total_tokens": 849,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 730,
+      "completion_tokens": 206,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 730,
+      "completion_tokens": 183,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 730,
+      "completion_tokens": 177,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1287,
+      "completion_tokens": 232,
+      "total_tokens": 1519,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 692,
+      "completion_tokens": 48,
+      "total_tokens": 740,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 346,
+    "majority_vote_total_tokens": 1003,
+    "scrd_total_tokens": 12034,
+    "scrd_prompt_tokens": 9970,
+    "scrd_completion_tokens": 2064,
+    "agent_total_tokens": 6401,
+    "recorder_total_tokens": 4044,
+    "evaluator_total_tokens": 1589,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

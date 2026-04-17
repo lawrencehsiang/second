@@ -1,0 +1,428 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6912000",
+        "6912000",
+        "736000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the vibrations per second at the highest setting and then find the total vibrations over 5 minutes.",
+          "claim_type": "constraint",
+          "related_answer": "736000"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent C's calculation uses 5 minutes while Agents A and B use the total time in seconds.",
+          "why_still_open": "Different time units lead to different results without clear justification.",
+          "involved_answers": [
+            "6912000",
+            "736000"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50*12*60",
+        "50*12*7200",
+        "12*50*300"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6912000",
+        "768000",
+        "6912000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Convert 5 minutes to seconds for calculation consistency.",
+          "claim_type": "constraint",
+          "related_answer": "768000"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50*12*60",
+        "50*12*7200/60",
+        "2560*300"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "5760000",
+        "768000",
+        "6912000"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5760000",
+        "5*60=300",
+        "2560*300"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "7680000",
+        "768000",
+        "1800000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Converted 5 minutes to 300 seconds and recalculated vibrations per second at the highest setting.",
+          "claim_type": "constraint",
+          "related_answer": "7680000"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "7680000",
+        "5*60=300",
+        "2560*300"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "768000",
+        "768000",
+        "1800000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated vibrations per second at the highest setting.",
+          "claim_type": "constraint",
+          "related_answer": "768000"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 6912000 remains unresolved.",
+          "why_still_open": "The minority answer is based on an incorrect conversion of minutes to seconds.",
+          "involved_answers": [
+            "6912000"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "768000",
+        "2560*300",
+        "5*60=300",
+        "1600*1.6",
+        "1800000"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 259,
+      "completion_tokens": 46,
+      "total_tokens": 305,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 259,
+      "completion_tokens": 47,
+      "total_tokens": 306,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 259,
+      "completion_tokens": 49,
+      "total_tokens": 308,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 621,
+      "completion_tokens": 200,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 642,
+      "completion_tokens": 116,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 642,
+      "completion_tokens": 177,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 641,
+      "completion_tokens": 115,
+      "total_tokens": 756,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1177,
+      "completion_tokens": 109,
+      "total_tokens": 1286,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 648,
+      "completion_tokens": 66,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 632,
+      "completion_tokens": 114,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 631,
+      "completion_tokens": 99,
+      "total_tokens": 730,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 632,
+      "completion_tokens": 105,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1000,
+      "completion_tokens": 61,
+      "total_tokens": 1061,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 517,
+      "completion_tokens": 61,
+      "total_tokens": 578,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 752,
+      "completion_tokens": 113,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 751,
+      "completion_tokens": 101,
+      "total_tokens": 852,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 752,
+      "completion_tokens": 102,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 950,
+      "completion_tokens": 115,
+      "total_tokens": 1065,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 529,
+      "completion_tokens": 74,
+      "total_tokens": 603,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 638,
+      "completion_tokens": 184,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 637,
+      "completion_tokens": 187,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 638,
+      "completion_tokens": 116,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1174,
+      "completion_tokens": 188,
+      "total_tokens": 1362,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0285",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 639,
+      "completion_tokens": 56,
+      "total_tokens": 695,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 305,
+    "majority_vote_total_tokens": 919,
+    "scrd_total_tokens": 18621,
+    "scrd_prompt_tokens": 16020,
+    "scrd_completion_tokens": 2601,
+    "agent_total_tokens": 10436,
+    "recorder_total_tokens": 5595,
+    "evaluator_total_tokens": 2590,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

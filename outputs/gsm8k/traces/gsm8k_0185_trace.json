@@ -1,0 +1,425 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4750",
+        "4750",
+        "4750"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": []
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4750",
+        "4550",
+        "4750"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial number of cases was 2000, increased by 500 to 2500 on the second day, and then to 4000 on the third day before accounting for recoveries.",
+          "claim_type": "explanation",
+          "related_answer": "4550"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": []
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "3800",
+        "3800",
+        "3800"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "After the third day, 200 recoveries were accounted for, reducing the case count from 4000 to 3800.",
+          "claim_type": "explanation",
+          "related_answer": "3800"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2000 + 500 + 1500 - 200 = 3800",
+        "Apr=2000, May=2500, Jun=4000, Recoveries=200 -> Total=3800"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "3800",
+        "3800",
+        "3750"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "On the second day, 500 new cases were reported, and 50 recoveries were accounted for.",
+          "claim_type": "support",
+          "related_answer": "3800"
+        },
+        {
+          "text": "On the third day, 1500 new cases were reported, and 200 recoveries were accounted for.",
+          "claim_type": "support",
+          "related_answer": "3800"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "3800 vs 3750",
+          "why_still_open": "Agent C's answer introduces conflicting data, requiring further verification.",
+          "involved_answers": [
+            "3800",
+            "3750"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "2000 + 500 + 1500 - 50 - 200 = 3800",
+        "Apr=2000, May=2500, Jun=4000, Recoveries=200 -> Total=3800",
+        "Apr=2000, May=2450, Jun=3750, Recoveries=200 -> Total=3750"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "3750",
+        "3750",
+        "3950"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The third day saw an increase in new cases to 1500.",
+          "claim_type": "support",
+          "related_answer": "3950"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "3800 vs 3750",
+          "why_still_open": "Agent C and B introduce conflicting data, requiring further verification.",
+          "involved_answers": [
+            "3950",
+            "3750"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "2000 + 500 + 1500 - 50 - 200 = 3800",
+        "Apr=2000, May=2500, Jun=4000, Recoveries=200 -> Total=3800",
+        "Apr=2000, May=2450, Jun=3750, Recoveries=200 -> Total=3750",
+        "3800 + 200 = 4000 (June cases)",
+        "3800 - 50 = 3750 (revised recovery count)"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 285,
+      "completion_tokens": 48,
+      "total_tokens": 333,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 285,
+      "completion_tokens": 48,
+      "total_tokens": 333,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 285,
+      "completion_tokens": 48,
+      "total_tokens": 333,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 615,
+      "completion_tokens": 27,
+      "total_tokens": 642,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 547,
+      "completion_tokens": 38,
+      "total_tokens": 585,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 547,
+      "completion_tokens": 74,
+      "total_tokens": 621,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 547,
+      "completion_tokens": 39,
+      "total_tokens": 586,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 735,
+      "completion_tokens": 105,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 563,
+      "completion_tokens": 61,
+      "total_tokens": 624,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 580,
+      "completion_tokens": 87,
+      "total_tokens": 667,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 580,
+      "completion_tokens": 178,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 580,
+      "completion_tokens": 78,
+      "total_tokens": 658,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1005,
+      "completion_tokens": 158,
+      "total_tokens": 1163,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 626,
+      "completion_tokens": 50,
+      "total_tokens": 676,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 672,
+      "completion_tokens": 205,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 672,
+      "completion_tokens": 287,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 672,
+      "completion_tokens": 166,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1373,
+      "completion_tokens": 305,
+      "total_tokens": 1678,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 722,
+      "completion_tokens": 48,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 765,
+      "completion_tokens": 109,
+      "total_tokens": 874,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 765,
+      "completion_tokens": 88,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 765,
+      "completion_tokens": 98,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1162,
+      "completion_tokens": 291,
+      "total_tokens": 1453,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 771,
+      "completion_tokens": 52,
+      "total_tokens": 823,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 333,
+    "majority_vote_total_tokens": 999,
+    "scrd_total_tokens": 18807,
+    "scrd_prompt_tokens": 16119,
+    "scrd_completion_tokens": 2688,
+    "agent_total_tokens": 10138,
+    "recorder_total_tokens": 5776,
+    "evaluator_total_tokens": 2893,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

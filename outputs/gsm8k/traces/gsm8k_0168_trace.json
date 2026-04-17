@@ -1,0 +1,435 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "360",
+        "480",
+        "480"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The cost of the new movie is calculated based on its length.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "360",
+        "480",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "19200",
+        "480",
+        "480"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The new movie is 60% longer than the previous one.",
+          "claim_type": "constraint",
+          "related_answer": null
+        },
+        {
+          "text": "The cost per minute for the new movie is twice that of the previous movie.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "19200",
+        "120 * 1.6 = 192",
+        "192 * 100 = 19200",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "19200",
+        "960",
+        "480"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The cost per minute for the new movie is now 960.",
+          "claim_type": "support",
+          "related_answer": "960"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "19200",
+        "120 * 1.6 = 192",
+        "192 * 100 = 19200",
+        "Apr=48, May=24, Total=72",
+        "120 * 8 = 960"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "184320",
+        "184320",
+        "19200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The new movie is 192 minutes long.",
+          "claim_type": "support",
+          "related_answer": "19200"
+        },
+        {
+          "text": "The cost per minute for the new movie is $960.",
+          "claim_type": "support",
+          "related_answer": "184320"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer remains in the recent window: 19200",
+          "why_still_open": "Agent C's calculation of the total cost based on 192 minutes and $6000 per minute does not align with the majority answer of $960 per minute.",
+          "involved_answers": [
+            "19200",
+            "184320"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "192 * 960 = 184320",
+        "120 * 1.6 = 192",
+        "192 * 100 = 184320",
+        "Apr=48, May=24, Total=72",
+        "120 + 72 = 192"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "184320",
+        "184320",
+        "184320"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "192 * 960 = 184320",
+        "120 * 1.6 = 192",
+        "192 * 100 = 184320",
+        "Apr=48, May=24, Total=72",
+        "120 + 72 = 192"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 267,
+      "completion_tokens": 42,
+      "total_tokens": 309,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 267,
+      "completion_tokens": 48,
+      "total_tokens": 315,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 267,
+      "completion_tokens": 48,
+      "total_tokens": 315,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 606,
+      "completion_tokens": 97,
+      "total_tokens": 703,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 526,
+      "completion_tokens": 127,
+      "total_tokens": 653,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 526,
+      "completion_tokens": 37,
+      "total_tokens": 563,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 526,
+      "completion_tokens": 37,
+      "total_tokens": 563,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 851,
+      "completion_tokens": 168,
+      "total_tokens": 1019,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 581,
+      "completion_tokens": 51,
+      "total_tokens": 632,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 529,
+      "completion_tokens": 40,
+      "total_tokens": 569,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 527,
+      "completion_tokens": 48,
+      "total_tokens": 575,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 527,
+      "completion_tokens": 39,
+      "total_tokens": 566,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 850,
+      "completion_tokens": 146,
+      "total_tokens": 996,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 588,
+      "completion_tokens": 58,
+      "total_tokens": 646,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 640,
+      "completion_tokens": 195,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 638,
+      "completion_tokens": 181,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 638,
+      "completion_tokens": 243,
+      "total_tokens": 881,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1326,
+      "completion_tokens": 301,
+      "total_tokens": 1627,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 700,
+      "completion_tokens": 64,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 775,
+      "completion_tokens": 172,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 775,
+      "completion_tokens": 287,
+      "total_tokens": 1062,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 774,
+      "completion_tokens": 186,
+      "total_tokens": 960,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1514,
+      "completion_tokens": 115,
+      "total_tokens": 1629,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 663,
+      "completion_tokens": 55,
+      "total_tokens": 718,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 309,
+    "majority_vote_total_tokens": 939,
+    "scrd_total_tokens": 18666,
+    "scrd_prompt_tokens": 15881,
+    "scrd_completion_tokens": 2785,
+    "agent_total_tokens": 9932,
+    "recorder_total_tokens": 5974,
+    "evaluator_total_tokens": 2760,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,489 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "40",
+        "55"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First two sets: 30 push-ups. Third set: 10 push-ups. Total: 40.",
+        "First two sets: 15 * 2 = 30. Third set: 15 - 5 = 10. Total: 55."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "70",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "30 push-ups for the first two sets, 10 push-ups for the third set, total 70.",
+          "claim_type": "support",
+          "related_answer": "70"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "First two sets: 30 push-ups. Third set: 10 push-ups. Total: 40 vs. 50.",
+          "why_still_open": "Agents B and C agreed on 50, but agent A supports 70 without resolving the discrepancy in the third set calculation.",
+          "involved_answers": [
+            "50",
+            "70"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First two sets: 30 push-ups. Third set: 10 push-ups. Total: 70.",
+        "First two sets: 30 push-ups each, third set: 10 fewer than 15, total: 50."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "50",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The third set was corrected to 10 push-ups after Bryan did 5 fewer than intended.",
+          "claim_type": "explanation",
+          "related_answer": "40"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First two sets: 30 push-ups each, third set: 10 push-ups, total: 40.",
+        "Total: 30 (first two sets) + 10 (third set) = 40 push-ups."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "50",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The third set was revised to 10 push-ups after Bryan did 5 fewer than intended.",
+          "claim_type": "explanation",
+          "related_answer": "50"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First two sets: 30 push-ups each, third set: 10 push-ups, total: 50.",
+        "Total: 30 (first two sets) + 10 (third set) = 50 push-ups."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 5,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_started",
+      "start_round": 5,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 5
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 254,
+      "completion_tokens": 60,
+      "total_tokens": 314,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 254,
+      "completion_tokens": 60,
+      "total_tokens": 314,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 254,
+      "completion_tokens": 72,
+      "total_tokens": 326,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 657,
+      "completion_tokens": 93,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 523,
+      "completion_tokens": 74,
+      "total_tokens": 597,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 523,
+      "completion_tokens": 90,
+      "total_tokens": 613,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 523,
+      "completion_tokens": 174,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 976,
+      "completion_tokens": 235,
+      "total_tokens": 1211,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 590,
+      "completion_tokens": 60,
+      "total_tokens": 650,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 759,
+      "completion_tokens": 186,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 759,
+      "completion_tokens": 233,
+      "total_tokens": 992,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 759,
+      "completion_tokens": 142,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1342,
+      "completion_tokens": 133,
+      "total_tokens": 1475,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 639,
+      "completion_tokens": 58,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 754,
+      "completion_tokens": 162,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 754,
+      "completion_tokens": 199,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 754,
+      "completion_tokens": 122,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1161,
+      "completion_tokens": 203,
+      "total_tokens": 1364,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 63,
+      "total_tokens": 666,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 730,
+      "completion_tokens": 132,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 730,
+      "completion_tokens": 123,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 730,
+      "completion_tokens": 115,
+      "total_tokens": 845,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1119,
+      "completion_tokens": 223,
+      "total_tokens": 1342,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 684,
+      "completion_tokens": 67,
+      "total_tokens": 751,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 994,
+      "completion_tokens": 97,
+      "total_tokens": 1091,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 994,
+      "completion_tokens": 108,
+      "total_tokens": 1102,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 848,
+      "completion_tokens": 186,
+      "total_tokens": 1034,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 848,
+      "completion_tokens": 175,
+      "total_tokens": 1023,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 848,
+      "completion_tokens": 68,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1083,
+      "completion_tokens": 133,
+      "total_tokens": 1216,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0234",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 676,
+      "completion_tokens": 58,
+      "total_tokens": 734,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 314,
+    "majority_vote_total_tokens": 954,
+    "scrd_total_tokens": 27026,
+    "scrd_prompt_tokens": 23122,
+    "scrd_completion_tokens": 3904,
+    "agent_total_tokens": 11004,
+    "recorder_total_tokens": 7358,
+    "evaluator_total_tokens": 2764,
+    "repair_brief_total_tokens": 2193,
+    "repair_evaluator_total_tokens": 734,
+    "repair_agent_total_tokens": 2973
+  }
+}

@@ -1,0 +1,444 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total time watched on Tuesday is 4.5 hours.",
+          "claim_type": "constraint",
+          "related_answer": "8"
+        },
+        {
+          "text": "On Wednesday, he watched twice as many minutes as on Tuesday.",
+          "claim_type": "constraint",
+          "related_answer": "8"
+        },
+        {
+          "text": "The maximum number of full-length 90-minute movies he could have watched is 8.",
+          "claim_type": "support",
+          "related_answer": "8"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4.5 hours = 270 minutes",
+        "Tuesday: 270 minutes, Wednesday: 540 minutes",
+        "Total: 810 minutes",
+        "810 / 90 = 8 movies",
+        "Tuesday + Wednesday = 8 movies"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The maximum number of full-length 90-minute movies he could have watched is 8.",
+          "claim_type": "support",
+          "related_answer": "8"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4.5 hours = 270 minutes",
+        "Tuesday: 270 minutes, Wednesday: 540 minutes",
+        "Total: 810 minutes",
+        "810 / 90 = 8 movies",
+        "8 movies on Tuesday + 4 movies on Wednesday = 12 movies"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "16",
+        "8",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The maximum number of full-length 90-minute movies he could have watched is 15.",
+          "claim_type": "support",
+          "related_answer": "15"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4.5 hours = 270 minutes",
+        "Tuesday: 270 minutes / 90 minutes = 3 movies",
+        "Wednesday: 3 * 2 = 6 movies",
+        "Total: 3 + 6 = 9 movies",
+        "15 is the maximum number of movies"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "9",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "On Wednesday, he could have watched up to 16 movies, but the total is capped by Tuesday's limit.",
+          "claim_type": "constraint",
+          "related_answer": "8"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4.5 hours = 270 minutes",
+        "Tuesday: 270 minutes / 90 minutes = 3 movies",
+        "Wednesday: 3 * 2 = 6 movies",
+        "Total: 3 + 6 = 9 movies",
+        "The maximum number of full-length 90-minute movies he could have watched is 8."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "9",
+        "7",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The maximum number of movies watched on Wednesday is 10.",
+          "claim_type": "support",
+          "related_answer": "10"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The maximum number of movies watched on Wednesday is either 9 or 10.",
+          "why_still_open": "There is a discrepancy in the constraints applied to the number of movies watched on Wednesday based on the total time available.",
+          "involved_answers": [
+            "7",
+            "10"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "4.5 hours = 270 minutes",
+        "Tuesday: 5 movies",
+        "Wednesday: 10 movies",
+        "Total: 8.5 hours",
+        "The maximum number of full-length 90-minute movies he could have watched is 8."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 289,
+      "completion_tokens": 42,
+      "total_tokens": 331,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 289,
+      "completion_tokens": 92,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 289,
+      "completion_tokens": 96,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 692,
+      "completion_tokens": 215,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 550,
+      "completion_tokens": 110,
+      "total_tokens": 660,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 550,
+      "completion_tokens": 88,
+      "total_tokens": 638,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 550,
+      "completion_tokens": 34,
+      "total_tokens": 584,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 987,
+      "completion_tokens": 148,
+      "total_tokens": 1135,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 639,
+      "completion_tokens": 55,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 551,
+      "completion_tokens": 53,
+      "total_tokens": 604,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 550,
+      "completion_tokens": 34,
+      "total_tokens": 584,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 550,
+      "completion_tokens": 83,
+      "total_tokens": 633,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 860,
+      "completion_tokens": 148,
+      "total_tokens": 1008,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 568,
+      "completion_tokens": 53,
+      "total_tokens": 621,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 551,
+      "completion_tokens": 131,
+      "total_tokens": 682,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 550,
+      "completion_tokens": 34,
+      "total_tokens": 584,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 551,
+      "completion_tokens": 96,
+      "total_tokens": 647,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 950,
+      "completion_tokens": 161,
+      "total_tokens": 1111,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 572,
+      "completion_tokens": 58,
+      "total_tokens": 630,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 555,
+      "completion_tokens": 65,
+      "total_tokens": 620,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 555,
+      "completion_tokens": 80,
+      "total_tokens": 635,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 555,
+      "completion_tokens": 86,
+      "total_tokens": 641,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 932,
+      "completion_tokens": 204,
+      "total_tokens": 1136,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 642,
+      "completion_tokens": 59,
+      "total_tokens": 701,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 331,
+    "majority_vote_total_tokens": 1097,
+    "scrd_total_tokens": 16552,
+    "scrd_prompt_tokens": 14327,
+    "scrd_completion_tokens": 2225,
+    "agent_total_tokens": 8609,
+    "recorder_total_tokens": 5297,
+    "evaluator_total_tokens": 2646,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}
