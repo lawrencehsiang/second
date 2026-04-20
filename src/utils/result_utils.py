@@ -205,10 +205,7 @@ def get_stop_reason(
         return "early_stop"
 
     if rollback_context:
-        latest_state = rollback_context.get("latest_state_after_repair")
-        if latest_state is not None:
-            return "rollback_repair_finalize"
-        return "rollback_triggered"
+        return "rollback"
 
     return "max_round"
 
