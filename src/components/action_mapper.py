@@ -1,76 +1,124 @@
 from __future__ import annotations
 
-from src.schemas import ActionDecision, EvaluatorScores
+from src.schemas.action import ActionDecision
+from src.schemas.evaluation import TransitionEvaluation
 
 
 class ActionMapper:
     """
-    Rule-based mapper from EvaluatorScores to ActionDecision.
+    Rule-based mapper from TransitionEvaluation to normal-mode ActionDecision.
 
-    Strategy:
-    1. continue: state looks healthy enough to move forward
-    2. rollback: state looks clearly poor / low-value
-    3. watch: intermediate zone
+    Normal-mode action space:
+    - continue
+    - early_stop
+    - rollback
+
+    Mapping idea:
+    1. degraded:
+       - if rollback is still available -> rollback
+       - otherwise -> early_stop
+
+    2. improved:
+       - if continue_value is high/medium and not at max round -> continue
+       - otherwise -> early_stop
+
+    3. plateau:
+       - if continue_value is high and not at max round -> continue
+       - otherwise -> early_stop
     """
 
-    def map_action(self, scores: EvaluatorScores) -> ActionDecision:
-        progress = scores.progress_score
-        info = scores.information_quality_score
-        future = scores.future_utility_score
+    def map_action(
+        self,
+        evaluation: TransitionEvaluation,
+        *,
+        round_id: int,
+        max_round: int,
+        rollback_available: bool,
+    ) -> ActionDecision:
+        """
+        Map evaluator output into a normal-mode action.
 
-        values = [progress, info, future]
-        avg_score = sum(values) / 3.0
-        min_score = min(values)
-        low_count = sum(1 for v in values if v <= 2)
+        Args:
+            evaluation: TransitionEvaluation from evaluator.
+            round_id: Current round number.
+            max_round: Max allowed round in normal mode.
+            rollback_available: Whether rollback can still be used.
 
-        # continue
-        if all(v >= 3 for v in values):
-            # print("所有维度评分均>=3，状态被评估为健康，继续前进。")
+        Returns:
+            ActionDecision
+        """
+        judgement = evaluation.transition_judgement
+        continue_value = evaluation.continue_value
+
+        # Hard stop when max round is reached
+        if round_id >= max_round:
             return ActionDecision(
-                action="continue",
+                action="early_stop",
                 reason=(
-                    "All three evaluator scores are >= 3, "
-                    "so the state is considered healthy enough to continue."
+                    f"Current round {round_id} has reached max_round={max_round}, "
+                    "so the debate should stop."
                 ),
             )
 
-        if avg_score >= 3.0 and min_score >= 2:
-            # print("平均分>=3且没有维度弱于2，状态被评估为总体健康，继续前进。")
+        # Degraded transition: prefer rollback if possible
+        if judgement == "degraded":
+            if rollback_available:
+                return ActionDecision(
+                    action="rollback",
+                    reason=(
+                        "The current transition is judged as degraded, and rollback "
+                        "is still available, so rollback is preferred."
+                    ),
+                )
             return ActionDecision(
-                action="continue",
+                action="early_stop",
                 reason=(
-                    "Average score is >= 3.0 and no dimension is weak (<2), "
-                    "so the state is healthy enough to continue."
+                    "The current transition is judged as degraded, but rollback is "
+                    "not available, so the debate should stop early."
                 ),
             )
 
-        # rollback
-        if low_count >= 2:
-            # print("至少两个维度评分<=2，状态被评估为较差，回滚。")
+        # Improved transition: continue if future value remains meaningful
+        if judgement == "improved":
+            if continue_value in {"high", "medium"}:
+                return ActionDecision(
+                    action="continue",
+                    reason=(
+                        f"The transition is improved and continue_value is "
+                        f"{continue_value}, so it is worth continuing."
+                    ),
+                )
             return ActionDecision(
-                action="rollback",
+                action="early_stop",
                 reason=(
-                    "At least two evaluator dimensions are weak (<=2), "
-                    "so the state is poor enough to roll back."
+                    "The transition is improved, but continue_value is low, so "
+                    "further rounds are unlikely to help much."
                 ),
             )
 
-        if avg_score < 2.0:
-            # print("平均分<2，状态被评估为较差，回滚。")
+        # Plateau transition: only continue when future value is clearly high
+        if judgement == "plateau":
+            if continue_value == "high":
+                return ActionDecision(
+                    action="continue",
+                    reason=(
+                        "The transition is plateau rather than degraded, and "
+                        "continue_value is high, so one more round is still justified."
+                    ),
+                )
             return ActionDecision(
-                action="rollback",
+                action="early_stop",
                 reason=(
-                    "Average evaluator score is low (<2.0), "
-                    "so the state is low-value and should roll back."
+                    f"The transition is plateau and continue_value is "
+                    f"{continue_value}, so the debate should stop instead of dragging on."
                 ),
             )
 
-        # watch
-        # print("评分处于中间区域，状态被评估为不够健康但也不算差，继续观察。")
+        # Defensive fallback
         return ActionDecision(
-            action="watch",
+            action="early_stop",
             reason=(
-                "The evaluator scores are mixed: not strong enough for continue, "
-                "but not poor enough for rollback."
+                "Evaluator output was unexpected, so the mapper falls back to "
+                "early_stop for safety."
             ),
         )

@@ -349,11 +349,11 @@ if __name__ == "__main__":
     print("Starting the debate system...")
 
     llm_client = build_llm_client()
-    DATASET_NAME = "strategyqa"
+    DATASET_NAME = "gsm8k"
     OUTPUT_DIR = f"outputs/{DATASET_NAME}"
     writer = ResultWriter(output_dir=OUTPUT_DIR)
 
-    samples = load_samples(DATASET_NAME, limit=100)
+    samples = load_samples(DATASET_NAME, limit=4)
     completed_sample_ids = writer.load_completed_sample_ids()
     if completed_sample_ids:
         print(f"Resume mode: found {len(completed_sample_ids)} completed samples in"

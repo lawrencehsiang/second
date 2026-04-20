@@ -1,28 +1,39 @@
 from __future__ import annotations
 
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 
-class EvaluatorScores(BaseModel):
-    progress_score: int = Field(
+TransitionJudgement = Literal["improved", "plateau", "degraded"]
+ContinueValue = Literal["high", "medium", "low"]
+
+
+class TransitionEvaluation(BaseModel):
+    """
+    Unified evaluator output for both normal evaluator and repair evaluator.
+
+    transition_judgement:
+        - improved: the current transition clearly improves the debate state
+        - plateau: the current transition does not clearly improve the state,
+                   but it does not obviously make it worse either
+        - degraded: the current transition makes the debate state worse
+
+    continue_value:
+        - high: continuing from the current state is likely worthwhile
+        - medium: continuing may still be useful
+        - low: continuing is unlikely to help much
+    """
+
+    transition_judgement: TransitionJudgement = Field(
         ...,
-        ge=1,
-        le=5,
-        description="How much meaningful progress this round makes.",
+        description="High-level judgement of how the current round changed the debate state.",
     )
-    information_quality_score: int = Field(
+    continue_value: ContinueValue = Field(
         ...,
-        ge=1,
-        le=5,
-        description="How informative and useful the state's information is.",
+        description="Estimated value of continuing from the current state.",
     )
-    future_utility_score: int = Field(
+    reason: str = Field(
         ...,
-        ge=1,
-        le=5,
-        description="How useful this state is for future continuation.",
-    )
-    rationale: str | None = Field(
-        default=None,
-        description="Optional explanation of the scores.",
+        description="Short natural-language explanation for the judgement.",
     )

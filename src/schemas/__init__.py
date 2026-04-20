@@ -1,4 +1,12 @@
-from .action import ActionDecision, RollbackDecision, RoundAction
+from .action import (
+    ActionDecision,
+    RepairActionDecision,
+    RepairRoundAction,
+    RollbackDecision,
+    NormalRoundAction,
+    RoundAction,
+)
+
 from .agent import (
     AgentInputNormal,
     AgentInputRound1,
@@ -6,10 +14,8 @@ from .agent import (
     AgentOutputRound1,
     ConflictResponse,
 )
-from .evaluation import EvaluatorScores
+from .evaluation import TransitionEvaluation
 from .history import HistoryUnit, HistoryUnitType
-from .round_result import RoundResult
-from .state import Claim, StateRecord, UnresolvedConflict
 from .repair import (
     AnchorSelectionResult,
     AnchorSelectorInput,
@@ -23,22 +29,39 @@ from .repair import (
     RepairSessionResult,
     RollbackEvent,
 )
+from .round_result import RoundResult
+from .state import Claim, StateRecord, UnresolvedConflict
+from .transition import (
+    AnswerTransition,
+    ClaimTransition,
+    ClaimsByAnswer,
+    ConflictTransition,
+    TransitionDigest,
+)
+
 __all__ = [
     "ActionDecision",
+    "RepairActionDecision",
+    "RepairRoundAction",
     "RollbackDecision",
-    "RoundAction",
+    "NormalRoundAction",
     "AgentInputNormal",
     "AgentInputRound1",
     "AgentOutputNormal",
     "AgentOutputRound1",
     "ConflictResponse",
-    "EvaluatorScores",
+    "TransitionEvaluation",
     "HistoryUnit",
     "HistoryUnitType",
     "RoundResult",
     "Claim",
     "StateRecord",
     "UnresolvedConflict",
+    "AnswerTransition",
+    "ClaimTransition",
+    "ClaimsByAnswer",
+    "ConflictTransition",
+    "TransitionDigest",
     "AnchorSelectionResult",
     "AnchorSelectorInput",
     "RemainingConflict",
@@ -50,4 +73,5 @@ __all__ = [
     "RepairScores",
     "RepairSessionResult",
     "RollbackEvent",
+    "RoundAction",
 ]

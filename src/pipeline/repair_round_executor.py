@@ -3,11 +3,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Protocol
 
+from src.components.history_manager import HistoryManager
 from src.components.recorder import Recorder
 from src.components.repair_action_mapper import RepairActionMapper
 from src.components.repair_brief_generator import RepairBriefGenerator
 from src.components.repair_evaluator import RepairEvaluator
 from src.components.state_store import StateStore
+from src.components.transition_extractor import TransitionExtractor
 from src.pipeline.postprocess import apply_keep_or_update
 from src.schemas import (
     AgentOutputNormal,
@@ -16,7 +18,7 @@ from src.schemas import (
     RepairRoundResult,
     StateRecord,
 )
-from src.components.history_manager import HistoryManager
+
 
 class RepairAgentRunnerProtocol(Protocol):
     """
@@ -32,8 +34,8 @@ class RepairAgentRunnerProtocol(Protocol):
         self,
         agent_id: str,
         repair_agent_input: RepairAgentInput,
-        round_id:str,
-        sample_id:str
+        round_id: int,
+        sample_id: str | None,
     ) -> AgentOutputNormal:
         ...
 
@@ -45,6 +47,7 @@ class RepairRoundExecutorConfig:
     max_round: int = 6
     sample_id: str | None = None
 
+
 class RepairRoundExecutor:
     """
     Execute one round in repair mode.
@@ -55,10 +58,11 @@ class RepairRoundExecutor:
     3. Run repair agents.
     4. Postprocess keep_or_update.
     5. Build StateRecord via Recorder.
-    6. Evaluate repair progress / quality / completion readiness.
-    7. Map repair action: continue | finalize.
-    8. Persist state into StateStore.
-    9. Return RepairRoundResult.
+    6. Build TransitionDigest for repair evaluation.
+    7. Evaluate repair transition.
+    8. Map repair action: continue | finalize.
+    9. Persist state into StateStore.
+    10. Return RepairRoundResult.
 
     Notes:
     - This executor does NOT decide rollback again.
@@ -84,6 +88,7 @@ class RepairRoundExecutor:
         self.repair_evaluator = repair_evaluator
         self.repair_action_mapper = repair_action_mapper
         self.history_manager = history_manager
+        self.transition_extractor = TransitionExtractor()
 
     # ------------------------------------------------------------------
     # Public API
@@ -104,22 +109,27 @@ class RepairRoundExecutor:
             round_id: Global round id for this repair round.
             anchor_state: The selected healthy anchor state.
             failed_suffix_state_records: Old failed suffix states after the anchor.
-            previous_repair_state_record: Previous repair-round state if this is not the first repair round.
-            repair_brief: Optional pre-generated repair brief. If None, generate it here.
+            previous_repair_state_record: Previous repair-round state if this is not
+                the first repair round.
+            repair_brief: Optional pre-generated repair brief. If None, generate it
+                here for the first repair round.
 
         Returns:
             RepairRoundResult
         """
         self._validate_round_id(round_id)
-        self.state_store.add_event({
-            "type": "repair_round_executed",
-            "round_id": round_id,
-            "mode": "repair",
-        })
 
-        # Only the first repair round should use repair_brief.
-        # Later repair rounds should proceed without it.
-        if repair_brief is None and previous_repair_state_record is None:
+        self.state_store.add_event(
+            {
+                "type": "repair_round_executed",
+                "round_id": round_id,
+                "mode": "repair",
+            }
+        )
+
+        is_first_repair_round = previous_repair_state_record is None
+
+        if is_first_repair_round and repair_brief is None:
             repair_brief = self.repair_brief_generator.generate_brief_from_parts(
                 question=self.config.question,
                 anchor_state=anchor_state,
@@ -147,7 +157,7 @@ class RepairRoundExecutor:
             agent_input = RepairAgentInput(
                 question=self.config.question,
                 history_units=history_units,
-                repair_brief=repair_brief,
+                repair_brief=repair_brief if is_first_repair_round else None,
             )
             agent_output = self.repair_agent_runner.run_repair_round(
                 agent_id=agent_id,
@@ -155,7 +165,6 @@ class RepairRoundExecutor:
                 round_id=round_id,
                 sample_id=self.config.sample_id,
             )
-
             agent_inputs.append(agent_input)
             agent_outputs.append(agent_output)
 
@@ -165,7 +174,9 @@ class RepairRoundExecutor:
         )
 
         recorder_previous_state = (
-            previous_repair_state_record if previous_repair_state_record is not None else anchor_state
+            previous_repair_state_record
+            if previous_repair_state_record is not None
+            else anchor_state
         )
 
         state_record = self.recorder.build_state_record(
@@ -176,20 +187,33 @@ class RepairRoundExecutor:
             mode="repair",
         )
 
-        repair_scores = self.repair_evaluator.evaluate_repair(
-            question=self.config.question,
-            anchor_state=anchor_state,
-            repair_brief=repair_brief,
-            current_state_record=state_record,
-            previous_repair_state_record=previous_repair_state_record,
-            round_id=round_id,
-            sample_id=self.config.sample_id,
-            mode="repair",
-        )
+        if is_first_repair_round:
+            transition_evaluation = self.repair_evaluator.evaluate_first_repair_transition(
+                question=self.config.question,
+                transition_digest=self.transition_extractor.extract(
+                    previous_state_record=anchor_state,
+                    current_state_record=state_record,
+                ),
+                repair_brief=repair_brief,
+                round_id=round_id,
+                sample_id=self.config.sample_id,
+                mode="repair",
+            )
+        else:
+            transition_evaluation = self.repair_evaluator.evaluate_later_repair_transition(
+                question=self.config.question,
+                transition_digest=self.transition_extractor.extract(
+                    previous_state_record=previous_repair_state_record,
+                    current_state_record=state_record,
+                ),
+                round_id=round_id,
+                sample_id=self.config.sample_id,
+                mode="repair",
+            )
 
         repair_action_decision = self.repair_action_mapper.map_action(
-            repair_scores=repair_scores,
-            current_round=round_id,
+            transition_evaluation,
+            round_id=round_id,
             max_round=self.config.max_round,
         )
 
@@ -203,8 +227,8 @@ class RepairRoundExecutor:
             agent_inputs=[x.model_dump() for x in agent_inputs],
             agent_outputs=[x.model_dump() for x in agent_outputs],
             state_record=state_record,
-            repair_scores=repair_scores,
-            repair_action=repair_action_decision.repair_action,
+            repair_scores=transition_evaluation,
+            repair_action=repair_action_decision.action,
         )
 
     # ------------------------------------------------------------------
@@ -253,10 +277,11 @@ class RepairRoundExecutor:
     ) -> list:
         """
         First repair round:
-            reuse the real cached history units of anchor round.
+        reuse the real cached history units of anchor round.
+
         Later repair rounds:
-            rebuild history from anchor + previous repair states only.
-            Old failed suffix has already been removed from the main store.
+        rebuild history from anchor + previous repair states only.
+        Old failed suffix has already been removed from the main store.
         """
         if previous_repair_state_record is None:
             cached_anchor_history = self.state_store.get_history_units(anchor_state.round_id)

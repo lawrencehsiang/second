@@ -1,30 +1,28 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Protocol, Optional
 
-from src.pipeline.repair_round_executor import RepairRoundExecutor
 from src.components.state_store import StateStore
-from src.schemas import RepairRoundResult, RollbackDecision, StateRecord
+from src.pipeline.repair_round_executor import RepairRoundExecutor
+from src.schemas import RepairBrief, StateRecord
 
 
+@dataclass
 class RepairOrchestratorConfig:
-    def __init__(self, question: str, agent_ids: list[str], max_round: int = 6):
-        self.question = question
-        self.agent_ids = agent_ids
-        self.max_round = max_round
+    question: str
+    agent_ids: list[str]
+    max_round: int = 6
 
 
 class RepairOrchestrator:
     """
-    Orchestrates the repair mode after rollback, controlling each repair round and managing
-    rollback decisions for repair rounds.
+    Orchestrates repair mode after rollback.
 
     Responsibilities:
     - Execute each repair round
-    - Decide whether to rollback based on evaluator scores
-    - Manage state transitions between repair rounds
-    - Store each repair round's results in the StateStore
+    - Stop when repair action becomes finalize
+    - Manage previous_repair_state_record explicitly
+    - Avoid duplicate state insertion (executor already writes state)
     """
 
     def __init__(
@@ -39,54 +37,61 @@ class RepairOrchestrator:
 
     def run_repair(self, rollback_context: dict) -> None:
         """
-        Runs the repair mode by executing multiple rounds after rollback.
+        Runs repair mode after rollback.
 
-        If any round's action decision is rollback, the repair mode will restart with the appropriate round.
-        If a rollback is triggered, returns a dictionary with information for repair mode.
-        Otherwise, returns None.
+        Expected rollback_context keys:
+        - trigger_round
+        - anchor_round
+        - anchor_state
+        - failed_suffix_state_records
+        - repair_brief
         """
         round_id = rollback_context["trigger_round"]
-        anchor_state = rollback_context["anchor_state"]
-        failed_suffix_state_records = rollback_context["failed_suffix_state_records"]
         anchor_round = rollback_context["anchor_round"]
+        anchor_state: StateRecord = rollback_context["anchor_state"]
+        failed_suffix_state_records: list[StateRecord] = rollback_context[
+            "failed_suffix_state_records"
+        ]
+        repair_brief: RepairBrief | None = rollback_context.get("repair_brief")
 
         print(f"Repair Mode initiated after rollback at round {round_id}...")
 
-        used_rollback_count = 0
-        self.state_store.add_event({
-            "type": "repair_started",
-            "start_round": round_id,
-            "anchor_round": anchor_state.round_id,
-        })
+        self.state_store.add_event(
+            {
+                "type": "repair_started",
+                "start_round": round_id,
+                "anchor_round": anchor_round,
+            }
+        )
+
+        previous_repair_state_record: StateRecord | None = None
+        is_first_repair_round = True
 
         while round_id <= self.config.max_round:
             print(f"Executing Repair Round {round_id}...")
-
-            # Get the previous state record if exists
-            previous_state_record = self.state_store.get_state_record(round_id - 1)
-
-            # Execute repair round
-            is_first_repair_round = (round_id == anchor_round + 1)
 
             round_result = self.repair_round_executor.execute_repair_round(
                 round_id=round_id,
                 anchor_state=anchor_state,
                 failed_suffix_state_records=failed_suffix_state_records,
-                previous_repair_state_record=previous_state_record,
-                repair_brief=rollback_context.get("repair_brief") if is_first_repair_round else None,
+                previous_repair_state_record=previous_repair_state_record,
+                repair_brief=repair_brief if is_first_repair_round else None,
             )
 
-            self.state_store.add_state_record(round_result.state_record)
+            # 不再重复写 state，executor 内部已经 add_state_record(...)
+            previous_repair_state_record = round_result.state_record
+            is_first_repair_round = False
 
             if round_result.repair_action == "finalize":
                 print(f"Repair mode finalized in round {round_id}.")
-                self.state_store.add_event({
-                    "type": "repair_finalized",
-                    "final_round": round_id,
-                })
+                self.state_store.add_event(
+                    {
+                        "type": "repair_finalized",
+                        "final_round": round_id,
+                    }
+                )
                 break
 
-            # Proceed to the next round
             round_id += 1
 
         print("Repair mode completed.")

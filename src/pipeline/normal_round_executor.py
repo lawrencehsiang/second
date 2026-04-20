@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Callable, Protocol
+from typing import Protocol
 
 from src.components.action_mapper import ActionMapper
 from src.components.evaluator import Evaluator
@@ -9,6 +9,7 @@ from src.components.history_manager import HistoryManager
 from src.components.recorder import Recorder
 from src.components.rollback_controller import RollbackController
 from src.components.state_store import StateStore
+from src.components.transition_extractor import TransitionExtractor
 from src.pipeline.postprocess import apply_keep_or_update
 from src.schemas import (
     ActionDecision,
@@ -36,7 +37,8 @@ class AgentRunnerProtocol(Protocol):
         agent_input: AgentInputRound1,
         round_id: int = 1,
         sample_id: str | None = None,
-    ) -> AgentOutputRound1: ...
+    ) -> AgentOutputRound1:
+        ...
 
     def run_normal_round(
         self,
@@ -44,7 +46,9 @@ class AgentRunnerProtocol(Protocol):
         agent_input: AgentInputNormal,
         round_id: int | None = None,
         sample_id: str | None = None,
-    ) -> AgentOutputNormal: ...
+    ) -> AgentOutputNormal:
+        ...
+
 
 @dataclass
 class NormalRoundExecutorConfig:
@@ -63,7 +67,8 @@ class NormalRoundExecutor:
     - Run agents
     - Postprocess keep_or_update
     - Build StateRecord
-    - Evaluate adjacent states for t >= 2
+    - Build TransitionDigest for t >= 2
+    - Evaluate TransitionDigest for t >= 2
     - Map action
     - Decide rollback
     - Persist state + action into StateStore
@@ -89,6 +94,7 @@ class NormalRoundExecutor:
         self.evaluator = evaluator
         self.action_mapper = action_mapper
         self.rollback_controller = rollback_controller
+        self.transition_extractor = TransitionExtractor()
 
     # ------------------------------------------------------------------
     # Public API
@@ -113,8 +119,9 @@ class NormalRoundExecutor:
         - agents run in parallel conceptually (sequentially in code)
         - postprocess keep_or_update
         - recorder -> state_record_t
-        - evaluator compares t-1 and t
-        - action mapper maps scores to continue/watch/rollback
+        - transition extractor builds digest from t-1 and t
+        - evaluator scores the digest
+        - action mapper maps evaluation to continue/early_stop/rollback
         - rollback controller decides whether rollback formally triggers
         """
         self._validate_round_id(round_id)
@@ -137,11 +144,14 @@ class NormalRoundExecutor:
     ) -> RoundResult:
         agent_inputs: list[AgentInputRound1] = []
         agent_outputs: list[AgentOutputRound1] = []
-        self.state_store.add_event({
-            "type": "normal_round_executed",
-            "round_id": round_id,
-            "mode": "normal",
-        })
+
+        self.state_store.add_event(
+            {
+                "type": "normal_round_executed",
+                "round_id": round_id,
+                "mode": "normal",
+            }
+        )
 
         for agent_id in self.config.agent_ids:
             agent_input = AgentInputRound1(
@@ -153,7 +163,6 @@ class NormalRoundExecutor:
                 round_id=round_id,
                 sample_id=self.config.sample_id,
             )
-
             agent_inputs.append(agent_input)
             agent_outputs.append(agent_output)
 
@@ -164,13 +173,13 @@ class NormalRoundExecutor:
             sample_id=self.config.sample_id,
             mode="normal",
         )
+
         self.state_store.set_history_units(round_id, [])
 
         action_decision = ActionDecision(
             action="continue",
             reason="Round 1 defaults to continue in the normal-stage protocol.",
         )
-
         rollback_decision = RollbackDecision(
             trigger_rollback=False,
             rollback_to_round=None,
@@ -214,15 +223,18 @@ class NormalRoundExecutor:
             state_store=self.state_store,
         )
         self.state_store.set_history_units(round_id, history_units)
-        self.state_store.add_event({
-            "type": "normal_round_executed",
-            "round_id": round_id,
-            "mode": "normal",
-        })
+
+        self.state_store.add_event(
+            {
+                "type": "normal_round_executed",
+                "round_id": round_id,
+                "mode": "normal",
+            }
+        )
 
         previous_answer_map = self._build_previous_answer_map(previous_state_record)
 
-        for idx, agent_id in enumerate(self.config.agent_ids):
+        for agent_id in self.config.agent_ids:
             own_previous_answer = previous_answer_map.get(agent_id)
             if own_previous_answer is None:
                 raise ValueError(
@@ -240,7 +252,6 @@ class NormalRoundExecutor:
                 round_id=round_id,
                 sample_id=self.config.sample_id,
             )
-
             agent_inputs.append(agent_input)
             agent_outputs.append(agent_output)
 
@@ -257,16 +268,23 @@ class NormalRoundExecutor:
             mode="normal",
         )
 
-        evaluator_scores = self.evaluator.evaluate_state(
+        transition_evaluation = self.evaluator.evaluate_transition(
             question=self.config.question,
-            previous_state_record=previous_state_record,
-            current_state_record=state_record,
+            transition_digest=self.transition_extractor.extract(
+                previous_state_record=previous_state_record,
+                current_state_record=state_record,
+            ),
             round_id=round_id,
             sample_id=self.config.sample_id,
             mode="normal",
         )
 
-        action_decision = self.action_mapper.map_action(evaluator_scores)
+        action_decision = self.action_mapper.map_action(
+            transition_evaluation,
+            round_id=round_id,
+            max_round=self.config.max_round,
+            rollback_available=(used_rollback_count == 0),
+        )
 
         rollback_decision = self.rollback_controller.decide_rollback_from_store(
             current_round_id=round_id,
@@ -283,7 +301,7 @@ class NormalRoundExecutor:
             agent_inputs=[x.model_dump() for x in agent_inputs],
             agent_outputs=[x.model_dump() for x in agent_outputs],
             state_record=state_record,
-            evaluator_scores=evaluator_scores,
+            evaluator_scores=transition_evaluation,
             action_decision=action_decision,
             rollback_decision=rollback_decision,
         )
