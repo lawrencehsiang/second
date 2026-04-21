@@ -1,0 +1,288 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "true",
+        "true",
+        "false"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Toyota Hilux has a reasonable driving speed.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Distance between NYC and Havana is feasible within 16 hours.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Assuming an average speed and no stops, travel time is about 16 hours.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Toyota Hilux fuel efficiency is around 22-28 mpg.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Multiple refueling stops would be required due to low fuel efficiency.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A supports 16-hour travel without stops, while Agent C states multiple stops are needed due to low fuel efficiency.",
+          "why_still_open": "Fuel efficiency data and assumptions about travel speed differ between agents.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "false",
+        "false",
+        "false"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A supports 16-hour travel without stops, while Agent B and C state multiple stops are needed due to low fuel efficiency.",
+          "why_still_open": "The exact fuel efficiency and necessary travel conditions are in dispute.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50 min < 1 hr -> pay < $12"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 213,
+      "completion_tokens": 46,
+      "total_tokens": 259,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 213,
+      "completion_tokens": 79,
+      "total_tokens": 292,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 213,
+      "completion_tokens": 77,
+      "total_tokens": 290,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 664,
+      "completion_tokens": 343,
+      "total_tokens": 1007,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 671,
+      "completion_tokens": 165,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 671,
+      "completion_tokens": 136,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 671,
+      "completion_tokens": 179,
+      "total_tokens": 850,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1367,
+      "completion_tokens": 179,
+      "total_tokens": 1546,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 501,
+      "completion_tokens": 43,
+      "total_tokens": 544,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 880,
+      "completion_tokens": 95,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 452,
+      "completion_tokens": 132,
+      "total_tokens": 584,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 452,
+      "completion_tokens": 117,
+      "total_tokens": 569,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 452,
+      "completion_tokens": 120,
+      "total_tokens": 572,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1232,
+      "completion_tokens": 125,
+      "total_tokens": 1357,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0104",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 620,
+      "completion_tokens": 52,
+      "total_tokens": 672,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 259,
+    "majority_vote_total_tokens": 841,
+    "scrd_total_tokens": 11160,
+    "scrd_prompt_tokens": 9272,
+    "scrd_completion_tokens": 1888,
+    "agent_total_tokens": 3334,
+    "recorder_total_tokens": 3910,
+    "evaluator_total_tokens": 544,
+    "repair_brief_total_tokens": 975,
+    "repair_evaluator_total_tokens": 672,
+    "repair_agent_total_tokens": 1725
+  }
+}

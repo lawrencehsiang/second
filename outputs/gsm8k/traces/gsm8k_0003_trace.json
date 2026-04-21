@@ -4,129 +4,60 @@
       "round_id": 1,
       "current_answers": [
         "5",
-        "5",
-        "45"
+        "20",
+        "5"
       ],
       "newly_added_claims": [
         {
-          "text": "Betty still needs $45.",
+          "text": "Betty needs $5 more.",
+          "claim_type": "support",
+          "related_answer": "5"
+        },
+        {
+          "text": "Wallet cost - (Half of the cost + Parents' contribution + Grandparents' contribution)",
           "claim_type": "constraint",
-          "related_answer": "45"
+          "related_answer": "20"
         }
       ],
       "unresolved_conflicts": [],
       "key_raw_snippets": [
+        "Betty needs $100.",
+        "Parents give $15.",
+        "Grandparents give $30.",
         "Total received is $95.",
-        "More needed is $5.",
-        "Wallet cost is $100.",
-        "Betty has $50.",
-        "Parents give $15."
+        "Wallet costs $100."
       ]
     },
     {
       "round_id": 2,
       "current_answers": [
-        "35",
         "5",
-        "30"
-      ],
-      "newly_added_claims": [
-        {
-          "text": "Betty has $65 after receiving contributions.",
-          "claim_type": "support",
-          "related_answer": "35"
-        },
-        {
-          "text": "Betty still needs $35 to buy the wallet.",
-          "claim_type": "constraint",
-          "related_answer": "35"
-        }
-      ],
-      "unresolved_conflicts": [
-        {
-          "conflict": "Parents gave $15 and grandparents gave $30 vs. Parents gave $15 and grandparents gave $20",
-          "why_still_open": "The conflict arises from the different amounts given by grandparents.",
-          "involved_answers": [
-            "35",
-            "30"
-          ]
-        }
-      ],
-      "key_raw_snippets": [
-        "Total received is $95.",
-        "More needed is $5.",
-        "Wallet cost is $100.",
-        "Betty has $65.",
-        "She still needs $35 more."
-      ]
-    },
-    {
-      "round_id": 3,
-      "current_answers": [
-        "35",
-        "15",
-        "15"
-      ],
-      "newly_added_claims": [
-        {
-          "text": "Grandparents gave $30.",
-          "claim_type": "support",
-          "related_answer": "15"
-        }
-      ],
-      "unresolved_conflicts": [],
-      "key_raw_snippets": [
-        "Total received is $95.",
-        "More needed is $5.",
-        "Wallet cost is $100.",
-        "Betty has $65.",
-        "Grandparents gave $30."
-      ]
-    },
-    {
-      "round_id": 4,
-      "current_answers": [
-        "15",
         "5",
         "15"
       ],
       "newly_added_claims": [
         {
-          "text": "Parents gave $15 and grandparents gave $30.",
-          "claim_type": "support",
-          "related_answer": "15"
-        }
-      ],
-      "unresolved_conflicts": [],
-      "key_raw_snippets": [
-        "Total received is $65.",
-        "More needed is $5.",
-        "Wallet cost is $100.",
-        "Parents gave $15.",
-        "Grandparents gave $30."
-      ]
-    },
-    {
-      "round_id": 5,
-      "current_answers": [
-        "5",
-        "5",
-        "5"
-      ],
-      "newly_added_claims": [
-        {
-          "text": "Parents gave $15 and grandparents gave $30.",
+          "text": "Betty still needs $5 more.",
           "claim_type": "support",
           "related_answer": "5"
         }
       ],
-      "unresolved_conflicts": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Betty needs $15 more, but answers indicate she needs $5 more.",
+          "why_still_open": "The calculations in the agents' responses differ.",
+          "involved_answers": [
+            "15",
+            "5"
+          ]
+        }
+      ],
       "key_raw_snippets": [
-        "Total received is $65.",
-        "More needed is $5.",
-        "Wallet cost is $100.",
-        "Parents gave $15.",
-        "Grandparents gave $30."
+        "Betty needs $5 more.",
+        "Parents give $15.",
+        "Grandparents give $30.",
+        "Total received is $95.",
+        "Wallet costs $100."
       ]
     }
   ],
@@ -157,23 +88,8 @@
       "mode": "repair"
     },
     {
-      "type": "repair_round_executed",
-      "round_id": 3,
-      "mode": "repair"
-    },
-    {
-      "type": "repair_round_executed",
-      "round_id": 4,
-      "mode": "repair"
-    },
-    {
-      "type": "repair_round_executed",
-      "round_id": 5,
-      "mode": "repair"
-    },
-    {
       "type": "repair_finalized",
-      "final_round": 5
+      "final_round": 2
     }
   ],
   "usage_records": [
@@ -184,8 +100,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 259,
-      "completion_tokens": 85,
-      "total_tokens": 344,
+      "completion_tokens": 91,
+      "total_tokens": 350,
       "extra": {}
     },
     {
@@ -195,8 +111,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 259,
-      "completion_tokens": 85,
-      "total_tokens": 344,
+      "completion_tokens": 43,
+      "total_tokens": 302,
       "extra": {}
     },
     {
@@ -206,8 +122,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 259,
-      "completion_tokens": 68,
-      "total_tokens": 327,
+      "completion_tokens": 91,
+      "total_tokens": 350,
       "extra": {}
     },
     {
@@ -216,9 +132,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 701,
-      "completion_tokens": 118,
-      "total_tokens": 819,
+      "prompt_tokens": 688,
+      "completion_tokens": 152,
+      "total_tokens": 840,
       "extra": {}
     },
     {
@@ -227,9 +143,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 509,
-      "completion_tokens": 73,
-      "total_tokens": 582,
+      "prompt_tokens": 508,
+      "completion_tokens": 106,
+      "total_tokens": 614,
       "extra": {}
     },
     {
@@ -249,9 +165,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 510,
-      "completion_tokens": 95,
-      "total_tokens": 605,
+      "prompt_tokens": 508,
+      "completion_tokens": 102,
+      "total_tokens": 610,
       "extra": {}
     },
     {
@@ -260,9 +176,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 926,
-      "completion_tokens": 79,
-      "total_tokens": 1005,
+      "prompt_tokens": 1009,
+      "completion_tokens": 56,
+      "total_tokens": 1065,
       "extra": {}
     },
     {
@@ -272,8 +188,8 @@
       "component": "evaluator",
       "agent_id": null,
       "prompt_tokens": 519,
-      "completion_tokens": 43,
-      "total_tokens": 562,
+      "completion_tokens": 44,
+      "total_tokens": 563,
       "extra": {}
     },
     {
@@ -282,9 +198,9 @@
       "mode": "repair",
       "component": "repair_brief_generator",
       "agent_id": null,
-      "prompt_tokens": 589,
-      "completion_tokens": 42,
-      "total_tokens": 631,
+      "prompt_tokens": 609,
+      "completion_tokens": 57,
+      "total_tokens": 666,
       "extra": {}
     },
     {
@@ -293,232 +209,67 @@
       "mode": "repair",
       "component": "repair_agent",
       "agent_id": "A",
-      "prompt_tokens": 445,
-      "completion_tokens": 107,
-      "total_tokens": 552,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 2,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "B",
-      "prompt_tokens": 445,
-      "completion_tokens": 121,
-      "total_tokens": 566,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 2,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "C",
-      "prompt_tokens": 445,
-      "completion_tokens": 102,
-      "total_tokens": 547,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 2,
-      "mode": "repair",
-      "component": "recorder",
-      "agent_id": null,
-      "prompt_tokens": 957,
-      "completion_tokens": 221,
-      "total_tokens": 1178,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 2,
-      "mode": "repair",
-      "component": "repair_evaluator",
-      "agent_id": null,
-      "prompt_tokens": 672,
-      "completion_tokens": 45,
-      "total_tokens": 717,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 3,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "A",
-      "prompt_tokens": 590,
-      "completion_tokens": 105,
-      "total_tokens": 695,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 3,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "B",
-      "prompt_tokens": 590,
-      "completion_tokens": 117,
-      "total_tokens": 707,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 3,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "C",
-      "prompt_tokens": 590,
-      "completion_tokens": 114,
-      "total_tokens": 704,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 3,
-      "mode": "repair",
-      "component": "recorder",
-      "agent_id": null,
-      "prompt_tokens": 1082,
-      "completion_tokens": 109,
-      "total_tokens": 1191,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 3,
-      "mode": "repair",
-      "component": "repair_evaluator",
-      "agent_id": null,
-      "prompt_tokens": 589,
-      "completion_tokens": 41,
-      "total_tokens": 630,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 4,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "A",
-      "prompt_tokens": 690,
-      "completion_tokens": 105,
-      "total_tokens": 795,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 4,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "B",
-      "prompt_tokens": 690,
-      "completion_tokens": 107,
-      "total_tokens": 797,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 4,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "C",
-      "prompt_tokens": 690,
-      "completion_tokens": 108,
-      "total_tokens": 798,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 4,
-      "mode": "repair",
-      "component": "recorder",
-      "agent_id": null,
-      "prompt_tokens": 949,
-      "completion_tokens": 113,
-      "total_tokens": 1062,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 4,
-      "mode": "repair",
-      "component": "repair_evaluator",
-      "agent_id": null,
-      "prompt_tokens": 565,
-      "completion_tokens": 45,
-      "total_tokens": 610,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 5,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "A",
-      "prompt_tokens": 691,
-      "completion_tokens": 107,
-      "total_tokens": 798,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 5,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "B",
-      "prompt_tokens": 691,
-      "completion_tokens": 107,
-      "total_tokens": 798,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 5,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "C",
-      "prompt_tokens": 691,
-      "completion_tokens": 104,
-      "total_tokens": 795,
-      "extra": {}
-    },
-    {
-      "sample_id": "gsm8k_0003",
-      "round_id": 5,
-      "mode": "repair",
-      "component": "recorder",
-      "agent_id": null,
-      "prompt_tokens": 948,
+      "prompt_tokens": 460,
       "completion_tokens": 112,
-      "total_tokens": 1060,
+      "total_tokens": 572,
       "extra": {}
     },
     {
       "sample_id": "gsm8k_0003",
-      "round_id": 5,
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 460,
+      "completion_tokens": 124,
+      "total_tokens": 584,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0003",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 460,
+      "completion_tokens": 103,
+      "total_tokens": 563,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0003",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1008,
+      "completion_tokens": 167,
+      "total_tokens": 1175,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0003",
+      "round_id": 2,
       "mode": "repair",
       "component": "repair_evaluator",
       "agent_id": null,
-      "prompt_tokens": 561,
-      "completion_tokens": 46,
-      "total_tokens": 607,
+      "prompt_tokens": 661,
+      "completion_tokens": 35,
+      "total_tokens": 696,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 344,
-    "majority_vote_total_tokens": 1015,
-    "scrd_total_tokens": 21444,
-    "scrd_prompt_tokens": 18611,
-    "scrd_completion_tokens": 2833,
-    "agent_total_tokens": 2820,
-    "recorder_total_tokens": 6315,
-    "evaluator_total_tokens": 562,
-    "repair_brief_total_tokens": 631,
-    "repair_evaluator_total_tokens": 2564,
-    "repair_agent_total_tokens": 8552
+    "single_agent_total_tokens": 350,
+    "majority_vote_total_tokens": 1002,
+    "scrd_total_tokens": 9568,
+    "scrd_prompt_tokens": 8176,
+    "scrd_completion_tokens": 1392,
+    "agent_total_tokens": 2844,
+    "recorder_total_tokens": 3080,
+    "evaluator_total_tokens": 563,
+    "repair_brief_total_tokens": 666,
+    "repair_evaluator_total_tokens": 696,
+    "repair_agent_total_tokens": 1719
   }
 }

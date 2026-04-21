@@ -1,8 +1,9 @@
 from __future__ import annotations
 
-from collections import Counter, defaultdict
 from dataclasses import dataclass
+from collections import defaultdict
 
+from src.components.semantic_matcher import SemanticMatcher
 from src.components.state_store import StateStore
 from src.schemas import Claim, HistoryUnit, StateRecord, UnresolvedConflict
 
@@ -15,23 +16,31 @@ class _CandidateUnit:
 
 class HistoryManager:
     """
-    Improved rule-based HistoryManager.
+    Improved rule-based HistoryManager with semantic duplicate control.
 
     Design principles of this version:
     1. Use a sliding window over recent StateRecords.
     2. Compute mainstream/minority answers from the whole window with recency weighting.
     3. Build candidate units first, then score and select top-1 per slot.
     4. Keep score amplitudes relatively small and interpretable.
-    5. Use claim=claim.text and snippet=None for claim-derived units for now.
+    5. Use SemanticMatcher only where free-form text alignment is actually needed:
+       - conflict persistence clustering
+       - duplicate unit control
     """
 
     def __init__(
         self,
-        history_window_rounds: int = 3,
-        normal_mode_history_unit_count: int = 4,
+        history_window_rounds: int = 2,
+        normal_mode_history_unit_count: int = 3,
+        semantic_matcher: SemanticMatcher | None = None,
+        conflict_cluster_threshold: float = 0.85,
+        unit_duplicate_threshold: float = 0.89,
     ) -> None:
         self.history_window_rounds = history_window_rounds
         self.normal_mode_history_unit_count = normal_mode_history_unit_count
+        self.semantic_matcher = semantic_matcher or SemanticMatcher()
+        self.conflict_cluster_threshold = conflict_cluster_threshold
+        self.unit_duplicate_threshold = unit_duplicate_threshold
 
     def build_history_units(
         self,
@@ -42,6 +51,8 @@ class HistoryManager:
         """
         Build structured history units for current round (t >= 2).
         """
+        del question  # reserved for future extensions
+
         if current_round_id <= 1:
             return []
 
@@ -110,7 +121,7 @@ class HistoryManager:
     ) -> list[StateRecord]:
         """
         Select StateRecords in:
-        [current_round_id - history_window_rounds, current_round_id - 1]
+            [current_round_id - history_window_rounds, current_round_id - 1]
         """
         start_round = max(1, current_round_id - self.history_window_rounds)
         end_round = current_round_id - 1
@@ -120,6 +131,7 @@ class HistoryManager:
             state = state_store.get_state_record(round_id)
             if state is not None:
                 selected.append(state)
+
         return selected
 
     # ------------------------------------------------------------------
@@ -161,7 +173,10 @@ class HistoryManager:
                 stats[answer]["weighted_score"] += round_weight
                 stats[answer]["raw_count"] += 1
                 stats[answer]["rounds"].add(state.round_id)
-                stats[answer]["latest_round"] = max(stats[answer]["latest_round"], state.round_id)
+                stats[answer]["latest_round"] = max(
+                    stats[answer]["latest_round"],
+                    state.round_id,
+                )
 
         return dict(stats)
 
@@ -196,7 +211,7 @@ class HistoryManager:
         """
         Select minority answer.
 
-        Current heuristic (kept as requested):
+        Current heuristic:
         - exclude mainstream
         - require: round_count >= 2 OR raw_count >= 2
         - among remaining candidates, choose the strongest persistent non-mainstream answer
@@ -211,7 +226,6 @@ class HistoryManager:
 
             round_count = len(stat["rounds"])
             raw_count = stat["raw_count"]
-
             if round_count >= 2 or raw_count >= 2:
                 candidates.append((answer, stat))
 
@@ -316,7 +330,7 @@ class HistoryManager:
             candidates.sort(key=lambda x: x.score, reverse=True)
             return candidates[0].unit
 
-        # Fallback: if no claim candidate, use a recent raw snippet
+        # Fallback: use a recent raw snippet
         if snippets:
             round_id, snippet = max(snippets, key=lambda x: (x[0], len(x[1])))
             return HistoryUnit(
@@ -404,7 +418,6 @@ class HistoryManager:
         if minority_stat is not None:
             round_count = len(minority_stat["rounds"])
             raw_count = minority_stat["raw_count"]
-
             if round_count >= 2:
                 persistence_bonus += 1.5
             elif raw_count >= 2:
@@ -472,21 +485,23 @@ class HistoryManager:
             return None
 
         latest_round_id = max(round_id for round_id, _ in conflicts)
-        conflict_text_freq = Counter(conflict.conflict for _, conflict in conflicts)
+
+        cluster_ids, cluster_sizes = self._cluster_conflicts(conflicts)
 
         candidates: list[_CandidateUnit] = []
 
-        for round_id, conflict in conflicts:
+        for idx, (round_id, conflict) in enumerate(conflicts):
             score = 0.0
 
             # 一级：时间
             score += self._recency_score(round_id, latest_round_id)
 
-            # 二级：持续性（同一 conflict 文本多次出现）
-            same_conflict_count = conflict_text_freq[conflict.conflict]
+            # 二级：持续性（语义上同一个 conflict cluster 出现多次）
+            cluster_id = cluster_ids[idx]
+            same_conflict_count = cluster_sizes[cluster_id]
             if same_conflict_count >= 2:
                 score += 1.5
-            elif same_conflict_count == 1:
+            else:
                 score += 0.5
 
             involved = set(conflict.involved_answers)
@@ -519,16 +534,76 @@ class HistoryManager:
         return candidates[0].unit
 
     # ------------------------------------------------------------------
+    # Semantic helpers
+    # ------------------------------------------------------------------
+
+    def _cluster_conflicts(
+        self,
+        conflicts: list[tuple[int, UnresolvedConflict]],
+    ) -> tuple[list[int], dict[int, int]]:
+        """
+        Cluster free-form conflict texts by semantic similarity.
+
+        Simple sequential clustering:
+        - each cluster keeps the first conflict text as representative
+        - a new conflict joins the most similar representative cluster if
+          similarity >= conflict_cluster_threshold
+        - otherwise a new cluster is created
+        """
+        if not conflicts:
+            return [], {}
+
+        cluster_representatives: list[str] = []
+        cluster_ids: list[int] = []
+        cluster_sizes: dict[int, int] = defaultdict(int)
+
+        for _, conflict in conflicts:
+            text = self._clean_text(conflict.conflict)
+            if not text:
+                # empty text -> isolate as its own cluster
+                cluster_id = len(cluster_representatives)
+                cluster_representatives.append("")
+                cluster_ids.append(cluster_id)
+                cluster_sizes[cluster_id] += 1
+                continue
+
+            if not cluster_representatives:
+                cluster_id = 0
+                cluster_representatives.append(text)
+                cluster_ids.append(cluster_id)
+                cluster_sizes[cluster_id] += 1
+                continue
+
+            sim = self.semantic_matcher.pairwise_similarity([text], cluster_representatives)
+            if sim.size == 0:
+                best_score = 0.0
+                best_idx = -1
+            else:
+                best_idx = int(sim.argmax())
+                best_score = float(sim[0, best_idx])
+
+            if best_score >= self.conflict_cluster_threshold:
+                cluster_id = best_idx
+            else:
+                cluster_id = len(cluster_representatives)
+                cluster_representatives.append(text)
+
+            cluster_ids.append(cluster_id)
+            cluster_sizes[cluster_id] += 1
+
+        return cluster_ids, dict(cluster_sizes)
+
+    # ------------------------------------------------------------------
     # Scoring helpers
     # ------------------------------------------------------------------
 
     def _recency_weight(self, round_id: int, latest_round_id: int) -> float:
         """
         Used for answer window statistics.
-        Example in a 3-round window:
-        latest -> 3
-        one step older -> 2
-        two steps older -> 1
+
+        Example in a 2-round window:
+        latest -> 2
+        one step older -> 1
         """
         delta = latest_round_id - round_id
         return max(1.0, float(self.history_window_rounds - delta))
@@ -537,10 +612,10 @@ class HistoryManager:
         """
         Used for candidate scoring.
         Lower amplitude than _recency_weight, to avoid overpowering other signals.
-        Example in a 3-round window:
+
+        Example in a 2-round window:
         latest -> 2.0
         one step older -> 1.0
-        two steps older -> 0.5
         """
         delta = latest_round_id - round_id
         if delta <= 0:
@@ -562,25 +637,62 @@ class HistoryManager:
     # ------------------------------------------------------------------
 
     def _duplicate_unit(self, existing_units: list[HistoryUnit], new_unit: HistoryUnit) -> bool:
-        new_key = (
-            new_unit.type,
-            new_unit.claim,
-            new_unit.snippet,
-            new_unit.conflict,
+        """
+        Semantic duplicate control.
+
+        Rule:
+        1. Type must match.
+        2. Slot metadata must match:
+           - answer / target_answer / minority_answer
+        3. Compare the most relevant free-form text field semantically:
+           claim > conflict > snippet
+        """
+        new_type = new_unit.type
+        new_meta = (
             new_unit.answer,
             new_unit.target_answer,
             new_unit.minority_answer,
         )
-        for unit in existing_units:
-            old_key = (
-                unit.type,
-                unit.claim,
-                unit.snippet,
-                unit.conflict,
-                unit.answer,
-                unit.target_answer,
-                unit.minority_answer,
+        new_text = self._unit_free_text(new_unit)
+
+        for old_unit in existing_units:
+            old_type = old_unit.type
+            if old_type != new_type:
+                continue
+
+            old_meta = (
+                old_unit.answer,
+                old_unit.target_answer,
+                old_unit.minority_answer,
             )
-            if old_key == new_key:
+            if old_meta != new_meta:
+                continue
+
+            old_text = self._unit_free_text(old_unit)
+
+            # If neither unit has free text, metadata match is enough.
+            if not new_text and not old_text:
                 return True
+
+            # If only one side has text, do not force-match them.
+            if not new_text or not old_text:
+                continue
+
+            sim = self.semantic_matcher.pairwise_similarity([new_text], [old_text])
+            score = float(sim[0, 0]) if sim.size > 0 else 0.0
+            if score >= self.unit_duplicate_threshold:
+                return True
+
         return False
+
+    def _unit_free_text(self, unit: HistoryUnit) -> str:
+        for field in (unit.claim, unit.conflict, unit.snippet):
+            cleaned = self._clean_text(field)
+            if cleaned:
+                return cleaned
+        return ""
+
+    def _clean_text(self, text: str | None) -> str:
+        if text is None:
+            return ""
+        return " ".join(str(text).strip().split())

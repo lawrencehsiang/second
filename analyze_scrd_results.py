@@ -1,7 +1,7 @@
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-### 运行命令： python scripts/analyze_scrd_results.py --results outputs/results.jsonl --traces outputs/traces --out outputs/analysis
+### 运行命令： python analyze_scrd_results.py --results outputs/results.jsonl --traces outputs/traces --out outputs/analysis
 """
 Analyze SCRD experiment outputs.
 

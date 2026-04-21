@@ -1,0 +1,361 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "true",
+        "false",
+        "false"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Lake Erie, Lake Huron, and Lake Superior are entirely within the US when considering the watersheds.",
+          "claim_type": "support",
+          "related_answer": "true"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A supports the claim that some Great Lakes are entirely within the US, while Agents B and C refute it by stating the lakes are shared between the US and Canada.",
+          "why_still_open": "There is disagreement on whether all parts of the Great Lakes are considered shared or if some can be entirely within one country based on watershed boundaries.",
+          "involved_answers": [
+            "true",
+            "false"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Great Lakes span border",
+        "Lakes Erie, Huron, Superior in US",
+        "Lakes shared US, Canada"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "true",
+        "true",
+        "true"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Lake Michigan is entirely within the US.",
+          "claim_type": "support",
+          "related_answer": "true"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A supports the claim that some Great Lakes are entirely within the US, while Agents B and C refute it by stating the lakes are shared between the US and Canada.",
+          "why_still_open": "The status of other Great Lakes remains unclear, particularly regarding Lake Ontario's partial resolution and the original statement about Lakes Erie, Huron, and Superior being entirely within the US.",
+          "involved_answers": [
+            "true"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Lake Michigan in US",
+        "Great Lakes span border",
+        "Ontario watershed within US",
+        "Erie, Huron, Superior in US vs shared",
+        "Michigan in US, no Canada"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "false",
+        "false",
+        "false"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the status of Lakes Erie, Huron, and Superior, with some supporting they are entirely within the US and others refuting it.",
+          "why_still_open": "The debate on the boundaries of Lakes Erie, Huron, and Superior has not been resolved, and the status of Lake Michigan's resolution does not clarify the issue.",
+          "involved_answers": [
+            "false"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Lakes span border",
+        "Erie, Huron, Superior unresolved",
+        "Michigan in US",
+        "Consensus not reached",
+        "Canada-US border waters"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 210,
+      "completion_tokens": 58,
+      "total_tokens": 268,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 210,
+      "completion_tokens": 30,
+      "total_tokens": 240,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 210,
+      "completion_tokens": 36,
+      "total_tokens": 246,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 204,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 614,
+      "completion_tokens": 106,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 614,
+      "completion_tokens": 140,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 614,
+      "completion_tokens": 106,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1097,
+      "completion_tokens": 215,
+      "total_tokens": 1312,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 548,
+      "completion_tokens": 42,
+      "total_tokens": 590,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 696,
+      "completion_tokens": 132,
+      "total_tokens": 828,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 696,
+      "completion_tokens": 114,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 696,
+      "completion_tokens": 117,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1113,
+      "completion_tokens": 182,
+      "total_tokens": 1295,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 573,
+      "completion_tokens": 39,
+      "total_tokens": 612,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 739,
+      "completion_tokens": 100,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 696,
+      "completion_tokens": 68,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 696,
+      "completion_tokens": 69,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 696,
+      "completion_tokens": 68,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 931,
+      "completion_tokens": 163,
+      "total_tokens": 1094,
+      "extra": {}
+    },
+    {
+      "sample_id": "strategyqa_0026",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 663,
+      "completion_tokens": 43,
+      "total_tokens": 706,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 268,
+    "majority_vote_total_tokens": 754,
+    "scrd_total_tokens": 14935,
+    "scrd_prompt_tokens": 12903,
+    "scrd_completion_tokens": 2032,
+    "agent_total_tokens": 5399,
+    "recorder_total_tokens": 4496,
+    "evaluator_total_tokens": 1202,
+    "repair_brief_total_tokens": 839,
+    "repair_evaluator_total_tokens": 706,
+    "repair_agent_total_tokens": 2293
+  }
+}

@@ -42,10 +42,8 @@ class Evaluator:
     New design:
     1. Primary input is TransitionDigest.
     2. Output is unified TransitionEvaluation.
-    3. Keep evaluate_state(...) as a compatibility wrapper so the old
-       pipeline can migrate incrementally.
-    4. Parse and validate JSON into TransitionEvaluation.
-    5. Optionally log token usage.
+    3. Parse and validate JSON into TransitionEvaluation.
+    4. Optionally log token usage.
     """
 
     def __init__(
@@ -118,38 +116,6 @@ class Evaluator:
             "Evaluator failed to generate transition evaluation after retries. "
             f"Last error: {last_error}"
         ) from last_error
-
-    # ------------------------------------------------------------------
-    # Compatibility wrapper
-    # ------------------------------------------------------------------
-
-    def evaluate_state(
-        self,
-        question: str,
-        previous_state_record: StateRecord,
-        current_state_record: StateRecord,
-        round_id: int | None = None,
-        sample_id: str | None = None,
-        mode: str | None = "normal",
-    ) -> TransitionEvaluation:
-        """
-        Compatibility wrapper for existing call sites.
-
-        Old callers can still pass two adjacent StateRecords.
-        We first convert them into a TransitionDigest, then evaluate the digest.
-        """
-        transition_digest = self.transition_extractor.extract(
-            previous_state_record=previous_state_record,
-            current_state_record=current_state_record,
-        )
-
-        return self.evaluate_transition(
-            question=question,
-            transition_digest=transition_digest,
-            round_id=round_id,
-            sample_id=sample_id,
-            mode=mode,
-        )
 
     # ------------------------------------------------------------------
     # Prompt

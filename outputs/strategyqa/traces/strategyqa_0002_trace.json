@@ -4,25 +4,25 @@
       "round_id": 1,
       "current_answers": [
         "true",
-        "false",
-        "true"
+        "true",
+        "false"
       ],
       "newly_added_claims": [
         {
-          "text": "There is a song titled 'Five Years'.",
+          "text": "The word 'year' appears in song titles.",
           "claim_type": "support",
           "related_answer": "true"
         },
         {
-          "text": "There is a song containing 'years' in the lyrics but not in the title.",
-          "claim_type": "rebuttal",
+          "text": "Songs can contain the word 'year' in their lyrics but not necessarily in the title.",
+          "claim_type": "support",
           "related_answer": "false"
         }
       ],
       "unresolved_conflicts": [
         {
-          "conflict": "'The Man Who Sold the World (Revisited: The Year of the Cat)' vs 'Life on Mars?'.",
-          "why_still_open": "Both songs contain the word 'years' but in different contexts.",
+          "conflict": "'The Man Who Sold the World (Revisited: The Year of the Cat)' vs 'Changes'",
+          "why_still_open": "One supports the presence of 'year' in song titles, while the other indicates it can be in lyrics.",
           "involved_answers": [
             "true",
             "false"
@@ -30,31 +30,38 @@
         }
       ],
       "key_raw_snippets": [
-        "50/60*12=10",
-        "Apr=48, May=24, Total=72"
+        "David Bowie song 'The Man Who Sold the World (Revisited: The Year of the Cat)' has 'year' in title.",
+        "David Bowie song 'The Bewlay Brothers (Years Together)' has 'years' in title.",
+        "'Changes' has 'year' in lyrics but not in title."
       ]
     },
     {
       "round_id": 2,
       "current_answers": [
-        "false",
-        "false",
-        "false"
+        "true",
+        "true",
+        "true"
       ],
       "newly_added_claims": [],
       "unresolved_conflicts": [],
-      "key_raw_snippets": []
+      "key_raw_snippets": [
+        "The song 'The Man Who Sold the World (Revisited: The Year of the Cat)' has 'year' in its title.",
+        "Song titles can include words like 'year' as a subtitle or parenthetical addition."
+      ]
     },
     {
       "round_id": 3,
       "current_answers": [
-        "false",
-        "false",
-        "false"
+        "true",
+        "true",
+        "true"
       ],
       "newly_added_claims": [],
       "unresolved_conflicts": [],
-      "key_raw_snippets": []
+      "key_raw_snippets": [
+        "The song title 'The Man Who Sold the World (Revisited: The Year of the Cat)' includes 'year'.",
+        "Song titles can include words like 'year' as subtitles."
+      ]
     }
   ],
   "execution_events": [
@@ -69,28 +76,14 @@
       "mode": "normal"
     },
     {
-      "type": "rollback_triggered",
-      "trigger_round": 2,
-      "anchor_round": 1
-    },
-    {
-      "type": "repair_started",
-      "start_round": 2,
-      "anchor_round": 1
-    },
-    {
-      "type": "repair_round_executed",
-      "round_id": 2,
-      "mode": "repair"
-    },
-    {
-      "type": "repair_round_executed",
+      "type": "normal_round_executed",
       "round_id": 3,
-      "mode": "repair"
+      "mode": "normal"
     },
     {
-      "type": "repair_finalized",
-      "final_round": 3
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
     }
   ],
   "usage_records": [
@@ -101,8 +94,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 216,
-      "completion_tokens": 49,
-      "total_tokens": 265,
+      "completion_tokens": 59,
+      "total_tokens": 275,
       "extra": {}
     },
     {
@@ -112,8 +105,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 216,
-      "completion_tokens": 54,
-      "total_tokens": 270,
+      "completion_tokens": 48,
+      "total_tokens": 264,
       "extra": {}
     },
     {
@@ -123,8 +116,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 216,
-      "completion_tokens": 36,
-      "total_tokens": 252,
+      "completion_tokens": 52,
+      "total_tokens": 268,
       "extra": {}
     },
     {
@@ -133,9 +126,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 601,
-      "completion_tokens": 210,
-      "total_tokens": 811,
+      "prompt_tokens": 621,
+      "completion_tokens": 248,
+      "total_tokens": 869,
       "extra": {}
     },
     {
@@ -144,9 +137,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 679,
-      "completion_tokens": 167,
-      "total_tokens": 846,
+      "prompt_tokens": 588,
+      "completion_tokens": 109,
+      "total_tokens": 697,
       "extra": {}
     },
     {
@@ -155,9 +148,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 679,
-      "completion_tokens": 172,
-      "total_tokens": 851,
+      "prompt_tokens": 588,
+      "completion_tokens": 126,
+      "total_tokens": 714,
       "extra": {}
     },
     {
@@ -166,9 +159,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 679,
-      "completion_tokens": 149,
-      "total_tokens": 828,
+      "prompt_tokens": 588,
+      "completion_tokens": 134,
+      "total_tokens": 722,
       "extra": {}
     },
     {
@@ -177,9 +170,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 1242,
-      "completion_tokens": 163,
-      "total_tokens": 1405,
+      "prompt_tokens": 1161,
+      "completion_tokens": 78,
+      "total_tokens": 1239,
       "extra": {}
     },
     {
@@ -188,144 +181,78 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 503,
-      "completion_tokens": 38,
-      "total_tokens": 541,
+      "prompt_tokens": 499,
+      "completion_tokens": 59,
+      "total_tokens": 558,
       "extra": {}
     },
     {
       "sample_id": "strategyqa_0002",
-      "round_id": null,
-      "mode": "repair",
-      "component": "repair_brief_generator",
-      "agent_id": null,
-      "prompt_tokens": 726,
-      "completion_tokens": 99,
-      "total_tokens": 825,
-      "extra": {}
-    },
-    {
-      "sample_id": "strategyqa_0002",
-      "round_id": 2,
-      "mode": "repair",
-      "component": "repair_agent",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 459,
-      "completion_tokens": 51,
-      "total_tokens": 510,
+      "prompt_tokens": 588,
+      "completion_tokens": 152,
+      "total_tokens": 740,
       "extra": {}
     },
     {
       "sample_id": "strategyqa_0002",
-      "round_id": 2,
-      "mode": "repair",
-      "component": "repair_agent",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 459,
-      "completion_tokens": 106,
-      "total_tokens": 565,
+      "prompt_tokens": 588,
+      "completion_tokens": 113,
+      "total_tokens": 701,
       "extra": {}
     },
     {
       "sample_id": "strategyqa_0002",
-      "round_id": 2,
-      "mode": "repair",
-      "component": "repair_agent",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 459,
-      "completion_tokens": 96,
-      "total_tokens": 555,
+      "prompt_tokens": 588,
+      "completion_tokens": 110,
+      "total_tokens": 698,
       "extra": {}
     },
     {
       "sample_id": "strategyqa_0002",
-      "round_id": 2,
-      "mode": "repair",
+      "round_id": 3,
+      "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 983,
-      "completion_tokens": 27,
-      "total_tokens": 1010,
+      "prompt_tokens": 992,
+      "completion_tokens": 70,
+      "total_tokens": 1062,
       "extra": {}
     },
     {
       "sample_id": "strategyqa_0002",
-      "round_id": 2,
-      "mode": "repair",
-      "component": "repair_evaluator",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 624,
-      "completion_tokens": 40,
-      "total_tokens": 664,
-      "extra": {}
-    },
-    {
-      "sample_id": "strategyqa_0002",
-      "round_id": 3,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "A",
-      "prompt_tokens": 743,
-      "completion_tokens": 107,
-      "total_tokens": 850,
-      "extra": {}
-    },
-    {
-      "sample_id": "strategyqa_0002",
-      "round_id": 3,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "B",
-      "prompt_tokens": 743,
-      "completion_tokens": 115,
-      "total_tokens": 858,
-      "extra": {}
-    },
-    {
-      "sample_id": "strategyqa_0002",
-      "round_id": 3,
-      "mode": "repair",
-      "component": "repair_agent",
-      "agent_id": "C",
-      "prompt_tokens": 743,
-      "completion_tokens": 99,
-      "total_tokens": 842,
-      "extra": {}
-    },
-    {
-      "sample_id": "strategyqa_0002",
-      "round_id": 3,
-      "mode": "repair",
-      "component": "recorder",
-      "agent_id": null,
-      "prompt_tokens": 863,
-      "completion_tokens": 27,
-      "total_tokens": 890,
-      "extra": {}
-    },
-    {
-      "sample_id": "strategyqa_0002",
-      "round_id": 3,
-      "mode": "repair",
-      "component": "repair_evaluator",
-      "agent_id": null,
-      "prompt_tokens": 471,
-      "completion_tokens": 39,
-      "total_tokens": 510,
+      "prompt_tokens": 475,
+      "completion_tokens": 41,
+      "total_tokens": 516,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 265,
-    "majority_vote_total_tokens": 787,
-    "scrd_total_tokens": 14148,
-    "scrd_prompt_tokens": 12304,
-    "scrd_completion_tokens": 1844,
-    "agent_total_tokens": 3312,
-    "recorder_total_tokens": 4116,
-    "evaluator_total_tokens": 541,
-    "repair_brief_total_tokens": 825,
-    "repair_evaluator_total_tokens": 1174,
-    "repair_agent_total_tokens": 4180
+    "single_agent_total_tokens": 275,
+    "majority_vote_total_tokens": 807,
+    "scrd_total_tokens": 9323,
+    "scrd_prompt_tokens": 7924,
+    "scrd_completion_tokens": 1399,
+    "agent_total_tokens": 5079,
+    "recorder_total_tokens": 3170,
+    "evaluator_total_tokens": 1074,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
   }
 }
