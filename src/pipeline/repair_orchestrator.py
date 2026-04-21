@@ -46,7 +46,7 @@ class RepairOrchestrator:
         - failed_suffix_state_records
         - repair_brief
         """
-        round_id = rollback_context["trigger_round"]
+        round_id = rollback_context["anchor_round"] + 1
         anchor_round = rollback_context["anchor_round"]
         anchor_state: StateRecord = rollback_context["anchor_state"]
         failed_suffix_state_records: list[StateRecord] = rollback_context[

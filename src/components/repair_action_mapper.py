@@ -46,16 +46,6 @@ class RepairActionMapper:
         judgement = evaluation.transition_judgement
         continue_value = evaluation.continue_value
 
-        # Hard stop when max round is reached
-        if round_id >= max_round:
-            return RepairActionDecision(
-                action="finalize",
-                reason=(
-                    f"Current repair round {round_id} has reached max_round={max_round}, "
-                    "so repair should finalize."
-                ),
-            )
-
         # Degraded repair transition: stop repair
         if judgement == "degraded":
             return RepairActionDecision(
