@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Callable, Generic, Sequence, TypeVar
+from typing import Any, Callable, Generic, Sequence, TypeVar
 import hashlib
 import math
 
@@ -246,7 +246,7 @@ class SemanticMatcher:
     # Dense embedding backend
     # ------------------------------------------------------------------
 
-    def _load_sentence_transformer(self) -> SentenceTransformer:
+    def _load_sentence_transformer(self) -> Any:
         if self._model is None:
             if not _HAS_SENTENCE_TRANSFORMERS:
                 raise ImportError("sentence-transformers is not available.")

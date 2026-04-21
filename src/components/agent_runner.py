@@ -136,6 +136,69 @@ class AgentRunner:
             f"Last error: {last_error}"
         ) from last_error
 
+
+    def run_vanilla_round(
+        self,
+        *,
+        question: str,
+        agent_id: str,
+        round_id: int,
+        sample_id: str | None = None,
+        own_previous_answer: str,
+        peer_previous_answers: dict[str, str],
+    ) -> dict[str, Any]:
+        """
+        Run one vanilla MAD round (typically round >= 2).
+
+        Returns a simple dict:
+        {
+            "agent_id": "A",
+            "current_answer": "...",
+            "brief_reason": "...",
+            "round_id": 3
+        }
+        """
+        if round_id < 2:
+            raise ValueError("run_vanilla_round is intended for round_id >= 2.")
+        if not question or not str(question).strip():
+            raise ValueError("question must be a non-empty string.")
+        if not isinstance(peer_previous_answers, dict) or not peer_previous_answers:
+            raise ValueError("peer_previous_answers must be a non-empty dict.")
+
+        prompt = self._build_vanilla_round_prompt(
+            question=question,
+            agent_id=agent_id,
+            own_previous_answer=own_previous_answer,
+            peer_previous_answers=peer_previous_answers,
+            round_id=round_id,
+        )
+
+        last_error: Exception | None = None
+        for _ in range(self.max_retries + 1):
+            try:
+                raw_text, usage = self._generate_with_optional_usage(prompt)
+                self._log_usage(
+                    sample_id=sample_id or self.sample_id,
+                    round_id=round_id,
+                    mode="vanilla",
+                    component="agent_vanilla",
+                    agent_id=agent_id,
+                    usage=usage,
+                )
+                data = self._extract_json(raw_text)
+                output = self._parse_vanilla_round_output(
+                    raw_output=data,
+                    agent_id=agent_id,
+                    round_id=round_id,
+                )
+                return output
+            except Exception as exc:
+                last_error = exc
+
+        raise RuntimeError(
+            f"AgentRunner vanilla round failed after retries for agent {agent_id}. "
+            f"Last error: {last_error}"
+        ) from last_error
     # ------------------------------------------------------------------
     # Prompt builders
     # ------------------------------------------------------------------
@@ -257,6 +320,71 @@ class AgentRunner:
                     """.strip()
         return prompt
 
+
+    def _build_vanilla_round_prompt(
+        self,
+        *,
+        question: str,
+        agent_id: str,
+        own_previous_answer: str,
+        peer_previous_answers: dict[str, str],
+        round_id: int,
+    ) -> str:
+        dataset_instruction = self._dataset_instruction()
+        payload = {
+            "question": question,
+            "own_previous_answer": own_previous_answer,
+            "peer_previous_answers": peer_previous_answers,
+            "round_id": round_id,
+        }
+
+        prompt = f"""
+            You are agent {agent_id} in round {round_id} of a vanilla multi-agent debate.
+
+            You are given:
+            1. The original question
+            2. Your own answer from the previous round
+            3. Other agents' answers from the previous round
+
+            Your task:
+            - Re-evaluate the problem carefully
+            - Consider whether the other agents exposed mistakes in your previous answer
+            - Give your updated current answer and a brief reason
+            - You may keep your previous answer or revise it
+
+            Important:
+            - Focus on correctness, not agreement
+            - Do not copy others blindly
+            - If your previous answer was wrong, correct it
+            - If you still believe your answer is correct, keep it and explain briefly
+
+            {dataset_instruction}
+
+            Return JSON only.
+            No markdown.
+            No extra text.
+            Do NOT use LaTeX.
+            Do NOT use backslashes.
+            Do NOT write things like \\( \\) or \\[ \\].
+
+            Schema:
+            {{
+            "agent_id": "{agent_id}",
+            "current_answer": "string",
+            "brief_reason": "string"
+            }}
+
+            Rules:
+            - current_answer must be your FINAL answer for this round
+            - brief_reason should be short
+            - do not output extra fields
+
+            Input:
+            {json.dumps(payload, ensure_ascii=False, indent=2)}
+
+            Return JSON only.
+                    """.strip()
+        return prompt
     # ------------------------------------------------------------------
     # LLM call helpers
     # ------------------------------------------------------------------
@@ -415,6 +543,31 @@ class AgentRunner:
                 continue
 
         return results
+    
+    def _parse_vanilla_round_output(
+        self,
+        raw_output: dict[str, Any],
+        *,
+        agent_id: str,
+        round_id: int,
+    ) -> dict[str, Any]:
+        current_answer = self._sanitize_required_string(
+            raw_output.get("current_answer"),
+            fallback="UNKNOWN",
+        )
+        brief_reason = self._sanitize_required_string(
+            raw_output.get("brief_reason"),
+            fallback="",
+        )
+
+        current_answer = self._normalize_answer_for_dataset(current_answer)
+
+        return {
+            "agent_id": agent_id,
+            "current_answer": current_answer,
+            "brief_reason": brief_reason,
+            "round_id": round_id,
+        }
 
     # ------------------------------------------------------------------
     # Sanitizers
@@ -450,3 +603,25 @@ class AgentRunner:
             if cleaned in valid:
                 return cleaned
         return "still_open"
+    
+    def _normalize_answer_for_dataset(self, answer: str) -> str:
+        """
+        Lightweight post-processing for dataset-specific answer format.
+
+        StrategyQA:
+          - map yes/no -> true/false
+        GSM8K:
+          - keep as-is (we do not force numeric extraction here;
+            later evaluation code already normalizes answers)
+        """
+        cleaned = answer.strip()
+        if self.dataset_name == "strategyqa":
+            lowered = cleaned.lower()
+            if lowered == "yes":
+                return "true"
+            if lowered == "no":
+                return "false"
+            if lowered in {"true", "false"}:
+                return lowered
+            return lowered
+        return cleaned
