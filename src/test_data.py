@@ -1,6 +1,7 @@
 import pandas as pd
 import re
-
+import json
+import numpy as np
 # df = pd.read_parquet('datasets\\gsm8k\\main\\train-00000-of-00001.parquet')
 
 # # 统计变量
@@ -47,32 +48,69 @@ import re
 
 
 # 读取 parquet 文件
-df = pd.read_parquet('datasets\\aime_2026\\data\\train-00000-of-00001.parquet')
+# df = pd.read_parquet('datasets\\mmlu\\all\\dev-00000-of-00001.parquet')
 
-# ===================== 基础查看 =====================
-print("===== 数据形状（行数, 列数）=====")
-print(df.shape)
+# # ===================== 基础查看 ====================
 
-print("\n===== 列名 =====")
-print(df.columns.tolist())
 
-print("\n===== 数据类型 =====")
-print(df.dtypes)
+# output_path = "mmlu_dev.jsonl"
 
-print("\n===== 前 5 行数据 =====")
-print(df.head())
+# with open(output_path, "w", encoding="utf-8") as f:
+#     for _, row in df.iterrows():
+#         # 关键修复：把 numpy array 转成普通 list
+#         choices = row["choices"].tolist() if isinstance(row["choices"], np.ndarray) else row["choices"]
+        
+#         item = {
+#             "question": row["question"],
+#             "choices": choices,  # 现在是列表，可序列化
+#             "answer": int(row["answer"])
+#         }
+        
+#         f.write(json.dumps(item, ensure_ascii=False) + "\n")
 
-print("\n===== 前 3 行详细展示（每条完整内容） =====")
-for i in range(3):
-    print(f"\n========== 第 {i} 条数据 ==========")
-    print(df.iloc[i])
+# print("✅ 转换完成！无 ndarray 报错")
 
-# ===================== 单独查看字段 =====================
-print("\n===== 查看所有题目索引 =====")
-print(df['problem_idx'].tolist())
 
-print("\n===== 查看所有答案 =====")
-print(df['answer'].tolist())
+# 读取两个数据集
+# df_test = pd.read_parquet('datasets\\MMLU-Pro\\data\\test-00000-of-00001.parquet')
+# df_val = pd.read_parquet('datasets\\MMLU-Pro\\data\\validation-00000-of-00001.parquet')
 
-print("\n===== 查看第一条完整题目 =====")
-print(df['problem'].iloc[0])
+# # 合并成一个 DataFrame
+# df_combined = pd.concat([df_test, df_val], ignore_index=True)
+
+# # 写入同一个 JSONL 文件
+# with open("mmlu_pro_combined.jsonl", "w", encoding="utf-8") as f:
+#     for _, row in df_combined.iterrows():
+#         # numpy array 转列表（防报错）
+#         choices = row["options"].tolist() if isinstance(row["options"], np.ndarray) else row["options"]
+        
+#         # 你要的最终格式！
+#         item = {
+#             "question": row["question"],
+#             "choices": choices,
+#             "answer": int(row["answer_index"])
+#         }
+        
+#         f.write(json.dumps(item, ensure_ascii=False) + "\n")
+
+# print("✅ 合并完成！文件：mmlu_pro_combined.jsonl")
+
+
+df = pd.read_parquet('datasets\\SVAMP\\data\\train-00000-of-00001.parquet')
+
+# ===================== 基础查看 ====================
+
+
+output_path = "svamp.jsonl"
+
+with open(output_path, "w", encoding="utf-8") as f:
+    for _, row in df.iterrows():
+        
+        item = {
+            "question": row["Body"]+row["Question"],
+            "answer": row["Answer"]
+        }
+        
+        f.write(json.dumps(item, ensure_ascii=False) + "\n")
+
+print("✅ 转换完成！无 ndarray 报错")

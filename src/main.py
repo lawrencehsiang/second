@@ -1,5 +1,6 @@
 from __future__ import annotations
-
+import json
+import string
 import os
 import re
 import traceback
@@ -119,11 +120,130 @@ def load_strategyqa_samples(
 
     return samples
 
+
+def load_qa_jsonl_samples(
+    jsonl_path: str,
+    dataset_name: str,
+    limit: int = 1,
+    numeric_answer: bool = False,
+) -> list[tuple[str, str, str]]:
+    samples: list[tuple[str, str, str]] = []
+
+    with open(jsonl_path, "r", encoding="utf-8") as f:
+        for i, line in enumerate(f):
+            if i >= limit:
+                break
+
+            item = json.loads(line)
+            question = str(item["question"]).strip()
+            raw_answer = str(item["answer"]).strip()
+
+            if numeric_answer:
+                matches = re.findall(r"-?\d+(?:\.\d+)?", raw_answer.replace(",", ""))
+                gold_answer = matches[-1] if matches else raw_answer
+            else:
+                gold_answer = raw_answer
+
+            sample_id = f"{dataset_name}_{i+1:04d}"
+            samples.append((sample_id, question, gold_answer))
+
+    return samples
+
+
+
+OPTION_LABELS = list(string.ascii_uppercase)  # A, B, C, ...
+
+def load_multiple_choice_samples(
+    jsonl_path: str,
+    dataset_name: str,
+    limit: int = 1,
+) -> list[tuple[str, str, str]]:
+    samples: list[tuple[str, str, str]] = []
+
+    with open(jsonl_path, "r", encoding="utf-8") as f:
+        for i, line in enumerate(f):
+            if i >= limit:
+                break
+
+            item = json.loads(line)
+            question = str(item["question"]).strip()
+            choices = item["choices"]
+            answer_idx = int(item["answer"])
+
+            if not isinstance(choices, list) or len(choices) == 0:
+                raise ValueError(f"Invalid choices at line {i+1} in {jsonl_path}")
+
+            if len(choices) > len(OPTION_LABELS):
+                raise ValueError(
+                    f"Too many choices ({len(choices)}) at line {i+1}; "
+                    f"max supported is {len(OPTION_LABELS)}"
+                )
+
+            if not (0 <= answer_idx < len(choices)):
+                raise ValueError(
+                    f"Invalid answer index {answer_idx} at line {i+1} for {len(choices)} choices"
+                )
+
+            choice_lines = [
+                f"{OPTION_LABELS[j]}. {str(choice).strip()}"
+                for j, choice in enumerate(choices)
+            ]
+
+            question_with_choices = (
+                f"{question}\n\n"
+                f"Options:\n" +
+                "\n".join(choice_lines)
+            )
+
+            gold_answer = OPTION_LABELS[answer_idx]
+            sample_id = f"{dataset_name}_{i+1:04d}"
+            samples.append((sample_id, question_with_choices, gold_answer))
+
+    return samples
+
 def load_samples(dataset_name: str, limit: int) -> list[tuple[str, str, str]]:
     if dataset_name == "gsm8k":
         return load_gsm8k_samples(limit=limit)
     if dataset_name == "strategyqa":
         return load_strategyqa_samples(limit=limit)
+    if dataset_name == "aime2025":
+        return load_qa_jsonl_samples(
+            jsonl_path=r"datasets\AIME2025\aime2025.jsonl",
+            dataset_name="aime2025",
+            limit=limit,
+            numeric_answer=True,
+        )
+
+    if dataset_name == "aime2026":
+        return load_qa_jsonl_samples(
+            jsonl_path=r"datasets\AIME2026\aime2026.jsonl",
+            dataset_name="aime2026",
+            limit=limit,
+            numeric_answer=True,
+        )
+    
+    if dataset_name == "mmlu":
+        return load_multiple_choice_samples(
+            jsonl_path=r"datasets\mmlu\mmlu.jsonl",
+            dataset_name="mmlu",
+            limit=limit,
+        )
+
+    if dataset_name == "mmlu_pro":
+        return load_multiple_choice_samples(
+            jsonl_path=r"datasets\mmlupro\mmlu_pro.jsonl",
+            dataset_name="mmlu_pro",
+            limit=limit,
+        )
+    
+    if dataset_name == "svamp":
+        return load_qa_jsonl_samples(
+            jsonl_path=r"datasets\SVAMP\svamp.jsonl",
+            dataset_name="svamp",
+            limit=limit,
+            numeric_answer=True,
+        )
+
     raise ValueError(f"Unsupported dataset: {dataset_name}")
 
 print("StateStore loaded from:", inspect.getfile(StateStore))
@@ -349,11 +469,11 @@ if __name__ == "__main__":
     print("Starting the debate system...")
 
     llm_client = build_llm_client()
-    DATASET_NAME = "strategyqa"
+    DATASET_NAME = "svamp"
     OUTPUT_DIR = f"outputs/{DATASET_NAME}"
     writer = ResultWriter(output_dir=OUTPUT_DIR)
 
-    samples = load_samples(DATASET_NAME, limit=200)
+    samples = load_samples(DATASET_NAME, limit=30)
     completed_sample_ids = writer.load_completed_sample_ids()
     if completed_sample_ids:
         print(f"Resume mode: found {len(completed_sample_ids)} completed samples in"
@@ -422,3 +542,4 @@ if __name__ == "__main__":
 
 
 
+   

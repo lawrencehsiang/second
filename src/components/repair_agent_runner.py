@@ -102,11 +102,29 @@ class RepairAgentRunner:
                 '- Do not output explanations inside current_answer.\n'
             )
 
-        if self.dataset_name == "gsm8k":
+        if self.dataset_name in {"gsm8k", "svamp"}:
             return (
                 "Task type: math reasoning.\n"
                 "- current_answer should be the final numeric answer for this round.\n"
                 "- Keep brief_reason short, but make sure current_answer matches your final computation.\n"
+            )
+        
+        if self.dataset_name in {"aime2025", "aime2026"}:
+            return (
+                "Task type: AIME-style math reasoning.\n"
+                "- current_answer must be a bare final numeric answer only.\n"
+                "- Do not include units, degree symbols, words, commas, or explanations inside current_answer.\n"
+                "- If you derive 336 degrees, current_answer should be \"336\", not \"336^circ\".\n"
+                "- Keep brief_reason short, but make sure current_answer matches your final computation.\n"
+            )
+        
+        if self.dataset_name in {"mmlu", "mmlu_pro"}:
+            return (
+                "Task type: multiple-choice question answering.\n"
+                '- current_answer must be exactly one option label such as "A", "B", "C".\n'
+                "- Do not output the full option text.\n"
+                "- Do not output explanations inside current_answer.\n"
+                '- Example valid outputs: "A", "D", "J".\n'
             )
 
         return ""
@@ -316,6 +334,7 @@ class RepairAgentRunner:
             data.get("current_answer"),
             fallback="UNKNOWN",
         )
+        current_answer = self._normalize_answer_for_dataset(current_answer)
 
         return AgentOutputNormal(
             agent_id=agent_id,
@@ -390,3 +409,63 @@ class RepairAgentRunner:
             if cleaned in valid:
                 return cleaned
         return "still_open"
+    
+
+    def _normalize_multiple_choice_label(self, text: str) -> str:
+        if not text:
+            return ""
+
+        s = str(text).strip().upper()
+
+        if re.fullmatch(r"[A-Z]", s):
+            return s
+
+        patterns = [
+            r"\bOPTION\s*([A-Z])\b",
+            r"\bANSWER\s*(?:IS|:)?\s*([A-Z])\b",
+            r"\bI\s+CHOOSE\s+([A-Z])\b",
+            r"^\(?([A-Z])\)?[\.:\s]*$",
+            r"\b([A-Z])\b",
+        ]
+
+        for pattern in patterns:
+            m = re.search(pattern, s)
+            if m:
+                return m.group(1)
+
+        return s
+
+
+    def _normalize_numeric_answer(self, text: str) -> str:
+        if not text:
+            return ""
+
+        s = str(text).strip()
+
+        # 先去掉逗号
+        s = s.replace(",", "")
+
+        # 提取最后一个数字，兼容 336^\circ / answer is 42 / $1,234
+        matches = re.findall(r"-?\d+(?:\.\d+)?", s)
+        if matches:
+            return matches[-1]
+
+        return s
+
+
+    def _normalize_answer_for_dataset(self, answer: str) -> str:
+        if self.dataset_name == "strategyqa":
+            s = str(answer).strip().lower()
+            if s in {"yes", "true"}:
+                return "true"
+            if s in {"no", "false"}:
+                return "false"
+            return s
+
+        if self.dataset_name in {"gsm8k", "aime2025", "aime2026","svamp"}:
+            return self._normalize_numeric_answer(answer)
+
+        if self.dataset_name in {"mmlu", "mmlu_pro"}:
+            return self._normalize_multiple_choice_label(answer)
+
+        return str(answer).strip()

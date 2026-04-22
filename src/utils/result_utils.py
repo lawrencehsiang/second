@@ -63,6 +63,30 @@ def extract_last_number(text: str) -> float | None:
     except ValueError:
         return None
 
+def normalize_multiple_choice_answer(text: str) -> str:
+    if text is None:
+        return ""
+
+    s = str(text).strip().upper()
+
+    if re.fullmatch(r"[A-Z]", s):
+        return s
+
+    patterns = [
+        r"\bOPTION\s*([A-Z])\b",
+        r"\bANSWER\s*(?:IS|:)?\s*([A-Z])\b",
+        r"\bI\s+CHOOSE\s+([A-Z])\b",
+        r"^\(?([A-Z])\)?[\.:\s]*$",
+        r"\b([A-Z])\b",
+    ]
+
+    for pattern in patterns:
+        m = re.search(pattern, s)
+        if m:
+            return m.group(1)
+
+    return s
+
 
 # ------------------------------------------------------------------
 # Dataset-specific correctness
@@ -81,12 +105,29 @@ def is_correct_gsm8k(pred: str, gold: str) -> bool:
 def is_correct_strategyqa(pred: str, gold: str) -> bool:
     return normalize_bool_answer(pred) == normalize_bool_answer(gold)
 
+def is_correct_aime(pred: str, gold: str) -> bool:
+    return is_correct_gsm8k(pred, gold)
+
+def is_correct_svamp(pred: str, gold: str) -> bool:
+    return is_correct_gsm8k(pred, gold)
+
+def is_correct_multiple_choice(pred: str, gold: str) -> bool:
+    pred_norm = normalize_multiple_choice_answer(pred)
+    gold_norm = normalize_multiple_choice_answer(gold)
+    return pred_norm == gold_norm
+
 
 def is_correct(pred: str, gold: str, dataset_name: str) -> bool:
     if dataset_name == "gsm8k":
         return is_correct_gsm8k(pred, gold)
     if dataset_name == "strategyqa":
         return is_correct_strategyqa(pred, gold)
+    if dataset_name in {"aime2025", "aime2026"}:
+        return is_correct_aime(pred, gold)
+    if dataset_name in {"mmlu", "mmlu_pro"}:
+        return is_correct_multiple_choice(pred, gold)
+    if dataset_name == "svamp":
+        return is_correct_svamp(pred, gold)
     raise ValueError(f"Unsupported dataset: {dataset_name}")
 
 
@@ -130,12 +171,36 @@ def majority_vote_strategyqa(answers: list[str]) -> str:
     count = Counter(normalized)
     return count.most_common(1)[0][0]
 
+def majority_vote_aime(answers: list[str]) -> str:
+    return majority_vote_gsm8k(answers)
+
+def majority_vote_svamp(answers: list[str]) -> str:
+    return majority_vote_gsm8k(answers)
+
+def majority_vote_multiple_choice(answers: list[str]) -> str:
+    normalized = [
+        normalize_multiple_choice_answer(a)
+        for a in answers
+        if normalize_multiple_choice_answer(a)
+    ]
+
+    if not normalized:
+        return ""
+
+    counter = Counter(normalized)
+    return counter.most_common(1)[0][0]
 
 def majority_vote(answers: list[str], dataset_name: str) -> str:
     if dataset_name == "gsm8k":
         return majority_vote_gsm8k(answers)
     if dataset_name == "strategyqa":
         return majority_vote_strategyqa(answers)
+    if dataset_name in {"aime2025", "aime2026"}:
+        return majority_vote_aime(answers)
+    if dataset_name in {"mmlu", "mmlu_pro"}:
+        return majority_vote_multiple_choice(answers)
+    if dataset_name == "svamp":
+        return majority_vote_svamp(answers)
     raise ValueError(f"Unsupported dataset: {dataset_name}")
 
 
@@ -258,3 +323,8 @@ def build_usage_summary(usage_logger) -> dict:
         "repair_evaluator_total_tokens": repair_evaluator_total_tokens,
         "repair_agent_total_tokens": repair_agent_total_tokens,
     }
+
+
+
+
+

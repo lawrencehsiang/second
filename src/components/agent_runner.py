@@ -211,11 +211,29 @@ class AgentRunner:
                 '- Do not output explanations inside current_answer.\n'
             )
 
-        if self.dataset_name == "gsm8k":
+        if self.dataset_name in {"gsm8k", "svamp"}:
             return (
                 "Task type: math reasoning.\n"
                 "- current_answer should be the final numeric answer for this round.\n"
                 "- Keep brief_reason short, but make sure current_answer matches your final computation.\n"
+            )
+        
+        if self.dataset_name in {"aime2025", "aime2026"}:
+            return (
+                "Task type: AIME-style math reasoning.\n"
+                "- current_answer must be a bare final numeric answer only.\n"
+                "- Do not include units, degree symbols, words, commas, or explanations inside current_answer.\n"
+                "- If you derive 336 degrees, current_answer should be \"336\", not \"336^circ\".\n"
+                "- Keep brief_reason short, but make sure current_answer matches your final computation.\n"
+            )
+        
+        if self.dataset_name in {"mmlu", "mmlu_pro"}:
+            return (
+                "Task type: multiple-choice question answering.\n"
+                '- current_answer must be exactly one option label such as "A", "B", "C".\n'
+                "- Do not output the full option text.\n"
+                "- Do not output explanations inside current_answer.\n"
+                '- Example valid outputs: "A", "D", "J".\n'
             )
 
         return ""
@@ -603,6 +621,32 @@ class AgentRunner:
             if cleaned in valid:
                 return cleaned
         return "still_open"
+
+    def _normalize_multiple_choice_label(text: str) -> str:
+        if not text:
+            return ""
+
+        s = str(text).strip().upper()
+
+        # 先尝试严格匹配单字母
+        if re.fullmatch(r"[A-Z]", s):
+            return s
+
+        # 再从常见格式里抽取 option label
+        patterns = [
+            r"\bOPTION\s*([A-Z])\b",
+            r"\bANSWER\s*(?:IS|:)?\s*([A-Z])\b",
+            r"\bI\s+CHOOSE\s+([A-Z])\b",
+            r"^\(?([A-Z])\)?[\.:\s]*$",
+            r"\b([A-Z])\b",
+        ]
+
+        for pattern in patterns:
+            m = re.search(pattern, s)
+            if m:
+                return m.group(1)
+
+        return s
     
     def _normalize_answer_for_dataset(self, answer: str) -> str:
         """
@@ -624,4 +668,9 @@ class AgentRunner:
             if lowered in {"true", "false"}:
                 return lowered
             return lowered
+        if self.dataset_name in {"mmlu", "mmlu_pro"}:
+            return self._normalize_multiple_choice_label(answer)
         return cleaned
+    
+
+    
