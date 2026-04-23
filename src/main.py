@@ -569,12 +569,12 @@ if __name__ == "__main__":
 
     llm_client = build_llm_client()
 
-    DATASET_NAME = "asdiv"
+    DATASET_NAME = "aime2025"
     OUTPUT_DIR = f"outputs/{DATASET_NAME}"
 
     writer = ResultWriter(output_dir=OUTPUT_DIR)
 
-    samples = load_samples(DATASET_NAME, limit=80)
+    samples = load_samples(DATASET_NAME, limit=30)
     completed_sample_ids = writer.load_completed_sample_ids()
 
     if completed_sample_ids:
@@ -659,195 +659,9 @@ if __name__ == "__main__":
         print("No new successful samples were processed in this run.")
 
 
-
-    print("StateStore loaded from:", inspect.getfile(StateStore))
-    print("Has get_action_history:", hasattr(StateStore, "get_action_history"))
-    print("Starting the debate system...")
-
-    llm_client = build_llm_client()
-
-    DATASET_NAME = "gsm8k"
-    OUTPUT_DIR = f"outputs/{DATASET_NAME}"
-
-    writer = ResultWriter(output_dir=OUTPUT_DIR)
-
-    samples = load_samples(DATASET_NAME, limit=80)
-    completed_sample_ids = writer.load_completed_sample_ids()
-
-    if completed_sample_ids:
-        print(
-            f"Resume mode: found {len(completed_sample_ids)} completed samples in "
-            f"{OUTPUT_DIR}/results.jsonl"
-        )
-
-    total = 0
-    single_correct_count = 0
-    majority_correct_count = 0
-    scrd_correct_count = 0
-    skipped_count = 0
-    failed_count = 0
-
-    for sample_id, question, gold_answer in samples:
-        if sample_id in completed_sample_ids:
-            skipped_count += 1
-            print(f"Skipping completed sample: {sample_id}")
-            continue
-
-        try:
-            result, trace = run_normal_mode(
-                llm_client=llm_client,
-                question=question,
-                gold_answer=gold_answer,
-                sample_id=sample_id,
-                dataset_name=DATASET_NAME,
-            )
-
-            writer.append_result(result)
-            writer.write_trace(sample_id, trace)
-
-            total += 1
-            single_correct_count += int(result["single_agent_correct"])
-            majority_correct_count += int(result["majority_voting_correct"])
-            scrd_correct_count += int(result["scrd_correct"])
-
-            print("Result saved:", result)
-
-        except KeyboardInterrupt:
-            print("\nInterrupted by user. Progress has been saved. You can rerun to resume.")
-            break
-
-        except Exception as exc:
-            failed_count += 1
-            writer.append_error(
-                {
-                    "sample_id": sample_id,
-                    "dataset_name": DATASET_NAME,
-                    "question": question,
-                    "gold_answer": gold_answer,
-                    "error": str(exc),
-                    "traceback": traceback.format_exc(),
-                }
-            )
-            print(
-                f"Failed sample {sample_id}: {exc}. "
-                f"Logged to {OUTPUT_DIR}/errors.jsonl. Continuing..."
-            )
-            continue
-
-    print("\n===== Final Summary =====")
-    print(f"Processed successfully in this run: {total}")
-    print(f"Skipped (already completed): {skipped_count}")
-    print(f"Failed in this run: {failed_count}")
-
-    if total > 0:
-        print(
-            f"Single-agent baseline accuracy: "
-            f"{single_correct_count}/{total} = {single_correct_count / total:.4f}"
-        )
-        print(
-            f"Majority-voting baseline accuracy: "
-            f"{majority_correct_count}/{total} = {majority_correct_count / total:.4f}"
-        )
-        print(
-            f"SCRD accuracy: "
-            f"{scrd_correct_count}/{total} = {scrd_correct_count / total:.4f}"
-        )
-    else:
-        print("No new successful samples were processed in this run.")
+    
 
 
 
-    print("StateStore loaded from:", inspect.getfile(StateStore))
-    print("Has get_action_history:", hasattr(StateStore, "get_action_history"))
-    print("Starting the debate system...")
 
-    llm_client = build_llm_client()
-
-    DATASET_NAME = "addsub"
-    OUTPUT_DIR = f"outputs/{DATASET_NAME}"
-
-    writer = ResultWriter(output_dir=OUTPUT_DIR)
-
-    samples = load_samples(DATASET_NAME, limit=80)
-    completed_sample_ids = writer.load_completed_sample_ids()
-
-    if completed_sample_ids:
-        print(
-            f"Resume mode: found {len(completed_sample_ids)} completed samples in "
-            f"{OUTPUT_DIR}/results.jsonl"
-        )
-
-    total = 0
-    single_correct_count = 0
-    majority_correct_count = 0
-    scrd_correct_count = 0
-    skipped_count = 0
-    failed_count = 0
-
-    for sample_id, question, gold_answer in samples:
-        if sample_id in completed_sample_ids:
-            skipped_count += 1
-            print(f"Skipping completed sample: {sample_id}")
-            continue
-
-        try:
-            result, trace = run_normal_mode(
-                llm_client=llm_client,
-                question=question,
-                gold_answer=gold_answer,
-                sample_id=sample_id,
-                dataset_name=DATASET_NAME,
-            )
-
-            writer.append_result(result)
-            writer.write_trace(sample_id, trace)
-
-            total += 1
-            single_correct_count += int(result["single_agent_correct"])
-            majority_correct_count += int(result["majority_voting_correct"])
-            scrd_correct_count += int(result["scrd_correct"])
-
-            print("Result saved:", result)
-
-        except KeyboardInterrupt:
-            print("\nInterrupted by user. Progress has been saved. You can rerun to resume.")
-            break
-
-        except Exception as exc:
-            failed_count += 1
-            writer.append_error(
-                {
-                    "sample_id": sample_id,
-                    "dataset_name": DATASET_NAME,
-                    "question": question,
-                    "gold_answer": gold_answer,
-                    "error": str(exc),
-                    "traceback": traceback.format_exc(),
-                }
-            )
-            print(
-                f"Failed sample {sample_id}: {exc}. "
-                f"Logged to {OUTPUT_DIR}/errors.jsonl. Continuing..."
-            )
-            continue
-
-    print("\n===== Final Summary =====")
-    print(f"Processed successfully in this run: {total}")
-    print(f"Skipped (already completed): {skipped_count}")
-    print(f"Failed in this run: {failed_count}")
-
-    if total > 0:
-        print(
-            f"Single-agent baseline accuracy: "
-            f"{single_correct_count}/{total} = {single_correct_count / total:.4f}"
-        )
-        print(
-            f"Majority-voting baseline accuracy: "
-            f"{majority_correct_count}/{total} = {majority_correct_count / total:.4f}"
-        )
-        print(
-            f"SCRD accuracy: "
-            f"{scrd_correct_count}/{total} = {scrd_correct_count / total:.4f}"
-        )
-    else:
-        print("No new successful samples were processed in this run.")
+ 
