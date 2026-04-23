@@ -111,6 +111,9 @@ def is_correct_aime(pred: str, gold: str) -> bool:
 def is_correct_svamp(pred: str, gold: str) -> bool:
     return is_correct_gsm8k(pred, gold)
 
+def is_correct_multiarith(pred: str, gold: str) -> bool:
+    return is_correct_gsm8k(pred, gold)
+
 def is_correct_multiple_choice(pred: str, gold: str) -> bool:
     pred_norm = normalize_multiple_choice_answer(pred)
     gold_norm = normalize_multiple_choice_answer(gold)
@@ -128,6 +131,8 @@ def is_correct(pred: str, gold: str, dataset_name: str) -> bool:
         return is_correct_multiple_choice(pred, gold)
     if dataset_name == "svamp":
         return is_correct_svamp(pred, gold)
+    if dataset_name in {"multiarith","addsub","asdiv","math","singleeq"}:
+        return is_correct_multiarith(pred,gold)
     raise ValueError(f"Unsupported dataset: {dataset_name}")
 
 
@@ -177,6 +182,9 @@ def majority_vote_aime(answers: list[str]) -> str:
 def majority_vote_svamp(answers: list[str]) -> str:
     return majority_vote_gsm8k(answers)
 
+def majority_vote_multiarith(answers: list[str]) -> str:
+    return majority_vote_gsm8k(answers)
+
 def majority_vote_multiple_choice(answers: list[str]) -> str:
     normalized = [
         normalize_multiple_choice_answer(a)
@@ -201,6 +209,8 @@ def majority_vote(answers: list[str], dataset_name: str) -> str:
         return majority_vote_multiple_choice(answers)
     if dataset_name == "svamp":
         return majority_vote_svamp(answers)
+    if dataset_name in {"multiarith","addsub","asdiv","math","singleeq"}:
+        return majority_vote_multiarith(answers)
     raise ValueError(f"Unsupported dataset: {dataset_name}")
 
 

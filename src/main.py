@@ -1,15 +1,19 @@
 from __future__ import annotations
+
+import inspect
 import json
-import string
 import os
 import re
+import string
 import traceback
+from pathlib import Path
+
 import pandas as pd
 from dotenv import load_dotenv
-from src.components.usage_logger import UsageLogger
-from src.utils.result_utils import build_usage_summary
+
 from src.components.action_mapper import ActionMapper
 from src.components.agent_runner import AgentRunner
+from src.components.decision_head import ConservativeTrajectoryDecisionHead
 from src.components.evaluator import Evaluator
 from src.components.history_manager import HistoryManager
 from src.components.qianfan_client import QianfanClient
@@ -20,6 +24,7 @@ from src.components.repair_brief_generator import RepairBriefGenerator
 from src.components.repair_evaluator import RepairEvaluator
 from src.components.rollback_controller import RollbackController
 from src.components.state_store import StateStore
+from src.components.usage_logger import UsageLogger
 from src.pipeline.debate_orchestrator import (
     DebateOrchestrator,
     DebateOrchestratorConfig,
@@ -36,32 +41,46 @@ from src.pipeline.repair_round_executor import (
     RepairRoundExecutor,
     RepairRoundExecutorConfig,
 )
-from src.utils.result_writer import ResultWriter
 from src.utils.result_utils import (
     build_trace_bundle,
-    get_final_answers,
+    build_usage_summary,
+    get_actual_rounds_executed,
+    get_effective_rounds_used,
     get_round_1_answers,
     get_stop_reason,
     is_correct,
     majority_vote,
-    get_actual_rounds_executed,
-    get_effective_rounds_used
 )
-
-from src.components.state_store import StateStore
-import inspect
-import json
-from pathlib import Path
+from src.utils.result_writer import ResultWriter
 
 
+# =========================
+# Global config
+# =========================
 AGENT_IDS = ["A", "B", "C"]
+
+# Diversity-Lite: fixed math-oriented roles
+AGENT_ROLES: dict[str, str] = {
+    "A": "parser",
+    "B": "planner",
+    "C": "verifier",
+}
+
 MAX_ROUND = 5
+
 # 强制禁用代理，直连国内网络
 os.environ["HTTP_PROXY"] = ""
 os.environ["HTTPS_PROXY"] = ""
 os.environ["NO_PROXY"] = "qianfan.baidubce.com,localhost,127.0.0.1"
+
 load_dotenv()
 
+OPTION_LABELS = list(string.ascii_uppercase)
+
+
+# =========================
+# LLM client
+# =========================
 def build_llm_client() -> QianfanClient:
     api_key = os.getenv("QIANFAN_API_KEY")
     if not api_key:
@@ -72,19 +91,25 @@ def build_llm_client() -> QianfanClient:
         model="qwen2.5-7b-instruct",
     )
 
+
+# =========================
+# Dataset loaders
+# =========================
 def load_gsm8k_samples(
     parquet_path: str = r"datasets\gsm8k\main\train-00000-of-00001.parquet",
     limit: int = 1,
 ) -> list[tuple[str, str, str]]:
     df = pd.read_parquet(parquet_path)
-    samples: list[tuple[str, str, str]] = []
 
+    samples: list[tuple[str, str, str]] = []
     for i in range(min(limit, len(df))):
         row = df.iloc[i]
         question = str(row["question"]).strip()
         answer_text = str(row["answer"])
+
         result = re.findall(r"####\s*(-?\d+(?:\.\d+)?)", answer_text)
         gold_answer = result[0] if result else answer_text.strip()
+
         sample_id = f"gsm8k_{i+1:04d}"
         samples.append((sample_id, question, gold_answer))
 
@@ -99,7 +124,6 @@ def load_strategyqa_samples(
         data = json.load(f)
 
     samples: list[tuple[str, str, str]] = []
-
     for i, item in enumerate(data[:limit]):
         question = str(item["question"]).strip()
         raw_answer = item["answer"]
@@ -150,9 +174,6 @@ def load_qa_jsonl_samples(
     return samples
 
 
-
-OPTION_LABELS = list(string.ascii_uppercase)  # A, B, C, ...
-
 def load_multiple_choice_samples(
     jsonl_path: str,
     dataset_name: str,
@@ -189,23 +210,22 @@ def load_multiple_choice_samples(
                 for j, choice in enumerate(choices)
             ]
 
-            question_with_choices = (
-                f"{question}\n\n"
-                f"Options:\n" +
-                "\n".join(choice_lines)
-            )
-
+            question_with_choices = f"{question}\n\nOptions:\n" + "\n".join(choice_lines)
             gold_answer = OPTION_LABELS[answer_idx]
+
             sample_id = f"{dataset_name}_{i+1:04d}"
             samples.append((sample_id, question_with_choices, gold_answer))
 
     return samples
 
+
 def load_samples(dataset_name: str, limit: int) -> list[tuple[str, str, str]]:
     if dataset_name == "gsm8k":
         return load_gsm8k_samples(limit=limit)
+
     if dataset_name == "strategyqa":
         return load_strategyqa_samples(limit=limit)
+
     if dataset_name == "aime2025":
         return load_qa_jsonl_samples(
             jsonl_path=r"datasets\AIME2025\aime2025.jsonl",
@@ -221,7 +241,7 @@ def load_samples(dataset_name: str, limit: int) -> list[tuple[str, str, str]]:
             limit=limit,
             numeric_answer=True,
         )
-    
+
     if dataset_name == "mmlu":
         return load_multiple_choice_samples(
             jsonl_path=r"datasets\mmlu\mmlu.jsonl",
@@ -235,7 +255,7 @@ def load_samples(dataset_name: str, limit: int) -> list[tuple[str, str, str]]:
             dataset_name="mmlu_pro",
             limit=limit,
         )
-    
+
     if dataset_name == "svamp":
         return load_qa_jsonl_samples(
             jsonl_path=r"datasets\SVAMP\svamp.jsonl",
@@ -243,14 +263,55 @@ def load_samples(dataset_name: str, limit: int) -> list[tuple[str, str, str]]:
             limit=limit,
             numeric_answer=True,
         )
+    
+    if dataset_name == "multiarith":
+        return load_qa_jsonl_samples(
+            jsonl_path=r"datasets\MultiArith\multiarith.jsonl",
+            dataset_name="multiarith",
+            limit=limit,
+            numeric_answer=True,
+        )
+    
+    if dataset_name == "addsub":
+        return load_qa_jsonl_samples(
+            jsonl_path=r"datasets\addsub\addsub.jsonl",
+            dataset_name="addsub",
+            limit=limit,
+            numeric_answer=True,
+        )
+    
+
+    if dataset_name == "asdiv":
+        return load_qa_jsonl_samples(
+            jsonl_path=r"datasets\asdiv\asdiv.jsonl",
+            dataset_name="asdiv",
+            limit=limit,
+            numeric_answer=True,
+        )
+    
+
+    if dataset_name == "math":
+        return load_qa_jsonl_samples(
+            jsonl_path=r"datasets\math\math.jsonl",
+            dataset_name="multiarith",
+            limit=limit,
+            numeric_answer=True,
+        )
+    
+    if dataset_name == "singleeq":
+        return load_qa_jsonl_samples(
+            jsonl_path=r"datasets\singleeq\singleeq.jsonl",
+            dataset_name="singleeq",
+            limit=limit,
+            numeric_answer=True,
+        )
 
     raise ValueError(f"Unsupported dataset: {dataset_name}")
 
-print("StateStore loaded from:", inspect.getfile(StateStore))
-print("Has get_action_history:", hasattr(StateStore, "get_action_history"))
 
-
-
+# =========================
+# Main normal mode
+# =========================
 def run_normal_mode(
     llm_client: QianfanClient,
     question: str,
@@ -261,18 +322,23 @@ def run_normal_mode(
     state_store = StateStore()
     usage_logger = UsageLogger()
 
+    # Diversity-Lite: same model, different role prompts
     agent_runner = AgentRunner(
         llm_client=llm_client,
         usage_logger=usage_logger,
         sample_id=sample_id,
         dataset_name=dataset_name,
+        role_by_agent_id=AGENT_ROLES,
     )
+
     history_manager = HistoryManager()
+
     recorder = Recorder(
         llm_client=llm_client,
         usage_logger=usage_logger,
         sample_id=sample_id,
     )
+
     evaluator = Evaluator(
         llm_client=llm_client,
         usage_logger=usage_logger,
@@ -312,19 +378,15 @@ def run_normal_mode(
     print("Starting the debate in normal mode...")
 
     debate_result = debate_orchestrator.run_debate()
-
     rollback_context = debate_result["rollback_context"]
     early_stopped = debate_result["early_stopped"]
 
     if rollback_context:
         anchor_round = rollback_context.get("anchor_round")
         anchor_state = rollback_context.get("anchor_state")
-        failed_suffix_state_records = rollback_context.get("failed_suffix_state_records", [])
 
         if anchor_round is not None and anchor_state is not None:
             print("Rollback detected, switching to repair mode...")
-
-            # 先保留 failed suffix，用它生成 repair_brief
             run_repair_mode(
                 llm_client=llm_client,
                 question=question,
@@ -338,36 +400,63 @@ def run_normal_mode(
         else:
             print("Rollback detected, but no valid anchor is available. Skip repair mode.")
 
+    # -------------------------
+    # Baselines
+    # -------------------------
     round_1_answers = get_round_1_answers(state_store)
-    final_answers = get_final_answers(state_store)
-
     single_agent_baseline_answer = round_1_answers[0] if round_1_answers else ""
-    majority_voting_baseline_answer = majority_vote(round_1_answers,dataset_name=dataset_name)
-    scrd_final_answer = majority_vote(final_answers,dataset_name=dataset_name)
+    majority_voting_baseline_answer = majority_vote(
+        round_1_answers,
+        dataset_name=dataset_name,
+    )
+
+    # -------------------------
+    # New SCRD final answer
+    # -------------------------
+    decision_head = ConservativeTrajectoryDecisionHead()
+    scrd_final_answer = decision_head.select_final_answer(
+        state_store=state_store,
+        rollback_context=rollback_context,
+        dataset_name=dataset_name,
+        agent_roles=AGENT_ROLES,
+    )
+
     usage_summary = build_usage_summary(usage_logger)
+
     result = {
         "sample_id": sample_id,
         "dataset_name": dataset_name,
         "question": question,
         "gold_answer": gold_answer,
+        "agent_roles": AGENT_ROLES,
         "round_1_answers": round_1_answers,
         "single_agent_baseline_answer": single_agent_baseline_answer,
         "majority_voting_baseline_answer": majority_voting_baseline_answer,
         "scrd_final_answer": scrd_final_answer,
-        "single_agent_correct": is_correct(single_agent_baseline_answer, gold_answer, dataset_name=dataset_name),
-        "majority_voting_correct": is_correct(majority_voting_baseline_answer, gold_answer, dataset_name=dataset_name),
-        "scrd_correct": is_correct(scrd_final_answer, gold_answer, dataset_name=dataset_name),
+        "single_agent_correct": is_correct(
+            single_agent_baseline_answer,
+            gold_answer,
+            dataset_name=dataset_name,
+        ),
+        "majority_voting_correct": is_correct(
+            majority_voting_baseline_answer,
+            gold_answer,
+            dataset_name=dataset_name,
+        ),
+        "scrd_correct": is_correct(
+            scrd_final_answer,
+            gold_answer,
+            dataset_name=dataset_name,
+        ),
         "effective_rounds_used": get_effective_rounds_used(state_store),
         "actual_rounds_executed": get_actual_rounds_executed(state_store),
         "stop_reason": get_stop_reason(rollback_context, early_stopped),
-
         # token summary
         "single_agent_total_tokens": usage_summary["single_agent_total_tokens"],
         "majority_vote_total_tokens": usage_summary["majority_vote_total_tokens"],
         "scrd_total_tokens": usage_summary["scrd_total_tokens"],
         "scrd_prompt_tokens": usage_summary["scrd_prompt_tokens"],
         "scrd_completion_tokens": usage_summary["scrd_completion_tokens"],
-
         # component totals
         "agent_total_tokens": usage_summary["agent_total_tokens"],
         "recorder_total_tokens": usage_summary["recorder_total_tokens"],
@@ -381,6 +470,9 @@ def run_normal_mode(
     return result, trace
 
 
+# =========================
+# Repair mode
+# =========================
 def run_repair_mode(
     llm_client: QianfanClient,
     question: str,
@@ -391,45 +483,47 @@ def run_repair_mode(
     sample_id: str,
     dataset_name: str,
 ) -> None:
-    
     repair_action_mapper = RepairActionMapper()
+
     recorder = Recorder(
         llm_client=llm_client,
         usage_logger=usage_logger,
         sample_id=sample_id,
     )
+
     repair_brief_generator = RepairBriefGenerator(
         llm_client=llm_client,
         usage_logger=usage_logger,
         sample_id=sample_id,
     )
+
     repair_evaluator = RepairEvaluator(
         llm_client=llm_client,
         usage_logger=usage_logger,
         sample_id=sample_id,
     )
+
+    # Diversity-Lite also applies in repair mode
     repair_agent_runner = RepairAgentRunner(
         llm_client=llm_client,
         usage_logger=usage_logger,
         sample_id=sample_id,
         dataset_name=dataset_name,
+        role_by_agent_id=AGENT_ROLES,
     )
 
     anchor_round = rollback_context["anchor_round"]
     anchor_state = rollback_context["anchor_state"]
     failed_suffix_state_records = rollback_context["failed_suffix_state_records"]
 
-    # Step 1: 先生成 repair_brief
     repair_brief = repair_brief_generator.generate_brief_from_parts(
         question=question,
         anchor_state=anchor_state,
         failed_suffix_state_records=failed_suffix_state_records,
     )
 
-    # Step 2: 再删掉 anchor 之后的旧失败后缀
     state_store.remove_rounds_after(anchor_round)
 
-    # Step 3: 用同一个主 store 跑 repair
     repair_round_executor = RepairRoundExecutor(
         config=RepairRoundExecutorConfig(
             question=question,
@@ -465,19 +559,29 @@ def run_repair_mode(
     )
 
 
+# =========================
+# Script entry
+# =========================
 if __name__ == "__main__":
+    print("StateStore loaded from:", inspect.getfile(StateStore))
+    print("Has get_action_history:", hasattr(StateStore, "get_action_history"))
     print("Starting the debate system...")
 
     llm_client = build_llm_client()
-    DATASET_NAME = "svamp"
+
+    DATASET_NAME = "asdiv"
     OUTPUT_DIR = f"outputs/{DATASET_NAME}"
+
     writer = ResultWriter(output_dir=OUTPUT_DIR)
 
-    samples = load_samples(DATASET_NAME, limit=30)
+    samples = load_samples(DATASET_NAME, limit=80)
     completed_sample_ids = writer.load_completed_sample_ids()
+
     if completed_sample_ids:
-        print(f"Resume mode: found {len(completed_sample_ids)} completed samples in"
-              f"{OUTPUT_DIR}/results.jsonl")
+        print(
+            f"Resume mode: found {len(completed_sample_ids)} completed samples in "
+            f"{OUTPUT_DIR}/results.jsonl"
+        )
 
     total = 0
     single_correct_count = 0
@@ -510,9 +614,11 @@ if __name__ == "__main__":
             scrd_correct_count += int(result["scrd_correct"])
 
             print("Result saved:", result)
+
         except KeyboardInterrupt:
             print("\nInterrupted by user. Progress has been saved. You can rerun to resume.")
             break
+
         except Exception as exc:
             failed_count += 1
             writer.append_error(
@@ -525,21 +631,223 @@ if __name__ == "__main__":
                     "traceback": traceback.format_exc(),
                 }
             )
-            print(f"Failed sample {sample_id}: {exc}. Logged to "
-                  f"{OUTPUT_DIR}/errors.jsonl. Continuing...")
+            print(
+                f"Failed sample {sample_id}: {exc}. "
+                f"Logged to {OUTPUT_DIR}/errors.jsonl. Continuing..."
+            )
             continue
 
     print("\n===== Final Summary =====")
     print(f"Processed successfully in this run: {total}")
     print(f"Skipped (already completed): {skipped_count}")
     print(f"Failed in this run: {failed_count}")
+
     if total > 0:
-        print(f"Single-agent baseline accuracy: {single_correct_count}/{total} = {single_correct_count / total:.4f}")
-        print(f"Majority-voting baseline accuracy: {majority_correct_count}/{total} = {majority_correct_count / total:.4f}")
-        print(f"SCRD accuracy: {scrd_correct_count}/{total} = {scrd_correct_count / total:.4f}")
+        print(
+            f"Single-agent baseline accuracy: "
+            f"{single_correct_count}/{total} = {single_correct_count / total:.4f}"
+        )
+        print(
+            f"Majority-voting baseline accuracy: "
+            f"{majority_correct_count}/{total} = {majority_correct_count / total:.4f}"
+        )
+        print(
+            f"SCRD accuracy: "
+            f"{scrd_correct_count}/{total} = {scrd_correct_count / total:.4f}"
+        )
     else:
         print("No new successful samples were processed in this run.")
 
 
 
-   
+    print("StateStore loaded from:", inspect.getfile(StateStore))
+    print("Has get_action_history:", hasattr(StateStore, "get_action_history"))
+    print("Starting the debate system...")
+
+    llm_client = build_llm_client()
+
+    DATASET_NAME = "gsm8k"
+    OUTPUT_DIR = f"outputs/{DATASET_NAME}"
+
+    writer = ResultWriter(output_dir=OUTPUT_DIR)
+
+    samples = load_samples(DATASET_NAME, limit=80)
+    completed_sample_ids = writer.load_completed_sample_ids()
+
+    if completed_sample_ids:
+        print(
+            f"Resume mode: found {len(completed_sample_ids)} completed samples in "
+            f"{OUTPUT_DIR}/results.jsonl"
+        )
+
+    total = 0
+    single_correct_count = 0
+    majority_correct_count = 0
+    scrd_correct_count = 0
+    skipped_count = 0
+    failed_count = 0
+
+    for sample_id, question, gold_answer in samples:
+        if sample_id in completed_sample_ids:
+            skipped_count += 1
+            print(f"Skipping completed sample: {sample_id}")
+            continue
+
+        try:
+            result, trace = run_normal_mode(
+                llm_client=llm_client,
+                question=question,
+                gold_answer=gold_answer,
+                sample_id=sample_id,
+                dataset_name=DATASET_NAME,
+            )
+
+            writer.append_result(result)
+            writer.write_trace(sample_id, trace)
+
+            total += 1
+            single_correct_count += int(result["single_agent_correct"])
+            majority_correct_count += int(result["majority_voting_correct"])
+            scrd_correct_count += int(result["scrd_correct"])
+
+            print("Result saved:", result)
+
+        except KeyboardInterrupt:
+            print("\nInterrupted by user. Progress has been saved. You can rerun to resume.")
+            break
+
+        except Exception as exc:
+            failed_count += 1
+            writer.append_error(
+                {
+                    "sample_id": sample_id,
+                    "dataset_name": DATASET_NAME,
+                    "question": question,
+                    "gold_answer": gold_answer,
+                    "error": str(exc),
+                    "traceback": traceback.format_exc(),
+                }
+            )
+            print(
+                f"Failed sample {sample_id}: {exc}. "
+                f"Logged to {OUTPUT_DIR}/errors.jsonl. Continuing..."
+            )
+            continue
+
+    print("\n===== Final Summary =====")
+    print(f"Processed successfully in this run: {total}")
+    print(f"Skipped (already completed): {skipped_count}")
+    print(f"Failed in this run: {failed_count}")
+
+    if total > 0:
+        print(
+            f"Single-agent baseline accuracy: "
+            f"{single_correct_count}/{total} = {single_correct_count / total:.4f}"
+        )
+        print(
+            f"Majority-voting baseline accuracy: "
+            f"{majority_correct_count}/{total} = {majority_correct_count / total:.4f}"
+        )
+        print(
+            f"SCRD accuracy: "
+            f"{scrd_correct_count}/{total} = {scrd_correct_count / total:.4f}"
+        )
+    else:
+        print("No new successful samples were processed in this run.")
+
+
+
+    print("StateStore loaded from:", inspect.getfile(StateStore))
+    print("Has get_action_history:", hasattr(StateStore, "get_action_history"))
+    print("Starting the debate system...")
+
+    llm_client = build_llm_client()
+
+    DATASET_NAME = "addsub"
+    OUTPUT_DIR = f"outputs/{DATASET_NAME}"
+
+    writer = ResultWriter(output_dir=OUTPUT_DIR)
+
+    samples = load_samples(DATASET_NAME, limit=80)
+    completed_sample_ids = writer.load_completed_sample_ids()
+
+    if completed_sample_ids:
+        print(
+            f"Resume mode: found {len(completed_sample_ids)} completed samples in "
+            f"{OUTPUT_DIR}/results.jsonl"
+        )
+
+    total = 0
+    single_correct_count = 0
+    majority_correct_count = 0
+    scrd_correct_count = 0
+    skipped_count = 0
+    failed_count = 0
+
+    for sample_id, question, gold_answer in samples:
+        if sample_id in completed_sample_ids:
+            skipped_count += 1
+            print(f"Skipping completed sample: {sample_id}")
+            continue
+
+        try:
+            result, trace = run_normal_mode(
+                llm_client=llm_client,
+                question=question,
+                gold_answer=gold_answer,
+                sample_id=sample_id,
+                dataset_name=DATASET_NAME,
+            )
+
+            writer.append_result(result)
+            writer.write_trace(sample_id, trace)
+
+            total += 1
+            single_correct_count += int(result["single_agent_correct"])
+            majority_correct_count += int(result["majority_voting_correct"])
+            scrd_correct_count += int(result["scrd_correct"])
+
+            print("Result saved:", result)
+
+        except KeyboardInterrupt:
+            print("\nInterrupted by user. Progress has been saved. You can rerun to resume.")
+            break
+
+        except Exception as exc:
+            failed_count += 1
+            writer.append_error(
+                {
+                    "sample_id": sample_id,
+                    "dataset_name": DATASET_NAME,
+                    "question": question,
+                    "gold_answer": gold_answer,
+                    "error": str(exc),
+                    "traceback": traceback.format_exc(),
+                }
+            )
+            print(
+                f"Failed sample {sample_id}: {exc}. "
+                f"Logged to {OUTPUT_DIR}/errors.jsonl. Continuing..."
+            )
+            continue
+
+    print("\n===== Final Summary =====")
+    print(f"Processed successfully in this run: {total}")
+    print(f"Skipped (already completed): {skipped_count}")
+    print(f"Failed in this run: {failed_count}")
+
+    if total > 0:
+        print(
+            f"Single-agent baseline accuracy: "
+            f"{single_correct_count}/{total} = {single_correct_count / total:.4f}"
+        )
+        print(
+            f"Majority-voting baseline accuracy: "
+            f"{majority_correct_count}/{total} = {majority_correct_count / total:.4f}"
+        )
+        print(
+            f"SCRD accuracy: "
+            f"{scrd_correct_count}/{total} = {scrd_correct_count / total:.4f}"
+        )
+    else:
+        print("No new successful samples were processed in this run.")

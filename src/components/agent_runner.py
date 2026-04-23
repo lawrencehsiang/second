@@ -26,13 +26,13 @@ class LLMClientProtocol(Protocol):
         """
         Optional richer interface:
         {
-          "content": str,
-          "usage": {
-              "prompt_tokens": int,
-              "completion_tokens": int,
-              "total_tokens": int
-          },
-          "raw_response": dict
+            "content": str,
+            "usage": {
+                "prompt_tokens": int,
+                "completion_tokens": int,
+                "total_tokens": int,
+            },
+            "raw_response": dict
         }
         """
         ...
@@ -41,6 +41,12 @@ class LLMClientProtocol(Protocol):
 class AgentRunner:
     """
     LLM-based runner for normal-stage agents.
+
+    Diversity-Lite version:
+    - same model
+    - same output schema
+    - same same-round parallel / cross-round update topology
+    - different role prompts by agent_id
     """
 
     def __init__(
@@ -50,12 +56,14 @@ class AgentRunner:
         usage_logger: Any | None = None,
         sample_id: str | None = None,
         dataset_name: str = "gsm8k",
+        role_by_agent_id: dict[str, str] | None = None,
     ) -> None:
         self.llm_client = llm_client
         self.max_retries = max_retries
         self.usage_logger = usage_logger
         self.sample_id = sample_id
         self.dataset_name = dataset_name
+        self.role_by_agent_id = role_by_agent_id or {}
 
     # ------------------------------------------------------------------
     # Public API
@@ -136,7 +144,6 @@ class AgentRunner:
             f"Last error: {last_error}"
         ) from last_error
 
-
     def run_vanilla_round(
         self,
         *,
@@ -199,6 +206,7 @@ class AgentRunner:
             f"AgentRunner vanilla round failed after retries for agent {agent_id}. "
             f"Last error: {last_error}"
         ) from last_error
+
     # ------------------------------------------------------------------
     # Prompt builders
     # ------------------------------------------------------------------
@@ -211,22 +219,22 @@ class AgentRunner:
                 '- Do not output explanations inside current_answer.\n'
             )
 
-        if self.dataset_name in {"gsm8k", "svamp"}:
+        if self.dataset_name in {"gsm8k", "svamp", "multiarith","addsub","asdiv","math","singleeq"}:
             return (
                 "Task type: math reasoning.\n"
                 "- current_answer should be the final numeric answer for this round.\n"
                 "- Keep brief_reason short, but make sure current_answer matches your final computation.\n"
             )
-        
+
         if self.dataset_name in {"aime2025", "aime2026"}:
             return (
                 "Task type: AIME-style math reasoning.\n"
-                "- current_answer must be a bare final numeric answer only.\n"
-                "- Do not include units, degree symbols, words, commas, or explanations inside current_answer.\n"
-                "- If you derive 336 degrees, current_answer should be \"336\", not \"336^circ\".\n"
+                '- current_answer must be a bare final numeric answer only.\n'
+                '- Do not include units, degree symbols, words, commas, or explanations inside current_answer.\n'
+                '- If you derive 336 degrees, current_answer should be "336", not "336^circ".\n'
                 "- Keep brief_reason short, but make sure current_answer matches your final computation.\n"
             )
-        
+
         if self.dataset_name in {"mmlu", "mmlu_pro"}:
             return (
                 "Task type: multiple-choice question answering.\n"
@@ -238,6 +246,78 @@ class AgentRunner:
 
         return ""
 
+    def _role_name(self, agent_id: str) -> str:
+        return self.role_by_agent_id.get(agent_id, "general_solver").strip().lower()
+
+    def _role_instruction(self, agent_id: str, *, round_type: str) -> str:
+        role = self._role_name(agent_id)
+
+        common = (
+            "You must still solve the whole problem and output a complete final answer for this round.\n"
+            "Your role changes your reasoning emphasis, not the JSON schema.\n"
+            "Do not pretend to be unable to solve the problem just because your role emphasizes one lens.\n"
+        )
+
+        if role == "parser":
+            if round_type == "round_1":
+                return (
+                    "Role: Parser.\n"
+                    "Primary lens: understand the problem statement precisely before computing.\n"
+                    "Focus on extracting quantities, entities, units, comparisons, and what is actually being asked.\n"
+                    "Be careful about quantity-to-entity mapping and hidden assumptions.\n"
+                    "If the problem is simple, solve it after parsing cleanly.\n"
+                    + common
+                )
+            return (
+                "Role: Parser.\n"
+                "Primary lens in this round: re-check whether the current debate state is built on the correct reading of the problem.\n"
+                "Pay special attention to parsing conflicts, quantity/entity mismatches, unit mismatches, or misread conditions.\n"
+                "Revise your answer mainly when the interpretation of the problem should change.\n"
+                + common
+            )
+
+        if role == "planner":
+            if round_type == "round_1":
+                return (
+                    "Role: Planner.\n"
+                    "Primary lens: construct the most coherent solution path.\n"
+                    "Focus on the operation chain, equation setup, sub-step order, and how intermediate quantities combine.\n"
+                    "Prefer a concise but structurally sound plan.\n"
+                    + common
+                )
+            return (
+                "Role: Planner.\n"
+                "Primary lens in this round: compare competing solution paths and choose the most coherent one.\n"
+                "Pay special attention to operation order, equation structure, missing intermediate steps, and whether the current path actually reaches the asked quantity.\n"
+                "Revise your answer mainly when the solution plan itself should change.\n"
+                + common
+            )
+
+        if role == "verifier":
+            if round_type == "round_1":
+                return (
+                    "Role: Verifier.\n"
+                    "Primary lens: solve the problem while actively checking whether the answer is numerically and logically plausible.\n"
+                    "Use sanity checks, reverse checks, boundary checks, or quick substitution when helpful.\n"
+                    "Prefer answers that survive verification, not just answers with long reasoning.\n"
+                    + common
+                )
+            return (
+                "Role: Verifier.\n"
+                "Primary lens in this round: test whether candidate answers actually hold up.\n"
+                "Pay special attention to reverse verification, sanity checks, unit consistency, magnitude checks, and whether a proposed answer contradicts the problem conditions.\n"
+                "Do not follow the majority unless the answer also passes verification.\n"
+                "Revise your answer mainly when a candidate fails or passes a concrete check.\n"
+                + common
+            )
+
+        # fallback
+        return (
+            "Role: General solver.\n"
+            "Solve the problem carefully and output a complete final answer for this round.\n"
+            + common
+        )
+
     def _build_round_1_prompt(
         self,
         agent_id: str,
@@ -245,19 +325,20 @@ class AgentRunner:
     ) -> str:
         payload = agent_input.model_dump()
         dataset_instruction = self._dataset_instruction()
+        role_instruction = self._role_instruction(agent_id, round_type="round_1")
 
         prompt = f"""
             You are agent {agent_id} in round 1 of a multi-agent debate system.
+
             This is the independent initialization round.
             You do not have access to other agents' answers.
 
+            {role_instruction}
+
             {dataset_instruction}
 
-            Return JSON only.
-            No markdown.
-            No extra text.
-            Do NOT use LaTeX.
-            Do NOT use backslashes.
+            Return JSON only. No markdown. No extra text.
+            Do NOT use LaTeX. Do NOT use backslashes.
             Do NOT write things like \\( \\) or \\[ \\].
 
             Schema:
@@ -276,7 +357,7 @@ class AgentRunner:
             {json.dumps(payload, ensure_ascii=False, indent=2)}
 
             Return JSON only.
-                    """.strip()
+            """.strip()
         return prompt
 
     def _build_normal_round_prompt(
@@ -286,9 +367,11 @@ class AgentRunner:
     ) -> str:
         payload = agent_input.model_dump()
         dataset_instruction = self._dataset_instruction()
+        role_instruction = self._role_instruction(agent_id, round_type="normal")
 
         prompt = f"""
             You are agent {agent_id} in a normal debate round (t >= 2).
+
             You are given:
             - the original question
             - your own previous answer
@@ -297,13 +380,12 @@ class AgentRunner:
             You do NOT see other agents' new outputs from this same round.
             You may keep or revise your answer.
 
+            {role_instruction}
+
             {dataset_instruction}
 
-            Return JSON only.
-            No markdown.
-            No extra text.
-            Do NOT use LaTeX.
-            Do NOT use backslashes.
+            Return JSON only. No markdown. No extra text.
+            Do NOT use LaTeX. Do NOT use backslashes.
             Do NOT write things like \\( \\) or \\[ \\].
 
             Schema:
@@ -335,9 +417,8 @@ class AgentRunner:
             {json.dumps(payload, ensure_ascii=False, indent=2)}
 
             Return JSON only.
-                    """.strip()
+            """.strip()
         return prompt
-
 
     def _build_vanilla_round_prompt(
         self,
@@ -349,6 +430,8 @@ class AgentRunner:
         round_id: int,
     ) -> str:
         dataset_instruction = self._dataset_instruction()
+        role_instruction = self._role_instruction(agent_id, round_type="normal")
+
         payload = {
             "question": question,
             "own_previous_answer": own_previous_answer,
@@ -376,13 +459,12 @@ class AgentRunner:
             - If your previous answer was wrong, correct it
             - If you still believe your answer is correct, keep it and explain briefly
 
+            {role_instruction}
+
             {dataset_instruction}
 
-            Return JSON only.
-            No markdown.
-            No extra text.
-            Do NOT use LaTeX.
-            Do NOT use backslashes.
+            Return JSON only. No markdown. No extra text.
+            Do NOT use LaTeX. Do NOT use backslashes.
             Do NOT write things like \\( \\) or \\[ \\].
 
             Schema:
@@ -401,8 +483,9 @@ class AgentRunner:
             {json.dumps(payload, ensure_ascii=False, indent=2)}
 
             Return JSON only.
-                    """.strip()
+            """.strip()
         return prompt
+
     # ------------------------------------------------------------------
     # LLM call helpers
     # ------------------------------------------------------------------
@@ -413,6 +496,7 @@ class AgentRunner:
         if hasattr(self.llm_client, "generate_with_usage"):
             resp = self.llm_client.generate_with_usage(prompt)
             return resp["content"], resp.get("usage")
+
         raw_text = self.llm_client.generate(prompt)
         return raw_text, None
 
@@ -428,6 +512,7 @@ class AgentRunner:
     ) -> None:
         if self.usage_logger is None:
             return
+
         self.usage_logger.log(
             sample_id=sample_id,
             round_id=round_id,
@@ -499,6 +584,7 @@ class AgentRunner:
             data.get("current_answer"),
             fallback="UNKNOWN",
         )
+        current_answer = self._normalize_answer_for_dataset(current_answer)
 
         return AgentOutputRound1(
             agent_id=agent_id,
@@ -522,6 +608,7 @@ class AgentRunner:
             data.get("current_answer"),
             fallback="UNKNOWN",
         )
+        current_answer = self._normalize_answer_for_dataset(current_answer)
 
         return AgentOutputNormal(
             agent_id=agent_id,
@@ -561,7 +648,7 @@ class AgentRunner:
                 continue
 
         return results
-    
+
     def _parse_vanilla_round_output(
         self,
         raw_output: dict[str, Any],
@@ -577,7 +664,6 @@ class AgentRunner:
             raw_output.get("brief_reason"),
             fallback="",
         )
-
         current_answer = self._normalize_answer_for_dataset(current_answer)
 
         return {
@@ -622,17 +708,16 @@ class AgentRunner:
                 return cleaned
         return "still_open"
 
+    @staticmethod
     def _normalize_multiple_choice_label(text: str) -> str:
         if not text:
             return ""
 
         s = str(text).strip().upper()
 
-        # 先尝试严格匹配单字母
         if re.fullmatch(r"[A-Z]", s):
             return s
 
-        # 再从常见格式里抽取 option label
         patterns = [
             r"\bOPTION\s*([A-Z])\b",
             r"\bANSWER\s*(?:IS|:)?\s*([A-Z])\b",
@@ -647,18 +732,23 @@ class AgentRunner:
                 return m.group(1)
 
         return s
-    
+
     def _normalize_answer_for_dataset(self, answer: str) -> str:
         """
         Lightweight post-processing for dataset-specific answer format.
 
         StrategyQA:
-          - map yes/no -> true/false
-        GSM8K:
-          - keep as-is (we do not force numeric extraction here;
-            later evaluation code already normalizes answers)
+        - map yes/no -> true/false
+
+        MMLU / MMLU-Pro:
+        - normalize common multiple-choice forms to a single option label
+
+        Numeric datasets:
+        - keep as-is for now
+        - later correctness code already normalizes answers
         """
         cleaned = answer.strip()
+
         if self.dataset_name == "strategyqa":
             lowered = cleaned.lower()
             if lowered == "yes":
@@ -668,9 +758,8 @@ class AgentRunner:
             if lowered in {"true", "false"}:
                 return lowered
             return lowered
+
         if self.dataset_name in {"mmlu", "mmlu_pro"}:
             return self._normalize_multiple_choice_label(answer)
-        return cleaned
-    
 
-    
+        return cleaned

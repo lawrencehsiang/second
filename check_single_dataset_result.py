@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 def main() -> None:
-    path = Path("./outputs/aime2026/results.jsonl")
+    path = Path("./outputs/svamp/results.jsonl")
     if not path.exists():
         raise FileNotFoundError(f"File not found: {path.resolve()}")
 
