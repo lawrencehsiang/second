@@ -293,7 +293,7 @@ def load_samples(dataset_name: str, limit: int) -> list[tuple[str, str, str]]:
     if dataset_name == "math":
         return load_qa_jsonl_samples(
             jsonl_path=r"datasets\math\math.jsonl",
-            dataset_name="multiarith",
+            dataset_name="math",
             limit=limit,
             numeric_answer=True,
         )
