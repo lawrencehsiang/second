@@ -1,0 +1,323 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "175",
+        "45"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate the number of purple and green flowers based on the given percentages, then sum all flowers."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "65",
+        "125",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "紫色花朵数量为黄色花朵的180%，绿色花朵数量为黄色和紫色花朵总数的25%。",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "紫色花朵数量为黄色花朵的1.8倍，绿色花朵数量为黄色和紫色花朵总数的25%。计算得出总花朵数为45。",
+        "紫色花朵数量为黄色花朵的180%，绿色花朵数量为黄色和紫色花朵总数的25%。根据这些条件重新计算。",
+        "The previous answer was based on an incorrect calculation. The correct approach is to first determine the number of purple flowers, which is 10 * 1.8 = 18. Then calculate the total number of yellow and purple flowers, which is 10 + 18 = 28. Finally, the number of green flowers is 28 * 0.25 = 7. Summing these gives the total number of flowers."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "45",
+        "45",
+        "35"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "紫色花朵数量为黄色花朵的1.8倍，绿色花朵数量为黄色和紫色花朵总数的25%。计算得出总花朵数为45。",
+        "黄色花朵有10棵，紫色花朵是黄色的180%，绿色花朵是黄色和紫色花朵总数的25%。正确的计算方法是先确定紫色和绿色花朵的数量，然后求和。"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 364,
+      "completion_tokens": 44,
+      "total_tokens": 408,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 351,
+      "completion_tokens": 45,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 362,
+      "completion_tokens": 39,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 50,
+      "total_tokens": 644,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 633,
+      "completion_tokens": 56,
+      "total_tokens": 689,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 631,
+      "completion_tokens": 120,
+      "total_tokens": 751,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 644,
+      "completion_tokens": 60,
+      "total_tokens": 704,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 833,
+      "completion_tokens": 246,
+      "total_tokens": 1079,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 46,
+      "total_tokens": 640,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 639,
+      "completion_tokens": 80,
+      "total_tokens": 719,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 637,
+      "completion_tokens": 77,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 650,
+      "completion_tokens": 82,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1031,
+      "completion_tokens": 155,
+      "total_tokens": 1186,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 530,
+      "completion_tokens": 35,
+      "total_tokens": 565,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 812,
+      "completion_tokens": 51,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 669,
+      "completion_tokens": 85,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 668,
+      "completion_tokens": 82,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 669,
+      "completion_tokens": 123,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1058,
+      "completion_tokens": 114,
+      "total_tokens": 1172,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 48,
+      "total_tokens": 651,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 408,
+    "majority_vote_total_tokens": 1205,
+    "scrd_total_tokens": 14610,
+    "scrd_prompt_tokens": 12972,
+    "scrd_completion_tokens": 1638,
+    "agent_total_tokens": 5514,
+    "recorder_total_tokens": 4081,
+    "evaluator_total_tokens": 1205,
+    "repair_brief_total_tokens": 863,
+    "repair_evaluator_total_tokens": 651,
+    "repair_agent_total_tokens": 2296
+  }
+}

@@ -1,0 +1,356 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "21",
+        "21"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Leah spent $4 on a milkshake, then saved $16.",
+          "claim_type": "support",
+          "related_answer": "8"
+        },
+        {
+          "text": "The rest, $8, was shredded by her dog.",
+          "claim_type": "constraint",
+          "related_answer": "8"
+        },
+        {
+          "text": "Calculate the amount spent on milkshake, then the remaining after savings, and finally subtract the $1 left from the total loss.",
+          "claim_type": "explanation",
+          "related_answer": "21"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Leah spent $4 on a milkshake, then saved $16.",
+        "The rest, $8, was shredded by her dog.",
+        "Calculate the amount spent on milkshake, then the remaining after savings, and finally subtract the $1 left from the total loss."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Leah initially had $28.",
+          "claim_type": "support",
+          "related_answer": "11"
+        },
+        {
+          "text": "She put half of the remaining $24 into savings.",
+          "claim_type": "support",
+          "related_answer": "11"
+        },
+        {
+          "text": "The dog shredded all but $1 from the $12 savings.",
+          "claim_type": "constraint",
+          "related_answer": "11"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Leah's initial earnings were $28.",
+        "Leah spent $4 on a milkshake.",
+        "After that, she had $24 left.",
+        "She put half of it into savings, which is $12.",
+        "So, she had $12 left in her wallet before her dog shredded most of it but $1 remained."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Leah's initial earnings were $28.",
+        "Leah spent $28 / 7 = $4 on a milkshake.",
+        "After the milkshake, she had $24 left.",
+        "She put half of $24 into savings, which is $12.",
+        "Before the dog incident, she had $12 in her wallet."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 367,
+      "completion_tokens": 52,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 354,
+      "completion_tokens": 51,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 365,
+      "completion_tokens": 51,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 618,
+      "completion_tokens": 222,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 642,
+      "completion_tokens": 97,
+      "total_tokens": 739,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 640,
+      "completion_tokens": 87,
+      "total_tokens": 727,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 654,
+      "completion_tokens": 109,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1059,
+      "completion_tokens": 220,
+      "total_tokens": 1279,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 40,
+      "total_tokens": 642,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 743,
+      "completion_tokens": 180,
+      "total_tokens": 923,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 740,
+      "completion_tokens": 185,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 754,
+      "completion_tokens": 193,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1323,
+      "completion_tokens": 309,
+      "total_tokens": 1632,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 640,
+      "completion_tokens": 34,
+      "total_tokens": 674,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 947,
+      "completion_tokens": 122,
+      "total_tokens": 1069,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 750,
+      "completion_tokens": 248,
+      "total_tokens": 998,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 749,
+      "completion_tokens": 224,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 750,
+      "completion_tokens": 256,
+      "total_tokens": 1006,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1469,
+      "completion_tokens": 125,
+      "total_tokens": 1594,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 675,
+      "completion_tokens": 41,
+      "total_tokens": 716,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 419,
+    "majority_vote_total_tokens": 1240,
+    "scrd_total_tokens": 17687,
+    "scrd_prompt_tokens": 14841,
+    "scrd_completion_tokens": 2846,
+    "agent_total_tokens": 6264,
+    "recorder_total_tokens": 5345,
+    "evaluator_total_tokens": 1316,
+    "repair_brief_total_tokens": 1069,
+    "repair_evaluator_total_tokens": 716,
+    "repair_agent_total_tokens": 2977
+  }
+}

@@ -1,0 +1,422 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2",
+        "1",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Center on x-axis implies y-coordinate is 0.",
+          "claim_type": "constraint",
+          "related_answer": "2"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Distance from center to each point is the radius.",
+        "Center on x-axis means y-coordinate is 0.",
+        "Distance from center to each point must be equal."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Given the center is on the x-axis, the y-coordinate of the center is 0.",
+          "claim_type": "constraint",
+          "related_answer": "2"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Distance from center to each point is the radius.",
+        "Radius = 2.",
+        "Center (3,0) to (0,4): sqrt(3^2 + 4^2) = 5."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Distance from center to each point is the radius.",
+        "Radius = 2.",
+        "Center (a,0) to (1,3): sqrt((a-1)^2 + (-3)^2) = sqrt(a^2 - 2a + 10)."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "2",
+        "4",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Radius = 4.",
+          "claim_type": "rebuttal",
+          "related_answer": "4"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B's claim of Radius = 4 vs Agents A and C's claim of Radius = 2.",
+          "why_still_open": "Further evidence or calculations are needed to resolve the discrepancy.",
+          "involved_answers": [
+            "4",
+            "2"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Distance from center to each point is the radius.",
+        "Radius = 2.",
+        "Center (a,0) to (1,3): sqrt((a-1)^2 + (-3)^2) = sqrt(a^2 - 2a + 10)."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_started",
+      "start_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 335,
+      "completion_tokens": 59,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 322,
+      "completion_tokens": 34,
+      "total_tokens": 356,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 333,
+      "completion_tokens": 50,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 104,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 594,
+      "completion_tokens": 154,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 591,
+      "completion_tokens": 143,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 605,
+      "completion_tokens": 113,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1053,
+      "completion_tokens": 123,
+      "total_tokens": 1176,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 546,
+      "completion_tokens": 46,
+      "total_tokens": 592,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 602,
+      "completion_tokens": 152,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 599,
+      "completion_tokens": 44,
+      "total_tokens": 643,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 613,
+      "completion_tokens": 55,
+      "total_tokens": 668,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 913,
+      "completion_tokens": 90,
+      "total_tokens": 1003,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 494,
+      "completion_tokens": 38,
+      "total_tokens": 532,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 602,
+      "completion_tokens": 92,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 599,
+      "completion_tokens": 64,
+      "total_tokens": 663,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 613,
+      "completion_tokens": 193,
+      "total_tokens": 806,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 978,
+      "completion_tokens": 140,
+      "total_tokens": 1118,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 537,
+      "completion_tokens": 40,
+      "total_tokens": 577,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 69,
+      "total_tokens": 674,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 657,
+      "completion_tokens": 90,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 656,
+      "completion_tokens": 95,
+      "total_tokens": 751,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 657,
+      "completion_tokens": 92,
+      "total_tokens": 749,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 882,
+      "completion_tokens": 198,
+      "total_tokens": 1080,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0065",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 649,
+      "completion_tokens": 35,
+      "total_tokens": 684,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1133,
+    "scrd_total_tokens": 17953,
+    "scrd_prompt_tokens": 15640,
+    "scrd_completion_tokens": 2313,
+    "agent_total_tokens": 7561,
+    "recorder_total_tokens": 5086,
+    "evaluator_total_tokens": 1701,
+    "repair_brief_total_tokens": 674,
+    "repair_evaluator_total_tokens": 684,
+    "repair_agent_total_tokens": 2247
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4.5",
+        "10",
+        "180"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Six faucets fill 200/3 gallons in 6 minutes.",
+          "claim_type": "support",
+          "related_answer": "4.5"
+        },
+        {
+          "text": "One faucet fills 100 gallons in 18 minutes.",
+          "claim_type": "support",
+          "related_answer": "10"
+        },
+        {
+          "text": "Six faucets fill a 25-gallon tub in 180 seconds.",
+          "claim_type": "support",
+          "related_answer": "180"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "3 faucets fill 100 gallons in 6 minutes",
+        "1 faucet fills 100/3 gallons in 6 minutes",
+        "6 faucets fill 200/3 gallons in 6 minutes",
+        "1 faucet fills 100 gallons in 18 minutes",
+        "6 faucets fill 25 gallons in 180 seconds"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "100",
+        "180",
+        "360"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each faucet fills at a rate of 100/3 gallons per minute.",
+          "claim_type": "support",
+          "related_answer": "180"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "3 faucets fill 100 gallons in 6 minutes",
+        "Each faucet fills at a rate of 100/3 gallons per minute",
+        "6 faucets fill 25 gallons in 3 minutes",
+        "Convert 6 minutes to 360 seconds for 360",
+        "Verify correct answer is 360 seconds"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 109,
+      "total_tokens": 462,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 53,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 94,
+      "total_tokens": 445,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 723,
+      "completion_tokens": 243,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 621,
+      "completion_tokens": 115,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 617,
+      "completion_tokens": 92,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 632,
+      "completion_tokens": 113,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1111,
+      "completion_tokens": 200,
+      "total_tokens": 1311,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 586,
+      "completion_tokens": 38,
+      "total_tokens": 624,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 845,
+      "completion_tokens": 53,
+      "total_tokens": 898,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 560,
+      "completion_tokens": 71,
+      "total_tokens": 631,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 559,
+      "completion_tokens": 105,
+      "total_tokens": 664,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 560,
+      "completion_tokens": 140,
+      "total_tokens": 700,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1085,
+      "completion_tokens": 155,
+      "total_tokens": 1240,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0013",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 650,
+      "completion_tokens": 41,
+      "total_tokens": 691,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 462,
+    "majority_vote_total_tokens": 1300,
+    "scrd_total_tokens": 11215,
+    "scrd_prompt_tokens": 9593,
+    "scrd_completion_tokens": 1622,
+    "agent_total_tokens": 3490,
+    "recorder_total_tokens": 3517,
+    "evaluator_total_tokens": 624,
+    "repair_brief_total_tokens": 898,
+    "repair_evaluator_total_tokens": 691,
+    "repair_agent_total_tokens": 1995
+  }
+}

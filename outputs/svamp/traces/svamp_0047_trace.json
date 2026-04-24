@@ -1,0 +1,276 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-2",
+        "6",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jake has 2 more peaches than Jill.",
+          "claim_type": "support",
+          "related_answer": "2"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Steven has 5 peaches, 8 more than Jill, so Jill has 0 peaches.",
+        "Jake has 3 fewer peaches than Steven, so Jake has 2 peaches.",
+        "Jake has 2-0=2 more peaches than Jill."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "0",
+        "0",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jill cannot have a negative number of peaches.",
+          "claim_type": "constraint",
+          "related_answer": null
+        },
+        {
+          "text": "If Steven has 5 peaches, Jill must have 0 peaches.",
+          "claim_type": "support",
+          "related_answer": "0"
+        },
+        {
+          "text": "Jake has 2 more peaches than Jill.",
+          "claim_type": "support",
+          "related_answer": "2"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Steven has 5 peaches, 8 more than Jill, but Jill cannot have -3 peaches.",
+          "why_still_open": "The conflict remains unresolved as the initial conditions lead to an impossible scenario for Jill.",
+          "involved_answers": [
+            "0",
+            "2"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Steven has 5 peaches, 8 more than Jill, so Jill has 0 peaches.",
+        "Jake has 2 more peaches than Jill.",
+        "Jake has 2-0=2 more peaches than Jill."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 335,
+      "completion_tokens": 122,
+      "total_tokens": 457,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 322,
+      "completion_tokens": 51,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 333,
+      "completion_tokens": 102,
+      "total_tokens": 435,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 737,
+      "completion_tokens": 125,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 593,
+      "completion_tokens": 212,
+      "total_tokens": 805,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 590,
+      "completion_tokens": 123,
+      "total_tokens": 713,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 604,
+      "completion_tokens": 200,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1200,
+      "completion_tokens": 254,
+      "total_tokens": 1454,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 564,
+      "completion_tokens": 44,
+      "total_tokens": 608,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 761,
+      "completion_tokens": 89,
+      "total_tokens": 850,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 578,
+      "completion_tokens": 107,
+      "total_tokens": 685,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 577,
+      "completion_tokens": 167,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 578,
+      "completion_tokens": 169,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1091,
+      "completion_tokens": 263,
+      "total_tokens": 1354,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0047",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 767,
+      "completion_tokens": 40,
+      "total_tokens": 807,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 457,
+    "majority_vote_total_tokens": 1265,
+    "scrd_total_tokens": 11698,
+    "scrd_prompt_tokens": 9630,
+    "scrd_completion_tokens": 2068,
+    "agent_total_tokens": 3587,
+    "recorder_total_tokens": 3670,
+    "evaluator_total_tokens": 608,
+    "repair_brief_total_tokens": 850,
+    "repair_evaluator_total_tokens": 807,
+    "repair_agent_total_tokens": 2176
+  }
+}

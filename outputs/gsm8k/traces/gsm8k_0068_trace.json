@@ -1,0 +1,450 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2",
+        "2.5",
+        "2.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jesse和Mia在最后三天需要跑的平均距离是2英里。",
+          "claim_type": "support",
+          "related_answer": "2"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jesse前三天跑了2/3英里，第四天跑了10英里。",
+        "Mia前三天跑了4英里，第四天跑了3英里。",
+        "他们总共需要跑30英里，所以最后三天他们一共需要跑12英里。",
+        "平均下来，他们每天需要跑12/6=2英里。",
+        "Jesse和Mia在最后三天需要跑的平均距离是2.5英里。"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "14.5",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jesse和Mia在最后三天各自需要跑18英里。",
+          "claim_type": "support",
+          "related_answer": "14.5"
+        },
+        {
+          "text": "Jesse和Mia在最后三天的平均距离都是6英里。",
+          "claim_type": "support",
+          "related_answer": "6"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jesse前三天跑了2/3英里，第四天跑了10英里。",
+        "Mia前三天跑了4英里，第四天跑了3英里。",
+        "他们总共需要跑30英里，所以最后三天他们一共需要跑12英里。",
+        "Jesse在最后三天需要跑18英里，Mia在最后三天需要跑18英里。",
+        "Jesse和Mia的平均距离都是6英里。"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "4.83",
+        "2",
+        "5.335"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jesse和Mia在最后三天的平均距离都是2英里。",
+          "claim_type": "rebuttal",
+          "related_answer": "2"
+        },
+        {
+          "text": "Jesse最后三天的平均距离约为4.67英里。",
+          "claim_type": "support",
+          "related_answer": "5.335"
+        },
+        {
+          "text": "Mia最后三天的平均距离是6英里。",
+          "claim_type": "support",
+          "related_answer": "5.335"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jesse前三天跑了2/3英里，第四天跑了10英里。",
+        "Mia前三天跑了4英里，第四天跑了3英里。",
+        "他们总共需要跑30英里，所以最后三天他们一共需要跑12英里。",
+        "Jesse最后三天的平均距离约为4.67英里。",
+        "Mia最后三天的平均距离是6英里。"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jesse和Mia在最后三天的平均距离都是2英里。",
+          "claim_type": "rebuttal",
+          "related_answer": "2"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Jesse和Mia在最后三天的平均距离有不同的计算结果，分别为6英里和2英里。",
+          "why_still_open": "尽管进行了重新计算，但双方对最终结果仍有不同看法。",
+          "involved_answers": [
+            "2"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Jesse前三天跑了2/3英里，第四天跑了10英里。",
+        "Mia前三天跑了4英里，第四天跑了3英里。",
+        "他们总共需要跑30英里，所以最后三天他们一共需要跑12英里。",
+        "Jesse最后三天的平均距离约为4.67英里。",
+        "Mia最后三天的平均距离是6英里。"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 380,
+      "completion_tokens": 125,
+      "total_tokens": 505,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 367,
+      "completion_tokens": 92,
+      "total_tokens": 459,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 378,
+      "completion_tokens": 78,
+      "total_tokens": 456,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 770,
+      "completion_tokens": 177,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 648,
+      "completion_tokens": 81,
+      "total_tokens": 729,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 647,
+      "completion_tokens": 58,
+      "total_tokens": 705,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 661,
+      "completion_tokens": 127,
+      "total_tokens": 788,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 991,
+      "completion_tokens": 336,
+      "total_tokens": 1327,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 681,
+      "completion_tokens": 39,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 948,
+      "completion_tokens": 143,
+      "total_tokens": 1091,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 677,
+      "completion_tokens": 187,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 676,
+      "completion_tokens": 242,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 677,
+      "completion_tokens": 254,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1382,
+      "completion_tokens": 220,
+      "total_tokens": 1602,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 811,
+      "completion_tokens": 46,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 714,
+      "completion_tokens": 168,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 711,
+      "completion_tokens": 209,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 224,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1354,
+      "completion_tokens": 253,
+      "total_tokens": 1607,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 659,
+      "completion_tokens": 43,
+      "total_tokens": 702,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 705,
+      "completion_tokens": 121,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 702,
+      "completion_tokens": 104,
+      "total_tokens": 806,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 718,
+      "completion_tokens": 219,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1227,
+      "completion_tokens": 243,
+      "total_tokens": 1470,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 620,
+      "completion_tokens": 39,
+      "total_tokens": 659,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 505,
+    "majority_vote_total_tokens": 1420,
+    "scrd_total_tokens": 22659,
+    "scrd_prompt_tokens": 18831,
+    "scrd_completion_tokens": 3828,
+    "agent_total_tokens": 3642,
+    "recorder_total_tokens": 6953,
+    "evaluator_total_tokens": 720,
+    "repair_brief_total_tokens": 1091,
+    "repair_evaluator_total_tokens": 2218,
+    "repair_agent_total_tokens": 8035
+  }
+}

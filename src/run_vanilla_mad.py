@@ -42,18 +42,22 @@ SUPPORTED_DATASETS = [
 # 强制禁用代理，直连国内网络
 os.environ["HTTP_PROXY"] = ""
 os.environ["HTTPS_PROXY"] = ""
-os.environ["NO_PROXY"] = "qianfan.baidubce.com,localhost,127.0.0.1"
+os.environ["NO_PROXY"] = "dashscope.aliyuncs.com,localhost,127.0.0.1"
 
 load_dotenv()
 
 
-def build_llm_client(model_name: str = "qwen2.5-7b-instruct") -> QianfanClient:
-    api_key = os.getenv("QIANFAN_API_KEY")
+def build_llm_client(model_name: str = "qwen2.5-7b-instruct-1m") -> QianfanClient:
+    api_key = os.getenv("DASHSCOPE_API_KEY")
     if not api_key:
-        raise ValueError("Missing QIANFAN_API_KEY. Please set it in your .env file.")
+        raise ValueError("Missing DASHSCOPE_API_KEY. Please set it in your .env file.")
     return QianfanClient(
         api_key=api_key,
         model=model_name,
+        base_url=os.getenv(
+            "DASHSCOPE_BASE_URL",
+            "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        ),
     )
 
 
@@ -475,8 +479,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model",
         type=str,
-        default="qwen2.5-7b-instruct",
-        help="Qianfan model name.",
+        default="qwen2.5-7b-instruct-1m",
+        help="Alibaba Bailian / DashScope model name.",
     )
     parser.add_argument(
         "--output-root",

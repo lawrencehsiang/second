@@ -71,7 +71,7 @@ MAX_ROUND = 5
 # 强制禁用代理，直连国内网络
 os.environ["HTTP_PROXY"] = ""
 os.environ["HTTPS_PROXY"] = ""
-os.environ["NO_PROXY"] = "qianfan.baidubce.com,localhost,127.0.0.1"
+os.environ["NO_PROXY"] = "dashscope.aliyuncs.com,localhost,127.0.0.1"
 
 load_dotenv()
 
@@ -82,13 +82,17 @@ OPTION_LABELS = list(string.ascii_uppercase)
 # LLM client
 # =========================
 def build_llm_client() -> QianfanClient:
-    api_key = os.getenv("QIANFAN_API_KEY")
+    api_key = os.getenv("DASHSCOPE_API_KEY")
     if not api_key:
-        raise ValueError("Missing QIANFAN_API_KEY. Please set it in your .env file.")
+        raise ValueError("Missing DASHSCOPE_API_KEY. Please set it in your .env file.")
 
     return QianfanClient(
         api_key=api_key,
-        model="qwen2.5-7b-instruct",
+        model="qwen2.5-7b-instruct-1m",
+        base_url=os.getenv(
+            "DASHSCOPE_BASE_URL",
+            "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        ),
     )
 
 

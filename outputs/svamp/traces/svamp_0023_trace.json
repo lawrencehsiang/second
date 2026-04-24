@@ -1,0 +1,359 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10",
+        "13",
+        "-13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "13 trees died, 3 trees survived.",
+          "claim_type": "support",
+          "related_answer": "10"
+        },
+        {
+          "text": "No surviving trees are mentioned, so we assume none survived.",
+          "claim_type": "constraint",
+          "related_answer": "-13"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and Agent C have different answers (13 vs -13).",
+          "why_still_open": "Agent B and Agent C both assume no surviving trees but reach different conclusions based on the information provided.",
+          "involved_answers": [
+            "13",
+            "-13"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "13 trees died, 3 trees survived.",
+        "13 dead trees minus 0 surviving trees is 13.",
+        "13 dead trees minus 0 surviving trees is -13."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "10",
+        "10",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The number of surviving trees is 3.",
+          "claim_type": "explanation",
+          "related_answer": "10"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "13 trees died, 3 trees survived.",
+        "13 dead trees minus 3 surviving trees is 10."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "10",
+        "10",
+        "-10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "All 3 trees initially planted survived.",
+          "claim_type": "explanation",
+          "related_answer": "10"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The number of surviving trees is unclear.",
+          "why_still_open": "Both agents A and B provided explanations based on the assumption that all 3 trees initially planted did not survive, leading to a difference of 10, while agent C updated the answer to -10 assuming all 3 trees survived.",
+          "involved_answers": [
+            "10",
+            "-10"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "13 trees died, 3 trees survived.",
+        "13 dead trees minus 3 surviving trees is 10."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 336,
+      "completion_tokens": 45,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 323,
+      "completion_tokens": 47,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 334,
+      "completion_tokens": 47,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 220,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 711,
+      "completion_tokens": 100,
+      "total_tokens": 811,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 708,
+      "completion_tokens": 131,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 722,
+      "completion_tokens": 109,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1110,
+      "completion_tokens": 95,
+      "total_tokens": 1205,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 565,
+      "completion_tokens": 45,
+      "total_tokens": 610,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 811,
+      "completion_tokens": 183,
+      "total_tokens": 994,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 808,
+      "completion_tokens": 122,
+      "total_tokens": 930,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 822,
+      "completion_tokens": 141,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1086,
+      "completion_tokens": 116,
+      "total_tokens": 1202,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 544,
+      "completion_tokens": 41,
+      "total_tokens": 585,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 593,
+      "completion_tokens": 47,
+      "total_tokens": 640,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 743,
+      "completion_tokens": 135,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 742,
+      "completion_tokens": 96,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 743,
+      "completion_tokens": 75,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 922,
+      "completion_tokens": 188,
+      "total_tokens": 1110,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0023",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 624,
+      "completion_tokens": 50,
+      "total_tokens": 674,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 381,
+    "majority_vote_total_tokens": 1132,
+    "scrd_total_tokens": 15884,
+    "scrd_prompt_tokens": 13851,
+    "scrd_completion_tokens": 2033,
+    "agent_total_tokens": 6500,
+    "recorder_total_tokens": 4341,
+    "evaluator_total_tokens": 1195,
+    "repair_brief_total_tokens": 640,
+    "repair_evaluator_total_tokens": 674,
+    "repair_agent_total_tokens": 2534
+  }
+}

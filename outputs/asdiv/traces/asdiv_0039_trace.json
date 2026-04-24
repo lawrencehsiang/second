@@ -1,0 +1,424 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "16",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "2 chickens have 8 legs.",
+          "claim_type": "explanation",
+          "related_answer": "16"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and Agent C agree on 16 legs, but Agent A claims 12 legs.",
+          "why_still_open": "The agents have different calculations for the number of chicken legs.",
+          "involved_answers": [
+            "12",
+            "16"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "2 dogs * 4 legs/dog + 2 chickens * 2 legs/chicken = 12 legs",
+        "2 dogs * 4 legs/dog + 2 dogs * 4 legs/dog = 16 legs",
+        "2 dogs * 4 + 2 dogs * 4 = 16 legs"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12",
+        "12",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each dog has 4 legs, so 2 dogs have 8 legs.",
+          "claim_type": "explanation",
+          "related_answer": "12"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2 dogs * 4 legs/dog + 2 chickens * 2 legs/chicken = 12 legs",
+        "2 dogs * 4 + 2 chickens * 2 = 12 legs",
+        "Each dog has 4 legs, so 2 dogs have 8 legs."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "16",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each chicken has 2 legs, so 2 chickens have 4 legs.",
+          "claim_type": "explanation",
+          "related_answer": "12"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2 dogs * 4 legs/dog + 2 chickens * 2 legs/chicken = 16 legs",
+        "2 dogs * 4 + 2 chickens * 2 = 16 legs",
+        "Each dog has 4 legs, so 2 dogs have 8 legs.",
+        "Each chicken has 2 legs, so 2 chickens have 4 legs.",
+        "Total legs: 8 + 4 = 12"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2 dogs * 4 + 2 chickens * 2 = 12 legs",
+        "Each dog has 4 legs, so 2 dogs have 8 legs.",
+        "Each chicken has 2 legs, so 2 chickens have 4 legs."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 319,
+      "completion_tokens": 66,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 306,
+      "completion_tokens": 47,
+      "total_tokens": 353,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 317,
+      "completion_tokens": 58,
+      "total_tokens": 375,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 636,
+      "completion_tokens": 208,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 687,
+      "completion_tokens": 132,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 684,
+      "completion_tokens": 129,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 698,
+      "completion_tokens": 139,
+      "total_tokens": 837,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1154,
+      "completion_tokens": 181,
+      "total_tokens": 1335,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 509,
+      "completion_tokens": 59,
+      "total_tokens": 568,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 755,
+      "completion_tokens": 98,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 571,
+      "completion_tokens": 178,
+      "total_tokens": 749,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 570,
+      "completion_tokens": 198,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 571,
+      "completion_tokens": 169,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1275,
+      "completion_tokens": 138,
+      "total_tokens": 1413,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 679,
+      "completion_tokens": 42,
+      "total_tokens": 721,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 760,
+      "completion_tokens": 124,
+      "total_tokens": 884,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 757,
+      "completion_tokens": 147,
+      "total_tokens": 904,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 773,
+      "completion_tokens": 147,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1085,
+      "completion_tokens": 171,
+      "total_tokens": 1256,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 530,
+      "completion_tokens": 44,
+      "total_tokens": 574,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 651,
+      "completion_tokens": 119,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 648,
+      "completion_tokens": 131,
+      "total_tokens": 779,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 664,
+      "completion_tokens": 154,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1104,
+      "completion_tokens": 85,
+      "total_tokens": 1189,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0039",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 480,
+      "completion_tokens": 40,
+      "total_tokens": 520,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 385,
+    "majority_vote_total_tokens": 1113,
+    "scrd_total_tokens": 20187,
+    "scrd_prompt_tokens": 17183,
+    "scrd_completion_tokens": 3004,
+    "agent_total_tokens": 3582,
+    "recorder_total_tokens": 6037,
+    "evaluator_total_tokens": 568,
+    "repair_brief_total_tokens": 853,
+    "repair_evaluator_total_tokens": 1815,
+    "repair_agent_total_tokens": 7332
+  }
+}

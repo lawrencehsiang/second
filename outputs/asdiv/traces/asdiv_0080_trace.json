@@ -1,0 +1,353 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "0.21",
+        "0.48",
+        "0.21"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "6 pennies + 3 nickels = $0.21",
+        "Calculate the total value of pennies and nickels."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "0.41",
+        "0.41",
+        "0.21"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Charles has 6 pennies and 3 nickels.",
+          "claim_type": "constraint",
+          "related_answer": "0.21"
+        },
+        {
+          "text": "Total value is (6 * 0.01) + (3 * 0.05).",
+          "claim_type": "explanation",
+          "related_answer": "0.21"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "6 pennies + 3 nickels = $0.21",
+        "Calculate the total value of both pennies and nickels."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "0.21",
+        "0.36",
+        "0.21"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Charles has 6 pennies and 3 nickels.",
+          "claim_type": "constraint",
+          "related_answer": "0.21"
+        },
+        {
+          "text": "6 pennies is $0.06 and 3 nickels is $0.15.",
+          "claim_type": "explanation",
+          "related_answer": "0.21"
+        },
+        {
+          "text": "The total value is $0.21.",
+          "claim_type": "support",
+          "related_answer": "0.21"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "0.36 vs 0.21",
+          "why_still_open": "Agents B and C have different answers, but neither has fully resolved the conflict.",
+          "involved_answers": [
+            "0.36",
+            "0.21"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "6 pennies + 3 nickels = $0.21",
+        "Calculate the total value of both pennies and nickels."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 331,
+      "completion_tokens": 60,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 318,
+      "completion_tokens": 38,
+      "total_tokens": 356,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 329,
+      "completion_tokens": 72,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 641,
+      "completion_tokens": 59,
+      "total_tokens": 700,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 596,
+      "completion_tokens": 61,
+      "total_tokens": 657,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 593,
+      "completion_tokens": 47,
+      "total_tokens": 640,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 607,
+      "completion_tokens": 67,
+      "total_tokens": 674,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 791,
+      "completion_tokens": 111,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 564,
+      "completion_tokens": 46,
+      "total_tokens": 610,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 559,
+      "completion_tokens": 37,
+      "total_tokens": 596,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 522,
+      "completion_tokens": 54,
+      "total_tokens": 576,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 521,
+      "completion_tokens": 55,
+      "total_tokens": 576,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 522,
+      "completion_tokens": 110,
+      "total_tokens": 632,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 811,
+      "completion_tokens": 154,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 640,
+      "completion_tokens": 45,
+      "total_tokens": 685,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 667,
+      "completion_tokens": 139,
+      "total_tokens": 806,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 664,
+      "completion_tokens": 114,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 680,
+      "completion_tokens": 141,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1097,
+      "completion_tokens": 255,
+      "total_tokens": 1352,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0080",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 50,
+      "total_tokens": 652,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 391,
+    "majority_vote_total_tokens": 1148,
+    "scrd_total_tokens": 13770,
+    "scrd_prompt_tokens": 12055,
+    "scrd_completion_tokens": 1715,
+    "agent_total_tokens": 3119,
+    "recorder_total_tokens": 3919,
+    "evaluator_total_tokens": 610,
+    "repair_brief_total_tokens": 596,
+    "repair_evaluator_total_tokens": 1337,
+    "repair_agent_total_tokens": 4189
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "61",
+        "60",
+        "59"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Emily calculates $29^2$ as $30^2 - 59$.",
+          "claim_type": "support",
+          "related_answer": "59"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B claims Emily subtracts 60 for $29^2$, but Agent C claims she subtracts 59.",
+          "why_still_open": "Both agents provide different numbers for the subtraction used in calculating $29^2$, and there is no additional information to resolve this conflict.",
+          "involved_answers": [
+            "60",
+            "59"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "31^2 = 30^2 + 61",
+        "29^2 = 30^2 - 59",
+        "31^2 = (30+1)^2 = 30^2 + 60 + 1",
+        "29^2 = (30-1)^2 = 30^2 - 60 + 1",
+        "For 29^2, subtract 59 or 60 from 30^2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "59",
+        "59",
+        "59"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "29^2 = 30^2 - 59",
+        "For 29^2, (n-1)^2 = n^2 - 2n + 1, so 29^2 = 30^2 - 60 + 1 = 30^2 - 59",
+        "31^2 = 30^2 + 61"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 350,
+      "completion_tokens": 91,
+      "total_tokens": 441,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 337,
+      "completion_tokens": 143,
+      "total_tokens": 480,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 348,
+      "completion_tokens": 67,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 766,
+      "completion_tokens": 280,
+      "total_tokens": 1046,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 753,
+      "completion_tokens": 177,
+      "total_tokens": 930,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 750,
+      "completion_tokens": 131,
+      "total_tokens": 881,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 764,
+      "completion_tokens": 200,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1338,
+      "completion_tokens": 120,
+      "total_tokens": 1458,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 546,
+      "completion_tokens": 41,
+      "total_tokens": 587,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 441,
+    "majority_vote_total_tokens": 1336,
+    "scrd_total_tokens": 7202,
+    "scrd_prompt_tokens": 5952,
+    "scrd_completion_tokens": 1250,
+    "agent_total_tokens": 4111,
+    "recorder_total_tokens": 2504,
+    "evaluator_total_tokens": 587,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "73",
+        "51",
+        "73"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total apples ordered = 43 + 32 = 75.",
+          "claim_type": "support",
+          "related_answer": "73"
+        },
+        {
+          "text": "Only 2 students wanted fruit.",
+          "claim_type": "support",
+          "related_answer": "73"
+        },
+        {
+          "text": "Extra apples = 75 - 2.",
+          "claim_type": "support",
+          "related_answer": "73"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total apples ordered = 43 + 32",
+        "2 students wanted fruit",
+        "75 - 2 = 73 extra apples"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "43 + 32 - 2 = 73",
+        "51",
+        "71"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "73 - 2 = 71 extra apples.",
+          "claim_type": "constraint",
+          "related_answer": "71"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B's answer (51) vs. Agent C's answer (71) vs. updated answer (73).",
+          "why_still_open": "The calculation for the number of extra apples differs among agents, and no consensus has been reached.",
+          "involved_answers": [
+            "51",
+            "71",
+            "73"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total apples ordered = 43 + 32",
+        "2 students wanted fruit",
+        "73 - 2 = 71 extra apples"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 338,
+      "completion_tokens": 71,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 325,
+      "completion_tokens": 37,
+      "total_tokens": 362,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 336,
+      "completion_tokens": 70,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 643,
+      "completion_tokens": 177,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 604,
+      "completion_tokens": 69,
+      "total_tokens": 673,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 601,
+      "completion_tokens": 58,
+      "total_tokens": 659,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 615,
+      "completion_tokens": 69,
+      "total_tokens": 684,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 918,
+      "completion_tokens": 99,
+      "total_tokens": 1017,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 544,
+      "completion_tokens": 43,
+      "total_tokens": 587,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 660,
+      "completion_tokens": 41,
+      "total_tokens": 701,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 533,
+      "completion_tokens": 89,
+      "total_tokens": 622,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 532,
+      "completion_tokens": 62,
+      "total_tokens": 594,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 533,
+      "completion_tokens": 84,
+      "total_tokens": 617,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 944,
+      "completion_tokens": 188,
+      "total_tokens": 1132,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 654,
+      "completion_tokens": 42,
+      "total_tokens": 696,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 409,
+    "majority_vote_total_tokens": 1177,
+    "scrd_total_tokens": 9979,
+    "scrd_prompt_tokens": 8780,
+    "scrd_completion_tokens": 1199,
+    "agent_total_tokens": 3193,
+    "recorder_total_tokens": 2969,
+    "evaluator_total_tokens": 587,
+    "repair_brief_total_tokens": 701,
+    "repair_evaluator_total_tokens": 696,
+    "repair_agent_total_tokens": 1833
+  }
+}
