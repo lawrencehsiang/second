@@ -1,0 +1,200 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "20",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each box contains 5 pencils.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5 friends * 8 pencils/friend = 40 pencils",
+        "Total pencils = 40 + 10 = 50",
+        "50 pencils / 10 boxes = 5 pencils/box",
+        "Friends got 8 pencils each",
+        "Total pencils minus 10 kept = 50"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "5",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Arnel would have 50 pencils initially after keeping 10.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Each box indeed contains 5 pencils, verified by the problem constraints.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verification needed for the claim that each box contains 5 pencils.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Verification required for whether 5 pencils per box results in friends getting 8 pencils each.",
+          "why_still_open": "The claim needs empirical validation based on the problem constraints.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Each box contains 5 pencils.",
+        "Total pencils = 50 after keeping 10.",
+        "50 pencils / 5 friends = 10 pencils/friend",
+        "50 pencils - 10 = 40 pencils to share",
+        "50 pencils / 5 boxes = 10 pencils/box"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 359,
+      "completion_tokens": 95,
+      "total_tokens": 454,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 346,
+      "completion_tokens": 32,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 357,
+      "completion_tokens": 63,
+      "total_tokens": 420,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 667,
+      "completion_tokens": 140,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 614,
+      "completion_tokens": 151,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 612,
+      "completion_tokens": 125,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 625,
+      "completion_tokens": 115,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1055,
+      "completion_tokens": 289,
+      "total_tokens": 1344,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 679,
+      "completion_tokens": 47,
+      "total_tokens": 726,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 454,
+    "majority_vote_total_tokens": 1252,
+    "scrd_total_tokens": 6371,
+    "scrd_prompt_tokens": 5314,
+    "scrd_completion_tokens": 1057,
+    "agent_total_tokens": 3494,
+    "recorder_total_tokens": 2151,
+    "evaluator_total_tokens": 726,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,462 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total time for all parts is 120 minutes.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Third part duration is calculated by subtracting the sum of the first two parts from the total time.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents agree on the total time and the calculation method but disagree on the second part duration.",
+          "why_still_open": "Agent B states the second part is 50 min, while others calculate it as twice the first part.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First part: 25 min",
+        "Second part: 50 min",
+        "Total time: 120 min",
+        "Third part: 45 min",
+        "Second part = 2 * First part"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "25",
+        "25",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Second part duration is 50 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Second part duration is 50 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Third part duration is 20 minutes.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First part: 25 min",
+        "Second part: 50 min",
+        "Total time: 120 min",
+        "Third part: 20 min",
+        "Second part = 2 * First part"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The second part duration needs to align with the total time available.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The second part took twice as long as the first part, leading to 45 minutes for the third part.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The total time is 120 minutes, with 75 minutes for the first and second parts, leaving 45 minutes for the third part.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Second part duration is 50 minutes vs. 45 minutes.",
+          "why_still_open": "The conflicting durations for the second part remain unresolved.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First part: 25 min",
+        "Second part: 50 min",
+        "Total time: 120 min",
+        "Third part: 45 min",
+        "Second part = 2 * First part"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "50",
+        "25",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The second part took 50 minutes (twice the first part), and the total time is 120 minutes, leaving 25 minutes for the third part.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 25 minutes for the third part does not align with the total time of 120 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The second part duration is 50 minutes vs. 45 minutes previously suggested.",
+          "why_still_open": "The conflicting durations for the second part remain unresolved, affecting the calculation of the third part's duration.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First part: 25 min",
+        "Second part: 50 min",
+        "Total time: 120 min",
+        "Third part: 25 min",
+        "Second part = 2 * First part"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "25",
+        "45",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The second part duration is 50 minutes, which is twice the first part's 25 minutes.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The third part took 45 minutes, completing the total 120 minutes.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First part: 25 min",
+        "Second part: 50 min",
+        "Total time: 120 min",
+        "Third part: 45 min",
+        "Second part = 2 * First part"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 371,
+      "completion_tokens": 71,
+      "total_tokens": 442,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 358,
+      "completion_tokens": 64,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 369,
+      "completion_tokens": 83,
+      "total_tokens": 452,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 694,
+      "completion_tokens": 243,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 751,
+      "completion_tokens": 104,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 748,
+      "completion_tokens": 114,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 762,
+      "completion_tokens": 130,
+      "total_tokens": 892,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1148,
+      "completion_tokens": 194,
+      "total_tokens": 1342,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 819,
+      "completion_tokens": 122,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 816,
+      "completion_tokens": 177,
+      "total_tokens": 993,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 830,
+      "completion_tokens": 149,
+      "total_tokens": 979,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1194,
+      "completion_tokens": 291,
+      "total_tokens": 1485,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 837,
+      "completion_tokens": 126,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 834,
+      "completion_tokens": 184,
+      "total_tokens": 1018,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 848,
+      "completion_tokens": 189,
+      "total_tokens": 1037,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1339,
+      "completion_tokens": 272,
+      "total_tokens": 1611,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 878,
+      "completion_tokens": 134,
+      "total_tokens": 1012,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 875,
+      "completion_tokens": 157,
+      "total_tokens": 1032,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 889,
+      "completion_tokens": 128,
+      "total_tokens": 1017,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0057",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1224,
+      "completion_tokens": 179,
+      "total_tokens": 1403,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 442,
+    "majority_vote_total_tokens": 1316,
+    "scrd_total_tokens": 19695,
+    "scrd_prompt_tokens": 16584,
+    "scrd_completion_tokens": 3111,
+    "agent_total_tokens": 12917,
+    "recorder_total_tokens": 6778,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

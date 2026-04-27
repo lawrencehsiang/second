@@ -1,0 +1,383 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2",
+        "2",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Distance from center to both points should be equal.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agree on answer 2, but Agent C suggests 1 based on the constraint of equal distances.",
+          "why_still_open": "Different interpretations of the problem's constraints lead to conflicting answers.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Distance from center to either point is radius.",
+        "Use distance formula from center to each point.",
+        "Assume center at (a,0), use distance formula."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2",
+        "2",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solving the equations confirms the radius is 2.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Points (0,4) and (1,3) lie on a circle with center on the x-axis and equal distances to both points confirm the answer 2.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify if the distance from the center to both points is equal for answer 1.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Distance from center to either point is radius.",
+        "Use distance formula from center to each point.",
+        "Assume center at (a,0), use distance formula."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the distance formula confirms the radius is 2.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The majority now supports a radius of 2, resolving the conflict.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying all answers ensures consistency.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer 1 remains.",
+          "why_still_open": "Further verification is needed.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Distance formula confirms radius = 2.",
+        "Majority supports radius = 2.",
+        "Verify all answers for consistency."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "1",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the distance formula confirms the radius is 2.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Distance formula confirms radius = 2.",
+        "Rechecking resolves minority answer 1."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 4,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 33,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 33,
+      "total_tokens": 366,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 48,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 587,
+      "completion_tokens": 178,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 718,
+      "completion_tokens": 130,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 715,
+      "completion_tokens": 133,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 729,
+      "completion_tokens": 110,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1103,
+      "completion_tokens": 212,
+      "total_tokens": 1315,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 690,
+      "completion_tokens": 51,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 816,
+      "completion_tokens": 199,
+      "total_tokens": 1015,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 813,
+      "completion_tokens": 94,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 827,
+      "completion_tokens": 101,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1152,
+      "completion_tokens": 215,
+      "total_tokens": 1367,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 644,
+      "completion_tokens": 52,
+      "total_tokens": 696,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 789,
+      "completion_tokens": 143,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 786,
+      "completion_tokens": 83,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 800,
+      "completion_tokens": 97,
+      "total_tokens": 897,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1088,
+      "completion_tokens": 94,
+      "total_tokens": 1182,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 561,
+      "completion_tokens": 51,
+      "total_tokens": 612,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 379,
+    "majority_vote_total_tokens": 1137,
+    "scrd_total_tokens": 15898,
+    "scrd_prompt_tokens": 13841,
+    "scrd_completion_tokens": 2057,
+    "agent_total_tokens": 9220,
+    "recorder_total_tokens": 4629,
+    "evaluator_total_tokens": 2049,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": false,
+    "suppressed_rollback_context": null
+  }
+}

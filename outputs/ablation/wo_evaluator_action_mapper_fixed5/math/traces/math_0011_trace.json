@@ -1,0 +1,413 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Applying function f four times results in the same value.",
+          "claim_type": "constraint",
+          "related_answer": "6"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = 2x",
+        "Starting from x=1",
+        "Apply function four times"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4",
+        "16",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Applying function f four times starting from 1 results in 4.",
+          "claim_type": "explanation",
+          "related_answer": "4"
+        },
+        {
+          "text": "Function f behaves differently for even and odd inputs.",
+          "claim_type": "constraint",
+          "related_answer": "4"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Applying function f four times results in the same value.",
+          "why_still_open": "The claim was resolved by showing that the function's behavior changes based on input parity, thus the value after four applications is not necessarily the same.",
+          "involved_answers": [
+            "6",
+            "4"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(x) = 2x if x is even, f(x) = 4-x if x is odd",
+        "Starting from x=1, apply function four times",
+        "f(1) = 4, f(4) = 2, f(2) = 1, f(1) = 4"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "4",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The function's behavior changes with input parity, ensuring each application results in a different value.",
+          "claim_type": "explanation",
+          "related_answer": "4"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = 2x if x is even, f(x) = 4-x if x is odd",
+        "Starting from x=1, apply function four times",
+        "f(1) = 4, f(4) = 2, f(2) = 1, f(1) = 4"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "4",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The function's behavior changes with input parity, ensuring each application results in a different value.",
+          "claim_type": "explanation",
+          "related_answer": "4"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = 2x if x is even, f(x) = 4-x if x is odd",
+        "Starting from x=1, apply function four times",
+        "f(1) = 4, f(4) = 2, f(2) = 1, f(1) = 4"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "16",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Starting from x=1, the function alternates between operations until reaching an even number, which then becomes 1.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The function's behavior changes with input parity, and there is a conflict on the expected sequence of outputs.",
+          "why_still_open": "Agents disagree on the exact sequence of function applications.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(x) = 2x if x is even, f(x) = 4-x if x is odd",
+        "Starting from x=1, apply function four times",
+        "f(1) = 4, f(4) = 2, f(2) = 1, f(1) = 4"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0011",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 32,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 30,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 35,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 576,
+      "completion_tokens": 97,
+      "total_tokens": 673,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 646,
+      "completion_tokens": 116,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 643,
+      "completion_tokens": 124,
+      "total_tokens": 767,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 657,
+      "completion_tokens": 191,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1051,
+      "completion_tokens": 257,
+      "total_tokens": 1308,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 763,
+      "completion_tokens": 109,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 761,
+      "completion_tokens": 113,
+      "total_tokens": 874,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 774,
+      "completion_tokens": 108,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1123,
+      "completion_tokens": 152,
+      "total_tokens": 1275,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 771,
+      "completion_tokens": 123,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 768,
+      "completion_tokens": 101,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 782,
+      "completion_tokens": 112,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1026,
+      "completion_tokens": 152,
+      "total_tokens": 1178,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 652,
+      "completion_tokens": 117,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 649,
+      "completion_tokens": 59,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 663,
+      "completion_tokens": 94,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0011",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 945,
+      "completion_tokens": 221,
+      "total_tokens": 1166,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 418,
+    "majority_vote_total_tokens": 1240,
+    "scrd_total_tokens": 16736,
+    "scrd_prompt_tokens": 14393,
+    "scrd_completion_tokens": 2343,
+    "agent_total_tokens": 11136,
+    "recorder_total_tokens": 5600,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,426 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "240",
+        "360",
+        "240"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "First delete 70% of 800, then 3/5 of 400, then sum remaining.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C have different methods but reach the same answer.",
+          "why_still_open": "Method vs. direct calculation.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Delete 70% of 800 -> 240 remain",
+        "Delete 3/5 of 400 -> 160 remain",
+        "Summing remains: 240 + 160 = 400",
+        "Total files: 800 - 400 = 400",
+        "Final count: 240"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "240",
+        "240",
+        "240"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Delete 70% of 800 -> 240 remain",
+        "Delete 3/5 of 400 -> 160 remain",
+        "Summing remains: 240 + 160 = 400",
+        "Total files: 800 - 400 = 400",
+        "Final count: 240"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "240",
+        "240",
+        "240"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Delete 70% of 800 -> 240 remain",
+        "Delete 3/5 of 400 -> 160 remain",
+        "Summing remains: 240 + 160 = 400",
+        "Total files: 800 - 400 = 400",
+        "Final count: 240"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "160",
+        "400",
+        "400"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate based on the given conditions.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "After deleting 70% of the first 800 files, 240 remained.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "Out of the additional 400 files, 3/5 were irrelevant, leaving 160.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answers of 240 vs 400",
+          "why_still_open": "Different interpretations of the conditions lead to conflicting results.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Delete 70% of 800 -> 240 remain",
+        "Delete 3/5 of 400 -> 160 remain",
+        "Summing remains: 240 + 160 = 400",
+        "Total files: 800 - 400 = 400",
+        "Final count: 400"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "160",
+        "160",
+        "360"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate based on the given conditions to validate the minority answer.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the total file count between 400 and 360.",
+          "why_still_open": "Different calculations lead to conflicting totals.",
+          "involved_answers": [
+            "C",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Delete 70% of 800 -> 240 remain",
+        "Delete 3/5 of 400 -> 160 remain",
+        "Summing remains: 240 + 160 = 400",
+        "Total files: 800 - 400 = 400",
+        "Recalculated total: 240 + 120 = 360"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 397,
+      "completion_tokens": 30,
+      "total_tokens": 427,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 384,
+      "completion_tokens": 30,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 395,
+      "completion_tokens": 53,
+      "total_tokens": 448,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 598,
+      "completion_tokens": 228,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 773,
+      "completion_tokens": 92,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 770,
+      "completion_tokens": 93,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 784,
+      "completion_tokens": 93,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1069,
+      "completion_tokens": 122,
+      "total_tokens": 1191,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 773,
+      "completion_tokens": 93,
+      "total_tokens": 866,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 770,
+      "completion_tokens": 102,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 784,
+      "completion_tokens": 95,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 970,
+      "completion_tokens": 122,
+      "total_tokens": 1092,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 668,
+      "completion_tokens": 97,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 665,
+      "completion_tokens": 93,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 679,
+      "completion_tokens": 126,
+      "total_tokens": 805,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 988,
+      "completion_tokens": 311,
+      "total_tokens": 1299,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 861,
+      "completion_tokens": 239,
+      "total_tokens": 1100,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 858,
+      "completion_tokens": 117,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 872,
+      "completion_tokens": 117,
+      "total_tokens": 989,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1340,
+      "completion_tokens": 239,
+      "total_tokens": 1579,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 427,
+    "majority_vote_total_tokens": 1289,
+    "scrd_total_tokens": 17890,
+    "scrd_prompt_tokens": 15398,
+    "scrd_completion_tokens": 2492,
+    "agent_total_tokens": 11903,
+    "recorder_total_tokens": 5987,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

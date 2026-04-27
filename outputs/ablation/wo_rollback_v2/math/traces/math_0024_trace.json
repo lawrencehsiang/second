@@ -1,0 +1,179 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-5",
+        "5",
+        "-2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solutions sum to -7",
+          "claim_type": "support",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x=-5, x=5, x=-2",
+        "Sum of solutions: -5 + 5 + (-2) = -2",
+        "Equation simplifies to quadratic form"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-7",
+        "-7",
+        "0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solutions are complex numbers with sum 0",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of solutions: 0",
+        "Equation simplifies to x^2 + 5 = 0",
+        "Solutions: x = ±√(-5)"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0024",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 41,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0024",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 36,
+      "total_tokens": 363,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0024",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 36,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0024",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 586,
+      "completion_tokens": 112,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0024",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 595,
+      "completion_tokens": 114,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0024",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 592,
+      "completion_tokens": 108,
+      "total_tokens": 700,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0024",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 606,
+      "completion_tokens": 117,
+      "total_tokens": 723,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0024",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 989,
+      "completion_tokens": 108,
+      "total_tokens": 1097,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0024",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 541,
+      "completion_tokens": 41,
+      "total_tokens": 582,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 381,
+    "majority_vote_total_tokens": 1118,
+    "scrd_total_tokens": 5627,
+    "scrd_prompt_tokens": 4914,
+    "scrd_completion_tokens": 713,
+    "agent_total_tokens": 3250,
+    "recorder_total_tokens": 1795,
+    "evaluator_total_tokens": 582,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+}

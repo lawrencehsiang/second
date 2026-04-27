@@ -1,0 +1,457 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "17",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Apply ceiling function after simplifying the expression inside.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The result of the calculation inside the ceiling function is 5.5.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the final answer.",
+          "why_still_open": "Different agents have different final answers.",
+          "involved_answers": [
+            "17",
+            "10"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ceiling(3*(6-0.5)) = Ceiling(16.5) = 17",
+        "3*5.5 = 16.5",
+        "Ceiling(5.5) = 6 -> 10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "17",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the expression based on mainstream support.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous answer of 10 was incorrect due to improper order of operations.",
+          "claim_type": "rebuttal",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ceiling(3*(6-0.5)) = Ceiling(16.5) = 17",
+        "3*5.5 = 16.5",
+        "Ceiling(16.5) = 17"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "10",
+        "9",
+        "17"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Following the correct order of operations results in an answer of 10.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The expression evaluates to 9 when properly ordered, not 10 or 17.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluating the expression step-by-step confirms the minority answer of 17.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream support for 9 vs minority objection for 17",
+          "why_still_open": "While the majority supports 9, a minority still believes in 17, requiring further clarification.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ceiling(3*(6-0.5)) = Ceiling(16.5) = 17",
+        "3*5.5 = 16.5",
+        "Ceiling(16.5) = 17",
+        "Expression evaluates to 9 following proper order of operations",
+        "Initial answer of 9 was incorrect due to improper order of operations"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "17",
+        "9",
+        "17"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The expression evaluates to 16.5, and applying the ceiling function gives 17.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream support for 9 vs minority objection for 17",
+          "why_still_open": "Despite resolving conflicts regarding the order of operations, there remains disagreement on whether the mainstream or minority interpretation is correct.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ceiling(3*(6-0.5)) = Ceiling(16.5) = 17",
+        "3*5.5 = 16.5",
+        "Ceiling(16.5) = 17",
+        "Expression evaluates to 9 following proper order of operations",
+        "Initial answer of 9 was incorrect due to improper order of operations"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "17",
+        "9",
+        "17"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The expression evaluates to 16.5, and applying the ceiling function gives 17.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "Given the mainstream support and proper order of operations, the expression evaluates to 9.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority support for 9 vs mainstream support for 17",
+          "why_still_open": "While the majority has agreed on 17, the minority continues to support 9 based on different interpretations.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ceiling(3*(6-0.5)) = 17",
+        "3*5.5 = 16.5",
+        "Ceiling(16.5) = 17",
+        "Expression evaluates to 9 following proper order of operations",
+        "Mainstream support for 17 vs minority support for 9"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 337,
+      "completion_tokens": 63,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 324,
+      "completion_tokens": 44,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 335,
+      "completion_tokens": 38,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 624,
+      "completion_tokens": 216,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 689,
+      "completion_tokens": 105,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 686,
+      "completion_tokens": 104,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 700,
+      "completion_tokens": 109,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1089,
+      "completion_tokens": 171,
+      "total_tokens": 1260,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 795,
+      "completion_tokens": 136,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 791,
+      "completion_tokens": 128,
+      "total_tokens": 919,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 805,
+      "completion_tokens": 126,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1110,
+      "completion_tokens": 315,
+      "total_tokens": 1425,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 800,
+      "completion_tokens": 137,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 796,
+      "completion_tokens": 91,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 811,
+      "completion_tokens": 316,
+      "total_tokens": 1127,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1418,
+      "completion_tokens": 239,
+      "total_tokens": 1657,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 803,
+      "completion_tokens": 178,
+      "total_tokens": 981,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 799,
+      "completion_tokens": 127,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 814,
+      "completion_tokens": 176,
+      "total_tokens": 990,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0004",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1270,
+      "completion_tokens": 273,
+      "total_tokens": 1543,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 400,
+    "majority_vote_total_tokens": 1141,
+    "scrd_total_tokens": 18888,
+    "scrd_prompt_tokens": 15796,
+    "scrd_completion_tokens": 3092,
+    "agent_total_tokens": 12163,
+    "recorder_total_tokens": 6725,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,200 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "61",
+        "59",
+        "59"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Subtracting 59 from 30^2 results in 29^2.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The identity (a-1)^2 = a^2 - 2a + 1 is used to derive 61.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (61 vs 59) proposed by agents A and B/C.",
+          "why_still_open": "Agents use different interpretations of the same formula.",
+          "involved_answers": [
+            "61",
+            "59"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "30^2 = 900",
+        "29^2 = 841",
+        "(a-1)^2 = a^2 - 2a + 1"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "59",
+        "59",
+        "59"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Applying (a-1)^2 = a^2 - 2a + 1 to 30^2 yields 29^2 = 841.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "30^2 = 900",
+        "29^2 = 841",
+        "(a-1)^2 = a^2 - 2a + 1"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 361,
+      "completion_tokens": 70,
+      "total_tokens": 431,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 348,
+      "completion_tokens": 61,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 359,
+      "completion_tokens": 50,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 660,
+      "completion_tokens": 238,
+      "total_tokens": 898,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 844,
+      "completion_tokens": 190,
+      "total_tokens": 1034,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 841,
+      "completion_tokens": 168,
+      "total_tokens": 1009,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 855,
+      "completion_tokens": 141,
+      "total_tokens": 996,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1286,
+      "completion_tokens": 140,
+      "total_tokens": 1426,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 618,
+      "completion_tokens": 57,
+      "total_tokens": 675,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 431,
+    "majority_vote_total_tokens": 1249,
+    "scrd_total_tokens": 7287,
+    "scrd_prompt_tokens": 6172,
+    "scrd_completion_tokens": 1115,
+    "agent_total_tokens": 4288,
+    "recorder_total_tokens": 2324,
+    "evaluator_total_tokens": 675,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

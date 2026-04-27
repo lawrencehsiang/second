@@ -1,0 +1,402 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ensure continuity at x=3 by equating the two expressions.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ensure continuity at x=3 by equating the two expressions."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "10",
+        "5",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solving the continuity equation at x=3 yields a=11.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the value of a for ensuring continuity at x=3.",
+          "why_still_open": "Agents A and B believe a=10, while C asserts a=11.",
+          "involved_answers": [
+            "10",
+            "5",
+            "11"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ensure continuity at x=3 by equating the two expressions.",
+        "3(3)^2 + 2 = a(3) - 1",
+        "Solving for a yields a=11."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ensure continuity at x=3 by equating the two expressions.",
+        "3(3)^2 + 2 = a(3) - 1",
+        "Solving for a yields a=11."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "10",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Setting the left-hand limit equal to the right-hand limit at x=3 gives 3(3)^2 + 2 = a(3) - 1, solving to a = 10.",
+          "claim_type": "support",
+          "related_answer": "10"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ensure continuity at x=3 by equating the two expressions.",
+        "3(3)^2 + 2 = a(3) - 1",
+        "Solving for a yields a=10."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "10",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking continuity at x=3 confirms 3(3)^2 + 2 = a(3) - 1, leading to a = 10.",
+          "claim_type": "support",
+          "related_answer": "10"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 11 remains.",
+          "why_still_open": "The minority answer does not satisfy the continuity condition at x=3.",
+          "involved_answers": [
+            "11"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ensure continuity at x=3 by equating the two expressions.",
+        "3(3)^2 + 2 = a(3) - 1",
+        "Solving for a yields a=10.",
+        "The minority answer 11 does not satisfy the continuity condition.",
+        "Mainstream support is correct as it satisfies the continuity condition."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 402,
+      "completion_tokens": 37,
+      "total_tokens": 439,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 389,
+      "completion_tokens": 34,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 400,
+      "completion_tokens": 37,
+      "total_tokens": 437,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 584,
+      "completion_tokens": 88,
+      "total_tokens": 672,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 663,
+      "completion_tokens": 122,
+      "total_tokens": 785,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 660,
+      "completion_tokens": 71,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 674,
+      "completion_tokens": 180,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1019,
+      "completion_tokens": 192,
+      "total_tokens": 1211,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 778,
+      "completion_tokens": 128,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 774,
+      "completion_tokens": 131,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 789,
+      "completion_tokens": 134,
+      "total_tokens": 923,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1142,
+      "completion_tokens": 79,
+      "total_tokens": 1221,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 779,
+      "completion_tokens": 194,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 776,
+      "completion_tokens": 151,
+      "total_tokens": 927,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 790,
+      "completion_tokens": 175,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1161,
+      "completion_tokens": 149,
+      "total_tokens": 1310,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 795,
+      "completion_tokens": 152,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 792,
+      "completion_tokens": 129,
+      "total_tokens": 921,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 806,
+      "completion_tokens": 149,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1131,
+      "completion_tokens": 223,
+      "total_tokens": 1354,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 439,
+    "majority_vote_total_tokens": 1299,
+    "scrd_total_tokens": 17859,
+    "scrd_prompt_tokens": 15304,
+    "scrd_completion_tokens": 2555,
+    "agent_total_tokens": 12091,
+    "recorder_total_tokens": 5768,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

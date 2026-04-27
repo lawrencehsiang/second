@@ -1,0 +1,201 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4",
+        "5",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total people = 26",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Each pie has 10 slices, so 3 pies have 30 slices.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents give conflicting values for slices left: 4 (A and C) vs 5 (B).",
+          "why_still_open": "Agents did not reconcile their calculations.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total people = 26",
+        "Each pie has 10 slices, so 3 pies have 30 slices.",
+        "Total slices = 30",
+        "Slices taken = 26",
+        "Slices left = 4"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "26 people take 26 slices, leaving 4 slices.",
+          "claim_type": "support",
+          "related_answer": "A, C"
+        },
+        {
+          "text": "Total slices = 3 pies * 10 slices/pie = 30 slices.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total people = 26",
+        "Total slices = 30",
+        "Slices taken = 26",
+        "Slices left = 4",
+        "3 pies * 10 slices/pie = 30 slices"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 370,
+      "completion_tokens": 87,
+      "total_tokens": 457,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 357,
+      "completion_tokens": 53,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 368,
+      "completion_tokens": 80,
+      "total_tokens": 448,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 696,
+      "completion_tokens": 233,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 733,
+      "completion_tokens": 126,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 730,
+      "completion_tokens": 158,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 744,
+      "completion_tokens": 123,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1184,
+      "completion_tokens": 175,
+      "total_tokens": 1359,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 654,
+      "completion_tokens": 48,
+      "total_tokens": 702,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 457,
+    "majority_vote_total_tokens": 1315,
+    "scrd_total_tokens": 6919,
+    "scrd_prompt_tokens": 5836,
+    "scrd_completion_tokens": 1083,
+    "agent_total_tokens": 3929,
+    "recorder_total_tokens": 2288,
+    "evaluator_total_tokens": 702,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

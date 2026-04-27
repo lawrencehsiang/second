@@ -1,0 +1,414 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "440",
+        "440",
+        "462"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total cost without discount, then apply discount to excess tickets.",
+          "claim_type": "explanation",
+          "related_answer": "440"
+        },
+        {
+          "text": "Calculated total cost for 12 tickets with discount for extra 2 tickets.",
+          "claim_type": "explanation",
+          "related_answer": "462"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (440 vs 462) for the same problem.",
+          "why_still_open": "Calculating the total cost and applying the discount for extra tickets leads to different results.",
+          "involved_answers": [
+            "440",
+            "462"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = 50*12 = 600",
+        "Discount on extra 2 tickets = 50*2*1/6 = 16.67",
+        "Adjusted total = 600 - 16.67 = 583.33",
+        "Answer A: 440, Answer C: 462",
+        "Apply discount to excess tickets"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "462",
+        "462",
+        "440"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correctly applying the 5% discount to the cost of the excess tickets (beyond 10) results in a total of $462.",
+          "claim_type": "support",
+          "related_answer": "462"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 50*12 = 600",
+        "Discount on extra 2 tickets = 50*2*1/6 = 16.67",
+        "Adjusted total = 600 - 16.67 = 583.33",
+        "Answer C: 440, Answer A: 462",
+        "Apply discount to excess tickets"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "462",
+        "462",
+        "462"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Applying the 5% discount to the cost of the excess tickets results in a total of $462.",
+          "claim_type": "support",
+          "related_answer": "462"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 50*12 = 600",
+        "Discount on extra 2 tickets = 50*2*1/6 = 16.67",
+        "Adjusted total = 600 - 16.67 = 583.33",
+        "Answer C: 440, Answer A: 462",
+        "Apply discount to excess tickets"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "452",
+        "486",
+        "468"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The discount applies only to the 2 excess tickets, resulting in a total of $468.",
+          "claim_type": "support",
+          "related_answer": "468"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 50*10 + 40*2 = 580",
+        "Discount on extra 2 tickets = 40*2*1/20 = 4",
+        "Adjusted total = 580 - 4 = 468",
+        "Answer C: 468, Answer B: 486",
+        "Correctly applying the discount to excess tickets"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "462",
+        "462",
+        "462"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The 5% discount applies only to the 2 excess tickets, resulting in a total of $462.",
+          "claim_type": "support",
+          "related_answer": "462"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 50*10 + 40*2 = 580",
+        "Discount on extra 2 tickets = 40*2*1/5 = 16",
+        "Adjusted total = 580 - 16 = 462",
+        "Answer C: 462, Answer B: 462",
+        "Correctly applying the discount to excess tickets"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 36,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 39,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 43,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 600,
+      "completion_tokens": 285,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 730,
+      "completion_tokens": 139,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 727,
+      "completion_tokens": 123,
+      "total_tokens": 850,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 741,
+      "completion_tokens": 122,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1224,
+      "completion_tokens": 188,
+      "total_tokens": 1412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 856,
+      "completion_tokens": 159,
+      "total_tokens": 1015,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 853,
+      "completion_tokens": 117,
+      "total_tokens": 970,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 867,
+      "completion_tokens": 159,
+      "total_tokens": 1026,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1139,
+      "completion_tokens": 180,
+      "total_tokens": 1319,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 629,
+      "completion_tokens": 122,
+      "total_tokens": 751,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 626,
+      "completion_tokens": 130,
+      "total_tokens": 756,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 640,
+      "completion_tokens": 93,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1059,
+      "completion_tokens": 176,
+      "total_tokens": 1235,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 629,
+      "completion_tokens": 129,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 626,
+      "completion_tokens": 150,
+      "total_tokens": 776,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 640,
+      "completion_tokens": 175,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1164,
+      "completion_tokens": 180,
+      "total_tokens": 1344,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 389,
+    "majority_vote_total_tokens": 1162,
+    "scrd_total_tokens": 17539,
+    "scrd_prompt_tokens": 14794,
+    "scrd_completion_tokens": 2745,
+    "agent_total_tokens": 11344,
+    "recorder_total_tokens": 6195,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

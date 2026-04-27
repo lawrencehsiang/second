@@ -1,0 +1,410 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-2",
+        "4",
+        "-2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate a-b+c using given values.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "a=1, b=2, c=-1",
+        "a-b+c = 1-2-1",
+        "-2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-2",
+        "-2",
+        "-2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate a-b+c using the quadratic function y = x^2 + 2x - 1.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answers were inconsistent with the mainstream support for calculating a-b+c using the quadratic function.",
+          "why_still_open": "Agents A and C have kept their answers of -2, while B updated to align with the calculation.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "a=1, b=2, c=-1",
+        "a-b+c = 1-2-1",
+        "-2"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "2",
+        "-1",
+        "-2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate a-b+c using the quadratic function y = x^2 + 2x - 1.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "a=1, b=2, c=-1",
+        "a-b+c = 1-2-1",
+        "-2"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "-1",
+        "-2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate a-b+c using the quadratic function y = x^2 + 2x - 1.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "a=1, b=2, c=-1",
+        "a-b+c = 1-2-1",
+        "-2"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-2",
+        "-1",
+        "-2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating a-b+c using the quadratic function y = x^2 + 2x - 1 confirms the result as -2.",
+          "claim_type": "support",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Answer -2 remains unresolved among agents A, B, and C.",
+          "why_still_open": "All agents recalculated but still have a minority answer of -2.",
+          "involved_answers": [
+            "-2",
+            "-1"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "a=1, b=2, c=-1",
+        "a-b+c = 1-2-1",
+        "a-b+c = -2",
+        "Minority answer: -2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 462,
+      "completion_tokens": 53,
+      "total_tokens": 515,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 449,
+      "completion_tokens": 48,
+      "total_tokens": 497,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 460,
+      "completion_tokens": 58,
+      "total_tokens": 518,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 638,
+      "completion_tokens": 98,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 718,
+      "completion_tokens": 80,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 715,
+      "completion_tokens": 110,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 729,
+      "completion_tokens": 90,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 924,
+      "completion_tokens": 189,
+      "total_tokens": 1113,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 936,
+      "completion_tokens": 119,
+      "total_tokens": 1055,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 933,
+      "completion_tokens": 119,
+      "total_tokens": 1052,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 947,
+      "completion_tokens": 139,
+      "total_tokens": 1086,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1102,
+      "completion_tokens": 115,
+      "total_tokens": 1217,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 940,
+      "completion_tokens": 115,
+      "total_tokens": 1055,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 937,
+      "completion_tokens": 140,
+      "total_tokens": 1077,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 951,
+      "completion_tokens": 113,
+      "total_tokens": 1064,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1029,
+      "completion_tokens": 115,
+      "total_tokens": 1144,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 921,
+      "completion_tokens": 157,
+      "total_tokens": 1078,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 918,
+      "completion_tokens": 100,
+      "total_tokens": 1018,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 932,
+      "completion_tokens": 104,
+      "total_tokens": 1036,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0059",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1014,
+      "completion_tokens": 203,
+      "total_tokens": 1217,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 515,
+    "majority_vote_total_tokens": 1530,
+    "scrd_total_tokens": 18920,
+    "scrd_prompt_tokens": 16655,
+    "scrd_completion_tokens": 2265,
+    "agent_total_tokens": 13493,
+    "recorder_total_tokens": 5427,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

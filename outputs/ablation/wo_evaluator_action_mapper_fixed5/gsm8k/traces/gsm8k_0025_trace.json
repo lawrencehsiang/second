@@ -1,0 +1,406 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "62",
+        "62",
+        "62"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Subtract payments from total credit.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total credit used is $100. Paid $15 + $23 = $38. Remaining credit is $100 - $38 = $62.",
+        "Total credit used minus payments made equals remaining credit to be paid."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "38",
+        "62",
+        "62"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Payments should be subtracted sequentially from total credit.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total credit used is $100. Paid $15 + $23 = $38. Remaining credit is $100 - $38 = $38.",
+        "Payments of $15 on Tuesday and $23 on Thursday sum up to $38, which is the amount Mary needs to pay before her next shopping trip."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "24",
+        "24",
+        "62"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Payments should be subtracted from the remaining balance after each payment.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total credit used is $100. Payments of $15 on Tuesday and $23 on Thursday sum up to $38.",
+        "After paying $38, the remaining credit is $100 - $38 = $62."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "62",
+        "42",
+        "62"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct method for payment subtraction is from the remaining balance after each payment.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The initial $100 credit reduces by $15 on Tuesday, leaving $85, then further reduced by $23 on Thursday, resulting in $62.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total credit used is $100. Payments of $15 on Tuesday and $23 on Thursday sum up to $38.",
+        "After paying $38, the remaining credit is $100 - $38 = $62."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "62",
+        "62",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 24 is incorrect because it does not follow the sequential subtraction method.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verification is needed for the minority answer of 24.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 24 remains unresolved.",
+          "why_still_open": "Verification is pending to confirm its correctness.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Payments of $15 on Tuesday and $23 on Thursday sequentially reduce the remaining balance from $85 to $62.",
+        "The minority answer of 24 contradicts the sequential subtraction method.",
+        "The correct method is to subtract each payment from the remaining balance after each payment.",
+        "The remaining balance after Tuesday's payment is $85, and after Thursday's payment, it is $62.",
+        "Sequential subtraction ensures the accuracy of the final remaining balance."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 391,
+      "completion_tokens": 60,
+      "total_tokens": 451,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 378,
+      "completion_tokens": 35,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 389,
+      "completion_tokens": 32,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 609,
+      "completion_tokens": 122,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 648,
+      "completion_tokens": 170,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 645,
+      "completion_tokens": 117,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 659,
+      "completion_tokens": 148,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1085,
+      "completion_tokens": 146,
+      "total_tokens": 1231,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 651,
+      "completion_tokens": 94,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 648,
+      "completion_tokens": 107,
+      "total_tokens": 755,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 662,
+      "completion_tokens": 148,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1023,
+      "completion_tokens": 131,
+      "total_tokens": 1154,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 844,
+      "completion_tokens": 127,
+      "total_tokens": 971,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 841,
+      "completion_tokens": 109,
+      "total_tokens": 950,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 855,
+      "completion_tokens": 168,
+      "total_tokens": 1023,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1063,
+      "completion_tokens": 195,
+      "total_tokens": 1258,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 872,
+      "completion_tokens": 142,
+      "total_tokens": 1014,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 869,
+      "completion_tokens": 121,
+      "total_tokens": 990,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 883,
+      "completion_tokens": 93,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0025",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1079,
+      "completion_tokens": 267,
+      "total_tokens": 1346,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 451,
+    "majority_vote_total_tokens": 1285,
+    "scrd_total_tokens": 17626,
+    "scrd_prompt_tokens": 15094,
+    "scrd_completion_tokens": 2532,
+    "agent_total_tokens": 11906,
+    "recorder_total_tokens": 5720,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

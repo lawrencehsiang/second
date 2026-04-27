@@ -1,0 +1,277 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "810",
+        "810",
+        "810"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total candies for each and find the difference.",
+          "claim_type": "explanation",
+          "related_answer": "810"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total candies for each and find the difference.",
+        "Total candies for both groups = 50 + 60 = 110.",
+        "Difference in candies = 60 - 50 = 10."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "15",
+        "810",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate using the correct quantities.",
+          "claim_type": "rebuttal",
+          "related_answer": "15"
+        },
+        {
+          "text": "The correct calculation shows Anna getting 840 pieces of candy and Billy getting 825 pieces.",
+          "claim_type": "support",
+          "related_answer": "15"
+        },
+        {
+          "text": "The mainstream support claims that the answer is 810, which seems incorrect based on the calculations provided.",
+          "claim_type": "constraint",
+          "related_answer": "810"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The previous answer (810) versus the recalculated result (15).",
+          "why_still_open": "The conflict arises from differing calculations and interpretations of the problem.",
+          "involved_answers": [
+            "810",
+            "15"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate total candies for each and find the difference.",
+        "Total candies for Anna = 840, Total candies for Billy = 825.",
+        "Difference in candies = 840 - 825 = 15."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "rollback_suppressed_ablation",
+      "mode": "normal",
+      "sample_id": "gsm8k_0040",
+      "trigger_round": 2,
+      "anchor_round": 1,
+      "note": "w/o rollback ablation: repair mode intentionally skipped"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 384,
+      "completion_tokens": 32,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 371,
+      "completion_tokens": 32,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 382,
+      "completion_tokens": 36,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 585,
+      "completion_tokens": 124,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 646,
+      "completion_tokens": 126,
+      "total_tokens": 772,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 643,
+      "completion_tokens": 56,
+      "total_tokens": 699,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 657,
+      "completion_tokens": 149,
+      "total_tokens": 806,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 995,
+      "completion_tokens": 286,
+      "total_tokens": 1281,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 697,
+      "completion_tokens": 40,
+      "total_tokens": 737,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 416,
+    "majority_vote_total_tokens": 1237,
+    "scrd_total_tokens": 6241,
+    "scrd_prompt_tokens": 5360,
+    "scrd_completion_tokens": 881,
+    "agent_total_tokens": 3514,
+    "recorder_total_tokens": 1990,
+    "evaluator_total_tokens": 737,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": true,
+    "suppressed_rollback_context": {
+      "trigger_round": 2,
+      "anchor_round": 1,
+      "anchor_state": {
+        "round_id": 1,
+        "current_answers": [
+          "810",
+          "810",
+          "810"
+        ],
+        "newly_added_claims": [
+          {
+            "text": "Calculate total candies for each and find the difference.",
+            "claim_type": "explanation",
+            "related_answer": "810"
+          }
+        ],
+        "unresolved_conflicts": [],
+        "key_raw_snippets": [
+          "Calculate total candies for each and find the difference.",
+          "Total candies for both groups = 50 + 60 = 110.",
+          "Difference in candies = 60 - 50 = 10."
+        ]
+      },
+      "failed_suffix_state_records": [
+        {
+          "round_id": 2,
+          "current_answers": [
+            "15",
+            "810",
+            "15"
+          ],
+          "newly_added_claims": [
+            {
+              "text": "Recalculate using the correct quantities.",
+              "claim_type": "rebuttal",
+              "related_answer": "15"
+            },
+            {
+              "text": "The correct calculation shows Anna getting 840 pieces of candy and Billy getting 825 pieces.",
+              "claim_type": "support",
+              "related_answer": "15"
+            },
+            {
+              "text": "The mainstream support claims that the answer is 810, which seems incorrect based on the calculations provided.",
+              "claim_type": "constraint",
+              "related_answer": "810"
+            }
+          ],
+          "unresolved_conflicts": [
+            {
+              "conflict": "The previous answer (810) versus the recalculated result (15).",
+              "why_still_open": "The conflict arises from differing calculations and interpretations of the problem.",
+              "involved_answers": [
+                "810",
+                "15"
+              ]
+            }
+          ],
+          "key_raw_snippets": [
+            "Calculate total candies for each and find the difference.",
+            "Total candies for Anna = 840, Total candies for Billy = 825.",
+            "Difference in candies = 840 - 825 = 15."
+          ]
+        }
+      ]
+    }
+  }
+}

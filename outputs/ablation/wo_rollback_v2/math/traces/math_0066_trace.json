@@ -1,0 +1,295 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "99",
+        "33",
+        "99"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The sum of x-coordinates is preserved through midpoint operations.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Each new polygon's x-coordinate sum is half of the previous.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B claims the sum is halved each time, while Agents A and C assert it remains unchanged.",
+          "why_still_open": "The core principle of how the x-coordinate sum changes through midpoint operations is disputed.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sum of x-coordinates remains unchanged.",
+        "Each new polygon's x-coordinate sum is half of the previous.",
+        "For any polygon formed by midpoints of sides of another, the sum of x-coordinates remains unchanged."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "99",
+        "12.375",
+        "99"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The sum of x-coordinates is preserved through midpoint operations.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The sum of x-coordinates is preserved through midpoint operations, as verified by symmetry and unit consistency checks.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The sum of x-coordinates is preserved through midpoint operations.",
+        "The sum of x-coordinates is halved with each midpoint operation, leading to a final sum of 99/8 = 12.375 for P3.",
+        "For any polygon formed by midpoints of sides of another, the sum of x-coordinates remains unchanged."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "24.75",
+        "6.25",
+        "49.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The sum of x-coordinates is halved with each midpoint operation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The sum of x-coordinates is not preserved but is halved each time.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Dispute on whether the sum of x-coordinates is preserved or halved each time.",
+          "why_still_open": "Agents A and C still assert the sum remains unchanged, while Agent B and A confirm it is halved.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "The midpoint operation halves the x-coordinate sum, as each side's midpoint averages the endpoints.",
+        "The sum of x-coordinates is halved with each midpoint operation.",
+        "For any polygon formed by midpoints of sides of another, the sum of x-coordinates is halved."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0066",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 430,
+      "completion_tokens": 64,
+      "total_tokens": 494,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 417,
+      "completion_tokens": 42,
+      "total_tokens": 459,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 428,
+      "completion_tokens": 36,
+      "total_tokens": 464,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 621,
+      "completion_tokens": 232,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 899,
+      "completion_tokens": 135,
+      "total_tokens": 1034,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 896,
+      "completion_tokens": 135,
+      "total_tokens": 1031,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 910,
+      "completion_tokens": 114,
+      "total_tokens": 1024,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1170,
+      "completion_tokens": 194,
+      "total_tokens": 1364,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 721,
+      "completion_tokens": 57,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 899,
+      "completion_tokens": 122,
+      "total_tokens": 1021,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 900,
+      "completion_tokens": 119,
+      "total_tokens": 1019,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 910,
+      "completion_tokens": 126,
+      "total_tokens": 1036,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1116,
+      "completion_tokens": 254,
+      "total_tokens": 1370,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0066",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 722,
+      "completion_tokens": 44,
+      "total_tokens": 766,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 494,
+    "majority_vote_total_tokens": 1417,
+    "scrd_total_tokens": 12713,
+    "scrd_prompt_tokens": 11039,
+    "scrd_completion_tokens": 1674,
+    "agent_total_tokens": 7582,
+    "recorder_total_tokens": 3587,
+    "evaluator_total_tokens": 1544,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+}

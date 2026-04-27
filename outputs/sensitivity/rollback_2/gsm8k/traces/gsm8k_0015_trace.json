@@ -1,0 +1,396 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "5",
+        "7.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate time per page and multiply by 120 pages.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Reading rate determines the time needed for 120 pages.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Reading rate per hour applied to 120 pages results in 7.5 hours.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Calculate time per page * 120 pages",
+        "Reading rate * 120 pages = 7.5 hours",
+        "Convert minutes to hours"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "5",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial answer of 7.5 hours is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Calculate time per page * 120 pages",
+        "Reading rate * 120 pages = 10 hours",
+        "Convert minutes to hours"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "15",
+        "7.5",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the calculation based on the given rates and units.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revising the calculation to ensure it aligns with the correct units and operations.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Rechecking the calculations.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The initial answer of 7.5 hours is incorrect.",
+          "why_still_open": "The rebuttal suggests revising the calculation, but the exact resolution is pending.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Calculate time per page * 120 pages",
+        "Reading rate * 120 pages = 10 hours",
+        "Convert minutes to hours"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "15",
+        "5",
+        "7.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Finding the time per page and scaling it to 120 pages.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Correcting the calculation for unit consistency.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Updating the answer based on the correct rate.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the final answer.",
+          "why_still_open": "The exact resolution is pending as the agents have different answers.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Calculate time per page * 120 pages",
+        "Reading rate * 120 pages = 10 hours",
+        "Convert minutes to hours"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 4,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 43,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 38,
+      "total_tokens": 365,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 41,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 597,
+      "completion_tokens": 226,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 601,
+      "completion_tokens": 38,
+      "total_tokens": 639,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 598,
+      "completion_tokens": 42,
+      "total_tokens": 640,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 614,
+      "completion_tokens": 178,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1025,
+      "completion_tokens": 143,
+      "total_tokens": 1168,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 547,
+      "completion_tokens": 49,
+      "total_tokens": 596,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 692,
+      "completion_tokens": 114,
+      "total_tokens": 806,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 689,
+      "completion_tokens": 144,
+      "total_tokens": 833,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 704,
+      "completion_tokens": 110,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1061,
+      "completion_tokens": 280,
+      "total_tokens": 1341,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 649,
+      "completion_tokens": 49,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 798,
+      "completion_tokens": 116,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 796,
+      "completion_tokens": 116,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 808,
+      "completion_tokens": 109,
+      "total_tokens": 917,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1170,
+      "completion_tokens": 271,
+      "total_tokens": 1441,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 660,
+      "completion_tokens": 50,
+      "total_tokens": 710,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 383,
+    "majority_vote_total_tokens": 1127,
+    "scrd_total_tokens": 15171,
+    "scrd_prompt_tokens": 13014,
+    "scrd_completion_tokens": 2157,
+    "agent_total_tokens": 8394,
+    "recorder_total_tokens": 4773,
+    "evaluator_total_tokens": 2004,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

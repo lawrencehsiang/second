@@ -1,0 +1,352 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "200",
+        "200",
+        "200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate weight gain from sources and subtract from total.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Sum up gains from different food sources.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Divide total weight gain into portions.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total weight needed = 200",
+        "Weight gain from sources = 200",
+        "Portion of total gain = 200"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "200",
+        "200",
+        "400"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed weight gain from sources based on problem conditions.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total weight needed = 200",
+        "Weight gain from berries = 40",
+        "Weight gain from acorns = 80",
+        "Weight gain from salmon = 60",
+        "Weight gain from small animals = 20"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "200",
+        "200",
+        "200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the weight gain from sources based on problem conditions.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total weight needed = 1000",
+        "Weight gain from berries = 40",
+        "Weight gain from acorns = 80",
+        "Weight gain from salmon = 60",
+        "Weight gain from small animals = 20"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 410,
+      "completion_tokens": 36,
+      "total_tokens": 446,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 397,
+      "completion_tokens": 38,
+      "total_tokens": 435,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 408,
+      "completion_tokens": 33,
+      "total_tokens": 441,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 172,
+      "total_tokens": 761,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 672,
+      "completion_tokens": 114,
+      "total_tokens": 786,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 669,
+      "completion_tokens": 36,
+      "total_tokens": 705,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 683,
+      "completion_tokens": 46,
+      "total_tokens": 729,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 926,
+      "completion_tokens": 226,
+      "total_tokens": 1152,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 695,
+      "completion_tokens": 43,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 857,
+      "completion_tokens": 116,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 676,
+      "completion_tokens": 127,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 675,
+      "completion_tokens": 103,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 676,
+      "completion_tokens": 140,
+      "total_tokens": 816,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1076,
+      "completion_tokens": 130,
+      "total_tokens": 1206,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 759,
+      "completion_tokens": 53,
+      "total_tokens": 812,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 726,
+      "completion_tokens": 143,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 723,
+      "completion_tokens": 108,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 739,
+      "completion_tokens": 94,
+      "total_tokens": 833,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 987,
+      "completion_tokens": 132,
+      "total_tokens": 1119,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 622,
+      "completion_tokens": 65,
+      "total_tokens": 687,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 446,
+    "majority_vote_total_tokens": 1322,
+    "scrd_total_tokens": 15920,
+    "scrd_prompt_tokens": 13965,
+    "scrd_completion_tokens": 1955,
+    "agent_total_tokens": 3542,
+    "recorder_total_tokens": 4238,
+    "evaluator_total_tokens": 738,
+    "repair_brief_total_tokens": 973,
+    "repair_evaluator_total_tokens": 1499,
+    "repair_agent_total_tokens": 4930
+  }
+}

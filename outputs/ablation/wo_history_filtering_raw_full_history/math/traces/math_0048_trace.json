@@ -1,0 +1,193 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "102",
+        "186",
+        "139"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Pair highest available numbers to maximize products.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Maximize each product by pairing highest available numbers.",
+        "Product of pairs: 50*60 = 3000, 24*12 = 288, 48*24 = 1152."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "186",
+        "186",
+        "139"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Pairing highest available numbers maximizes the sum of products.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different strategies for maximizing products vs. maximizing the sum.",
+          "why_still_open": "Agent 1 and Agent 2 focus on maximizing the sum of products, while Agent 3 adheres to the constraint of maximizing individual products.",
+          "involved_answers": [
+            "186",
+            "139"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Maximize the sum of products by pairing highest available numbers.",
+        "Product of pairs: 50*60 = 3000, 24*12 = 288, 48*24 = 1152."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0048",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 33,
+      "total_tokens": 408,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0048",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 32,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0048",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 35,
+      "total_tokens": 408,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0048",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 585,
+      "completion_tokens": 123,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0048",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 769,
+      "completion_tokens": 117,
+      "total_tokens": 886,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0048",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 766,
+      "completion_tokens": 112,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0048",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 780,
+      "completion_tokens": 128,
+      "total_tokens": 908,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0048",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1030,
+      "completion_tokens": 210,
+      "total_tokens": 1240,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0048",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 610,
+      "completion_tokens": 54,
+      "total_tokens": 664,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 408,
+    "majority_vote_total_tokens": 1210,
+    "scrd_total_tokens": 6494,
+    "scrd_prompt_tokens": 5650,
+    "scrd_completion_tokens": 844,
+    "agent_total_tokens": 3882,
+    "recorder_total_tokens": 1948,
+    "evaluator_total_tokens": 664,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

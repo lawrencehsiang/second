@@ -1,0 +1,482 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3.0",
+        "7",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substitute x=2 and y=5 into the expression.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Compute exponent, multiply, add, divide after substitution.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Compute numerator first, then divide by 6.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x=2, y=5",
+        "expression: exponent, multiply, add, divide",
+        "numerator: computed first, then divided by 6"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3.0",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the expression with x=2 and y=5.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The expression evaluates to 8 with x=2 and y=5.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous mainstream answer was 7, but it was updated to 8 after re-evaluation.",
+          "why_still_open": "The previous answer of 7 was based on incorrect calculations.",
+          "involved_answers": [
+            "7",
+            "8"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x=2, y=5",
+        "\\(\\frac{x^4 + 2y^2}{6}\\) = 8",
+        "previous mainstream answer was 7"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "8",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the expression with x=2 and y=5.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recompute the expression with x=2 and y=5.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "The expression evaluates to 11 with x=2 and y=5.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream support claims the value is 8, while another minority answer claims it is 11.",
+          "why_still_open": "The conflicting values (8 vs. 11) have not been reconciled.",
+          "involved_answers": [
+            "8",
+            "11"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x=2, y=5",
+        "\\(\\frac{x^4 + 2y^2}{6}\\)",
+        "previous mainstream answer was 8"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the expression \\(\\frac{x^4 + 2y^2}{6}\\) with x = 2 and y = 5.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Evaluate the expression again carefully using the given values x=2 and y=5.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculate the expression to verify the correct value with x=2 and y=5.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream support claims the value is 8, while another minority answer claims it is 11.",
+          "why_still_open": "The conflicting values (8 vs. 11) have not been reconciled.",
+          "involved_answers": [
+            "8",
+            "11"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x=2, y=5",
+        "\\(\\frac{x^4 + 2y^2}{6}\\)",
+        "value is 11"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the expression \\(\\frac{x^4 + 2y^2}{6}\\) with x = 2 and y = 5.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The majority and mainstream support indicate the correct value is 11. The minority answer of 8 is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify both answers using the given values of x and y.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 8 remains despite reevaluation.",
+          "why_still_open": "The minority answer persists, and its correctness has not been fully resolved.",
+          "involved_answers": [
+            "8",
+            "11"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x=2, y=5",
+        "\\(\\frac{x^4 + 2y^2}{6}\\)",
+        "value is 11"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 39,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 37,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 40,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 183,
+      "total_tokens": 777,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 116,
+      "total_tokens": 725,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 604,
+      "completion_tokens": 129,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 618,
+      "completion_tokens": 42,
+      "total_tokens": 660,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1004,
+      "completion_tokens": 221,
+      "total_tokens": 1225,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 808,
+      "completion_tokens": 136,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 808,
+      "completion_tokens": 118,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 803,
+      "completion_tokens": 100,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 817,
+      "completion_tokens": 121,
+      "total_tokens": 938,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1114,
+      "completion_tokens": 270,
+      "total_tokens": 1384,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 819,
+      "completion_tokens": 118,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 816,
+      "completion_tokens": 131,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 831,
+      "completion_tokens": 110,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1163,
+      "completion_tokens": 292,
+      "total_tokens": 1455,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 821,
+      "completion_tokens": 115,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 818,
+      "completion_tokens": 103,
+      "total_tokens": 921,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 832,
+      "completion_tokens": 122,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1184,
+      "completion_tokens": 280,
+      "total_tokens": 1464,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 385,
+    "majority_vote_total_tokens": 1139,
+    "scrd_total_tokens": 18909,
+    "scrd_prompt_tokens": 16086,
+    "scrd_completion_tokens": 2823,
+    "agent_total_tokens": 12604,
+    "recorder_total_tokens": 6305,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

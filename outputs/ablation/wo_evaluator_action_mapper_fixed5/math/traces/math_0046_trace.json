@@ -1,0 +1,456 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "16",
+        "42",
+        "31"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "a=16, b=1, c=14 -> a+b+c=31",
+          "claim_type": "support",
+          "related_answer": "31"
+        },
+        {
+          "text": "a=14, b=14, c=14 -> a+b+c=42",
+          "claim_type": "support",
+          "related_answer": "42"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different values of a, b, and c lead to different sums.",
+          "why_still_open": "The values of a, b, and c are derived from different combinations of like terms, leading to conflicting sums.",
+          "involved_answers": [
+            "31",
+            "42"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Combine like terms: (12d + 14d^2) + (2d + 1) = 14d^2 + 14d + 1.",
+        "Combine like terms: (12d + 2d) + (13 + 1) + 14d^2 = 14d + 14 + 14d^2.",
+        "Combine like terms: (12d + 14d^2) + (2d + 1) = 16d + 14d^2 + 1."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "30",
+        "42",
+        "44"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Expression simplifies to 16d + 14 + 14d^2 -> a=16, b=14, c=14 -> a+b+c=44",
+          "claim_type": "support",
+          "related_answer": "44"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Expression simplifies to 16d + 14 + 14d^2.",
+        "a=16, b=14, c=14 -> a+b+c=44."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "30",
+        "19",
+        "44"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correctly identified coefficients a=14, b=14, c=1 -> a+b+c=29",
+          "claim_type": "support",
+          "related_answer": "19"
+        },
+        {
+          "text": "Recombined terms to get 14d^2 + 14d + 1 -> sum = 19",
+          "claim_type": "support",
+          "related_answer": "19"
+        },
+        {
+          "text": "Re-evaluated the expression and found consistent values a=14, b=14, c=1",
+          "claim_type": "rebuttal",
+          "related_answer": "44"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recombined terms to get 14d^2 + 14d + 1.",
+        "a=14, b=14, c=1 -> sum = 29.",
+        "Expression correctly evaluated to 19."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "44",
+        "39",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Consistently simplified the expression to 16d + 14 + 14d^2 -> a=16, b=14, c=14, sum = 44",
+          "claim_type": "support",
+          "related_answer": "44"
+        },
+        {
+          "text": "Corrected the minority answer of 30 to a=14, b=14, c=1 -> sum = 30",
+          "claim_type": "rebuttal",
+          "related_answer": "39"
+        },
+        {
+          "text": "Re-evaluated and confirmed a=14, b=14, c=1 -> sum = 30",
+          "claim_type": "explanation",
+          "related_answer": "30"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer 30 vs majority answer 44",
+          "why_still_open": "Disagreement on the correct coefficients a, b, and c.",
+          "involved_answers": [
+            "30",
+            "44"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Expression simplified to 16d + 14 + 14d^2 -> a=16, b=14, c=14, sum = 44.",
+        "Corrected minority answer 30 -> a=14, b=14, c=1, sum = 30.",
+        "Re-evaluated and confirmed a=14, b=14, c=1 -> sum = 30."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "30",
+        "44",
+        "44"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Reevaluating the minority answer of 30: a=14, b=14, c=1, confirming the sum = 30.",
+          "claim_type": "rebuttal",
+          "related_answer": "30"
+        },
+        {
+          "text": "Consistently simplified the expression to 16d + 14 + 14d^2, thus a=16, b=14, c=14, sum = 44.",
+          "claim_type": "support",
+          "related_answer": "44"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer 30 vs majority answer 44",
+          "why_still_open": "Disagreement on the correct coefficients a, b, and c.",
+          "involved_answers": [
+            "30",
+            "44"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Expression simplified to 16d + 14 + 14d^2 -> a=16, b=14, c=14, sum = 44.",
+        "Corrected minority answer 30 -> a=14, b=14, c=1, sum = 30."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0046",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 79,
+      "total_tokens": 465,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 91,
+      "total_tokens": 464,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 88,
+      "total_tokens": 472,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 723,
+      "completion_tokens": 332,
+      "total_tokens": 1055,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 773,
+      "completion_tokens": 106,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 770,
+      "completion_tokens": 97,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 784,
+      "completion_tokens": 183,
+      "total_tokens": 967,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 784,
+      "completion_tokens": 124,
+      "total_tokens": 908,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1216,
+      "completion_tokens": 149,
+      "total_tokens": 1365,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 773,
+      "completion_tokens": 113,
+      "total_tokens": 886,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 770,
+      "completion_tokens": 120,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 784,
+      "completion_tokens": 92,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1026,
+      "completion_tokens": 244,
+      "total_tokens": 1270,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 883,
+      "completion_tokens": 172,
+      "total_tokens": 1055,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 880,
+      "completion_tokens": 135,
+      "total_tokens": 1015,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 894,
+      "completion_tokens": 128,
+      "total_tokens": 1022,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1223,
+      "completion_tokens": 377,
+      "total_tokens": 1600,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 908,
+      "completion_tokens": 182,
+      "total_tokens": 1090,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 905,
+      "completion_tokens": 167,
+      "total_tokens": 1072,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 919,
+      "completion_tokens": 168,
+      "total_tokens": 1087,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0046",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1443,
+      "completion_tokens": 305,
+      "total_tokens": 1748,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 465,
+    "majority_vote_total_tokens": 1401,
+    "scrd_total_tokens": 21053,
+    "scrd_prompt_tokens": 17601,
+    "scrd_completion_tokens": 3452,
+    "agent_total_tokens": 14015,
+    "recorder_total_tokens": 7038,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

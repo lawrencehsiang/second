@@ -1,0 +1,191 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "25",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate diagonal length using distance formula.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Square the distance between points to get the area.",
+          "claim_type": "support",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Diagonal = sqrt((x2-x1)^2 + (y2-y1)^2)",
+        "Area = side_length^2",
+        "25 = sqrt(12^2 + 16^2)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "25",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculate side length using the correct distance formula.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Diagonal = sqrt((x2-x1)^2 + (y2-y1)^2)",
+        "Area = side_length^2",
+        "25 = Diagonal^2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 39,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 34,
+      "total_tokens": 360,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 34,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 583,
+      "completion_tokens": 153,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 746,
+      "completion_tokens": 118,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 743,
+      "completion_tokens": 116,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 757,
+      "completion_tokens": 116,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1047,
+      "completion_tokens": 112,
+      "total_tokens": 1159,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 548,
+      "completion_tokens": 76,
+      "total_tokens": 624,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 378,
+    "majority_vote_total_tokens": 1109,
+    "scrd_total_tokens": 6224,
+    "scrd_prompt_tokens": 5426,
+    "scrd_completion_tokens": 798,
+    "agent_total_tokens": 3705,
+    "recorder_total_tokens": 1895,
+    "evaluator_total_tokens": 624,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

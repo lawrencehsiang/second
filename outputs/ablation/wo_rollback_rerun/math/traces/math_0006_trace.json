@@ -1,0 +1,503 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8.0",
+        "3",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substitute x and y into the formula for calculation.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Substitute x and y, then perform computation.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Using x=2 and y=5 in the formula leads to the result.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x=2, y=5 -> result=7",
+        "x and y substituted -> compute",
+        "8.0"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8.0",
+        "8.0",
+        "8.0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream support provided the correct value of 8.0 by substituting x and y into the formula.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "My previous answer was incorrect as it did not follow through with the calculation properly.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The calculation yields (2^4 + 2*5^2) / 6 = 8.0.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x=2, y=5 -> result=8.0",
+        "correct substitution -> 8.0",
+        "8.0"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "7.6667",
+        "8.0",
+        "7.3333"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculating the expression \\(\\frac{x^4 + 2y^2}{6}\\) for accurate results.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous answer of 8.0 was correct after recalculating with proper steps.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Rechecking the calculation to confirm the accuracy of the result.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x=2, y=5 -> result=8.0",
+        "recalculate \\(\\frac{x^4 + 2y^2}{6}\\)",
+        "8.0"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "8.0",
+        "11",
+        "8.0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the expression \\(\\frac{x^4 + 2y^2}{6}\\) with correct steps to find the accurate result.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The expression \\(\\frac{x^4 + 2y^2}{6}\\) with x=2 and y=5 evaluates to 11, not 8.0.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying the calculation by re-checking the expression with the given values.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answers of 8.0 and 11 are conflicting.",
+          "why_still_open": "Both sides provide valid recalculations, but no conclusive evidence is presented to resolve the conflict.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x=2, y=5 -> result=11",
+        "recalculate \\(\\frac{x^4 + 2y^2}{6}\\)",
+        "previous answer was 8.0"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "rollback_suppressed_ablation",
+      "mode": "normal",
+      "sample_id": "math_0006",
+      "trigger_round": 4,
+      "anchor_round": 3,
+      "note": "w/o rollback ablation: repair mode intentionally skipped"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 37,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 33,
+      "total_tokens": 366,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 39,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 584,
+      "completion_tokens": 179,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 49,
+      "total_tokens": 658,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 604,
+      "completion_tokens": 154,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 618,
+      "completion_tokens": 74,
+      "total_tokens": 692,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 994,
+      "completion_tokens": 207,
+      "total_tokens": 1201,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 641,
+      "completion_tokens": 47,
+      "total_tokens": 688,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 715,
+      "completion_tokens": 136,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 712,
+      "completion_tokens": 100,
+      "total_tokens": 812,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 726,
+      "completion_tokens": 109,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1116,
+      "completion_tokens": 212,
+      "total_tokens": 1328,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 673,
+      "completion_tokens": 49,
+      "total_tokens": 722,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 714,
+      "completion_tokens": 139,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 714,
+      "completion_tokens": 134,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 714,
+      "completion_tokens": 137,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 708,
+      "completion_tokens": 176,
+      "total_tokens": 884,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 725,
+      "completion_tokens": 121,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1209,
+      "completion_tokens": 314,
+      "total_tokens": 1523,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 692,
+      "completion_tokens": 47,
+      "total_tokens": 739,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 383,
+    "majority_vote_total_tokens": 1132,
+    "scrd_total_tokens": 16984,
+    "scrd_prompt_tokens": 14491,
+    "scrd_completion_tokens": 2493,
+    "agent_total_tokens": 10020,
+    "recorder_total_tokens": 4815,
+    "evaluator_total_tokens": 2149,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": true,
+    "suppressed_rollback_context": {
+      "trigger_round": 4,
+      "anchor_round": 3,
+      "anchor_state": {
+        "round_id": 3,
+        "current_answers": [
+          "7.6667",
+          "8.0",
+          "7.3333"
+        ],
+        "newly_added_claims": [
+          {
+            "text": "Re-calculating the expression \\(\\frac{x^4 + 2y^2}{6}\\) for accurate results.",
+            "claim_type": "explanation",
+            "related_answer": "A"
+          },
+          {
+            "text": "The previous answer of 8.0 was correct after recalculating with proper steps.",
+            "claim_type": "support",
+            "related_answer": "B"
+          },
+          {
+            "text": "Rechecking the calculation to confirm the accuracy of the result.",
+            "claim_type": "explanation",
+            "related_answer": "C"
+          }
+        ],
+        "unresolved_conflicts": [],
+        "key_raw_snippets": [
+          "x=2, y=5 -> result=8.0",
+          "recalculate \\(\\frac{x^4 + 2y^2}{6}\\)",
+          "8.0"
+        ]
+      },
+      "failed_suffix_state_records": [
+        {
+          "round_id": 4,
+          "current_answers": [
+            "8.0",
+            "11",
+            "8.0"
+          ],
+          "newly_added_claims": [
+            {
+              "text": "Re-evaluating the expression \\(\\frac{x^4 + 2y^2}{6}\\) with correct steps to find the accurate result.",
+              "claim_type": "explanation",
+              "related_answer": "B"
+            },
+            {
+              "text": "The expression \\(\\frac{x^4 + 2y^2}{6}\\) with x=2 and y=5 evaluates to 11, not 8.0.",
+              "claim_type": "rebuttal",
+              "related_answer": "B"
+            },
+            {
+              "text": "Verifying the calculation by re-checking the expression with the given values.",
+              "claim_type": "explanation",
+              "related_answer": "C"
+            }
+          ],
+          "unresolved_conflicts": [
+            {
+              "conflict": "Previous answers of 8.0 and 11 are conflicting.",
+              "why_still_open": "Both sides provide valid recalculations, but no conclusive evidence is presented to resolve the conflict.",
+              "involved_answers": [
+                "A",
+                "B",
+                "C"
+              ]
+            }
+          ],
+          "key_raw_snippets": [
+            "x=2, y=5 -> result=11",
+            "recalculate \\(\\frac{x^4 + 2y^2}{6}\\)",
+            "previous answer was 8.0"
+          ]
+        }
+      ]
+    }
+  }
+}

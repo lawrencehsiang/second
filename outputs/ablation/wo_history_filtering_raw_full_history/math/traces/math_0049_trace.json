@@ -1,0 +1,376 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "28",
+        "16",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Expand and simplify the given equation to find p+q and pq.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Use sum and product of roots to find the solution.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Simplify the equation and find roots to solve the problem.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Expand and simplify: (p+q)^2 = 28, pq = 16",
+        "Sum of roots: p+q = ±√28",
+        "Product of roots: pq = 16"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "39",
+        "31",
+        "31"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute (p+3)(q+3) using Vieta’s formulas.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ensure consistent application of Vieta’s formulas in calculations.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the values of p+q and pq using Vieta’s formulas.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recompute (p+3)(q+3) using Vieta’s formulas: p+q=13, pq=-9",
+        "Vieta’s formulas: p+q=8, pq=4",
+        "(p+3)(q+3) = pq + 3(p+q) + 9 = -9 + 3(13) + 9 = 39"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "39",
+        "39",
+        "39"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed (p+3)(q+3) using Vieta’s formulas with p+q=13 and pq=-9.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the values of p+q and pq.",
+          "why_still_open": "Different agents used conflicting values for p+q and pq.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recomputed (p+3)(q+3) using Vieta’s formulas: p+q=13, pq=-9",
+        "Vieta’s formulas: p+q=8, pq=4",
+        "(p+3)(q+3) = pq + 3(p+q) + 9 = -9 + 3(13) + 9 = 39"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0049",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 363,
+      "completion_tokens": 50,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 350,
+      "completion_tokens": 40,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 361,
+      "completion_tokens": 36,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 197,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 796,
+      "completion_tokens": 145,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 793,
+      "completion_tokens": 61,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 807,
+      "completion_tokens": 170,
+      "total_tokens": 977,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1109,
+      "completion_tokens": 294,
+      "total_tokens": 1403,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 654,
+      "completion_tokens": 50,
+      "total_tokens": 704,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 897,
+      "completion_tokens": 102,
+      "total_tokens": 999,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 615,
+      "completion_tokens": 146,
+      "total_tokens": 761,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 614,
+      "completion_tokens": 112,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 615,
+      "completion_tokens": 173,
+      "total_tokens": 788,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1156,
+      "completion_tokens": 240,
+      "total_tokens": 1396,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 786,
+      "completion_tokens": 51,
+      "total_tokens": 837,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 967,
+      "completion_tokens": 131,
+      "total_tokens": 1098,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 964,
+      "completion_tokens": 128,
+      "total_tokens": 1092,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 980,
+      "completion_tokens": 107,
+      "total_tokens": 1087,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1134,
+      "completion_tokens": 232,
+      "total_tokens": 1366,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0049",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 66,
+      "total_tokens": 668,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 413,
+    "majority_vote_total_tokens": 1200,
+    "scrd_total_tokens": 17696,
+    "scrd_prompt_tokens": 15165,
+    "scrd_completion_tokens": 2531,
+    "agent_total_tokens": 3972,
+    "recorder_total_tokens": 4964,
+    "evaluator_total_tokens": 704,
+    "repair_brief_total_tokens": 999,
+    "repair_evaluator_total_tokens": 1505,
+    "repair_agent_total_tokens": 5552
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

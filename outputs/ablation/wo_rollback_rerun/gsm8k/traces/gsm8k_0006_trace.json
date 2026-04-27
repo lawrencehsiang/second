@@ -1,0 +1,209 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "165",
+        "75",
+        "55"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Increased yellow flowers by 80% to calculate purple.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Calculated green as 25% of the sum of yellow and purple.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Purple + Green + Yellow",
+        "Purple = Yellow * 1.8",
+        "Green = (Yellow + Purple) * 0.25"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "145",
+        "165",
+        "110"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the total number of flowers using correct percentages.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Correctly sum yellow and purple flowers before applying the 80% increase.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Ensure the green flowers are calculated as 25% of the total yellow and purple flowers.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the initial number of yellow flowers.",
+          "why_still_open": "Different starting points lead to varied totals.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = Purple + Green + Yellow",
+        "Purple = (Yellow + Previously Calculated Purple) * 1.8",
+        "Green = (Yellow + Purple) * 0.25"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 42,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 31,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 60,
+      "total_tokens": 433,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 616,
+      "completion_tokens": 150,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 638,
+      "completion_tokens": 120,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 634,
+      "completion_tokens": 98,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 648,
+      "completion_tokens": 130,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1030,
+      "completion_tokens": 257,
+      "total_tokens": 1287,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 671,
+      "completion_tokens": 50,
+      "total_tokens": 721,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 417,
+    "majority_vote_total_tokens": 1243,
+    "scrd_total_tokens": 6285,
+    "scrd_prompt_tokens": 5347,
+    "scrd_completion_tokens": 938,
+    "agent_total_tokens": 3511,
+    "recorder_total_tokens": 2053,
+    "evaluator_total_tokens": 721,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": false,
+    "suppressed_rollback_context": null
+  }
+}

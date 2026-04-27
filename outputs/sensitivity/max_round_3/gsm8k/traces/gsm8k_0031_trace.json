@@ -1,0 +1,368 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "9",
+        "9",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each pizza has 4 pieces.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Bill and Dale eat 50% of a pizza each.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "Ann and Cate eat 75% of a pizza each.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "Uneaten portions are calculated by subtracting eaten portions from whole portions.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each pizza = 4 pieces",
+        "Bill & Dale: 50% (2 pieces each)",
+        "Ann & Cate: 75% (3 pieces each)",
+        "Total uneaten = 6 pieces",
+        "Uneaten = Whole - Eaten"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed total uneaten pieces correctly.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each pizza = 4 pieces",
+        "Bill & Dale: 50% (2 pieces each)",
+        "Ann & Cate: 75% (3 pieces each)",
+        "Total uneaten = 9 pieces",
+        "Uneaten = Whole - Eaten"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "9",
+        "9",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verification needed for the previous answer.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the number of uneaten pieces.",
+          "why_still_open": "Answer from C (11) differs from others (9).",
+          "involved_answers": [
+            "9",
+            "11"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Each pizza = 4 pieces",
+        "Bill & Dale: 50% (2 pieces each)",
+        "Ann & Cate: 75% (3 pieces each)",
+        "Total uneaten = 9 pieces",
+        "Uneaten = Whole - Eaten"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 365,
+      "completion_tokens": 34,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 352,
+      "completion_tokens": 34,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 363,
+      "completion_tokens": 90,
+      "total_tokens": 453,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 637,
+      "completion_tokens": 244,
+      "total_tokens": 881,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 626,
+      "completion_tokens": 169,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 623,
+      "completion_tokens": 124,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 637,
+      "completion_tokens": 173,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1233,
+      "completion_tokens": 218,
+      "total_tokens": 1451,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 638,
+      "completion_tokens": 43,
+      "total_tokens": 681,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 860,
+      "completion_tokens": 89,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 604,
+      "completion_tokens": 116,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 603,
+      "completion_tokens": 113,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 604,
+      "completion_tokens": 236,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1231,
+      "completion_tokens": 129,
+      "total_tokens": 1360,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 672,
+      "completion_tokens": 43,
+      "total_tokens": 715,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 587,
+      "completion_tokens": 83,
+      "total_tokens": 670,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 584,
+      "completion_tokens": 47,
+      "total_tokens": 631,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 600,
+      "completion_tokens": 91,
+      "total_tokens": 691,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 858,
+      "completion_tokens": 185,
+      "total_tokens": 1043,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 576,
+      "completion_tokens": 45,
+      "total_tokens": 621,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 399,
+    "majority_vote_total_tokens": 1238,
+    "scrd_total_tokens": 15559,
+    "scrd_prompt_tokens": 13253,
+    "scrd_completion_tokens": 2306,
+    "agent_total_tokens": 3590,
+    "recorder_total_tokens": 4735,
+    "evaluator_total_tokens": 681,
+    "repair_brief_total_tokens": 949,
+    "repair_evaluator_total_tokens": 1336,
+    "repair_agent_total_tokens": 4268
+  }
+}

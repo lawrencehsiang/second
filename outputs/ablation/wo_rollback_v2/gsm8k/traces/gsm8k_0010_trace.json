@@ -1,0 +1,270 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "900",
+        "900",
+        "1620"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Overtime pay is calculated at 1.5 times the regular rate.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Method of calculating overtime pay differs between agents A, B, and C.",
+          "why_still_open": "Agents have different interpretations of how to calculate overtime pay.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Regular pay = 8 hours/day * $18/day",
+        "Overtime pay = 2 hours/day * $27/day",
+        "Total pay = Regular pay + Overtime pay",
+        "5 days per week",
+        "$18/hour for regular time, $27/hour for overtime"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "990",
+        "1050",
+        "450"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Overtime pay = 1.5 times the regular rate",
+        "Total pay = Regular pay + Overtime pay",
+        "5 days per week",
+        "Hourly wage for regular time = $18",
+        "Hourly wage for overtime = $27"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "990",
+        "900",
+        "450"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent C calculates overtime pay as hourly wage plus half the hourly wage.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Overtime pay = 1.5 times the regular rate",
+        "Total pay = Regular pay + Overtime pay",
+        "5 days per week",
+        "Hourly wage for regular time = $18",
+        "Agent C's overtime calculation: Hourly wage + 0.5 * Hourly wage"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 55,
+      "total_tokens": 433,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 48,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 68,
+      "total_tokens": 444,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 657,
+      "completion_tokens": 204,
+      "total_tokens": 861,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 749,
+      "completion_tokens": 114,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 746,
+      "completion_tokens": 122,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 761,
+      "completion_tokens": 116,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1122,
+      "completion_tokens": 92,
+      "total_tokens": 1214,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 569,
+      "completion_tokens": 45,
+      "total_tokens": 614,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 749,
+      "completion_tokens": 109,
+      "total_tokens": 858,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 747,
+      "completion_tokens": 110,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 760,
+      "completion_tokens": 127,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 997,
+      "completion_tokens": 142,
+      "total_tokens": 1139,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 77,
+      "total_tokens": 673,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 433,
+    "majority_vote_total_tokens": 1290,
+    "scrd_total_tokens": 11001,
+    "scrd_prompt_tokens": 9572,
+    "scrd_completion_tokens": 1429,
+    "agent_total_tokens": 6500,
+    "recorder_total_tokens": 3214,
+    "evaluator_total_tokens": 1287,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+}

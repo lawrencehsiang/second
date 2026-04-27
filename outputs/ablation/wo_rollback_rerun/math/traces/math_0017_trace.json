@@ -1,0 +1,267 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "25",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Square the distance between two points.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Distance = sqrt((x2-x1)^2 + (y2-y1)^2)",
+        "Square the result: (distance)^2",
+        "Result: 25"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "25",
+        "25",
+        "58"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Find the side length before squaring.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Correctly apply the distance formula and square the result.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers due to differing methods.",
+          "why_still_open": "Agents A and B used incorrect methods, while C's method is correct but yielded a different numerical result.",
+          "involved_answers": [
+            "25",
+            "58"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Distance = √(9+49) = √58",
+        "(√58)^2 = 58",
+        "Area of the square: 58"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "rollback_suppressed_ablation",
+      "mode": "normal",
+      "sample_id": "math_0017",
+      "trigger_round": 2,
+      "anchor_round": 1,
+      "note": "w/o rollback ablation: repair mode intentionally skipped"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 34,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 34,
+      "total_tokens": 360,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 36,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 580,
+      "completion_tokens": 107,
+      "total_tokens": 687,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 596,
+      "completion_tokens": 56,
+      "total_tokens": 652,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 593,
+      "completion_tokens": 60,
+      "total_tokens": 653,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 607,
+      "completion_tokens": 84,
+      "total_tokens": 691,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 851,
+      "completion_tokens": 211,
+      "total_tokens": 1062,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 598,
+      "completion_tokens": 45,
+      "total_tokens": 643,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 373,
+    "majority_vote_total_tokens": 1106,
+    "scrd_total_tokens": 5494,
+    "scrd_prompt_tokens": 4827,
+    "scrd_completion_tokens": 667,
+    "agent_total_tokens": 3102,
+    "recorder_total_tokens": 1749,
+    "evaluator_total_tokens": 643,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": true,
+    "suppressed_rollback_context": {
+      "trigger_round": 2,
+      "anchor_round": 1,
+      "anchor_state": {
+        "round_id": 1,
+        "current_answers": [
+          "25",
+          "25",
+          "25"
+        ],
+        "newly_added_claims": [
+          {
+            "text": "Square the distance between two points.",
+            "claim_type": "constraint",
+            "related_answer": "C"
+          }
+        ],
+        "unresolved_conflicts": [],
+        "key_raw_snippets": [
+          "Distance = sqrt((x2-x1)^2 + (y2-y1)^2)",
+          "Square the result: (distance)^2",
+          "Result: 25"
+        ]
+      },
+      "failed_suffix_state_records": [
+        {
+          "round_id": 2,
+          "current_answers": [
+            "25",
+            "25",
+            "58"
+          ],
+          "newly_added_claims": [
+            {
+              "text": "Find the side length before squaring.",
+              "claim_type": "constraint",
+              "related_answer": "A"
+            },
+            {
+              "text": "Correctly apply the distance formula and square the result.",
+              "claim_type": "support",
+              "related_answer": "C"
+            }
+          ],
+          "unresolved_conflicts": [
+            {
+              "conflict": "Different answers due to differing methods.",
+              "why_still_open": "Agents A and B used incorrect methods, while C's method is correct but yielded a different numerical result.",
+              "involved_answers": [
+                "25",
+                "58"
+              ]
+            }
+          ],
+          "key_raw_snippets": [
+            "Distance = √(9+49) = √58",
+            "(√58)^2 = 58",
+            "Area of the square: 58"
+          ]
+        }
+      ]
+    }
+  }
+}

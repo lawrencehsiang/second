@@ -1,0 +1,189 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "18",
+        "-17",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Integer solutions are found by solving the equation.",
+          "claim_type": "explanation",
+          "related_answer": "A, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "18",
+        "-17",
+        "Solve quadratic equation"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "18",
+        "18",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the solution to ensure correctness and completeness.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying the integer solutions and their sum.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "18",
+        "Solve quadratic equation",
+        "Verify integer solutions and their sum"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 34,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 34,
+      "total_tokens": 360,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 35,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 579,
+      "completion_tokens": 89,
+      "total_tokens": 668,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 598,
+      "completion_tokens": 105,
+      "total_tokens": 703,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 595,
+      "completion_tokens": 42,
+      "total_tokens": 637,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 609,
+      "completion_tokens": 108,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 880,
+      "completion_tokens": 128,
+      "total_tokens": 1008,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 588,
+      "completion_tokens": 55,
+      "total_tokens": 643,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 373,
+    "majority_vote_total_tokens": 1105,
+    "scrd_total_tokens": 5481,
+    "scrd_prompt_tokens": 4851,
+    "scrd_completion_tokens": 630,
+    "agent_total_tokens": 3162,
+    "recorder_total_tokens": 1676,
+    "evaluator_total_tokens": 643,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": false,
+    "suppressed_rollback_context": null
+  }
+}

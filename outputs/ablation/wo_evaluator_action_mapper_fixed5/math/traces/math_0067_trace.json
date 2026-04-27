@@ -1,0 +1,448 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "0",
+        "-1",
+        "-1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "For x > -2, f(x) = 1; for x < -2, f(x) = -1.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C agreed on -1, but A provided a different answer of 0.",
+          "why_still_open": "A's answer of 0 is based on specific integer values, while B and C focused on limits and integer constraints.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(x) = 1 for x > -2",
+        "f(x) = -1 for x < -2",
+        "limits and integer constraints evaluated",
+        "integers 0 and positive integers not in the range",
+        "evaluate f(x) for x > -2 and x < -2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "0",
+        "0",
+        "-1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "f(x) = 1 for x > -2 and f(x) = -1 for x < -2.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The only possible integer values for f(x) are -1 and 1.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = 1 for x > -2",
+        "f(x) = -1 for x < -2",
+        "only -1 and 1 in the range of f(x)",
+        "function undefined at x = -2",
+        "integer not in the range is 0"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "0",
+        "-1",
+        "-1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "0 is a valid value for f(x) when x > -2.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The integer 0 is in the range of f(x) for x > -2.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C agreed on -1, but A provided a different answer of 0.",
+          "why_still_open": "The function's behavior at x = -2 is undefined, and there is no consensus on whether 0 should be included in the range.",
+          "involved_answers": [
+            "0",
+            "-1"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(x) = 1 for x > -2",
+        "f(x) = -1 for x < -2",
+        "0 is a valid value for f(x) when x > -2",
+        "integer 0 in the range for x > -2",
+        "function undefined at x = -2"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "0",
+        "0",
+        "-1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Values greater than 1 and less than -1 are excluded from the range of f(x).",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The function's definition ensures that 0 can be part of the range for x > -2.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on whether 0 is in the range of f(x) for x > -2.",
+          "why_still_open": "The function's behavior at x = -2 is still unclear, and agents have differing views on the inclusion of 0.",
+          "involved_answers": [
+            "0",
+            "-1"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(x) = ceiling for x > -2",
+        "f(x) = floor for x < -2",
+        "values > 1 and < -1 are excluded from the range",
+        "function not defined at x = -2",
+        "0 is achievable for x > -2"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-1",
+        "0",
+        "-1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The ceiling function for x > -2 ensures no values in the range are 0.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "For x < -2, the smallest value of f(x) is -1 due to the floor function.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = ceiling for x > -2",
+        "f(x) = floor for x < -2",
+        "values > 1 and < -1 are excluded from the range",
+        "function not defined at x = -2",
+        "smallest value of f(x) for x < -2 is -1"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 404,
+      "completion_tokens": 113,
+      "total_tokens": 517,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 391,
+      "completion_tokens": 40,
+      "total_tokens": 431,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 402,
+      "completion_tokens": 30,
+      "total_tokens": 432,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 656,
+      "completion_tokens": 231,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 799,
+      "completion_tokens": 151,
+      "total_tokens": 950,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 796,
+      "completion_tokens": 197,
+      "total_tokens": 993,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 810,
+      "completion_tokens": 157,
+      "total_tokens": 967,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1288,
+      "completion_tokens": 189,
+      "total_tokens": 1477,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 895,
+      "completion_tokens": 139,
+      "total_tokens": 1034,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 892,
+      "completion_tokens": 177,
+      "total_tokens": 1069,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 906,
+      "completion_tokens": 144,
+      "total_tokens": 1050,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1187,
+      "completion_tokens": 269,
+      "total_tokens": 1456,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 890,
+      "completion_tokens": 380,
+      "total_tokens": 1270,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 887,
+      "completion_tokens": 121,
+      "total_tokens": 1008,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 901,
+      "completion_tokens": 152,
+      "total_tokens": 1053,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1464,
+      "completion_tokens": 272,
+      "total_tokens": 1736,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 894,
+      "completion_tokens": 355,
+      "total_tokens": 1249,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 891,
+      "completion_tokens": 123,
+      "total_tokens": 1014,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 905,
+      "completion_tokens": 315,
+      "total_tokens": 1220,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1609,
+      "completion_tokens": 196,
+      "total_tokens": 1805,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 517,
+    "majority_vote_total_tokens": 1380,
+    "scrd_total_tokens": 21618,
+    "scrd_prompt_tokens": 17867,
+    "scrd_completion_tokens": 3751,
+    "agent_total_tokens": 14257,
+    "recorder_total_tokens": 7361,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

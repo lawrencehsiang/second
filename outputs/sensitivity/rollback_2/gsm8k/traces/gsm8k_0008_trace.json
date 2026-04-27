@@ -1,0 +1,188 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "12",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Doubled by gummy worms.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent C's total of 16 lbs vs Agents A and B's total of 12 lbs.",
+          "why_still_open": "Different interpretations of how gummy worms affect the weight.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial 2 lbs, tripled by brownies, +2 lbs jelly beans, doubled by gummy worms.",
+        "Initial 2 lbs, tripled by brownies (6 lbs), +2 lbs, doubled by gummies (16 lbs)."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Gummy worms double the current weight, not the initial weight.",
+          "claim_type": "explanation",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial 2 lbs, tripled by brownies, +2 lbs jelly beans, doubled by gummy worms.",
+        "Final weight = 2 * 3 * 2 + 2 = 16 lbs (incorrect).",
+        "Correct interpretation: gummy worms double the current weight after adding jelly beans.",
+        "Final weight = 6 * 2 + 2 = 14 lbs (still incorrect).",
+        "Final weight = 6 + 2 * 2 = 12 lbs."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0008",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 416,
+      "completion_tokens": 48,
+      "total_tokens": 464,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0008",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 403,
+      "completion_tokens": 48,
+      "total_tokens": 451,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0008",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 414,
+      "completion_tokens": 52,
+      "total_tokens": 466,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0008",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 624,
+      "completion_tokens": 191,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0008",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 785,
+      "completion_tokens": 121,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0008",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 782,
+      "completion_tokens": 129,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0008",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 796,
+      "completion_tokens": 137,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0008",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1136,
+      "completion_tokens": 187,
+      "total_tokens": 1323,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0008",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 657,
+      "completion_tokens": 51,
+      "total_tokens": 708,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 464,
+    "majority_vote_total_tokens": 1381,
+    "scrd_total_tokens": 6977,
+    "scrd_prompt_tokens": 6013,
+    "scrd_completion_tokens": 964,
+    "agent_total_tokens": 4131,
+    "recorder_total_tokens": 2138,
+    "evaluator_total_tokens": 708,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

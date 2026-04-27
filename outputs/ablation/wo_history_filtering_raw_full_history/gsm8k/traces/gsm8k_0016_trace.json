@@ -1,0 +1,298 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3900000",
+        "3900000",
+        "3900000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total revenue, total cost, and then profit per week, then scale to 20 weeks.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating profit lead to the same result.",
+          "why_still_open": "All methods seem valid but produce the same answer, indicating potential redundancy.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Revenue = 50 * 12 * 20",
+        "Cost = 12 * 20",
+        "Profit = Revenue - Cost",
+        "Profit per DVD = (50 - 12) * 20",
+        "Total Profit = Profit per DVD * 20"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4800000",
+        "3900000",
+        "3900000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Focus on a consistent method for profit calculation.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Choose the simplest approach when all methods produce the same result.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Ensure calculations account for selling price and total sales.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Revenue = 50 * 12 * 20",
+        "Cost = 12 * 20",
+        "Profit = Selling Price - Cost per DVD * Total DVDs Sold",
+        "Total Profit = (Selling Price - Cost per DVD) * Total DVDs Sold",
+        "Selling Price = $50"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "4800000",
+        "4800000",
+        "3900000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Adopt the simplest method for profit calculation.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate profit per DVD and scale it to total sales.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total Profit = Total Revenue - Total Cost",
+        "Profit per DVD = Selling Price - Cost per DVD",
+        "Total Profit = Profit per DVD * Total DVDs Sold",
+        "Selling Price = $50",
+        "Total Cost = Cost per DVD * Total DVDs Sold"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 380,
+      "completion_tokens": 45,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 367,
+      "completion_tokens": 48,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 378,
+      "completion_tokens": 51,
+      "total_tokens": 429,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 641,
+      "completion_tokens": 209,
+      "total_tokens": 850,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 866,
+      "completion_tokens": 99,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 863,
+      "completion_tokens": 98,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 877,
+      "completion_tokens": 145,
+      "total_tokens": 1022,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1131,
+      "completion_tokens": 214,
+      "total_tokens": 1345,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 716,
+      "completion_tokens": 51,
+      "total_tokens": 767,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 1055,
+      "completion_tokens": 111,
+      "total_tokens": 1166,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 1052,
+      "completion_tokens": 90,
+      "total_tokens": 1142,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1066,
+      "completion_tokens": 121,
+      "total_tokens": 1187,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1110,
+      "completion_tokens": 166,
+      "total_tokens": 1276,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 659,
+      "completion_tokens": 50,
+      "total_tokens": 709,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 425,
+    "majority_vote_total_tokens": 1269,
+    "scrd_total_tokens": 12659,
+    "scrd_prompt_tokens": 11161,
+    "scrd_completion_tokens": 1498,
+    "agent_total_tokens": 7712,
+    "recorder_total_tokens": 3471,
+    "evaluator_total_tokens": 1476,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

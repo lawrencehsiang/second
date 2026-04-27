@@ -1,0 +1,467 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "35",
+        "35",
+        "35"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the cost of each item and sum them up.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Each item's cost contributes to the total sum.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Summing individual item costs yields the total.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cost = Item 1 + Item 2 + Item 3",
+        "Total = Sum of individual item costs",
+        "35 = Total cost"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "25",
+        "25",
+        "32.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculating the costs based on specific prices.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Correcting the price relationships between items.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying the total cost through detailed calculations.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 2 * $5 + 1 * $2.5 + 2 * $10",
+        "2 pounds of cheddar = $10",
+        "Cream cheese = half the price of cheddar",
+        "Cold cuts = twice the price of cheddar",
+        "Total = $32.5"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "35",
+        "35",
+        "32.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculating the costs based on the given prices.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Resolving the conflict by recalculating the total cost.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying the total cost through detailed calculations.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 2 * $5 + 1 * $2.5 + 2 * $10",
+        "2 pounds of cheddar = $10",
+        "Cream cheese = half the price of cheddar",
+        "Cold cuts = twice the price of cheddar",
+        "Total = $32.5"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "35",
+        "32.5",
+        "35"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The cost of cream cheese is half the price of cheddar cheese.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "The cost of cold cuts is twice the price of cheddar cheese.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Re-evaluating the costs based on the given prices.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revising the calculation to align with the provided prices.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The previous answers include 35 and 32.5, which do not align with each other.",
+          "why_still_open": "One minority answer (32.5) remains unaligned with the majority (35).",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = 2 * $5 + 1 * $2.5 + 2 * $10",
+        "2 pounds of cheddar = $10",
+        "Cream cheese = half the price of cheddar",
+        "Cold cuts = twice the price of cheddar",
+        "Total = $35"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "32.5",
+        "35",
+        "32.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the costs based on the given prices.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "Re-evaluating the costs to ensure accuracy.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 32.5 remains unresolved.",
+          "why_still_open": "Differing evaluations by agents A, B, and C have not fully aligned the minority answer with the majority.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = 2 * $5 + 1 * $2.5 + 2 * $10",
+        "2 pounds of cheddar = $10",
+        "Cream cheese = half the price of cheddar",
+        "Cold cuts = twice the price of cheddar",
+        "Total = $35"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 36,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 32,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 35,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 582,
+      "completion_tokens": 175,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 638,
+      "completion_tokens": 115,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 635,
+      "completion_tokens": 109,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 649,
+      "completion_tokens": 206,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1135,
+      "completion_tokens": 214,
+      "total_tokens": 1349,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 828,
+      "completion_tokens": 100,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 825,
+      "completion_tokens": 140,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 841,
+      "completion_tokens": 117,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1119,
+      "completion_tokens": 219,
+      "total_tokens": 1338,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 835,
+      "completion_tokens": 114,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 832,
+      "completion_tokens": 91,
+      "total_tokens": 923,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 848,
+      "completion_tokens": 169,
+      "total_tokens": 1017,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1133,
+      "completion_tokens": 334,
+      "total_tokens": 1467,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 840,
+      "completion_tokens": 119,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 839,
+      "completion_tokens": 100,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 851,
+      "completion_tokens": 88,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0014",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1196,
+      "completion_tokens": 256,
+      "total_tokens": 1452,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 414,
+    "majority_vote_total_tokens": 1222,
+    "scrd_total_tokens": 18514,
+    "scrd_prompt_tokens": 15745,
+    "scrd_completion_tokens": 2769,
+    "agent_total_tokens": 12151,
+    "recorder_total_tokens": 6363,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

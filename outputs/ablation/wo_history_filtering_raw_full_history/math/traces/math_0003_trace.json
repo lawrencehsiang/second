@@ -1,0 +1,191 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Identify the term with the highest power of x.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Combine like terms before identifying the highest power of x.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Highest power of x in each term.",
+        "Combine like terms to find the highest power.",
+        "Agent A, B, C agree on answer 4."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The polynomial's degree is determined by the highest power of x.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Highest power of x in each term: 5x^3, 2πx^4, √10x^4.",
+        "Combining like terms results in a polynomial of degree 4.",
+        "Agent A, B, C agree on answer 4."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0003",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 349,
+      "completion_tokens": 35,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0003",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 336,
+      "completion_tokens": 32,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0003",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 347,
+      "completion_tokens": 35,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0003",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 578,
+      "completion_tokens": 142,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0003",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 740,
+      "completion_tokens": 91,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0003",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 737,
+      "completion_tokens": 104,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0003",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 751,
+      "completion_tokens": 71,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0003",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 954,
+      "completion_tokens": 133,
+      "total_tokens": 1087,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0003",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 554,
+      "completion_tokens": 47,
+      "total_tokens": 601,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 384,
+    "majority_vote_total_tokens": 1134,
+    "scrd_total_tokens": 6036,
+    "scrd_prompt_tokens": 5346,
+    "scrd_completion_tokens": 690,
+    "agent_total_tokens": 3628,
+    "recorder_total_tokens": 1807,
+    "evaluator_total_tokens": 601,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

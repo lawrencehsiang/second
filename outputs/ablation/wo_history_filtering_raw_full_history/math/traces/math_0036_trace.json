@@ -1,0 +1,474 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "30",
+        "30",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Simplified using algebraic identity.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x^2 - y^2 = (x+y)(x-y)",
+        "Substitute x=6, y=3: 6^2 - 3^2 = (6+3)(6-3)",
+        "Result: 27"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "30",
+        "32",
+        "128"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Expression simplifies to 8a^2b.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Using a=4 and b=1, the result is 128.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answers 30 and 60 were based on incorrect interpretations.",
+          "why_still_open": "Disagreement on the correct application of the algebraic identity.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Expression simplifies to 8a^2b.",
+        "Substitute a=4, b=1: 8 * 16 = 128",
+        "Contradiction with previous answer 60."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "128",
+        "32",
+        "128"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The identity \\((a^2 + b)^2 - (a^2 - b)^2 = 4a^2b(a^2 + b)\\) is correctly applied.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Substituting \\(a=4\\) and \\(b=1\\) into the identity results in 32.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The expression simplifies to \\(8a^2b\\) and evaluates to 128 with \\(a=4\\) and \\(b=1\\).",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Expression simplifies to \\(8a^2b\\).",
+        "Substitute \\(a=4\\), \\(b=1\\): \\(8 \\cdot 16 = 128\\)",
+        "\\((a^2 + b)^2 - (a^2 - b)^2 = 4a^2b(a^2 + b)\\)"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "128",
+        "32",
+        "128"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The simplified form of the identity is \\(8a^2b\\).",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-examining the identity confirms its correctness without ambiguity.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agent A's previous claim of \\(4a^2b(a^2 + b)\\) is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Expression simplifies to \\(8a^2b\\).",
+        "Substitute \\(a=4\\), \\(b=1\\): \\(8 \\cdot 16 = 128\\)",
+        "\\((a^2 + b)^2 - (a^2 - b)^2 = 4a^2b(a^2 + b)\\)"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_started",
+      "start_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0036",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 31,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 35,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 53,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 123,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 738,
+      "completion_tokens": 164,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 735,
+      "completion_tokens": 148,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 749,
+      "completion_tokens": 184,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1172,
+      "completion_tokens": 226,
+      "total_tokens": 1398,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 50,
+      "total_tokens": 644,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 935,
+      "completion_tokens": 184,
+      "total_tokens": 1119,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 932,
+      "completion_tokens": 178,
+      "total_tokens": 1110,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 947,
+      "completion_tokens": 144,
+      "total_tokens": 1091,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1299,
+      "completion_tokens": 297,
+      "total_tokens": 1596,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 732,
+      "completion_tokens": 54,
+      "total_tokens": 786,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 1199,
+      "completion_tokens": 203,
+      "total_tokens": 1402,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 1195,
+      "completion_tokens": 215,
+      "total_tokens": 1410,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1210,
+      "completion_tokens": 148,
+      "total_tokens": 1358,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1397,
+      "completion_tokens": 345,
+      "total_tokens": 1742,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 678,
+      "completion_tokens": 53,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 1037,
+      "completion_tokens": 115,
+      "total_tokens": 1152,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 1031,
+      "completion_tokens": 167,
+      "total_tokens": 1198,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 1030,
+      "completion_tokens": 107,
+      "total_tokens": 1137,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1031,
+      "completion_tokens": 175,
+      "total_tokens": 1206,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1031,
+      "completion_tokens": 295,
+      "total_tokens": 1326,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1406,
+      "completion_tokens": 250,
+      "total_tokens": 1656,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0036",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 796,
+      "completion_tokens": 54,
+      "total_tokens": 850,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 377,
+    "majority_vote_total_tokens": 1142,
+    "scrd_total_tokens": 27490,
+    "scrd_prompt_tokens": 23492,
+    "scrd_completion_tokens": 3998,
+    "agent_total_tokens": 11350,
+    "recorder_total_tokens": 7110,
+    "evaluator_total_tokens": 2161,
+    "repair_brief_total_tokens": 1152,
+    "repair_evaluator_total_tokens": 850,
+    "repair_agent_total_tokens": 4867
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

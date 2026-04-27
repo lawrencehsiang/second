@@ -1,0 +1,378 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7.5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate reading rate per hour for 120 pages.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Convert 5 minutes to hours and calculate total reading time.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Use reading rate to determine time needed for 120 pages.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating reading time.",
+          "why_still_open": "Agents used different approaches without resolving which method is correct.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Read 7.5 pages/min -> 120 pages take 16 min",
+        "5 min = 5/60 hr -> read 120 pages in 5*12 min",
+        "Reading rate * time = pages"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "7.5",
+        "7.5",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Mainstream support method calculates reading rate per hour.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Revised calculation ensures unit consistency.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Read 7.5 pages/min -> 120 pages take 16 min",
+        "5 min = 5/60 hr -> read 120 pages in 5*12 min",
+        "Reading rate * time = pages",
+        "Consistent units and calculations are crucial for accurate time estimation.",
+        "Mainstream method prioritizes reading rate per hour."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "5",
+        "7.5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Mainstream method calculates reading rate per hour.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Minority objection suggests a simpler approach but is less accurate.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Mainstream method calculates Joy's reading rate as 8 pages in 20 minutes, or 24 pages per hour.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Read 8 pages in 20 min -> 24 pages/hour",
+        "120 pages / 24 pages/hour = 5 hours",
+        "Consistent units ensure accurate time estimation.",
+        "Mainstream method prioritizes accuracy over simplicity.",
+        "Re-evaluate based on the given rates and units."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "rollback_suppressed_ablation",
+      "mode": "normal",
+      "sample_id": "gsm8k_0015",
+      "trigger_round": 3,
+      "anchor_round": 2,
+      "note": "w/o rollback ablation: repair mode intentionally skipped"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 42,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 33,
+      "total_tokens": 360,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 38,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 258,
+      "total_tokens": 849,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 698,
+      "completion_tokens": 111,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 693,
+      "completion_tokens": 106,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 707,
+      "completion_tokens": 79,
+      "total_tokens": 786,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1104,
+      "completion_tokens": 184,
+      "total_tokens": 1288,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 597,
+      "completion_tokens": 44,
+      "total_tokens": 641,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 796,
+      "completion_tokens": 87,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 793,
+      "completion_tokens": 108,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 805,
+      "completion_tokens": 122,
+      "total_tokens": 927,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1037,
+      "completion_tokens": 231,
+      "total_tokens": 1268,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 620,
+      "completion_tokens": 52,
+      "total_tokens": 672,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 382,
+    "majority_vote_total_tokens": 1118,
+    "scrd_total_tokens": 10941,
+    "scrd_prompt_tokens": 9446,
+    "scrd_completion_tokens": 1495,
+    "agent_total_tokens": 6223,
+    "recorder_total_tokens": 3405,
+    "evaluator_total_tokens": 1313,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": true,
+    "suppressed_rollback_context": {
+      "trigger_round": 3,
+      "anchor_round": 2,
+      "anchor_state": {
+        "round_id": 2,
+        "current_answers": [
+          "7.5",
+          "7.5",
+          "6"
+        ],
+        "newly_added_claims": [
+          {
+            "text": "Mainstream support method calculates reading rate per hour.",
+            "claim_type": "support",
+            "related_answer": "B"
+          },
+          {
+            "text": "Revised calculation ensures unit consistency.",
+            "claim_type": "constraint",
+            "related_answer": "C"
+          }
+        ],
+        "unresolved_conflicts": [],
+        "key_raw_snippets": [
+          "Read 7.5 pages/min -> 120 pages take 16 min",
+          "5 min = 5/60 hr -> read 120 pages in 5*12 min",
+          "Reading rate * time = pages",
+          "Consistent units and calculations are crucial for accurate time estimation.",
+          "Mainstream method prioritizes reading rate per hour."
+        ]
+      },
+      "failed_suffix_state_records": [
+        {
+          "round_id": 3,
+          "current_answers": [
+            "5",
+            "7.5",
+            "5"
+          ],
+          "newly_added_claims": [
+            {
+              "text": "Mainstream method calculates reading rate per hour.",
+              "claim_type": "support",
+              "related_answer": "B"
+            },
+            {
+              "text": "Minority objection suggests a simpler approach but is less accurate.",
+              "claim_type": "rebuttal",
+              "related_answer": "B"
+            },
+            {
+              "text": "Mainstream method calculates Joy's reading rate as 8 pages in 20 minutes, or 24 pages per hour.",
+              "claim_type": "explanation",
+              "related_answer": "C"
+            }
+          ],
+          "unresolved_conflicts": [],
+          "key_raw_snippets": [
+            "Read 8 pages in 20 min -> 24 pages/hour",
+            "120 pages / 24 pages/hour = 5 hours",
+            "Consistent units ensure accurate time estimation.",
+            "Mainstream method prioritizes accuracy over simplicity.",
+            "Re-evaluate based on the given rates and units."
+          ]
+        }
+      ]
+    }
+  }
+}

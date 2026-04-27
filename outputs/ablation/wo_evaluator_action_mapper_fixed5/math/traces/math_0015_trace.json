@@ -1,0 +1,430 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Using the function property, work backwards from 64.",
+          "claim_type": "rebuttal",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(50) = 64, f(60) = 12",
+        "50/60*12=10",
+        "f(x) = y -> f(y) = x"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "64",
+        "1",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "f(64) = 64 * f(1) = 64 * 1 = 64",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "f(2x) = 2f(x) implies f(1) = 0.5",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A claims f^{-1}(64) = 1, Agent B claims f^{-1}(64) = 1, but Agent C claims f^{-1}(64) = 3.",
+          "why_still_open": "Agents disagree on the value of f^{-1}(64).",
+          "involved_answers": [
+            "64",
+            "1",
+            "3"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(2x) = 2f(x)",
+        "f(64) = 64 * f(1) = 64 * 1 = 64",
+        "f(50) = 64, f(60) = 12"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "192",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "f(192) = 64 implies f^{-1}(64) = 192",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(2x) = 2f(x)",
+        "f(64) = 64 * f(1) = 64 * 1 = 64",
+        "f(192) = 64"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "192",
+        "192",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "f(192) = 64 implies f^{-1}(64) = 192",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "f(192) = 64, hence f^{-1}(64) = 192",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "f(192) = 64, leading to f^{-1}(64) = 192",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(2x) = 2f(x)",
+        "f(192) = 64",
+        "f(3) = 1"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "3",
+        "192",
+        "96"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "f(64) = 64 due to the function property, thus f^{-1}(64) = 3",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Given f(3) = 1, iterating the function property shows f(96) = 64, hence f^{-1}(64) = 96",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answers 3 and 96 remain unresolved against the majority answer 192.",
+          "why_still_open": "Different agents provide conflicting explanations based on the function's properties.",
+          "involved_answers": [
+            "3",
+            "96",
+            "192"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(2x) = 2f(x)",
+        "f(3) = 1",
+        "f(192) = 64"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 344,
+      "completion_tokens": 39,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 331,
+      "completion_tokens": 36,
+      "total_tokens": 367,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 342,
+      "completion_tokens": 36,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 584,
+      "completion_tokens": 126,
+      "total_tokens": 710,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 705,
+      "completion_tokens": 140,
+      "total_tokens": 845,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 702,
+      "completion_tokens": 117,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 716,
+      "completion_tokens": 129,
+      "total_tokens": 845,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1059,
+      "completion_tokens": 292,
+      "total_tokens": 1351,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 855,
+      "completion_tokens": 213,
+      "total_tokens": 1068,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 851,
+      "completion_tokens": 196,
+      "total_tokens": 1047,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 865,
+      "completion_tokens": 230,
+      "total_tokens": 1095,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1478,
+      "completion_tokens": 139,
+      "total_tokens": 1617,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 854,
+      "completion_tokens": 218,
+      "total_tokens": 1072,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 849,
+      "completion_tokens": 236,
+      "total_tokens": 1085,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 863,
+      "completion_tokens": 264,
+      "total_tokens": 1127,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1401,
+      "completion_tokens": 224,
+      "total_tokens": 1625,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 718,
+      "completion_tokens": 232,
+      "total_tokens": 950,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 715,
+      "completion_tokens": 156,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 260,
+      "total_tokens": 987,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0015",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1425,
+      "completion_tokens": 257,
+      "total_tokens": 1682,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 383,
+    "majority_vote_total_tokens": 1128,
+    "scrd_total_tokens": 19924,
+    "scrd_prompt_tokens": 16384,
+    "scrd_completion_tokens": 3540,
+    "agent_total_tokens": 12939,
+    "recorder_total_tokens": 6985,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

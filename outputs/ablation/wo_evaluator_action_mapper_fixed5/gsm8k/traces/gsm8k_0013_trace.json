@@ -1,0 +1,429 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "85",
+        "85",
+        "85"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Half of mango trees is 30.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Subtract 5 from half of mango trees to get coconut trees.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Add mango and coconut trees to get 85.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/2 = 25, 25 - 5 = 20, 25 + 20 = 85",
+        "mango = 50, coconut = 25 - 5 = 20, total = 85",
+        "Half of 60 is 30, 30 - 5 = 25, 30 + 25 = 85"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "85",
+        "85",
+        "70"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Half of 60 mango trees is 30.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "5 less than half of 60 mango trees is 25.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Adding 30 mango trees and 25 coconut trees gives 85 trees.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the calculation by breaking it into steps.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/2 = 25, 25 - 5 = 20, 25 + 20 = 85",
+        "mango = 60, coconut = 30 - 5 = 25, total = 85",
+        "Half of 60 is 30, 30 - 5 = 25, 30 + 25 = 85"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "85",
+        "70",
+        "85"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct number of coconut trees is 10, making the total 70 trees.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "mango = 60, coconut = 30/2 - 5 = 10, total = 70",
+        "Half of 60 is 30, 30 - 5 = 25, 30 + 25 = 85",
+        "50/2 = 25, 25 - 5 = 20, 25 + 20 = 85"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "70",
+        "70",
+        "70"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct number of coconut trees is 10, not 30.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The total number of trees is 70, consisting of 60 mango trees and 10 coconut trees.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "mango = 60, coconut = 10, total = 70",
+        "50/2 = 25, 25 - 5 = 20, 25 + 20 = 70"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "85",
+        "70",
+        "70"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 85 remains unresolved despite the rebuttal.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 85 versus the mainstream support of 70 trees.",
+          "why_still_open": "The minority answer persists despite rebuttals.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "mango = 60, coconut = 10, total = 70",
+        "60/2 - 5 = 25, 60 + 25 = 85",
+        "Randy has 5 less than half as many coconut trees as mango trees"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 350,
+      "completion_tokens": 57,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 337,
+      "completion_tokens": 40,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 348,
+      "completion_tokens": 46,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 622,
+      "completion_tokens": 241,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 139,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 606,
+      "completion_tokens": 75,
+      "total_tokens": 681,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 620,
+      "completion_tokens": 97,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1088,
+      "completion_tokens": 287,
+      "total_tokens": 1375,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 612,
+      "completion_tokens": 195,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 609,
+      "completion_tokens": 151,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 623,
+      "completion_tokens": 151,
+      "total_tokens": 774,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1312,
+      "completion_tokens": 180,
+      "total_tokens": 1492,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 811,
+      "completion_tokens": 172,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 808,
+      "completion_tokens": 147,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 822,
+      "completion_tokens": 122,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1173,
+      "completion_tokens": 203,
+      "total_tokens": 1376,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 820,
+      "completion_tokens": 161,
+      "total_tokens": 981,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 817,
+      "completion_tokens": 114,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 831,
+      "completion_tokens": 201,
+      "total_tokens": 1032,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0013",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1202,
+      "completion_tokens": 202,
+      "total_tokens": 1404,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 407,
+    "majority_vote_total_tokens": 1178,
+    "scrd_total_tokens": 18001,
+    "scrd_prompt_tokens": 15020,
+    "scrd_completion_tokens": 2981,
+    "agent_total_tokens": 11491,
+    "recorder_total_tokens": 6510,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

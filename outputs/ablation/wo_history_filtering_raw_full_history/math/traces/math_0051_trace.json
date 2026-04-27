@@ -1,0 +1,199 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "121",
+        "121",
+        "49"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substituting x=3 into (2x+5)^2 yields 121.",
+          "claim_type": "support",
+          "related_answer": "121"
+        },
+        {
+          "text": "The expression (2x+5)^2 simplifies to 121 when x=3.",
+          "claim_type": "support",
+          "related_answer": "121"
+        },
+        {
+          "text": "For x=3, the value of (2x+5)^2 is 49.",
+          "claim_type": "rebuttal",
+          "related_answer": "49"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent C's claim of 49 contradicts Agents A and B's claim of 121.",
+          "why_still_open": "Different values for the same expression with the same input.",
+          "involved_answers": [
+            "121",
+            "49"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x=3 -> (2x+5)^2 = 121",
+        "Expression: (2x+5)^2, x=3",
+        "Calculate: (2*3+5)^2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "121",
+        "121",
+        "121"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x=3 -> (2x+5)^2 = 121",
+        "Expression: (2x+5)^2, x=3",
+        "Calculate: (2*3+5)^2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 332,
+      "completion_tokens": 42,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 319,
+      "completion_tokens": 40,
+      "total_tokens": 359,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 330,
+      "completion_tokens": 36,
+      "total_tokens": 366,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 294,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 859,
+      "completion_tokens": 143,
+      "total_tokens": 1002,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 856,
+      "completion_tokens": 109,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 869,
+      "completion_tokens": 119,
+      "total_tokens": 988,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1219,
+      "completion_tokens": 81,
+      "total_tokens": 1300,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 528,
+      "completion_tokens": 44,
+      "total_tokens": 572,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 374,
+    "majority_vote_total_tokens": 1099,
+    "scrd_total_tokens": 6816,
+    "scrd_prompt_tokens": 5908,
+    "scrd_completion_tokens": 908,
+    "agent_total_tokens": 4054,
+    "recorder_total_tokens": 2190,
+    "evaluator_total_tokens": 572,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

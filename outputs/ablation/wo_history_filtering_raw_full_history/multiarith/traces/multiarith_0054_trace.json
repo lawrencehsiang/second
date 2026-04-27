@@ -1,0 +1,199 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "0",
+        "0",
+        "-19"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum the points from the first two rounds and subtract the points lost in the last round.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Sum the points from the first two rounds, then subtract the points lost in the last round.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Sum of scores minus losses equals the final score.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B have slightly different wording for the same explanation, but they agree on the core logic.",
+          "why_still_open": "Both explanations are valid, but the precise wording may lead to confusion.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Points = (Round1 + Round2) - Round3Losses",
+        "Sum scores - losses = final score",
+        "Aggregate points then deduct losses"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-19",
+        "-19",
+        "-19"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Points = (Round1 + Round2) - Round3Losses",
+        "Sum scores - losses = final score",
+        "Aggregate points then deduct losses"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 363,
+      "completion_tokens": 42,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 350,
+      "completion_tokens": 43,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 361,
+      "completion_tokens": 31,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 590,
+      "completion_tokens": 262,
+      "total_tokens": 852,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 849,
+      "completion_tokens": 104,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 846,
+      "completion_tokens": 108,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 861,
+      "completion_tokens": 128,
+      "total_tokens": 989,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1149,
+      "completion_tokens": 68,
+      "total_tokens": 1217,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 551,
+      "completion_tokens": 58,
+      "total_tokens": 609,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 405,
+    "majority_vote_total_tokens": 1190,
+    "scrd_total_tokens": 6764,
+    "scrd_prompt_tokens": 5920,
+    "scrd_completion_tokens": 844,
+    "agent_total_tokens": 4086,
+    "recorder_total_tokens": 2069,
+    "evaluator_total_tokens": 609,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

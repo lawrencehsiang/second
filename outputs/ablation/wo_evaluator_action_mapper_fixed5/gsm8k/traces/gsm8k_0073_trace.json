@@ -1,0 +1,441 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "54",
+        "54",
+        "54"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate initial volume, then adjust for spill and multiply.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Volume = 54",
+        "Initial volume - spill + 3 * remaining = 54"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "54",
+        "54",
+        "54"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the volume based on the described sequence of events.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Correcting the calculation to match the described steps.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recompute the volume to verify the previous answer.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The previous answer of 54 cubic feet does not align with the described sequence of events.",
+          "why_still_open": "Different agents are recomputing the volume but without clear consensus on the final result.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Volume = 54",
+        "Initial volume - spill + 3 * remaining = 54",
+        "Aquarium filled halfway, spilled half, tripled remaining"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "54",
+        "54",
+        "54"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing the volume based on the described sequence of events.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recomputing the volume based on the described sequence of events.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputing the volume based on the described sequence of events.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Volume = 54",
+        "Initial volume - spill + 3 * remaining = 54",
+        "Aquarium filled halfway, spilled half, tripled remaining"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "54",
+        "54",
+        "54"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing the volume step-by-step according to the described sequence of events: half-filled, spilled by half, then tripled.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recomputing the volume based on the described sequence of events to ensure alignment with the given scenario.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputing the volume to address the previous incorrect answer of 54 cubic feet.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Volume = 54",
+        "Initial volume - spill + 3 * remaining = 54",
+        "Aquarium filled halfway, spilled half, tripled remaining"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "54",
+        "54",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verifying the correctness of the previous answer of 54 cubic feet against the described sequence of events.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the final volume after recomputing based on the described sequence of events.",
+          "why_still_open": "Agent C's recomputation leads to a different result (36 cubic feet) compared to Agents A and B (54 cubic feet).",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Volume = 54",
+        "Initial volume - spill + 3 * remaining = 54",
+        "Aquarium filled halfway, spilled half, tripled remaining",
+        "Recompute to verify 54 cubic feet",
+        "New answer: 36 cubic feet"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 395,
+      "completion_tokens": 36,
+      "total_tokens": 431,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 382,
+      "completion_tokens": 34,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 393,
+      "completion_tokens": 33,
+      "total_tokens": 426,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 582,
+      "completion_tokens": 95,
+      "total_tokens": 677,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 656,
+      "completion_tokens": 119,
+      "total_tokens": 775,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 653,
+      "completion_tokens": 134,
+      "total_tokens": 787,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 667,
+      "completion_tokens": 103,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 979,
+      "completion_tokens": 253,
+      "total_tokens": 1232,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 860,
+      "completion_tokens": 114,
+      "total_tokens": 974,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 857,
+      "completion_tokens": 95,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 871,
+      "completion_tokens": 129,
+      "total_tokens": 1000,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1141,
+      "completion_tokens": 187,
+      "total_tokens": 1328,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 861,
+      "completion_tokens": 121,
+      "total_tokens": 982,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 858,
+      "completion_tokens": 106,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 872,
+      "completion_tokens": 116,
+      "total_tokens": 988,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1082,
+      "completion_tokens": 213,
+      "total_tokens": 1295,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 672,
+      "completion_tokens": 41,
+      "total_tokens": 713,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 669,
+      "completion_tokens": 55,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 683,
+      "completion_tokens": 53,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0073",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 914,
+      "completion_tokens": 227,
+      "total_tokens": 1141,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 431,
+    "majority_vote_total_tokens": 1273,
+    "scrd_total_tokens": 17311,
+    "scrd_prompt_tokens": 15047,
+    "scrd_completion_tokens": 2264,
+    "agent_total_tokens": 11638,
+    "recorder_total_tokens": 5673,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

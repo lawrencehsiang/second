@@ -1,0 +1,430 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "95",
+        "95",
+        "95"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum of coins collected minus coins given away.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Sum the coins collected each hour, subtracting the 15 given away.",
+          "claim_type": "support",
+          "related_answer": "B,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of coins collected - 15*6 = 95",
+        "Total coins = 95",
+        "Coins given away: 15*6"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "75",
+        "95",
+        "120"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Subtract the 15 coins given away in the fourth hour.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Joanne collected 50 coins in the fourth hour but gave away 15, resulting in an additional 35 coins.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the final total number of coins.",
+          "why_still_open": "Agents A and C have different totals (75 vs 120), while B keeps the previous answer of 95.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total coins = 75",
+        "Coins given away: 15",
+        "Collected: 50, gave away: 15 -> additional 35 coins"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "120",
+        "80",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct approach involves subtracting the 15 coins given away from the total.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous answer of 95 did not account for the 15 coins given away in the fourth hour.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The final total should be recomputed after adjusting for the coins given away.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Final total = 120",
+        "Collected: 50, gave away: 15 -> additional 35 coins",
+        "Subtract 15 coins given away"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "75",
+        "80",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 120 does not account for the 15 coins given away in the fourth hour.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct calculation yields 75 coins after accounting for the 15 coins given away.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Final total = 75",
+        "Collected: 50, gave away: 15 -> additional 35 coins",
+        "Subtract 15 coins given away"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "105",
+        "75",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Joanne gives away 15 coins in the fourth hour, reducing the total from 105 to 75 coins.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream support of 75 coins correctly accounts for the operations described, resolving the minority answer of 80.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total after 4th hour: 105 - 15 = 75",
+        "Collected: 50, gave away: 15 -> net 35 coins added",
+        "First 3 hours total: 70 + 35 = 105"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 399,
+      "completion_tokens": 31,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 386,
+      "completion_tokens": 38,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 397,
+      "completion_tokens": 41,
+      "total_tokens": 438,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 149,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 658,
+      "completion_tokens": 110,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 655,
+      "completion_tokens": 48,
+      "total_tokens": 703,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 669,
+      "completion_tokens": 121,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 981,
+      "completion_tokens": 243,
+      "total_tokens": 1224,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 885,
+      "completion_tokens": 121,
+      "total_tokens": 1006,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 882,
+      "completion_tokens": 125,
+      "total_tokens": 1007,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 897,
+      "completion_tokens": 102,
+      "total_tokens": 999,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1126,
+      "completion_tokens": 213,
+      "total_tokens": 1339,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 865,
+      "completion_tokens": 143,
+      "total_tokens": 1008,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 861,
+      "completion_tokens": 126,
+      "total_tokens": 987,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 875,
+      "completion_tokens": 187,
+      "total_tokens": 1062,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1206,
+      "completion_tokens": 173,
+      "total_tokens": 1379,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 872,
+      "completion_tokens": 159,
+      "total_tokens": 1031,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 869,
+      "completion_tokens": 126,
+      "total_tokens": 995,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 883,
+      "completion_tokens": 114,
+      "total_tokens": 997,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0060",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1109,
+      "completion_tokens": 205,
+      "total_tokens": 1314,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 430,
+    "majority_vote_total_tokens": 1292,
+    "scrd_total_tokens": 18642,
+    "scrd_prompt_tokens": 16067,
+    "scrd_completion_tokens": 2575,
+    "agent_total_tokens": 12645,
+    "recorder_total_tokens": 5997,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

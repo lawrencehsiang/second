@@ -1,0 +1,284 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3.5",
+        "2.5",
+        "3.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate remaining distance and average per day for both runners over the last 3 days.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate Jesse's total for first four days, Mia's for four days, then find average needed for last three days.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate each's remaining distance, find the average.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods to calculate the average needed for the last three days.",
+          "why_still_open": "Agents A and C use remaining distance and average per day, while B calculates totals over four days.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Remaining distance / 3 = Average per day",
+        "Total distance for 4 days / 4 = Average per day",
+        "Total distance = Remaining distance + (Average per day * 3)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3.67",
+        "2.875",
+        "3.0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Focus on calculating remaining distance and average per day for the last three days.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agree on focusing on remaining distance and average per day for the last three days.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Ensure the total distance equals 30 miles over seven days.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Remaining distance / 3 = Average per day",
+        "Total distance = Remaining distance + (Average per day * 3)",
+        "Total distance = 30 miles over 7 days"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "3.5",
+        "3.5",
+        "3.5"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Remaining distance / 3 = Average per day",
+        "Total distance = Remaining distance + (Average per day * 3)",
+        "Total distance = 30 miles over 7 days"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 391,
+      "completion_tokens": 43,
+      "total_tokens": 434,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 378,
+      "completion_tokens": 47,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 389,
+      "completion_tokens": 36,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 608,
+      "completion_tokens": 274,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 771,
+      "completion_tokens": 114,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 768,
+      "completion_tokens": 112,
+      "total_tokens": 880,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 782,
+      "completion_tokens": 104,
+      "total_tokens": 886,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1171,
+      "completion_tokens": 199,
+      "total_tokens": 1370,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 721,
+      "completion_tokens": 50,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 866,
+      "completion_tokens": 118,
+      "total_tokens": 984,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 864,
+      "completion_tokens": 109,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 876,
+      "completion_tokens": 124,
+      "total_tokens": 1000,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1095,
+      "completion_tokens": 75,
+      "total_tokens": 1170,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0068",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 564,
+      "completion_tokens": 55,
+      "total_tokens": 619,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 434,
+    "majority_vote_total_tokens": 1284,
+    "scrd_total_tokens": 11704,
+    "scrd_prompt_tokens": 10244,
+    "scrd_completion_tokens": 1460,
+    "agent_total_tokens": 6892,
+    "recorder_total_tokens": 3422,
+    "evaluator_total_tokens": 1390,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+}

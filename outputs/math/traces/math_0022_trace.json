@@ -1,0 +1,291 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "61",
+        "61",
+        "49"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "a_13 = 29, a_1 = 5, n = 50",
+          "claim_type": "constraint",
+          "related_answer": "61"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B have the same answer but different reasoning paths, while Agent C has a different answer.",
+          "why_still_open": "There is a conflict in the answers provided by Agents A/B and Agent C.",
+          "involved_answers": [
+            "61",
+            "49"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "a_13 = 29, a_1 = 5",
+        "a_n = a_1 + (n-1)d",
+        "a_50 = 5 + 49d",
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "61",
+        "61",
+        "103"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "a_50 = 103",
+          "claim_type": "constraint",
+          "related_answer": "103"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B have the same answer but different reasoning paths, while Agent C has a different answer.",
+          "why_still_open": "Agent C's answer of 103 does not align with Agents A and B's answer of 61 based on the given conditions.",
+          "involved_answers": [
+            "61",
+            "103"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "a_13 = 29, a_1 = 5",
+        "a_n = a_1 + (n-1)d",
+        "a_50 = 5 + 49*2",
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "103",
+        "61",
+        "103"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated common difference d=2",
+          "claim_type": "explanation",
+          "related_answer": "103"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B have the same answer but different reasoning paths, while Agent C has a different answer.",
+          "why_still_open": "There is no consensus on the correct value for the fiftieth term.",
+          "involved_answers": [
+            "61",
+            "103"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "a_13 = 29, a_1 = 5",
+        "a_n = a_1 + (n-1)d",
+        "a_50 = 5 + 49*2",
+        "50 min < 1 hr -> pay < $12",
+        "d = 2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0022",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 329,
+      "completion_tokens": 80,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 316,
+      "completion_tokens": 90,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 327,
+      "completion_tokens": 42,
+      "total_tokens": 369,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 677,
+      "completion_tokens": 228,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 716,
+      "completion_tokens": 137,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 713,
+      "completion_tokens": 130,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 164,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1210,
+      "completion_tokens": 237,
+      "total_tokens": 1447,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 565,
+      "completion_tokens": 40,
+      "total_tokens": 605,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 729,
+      "completion_tokens": 186,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 726,
+      "completion_tokens": 140,
+      "total_tokens": 866,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 741,
+      "completion_tokens": 126,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1237,
+      "completion_tokens": 217,
+      "total_tokens": 1454,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0022",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 566,
+      "completion_tokens": 41,
+      "total_tokens": 607,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 409,
+    "majority_vote_total_tokens": 1184,
+    "scrd_total_tokens": 11437,
+    "scrd_prompt_tokens": 9579,
+    "scrd_completion_tokens": 1858,
+    "agent_total_tokens": 6419,
+    "recorder_total_tokens": 3806,
+    "evaluator_total_tokens": 1212,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

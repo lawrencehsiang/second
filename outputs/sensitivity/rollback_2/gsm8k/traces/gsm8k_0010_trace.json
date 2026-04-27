@@ -1,0 +1,397 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "900",
+        "900",
+        "900"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate regular pay for 8 hours/day and overtime pay for 2 hours/day, then multiply by 5 days.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Regular pay for first 8 hours, overtime for additional 2 hours each day, calculate total over 5 days.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Regular pay for first 8 hours, overtime pay for additional hours.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different breakdown of regular and overtime hours across agents.",
+          "why_still_open": "Agents A and B specify 2 hours of overtime per day, while C does not differentiate the overtime period.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Regular pay = $12 * 8",
+        "Overtime pay = $18 * 2",
+        "Total pay = (Regular + Overtime) * 5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "940",
+        "1080",
+        "990"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Confirmed that Agent A's overtime is 2 hours per day.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agent B will use the mainstream support claim of 2 hours of overtime per day.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agent C revised the calculation to account for correct overtime hours and rates.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Regular pay = $12 * 8",
+        "Overtime pay = $18 * 2",
+        "Total pay = Regular + Overtime"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "940",
+        "1140",
+        "990"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent B agrees with the mainstream support claim of 2 hours of overtime per day.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agent C resolved the conflict by differentiating between regular and overtime hours.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Regular pay = $12 * 8",
+        "Overtime pay = $18 * 2",
+        "Total pay = Regular + Overtime",
+        "Agent B works 2 hours overtime per day for 5 days",
+        "Total overtime = 10 hours"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "990",
+        "990",
+        "990"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent A suggests revisiting the minority answer of 940 due to potential misinterpretation.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agent B will consider all answers to resolve the conflict between 990 and 940.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agent C verifies the mainstream answer of 990 but also checks the minority answer of 940.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 940 remains unverified.",
+          "why_still_open": "Verification of the minority answer is pending.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total pay = Regular + Overtime",
+        "Agent B works 2 hours overtime per day for 5 days",
+        "Total overtime = 10 hours",
+        "Regular pay = $12 * 8",
+        "Overtime pay = $18 * 2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 4,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 48,
+      "total_tokens": 426,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 51,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 40,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 620,
+      "completion_tokens": 280,
+      "total_tokens": 900,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 764,
+      "completion_tokens": 121,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 761,
+      "completion_tokens": 95,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 775,
+      "completion_tokens": 99,
+      "total_tokens": 874,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1160,
+      "completion_tokens": 192,
+      "total_tokens": 1352,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 702,
+      "completion_tokens": 46,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 849,
+      "completion_tokens": 122,
+      "total_tokens": 971,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 847,
+      "completion_tokens": 137,
+      "total_tokens": 984,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 860,
+      "completion_tokens": 103,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1098,
+      "completion_tokens": 178,
+      "total_tokens": 1276,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 645,
+      "completion_tokens": 53,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 847,
+      "completion_tokens": 111,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 845,
+      "completion_tokens": 96,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 858,
+      "completion_tokens": 132,
+      "total_tokens": 990,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1068,
+      "completion_tokens": 290,
+      "total_tokens": 1358,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0010",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 724,
+      "completion_tokens": 60,
+      "total_tokens": 784,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 426,
+    "majority_vote_total_tokens": 1258,
+    "scrd_total_tokens": 16796,
+    "scrd_prompt_tokens": 14542,
+    "scrd_completion_tokens": 2254,
+    "agent_total_tokens": 9680,
+    "recorder_total_tokens": 4886,
+    "evaluator_total_tokens": 2230,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "400",
+        "400",
+        "300"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the remaining percentage after subtracting specified expenses from 100%.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Apply the calculated remaining percentage to the total budget.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B provide similar explanations but differ in their answers.",
+          "why_still_open": "Answers need to align with the calculation method described.",
+          "involved_answers": [
+            "400"
+          ]
+        },
+        {
+          "conflict": "Agent C's answer differs from A and B.",
+          "why_still_open": "The justification for C's answer needs clarification.",
+          "involved_answers": [
+            "400",
+            "300"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "remaining percentage = 100% - (food + accommodation + entertainment)",
+        "apply remaining percentage to total budget",
+        "total budget = 1000",
+        "food = 20%",
+        "accommodation = 20%"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "300",
+        "300",
+        "300"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected the remaining percentage by recalculating after all expenses were accounted for.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The remaining percentage was accurately determined as 30% after subtracting all specified expenses.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "remaining percentage = 100% - (30% + 15% + 25%)",
+        "apply 30% to total budget ($1000)",
+        "total budget = 1000",
+        "food = 30%",
+        "accommodation = 15%"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0045",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 58,
+      "total_tokens": 436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0045",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 51,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0045",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 43,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0045",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 634,
+      "completion_tokens": 280,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0045",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 747,
+      "completion_tokens": 100,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0045",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 744,
+      "completion_tokens": 94,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0045",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 758,
+      "completion_tokens": 151,
+      "total_tokens": 909,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0045",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1187,
+      "completion_tokens": 201,
+      "total_tokens": 1388,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0045",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 676,
+      "completion_tokens": 55,
+      "total_tokens": 731,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 436,
+    "majority_vote_total_tokens": 1271,
+    "scrd_total_tokens": 6898,
+    "scrd_prompt_tokens": 5865,
+    "scrd_completion_tokens": 1033,
+    "agent_total_tokens": 3865,
+    "recorder_total_tokens": 2302,
+    "evaluator_total_tokens": 731,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": false,
+    "suppressed_rollback_context": null
+  }
+}

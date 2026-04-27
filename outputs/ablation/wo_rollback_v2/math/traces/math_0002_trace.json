@@ -1,0 +1,188 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "98",
+        "98",
+        "98"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve (m+1)(r-2) = m*r - 2 for maximum m under 100.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "m * r = total members - 2",
+        "(m+1) * (r-2) = total members",
+        "maximum m under 100"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "94",
+        "98",
+        "98"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the constraints and solve again.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B's solution of 98 does not leave two members over in the original formation, while Agent A argues for re-evaluation.",
+          "why_still_open": "There is a disagreement on whether 98 satisfies the condition of leaving two members over in the original formation.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "98 does not satisfy the condition of leaving two members over in the original formation",
+        "solve (m+1)(r-2) = m*r - 2",
+        "m = 2r - 2, given m < 100, the largest integer r is 51, making m = 100, which is invalid"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0002",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 423,
+      "completion_tokens": 50,
+      "total_tokens": 473,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 410,
+      "completion_tokens": 33,
+      "total_tokens": 443,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 421,
+      "completion_tokens": 54,
+      "total_tokens": 475,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 613,
+      "completion_tokens": 124,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 699,
+      "completion_tokens": 100,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 696,
+      "completion_tokens": 108,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 710,
+      "completion_tokens": 59,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 943,
+      "completion_tokens": 231,
+      "total_tokens": 1174,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 662,
+      "completion_tokens": 53,
+      "total_tokens": 715,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 473,
+    "majority_vote_total_tokens": 1391,
+    "scrd_total_tokens": 6389,
+    "scrd_prompt_tokens": 5577,
+    "scrd_completion_tokens": 812,
+    "agent_total_tokens": 3763,
+    "recorder_total_tokens": 1911,
+    "evaluator_total_tokens": 715,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+}

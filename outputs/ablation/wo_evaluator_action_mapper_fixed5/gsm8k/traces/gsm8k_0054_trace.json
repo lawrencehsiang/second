@@ -1,0 +1,424 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total cost of ice cream and frozen yoghurt was calculated separately, then the difference was found.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = ice cream + frozen yoghurt",
+        "Difference = total cost of ice cream - total cost of frozen yoghurt",
+        "36 is the difference between total costs."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "32",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous answer (36) was correct but may have overlooked specific quantities and prices.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The difference between the total costs of ice cream and frozen yoghurt is 36.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculating the total costs separately and then finding the difference is the correct approach.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A believes the previous answer (36) was incorrect due to oversight in quantities and prices.",
+          "why_still_open": "Agents B and C maintain that 36 is correct based on the calculation method.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = ice cream + frozen yoghurt",
+        "Difference = total cost of ice cream - total cost of frozen yoghurt",
+        "36 is the difference between total costs."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecked the quantities and prices, confirming the difference is $36.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Rechecked quantities and prices: 10 cartons of ice cream at $4 each and 4 cartons of frozen yoghurt at $1 each.",
+        "Total spent on ice cream: 10 * $4 = $40, on frozen yoghurt: 4 * $1 = $4.",
+        "Difference: $40 - $4 = $36."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "32",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculating the total amounts to ensure accuracy.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A believes the previous answer (36) was incorrect due to oversight in quantities and prices, while Agents B and C confirm the calculation is correct.",
+          "why_still_open": "Agent A's recalculations led to a different answer (32), which needs further verification.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "10 cartons of ice cream at $4 each totals $40.",
+        "4 cartons of frozen yoghurt at $1 each totals $4.",
+        "The difference between $40 and $4 is $36.",
+        "Agent A recalculated the total amounts and now believes the difference is $32.",
+        "Rechecked quantities and prices: 10 cartons of ice cream at $4 each and 4 cartons of frozen yoghurt at $1 each."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "36",
+        "36",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The discrepancy has been addressed, and the correct calculation yields a difference of $36.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "10 cartons of ice cream at $4 each totals $40.",
+        "4 cartons of frozen yoghurt at $1 each totals $4.",
+        "The difference between $40 and $4 is $36.",
+        "Agent A recalculated the total amounts and now believes the difference is $32.",
+        "Rechecked quantities and prices: 10 cartons of ice cream at $4 each and 4 cartons of frozen yoghurt at $1 each."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 370,
+      "completion_tokens": 42,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 357,
+      "completion_tokens": 38,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 368,
+      "completion_tokens": 44,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 123,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 640,
+      "completion_tokens": 123,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 637,
+      "completion_tokens": 61,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 651,
+      "completion_tokens": 70,
+      "total_tokens": 721,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 905,
+      "completion_tokens": 279,
+      "total_tokens": 1184,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 851,
+      "completion_tokens": 177,
+      "total_tokens": 1028,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 848,
+      "completion_tokens": 101,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 862,
+      "completion_tokens": 98,
+      "total_tokens": 960,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1197,
+      "completion_tokens": 159,
+      "total_tokens": 1356,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 847,
+      "completion_tokens": 105,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 844,
+      "completion_tokens": 134,
+      "total_tokens": 978,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 858,
+      "completion_tokens": 160,
+      "total_tokens": 1018,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1101,
+      "completion_tokens": 265,
+      "total_tokens": 1366,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 854,
+      "completion_tokens": 127,
+      "total_tokens": 981,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 851,
+      "completion_tokens": 209,
+      "total_tokens": 1060,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 865,
+      "completion_tokens": 107,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0054",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1250,
+      "completion_tokens": 186,
+      "total_tokens": 1436,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 412,
+    "majority_vote_total_tokens": 1219,
+    "scrd_total_tokens": 18367,
+    "scrd_prompt_tokens": 15759,
+    "scrd_completion_tokens": 2608,
+    "agent_total_tokens": 12299,
+    "recorder_total_tokens": 6068,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

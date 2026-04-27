@@ -1,0 +1,416 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10",
+        "10",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum of first three segments is 5+8+X.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Third segment distance is found by subtracting sum of known segments from total distance.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agree on the answer 10, but agent C provides a different answer 6.",
+          "why_still_open": "Different methods used: A & B use segment summation, C uses total subtraction.",
+          "involved_answers": [
+            "10",
+            "6"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "5+8+X=23",
+        "13+X=23",
+        "23-13=10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent C's method of total subtraction is correct, leading to an answer of 10 meters.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5+8+X=23",
+        "23-13=10",
+        "Total distance = 23m, sum of first two segments = 13m"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "10",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The segment summation approach clearly shows that the distance after the 3rd turn is 10 meters, resolving the conflict.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The total distance traveled is 23 meters, confirming the third segment length as 10 meters.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5+8+X=23",
+        "23-13=10",
+        "Total distance = 23m, sum of first two segments = 13m"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "9",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the calculation to ensure all segments sum up correctly, leading to a new distance of 9 meters after the 3rd turn.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the distance after the 3rd turn between answers 9 and 10 meters.",
+          "why_still_open": "Different calculations leading to conflicting results despite the total distance being 23 meters.",
+          "involved_answers": [
+            "9",
+            "10"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "5+8+X=23",
+        "23-13=10",
+        "Total distance = 23m, sum of first two segments = 13m",
+        "New distance after 3rd turn = 9m",
+        "Previous mainstream support: 5+8+x=23 -> x=10"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5+8+X=23",
+        "23-13=10",
+        "Total distance = 23m, sum of first two segments = 13m",
+        "New distance after 3rd turn = 9m",
+        "Previous mainstream support: 5+8+x=23 -> x=10"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 425,
+      "completion_tokens": 58,
+      "total_tokens": 483,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 412,
+      "completion_tokens": 50,
+      "total_tokens": 462,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 423,
+      "completion_tokens": 36,
+      "total_tokens": 459,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 625,
+      "completion_tokens": 220,
+      "total_tokens": 845,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 805,
+      "completion_tokens": 122,
+      "total_tokens": 927,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 802,
+      "completion_tokens": 140,
+      "total_tokens": 942,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 815,
+      "completion_tokens": 177,
+      "total_tokens": 992,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1214,
+      "completion_tokens": 123,
+      "total_tokens": 1337,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 909,
+      "completion_tokens": 196,
+      "total_tokens": 1105,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 907,
+      "completion_tokens": 135,
+      "total_tokens": 1042,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 921,
+      "completion_tokens": 182,
+      "total_tokens": 1103,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1158,
+      "completion_tokens": 175,
+      "total_tokens": 1333,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 701,
+      "completion_tokens": 121,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 698,
+      "completion_tokens": 72,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 712,
+      "completion_tokens": 182,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1093,
+      "completion_tokens": 239,
+      "total_tokens": 1332,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 924,
+      "completion_tokens": 136,
+      "total_tokens": 1060,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 922,
+      "completion_tokens": 104,
+      "total_tokens": 1026,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 936,
+      "completion_tokens": 130,
+      "total_tokens": 1066,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1138,
+      "completion_tokens": 110,
+      "total_tokens": 1248,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 483,
+    "majority_vote_total_tokens": 1404,
+    "scrd_total_tokens": 19248,
+    "scrd_prompt_tokens": 16540,
+    "scrd_completion_tokens": 2708,
+    "agent_total_tokens": 13153,
+    "recorder_total_tokens": 6095,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

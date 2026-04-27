@@ -1,0 +1,627 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "5",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The fifth house has 8 gnomes.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Subtracting known gnomes from total gives the number of gnomes in the fifth house.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "First four houses have 12 gnomes, so the fifth house has 8 gnomes.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "The fifth house has 8 gnomes.",
+        "Subtracting known gnomes from total gives the number of gnomes in the fifth house."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "The fifth house has 8 gnomes.",
+        "Subtracting known gnomes from total gives the number of gnomes in the fifth house."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of gnomes in the first four houses is 12.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The fifth house must have 8 gnomes.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "The fifth house has 8 gnomes.",
+        "Subtracting known gnomes from total gives the number of gnomes in the fifth house."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify the total number of gnomes in the first four houses.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revising the claim about the fifth house having 8 gnomes.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "The fifth house has 8 gnomes.",
+        "Verify the gnome count in the first four houses."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "8",
+        "8",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial calculation of gnomes in the first four houses was accurate, and the total number of gnomes confirms the fifth house has 8 gnomes.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Resolved the conflict by recalculating the total gnomes in the first four houses and determining the number for the fifth house.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Revising the answer based on the total number of gnomes provided.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "The fifth house has 8 gnomes.",
+        "Revising the answer based on the total number of gnomes."
+      ]
+    },
+    {
+      "round_id": 6,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total number of gnomes based on the given data.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The initial calculation was correct, and the total gnomes confirm the fifth house has 8 gnomes.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculated that 4 houses with 3 gnomes each total 12 gnomes, leaving 8 gnomes for the fifth house.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The fifth house has 8 gnomes.",
+        "4 houses * 3 gnomes = 12 gnomes",
+        "Total gnomes = 20, thus 20 - 12 = 8 gnomes",
+        "Rechecking the calculation",
+        "Initial calculation confirmed 8 gnomes"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 6,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 6
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 363,
+      "completion_tokens": 75,
+      "total_tokens": 438,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 350,
+      "completion_tokens": 42,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 361,
+      "completion_tokens": 42,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 632,
+      "completion_tokens": 246,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 621,
+      "completion_tokens": 143,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 618,
+      "completion_tokens": 128,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 632,
+      "completion_tokens": 154,
+      "total_tokens": 786,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1201,
+      "completion_tokens": 181,
+      "total_tokens": 1382,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 52,
+      "total_tokens": 646,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 822,
+      "completion_tokens": 105,
+      "total_tokens": 927,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 618,
+      "completion_tokens": 134,
+      "total_tokens": 752,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 617,
+      "completion_tokens": 155,
+      "total_tokens": 772,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 618,
+      "completion_tokens": 143,
+      "total_tokens": 761,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1200,
+      "completion_tokens": 115,
+      "total_tokens": 1315,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 645,
+      "completion_tokens": 55,
+      "total_tokens": 700,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 587,
+      "completion_tokens": 148,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 584,
+      "completion_tokens": 42,
+      "total_tokens": 626,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 600,
+      "completion_tokens": 106,
+      "total_tokens": 706,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 908,
+      "completion_tokens": 195,
+      "total_tokens": 1103,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 581,
+      "completion_tokens": 57,
+      "total_tokens": 638,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 588,
+      "completion_tokens": 113,
+      "total_tokens": 701,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 585,
+      "completion_tokens": 105,
+      "total_tokens": 690,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 601,
+      "completion_tokens": 133,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1052,
+      "completion_tokens": 188,
+      "total_tokens": 1240,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 612,
+      "completion_tokens": 54,
+      "total_tokens": 666,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 686,
+      "completion_tokens": 194,
+      "total_tokens": 880,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 683,
+      "completion_tokens": 156,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 699,
+      "completion_tokens": 118,
+      "total_tokens": 817,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1178,
+      "completion_tokens": 265,
+      "total_tokens": 1443,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 689,
+      "completion_tokens": 55,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 716,
+      "completion_tokens": 123,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 713,
+      "completion_tokens": 181,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 729,
+      "completion_tokens": 177,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1268,
+      "completion_tokens": 258,
+      "total_tokens": 1526,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0029",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 684,
+      "completion_tokens": 56,
+      "total_tokens": 740,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 438,
+    "majority_vote_total_tokens": 1233,
+    "scrd_total_tokens": 29129,
+    "scrd_prompt_tokens": 24635,
+    "scrd_completion_tokens": 4494,
+    "agent_total_tokens": 3529,
+    "recorder_total_tokens": 8887,
+    "evaluator_total_tokens": 646,
+    "repair_brief_total_tokens": 927,
+    "repair_evaluator_total_tokens": 3488,
+    "repair_agent_total_tokens": 11652
+  }
+}

@@ -1,0 +1,414 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "840",
+        "840",
+        "840"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum earnings from both jobs.",
+          "claim_type": "explanation",
+          "related_answer": "840"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Earnings = rate * hours",
+        "Summing individual job earnings",
+        "Rate for first job = $12/hr, hours = 50",
+        "Rate for second job = $12/hr, hours = 60",
+        "Total earnings = $12 * 50 + $12 * 60"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "960",
+        "840",
+        "840"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute total earnings with accurate hours.",
+          "claim_type": "rebuttal",
+          "related_answer": "960"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on whether to use 960 or 840 as the total earnings.",
+          "why_still_open": "One agent recomputed with accurate hours, while two agents kept the previous sum of $840.",
+          "involved_answers": [
+            "960",
+            "840"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Correct total earnings = $12 * 50 + $12 * 60 = $960",
+        "Summing individual job earnings",
+        "Rate for first job = $12/hr, hours = 50",
+        "Rate for second job = $12/hr, hours = 60",
+        "Previous sum = $12 * 50 + $12 * 50 = $840"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "840",
+        "960",
+        "960"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Use recomputed value of $960 based on accurate hours.",
+          "claim_type": "rebuttal",
+          "related_answer": "960"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Correct total earnings = $12 * 50 + $12 * 60 = $960",
+        "Accurate hours were used to compute the new earnings.",
+        "Rate for first job = $12/hr, hours = 50",
+        "Rate for second job = $12/hr, hours = 60",
+        "Resolved disagreement on total earnings."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "960",
+        "960",
+        "960"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of $840 is incorrect due to inaccurate hour usage.",
+          "claim_type": "rebuttal",
+          "related_answer": "840"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Correct total earnings = $12 * 50 + $12 * 60 = $960",
+        "Accurate hours were used to compute the new earnings.",
+        "Rate for first job = $12/hr, hours = 50",
+        "Rate for second job = $12/hr, hours = 60",
+        "Minority answer incorrectly calculates earnings as $840."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "960",
+        "960",
+        "960"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "James works 30 hours at his main job and 15 hours at his second job.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "At the second job, James earns 20% less than the main job.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Correct total earnings = $12 * 50 + $12 * 60 = $960",
+        "Accurate hours were used to compute the new earnings.",
+        "Rate for first job = $12/hr, hours = 50",
+        "Rate for second job = $12/hr, hours = 60",
+        "Mainstream answer correctly calculates earnings as $960."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 367,
+      "completion_tokens": 37,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 354,
+      "completion_tokens": 34,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 365,
+      "completion_tokens": 33,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 586,
+      "completion_tokens": 143,
+      "total_tokens": 729,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 625,
+      "completion_tokens": 101,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 622,
+      "completion_tokens": 55,
+      "total_tokens": 677,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 636,
+      "completion_tokens": 53,
+      "total_tokens": 689,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 886,
+      "completion_tokens": 252,
+      "total_tokens": 1138,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 834,
+      "completion_tokens": 98,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 831,
+      "completion_tokens": 100,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 845,
+      "completion_tokens": 109,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1101,
+      "completion_tokens": 162,
+      "total_tokens": 1263,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 829,
+      "completion_tokens": 104,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 826,
+      "completion_tokens": 109,
+      "total_tokens": 935,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 840,
+      "completion_tokens": 111,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1044,
+      "completion_tokens": 170,
+      "total_tokens": 1214,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 728,
+      "completion_tokens": 96,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 725,
+      "completion_tokens": 200,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 739,
+      "completion_tokens": 113,
+      "total_tokens": 852,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1137,
+      "completion_tokens": 212,
+      "total_tokens": 1349,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 404,
+    "majority_vote_total_tokens": 1190,
+    "scrd_total_tokens": 17212,
+    "scrd_prompt_tokens": 14920,
+    "scrd_completion_tokens": 2292,
+    "agent_total_tokens": 11519,
+    "recorder_total_tokens": 5693,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

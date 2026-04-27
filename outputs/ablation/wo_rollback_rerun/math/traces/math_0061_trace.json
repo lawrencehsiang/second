@@ -1,0 +1,301 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "269",
+        "269",
+        "361"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Apply identity (x-y)^2 = x^2 + y^2 - 2xy",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Square the first equation then subtract twice the second equation",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Use (x^2 + y^2) = (x - y)^2 + 2xy to find (5-4)^2 = 25 + 16 - 2*20",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "(x-y)^2 = x^2 + y^2 - 2xy",
+        "25 + 16 - 2*20 = 1",
+        "50 min < 1 hr -> pay < $12"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "169",
+        "269",
+        "361"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate using the given equations.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recalculate using the correct values of x-y and xy.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream support answer (269) does not align with the previous answer (361).",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Answer inconsistency between 269 and 361.",
+          "why_still_open": "Recalculation needed for verification.",
+          "involved_answers": [
+            "269",
+            "361"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "(x-y)^2 = x^2 + y^2 - 2xy",
+        "25 + 16 - 2*20 = 1",
+        "50 min < 1 hr -> pay < $12",
+        "Re-evaluate using the given equations.",
+        "Recalculate using the correct values of x-y and xy."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "rollback_suppressed_ablation",
+      "mode": "normal",
+      "sample_id": "math_0061",
+      "trigger_round": 2,
+      "anchor_round": 1,
+      "note": "w/o rollback ablation: repair mode intentionally skipped"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 338,
+      "completion_tokens": 49,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 325,
+      "completion_tokens": 36,
+      "total_tokens": 361,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 336,
+      "completion_tokens": 55,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 622,
+      "completion_tokens": 238,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 610,
+      "completion_tokens": 143,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 607,
+      "completion_tokens": 48,
+      "total_tokens": 655,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 621,
+      "completion_tokens": 120,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1091,
+      "completion_tokens": 287,
+      "total_tokens": 1378,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 636,
+      "completion_tokens": 60,
+      "total_tokens": 696,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 387,
+    "majority_vote_total_tokens": 1139,
+    "scrd_total_tokens": 6222,
+    "scrd_prompt_tokens": 5186,
+    "scrd_completion_tokens": 1036,
+    "agent_total_tokens": 3288,
+    "recorder_total_tokens": 2238,
+    "evaluator_total_tokens": 696,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": true,
+    "suppressed_rollback_context": {
+      "trigger_round": 2,
+      "anchor_round": 1,
+      "anchor_state": {
+        "round_id": 1,
+        "current_answers": [
+          "269",
+          "269",
+          "361"
+        ],
+        "newly_added_claims": [
+          {
+            "text": "Apply identity (x-y)^2 = x^2 + y^2 - 2xy",
+            "claim_type": "support",
+            "related_answer": "A"
+          },
+          {
+            "text": "Square the first equation then subtract twice the second equation",
+            "claim_type": "support",
+            "related_answer": "B"
+          },
+          {
+            "text": "Use (x^2 + y^2) = (x - y)^2 + 2xy to find (5-4)^2 = 25 + 16 - 2*20",
+            "claim_type": "support",
+            "related_answer": "C"
+          }
+        ],
+        "unresolved_conflicts": [],
+        "key_raw_snippets": [
+          "(x-y)^2 = x^2 + y^2 - 2xy",
+          "25 + 16 - 2*20 = 1",
+          "50 min < 1 hr -> pay < $12"
+        ]
+      },
+      "failed_suffix_state_records": [
+        {
+          "round_id": 2,
+          "current_answers": [
+            "169",
+            "269",
+            "361"
+          ],
+          "newly_added_claims": [
+            {
+              "text": "Re-evaluate using the given equations.",
+              "claim_type": "rebuttal",
+              "related_answer": "A"
+            },
+            {
+              "text": "Recalculate using the correct values of x-y and xy.",
+              "claim_type": "support",
+              "related_answer": "A"
+            },
+            {
+              "text": "The mainstream support answer (269) does not align with the previous answer (361).",
+              "claim_type": "constraint",
+              "related_answer": "C"
+            }
+          ],
+          "unresolved_conflicts": [
+            {
+              "conflict": "Answer inconsistency between 269 and 361.",
+              "why_still_open": "Recalculation needed for verification.",
+              "involved_answers": [
+                "269",
+                "361"
+              ]
+            }
+          ],
+          "key_raw_snippets": [
+            "(x-y)^2 = x^2 + y^2 - 2xy",
+            "25 + 16 - 2*20 = 1",
+            "50 min < 1 hr -> pay < $12",
+            "Re-evaluate using the given equations.",
+            "Recalculate using the correct values of x-y and xy."
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,359 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "16",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total savings needed is $400.",
+          "claim_type": "explanation",
+          "related_answer": "40"
+        },
+        {
+          "text": "Chores needed per month is 5.",
+          "claim_type": "explanation",
+          "related_answer": "5"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total savings needed = $100 * 4",
+        "Chores per month = total / (8 * 10)",
+        "4 months of baseball, 8 months to save"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "20",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Gerald needs to do 5 chores per month to save $400 in 8 months.",
+          "claim_type": "explanation",
+          "related_answer": "5"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total savings needed = $100 * 4",
+        "Chores per month = total / (8 * 10)",
+        "4 months of baseball, 8 months to save",
+        "5 chores per month aligns with the mainstream support."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "10",
+        "20",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated chores per month to 10 based on an 8-month period.",
+          "claim_type": "rebuttal",
+          "related_answer": "10"
+        },
+        {
+          "text": "Recalculated chores per month to 5 based on the original question's parameters.",
+          "claim_type": "rebuttal",
+          "related_answer": "5"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the correct number of chores per month needed to save $400 over 8 months.",
+          "why_still_open": "Agent B recalculated based on the original question, while Agent A recalculated based on the updated timeframe.",
+          "involved_answers": [
+            "10",
+            "5"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Savings goal = $400 for 8 months",
+        "Chores per month = $400 / (8 * $10)",
+        "Recalculated chores based on 8 months vs. 4 months",
+        "Original mainstream support: 5 chores per month for $400 in 8 months",
+        "New answer aligns with original question parameters"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "rollback_suppressed_ablation",
+      "mode": "normal",
+      "sample_id": "gsm8k_0051",
+      "trigger_round": 3,
+      "anchor_round": 2,
+      "note": "w/o rollback ablation: repair mode intentionally skipped"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 384,
+      "completion_tokens": 35,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 371,
+      "completion_tokens": 52,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 382,
+      "completion_tokens": 68,
+      "total_tokens": 450,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 636,
+      "completion_tokens": 149,
+      "total_tokens": 785,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 642,
+      "completion_tokens": 116,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 639,
+      "completion_tokens": 56,
+      "total_tokens": 695,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 652,
+      "completion_tokens": 191,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1045,
+      "completion_tokens": 138,
+      "total_tokens": 1183,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 599,
+      "completion_tokens": 44,
+      "total_tokens": 643,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 653,
+      "completion_tokens": 144,
+      "total_tokens": 797,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 651,
+      "completion_tokens": 142,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 664,
+      "completion_tokens": 55,
+      "total_tokens": 719,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1020,
+      "completion_tokens": 285,
+      "total_tokens": 1305,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 672,
+      "completion_tokens": 51,
+      "total_tokens": 723,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 419,
+    "majority_vote_total_tokens": 1292,
+    "scrd_total_tokens": 10536,
+    "scrd_prompt_tokens": 9010,
+    "scrd_completion_tokens": 1526,
+    "agent_total_tokens": 5897,
+    "recorder_total_tokens": 3273,
+    "evaluator_total_tokens": 1366,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": true,
+    "suppressed_rollback_context": {
+      "trigger_round": 3,
+      "anchor_round": 2,
+      "anchor_state": {
+        "round_id": 2,
+        "current_answers": [
+          "5",
+          "20",
+          "5"
+        ],
+        "newly_added_claims": [
+          {
+            "text": "Gerald needs to do 5 chores per month to save $400 in 8 months.",
+            "claim_type": "explanation",
+            "related_answer": "5"
+          }
+        ],
+        "unresolved_conflicts": [],
+        "key_raw_snippets": [
+          "Total savings needed = $100 * 4",
+          "Chores per month = total / (8 * 10)",
+          "4 months of baseball, 8 months to save",
+          "5 chores per month aligns with the mainstream support."
+        ]
+      },
+      "failed_suffix_state_records": [
+        {
+          "round_id": 3,
+          "current_answers": [
+            "10",
+            "20",
+            "5"
+          ],
+          "newly_added_claims": [
+            {
+              "text": "Recalculated chores per month to 10 based on an 8-month period.",
+              "claim_type": "rebuttal",
+              "related_answer": "10"
+            },
+            {
+              "text": "Recalculated chores per month to 5 based on the original question's parameters.",
+              "claim_type": "rebuttal",
+              "related_answer": "5"
+            }
+          ],
+          "unresolved_conflicts": [
+            {
+              "conflict": "Disagreement on the correct number of chores per month needed to save $400 over 8 months.",
+              "why_still_open": "Agent B recalculated based on the original question, while Agent A recalculated based on the updated timeframe.",
+              "involved_answers": [
+                "10",
+                "5"
+              ]
+            }
+          ],
+          "key_raw_snippets": [
+            "Savings goal = $400 for 8 months",
+            "Chores per month = $400 / (8 * $10)",
+            "Recalculated chores based on 8 months vs. 4 months",
+            "Original mainstream support: 5 chores per month for $400 in 8 months",
+            "New answer aligns with original question parameters"
+          ]
+        }
+      ]
+    }
+  }
+}

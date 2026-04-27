@@ -1,0 +1,218 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "48",
+        "48",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total miles biked per week and divide by biking speed.",
+          "claim_type": "explanation",
+          "related_answer": "A, C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (48 vs 40) for the same calculation.",
+          "why_still_open": "Disagreement on the correct calculation result.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "48",
+        "40",
+        "Calculate total miles biked per week and divide by biking speed.",
+        "Calculate total distance biked per week, then divide by speed to get time."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "40",
+        "48",
+        "48"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the total distance biked per week and dividing by the biking speed.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Rechecking calculations due to conflicting answers.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Let's verify both answers using the given information.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (48 vs 40) for the same calculation.",
+          "why_still_open": "Pending verification of both answers.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "40",
+        "48",
+        "Re-checking calculations to ensure correctness.",
+        "Verify both answers using the given information."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 374,
+      "completion_tokens": 35,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 361,
+      "completion_tokens": 38,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 372,
+      "completion_tokens": 37,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 178,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 813,
+      "completion_tokens": 100,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 810,
+      "completion_tokens": 91,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 824,
+      "completion_tokens": 81,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1000,
+      "completion_tokens": 236,
+      "total_tokens": 1236,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 689,
+      "completion_tokens": 55,
+      "total_tokens": 744,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 409,
+    "majority_vote_total_tokens": 1217,
+    "scrd_total_tokens": 6686,
+    "scrd_prompt_tokens": 5835,
+    "scrd_completion_tokens": 851,
+    "agent_total_tokens": 3936,
+    "recorder_total_tokens": 2006,
+    "evaluator_total_tokens": 744,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

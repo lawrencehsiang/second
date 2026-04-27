@@ -66,7 +66,7 @@ AGENT_ROLES: dict[str, str] = {
     "C": "verifier",
 }
 
-MAX_ROUND = 5
+MAX_ROUND = 7
 
 # 强制禁用代理，直连国内网络
 os.environ["HTTP_PROXY"] = ""
@@ -362,7 +362,7 @@ def run_normal_mode(
         recorder=recorder,
         evaluator=evaluator,
         action_mapper=ActionMapper(),
-        rollback_controller=RollbackController(),
+        rollback_controller=RollbackController(max_rollbacks=2),
     )
 
     debate_orchestrator = DebateOrchestrator(
@@ -573,12 +573,12 @@ if __name__ == "__main__":
 
     llm_client = build_llm_client()
 
-    DATASET_NAME = "aime2025"
-    OUTPUT_DIR = f"outputs/{DATASET_NAME}"
+    DATASET_NAME = "gsm8k"
+    OUTPUT_DIR = f"outputs/sensitivity/rollback_2/{DATASET_NAME}"
 
     writer = ResultWriter(output_dir=OUTPUT_DIR)
 
-    samples = load_samples(DATASET_NAME, limit=30)
+    samples = load_samples(DATASET_NAME, limit=80)
     completed_sample_ids = writer.load_completed_sample_ids()
 
     if completed_sample_ids:
@@ -661,6 +661,10 @@ if __name__ == "__main__":
         )
     else:
         print("No new successful samples were processed in this run.")
+
+
+
+    
 
 
     

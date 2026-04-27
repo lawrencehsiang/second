@@ -1,0 +1,337 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10",
+        "5",
+        "10.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Divide the total oil by the number of cans.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Subtract the oil in 10 cans and divide by the remaining cans.",
+          "claim_type": "support",
+          "related_answer": "B,C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating the average oil per can.",
+          "why_still_open": "Agents used different formulas leading to varied answers.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total oil / 14 cans = 10",
+        "Total oil - 10 cans * 10 / 4 cans = 5",
+        "Total oil - 10 cans * 10 / 4 cans = 10.5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "6",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revised calculation accounts for specific oil amounts in 10 cans.",
+          "claim_type": "support",
+          "related_answer": "A,B,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total oil - 10 cans * 10 / 4 cans = 6",
+        "Total oil - 10 cans * 10 / 4 cans = 11"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "5",
+        "5",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected division of remaining oil among cans after accounting for specific amounts in the first 10 cans.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total oil = 290 liters",
+        "First 10 cans * 8 liters/can = 80 liters",
+        "Remaining oil = 210 liters",
+        "Remaining cans = 14",
+        "Oil per can = 210 liters / 14 cans = 15 liters"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "rollback_suppressed_ablation",
+      "mode": "normal",
+      "sample_id": "gsm8k_0063",
+      "trigger_round": 3,
+      "anchor_round": 2,
+      "note": "w/o rollback ablation: repair mode intentionally skipped"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 350,
+      "completion_tokens": 40,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 337,
+      "completion_tokens": 48,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 348,
+      "completion_tokens": 44,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 612,
+      "completion_tokens": 226,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 707,
+      "completion_tokens": 113,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 703,
+      "completion_tokens": 122,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 720,
+      "completion_tokens": 104,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1122,
+      "completion_tokens": 140,
+      "total_tokens": 1262,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 577,
+      "completion_tokens": 45,
+      "total_tokens": 622,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 709,
+      "completion_tokens": 112,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 706,
+      "completion_tokens": 113,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 721,
+      "completion_tokens": 155,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1031,
+      "completion_tokens": 153,
+      "total_tokens": 1184,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 565,
+      "completion_tokens": 44,
+      "total_tokens": 609,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 390,
+    "majority_vote_total_tokens": 1167,
+    "scrd_total_tokens": 10667,
+    "scrd_prompt_tokens": 9208,
+    "scrd_completion_tokens": 1459,
+    "agent_total_tokens": 6152,
+    "recorder_total_tokens": 3284,
+    "evaluator_total_tokens": 1231,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": true,
+    "suppressed_rollback_context": {
+      "trigger_round": 3,
+      "anchor_round": 2,
+      "anchor_state": {
+        "round_id": 2,
+        "current_answers": [
+          "6",
+          "6",
+          "11"
+        ],
+        "newly_added_claims": [
+          {
+            "text": "Revised calculation accounts for specific oil amounts in 10 cans.",
+            "claim_type": "support",
+            "related_answer": "A,B,C"
+          }
+        ],
+        "unresolved_conflicts": [],
+        "key_raw_snippets": [
+          "Total oil - 10 cans * 10 / 4 cans = 6",
+          "Total oil - 10 cans * 10 / 4 cans = 11"
+        ]
+      },
+      "failed_suffix_state_records": [
+        {
+          "round_id": 3,
+          "current_answers": [
+            "5",
+            "5",
+            "15"
+          ],
+          "newly_added_claims": [
+            {
+              "text": "Corrected division of remaining oil among cans after accounting for specific amounts in the first 10 cans.",
+              "claim_type": "support",
+              "related_answer": "C"
+            }
+          ],
+          "unresolved_conflicts": [],
+          "key_raw_snippets": [
+            "Total oil = 290 liters",
+            "First 10 cans * 8 liters/can = 80 liters",
+            "Remaining oil = 210 liters",
+            "Remaining cans = 14",
+            "Oil per can = 210 liters / 14 cans = 15 liters"
+          ]
+        }
+      ]
+    }
+  }
+}

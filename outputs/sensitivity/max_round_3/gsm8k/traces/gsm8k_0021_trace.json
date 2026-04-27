@@ -1,0 +1,205 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "42",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum of individual stamp counts equals 40.",
+          "claim_type": "constraint",
+          "related_answer": "40"
+        },
+        {
+          "text": "Total stamps calculated as 42.",
+          "claim_type": "rebuttal",
+          "related_answer": "42"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, C agree on 40 stamps, but B calculates 42.",
+          "why_still_open": "Discrepancy in calculation method.",
+          "involved_answers": [
+            "40",
+            "42"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = 40",
+        "40 = 20 + 10 + 10",
+        "42 = 18 + 12 + 12"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "42",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the quantities based on the problem statement.",
+          "claim_type": "explanation",
+          "related_answer": "42"
+        },
+        {
+          "text": "Verifying calculations step-by-step.",
+          "claim_type": "explanation",
+          "related_answer": "40"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on 40 stamps, but B initially calculated 42.",
+          "why_still_open": "B revises to 40 but C is still rechecking calculations.",
+          "involved_answers": [
+            "42",
+            "40"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = 40",
+        "40 = 20 + 10 + 10",
+        "42 = 18 + 12 + 12"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0021",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 383,
+      "completion_tokens": 37,
+      "total_tokens": 420,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0021",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 370,
+      "completion_tokens": 35,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0021",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 381,
+      "completion_tokens": 35,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0021",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 209,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0021",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 835,
+      "completion_tokens": 105,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0021",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 832,
+      "completion_tokens": 98,
+      "total_tokens": 930,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0021",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 846,
+      "completion_tokens": 92,
+      "total_tokens": 938,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0021",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1045,
+      "completion_tokens": 218,
+      "total_tokens": 1263,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0021",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 655,
+      "completion_tokens": 52,
+      "total_tokens": 707,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 420,
+    "majority_vote_total_tokens": 1241,
+    "scrd_total_tokens": 6817,
+    "scrd_prompt_tokens": 5936,
+    "scrd_completion_tokens": 881,
+    "agent_total_tokens": 4049,
+    "recorder_total_tokens": 2061,
+    "evaluator_total_tokens": 707,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

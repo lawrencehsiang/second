@@ -1,0 +1,201 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "15",
+        "9",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "First 60 MB at 5 MB/s takes 12 seconds.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Remaining 30 MB at 10 MB/s takes 3 seconds.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B's claim of 9 seconds vs. Agents A and C's claim of 15 seconds.",
+          "why_still_open": "Agents A and C provide detailed explanations for their 15-second calculation, but B's 9-second claim lacks a clear breakdown.",
+          "involved_answers": [
+            "9",
+            "15"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First 60 MB at 5 MB/s takes 12 seconds.",
+        "Remaining 30 MB at 10 MB/s takes 3 seconds.",
+        "First 60 MB takes 12 seconds; remaining 30 MB takes 3 seconds."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "First 60 MB at 5 MB/s takes 12 seconds.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Remaining 30 MB at 10 MB/s takes 3 seconds.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total time is 15 seconds.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First 60 MB at 5 MB/s takes 12 seconds.",
+        "Remaining 30 MB at 10 MB/s takes 3 seconds.",
+        "Total time is 15 seconds."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0048",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 365,
+      "completion_tokens": 46,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0048",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 352,
+      "completion_tokens": 47,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0048",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 363,
+      "completion_tokens": 57,
+      "total_tokens": 420,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0048",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 625,
+      "completion_tokens": 264,
+      "total_tokens": 889,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0048",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 758,
+      "completion_tokens": 173,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0048",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 754,
+      "completion_tokens": 137,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0048",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 769,
+      "completion_tokens": 135,
+      "total_tokens": 904,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0048",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1261,
+      "completion_tokens": 198,
+      "total_tokens": 1459,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0048",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 632,
+      "completion_tokens": 54,
+      "total_tokens": 686,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 411,
+    "majority_vote_total_tokens": 1230,
+    "scrd_total_tokens": 6990,
+    "scrd_prompt_tokens": 5879,
+    "scrd_completion_tokens": 1111,
+    "agent_total_tokens": 3956,
+    "recorder_total_tokens": 2348,
+    "evaluator_total_tokens": 686,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

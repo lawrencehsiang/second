@@ -1,0 +1,214 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "65",
+        "80",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent B calculates hits in two segments.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agent C calculates hits and subtracts from total.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C provide different answers: 65, 80, and 60.",
+          "why_still_open": "Insufficient information to determine which calculation method is correct.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Hits + Misses = Total Balls",
+        "Segment 1 Hits + Segment 2 Hits = Total Hits in Two Segments",
+        "Total Hits = Total Balls - Misses",
+        "50 + 30 = 80",
+        "70 - 10 = 60"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "65",
+        "65",
+        "65"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the total number of missed balls.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revising the hits calculation for both segments.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying calculations step-by-step.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C provide consistent answers: all at 65, but the initial conflict remains unresolved.",
+          "why_still_open": "The underlying methods used by each agent are still not clear or agreed upon.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Hits + Misses = Total Balls",
+        "50 + 30 = 80",
+        "70 - 10 = 60"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 404,
+      "completion_tokens": 32,
+      "total_tokens": 436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 391,
+      "completion_tokens": 33,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 402,
+      "completion_tokens": 34,
+      "total_tokens": 436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 581,
+      "completion_tokens": 239,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 775,
+      "completion_tokens": 105,
+      "total_tokens": 880,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 772,
+      "completion_tokens": 107,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 786,
+      "completion_tokens": 98,
+      "total_tokens": 884,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1107,
+      "completion_tokens": 260,
+      "total_tokens": 1367,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 747,
+      "completion_tokens": 64,
+      "total_tokens": 811,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 436,
+    "majority_vote_total_tokens": 1296,
+    "scrd_total_tokens": 6937,
+    "scrd_prompt_tokens": 5965,
+    "scrd_completion_tokens": 972,
+    "agent_total_tokens": 3939,
+    "recorder_total_tokens": 2187,
+    "evaluator_total_tokens": 811,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

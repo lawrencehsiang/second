@@ -1,0 +1,287 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "19",
+        "26",
+        "21"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total spent, saved, and remaining money.",
+          "claim_type": "constraint",
+          "related_answer": "26"
+        },
+        {
+          "text": "Total loss is calculated by spending minus savings minus $1.",
+          "claim_type": "explanation",
+          "related_answer": "19"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Spent = $5, Saved = $2, Remaining = $3",
+        "Total spent + saved + remaining = $10",
+        "Loss = Spent - Saved - $1",
+        "Milkshake cost = $5",
+        "Savings = $2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "25",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking calculations based on the question’s details.",
+          "claim_type": "constraint",
+          "related_answer": "25"
+        },
+        {
+          "text": "Mainstream support calculates the total spent, saved, and remaining money before the dog incident, which is 26.",
+          "claim_type": "explanation",
+          "related_answer": "25"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answers (26 and 19) do not align with each other or the question's details.",
+          "why_still_open": "The conflict remains due to discrepancies in calculations and alignment with the question's details.",
+          "involved_answers": [
+            "19",
+            "26",
+            "25"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total spent + saved + remaining = $26",
+        "Milkshake cost = $5",
+        "Savings = $2",
+        "Spent = $5, Saved = $2, Remaining = $3",
+        "Loss = Spent - Saved - $1"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "rollback_suppressed_ablation",
+      "mode": "normal",
+      "sample_id": "gsm8k_0055",
+      "trigger_round": 2,
+      "anchor_round": 1,
+      "note": "w/o rollback ablation: repair mode intentionally skipped"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 47,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 35,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 35,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 171,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 638,
+      "completion_tokens": 127,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 635,
+      "completion_tokens": 51,
+      "total_tokens": 686,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 649,
+      "completion_tokens": 160,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1037,
+      "completion_tokens": 259,
+      "total_tokens": 1296,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 638,
+      "completion_tokens": 51,
+      "total_tokens": 689,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 425,
+    "majority_vote_total_tokens": 1236,
+    "scrd_total_tokens": 6247,
+    "scrd_prompt_tokens": 5311,
+    "scrd_completion_tokens": 936,
+    "agent_total_tokens": 3496,
+    "recorder_total_tokens": 2062,
+    "evaluator_total_tokens": 689,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": {
+    "name": "wo_rollback",
+    "definition": "suppress rollback/repair and finalize current normal trajectory",
+    "decision_rollback_context_policy": "none",
+    "rollback_suppressed": true,
+    "suppressed_rollback_context": {
+      "trigger_round": 2,
+      "anchor_round": 1,
+      "anchor_state": {
+        "round_id": 1,
+        "current_answers": [
+          "19",
+          "26",
+          "21"
+        ],
+        "newly_added_claims": [
+          {
+            "text": "Calculate total spent, saved, and remaining money.",
+            "claim_type": "constraint",
+            "related_answer": "26"
+          },
+          {
+            "text": "Total loss is calculated by spending minus savings minus $1.",
+            "claim_type": "explanation",
+            "related_answer": "19"
+          }
+        ],
+        "unresolved_conflicts": [],
+        "key_raw_snippets": [
+          "Spent = $5, Saved = $2, Remaining = $3",
+          "Total spent + saved + remaining = $10",
+          "Loss = Spent - Saved - $1",
+          "Milkshake cost = $5",
+          "Savings = $2"
+        ]
+      },
+      "failed_suffix_state_records": [
+        {
+          "round_id": 2,
+          "current_answers": [
+            "25",
+            "25",
+            "25"
+          ],
+          "newly_added_claims": [
+            {
+              "text": "Rechecking calculations based on the question’s details.",
+              "claim_type": "constraint",
+              "related_answer": "25"
+            },
+            {
+              "text": "Mainstream support calculates the total spent, saved, and remaining money before the dog incident, which is 26.",
+              "claim_type": "explanation",
+              "related_answer": "25"
+            }
+          ],
+          "unresolved_conflicts": [
+            {
+              "conflict": "Previous answers (26 and 19) do not align with each other or the question's details.",
+              "why_still_open": "The conflict remains due to discrepancies in calculations and alignment with the question's details.",
+              "involved_answers": [
+                "19",
+                "26",
+                "25"
+              ]
+            }
+          ],
+          "key_raw_snippets": [
+            "Total spent + saved + remaining = $26",
+            "Milkshake cost = $5",
+            "Savings = $2",
+            "Spent = $5, Saved = $2, Remaining = $3",
+            "Loss = Spent - Saved - $1"
+          ]
+        }
+      ]
+    }
+  }
+}

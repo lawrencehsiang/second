@@ -1,0 +1,440 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "48",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total miles biked per week and divide by speed.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total distance biked per week divided by speed gives time.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Miles biked per week divided by speed equals time.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (40, 48, 36) for the same problem.",
+          "why_still_open": "Calculating method differs among agents.",
+          "involved_answers": [
+            "40",
+            "48",
+            "36"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate total miles biked per week, then divide by speed to find total time.",
+        "Calculate total distance biked per week, then divide by speed to find time.",
+        "Calculate total miles biked per week, then divide by speed to get time."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "16",
+        "16",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total distance biked and divide by speed.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate total miles biked per week (400 miles) and divide by speed to get 16 hours.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total miles biked per week is 200 miles, so divide by speed to get 8 hours.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total miles biked per week (400 miles) and divide by speed to get 16 hours.",
+        "The total distance biked per week is 200 miles, so divide by speed to get 8 hours.",
+        "Re-evaluate the total distance biked and divide by speed."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "16",
+        "16",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct total distance biked per week is 400 miles.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "At 25 mph, the time spent biking is 16 hours.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The total distance biked per week is 400 miles (20 miles each way for 5 days plus 200 miles on the weekend).",
+        "At 25 mph, this results in 16 hours of biking.",
+        "Re-evaluate the total distance biked and divide by speed."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "16",
+        "32",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total distance biked per week is 400 miles, including 200 miles on the weekend and 200 miles for commuting.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Using 25 mph speed, the time spent biking is 32 hours per week.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The total distance biked per week is 400 miles (200 miles on the weekend + 200 miles commuting).",
+        "At 25 mph, the time spent biking is 32 hours per week.",
+        "Re-evaluate the total distance and divide by speed."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "16",
+        "16",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct total biking time is 16 hours per week.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 32 hours remains unverified.",
+          "why_still_open": "The calculation needs further verification.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "The total distance biked per week is 400 miles.",
+        "Dividing 400 miles by 25 mph results in 16 hours.",
+        "A minority answer of 32 hours remains unverified.",
+        "Re-evaluate the total distance and divide by speed.",
+        "The correct total biking time is 16 hours per week."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 374,
+      "completion_tokens": 39,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 361,
+      "completion_tokens": 38,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 372,
+      "completion_tokens": 41,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 600,
+      "completion_tokens": 268,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 740,
+      "completion_tokens": 157,
+      "total_tokens": 897,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 737,
+      "completion_tokens": 169,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 751,
+      "completion_tokens": 150,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1301,
+      "completion_tokens": 241,
+      "total_tokens": 1542,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 844,
+      "completion_tokens": 104,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 841,
+      "completion_tokens": 142,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 854,
+      "completion_tokens": 176,
+      "total_tokens": 1030,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1206,
+      "completion_tokens": 187,
+      "total_tokens": 1393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 731,
+      "completion_tokens": 122,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 728,
+      "completion_tokens": 187,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 742,
+      "completion_tokens": 133,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1173,
+      "completion_tokens": 203,
+      "total_tokens": 1376,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 757,
+      "completion_tokens": 142,
+      "total_tokens": 899,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 754,
+      "completion_tokens": 117,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 768,
+      "completion_tokens": 113,
+      "total_tokens": 881,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1127,
+      "completion_tokens": 200,
+      "total_tokens": 1327,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 413,
+    "majority_vote_total_tokens": 1225,
+    "scrd_total_tokens": 18690,
+    "scrd_prompt_tokens": 15761,
+    "scrd_completion_tokens": 2929,
+    "agent_total_tokens": 12184,
+    "recorder_total_tokens": 6506,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

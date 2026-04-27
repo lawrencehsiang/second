@@ -1,0 +1,472 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-7a + 3b",
+        "-7a + 3b",
+        "-25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Terms contributing to $x^2$ are $ax^3 \\cdot (-7x)$ and $3x^2 \\cdot bx^2$.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Terms that can contribute to $x^2$ are $ax^3 \\cdot (-7x)$ and $3x^2 \\cdot (-4)$.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different constants for the term $3x^2 \\cdot bx^2$ vs. $3x^2 \\cdot (-4)$.",
+          "why_still_open": "Unclear if the constant should be $b$ or $-4$.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Terms contributing to $x^2$: $ax^3 \\cdot (-7x)$ and $3x^2 \\cdot bx^2$.",
+        "Terms that can contribute to $x^2$: $ax^3 \\cdot (-7x)$ and $3x^2 \\cdot (-4)$.",
+        "$-7a + 3b$",
+        "$-25$",
+        "Identify terms that contribute to $x^2$."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-28a + 12b",
+        "-7a + 3(-4)",
+        "-25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct constant term is -4, not b.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Terms contributing to $x^2$: $ax^3 \\cdot (-7x)$ and $3x^2 \\cdot (-4)$.",
+        "$-28a + 12b$",
+        "$-7a + 3(-4)$",
+        "$-25$",
+        "Identify terms that contribute to $x^2$."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "-7a - 12",
+        "-21a - 12",
+        "-12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The constant term in the expansion is -12, not -4.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Terms contributing to $x^2$: $ax^3 \\cdot (-7x)$ and $3x^2 \\cdot (-4)$.",
+        "Constant term in $3x^2 \\cdot (-4)$ is -12.",
+        "$-7a - 12$",
+        "$-21a - 12$",
+        "Identify terms that contribute to $x^2$."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "-21a - 12",
+        "-21a - 12",
+        "-21a - 12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The constant term in the expansion is -12, not -4.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Terms contributing to $x^2$: $ax^3 \\cdot (-7x)$ and $3x^2 \\cdot (-4)$.",
+        "Constant term in $3x^2 \\cdot (-4)$ is -12.",
+        "$-21a - 12$",
+        "Resolved the constant term issue, now focusing on computing the coefficient of x^2.",
+        "The correct constant term is -12, not -4, as it comes from the term 3x^2 · (-4)."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 354,
+      "completion_tokens": 66,
+      "total_tokens": 420,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 341,
+      "completion_tokens": 59,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 352,
+      "completion_tokens": 52,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 664,
+      "completion_tokens": 326,
+      "total_tokens": 990,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 934,
+      "completion_tokens": 150,
+      "total_tokens": 1084,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 931,
+      "completion_tokens": 123,
+      "total_tokens": 1054,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 941,
+      "completion_tokens": 131,
+      "total_tokens": 1072,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1306,
+      "completion_tokens": 151,
+      "total_tokens": 1457,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 615,
+      "completion_tokens": 43,
+      "total_tokens": 658,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 1097,
+      "completion_tokens": 149,
+      "total_tokens": 1246,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 1093,
+      "completion_tokens": 123,
+      "total_tokens": 1216,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1102,
+      "completion_tokens": 112,
+      "total_tokens": 1214,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1097,
+      "completion_tokens": 257,
+      "total_tokens": 1354,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 703,
+      "completion_tokens": 45,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 826,
+      "completion_tokens": 86,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 997,
+      "completion_tokens": 130,
+      "total_tokens": 1127,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 996,
+      "completion_tokens": 175,
+      "total_tokens": 1171,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 997,
+      "completion_tokens": 182,
+      "total_tokens": 1179,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1186,
+      "completion_tokens": 242,
+      "total_tokens": 1428,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1186,
+      "completion_tokens": 247,
+      "total_tokens": 1433,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1186,
+      "completion_tokens": 166,
+      "total_tokens": 1352,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 691,
+      "completion_tokens": 47,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 1228,
+      "completion_tokens": 144,
+      "total_tokens": 1372,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 1225,
+      "completion_tokens": 144,
+      "total_tokens": 1369,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1241,
+      "completion_tokens": 151,
+      "total_tokens": 1392,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1099,
+      "completion_tokens": 191,
+      "total_tokens": 1290,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 587,
+      "completion_tokens": 74,
+      "total_tokens": 661,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 420,
+    "majority_vote_total_tokens": 1224,
+    "scrd_total_tokens": 28741,
+    "scrd_prompt_tokens": 24975,
+    "scrd_completion_tokens": 3766,
+    "agent_total_tokens": 8110,
+    "recorder_total_tokens": 9304,
+    "evaluator_total_tokens": 1406,
+    "repair_brief_total_tokens": 912,
+    "repair_evaluator_total_tokens": 1399,
+    "repair_agent_total_tokens": 7610
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

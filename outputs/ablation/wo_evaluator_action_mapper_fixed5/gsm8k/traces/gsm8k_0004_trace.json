@@ -1,0 +1,459 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "30",
+        "30",
+        "33"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total pages read, subtract from total, then half the remainder.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C have different answers (30, 30, 33).",
+          "why_still_open": "No consensus on the correct calculation method.",
+          "involved_answers": [
+            "30",
+            "33"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total pages = 60, Pages read = 30, Remaining = 30, Half of remaining = 15"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "42",
+        "33",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent A's previous answer of 30 was based on an incorrect calculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Half of the remaining 30 pages is 15, making 33 incorrect.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C have different answers (42, 33, 15).",
+          "why_still_open": "Disagreement on the correct calculation method persists.",
+          "involved_answers": [
+            "42",
+            "33",
+            "15"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total pages = 60, Pages read = 30, Remaining = 30, Half of remaining = 15",
+        "Pages read = 12 + 24 = 36, Remaining = 60 - 36 = 24, Half = 12",
+        "Pages read = 30, Remaining = 30, Half = 15"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "42",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Pages read today = 2 * 12 = 24, Remaining pages = 120 - 12 - 24 = 84, Half of the remaining = 42.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct calculation involves determining the total pages read, then the remaining pages, and deciding how many pages to read tomorrow.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputing the remaining pages confirms the answer is 15.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C all agree on the answer of 15, but the underlying disagreement on the correct calculation method remains.",
+          "why_still_open": "Consensus on the final answer is reached, but the process for arriving at that answer is still debated.",
+          "involved_answers": [
+            "42",
+            "15"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Pages read = 2 * 12 = 24, Remaining = 120 - 12 - 24 = 84, Half = 42",
+        "Total pages = 120, Pages read = 12 + 24 = 36, Remaining = 120 - 36 = 84, Half = 42",
+        "Pages read = 30, Remaining = 30, Half = 15"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "42",
+        "42",
+        "42"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Julie should read 42 pages tomorrow, being half of the remaining pages after today’s reading.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Pages read today were correctly calculated as 24, leaving 84 pages remaining, half of which is 42.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 42 is consistent with the correct calculation of remaining pages.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Pages read = 24, Remaining = 84, Half = 42",
+        "Total pages = 120, Pages read = 12 + 24 = 36, Remaining = 84, Half = 42",
+        "Remaining pages = 84, Half = 42"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "42",
+        "42",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Julie should read 42 pages tomorrow, being half of the remaining pages after today’s reading.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 15 is inconsistent with the correct calculation of remaining pages.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Revising the answer based on recalculated remaining pages and the target number of pages Julie should read tomorrow.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 15 remains unresolved.",
+          "why_still_open": "The minority answer does not align with the correct calculation of remaining pages.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Pages read = 24, Remaining = 84, Half = 42",
+        "Total pages = 120, Pages read = 12 + 24 = 36, Remaining = 84, Half = 42",
+        "Revised answer based on recalculated remaining pages"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 364,
+      "completion_tokens": 41,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 351,
+      "completion_tokens": 36,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 362,
+      "completion_tokens": 39,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 233,
+      "total_tokens": 828,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 737,
+      "completion_tokens": 148,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 734,
+      "completion_tokens": 101,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 748,
+      "completion_tokens": 152,
+      "total_tokens": 900,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1127,
+      "completion_tokens": 287,
+      "total_tokens": 1414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 829,
+      "completion_tokens": 140,
+      "total_tokens": 969,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 826,
+      "completion_tokens": 236,
+      "total_tokens": 1062,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 840,
+      "completion_tokens": 150,
+      "total_tokens": 990,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1365,
+      "completion_tokens": 396,
+      "total_tokens": 1761,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 852,
+      "completion_tokens": 170,
+      "total_tokens": 1022,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 849,
+      "completion_tokens": 155,
+      "total_tokens": 1004,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 863,
+      "completion_tokens": 140,
+      "total_tokens": 1003,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1392,
+      "completion_tokens": 250,
+      "total_tokens": 1642,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 832,
+      "completion_tokens": 124,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 829,
+      "completion_tokens": 134,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 843,
+      "completion_tokens": 103,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1163,
+      "completion_tokens": 298,
+      "total_tokens": 1461,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 405,
+    "majority_vote_total_tokens": 1193,
+    "scrd_total_tokens": 19834,
+    "scrd_prompt_tokens": 16501,
+    "scrd_completion_tokens": 3333,
+    "agent_total_tokens": 12728,
+    "recorder_total_tokens": 7106,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,281 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3600",
+        "1920",
+        "1920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Monthly violin practice is 1920 minutes.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily practice: 20 + 60 = 80 minutes",
+        "Weekly practice: 80 * 6 = 480 minutes",
+        "Monthly practice: 480 * 4 = 1920 minutes",
+        "Violin practice: 3 * 20 = 60 minutes per day"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "1440",
+        "1920",
+        "1440"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected calculation for monthly violin practice from 1920 to 1440 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Problem conditions confirm violin practice is 1440 minutes monthly, contradicting 1920 minutes.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Violin practice: 60 minutes/day * 6 days/week * 4 weeks/month = 1440 minutes/month",
+        "Piano practice: 20 minutes/day",
+        "Violin practice: 3 times piano practice = 60 minutes/day",
+        "Weekly violin practice: 60 * 6 = 360 minutes",
+        "Monthly violin practice: 360 * 4 = 1440 minutes"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "1440",
+        "1440",
+        "1920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream support has confirmed the correct monthly violin practice time is 1440 minutes, not 1920 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct violin practice time per month is 1920 minutes, derived from daily practice durations and weekly frequency.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the correct monthly violin practice time between 1440 and 1920 minutes.",
+          "why_still_open": "One minority agent still supports 1920 minutes, despite corrections and mainstream confirmation of 1440 minutes.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Violin practice: 60 minutes/day * 6 days/week * 4 weeks/month = 1440 minutes/month",
+        "Piano practice: 20 minutes/day",
+        "Violin practice: 3 times piano practice = 60 minutes/day",
+        "Weekly violin practice: 60 * 6 = 360 minutes",
+        "Monthly violin practice: 360 * 4 = 1440 minutes"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 38,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 38,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 88,
+      "total_tokens": 439,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 652,
+      "completion_tokens": 147,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 618,
+      "completion_tokens": 192,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 615,
+      "completion_tokens": 46,
+      "total_tokens": 661,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 629,
+      "completion_tokens": 187,
+      "total_tokens": 816,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1120,
+      "completion_tokens": 232,
+      "total_tokens": 1352,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 637,
+      "completion_tokens": 50,
+      "total_tokens": 687,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 837,
+      "completion_tokens": 129,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 834,
+      "completion_tokens": 141,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 848,
+      "completion_tokens": 115,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1165,
+      "completion_tokens": 317,
+      "total_tokens": 1482,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 672,
+      "completion_tokens": 44,
+      "total_tokens": 716,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 391,
+    "majority_vote_total_tokens": 1208,
+    "scrd_total_tokens": 11435,
+    "scrd_prompt_tokens": 9671,
+    "scrd_completion_tokens": 1764,
+    "agent_total_tokens": 6399,
+    "recorder_total_tokens": 3633,
+    "evaluator_total_tokens": 1403,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}
