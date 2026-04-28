@@ -1,0 +1,334 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total miles biked per week and divide by speed.",
+          "claim_type": "explanation",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "40 miles/week ÷ 10 mph = 4 hours/week",
+        "Total distance ÷ speed = time"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "48",
+        "36",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revised calculations to include both daily and weekend miles.",
+          "claim_type": "explanation",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total distance ÷ speed = time",
+        "48 miles/week ÷ 10 mph = 4.8 hours/week",
+        "36 miles/week ÷ 10 mph = 3.6 hours/week",
+        "40 miles/week ÷ 10 mph = 4 hours/week"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "32",
+        "32",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected the previous answer from distance to time.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total distance ÷ speed = time",
+        "32 miles/week ÷ 10 mph = 3.2 hours/week",
+        "Revised calculations to include both daily and weekend miles."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 374,
+      "completion_tokens": 37,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 361,
+      "completion_tokens": 34,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 372,
+      "completion_tokens": 33,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 583,
+      "completion_tokens": 107,
+      "total_tokens": 690,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 636,
+      "completion_tokens": 147,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 633,
+      "completion_tokens": 55,
+      "total_tokens": 688,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 647,
+      "completion_tokens": 115,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 960,
+      "completion_tokens": 202,
+      "total_tokens": 1162,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 645,
+      "completion_tokens": 56,
+      "total_tokens": 701,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 726,
+      "completion_tokens": 93,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 617,
+      "completion_tokens": 118,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 616,
+      "completion_tokens": 111,
+      "total_tokens": 727,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 617,
+      "completion_tokens": 101,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 963,
+      "completion_tokens": 150,
+      "total_tokens": 1113,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 698,
+      "completion_tokens": 42,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 600,
+      "completion_tokens": 95,
+      "total_tokens": 695,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 597,
+      "completion_tokens": 46,
+      "total_tokens": 643,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 613,
+      "completion_tokens": 154,
+      "total_tokens": 767,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 948,
+      "completion_tokens": 117,
+      "total_tokens": 1065,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0020",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 578,
+      "completion_tokens": 54,
+      "total_tokens": 632,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 411,
+    "majority_vote_total_tokens": 1211,
+    "scrd_total_tokens": 14651,
+    "scrd_prompt_tokens": 12784,
+    "scrd_completion_tokens": 1867,
+    "agent_total_tokens": 3444,
+    "recorder_total_tokens": 4030,
+    "evaluator_total_tokens": 701,
+    "repair_brief_total_tokens": 819,
+    "repair_evaluator_total_tokens": 1372,
+    "repair_agent_total_tokens": 4285
+  }
+}

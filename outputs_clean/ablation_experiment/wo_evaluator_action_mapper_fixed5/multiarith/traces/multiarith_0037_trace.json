@@ -1,0 +1,425 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "56",
+        "56",
+        "56"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total students - called back = not called back",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total students - Called back = Didn't make the cut",
+          "claim_type": "support",
+          "related_answer": "B,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total students - called back = not called back",
+        "Total students - Called back = Didn't make the cut"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "56",
+        "50",
+        "56"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total number of students is 66.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculation for students not called back: 66 - 10 = 56.",
+          "claim_type": "support",
+          "related_answer": "A,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total students = 66",
+        "Total students - called back = not called back",
+        "56 students didn't make the cut"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "56",
+        "56",
+        "56"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of students is 66, and 10 were called back, resulting in 56 students not making the cut.",
+          "claim_type": "support",
+          "related_answer": "A,B,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total students = 66",
+        "10 students called back",
+        "56 students didn't make the cut"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "56",
+        "56",
+        "54"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of students is 66, and if 10 were called back, then 56 did not make the cut.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The total number of students is 66, and the number of students who didn't make the cut is 66 - 10 = 56.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The number of students who didn't make the cut is reported as both 56 and 54.",
+          "why_still_open": "There is a discrepancy between the answers of 56 and 54.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total students = 66",
+        "10 students called back",
+        "56 students didn't make the cut",
+        "54 students didn't make the cut"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "56",
+        "54",
+        "54"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of students is 66, and if 10 were called back, then 56 did not make the cut.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The discrepancy between 56 and 54 is resolved by recalculating the total number of students and subtracting those called back.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct number of students who didn't make the cut is 54, as per the original problem statement.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total students = 66",
+        "10 students called back",
+        "56 students didn't make the cut",
+        "54 students didn't make the cut"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 349,
+      "completion_tokens": 35,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 336,
+      "completion_tokens": 34,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 347,
+      "completion_tokens": 37,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 585,
+      "completion_tokens": 134,
+      "total_tokens": 719,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 159,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 606,
+      "completion_tokens": 41,
+      "total_tokens": 647,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 620,
+      "completion_tokens": 116,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 994,
+      "completion_tokens": 147,
+      "total_tokens": 1141,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 608,
+      "completion_tokens": 154,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 605,
+      "completion_tokens": 154,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 619,
+      "completion_tokens": 139,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1130,
+      "completion_tokens": 119,
+      "total_tokens": 1249,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 628,
+      "completion_tokens": 154,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 625,
+      "completion_tokens": 161,
+      "total_tokens": 786,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 639,
+      "completion_tokens": 175,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1137,
+      "completion_tokens": 257,
+      "total_tokens": 1394,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 744,
+      "completion_tokens": 161,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 741,
+      "completion_tokens": 121,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 755,
+      "completion_tokens": 175,
+      "total_tokens": 930,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0037",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1263,
+      "completion_tokens": 230,
+      "total_tokens": 1493,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 384,
+    "majority_vote_total_tokens": 1138,
+    "scrd_total_tokens": 16643,
+    "scrd_prompt_tokens": 13940,
+    "scrd_completion_tokens": 2703,
+    "agent_total_tokens": 10647,
+    "recorder_total_tokens": 5996,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

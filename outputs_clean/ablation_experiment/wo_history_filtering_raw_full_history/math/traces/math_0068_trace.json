@@ -1,0 +1,285 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Find the inverse function value three times starting from f(1).",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Find f-1(1), then find f-1 of that result twice more.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Find the inverse of f at 1, then find the inverse of that result, and finally find the inverse of that result.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(1) -> f-1(1) -> f-1(f-1(1)) -> f-1(f-1(f-1(1)))",
+        "Find the inverse function value three times starting from f(1).",
+        "Find f-1(1), then find f-1 of that result twice more.",
+        "Find the inverse of f at 1, then find the inverse of that result, and finally find the inverse of that result.",
+        "Three consecutive applications of the inverse function."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2",
+        "4",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Apply the inverse function step-by-step from the innermost to the outermost layer.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Starting with $f^{-1}(1)$, which is 2, then $f^{-1}(2)$, which is 5, and finally $f^{-1}(5)$, which is 3.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f-1(1) -> f-1(f-1(1)) -> f-1(f-1(f-1(1)))",
+        "Apply the inverse function step-by-step from the innermost to the outermost layer.",
+        "Starting with $f^{-1}(1)$, which is 2, then $f^{-1}(2)$, which is 5, and finally $f^{-1}(5)$, which is 3.",
+        "Three consecutive applications of the inverse function.",
+        "Correctly identifying the order of applying the inverse function."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 433,
+      "completion_tokens": 38,
+      "total_tokens": 471,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 420,
+      "completion_tokens": 42,
+      "total_tokens": 462,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 431,
+      "completion_tokens": 50,
+      "total_tokens": 481,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 282,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 947,
+      "completion_tokens": 110,
+      "total_tokens": 1057,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 944,
+      "completion_tokens": 82,
+      "total_tokens": 1026,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 958,
+      "completion_tokens": 93,
+      "total_tokens": 1051,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1113,
+      "completion_tokens": 267,
+      "total_tokens": 1380,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 741,
+      "completion_tokens": 50,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 1014,
+      "completion_tokens": 92,
+      "total_tokens": 1106,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 675,
+      "completion_tokens": 142,
+      "total_tokens": 817,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 674,
+      "completion_tokens": 118,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 675,
+      "completion_tokens": 164,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1228,
+      "completion_tokens": 268,
+      "total_tokens": 1496,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 823,
+      "completion_tokens": 49,
+      "total_tokens": 872,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 471,
+    "majority_vote_total_tokens": 1414,
+    "scrd_total_tokens": 13526,
+    "scrd_prompt_tokens": 11679,
+    "scrd_completion_tokens": 1847,
+    "agent_total_tokens": 4548,
+    "recorder_total_tokens": 3761,
+    "evaluator_total_tokens": 791,
+    "repair_brief_total_tokens": 1106,
+    "repair_evaluator_total_tokens": 872,
+    "repair_agent_total_tokens": 2448
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

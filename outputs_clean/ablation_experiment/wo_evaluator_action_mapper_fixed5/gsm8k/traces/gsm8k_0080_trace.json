@@ -1,0 +1,425 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "50",
+        "50",
+        "70"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "James's partner taught for 30 years.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Differing total years of teaching.",
+          "why_still_open": "Agents A and B calculate a total of 50 years, while C calculates 70 years.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "James teaches 40 years.",
+        "Partner teaches 30 years.",
+        "Total = 40 + 30 = 70.",
+        "50 years is calculated by 40 + (40-10)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "70",
+        "50",
+        "70"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "James's partner taught for 30 years (40 - 10).",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The total teaching years sum correctly to 70.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "James teaches 40 years.",
+        "Partner teaches 30 years (40 - 10).",
+        "Total = 40 + 30 = 70.",
+        "50 years was previously calculated incorrectly."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "70",
+        "70",
+        "70"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "James's partner teaches for 30 years (40 - 10).",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The total teaching years sum correctly to 70.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "James teaches 40 years.",
+        "Partner teaches 30 years (40 - 10).",
+        "Total = 40 + 30 = 70.",
+        "50 years was previously calculated incorrectly."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "70",
+        "70",
+        "70"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "James's partner teaches for 40 - 10 = 30 years.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The combined teaching years of James and his partner equal 70 years.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "James teaches for 40 years.",
+        "Partner teaches for 30 years (40 - 10).",
+        "Total teaching years sum to 70.",
+        "Previous incorrect calculation was 50 years."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "70",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "James teaches for 40 years, and his partner teaches for 30 years.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The combined teaching years of James and his partner equal 70 years.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "James teaches for 40 years.",
+        "Partner teaches for 30 years.",
+        "Total teaching years sum to 70.",
+        "Previous incorrect calculation was 50 years."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 47,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 43,
+      "total_tokens": 369,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 63,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 204,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 706,
+      "completion_tokens": 126,
+      "total_tokens": 832,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 703,
+      "completion_tokens": 115,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 717,
+      "completion_tokens": 107,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1094,
+      "completion_tokens": 167,
+      "total_tokens": 1261,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 808,
+      "completion_tokens": 138,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 805,
+      "completion_tokens": 126,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 819,
+      "completion_tokens": 142,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1106,
+      "completion_tokens": 167,
+      "total_tokens": 1273,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 600,
+      "completion_tokens": 140,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 597,
+      "completion_tokens": 136,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 611,
+      "completion_tokens": 112,
+      "total_tokens": 723,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1083,
+      "completion_tokens": 169,
+      "total_tokens": 1252,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 604,
+      "completion_tokens": 162,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 601,
+      "completion_tokens": 93,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 615,
+      "completion_tokens": 120,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0080",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1072,
+      "completion_tokens": 161,
+      "total_tokens": 1233,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 386,
+    "majority_vote_total_tokens": 1155,
+    "scrd_total_tokens": 16716,
+    "scrd_prompt_tokens": 14178,
+    "scrd_completion_tokens": 2538,
+    "agent_total_tokens": 10858,
+    "recorder_total_tokens": 5858,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

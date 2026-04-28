@@ -1,0 +1,538 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "60",
+        "52",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total flowers = 100, non-roses = 75, so percentage non-roses = 75%",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total flowers = 25 + 40 + 35",
+        "Percentage non-roses = (Non-roses / Total) * 100",
+        "Non-roses = 75",
+        "Total flowers = 100",
+        "Percentage non-roses = 75%"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "60",
+        "60",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated the total number of flowers and non-rose flowers to resolve discrepancies.",
+          "claim_type": "explanation",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total flowers = 25 + 35 + 40",
+        "Percentage non-roses = (Non-roses / Total) * 100",
+        "Non-roses = 100 - 25",
+        "Total flowers = 100",
+        "Percentage non-roses = 65%"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "60",
+        "65",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the total number of flowers and recalculated the percentage of non-rose flowers.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revised the calculation to find the percentage of flowers that are not roses using the correct formula.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Provided a detailed calculation showing the correct percentage of non-rose flowers is 75%.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total flowers = 25 + 40 + 35",
+        "Non-rose flowers = 40 + 35",
+        "Percentage non-rose flowers = (Non-rose flowers / Total flowers) * 100",
+        "Percentage non-rose flowers = 75%",
+        "Total flowers = 100"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "75",
+        "75",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected the previous error in calculating the percentage of non-rose flowers.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculated the correct percentage of flowers that are not roses using the total number of flowers.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Confirmed the correct percentage of non-rose flowers is 75%.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total flowers = 25 + 40 + 35",
+        "Non-rose flowers = 70",
+        "Percentage non-rose flowers = (70/100) * 100",
+        "Percentage non-rose flowers = 75%",
+        "Total flowers = 100"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "60",
+        "60",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the total number of flowers and recalculated the percentage of non-rose flowers.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-calculated the percentage of flowers that are not roses using the total number of flowers.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Revised the calculation based on the total number of flowers.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total flowers = 25 + 40 + 35",
+        "Non-rose flowers = 70",
+        "Percentage non-rose flowers = 60%"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 5
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 345,
+      "completion_tokens": 69,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 332,
+      "completion_tokens": 38,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 343,
+      "completion_tokens": 73,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 659,
+      "completion_tokens": 160,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 623,
+      "completion_tokens": 148,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 620,
+      "completion_tokens": 141,
+      "total_tokens": 761,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 634,
+      "completion_tokens": 166,
+      "total_tokens": 800,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1143,
+      "completion_tokens": 271,
+      "total_tokens": 1414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 625,
+      "completion_tokens": 43,
+      "total_tokens": 668,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 819,
+      "completion_tokens": 105,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 600,
+      "completion_tokens": 116,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 599,
+      "completion_tokens": 118,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 600,
+      "completion_tokens": 113,
+      "total_tokens": 713,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1035,
+      "completion_tokens": 159,
+      "total_tokens": 1194,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 687,
+      "completion_tokens": 52,
+      "total_tokens": 739,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 577,
+      "completion_tokens": 101,
+      "total_tokens": 678,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 574,
+      "completion_tokens": 138,
+      "total_tokens": 712,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 590,
+      "completion_tokens": 207,
+      "total_tokens": 797,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1133,
+      "completion_tokens": 247,
+      "total_tokens": 1380,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 658,
+      "completion_tokens": 56,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 678,
+      "completion_tokens": 104,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 675,
+      "completion_tokens": 112,
+      "total_tokens": 787,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 691,
+      "completion_tokens": 188,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1179,
+      "completion_tokens": 232,
+      "total_tokens": 1411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 649,
+      "completion_tokens": 55,
+      "total_tokens": 704,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 672,
+      "completion_tokens": 111,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 669,
+      "completion_tokens": 109,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 685,
+      "completion_tokens": 156,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1136,
+      "completion_tokens": 200,
+      "total_tokens": 1336,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 649,
+      "completion_tokens": 59,
+      "total_tokens": 708,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 414,
+    "majority_vote_total_tokens": 1200,
+    "scrd_total_tokens": 24726,
+    "scrd_prompt_tokens": 20879,
+    "scrd_completion_tokens": 3847,
+    "agent_total_tokens": 3532,
+    "recorder_total_tokens": 7554,
+    "evaluator_total_tokens": 668,
+    "repair_brief_total_tokens": 924,
+    "repair_evaluator_total_tokens": 2865,
+    "repair_agent_total_tokens": 9183
+  }
+}

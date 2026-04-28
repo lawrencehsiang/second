@@ -1,0 +1,433 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "193",
+        "241",
+        "361"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "(x-y)^2 = x^2 + y^2 - 2xy",
+          "claim_type": "constraint",
+          "related_answer": "193, 361"
+        },
+        {
+          "text": "Square both sides of the equation.",
+          "claim_type": "constraint",
+          "related_answer": "241"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x^2 + y^2 = (x-y)^2 + 2xy",
+        "Square the equation to get x^2 + y^2.",
+        "Identity: (x-y)^2 = x^2 + y^2 - 2xy"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "361",
+        "361",
+        "241"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "(x-y)^2 = x^2 + y^2 - 2xy",
+          "claim_type": "constraint",
+          "related_answer": "361"
+        },
+        {
+          "text": "Substitute x-y=15 and xy=4 into the formula (x-y)^2 = x^2 + y^2 - 2xy.",
+          "claim_type": "constraint",
+          "related_answer": "361"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x^2 + y^2 = 229",
+        "(x-y)^2 = x^2 + y^2 - 2xy",
+        "Substitute x-y=15 and xy=4 into (x-y)^2 = x^2 + y^2 - 2xy."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "361",
+        "361",
+        "233"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Using the identity (x-y)^2 = x^2 + y^2 - 2xy correctly yields x^2 + y^2 = 233.",
+          "claim_type": "constraint",
+          "related_answer": "233"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x^2 + y^2 = 229",
+        "(x-y)^2 = x^2 + y^2 - 2xy",
+        "Substitute x-y=15 and xy=4 into (x-y)^2 = x^2 + y^2 - 2xy."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "361",
+        "361",
+        "233"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Direct computation of \\(x^2 + y^2\\) from \\((x-y)^2 = x^2 + y^2 - 2xy\\) yields \\(x^2 + y^2 = 233\\).",
+          "claim_type": "support",
+          "related_answer": "233"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Given \\(x-y=15\\) and \\(xy=4\\), substitute into \\((x-y)^2 = x^2 + y^2 - 2xy\\).",
+        "\\((x-y)^2 = x^2 + y^2 - 2xy\\) yields \\(x^2 + y^2 = 233\\).",
+        "Mainstream support computed \\(x^2 + y^2\\) using the identity."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "233",
+        "233",
+        "361"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Using \\((x-y)^2 = x^2 + y^2 - 2xy\\) with \\(x-y=15\\) and \\(xy=4\\) yields \\(x^2 + y^2 = 233\\).",
+          "claim_type": "support",
+          "related_answer": "233"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Two conflicting answers: 233 and 361.",
+          "why_still_open": "Both sides present valid derivations, leading to different results.",
+          "involved_answers": [
+            "233",
+            "361"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Substitute \\(x-y=15\\) and \\(xy=4\\) into \\((x-y)^2 = x^2 + y^2 - 2xy\\).",
+        "Solving \\((x-y)^2 = 225\\) with \\(-2xy=-8\\) gives \\(x^2 + y^2 = 233\\).",
+        "Direct computation confirms \\((x-y)^2 = x^2 + y^2 - 2xy\\) leads to \\(x^2 + y^2 = 361\\).",
+        "The minority answer 233 is derived correctly from the identity.",
+        "The majority answer 361 is derived from the same identity but is incorrect."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 338,
+      "completion_tokens": 49,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 325,
+      "completion_tokens": 33,
+      "total_tokens": 358,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 336,
+      "completion_tokens": 57,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 618,
+      "completion_tokens": 175,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 607,
+      "completion_tokens": 154,
+      "total_tokens": 761,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 604,
+      "completion_tokens": 162,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 618,
+      "completion_tokens": 77,
+      "total_tokens": 695,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1110,
+      "completion_tokens": 204,
+      "total_tokens": 1314,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 708,
+      "completion_tokens": 143,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 705,
+      "completion_tokens": 127,
+      "total_tokens": 832,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 719,
+      "completion_tokens": 187,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1219,
+      "completion_tokens": 163,
+      "total_tokens": 1382,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 607,
+      "completion_tokens": 58,
+      "total_tokens": 665,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 604,
+      "completion_tokens": 132,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 618,
+      "completion_tokens": 255,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1153,
+      "completion_tokens": 217,
+      "total_tokens": 1370,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1153,
+      "completion_tokens": 218,
+      "total_tokens": 1371,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 790,
+      "completion_tokens": 188,
+      "total_tokens": 978,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 787,
+      "completion_tokens": 235,
+      "total_tokens": 1022,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 787,
+      "completion_tokens": 255,
+      "total_tokens": 1042,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 801,
+      "completion_tokens": 180,
+      "total_tokens": 981,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1399,
+      "completion_tokens": 347,
+      "total_tokens": 1746,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 387,
+    "majority_vote_total_tokens": 1138,
+    "scrd_total_tokens": 20222,
+    "scrd_prompt_tokens": 16606,
+    "scrd_completion_tokens": 3616,
+    "agent_total_tokens": 12246,
+    "recorder_total_tokens": 7976,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

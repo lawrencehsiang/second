@@ -1,0 +1,422 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "-5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Greatest integer less than √32 is 5.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "b^2 - 32 < 0",
+        "b < √32 ≈ 5.66",
+        "greatest int < 5.66 is 5",
+        "denominator cannot have real roots",
+        "discriminant < 0"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "-5",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The greatest integer less than √32 is 5.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ensure the denominator has no real roots by making the discriminant negative.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different values proposed for b (5 vs -5).",
+          "why_still_open": "The conflicting values do not align with ensuring the denominator has no real roots.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "b^2 - 32 < 0",
+        "b < √32 ≈ 5.66",
+        "greatest int < 5.66 is 5",
+        "denominator cannot have real roots",
+        "discriminant < 0"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "-5",
+        "-5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The greatest integer value of b that ensures the denominator has no real roots is 5.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "b^2 - 32 < 0",
+        "b < √32 ≈ 5.66",
+        "greatest int < 5.66 is 5",
+        "denominator cannot have real roots",
+        "discriminant < 0"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "-5",
+        "-5",
+        "-5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The greatest integer value of b that ensures the denominator has no real roots is -5.",
+          "claim_type": "constraint",
+          "related_answer": "A,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "b^2 - 32 < 0",
+        "|b| < √32 ≈ 5.66",
+        "greatest int < 5.66 is -5",
+        "denominator cannot have real roots",
+        "majority supports -5"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-4",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The greatest integer value of b that ensures the entire expression's domain includes all real numbers is 5.",
+          "claim_type": "constraint",
+          "related_answer": "B,C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The greatest integer value of b that ensures the denominator has no real roots is -5.",
+          "why_still_open": "The conflict remains because it was partially resolved but not fully clarified that the condition applies to the entire expression, not just the denominator.",
+          "involved_answers": [
+            "A"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "b^2 - 32 < 0",
+        "|b| < √32 ≈ 5.66",
+        "greatest int < 5.66 is 5",
+        "denominator cannot have real roots",
+        "expression is defined for all x"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 359,
+      "completion_tokens": 40,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 346,
+      "completion_tokens": 37,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 357,
+      "completion_tokens": 75,
+      "total_tokens": 432,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 625,
+      "completion_tokens": 135,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 620,
+      "completion_tokens": 127,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 617,
+      "completion_tokens": 115,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 631,
+      "completion_tokens": 172,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1083,
+      "completion_tokens": 234,
+      "total_tokens": 1317,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 823,
+      "completion_tokens": 103,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 820,
+      "completion_tokens": 116,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 834,
+      "completion_tokens": 266,
+      "total_tokens": 1100,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1272,
+      "completion_tokens": 140,
+      "total_tokens": 1412,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 828,
+      "completion_tokens": 213,
+      "total_tokens": 1041,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 825,
+      "completion_tokens": 102,
+      "total_tokens": 927,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 839,
+      "completion_tokens": 109,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1110,
+      "completion_tokens": 141,
+      "total_tokens": 1251,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 625,
+      "completion_tokens": 153,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 622,
+      "completion_tokens": 245,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 636,
+      "completion_tokens": 206,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1268,
+      "completion_tokens": 218,
+      "total_tokens": 1486,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 399,
+    "majority_vote_total_tokens": 1214,
+    "scrd_total_tokens": 18087,
+    "scrd_prompt_tokens": 15140,
+    "scrd_completion_tokens": 2947,
+    "agent_total_tokens": 11861,
+    "recorder_total_tokens": 6226,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

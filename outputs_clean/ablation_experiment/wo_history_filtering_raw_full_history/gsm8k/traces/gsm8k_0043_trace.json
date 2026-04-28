@@ -1,0 +1,214 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "78",
+        "78",
+        "70"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Divide total bananas by number of monkeys to find bananas per monkey.",
+          "claim_type": "explanation",
+          "related_answer": "78"
+        },
+        {
+          "text": "Different answers suggest a conflict in calculation method.",
+          "claim_type": "rebuttal",
+          "related_answer": "70"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B have the same answer (78), but agent C has a different answer (70).",
+          "why_still_open": "Disagreement on the calculation method leads to different results.",
+          "involved_answers": [
+            "78",
+            "70"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total bananas / Number of monkeys = Bananas per monkey",
+        "Two agents agree on 78, one on 70",
+        "Calculation method disagreement",
+        "78 bananas per monkey",
+        "70 bananas per monkey"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "78",
+        "70",
+        "78"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate calculation method based on provided quantities.",
+          "claim_type": "rebuttal",
+          "related_answer": "78"
+        },
+        {
+          "text": "Ensure all bananas are counted correctly and divided among monkeys.",
+          "claim_type": "explanation",
+          "related_answer": "70"
+        },
+        {
+          "text": "Calculate total bananas and divide by number of monkeys for consistency.",
+          "claim_type": "explanation",
+          "related_answer": "78"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total bananas / Number of monkeys = Bananas per monkey",
+        "Two agents agree on 78, one on 70",
+        "Re-evaluate the calculation method based on the provided quantities",
+        "Ensure all bananas are counted correctly and divided among monkeys",
+        "Calculate total bananas and divide by number of monkeys for consistency"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0043",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 38,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0043",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 33,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0043",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 36,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0043",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 236,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0043",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 854,
+      "completion_tokens": 140,
+      "total_tokens": 994,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0043",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 851,
+      "completion_tokens": 113,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0043",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 865,
+      "completion_tokens": 145,
+      "total_tokens": 1010,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0043",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1183,
+      "completion_tokens": 221,
+      "total_tokens": 1404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0043",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 672,
+      "completion_tokens": 51,
+      "total_tokens": 723,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 414,
+    "majority_vote_total_tokens": 1220,
+    "scrd_total_tokens": 7140,
+    "scrd_prompt_tokens": 6127,
+    "scrd_completion_tokens": 1013,
+    "agent_total_tokens": 4188,
+    "recorder_total_tokens": 2229,
+    "evaluator_total_tokens": 723,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

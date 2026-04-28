@@ -1,0 +1,469 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "-3",
+        "-3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Compute a - b directly from solved values of a and b.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Use point-slope formula to determine the slope a.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Solve for both a and b using two given points.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Solve for a and b: (-1,1), (2,5) -> a=4/3, b=1/3 -> a-b=1",
+        "Point-slope formula: y-y1=m(x-x1)",
+        "Two points: (-1,1) and (2,5)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-3",
+        "-12",
+        "-3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute a and b using new points (4,5) and (8,17).",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous mainstream answer (-3) now matches the minority answer (3) after re-computation.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Solving for a and b using points (4,5) and (8,17) gives a=-3 and b=9.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A's recomputation results in a=-3 and b=9, leading to a-b=-12, conflicting with Agent C's answer of -3.",
+          "why_still_open": "Recomputation introduces new evidence that changes the mainstream answer, creating a conflict with Agent C's consistent previous answer.",
+          "involved_answers": [
+            "-3",
+            "-12"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recompute a and b using points (4,5) and (8,17): a=-3, b=9",
+        "Previous answer (-3) now matches minority answer (3) after re-computation",
+        "Points (4,5) and (8,17) -> a=-3, b=9 -> a-b=-12",
+        "Mainstream answer (-3) vs minority answer (-12)"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "10",
+        "-12",
+        "-12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated slope a as 3 and y-intercept b as -7, leading to a-b=10.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recomputation confirms a=-3 and b=9, resulting in a-b=-12.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agent C updates the answer to -12 based on recomputation.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recalculated: a=3, b=-7 -> a-b=10",
+        "Recomputation: a=-3, b=9 -> a-b=-12",
+        "Agent C updates answer to -12",
+        "New mainstream: a-b=10 vs previous -3"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "10",
+        "10",
+        "-3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Slope a recalculated as 3, y-intercept b as -7, leading to a-b=10.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Slope a recalculated as 3, y-intercept b as -7, leading to a-b=10.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Minority answer of -3 for slope a is correct, contradicting the mainstream support of -12.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream supports a-b=10, while minority supports a-b=-12.",
+          "why_still_open": "Disagreement on the recalculated values of slope a and y-intercept b.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Slope a=3, b=-7 -> a-b=10",
+        "Recomputed slope a=3, y-intercept b=-7",
+        "Minority answer a=-3 aligns with recalculations",
+        "Mainstream vs minority: a-b=10 vs -12",
+        "New calculation: a=3, b=-7"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-14",
+        "10",
+        "-3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correct slope a=3 verified by points (4,5) and (8,17), contradicting minority a=-12.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Correct y-intercept b=-7 verified, leading to a-b=10.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream supports a-b=10, while minority supports a-b=-12.",
+          "why_still_open": "Disagreement on the correctness of slope and intercept calculations between mainstream and minority.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Slope a=3, b=-7 -> a-b=10",
+        "Mainstream vs minority: a-b=10 vs -12",
+        "Points (4,5) and (8,17) lead to slope a=3",
+        "Y-intercept b=-7 confirmed",
+        "Rechecking minority answer of a=-3"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0076",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 348,
+      "completion_tokens": 41,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 335,
+      "completion_tokens": 48,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 346,
+      "completion_tokens": 41,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 214,
+      "total_tokens": 817,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 107,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 606,
+      "completion_tokens": 64,
+      "total_tokens": 670,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 620,
+      "completion_tokens": 55,
+      "total_tokens": 675,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 963,
+      "completion_tokens": 368,
+      "total_tokens": 1331,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 850,
+      "completion_tokens": 198,
+      "total_tokens": 1048,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 848,
+      "completion_tokens": 172,
+      "total_tokens": 1020,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 861,
+      "completion_tokens": 149,
+      "total_tokens": 1010,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1414,
+      "completion_tokens": 235,
+      "total_tokens": 1649,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 820,
+      "completion_tokens": 144,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 817,
+      "completion_tokens": 144,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 831,
+      "completion_tokens": 105,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1179,
+      "completion_tokens": 333,
+      "total_tokens": 1512,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 825,
+      "completion_tokens": 197,
+      "total_tokens": 1022,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 822,
+      "completion_tokens": 209,
+      "total_tokens": 1031,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 835,
+      "completion_tokens": 112,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0076",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1407,
+      "completion_tokens": 281,
+      "total_tokens": 1688,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 389,
+    "majority_vote_total_tokens": 1159,
+    "scrd_total_tokens": 19156,
+    "scrd_prompt_tokens": 15939,
+    "scrd_completion_tokens": 3217,
+    "agent_total_tokens": 12159,
+    "recorder_total_tokens": 6997,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

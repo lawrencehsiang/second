@@ -1,0 +1,409 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "500",
+        "500",
+        "500"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sara's total is $250, and Rachel should budget twice that amount.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sara spent $50 + $200 = $250.",
+        "Rachel should budget 2 * $250 = $500.",
+        "$250 * 2 = $500."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "500",
+        "500",
+        "500"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rachel should budget $100 for shoes and $400 for dresses, totaling $500.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sara's total is $250 ($50 + $200).",
+        "Rachel should budget twice $250, which is $500.",
+        "Rachel should budget $100 for shoes and $400 for dresses."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "500",
+        "250",
+        "250"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rachel should spend twice as much as Sara, who spent $250 in total.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Rachel's budget should be updated to $500, as it was incorrectly set to $250.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a disagreement on the correct total budget for Rachel.",
+          "why_still_open": "Different agents proposed different totals: $500 and $250.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sara's total spending is $250.",
+        "Rachel should spend twice as much as Sara.",
+        "Rachel's budget should be $500."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "500",
+        "500",
+        "500"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of $250 is incorrect because Rachel should spend twice as much as Sara, who spent $250.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Rachel's budget should be $500, as she needs to spend twice the amount Sara did, who spent $250.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sara spent $250 in total.",
+        "Rachel should spend twice as much as Sara.",
+        "$500 is the correct budget for Rachel."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "500",
+        "500",
+        "500"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rachel should spend twice as much as Sara, who spent $250.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sara spent $250 in total.",
+        "Rachel should spend twice as much as Sara.",
+        "$500 is the correct budget for Rachel."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 380,
+      "completion_tokens": 56,
+      "total_tokens": 436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 367,
+      "completion_tokens": 50,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 378,
+      "completion_tokens": 62,
+      "total_tokens": 440,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 653,
+      "completion_tokens": 129,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 650,
+      "completion_tokens": 141,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 647,
+      "completion_tokens": 51,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 661,
+      "completion_tokens": 139,
+      "total_tokens": 800,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1002,
+      "completion_tokens": 141,
+      "total_tokens": 1143,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 655,
+      "completion_tokens": 170,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 652,
+      "completion_tokens": 161,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 666,
+      "completion_tokens": 140,
+      "total_tokens": 806,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1154,
+      "completion_tokens": 224,
+      "total_tokens": 1378,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 856,
+      "completion_tokens": 124,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 853,
+      "completion_tokens": 116,
+      "total_tokens": 969,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 867,
+      "completion_tokens": 114,
+      "total_tokens": 981,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1133,
+      "completion_tokens": 177,
+      "total_tokens": 1310,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 870,
+      "completion_tokens": 138,
+      "total_tokens": 1008,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 867,
+      "completion_tokens": 125,
+      "total_tokens": 992,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 881,
+      "completion_tokens": 120,
+      "total_tokens": 1001,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0042",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1110,
+      "completion_tokens": 111,
+      "total_tokens": 1221,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 436,
+    "majority_vote_total_tokens": 1293,
+    "scrd_total_tokens": 17791,
+    "scrd_prompt_tokens": 15302,
+    "scrd_completion_tokens": 2489,
+    "agent_total_tokens": 11957,
+    "recorder_total_tokens": 5834,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

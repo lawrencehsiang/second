@@ -1,0 +1,588 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3.5",
+        "7",
+        "3.0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substituting x and y yields 3.5.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Computing with exponential and powers results in 7.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Direct computation gives 3.0.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x, y substituted -> 3.5",
+        "exp, pow computed -> 7",
+        "direct comp -> 3.0"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3.5",
+        "3",
+        "3.0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed with a standard approach to ensure consistency.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Computed the expression step-by-step for consistency.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputed using standard arithmetic steps for accuracy.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recomputed -> 3.5",
+        "Step-by-step computation -> 3",
+        "Standard arithmetic -> 3.0"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "3.5",
+        "3.8333",
+        "3.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the expression step-by-step to ensure correctness.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recomputed the expression step-by-step to resolve the conflict.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputed the expression step-by-step for consistency and accuracy.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Multiple conflicting answers (3.5, 7, 3.0) from different agents in previous rounds.",
+          "why_still_open": "No agreement on the final answer despite recomputation.",
+          "involved_answers": [
+            "3.5",
+            "3.8333"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recompute -> 3.5",
+        "Step-by-step -> 3.8333",
+        "Ensure correctness"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "3.8333",
+        "3.8333",
+        "3.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Step-by-step re-computation confirms the correct value.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Resolved conflict by recomputing the expression step-by-step.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputed the expression step-by-step to ensure correctness.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Multiple conflicting answers (3.5, 7, 3.0) from different agents in previous rounds.",
+          "why_still_open": "Disagreement persists on the final agreed value despite recomputation.",
+          "involved_answers": [
+            "3.5",
+            "3.8333"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Step-by-step re-computation",
+        "Ensure correctness",
+        "Resolve conflict"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "3.8333",
+        "3.8333",
+        "3.8333"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the expression step-by-step to ensure correctness.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Step-by-step recomputation resolved the conflict.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Multiple conflicting answers (3.5, 7, 3.0) from different agents in previous rounds.",
+          "why_still_open": "Disagreement persists on the final agreed value despite recomputation.",
+          "involved_answers": [
+            "3.5",
+            "3.8333"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recompute step-by-step",
+        "Ensure correctness",
+        "Resolve conflict"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 38,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 40,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 34,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 173,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 756,
+      "completion_tokens": 170,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 756,
+      "completion_tokens": 97,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 751,
+      "completion_tokens": 134,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 767,
+      "completion_tokens": 103,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1053,
+      "completion_tokens": 217,
+      "total_tokens": 1270,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 644,
+      "completion_tokens": 44,
+      "total_tokens": 688,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 782,
+      "completion_tokens": 72,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 568,
+      "completion_tokens": 87,
+      "total_tokens": 655,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 567,
+      "completion_tokens": 93,
+      "total_tokens": 660,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 568,
+      "completion_tokens": 91,
+      "total_tokens": 659,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 974,
+      "completion_tokens": 168,
+      "total_tokens": 1142,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 724,
+      "completion_tokens": 49,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 856,
+      "completion_tokens": 106,
+      "total_tokens": 962,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 853,
+      "completion_tokens": 101,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 869,
+      "completion_tokens": 95,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1010,
+      "completion_tokens": 253,
+      "total_tokens": 1263,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 669,
+      "completion_tokens": 48,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 1068,
+      "completion_tokens": 107,
+      "total_tokens": 1175,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 1065,
+      "completion_tokens": 108,
+      "total_tokens": 1173,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1081,
+      "completion_tokens": 103,
+      "total_tokens": 1184,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1114,
+      "completion_tokens": 243,
+      "total_tokens": 1357,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 676,
+      "completion_tokens": 56,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 1271,
+      "completion_tokens": 142,
+      "total_tokens": 1413,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 1268,
+      "completion_tokens": 131,
+      "total_tokens": 1399,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1284,
+      "completion_tokens": 122,
+      "total_tokens": 1406,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1132,
+      "completion_tokens": 203,
+      "total_tokens": 1335,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 637,
+      "completion_tokens": 54,
+      "total_tokens": 691,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 384,
+    "majority_vote_total_tokens": 1135,
+    "scrd_total_tokens": 28857,
+    "scrd_prompt_tokens": 25375,
+    "scrd_completion_tokens": 3482,
+    "agent_total_tokens": 4669,
+    "recorder_total_tokens": 7129,
+    "evaluator_total_tokens": 688,
+    "repair_brief_total_tokens": 854,
+    "repair_evaluator_total_tokens": 2913,
+    "repair_agent_total_tokens": 12604
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

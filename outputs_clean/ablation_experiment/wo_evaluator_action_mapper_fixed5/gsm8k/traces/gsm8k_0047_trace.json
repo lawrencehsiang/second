@@ -1,0 +1,420 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "1920",
+        "720",
+        "1920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Daily practice time is 4 hours.",
+          "claim_type": "constraint",
+          "related_answer": "1920"
+        },
+        {
+          "text": "Weekly practice time is 28 days * 4 hours/day = 112 hours.",
+          "claim_type": "explanation",
+          "related_answer": "1920"
+        },
+        {
+          "text": "Monthly practice time is 4 weeks * 112 hours/week = 1920 hours.",
+          "claim_type": "explanation",
+          "related_answer": "1920"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4 hours/day x 28 days/week = 112 hours/week",
+        "112 hours/week x 4 weeks/month = 1920 hours/month",
+        "Daily practice time: 4 hours",
+        "Weekly practice time: 112 hours",
+        "Total monthly practice time: 1920 hours"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "1920",
+        "1920",
+        "1920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Daily practice time for the piano is 20 minutes, and for the violin, it is 60 minutes.",
+          "claim_type": "support",
+          "related_answer": "1920"
+        },
+        {
+          "text": "Total daily practice time is 80 minutes, not 4 hours.",
+          "claim_type": "rebuttal",
+          "related_answer": "1920"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily piano practice: 20 min",
+        "Daily violin practice: 60 min",
+        "Total daily practice: 80 min",
+        "Weekly practice: 560 min",
+        "Monthly practice: 1920 min"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "9600",
+        "1920",
+        "1920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed total daily practice time is 80 minutes, not 4 hours.",
+          "claim_type": "rebuttal",
+          "related_answer": "9600"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily piano practice: 20 min",
+        "Daily violin practice: 60 min",
+        "Total daily practice: 80 min",
+        "Weekly practice: 560 min",
+        "Monthly practice: 1920 min"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "960",
+        "1920",
+        "1920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct daily practice time for the violin is 60 minutes, not 80 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "960"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily piano practice: 20 min",
+        "Daily violin practice: 60 min",
+        "Total daily practice: 80 min",
+        "Weekly practice: 560 min",
+        "Monthly practice: 1920 min"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "1920",
+        "1440",
+        "960"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct daily violin practice time is 60 minutes, not 80 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "960"
+        },
+        {
+          "text": "Adjust calculations based on the correct daily violin practice time of 60 minutes.",
+          "claim_type": "explanation",
+          "related_answer": "1440"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily violin practice: 60 min",
+        "Total daily practice: 80 min",
+        "Weekly practice: 560 min",
+        "Monthly practice: 1920 min",
+        "Correct daily practice: 60 min"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 39,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 38,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 46,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 251,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 615,
+      "completion_tokens": 132,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 611,
+      "completion_tokens": 107,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 626,
+      "completion_tokens": 117,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1146,
+      "completion_tokens": 188,
+      "total_tokens": 1334,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 728,
+      "completion_tokens": 130,
+      "total_tokens": 858,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 725,
+      "completion_tokens": 152,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 739,
+      "completion_tokens": 163,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1189,
+      "completion_tokens": 138,
+      "total_tokens": 1327,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 730,
+      "completion_tokens": 110,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 727,
+      "completion_tokens": 179,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 741,
+      "completion_tokens": 182,
+      "total_tokens": 923,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1172,
+      "completion_tokens": 140,
+      "total_tokens": 1312,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 716,
+      "completion_tokens": 122,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 714,
+      "completion_tokens": 128,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 728,
+      "completion_tokens": 127,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0047",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1079,
+      "completion_tokens": 183,
+      "total_tokens": 1262,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 392,
+    "majority_vote_total_tokens": 1167,
+    "scrd_total_tokens": 17306,
+    "scrd_prompt_tokens": 14634,
+    "scrd_completion_tokens": 2672,
+    "agent_total_tokens": 11216,
+    "recorder_total_tokens": 6090,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

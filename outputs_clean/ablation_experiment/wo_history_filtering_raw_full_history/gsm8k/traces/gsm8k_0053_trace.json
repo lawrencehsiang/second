@@ -1,0 +1,184 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each friend received 8 pencils.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5 friends * 8 pencils/friend = 40 pencils",
+        "Arnel kept 10 pencils",
+        "Total pencils = 50",
+        "Divide by 10 boxes: 50 / 10 = 5 pencils per box",
+        "50 pencils shared = 5 friends * 8 pencils/friend + 10 kept"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5 friends * 8 pencils/friend = 40 pencils",
+        "Arnel kept 10 pencils",
+        "Total pencils = 50",
+        "Divide by 10 boxes: 50 / 10 = 5 pencils per box",
+        "50 pencils shared = 5 friends * 8 pencils/friend + 10 kept"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 359,
+      "completion_tokens": 69,
+      "total_tokens": 428,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 346,
+      "completion_tokens": 58,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 357,
+      "completion_tokens": 72,
+      "total_tokens": 429,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 676,
+      "completion_tokens": 148,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 772,
+      "completion_tokens": 174,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 768,
+      "completion_tokens": 141,
+      "total_tokens": 909,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 782,
+      "completion_tokens": 146,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1148,
+      "completion_tokens": 114,
+      "total_tokens": 1262,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0053",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 519,
+      "completion_tokens": 40,
+      "total_tokens": 559,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 428,
+    "majority_vote_total_tokens": 1261,
+    "scrd_total_tokens": 6689,
+    "scrd_prompt_tokens": 5727,
+    "scrd_completion_tokens": 962,
+    "agent_total_tokens": 4044,
+    "recorder_total_tokens": 2086,
+    "evaluator_total_tokens": 559,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

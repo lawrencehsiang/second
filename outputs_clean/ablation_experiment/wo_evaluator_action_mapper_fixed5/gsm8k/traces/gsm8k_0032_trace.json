@@ -1,0 +1,403 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "960",
+        "960",
+        "960"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Double last month's sales.",
+          "claim_type": "support",
+          "related_answer": "960"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent C suggests doubling last month's sales instead of calculating both months' sales.",
+          "why_still_open": "Different methods for arriving at the same target value.",
+          "involved_answers": [
+            "960"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate last month's sales, then double it.",
+        "Double last month's sales."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2880",
+        "3840",
+        "3840"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate both months' sales separately.",
+          "claim_type": "support",
+          "related_answer": "2880"
+        },
+        {
+          "text": "Calculate total sales for both months.",
+          "claim_type": "support",
+          "related_answer": "3840"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate both months' sales separately and then double last month's sales.",
+        "Calculate the total sales for both last month and this month."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "3840",
+        "7680",
+        "3840"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Both months' sales should be calculated to find the total.",
+          "claim_type": "support",
+          "related_answer": "3840"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate both months' sales separately and then double last month's sales.",
+        "Calculate the total sales for both last month and this month."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "7680",
+        "7680",
+        "7680"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "This month's sales are twice that of last month, resulting in $7,680.",
+          "claim_type": "support",
+          "related_answer": "7680"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate this month's sales by doubling last month's sales of $3,840.",
+        "Total sales for both last month and this month are needed."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "7680",
+        "7680",
+        "15360"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "This month's sales are twice last month's sales, totaling $7,680.",
+          "claim_type": "support",
+          "related_answer": "7680"
+        },
+        {
+          "text": "The sales calculation should be based on doubling last month's sales, resulting in $15,360 for this month.",
+          "claim_type": "support",
+          "related_answer": "15360"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "This month's sales are twice last month's sales, amounting to $7,680.",
+        "Doubling last month's sales of $7,680 gives this month's sales of $15,360."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 374,
+      "completion_tokens": 33,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 361,
+      "completion_tokens": 33,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 372,
+      "completion_tokens": 40,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 155,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 736,
+      "completion_tokens": 108,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 733,
+      "completion_tokens": 120,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 747,
+      "completion_tokens": 102,
+      "total_tokens": 849,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1040,
+      "completion_tokens": 135,
+      "total_tokens": 1175,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 839,
+      "completion_tokens": 119,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 836,
+      "completion_tokens": 112,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 850,
+      "completion_tokens": 119,
+      "total_tokens": 969,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1041,
+      "completion_tokens": 105,
+      "total_tokens": 1146,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 640,
+      "completion_tokens": 125,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 637,
+      "completion_tokens": 161,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 651,
+      "completion_tokens": 163,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1094,
+      "completion_tokens": 118,
+      "total_tokens": 1212,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 756,
+      "completion_tokens": 180,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 753,
+      "completion_tokens": 134,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 767,
+      "completion_tokens": 134,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0032",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1131,
+      "completion_tokens": 189,
+      "total_tokens": 1320,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 407,
+    "majority_vote_total_tokens": 1213,
+    "scrd_total_tokens": 17334,
+    "scrd_prompt_tokens": 14949,
+    "scrd_completion_tokens": 2385,
+    "agent_total_tokens": 11735,
+    "recorder_total_tokens": 5599,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

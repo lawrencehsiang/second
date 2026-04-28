@@ -1,0 +1,492 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "75",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing individual color counts gives the total.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Purple flowers are calculated as 10 times 1.8.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different totals from agents A, B, and C.",
+          "why_still_open": "Agents used different methods leading to discrepancies.",
+          "involved_answers": [
+            "45",
+            "75"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "10 * 1.8 = 18",
+        "18 + 25 = 43",
+        "43 * 0.25 = 10.75",
+        "45 + 75 = 120",
+        "Total = 45"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "60",
+        "37",
+        "65"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent B's previous answer of 75 was incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Rounding 37.25 to the nearest whole number gives 37.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculate total based on given percentages and unit consistency.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different totals from agents A, B, and C.",
+          "why_still_open": "Agent C's recalculation is ongoing and not yet finalized.",
+          "involved_answers": [
+            "60",
+            "37",
+            "65"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "10 * 1.8 = 18",
+        "10 + 18 + (29/4) = 37.25",
+        "Round 37.25 to 37",
+        "Recalculate based on given percentages",
+        "Total = 65"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "65",
+        "45",
+        "65"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate based on the provided percentages and units.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recompute the total number of flowers using consistent percentage calculations.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculate total based on given percentages and unit consistency.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different totals from agents A, B, and C.",
+          "why_still_open": "Final resolution requires consensus on the recalculated total.",
+          "involved_answers": [
+            "65",
+            "45"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recalculate based on given percentages and units",
+        "Total = 65",
+        "Consistent percentage calculations",
+        "Unit consistency ensured",
+        "Revised calculation method"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "100",
+        "65",
+        "65"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total based on the provided percentages and unit consistency.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Consistent calculation using percentages and units provided.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculate total based on given percentages and unit consistency.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different totals from agents A, B, and C.",
+          "why_still_open": "Final resolution requires consensus on the recalculated total.",
+          "involved_answers": [
+            "100",
+            "65"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recalculate based on given percentages and units",
+        "Total = 100",
+        "Unit consistency ensured",
+        "Revised calculation method",
+        "Consistent percentage calculations"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "45",
+        "100",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate total based on 10 yellow, 17.5% more purple, and 25% of yellow plus purple for green.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ensure unit consistency in the recalculated total.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluate the total based on given percentages and unit consistency.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancies in totals calculated by agents A, B, and C.",
+          "why_still_open": "Final resolution awaits a consensus on the recalculated total.",
+          "involved_answers": [
+            "45",
+            "100",
+            "90"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recalculate based on 10 yellow, 17.5% more purple, and 25% of yellow plus purple for green.",
+        "Ensure unit consistency in the total.",
+        "Re-evaluate based on given percentages and unit consistency.",
+        "Total = 100",
+        "Revised calculation method"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 42,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 29,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 60,
+      "total_tokens": 433,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 610,
+      "completion_tokens": 233,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 731,
+      "completion_tokens": 103,
+      "total_tokens": 834,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 728,
+      "completion_tokens": 176,
+      "total_tokens": 904,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 742,
+      "completion_tokens": 87,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1144,
+      "completion_tokens": 290,
+      "total_tokens": 1434,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 824,
+      "completion_tokens": 129,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 821,
+      "completion_tokens": 125,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 835,
+      "completion_tokens": 144,
+      "total_tokens": 979,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1240,
+      "completion_tokens": 251,
+      "total_tokens": 1491,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 825,
+      "completion_tokens": 106,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 822,
+      "completion_tokens": 80,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 836,
+      "completion_tokens": 89,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1074,
+      "completion_tokens": 248,
+      "total_tokens": 1322,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 829,
+      "completion_tokens": 114,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 825,
+      "completion_tokens": 100,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 839,
+      "completion_tokens": 98,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1106,
+      "completion_tokens": 308,
+      "total_tokens": 1414,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 417,
+    "majority_vote_total_tokens": 1241,
+    "scrd_total_tokens": 18753,
+    "scrd_prompt_tokens": 15941,
+    "scrd_completion_tokens": 2812,
+    "agent_total_tokens": 12249,
+    "recorder_total_tokens": 6504,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

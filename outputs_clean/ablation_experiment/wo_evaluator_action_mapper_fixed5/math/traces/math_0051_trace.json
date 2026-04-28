@@ -1,0 +1,424 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "121",
+        "121",
+        "121"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substitute x=3 into (2x+5)^2.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Evaluate (2*3+5)^2.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Compute (6+5)^2 to get 121.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Substitute x=3 into (2x+5)^2.",
+        "(6+5)^2 = 121",
+        "Evaluate (2*3+5)^2."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "121",
+        "121",
+        "121"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The expression should be (2*3 + 5)^2, not (6 + 5)^2.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A claims the expression should be (2*3 + 5)^2, while Agents B and C assert it is (6 + 5)^2.",
+          "why_still_open": "Both sides provide valid mathematical justifications but disagree on the substitution step.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "The expression should be (2*3 + 5)^2, not (6 + 5)^2.",
+        "(6 + 5)^2 = 121",
+        "The previous answer of 121 was derived correctly as (6+5)^2."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "121",
+        "121",
+        "121"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct expression is (2*3 + 5)^2 based on the substitution of x = 3.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct expression is (2*3 + 5)^2 based on the substitution step provided by Agent A.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct substitution is (2*3 + 5)^2 as per Agent A's claim.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The correct expression is (2*3 + 5)^2 based on the substitution of x = 3.",
+        "(2*3 + 5)^2 = 121",
+        "The previous answer of 121 was derived correctly as (6+5)^2."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "121",
+        "121",
+        "121"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct interpretation is (2*3 + 5)^2 as per the substitution of x = 3.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Given the substitution x = 3 into the expression (2x + 5)^2, the correct expression is indeed (2*3 + 5)^2.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct expression is indeed (2*3 + 5)^2 as per the substitution of x = 3.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The correct expression is (2*3 + 5)^2 based on the substitution of x = 3.",
+        "(2*3 + 5)^2 = 121",
+        "The previous answer of 121 was derived correctly as (6+5)^2."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "121",
+        "121",
+        "121"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The expression should be interpreted as (2*3 + 5)^2 based on the substitution of x = 3.",
+        "The mainstream_support answer correctly evaluates the expression (2*3 + 5)^2 to 121.",
+        "The expression is indeed (2*3 + 5)^2."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 332,
+      "completion_tokens": 40,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 319,
+      "completion_tokens": 42,
+      "total_tokens": 361,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 330,
+      "completion_tokens": 44,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 190,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 598,
+      "completion_tokens": 60,
+      "total_tokens": 658,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 595,
+      "completion_tokens": 49,
+      "total_tokens": 644,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 609,
+      "completion_tokens": 79,
+      "total_tokens": 688,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 928,
+      "completion_tokens": 227,
+      "total_tokens": 1155,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 825,
+      "completion_tokens": 138,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 822,
+      "completion_tokens": 117,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 836,
+      "completion_tokens": 136,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1174,
+      "completion_tokens": 244,
+      "total_tokens": 1418,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 834,
+      "completion_tokens": 132,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 831,
+      "completion_tokens": 168,
+      "total_tokens": 999,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 845,
+      "completion_tokens": 148,
+      "total_tokens": 993,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1250,
+      "completion_tokens": 259,
+      "total_tokens": 1509,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 709,
+      "completion_tokens": 128,
+      "total_tokens": 837,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 706,
+      "completion_tokens": 134,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 720,
+      "completion_tokens": 121,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1200,
+      "completion_tokens": 101,
+      "total_tokens": 1301,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 372,
+    "majority_vote_total_tokens": 1107,
+    "scrd_total_tokens": 17625,
+    "scrd_prompt_tokens": 15068,
+    "scrd_completion_tokens": 2557,
+    "agent_total_tokens": 11447,
+    "recorder_total_tokens": 6178,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

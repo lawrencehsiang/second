@@ -1,0 +1,415 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "12",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total cats minus sold cats equals remaining cats.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cats = 24",
+        "Sold cats = 12",
+        "Remaining cats = 12",
+        "50/60*12=10",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate remaining cats by subtracting sold cats from initial total.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Total cats minus sold cats equals remaining cats.",
+          "why_still_open": "The calculation is correct, but the result does not match the expected remaining cats.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cats = 32",
+        "Sold cats = 20",
+        "Remaining cats = 12",
+        "50/60*12=10",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "4",
+        "4",
+        "12"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 12 cats remains despite a key rebuttal suggesting recalculation.",
+          "why_still_open": "There is ongoing disagreement on the correct calculation method.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cats = 32",
+        "Sold cats = 20",
+        "Remaining cats = 12",
+        "50/60*12=10",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "12",
+        "4",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial total number of cats was 32, and after selling 20, 12 remain.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "The correct approach is to subtract the number of sold cats from the initial total.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cats = 32",
+        "Sold cats = 20",
+        "Remaining cats = 12",
+        "50/60*12=10",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct approach is to subtract the number of sold cats from the initial total.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cats = 32",
+        "Sold cats = 20",
+        "Remaining cats = 12",
+        "50/60*12=10",
+        "Apr=48, May=24, Total=72"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 31,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 31,
+      "total_tokens": 364,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 33,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 570,
+      "completion_tokens": 127,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 605,
+      "completion_tokens": 129,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 602,
+      "completion_tokens": 63,
+      "total_tokens": 665,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 615,
+      "completion_tokens": 113,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 957,
+      "completion_tokens": 187,
+      "total_tokens": 1144,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 797,
+      "completion_tokens": 108,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 793,
+      "completion_tokens": 107,
+      "total_tokens": 900,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 807,
+      "completion_tokens": 125,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1071,
+      "completion_tokens": 153,
+      "total_tokens": 1224,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 802,
+      "completion_tokens": 122,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 799,
+      "completion_tokens": 96,
+      "total_tokens": 895,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 814,
+      "completion_tokens": 107,
+      "total_tokens": 921,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1027,
+      "completion_tokens": 184,
+      "total_tokens": 1211,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 812,
+      "completion_tokens": 104,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 808,
+      "completion_tokens": 120,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 823,
+      "completion_tokens": 101,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0027",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1052,
+      "completion_tokens": 136,
+      "total_tokens": 1188,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 377,
+    "majority_vote_total_tokens": 1118,
+    "scrd_total_tokens": 16954,
+    "scrd_prompt_tokens": 14777,
+    "scrd_completion_tokens": 2177,
+    "agent_total_tokens": 11490,
+    "recorder_total_tokens": 5464,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

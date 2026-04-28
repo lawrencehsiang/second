@@ -1,0 +1,219 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "75",
+        "45",
+        "81"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total spent + remaining = initial budget.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total budget - total known expenses = cost of shoes.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Initial budget = $160.",
+          "claim_type": "explanation",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Initial - Spent - Remaining",
+        "$75 + $45 + $81 = $160",
+        "Remaining = $16",
+        "Cost of shoes = $45",
+        "Initial budget = $160"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "41",
+        "45",
+        "81"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total amount spent plus remaining equals initial budget.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total budget minus known expenses equals the cost of shoes.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Initial budget is $200.",
+          "claim_type": "explanation",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the total amount spent.",
+          "why_still_open": "Multiple calculations have been proposed, but none fully align.",
+          "involved_answers": [
+            "41",
+            "45"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = Initial - Spent - Remaining",
+        "$75 + $45 + $81 = $200",
+        "Remaining = $16",
+        "Cost of shoes = $45",
+        "Initial budget = $200"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0009",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 420,
+      "completion_tokens": 40,
+      "total_tokens": 460,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0009",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 407,
+      "completion_tokens": 40,
+      "total_tokens": 447,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0009",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 418,
+      "completion_tokens": 41,
+      "total_tokens": 459,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0009",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 195,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0009",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 850,
+      "completion_tokens": 192,
+      "total_tokens": 1042,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0009",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 847,
+      "completion_tokens": 92,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0009",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 861,
+      "completion_tokens": 115,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0009",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1123,
+      "completion_tokens": 250,
+      "total_tokens": 1373,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0009",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 720,
+      "completion_tokens": 56,
+      "total_tokens": 776,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 460,
+    "majority_vote_total_tokens": 1366,
+    "scrd_total_tokens": 7270,
+    "scrd_prompt_tokens": 6249,
+    "scrd_completion_tokens": 1021,
+    "agent_total_tokens": 4323,
+    "recorder_total_tokens": 2171,
+    "evaluator_total_tokens": 776,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

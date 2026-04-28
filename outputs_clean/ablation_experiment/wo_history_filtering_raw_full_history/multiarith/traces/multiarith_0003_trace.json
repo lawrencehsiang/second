@@ -1,0 +1,189 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Luke bought 4 games and 2 didn't work, so 2 good games.",
+          "claim_type": "support",
+          "related_answer": "A, B"
+        },
+        {
+          "text": "Total games bought = 2 + 2 = 4. Subtracting non-working games: 4 - 2 = 2.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Luke bought 4 games, 2 didn't work, 2 good games.",
+        "Total games = 4, subtract non-working = 2 good games."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total games bought = 4, subtracting non-working games = 2 good games.",
+          "claim_type": "support",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Luke bought 4 games, 2 didn't work, 2 good games.",
+        "Total games = 4, subtract non-working = 2 good games."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0003",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 357,
+      "completion_tokens": 42,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0003",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 344,
+      "completion_tokens": 42,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0003",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 355,
+      "completion_tokens": 52,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0003",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 609,
+      "completion_tokens": 169,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0003",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 776,
+      "completion_tokens": 144,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0003",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 773,
+      "completion_tokens": 136,
+      "total_tokens": 909,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0003",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 787,
+      "completion_tokens": 90,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0003",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1085,
+      "completion_tokens": 118,
+      "total_tokens": 1203,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0003",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 571,
+      "completion_tokens": 52,
+      "total_tokens": 623,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 399,
+    "majority_vote_total_tokens": 1192,
+    "scrd_total_tokens": 6502,
+    "scrd_prompt_tokens": 5657,
+    "scrd_completion_tokens": 845,
+    "agent_total_tokens": 3898,
+    "recorder_total_tokens": 1981,
+    "evaluator_total_tokens": 623,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

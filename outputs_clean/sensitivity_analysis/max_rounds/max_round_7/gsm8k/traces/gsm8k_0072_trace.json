@@ -1,0 +1,290 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "15",
+        "35",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total earnings plus extra minus deposit equals 35.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total earnings plus extra minus deposit equals 30.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C agree on the final amount, but it conflicts with Agent A's answer of 15.",
+          "why_still_open": "Different calculations lead to different results, no clear consensus yet.",
+          "involved_answers": [
+            "15",
+            "35",
+            "30"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total earnings + extra - deposit = ?",
+        "Agent B: 35",
+        "Agent C: 30",
+        "Agent A: 15",
+        "Calculate: 50/60*12 = 10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "35",
+        "35",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculating the total earnings and deductions confirms the final amount as 35 dollars.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The final amount after all transactions is 25 dollars.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C agree on the final amount being 35 dollars, but Agent C's recalculation yields 25 dollars.",
+          "why_still_open": "Discrepancy in the final amount despite mainstream support for 35 dollars.",
+          "involved_answers": [
+            "35",
+            "25"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total earnings + extra - deposit = 35",
+        "Hillary earns 36 dollars from selling crafts and receives 7 dollars extra.",
+        "After depositing 18 dollars, Hillary is left with 25 dollars.",
+        "Mainstream support: 35 dollars",
+        "50/60*12=10"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 33,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 38,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 37,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 586,
+      "completion_tokens": 236,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 752,
+      "completion_tokens": 99,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 749,
+      "completion_tokens": 115,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 763,
+      "completion_tokens": 125,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1133,
+      "completion_tokens": 266,
+      "total_tokens": 1399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 697,
+      "completion_tokens": 47,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 919,
+      "completion_tokens": 109,
+      "total_tokens": 1028,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 637,
+      "completion_tokens": 132,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 636,
+      "completion_tokens": 177,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 637,
+      "completion_tokens": 194,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1273,
+      "completion_tokens": 282,
+      "total_tokens": 1555,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 824,
+      "completion_tokens": 59,
+      "total_tokens": 883,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 411,
+    "majority_vote_total_tokens": 1227,
+    "scrd_total_tokens": 12674,
+    "scrd_prompt_tokens": 10725,
+    "scrd_completion_tokens": 1949,
+    "agent_total_tokens": 3830,
+    "recorder_total_tokens": 3776,
+    "evaluator_total_tokens": 744,
+    "repair_brief_total_tokens": 1028,
+    "repair_evaluator_total_tokens": 883,
+    "repair_agent_total_tokens": 2413
+  }
+}

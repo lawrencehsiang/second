@@ -1,0 +1,186 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total savings needed is $400.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Earnings per chore are $10.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Savings needed = $100/month * 4 months",
+        "Earnings per chore = $10",
+        "Total chores needed = $400 / $10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "40",
+        "5",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Gerald needs to average 50 chores per month.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total savings needed = $400",
+        "Earnings per chore = $10",
+        "Chores needed per month = $400 / $10 / 8 months",
+        "Total chores needed = 40 chores",
+        "Average chores per month = 50 chores"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 384,
+      "completion_tokens": 35,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 371,
+      "completion_tokens": 64,
+      "total_tokens": 435,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 382,
+      "completion_tokens": 38,
+      "total_tokens": 420,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 619,
+      "completion_tokens": 147,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 643,
+      "completion_tokens": 159,
+      "total_tokens": 802,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 640,
+      "completion_tokens": 169,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 654,
+      "completion_tokens": 167,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1169,
+      "completion_tokens": 138,
+      "total_tokens": 1307,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 45,
+      "total_tokens": 637,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 419,
+    "majority_vote_total_tokens": 1274,
+    "scrd_total_tokens": 6416,
+    "scrd_prompt_tokens": 5454,
+    "scrd_completion_tokens": 962,
+    "agent_total_tokens": 3706,
+    "recorder_total_tokens": 2073,
+    "evaluator_total_tokens": 637,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+}

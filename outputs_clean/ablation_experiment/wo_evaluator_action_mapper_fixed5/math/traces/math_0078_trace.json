@@ -1,0 +1,466 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "15",
+        "65",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "15 is the result of direct multiplication.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "65 is derived using the distributive property.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "15 is computed directly.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Result = 5 * 3",
+        "Apply distributive property: 5 * (10 + 3) = 50 + 15",
+        "Direct computation: 5 * 3 = 15"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "315",
+        "65",
+        "315"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct calculation involves expanding the expression step-by-step.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Let's break down the expression step-by-step: $(2 + 1)(2^2 + 1^2)(2^4 + 1^4)$.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is disagreement on whether the result is 15 or 315.",
+          "why_still_open": "Agents B and C have different calculations, neither fully resolving the conflict.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Result = 5 * 3 * (4 + 1) * (16 + 1)",
+        "Apply distributive property: 5 * (10 + 3) = 50 + 15",
+        "Direct computation: 5 * 3 = 15"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "315",
+        "315",
+        "255"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 65 lacks justification and is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Step-by-step verification of the expression confirms the answer is 255.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is disagreement between 315 and 255 as the correct result.",
+          "why_still_open": "Different step-by-step expansions lead to conflicting results, and no consensus has been reached.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Expression: $(2 + 1)(2^2 + 1^2)(2^4 + 1^4) = 3 * 5 * 17 = 255",
+        "Rechecking: Ensure all calculations are correct in the expression expansion.",
+        "Incorrect minority answer: 65, lacks justification."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "255",
+        "255",
+        "255"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the expression directly confirms the correct result is 255.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "I will re-evaluate the expression step-by-step to reach a coherent conclusion.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "After re-evaluating, the correct answer is 255, aligning with verified mainstream support.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is disagreement between 315 and 255 as the correct result.",
+          "why_still_open": "While multiple agents have resolved their conflicts individually, a consensus has not been reached among all participants.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Expression: (2+1)(2^2+1^2)(2^4+1^4) = 3 * 5 * 17 = 255",
+        "Re-evaluation confirms the correct result is 255.",
+        "Revisiting the expansion to ensure correct sequence of operations.",
+        "Final expansion steps match the verified mainstream support.",
+        "Incorrect minority answer: 315, lacks justification."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "255",
+        "255",
+        "255"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the expression step-by-step confirms the correct answer is 255.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Continuing to re-evaluate the expression to ensure accuracy and resolve the conflict.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement persists between 255 and 315 as the correct result.",
+          "why_still_open": "While multiple agents have resolved their conflicts individually, a consensus has not been reached among all participants.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Expression: (2+1)(2^2+1^2)(2^4+1^4) = 3 * 5 * 17 = 255",
+        "Re-evaluation confirms the correct result is 255.",
+        "Revisiting the expansion to ensure correct sequence of operations.",
+        "Incorrect minority answer: 315, lacks justification.",
+        "Final expansion steps match the verified mainstream support."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0078",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 336,
+      "completion_tokens": 27,
+      "total_tokens": 363,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 323,
+      "completion_tokens": 36,
+      "total_tokens": 359,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 334,
+      "completion_tokens": 31,
+      "total_tokens": 365,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 573,
+      "completion_tokens": 186,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 595,
+      "completion_tokens": 44,
+      "total_tokens": 639,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 592,
+      "completion_tokens": 89,
+      "total_tokens": 681,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 606,
+      "completion_tokens": 137,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 994,
+      "completion_tokens": 262,
+      "total_tokens": 1256,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 814,
+      "completion_tokens": 144,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 810,
+      "completion_tokens": 102,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 825,
+      "completion_tokens": 141,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1195,
+      "completion_tokens": 255,
+      "total_tokens": 1450,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 809,
+      "completion_tokens": 162,
+      "total_tokens": 971,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 806,
+      "completion_tokens": 105,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 820,
+      "completion_tokens": 125,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1202,
+      "completion_tokens": 340,
+      "total_tokens": 1542,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 804,
+      "completion_tokens": 113,
+      "total_tokens": 917,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 801,
+      "completion_tokens": 104,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 815,
+      "completion_tokens": 98,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0078",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1213,
+      "completion_tokens": 292,
+      "total_tokens": 1505,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 363,
+    "majority_vote_total_tokens": 1087,
+    "scrd_total_tokens": 18060,
+    "scrd_prompt_tokens": 15267,
+    "scrd_completion_tokens": 2793,
+    "agent_total_tokens": 11548,
+    "recorder_total_tokens": 6512,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

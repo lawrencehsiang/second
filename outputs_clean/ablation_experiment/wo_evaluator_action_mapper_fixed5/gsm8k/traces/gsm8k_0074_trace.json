@@ -1,0 +1,415 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Divide total people by pack size and round up.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Use ceiling function for division to ensure all people are covered.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total people = 18, each pack contains 6 pouches.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 18, pack size = 6",
+        "Divide 18 by 6, round up",
+        "Ceiling division ensures all are covered"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Division results in an integer, so no rounding is needed.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recalculating without rounding confirms 3 packs suffice.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Divide total people by pack size and round up vs. no rounding needed.",
+          "why_still_open": "Verification of whether rounding is necessary remains pending.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = 18, pack size = 6",
+        "Divide 18 by 6, no remainder",
+        "Exact calculation shows 3 packs suffice"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 18, pack size = 6",
+        "Divide 18 by 6, no remainder",
+        "Exact calculation shows 3 packs suffice"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "3",
+        "4",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rounding up is necessary due to excess people over pouches per pack.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Partial packs are not feasible, so rounding up is essential.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 18, pack size = 6",
+        "Divide 18 by 6, no remainder",
+        "Exact calculation shows 3 packs suffice"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculating the exact number of packs required shows rounding up is necessary.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total people = 18",
+        "Pouches per pack = 6",
+        "18 / 6 = 3 packs with no remainder",
+        "Rounding up ensures all people get pouches",
+        "Partial packs are not feasible"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 380,
+      "completion_tokens": 33,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 367,
+      "completion_tokens": 37,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 378,
+      "completion_tokens": 76,
+      "total_tokens": 454,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 622,
+      "completion_tokens": 187,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 639,
+      "completion_tokens": 157,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 636,
+      "completion_tokens": 80,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 650,
+      "completion_tokens": 101,
+      "total_tokens": 751,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1055,
+      "completion_tokens": 206,
+      "total_tokens": 1261,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 743,
+      "completion_tokens": 104,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 740,
+      "completion_tokens": 122,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 754,
+      "completion_tokens": 112,
+      "total_tokens": 866,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1087,
+      "completion_tokens": 71,
+      "total_tokens": 1158,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 743,
+      "completion_tokens": 129,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 740,
+      "completion_tokens": 97,
+      "total_tokens": 837,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 754,
+      "completion_tokens": 106,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 941,
+      "completion_tokens": 152,
+      "total_tokens": 1093,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 734,
+      "completion_tokens": 157,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 731,
+      "completion_tokens": 129,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 745,
+      "completion_tokens": 146,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0074",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1130,
+      "completion_tokens": 130,
+      "total_tokens": 1260,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 413,
+    "majority_vote_total_tokens": 1271,
+    "scrd_total_tokens": 16901,
+    "scrd_prompt_tokens": 14569,
+    "scrd_completion_tokens": 2332,
+    "agent_total_tokens": 11320,
+    "recorder_total_tokens": 5581,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

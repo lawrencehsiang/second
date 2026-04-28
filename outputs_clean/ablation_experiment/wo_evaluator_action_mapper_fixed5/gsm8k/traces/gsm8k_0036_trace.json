@@ -1,0 +1,420 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "40% of 60 students scored below B.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "60% of students scored B or above.",
+          "claim_type": "support",
+          "related_answer": "A,B,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "60% of 60 students = 36 students",
+        "40% of 60 students = 24 students",
+        "60 * (1 - 0.4) = 36"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct calculation for students scoring B and above is 60 * (1 - 0.4) = 36.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "60 students * 60% = 36 students scored B and above",
+        "60 * (1 - 0.4) = 36 students scored B and above",
+        "40% of 60 students = 24 students scored below B"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous calculation was correct; 40% below B means 60 - 24 = 36 students scored B and above.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The percentage of students scoring B and above is indeed 60% of 60 students.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "40% below B means 60% at B and above, which is 60 * 0.6 = 36.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "60 students * 60% = 36 students scored B and above",
+        "60 * (1 - 0.4) = 36 students scored B and above",
+        "40% of 60 students = 24 students scored below B"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculating the number of students who scored B and above.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "60 students * 60% = 36 students scored B and above",
+        "60 * (1 - 0.4) = 36 students scored B and above",
+        "40% of 60 students = 24 students scored below B"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculating based on the correct percentage of students who scored B and above.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying the answer of 36 by recalculating.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The previous answer of 36 contradicts the 40% below B condition.",
+          "why_still_open": "Need a recalculated value that aligns with all conditions.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "40% of 60 students = 24 students scored below B",
+        "60 - 24 = 36 students scored B and above",
+        "Recalculating to ensure the answer aligns with the percentage of students who got B and above."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 359,
+      "completion_tokens": 51,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 346,
+      "completion_tokens": 44,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 357,
+      "completion_tokens": 48,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 622,
+      "completion_tokens": 159,
+      "total_tokens": 781,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 621,
+      "completion_tokens": 133,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 618,
+      "completion_tokens": 61,
+      "total_tokens": 679,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 632,
+      "completion_tokens": 72,
+      "total_tokens": 704,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 953,
+      "completion_tokens": 150,
+      "total_tokens": 1103,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 636,
+      "completion_tokens": 167,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 633,
+      "completion_tokens": 56,
+      "total_tokens": 689,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 647,
+      "completion_tokens": 70,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 979,
+      "completion_tokens": 253,
+      "total_tokens": 1232,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 629,
+      "completion_tokens": 106,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 626,
+      "completion_tokens": 64,
+      "total_tokens": 690,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 640,
+      "completion_tokens": 64,
+      "total_tokens": 704,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1015,
+      "completion_tokens": 137,
+      "total_tokens": 1152,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 623,
+      "completion_tokens": 120,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 620,
+      "completion_tokens": 115,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 634,
+      "completion_tokens": 120,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0036",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1020,
+      "completion_tokens": 243,
+      "total_tokens": 1263,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 410,
+    "majority_vote_total_tokens": 1205,
+    "scrd_total_tokens": 15443,
+    "scrd_prompt_tokens": 13210,
+    "scrd_completion_tokens": 2233,
+    "agent_total_tokens": 9912,
+    "recorder_total_tokens": 5531,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

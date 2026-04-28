@@ -1,0 +1,433 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "56",
+        "52",
+        "64"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Simplify the left side by combining like terms and express both sides with base 2.",
+          "claim_type": "explanation",
+          "related_answer": "56"
+        },
+        {
+          "text": "Combine terms and simplify exponent.",
+          "claim_type": "explanation",
+          "related_answer": "52"
+        },
+        {
+          "text": "Simplify left side and compare exponents.",
+          "claim_type": "explanation",
+          "related_answer": "64"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "56",
+        "52",
+        "64"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "66",
+        "66",
+        "66"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The left side simplifies to 4 * 16^16 = 2^66.",
+          "claim_type": "explanation",
+          "related_answer": "66"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4 * 16^16 = 2^66",
+        "2^2 * 2^64 = 2^66",
+        "16 = 2^4, 16^16 = 2^64"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "66",
+        "50",
+        "66"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "4 * 16^16 = 2^2 * 2^48 = 2^50.",
+          "claim_type": "rebuttal",
+          "related_answer": "50"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement between '66' and '50' regarding the simplified value of the left side.",
+          "why_still_open": "Both sides have valid explanations in different bases.",
+          "involved_answers": [
+            "66",
+            "50"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "4 * 16^16 = 2^66",
+        "4 * 16^16 = 2^2 * 2^48 = 2^50",
+        "verified by converting all terms to base 2"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "66",
+        "50",
+        "66"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "4 * 16^16 = 2^66",
+          "claim_type": "rebuttal",
+          "related_answer": "66"
+        },
+        {
+          "text": "4 * 16^16 = 2^2 * 2^48 = 2^50",
+          "claim_type": "rebuttal",
+          "related_answer": "50"
+        },
+        {
+          "text": "4 * 16^16 simplifies correctly to 2^66",
+          "claim_type": "explanation",
+          "related_answer": "66"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4 * 16^16 = 2^66",
+        "4 * 16^16 = 2^2 * 2^48 = 2^50",
+        "verified by converting all terms to base 2"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The simplification 4 * 16^16 = 2^50 is correct.",
+          "claim_type": "rebuttal",
+          "related_answer": "50"
+        },
+        {
+          "text": "Verification needed for simplifications to 2^50 and 2^66.",
+          "claim_type": "explanation",
+          "related_answer": "50"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Simplifications 2^50 vs 2^66 are in dispute.",
+          "why_still_open": "Verification using logarithms and unit consistency is pending.",
+          "involved_answers": [
+            "50",
+            "66"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "4 * 16^16 = 2^50",
+        "4 * 16^16 = 2^2 * 2^48",
+        "verified by converting all terms to base 2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0052",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 354,
+      "completion_tokens": 43,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 341,
+      "completion_tokens": 31,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 352,
+      "completion_tokens": 34,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 584,
+      "completion_tokens": 164,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 613,
+      "completion_tokens": 165,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 610,
+      "completion_tokens": 166,
+      "total_tokens": 776,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 624,
+      "completion_tokens": 135,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1166,
+      "completion_tokens": 142,
+      "total_tokens": 1308,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 626,
+      "completion_tokens": 64,
+      "total_tokens": 690,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 623,
+      "completion_tokens": 79,
+      "total_tokens": 702,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 637,
+      "completion_tokens": 108,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 921,
+      "completion_tokens": 211,
+      "total_tokens": 1132,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 841,
+      "completion_tokens": 207,
+      "total_tokens": 1048,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 838,
+      "completion_tokens": 145,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 852,
+      "completion_tokens": 167,
+      "total_tokens": 1019,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1279,
+      "completion_tokens": 234,
+      "total_tokens": 1513,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 846,
+      "completion_tokens": 131,
+      "total_tokens": 977,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 843,
+      "completion_tokens": 125,
+      "total_tokens": 968,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 857,
+      "completion_tokens": 131,
+      "total_tokens": 988,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0052",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1149,
+      "completion_tokens": 242,
+      "total_tokens": 1391,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 397,
+    "majority_vote_total_tokens": 1155,
+    "scrd_total_tokens": 17680,
+    "scrd_prompt_tokens": 14956,
+    "scrd_completion_tokens": 2724,
+    "agent_total_tokens": 11588,
+    "recorder_total_tokens": 6092,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,199 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total savings needed = $100 * 4 months.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Each chore earns $10.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the number of chores needed.",
+          "why_still_open": "Different calculations lead to different answers.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total savings needed = $400",
+        "Each chore earns $10",
+        "20 chores needed for $200",
+        "40 chores needed for $400"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "40",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total expense for the season is $400.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Gerald needs to earn $400 to cover his baseball supplies.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total expense for the season is $400",
+        "Each chore earns $10",
+        "40 chores needed for $400",
+        "The correct calculation should consider total expenses and rate per chore"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 384,
+      "completion_tokens": 41,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 371,
+      "completion_tokens": 38,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 382,
+      "completion_tokens": 58,
+      "total_tokens": 440,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 619,
+      "completion_tokens": 201,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 735,
+      "completion_tokens": 129,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 732,
+      "completion_tokens": 132,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 746,
+      "completion_tokens": 118,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1138,
+      "completion_tokens": 162,
+      "total_tokens": 1300,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 652,
+      "completion_tokens": 64,
+      "total_tokens": 716,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 425,
+    "majority_vote_total_tokens": 1274,
+    "scrd_total_tokens": 6702,
+    "scrd_prompt_tokens": 5759,
+    "scrd_completion_tokens": 943,
+    "agent_total_tokens": 3866,
+    "recorder_total_tokens": 2120,
+    "evaluator_total_tokens": 716,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

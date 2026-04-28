@@ -1,0 +1,523 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-10",
+        "-10",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Only ±1, ±2 are integer factors of -10 whose sum is an integer.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Product of roots equals -10, thus possible pairs are ±1, ±2, ±5, ±10.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Product of roots = -10",
+        "Integer factors: ±1, ±2, ±5, ±10",
+        "Sum of ±1 and ±2 is an integer",
+        "Only ±1, ±2 have an integer sum",
+        "2 is the product of ±1 and ±2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-10",
+        "-10",
+        "-2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The pairs ±1, ±10 and ±2, ±5 satisfy the sum condition, but only ±2, ±5 satisfy the product condition of -10.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The pair ±2 satisfies both the sum and product conditions, hence it is the only valid solution.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Valid factor pairs: ±1, ±10, ±2, ±5",
+        "Product condition: -10",
+        "Sum condition: t",
+        "Only ±2 satisfies both conditions",
+        "Product of ±2 and ±5 is -10"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "-10",
+        "-2 * -5",
+        "-10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The pairs ±2 and ±5 satisfy both the sum and product conditions, hence they are the only valid solutions.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Valid factor pairs: ±2, ±5",
+        "Product condition: -10",
+        "Sum condition: -7",
+        "Only ±2 and ±5 satisfy both conditions",
+        "Product of ±2 and ±5 is -10"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "-10",
+        "-10",
+        "-10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The valid factor pairs ±2 and ±5 satisfy both the sum and product conditions, hence their product is -10.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Valid factor pairs: ±2, ±5",
+        "Product condition: -10",
+        "Sum condition: -7",
+        "Only ±2 and ±5 satisfy both conditions",
+        "Product of ±2 and ±5 is -10"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-10",
+        "-10",
+        "-10"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Valid factor pairs: ±2, ±5",
+        "Product condition: -10",
+        "Sum condition: -7",
+        "Only ±2 and ±5 satisfy both conditions",
+        "Product of ±2 and ±5 is -10"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 5
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0035",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 360,
+      "completion_tokens": 34,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 347,
+      "completion_tokens": 39,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 358,
+      "completion_tokens": 67,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 618,
+      "completion_tokens": 197,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 807,
+      "completion_tokens": 125,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 804,
+      "completion_tokens": 130,
+      "total_tokens": 934,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 817,
+      "completion_tokens": 183,
+      "total_tokens": 1000,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1168,
+      "completion_tokens": 278,
+      "total_tokens": 1446,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 713,
+      "completion_tokens": 45,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 870,
+      "completion_tokens": 142,
+      "total_tokens": 1012,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 652,
+      "completion_tokens": 260,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 651,
+      "completion_tokens": 237,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 652,
+      "completion_tokens": 238,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1458,
+      "completion_tokens": 200,
+      "total_tokens": 1658,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 802,
+      "completion_tokens": 62,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 948,
+      "completion_tokens": 113,
+      "total_tokens": 1061,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 945,
+      "completion_tokens": 219,
+      "total_tokens": 1164,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 961,
+      "completion_tokens": 125,
+      "total_tokens": 1086,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1168,
+      "completion_tokens": 138,
+      "total_tokens": 1306,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 578,
+      "completion_tokens": 59,
+      "total_tokens": 637,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 1081,
+      "completion_tokens": 104,
+      "total_tokens": 1185,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 1078,
+      "completion_tokens": 122,
+      "total_tokens": 1200,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1094,
+      "completion_tokens": 116,
+      "total_tokens": 1210,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1010,
+      "completion_tokens": 140,
+      "total_tokens": 1150,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 581,
+      "completion_tokens": 58,
+      "total_tokens": 639,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 1214,
+      "completion_tokens": 114,
+      "total_tokens": 1328,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 1211,
+      "completion_tokens": 117,
+      "total_tokens": 1328,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1227,
+      "completion_tokens": 132,
+      "total_tokens": 1359,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1031,
+      "completion_tokens": 88,
+      "total_tokens": 1119,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0035",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 521,
+      "completion_tokens": 48,
+      "total_tokens": 569,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1205,
+    "scrd_total_tokens": 29655,
+    "scrd_prompt_tokens": 25725,
+    "scrd_completion_tokens": 3930,
+    "agent_total_tokens": 4071,
+    "recorder_total_tokens": 7494,
+    "evaluator_total_tokens": 758,
+    "repair_brief_total_tokens": 1012,
+    "repair_evaluator_total_tokens": 2709,
+    "repair_agent_total_tokens": 13611
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

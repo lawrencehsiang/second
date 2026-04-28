@@ -1,0 +1,208 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "88",
+        "90",
+        "80"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate Amalie's initial coins and subtract 3/4.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Simplified ratio, total parts, spent fraction, remaining coins.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating remaining coins.",
+          "why_still_open": "Agents use different approaches without resolving which is correct.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial coins - 3/4 = remaining coins",
+        "Total parts: 5, Spent: 3/4, Remaining: 1/4",
+        "50/60*12=10",
+        "Amalie spends 3/4 of her coins",
+        "Calculate initial coins"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "88",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed using simplified ratio and total coins.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Following mainstream method of simplifying ratio.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Using simplified ratio 2:9 to find initial coins.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recomputed using simplified ratio and total coins.",
+        "Following mainstream method of simplifying ratio.",
+        "Using simplified ratio 2:9 to find initial coins.",
+        "Initial coins - 3/4 = remaining coins",
+        "Total parts: 5, Spent: 3/4, Remaining: 1/4"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0069",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 367,
+      "completion_tokens": 43,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0069",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 354,
+      "completion_tokens": 37,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0069",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 365,
+      "completion_tokens": 38,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0069",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 235,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0069",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 817,
+      "completion_tokens": 107,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0069",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 814,
+      "completion_tokens": 100,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0069",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 828,
+      "completion_tokens": 120,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0069",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1104,
+      "completion_tokens": 213,
+      "total_tokens": 1317,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0069",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 667,
+      "completion_tokens": 50,
+      "total_tokens": 717,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 410,
+    "majority_vote_total_tokens": 1204,
+    "scrd_total_tokens": 6855,
+    "scrd_prompt_tokens": 5912,
+    "scrd_completion_tokens": 943,
+    "agent_total_tokens": 3990,
+    "recorder_total_tokens": 2148,
+    "evaluator_total_tokens": 717,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+}

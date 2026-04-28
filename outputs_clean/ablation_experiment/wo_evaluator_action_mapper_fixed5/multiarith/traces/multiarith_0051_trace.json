@@ -1,0 +1,423 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "New books = Total books - Used books",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total books = 13 + 17",
+        "Used books = 15",
+        "New books = 30 - 15",
+        "Total books = adventure + mystery",
+        "New books = Total - Used"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "18",
+        "10",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "New books = Total books - Used books",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total books = 13 + 17",
+        "Used books = 15",
+        "New books = 30 - 15",
+        "Total books = adventure + mystery",
+        "New books = Total - Used"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correct calculation method: Total - Used",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total books = 13 + 17",
+        "Used books = 15",
+        "New books = Total - Used",
+        "Total books = 30",
+        "New books = 15"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "15",
+        "30",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total books = 13 + 17",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "New books = Total - Used",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The mainstream support answer is 15, which might be correct if the total number of books is known.",
+          "why_still_open": "There's uncertainty about whether the mainstream answer of 15 refers to new or used books.",
+          "involved_answers": [
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total books = 13 + 17",
+        "Used books = 15",
+        "New books = Total - Used",
+        "Total books = 30",
+        "New books = 15"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "15",
+        "15",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The 15 books mentioned are used, aligning with the problem statement.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Given the total number of books is 30, and 15 are used, the remaining 15 must be new.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The mainstream answer of 15 used books fits the context, indicating 15 used books were part of the total purchase.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total books = 30",
+        "Used books = 15",
+        "New books = 15",
+        "Total books = 13 + 17",
+        "New books = Total - Used"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 347,
+      "completion_tokens": 43,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 334,
+      "completion_tokens": 46,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 345,
+      "completion_tokens": 68,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 636,
+      "completion_tokens": 122,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 606,
+      "completion_tokens": 118,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 603,
+      "completion_tokens": 115,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 617,
+      "completion_tokens": 128,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1011,
+      "completion_tokens": 122,
+      "total_tokens": 1133,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 606,
+      "completion_tokens": 107,
+      "total_tokens": 713,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 603,
+      "completion_tokens": 74,
+      "total_tokens": 677,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 617,
+      "completion_tokens": 37,
+      "total_tokens": 654,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 884,
+      "completion_tokens": 117,
+      "total_tokens": 1001,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 605,
+      "completion_tokens": 134,
+      "total_tokens": 739,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 602,
+      "completion_tokens": 110,
+      "total_tokens": 712,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 616,
+      "completion_tokens": 140,
+      "total_tokens": 756,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1037,
+      "completion_tokens": 222,
+      "total_tokens": 1259,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 727,
+      "completion_tokens": 136,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 724,
+      "completion_tokens": 128,
+      "total_tokens": 852,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 738,
+      "completion_tokens": 129,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1163,
+      "completion_tokens": 230,
+      "total_tokens": 1393,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 390,
+    "majority_vote_total_tokens": 1183,
+    "scrd_total_tokens": 15747,
+    "scrd_prompt_tokens": 13421,
+    "scrd_completion_tokens": 2326,
+    "agent_total_tokens": 10203,
+    "recorder_total_tokens": 5544,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

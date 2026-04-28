@@ -1,0 +1,424 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Isolate x by subtracting 1/2 from both sides.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x = 50/60*12",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve the equation step-by-step for verification.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x = 50/60*12",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "6",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous answer of 3 was verified through detailed steps.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The equation solution confirms the previous answer of 3.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A proposes '6' as the new answer, contradicting the previous consensus of '3'.",
+          "why_still_open": "No clear justification for changing the answer from '3' was provided.",
+          "involved_answers": [
+            "6",
+            "3"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "x = 50/60*12"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent A will re-evaluate the equation to ensure the correct solution.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A proposes '6' as the new answer, contradicting the previous consensus of '3'.",
+          "why_still_open": "Agent A did not provide a clear justification for changing the answer from '3'.",
+          "involved_answers": [
+            "6",
+            "3"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "x = 50/60*12"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "6",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent A will re-evaluate the equation to ensure the correct solution.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A proposes '6' as the new answer, contradicting the previous consensus of '3'.",
+          "why_still_open": "Agent A did not provide a clear justification for changing the answer from '3'.",
+          "involved_answers": [
+            "6",
+            "3"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "x = 50/60*12",
+        "3 = previous consensus",
+        "6 = new proposed answer"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 344,
+      "completion_tokens": 37,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 331,
+      "completion_tokens": 33,
+      "total_tokens": 364,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 342,
+      "completion_tokens": 39,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 582,
+      "completion_tokens": 121,
+      "total_tokens": 703,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 606,
+      "completion_tokens": 43,
+      "total_tokens": 649,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 603,
+      "completion_tokens": 39,
+      "total_tokens": 642,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 617,
+      "completion_tokens": 115,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 856,
+      "completion_tokens": 117,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 602,
+      "completion_tokens": 43,
+      "total_tokens": 645,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 599,
+      "completion_tokens": 37,
+      "total_tokens": 636,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 613,
+      "completion_tokens": 46,
+      "total_tokens": 659,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 781,
+      "completion_tokens": 222,
+      "total_tokens": 1003,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 717,
+      "completion_tokens": 102,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 714,
+      "completion_tokens": 116,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 728,
+      "completion_tokens": 139,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1130,
+      "completion_tokens": 197,
+      "total_tokens": 1327,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 722,
+      "completion_tokens": 99,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 719,
+      "completion_tokens": 102,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 733,
+      "completion_tokens": 127,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0054",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1071,
+      "completion_tokens": 212,
+      "total_tokens": 1283,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 381,
+    "majority_vote_total_tokens": 1126,
+    "scrd_total_tokens": 15396,
+    "scrd_prompt_tokens": 13410,
+    "scrd_completion_tokens": 1986,
+    "agent_total_tokens": 10107,
+    "recorder_total_tokens": 5289,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,416 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5.6",
+        "6.95",
+        "6.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Divide total cost by number of friends.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different division methods for the same total cost.",
+          "why_still_open": "Agents A and C divide by 5, while B divides by the number of friends.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost / 5 = 5.6",
+        "Total cost / #friends = 6.95",
+        "Total cost / 5 = 6.5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6.95",
+        "6.90",
+        "6.95"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct method is to divide the total cost by the number of friends.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agent B will divide the total cost by the number of friends, which is 5.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "We should divide the total cost by the number of friends, as stated in the mainstream support.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost / 5 = 6.95",
+        "Total cost / #friends = 6.90"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "6.95",
+        "6.95",
+        "3.65"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Dividing the total cost by the number of friends is the correct method.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "The total cost divided by 5 friends results in $3.65 per person.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost / 5 = 6.95",
+        "Total cost / #friends = 6.95"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "6.95",
+        "3.5",
+        "3.475"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing the total cost ensures accuracy in calculating the per-person share.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying both calculations confirms the correctness of the mainstream support's method.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost / 5 = 6.95",
+        "Recalculating the total cost for accuracy."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "6.95",
+        "1.39",
+        "6.95"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing the total cost verifies the accuracy of the per-person share calculation.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost / 5 = 6.95",
+        "Recalculating the total cost for accuracy."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 390,
+      "completion_tokens": 33,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 377,
+      "completion_tokens": 35,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 388,
+      "completion_tokens": 36,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 590,
+      "completion_tokens": 171,
+      "total_tokens": 761,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 757,
+      "completion_tokens": 93,
+      "total_tokens": 850,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 755,
+      "completion_tokens": 94,
+      "total_tokens": 849,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 768,
+      "completion_tokens": 97,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1023,
+      "completion_tokens": 204,
+      "total_tokens": 1227,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 764,
+      "completion_tokens": 103,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 761,
+      "completion_tokens": 98,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 775,
+      "completion_tokens": 112,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1051,
+      "completion_tokens": 147,
+      "total_tokens": 1198,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 659,
+      "completion_tokens": 44,
+      "total_tokens": 703,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 656,
+      "completion_tokens": 112,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 670,
+      "completion_tokens": 140,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 991,
+      "completion_tokens": 143,
+      "total_tokens": 1134,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 752,
+      "completion_tokens": 47,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 748,
+      "completion_tokens": 121,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 764,
+      "completion_tokens": 104,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0038",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 979,
+      "completion_tokens": 103,
+      "total_tokens": 1082,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 423,
+    "majority_vote_total_tokens": 1259,
+    "scrd_total_tokens": 16655,
+    "scrd_prompt_tokens": 14618,
+    "scrd_completion_tokens": 2037,
+    "agent_total_tokens": 11253,
+    "recorder_total_tokens": 5402,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

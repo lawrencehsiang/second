@@ -1,0 +1,296 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2496",
+        "2496",
+        "1056"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total pages written per week, then per year.",
+          "claim_type": "constraint",
+          "related_answer": "2496"
+        },
+        {
+          "text": "Calculate pages per week, then per year.",
+          "claim_type": "constraint",
+          "related_answer": "2496"
+        },
+        {
+          "text": "Calculate total pages per week, then per year.",
+          "claim_type": "constraint",
+          "related_answer": "1056"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "52 weeks/year * 6 days/week = 312 days/year",
+        "50 pages/day * 6 days/week = 300 pages/week",
+        "300 pages/week * 52 weeks/year = 15600 pages/year"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "168",
+        "1048",
+        "104"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Interpret 'twice a week' as 14 times a year.",
+          "claim_type": "rebuttal",
+          "related_answer": "168"
+        },
+        {
+          "text": "Interpret 'twice a week' as writing two letters per week to each friend.",
+          "claim_type": "rebuttal",
+          "related_answer": "1048"
+        },
+        {
+          "text": "Interpret 'twice a week' as writing two 3-page letters per week.",
+          "claim_type": "rebuttal",
+          "related_answer": "104"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "'Twice a week' interpretation discrepancy.",
+          "why_still_open": "Different interpretations lead to varying outcomes without a consensus.",
+          "involved_answers": [
+            "168",
+            "1048",
+            "104"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "52 weeks/year * 2 times/week = 104 times/year",
+        "2 letters/friend * 52 weeks/year = 104 letters/year",
+        "2 letters/friend * 3 pages/letter = 6 pages/friend/week"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 336,
+      "completion_tokens": 38,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 323,
+      "completion_tokens": 33,
+      "total_tokens": 356,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 334,
+      "completion_tokens": 37,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 593,
+      "completion_tokens": 214,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 800,
+      "completion_tokens": 151,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 797,
+      "completion_tokens": 161,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 811,
+      "completion_tokens": 62,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1128,
+      "completion_tokens": 259,
+      "total_tokens": 1387,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 628,
+      "completion_tokens": 48,
+      "total_tokens": 676,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 864,
+      "completion_tokens": 91,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 577,
+      "completion_tokens": 133,
+      "total_tokens": 710,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 576,
+      "completion_tokens": 118,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 577,
+      "completion_tokens": 115,
+      "total_tokens": 692,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1118,
+      "completion_tokens": 296,
+      "total_tokens": 1414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0005",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 786,
+      "completion_tokens": 47,
+      "total_tokens": 833,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 374,
+    "majority_vote_total_tokens": 1101,
+    "scrd_total_tokens": 12051,
+    "scrd_prompt_tokens": 10248,
+    "scrd_completion_tokens": 1803,
+    "agent_total_tokens": 3883,
+    "recorder_total_tokens": 3608,
+    "evaluator_total_tokens": 676,
+    "repair_brief_total_tokens": 955,
+    "repair_evaluator_total_tokens": 833,
+    "repair_agent_total_tokens": 2096
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

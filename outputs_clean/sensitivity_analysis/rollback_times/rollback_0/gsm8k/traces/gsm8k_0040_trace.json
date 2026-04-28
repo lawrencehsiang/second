@@ -1,0 +1,189 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "81",
+        "810",
+        "810"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total candies for both and find difference.",
+          "claim_type": "explanation",
+          "related_answer": "81"
+        },
+        {
+          "text": "Calculate total candy for each and find difference.",
+          "claim_type": "explanation",
+          "related_answer": "810"
+        },
+        {
+          "text": "Calculated total candies for each and found difference.",
+          "claim_type": "explanation",
+          "related_answer": "810"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total candies for both = 81 + 810 = 891",
+        "Total candies for A = 81, Total candies for B = 810",
+        "Difference in candies = 810 - 81 = 729"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "85",
+        "90",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The difference in candy between Anna and Billy is calculated as 15 pieces.",
+          "claim_type": "explanation",
+          "related_answer": "15"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Anna gets 14 pieces of candy per house and there are 60 houses, so she gets 14 * 60 = 840 pieces of candy.",
+        "Billy gets 11 pieces of candy per house and there are 75 houses, so he gets 11 * 75 = 825 pieces of candy.",
+        "The difference is 840 - 825 = 15 pieces of candy."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 384,
+      "completion_tokens": 34,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 371,
+      "completion_tokens": 36,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 382,
+      "completion_tokens": 36,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 583,
+      "completion_tokens": 208,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 644,
+      "completion_tokens": 116,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 642,
+      "completion_tokens": 121,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 656,
+      "completion_tokens": 175,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1150,
+      "completion_tokens": 178,
+      "total_tokens": 1328,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0040",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 601,
+      "completion_tokens": 42,
+      "total_tokens": 643,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 418,
+    "majority_vote_total_tokens": 1243,
+    "scrd_total_tokens": 6359,
+    "scrd_prompt_tokens": 5413,
+    "scrd_completion_tokens": 946,
+    "agent_total_tokens": 3597,
+    "recorder_total_tokens": 2119,
+    "evaluator_total_tokens": 643,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+}

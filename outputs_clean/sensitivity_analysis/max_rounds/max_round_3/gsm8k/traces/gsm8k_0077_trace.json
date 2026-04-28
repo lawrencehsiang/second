@@ -1,0 +1,352 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "484",
+        "549",
+        "768"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing cucumbers (177) and peppers (354) gives 768.",
+          "claim_type": "explanation",
+          "related_answer": "768"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "237-60=177",
+        "177*2=354",
+        "177+354=768"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "549",
+        "549",
+        "549"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct number of peppers is 120 (twice 60), leading to a total of 549 vegetables.",
+          "claim_type": "explanation",
+          "related_answer": "549"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "237-60=177",
+        "177*2=354",
+        "177+120=549"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "483",
+        "484",
+        "537"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the calculation by finding the correct number of cucumbers first, then calculating the number of peppers and the total number of vegetables.",
+          "claim_type": "rebuttal",
+          "related_answer": "484"
+        },
+        {
+          "text": "Verifying the total number of vegetables based on the given data.",
+          "claim_type": "rebuttal",
+          "related_answer": "537"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The initial answer of 549 seems incorrect because the total number of cucumbers was not calculated properly.",
+          "why_still_open": "The conflict remains open due to disagreement on the correctness of the initial total vegetables count.",
+          "involved_answers": [
+            "483"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "237-60=177",
+        "177*2=354",
+        "177+120=549",
+        "correct cucumbers + peppers = total vegetables"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 345,
+      "completion_tokens": 50,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 332,
+      "completion_tokens": 53,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 343,
+      "completion_tokens": 75,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 657,
+      "completion_tokens": 125,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 620,
+      "completion_tokens": 119,
+      "total_tokens": 739,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 617,
+      "completion_tokens": 114,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 631,
+      "completion_tokens": 117,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1017,
+      "completion_tokens": 244,
+      "total_tokens": 1261,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 650,
+      "completion_tokens": 53,
+      "total_tokens": 703,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 764,
+      "completion_tokens": 106,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 601,
+      "completion_tokens": 140,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 600,
+      "completion_tokens": 196,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 601,
+      "completion_tokens": 137,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1132,
+      "completion_tokens": 130,
+      "total_tokens": 1262,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 703,
+      "completion_tokens": 54,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 589,
+      "completion_tokens": 119,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 586,
+      "completion_tokens": 124,
+      "total_tokens": 710,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 602,
+      "completion_tokens": 117,
+      "total_tokens": 719,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1024,
+      "completion_tokens": 257,
+      "total_tokens": 1281,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0077",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 649,
+      "completion_tokens": 45,
+      "total_tokens": 694,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 395,
+    "majority_vote_total_tokens": 1198,
+    "scrd_total_tokens": 15438,
+    "scrd_prompt_tokens": 13063,
+    "scrd_completion_tokens": 2375,
+    "agent_total_tokens": 3416,
+    "recorder_total_tokens": 4586,
+    "evaluator_total_tokens": 703,
+    "repair_brief_total_tokens": 870,
+    "repair_evaluator_total_tokens": 1451,
+    "repair_agent_total_tokens": 4412
+  }
+}

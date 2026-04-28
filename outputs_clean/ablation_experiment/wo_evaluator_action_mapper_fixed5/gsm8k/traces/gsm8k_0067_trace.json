@@ -1,0 +1,449 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "730",
+        "630",
+        "520"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total payment equals down payment plus 4 months of installments.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Down payment is 20% of $1000 + $20 = $220.",
+        "Monthly installment is $65 for 4 months = $260.",
+        "Total paid = $220 + $260 = $480.",
+        "Balance = $1000 - $480 = $520.",
+        "$520 is the remaining balance after 4 months of payments."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "570",
+        "730",
+        "520"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The down payment includes an additional $20.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream approach correctly calculates the total payment as down payment plus installments.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The balance after 4 months is $520.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Down payment is 20% of $1000 + $20 = $220.",
+        "Monthly installment is $65 for 4 months = $260.",
+        "Total paid = $220 + $260 = $480.",
+        "Balance = $1000 - $480 = $520.",
+        "$520 is the remaining balance after 4 months of payments."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "730",
+        "730",
+        "630"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 520 is incorrect due to miscalculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between the mainstream answer of 730 and the minority answer of 520 remains.",
+          "why_still_open": "Verification of calculations is ongoing.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Down payment is 20% of $1000 + $20 = $220.",
+        "Monthly installment is $65 for 4 months = $260.",
+        "Total paid = $220 + $260 = $480.",
+        "Balance = $1000 - $480 = $520.",
+        "The mainstream approach correctly calculates the total payment as $730."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "520",
+        "520",
+        "730"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the calculation to address the discrepancy between 520 and 730.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revised calculation confirms the mainstream answer of 730 is correct.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The mainstream answer of 730 aligns better with the problem's conditions.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The minority answer of 520 is incorrect due to miscalculation.",
+        "The mainstream answer of 730 is more consistent with the problem's conditions and calculations.",
+        "Re-evaluating the calculation to address the discrepancy.",
+        "Revised calculation confirms the mainstream answer of 730.",
+        "Down payment is 20% of $1000 + $20 = $220."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "730",
+        "730",
+        "520"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revisiting the calculation to ensure accuracy and resolve the conflict.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "After re-examining the problem, the correct calculation leads to a balance of $730 after 4 months.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying both answers to choose the correct one based on the problem's conditions.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between the mainstream support of 730 and the minority answer of 520.",
+          "why_still_open": "Verification of both answers is ongoing, but no final decision has been made yet.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Revisiting the calculation to ensure accuracy and resolve the conflict.",
+        "The correct calculation leads to a balance of $730 after 4 months.",
+        "Verifying both answers for correctness.",
+        "Down payment is 20% of $1000 + $20 = $220.",
+        "Rechecking calculations for both 730 and 520."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 381,
+      "completion_tokens": 37,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 368,
+      "completion_tokens": 42,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 379,
+      "completion_tokens": 101,
+      "total_tokens": 480,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 665,
+      "completion_tokens": 173,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 646,
+      "completion_tokens": 137,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 643,
+      "completion_tokens": 150,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 657,
+      "completion_tokens": 219,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1221,
+      "completion_tokens": 247,
+      "total_tokens": 1468,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 752,
+      "completion_tokens": 122,
+      "total_tokens": 874,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 749,
+      "completion_tokens": 111,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 763,
+      "completion_tokens": 83,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1121,
+      "completion_tokens": 240,
+      "total_tokens": 1361,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 852,
+      "completion_tokens": 116,
+      "total_tokens": 968,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 849,
+      "completion_tokens": 101,
+      "total_tokens": 950,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 863,
+      "completion_tokens": 128,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1132,
+      "completion_tokens": 258,
+      "total_tokens": 1390,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 852,
+      "completion_tokens": 111,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 849,
+      "completion_tokens": 134,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 863,
+      "completion_tokens": 109,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1146,
+      "completion_tokens": 325,
+      "total_tokens": 1471,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 418,
+    "majority_vote_total_tokens": 1308,
+    "scrd_total_tokens": 18695,
+    "scrd_prompt_tokens": 15751,
+    "scrd_completion_tokens": 2944,
+    "agent_total_tokens": 12167,
+    "recorder_total_tokens": 6528,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

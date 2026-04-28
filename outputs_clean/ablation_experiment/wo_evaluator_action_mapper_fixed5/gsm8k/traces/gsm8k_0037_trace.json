@@ -1,0 +1,433 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Lisa earned $30 and Tommy earned half of that.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Lisa earned $30, Tommy earned $15, so Lisa earned $15 more.",
+        "Half of $60 is $30 earned by Lisa.",
+        "$15 is half of $30."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "10",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tommy's earnings were recalculated to be half of Lisa's based on the problem statement.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Jack's earnings were calculated as $15, ensuring the total adds up to $60.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Lisa earned $30, Tommy earned $15, so Lisa earned $15 more than Tommy.",
+        "Tommy's earnings were recalculated to be half of Lisa's, adjusting from the previous answer.",
+        "Jack's earnings are $15, confirming the total is $60."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "20",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tommy's earnings were adjusted to be half of Lisa's, ensuring the total remains $60.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Jack's earnings were recalculated to $15 again, aligning with the total of $60.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Tommy's earnings being half of Lisa's conflicts with the initial mainstream support that set Jack's earnings to $15.",
+          "why_still_open": "The initial mainstream support does not account for the revised Tommy's earnings.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Lisa earned $30, Tommy earned $15, so Lisa earned $15 more than Tommy.",
+        "Tommy's earnings are now half of Lisa's, recalculated to ensure the total is $60.",
+        "Jack's earnings are $15, maintaining the total of $60.",
+        "The initial mainstream support set Jack's earnings to $15, which conflicts with the revised Tommy's earnings.",
+        "Verify the calculations: Lisa earns $30, Tommy earns $15."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "20",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tommy's earnings were recalculated to $30, making them half of Lisa's, and Jack's earnings were adjusted to $15 to maintain the total of $60.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Tommy's earnings are $30, which is half of Lisa's earnings, and the total remains $60.",
+        "Jack's earnings are now $15, ensuring the total of $60.",
+        "Lisa earns $30, Tommy earns $30, and Jack earns $15, totaling $60.",
+        "Verify the calculations: Lisa earns $30, Tommy earns $30, and Jack earns $15.",
+        "Adjusted Tommy's earnings to be half of Lisa's, ensuring the total remains $60."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "15",
+        "15",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tommy's earnings are $15, maintaining the total of $60.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The key rebuttal provides a coherent breakdown of individual contributions, showing Tommy earns $15, Lisa earns $30, and Jack earns $15, totaling $60.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Tommy's earnings are half of Lisa's, confirming Tommy earns $15.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer remains: $20 for Tommy's earnings.",
+          "why_still_open": "The majority supports $15 for Tommy's earnings, but the minority objection persists.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Tommy earns $15, Lisa earns $30, and Jack earns $15, totaling $60.",
+        "Tommy's earnings are half of Lisa's, confirming Tommy earns $15.",
+        "The total earnings are now confirmed as $60, with Lisa earning $30, Tommy earning $15, and Jack earning $15.",
+        "Verify the calculations: Lisa earns $30, Tommy earns $15, and Jack earns $15.",
+        "Adjusted Tommy's earnings to be half of Lisa's, ensuring the total remains $60."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 357,
+      "completion_tokens": 44,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 344,
+      "completion_tokens": 44,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 355,
+      "completion_tokens": 69,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 639,
+      "completion_tokens": 121,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 619,
+      "completion_tokens": 108,
+      "total_tokens": 727,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 616,
+      "completion_tokens": 57,
+      "total_tokens": 673,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 630,
+      "completion_tokens": 188,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1010,
+      "completion_tokens": 191,
+      "total_tokens": 1201,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 725,
+      "completion_tokens": 143,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 722,
+      "completion_tokens": 117,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 736,
+      "completion_tokens": 51,
+      "total_tokens": 787,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1054,
+      "completion_tokens": 310,
+      "total_tokens": 1364,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 846,
+      "completion_tokens": 155,
+      "total_tokens": 1001,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 843,
+      "completion_tokens": 121,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 857,
+      "completion_tokens": 122,
+      "total_tokens": 979,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1249,
+      "completion_tokens": 218,
+      "total_tokens": 1467,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 847,
+      "completion_tokens": 150,
+      "total_tokens": 997,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 844,
+      "completion_tokens": 160,
+      "total_tokens": 1004,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 858,
+      "completion_tokens": 133,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0037",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1205,
+      "completion_tokens": 368,
+      "total_tokens": 1573,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 401,
+    "majority_vote_total_tokens": 1213,
+    "scrd_total_tokens": 18226,
+    "scrd_prompt_tokens": 15356,
+    "scrd_completion_tokens": 2870,
+    "agent_total_tokens": 11861,
+    "recorder_total_tokens": 6365,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

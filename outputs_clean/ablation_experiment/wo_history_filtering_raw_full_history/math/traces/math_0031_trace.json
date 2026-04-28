@@ -1,0 +1,196 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "-5",
+        "-5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ensure the denominator never equals zero.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ensure quadratic denominator has no real roots by setting discriminant < 0.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Denominator cannot have real roots; check discriminant < 0",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Denominator ≠ 0",
+        "Discriminant < 0",
+        "Quadratic has no real roots"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-4",
+        "-5",
+        "-5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ensure the discriminant of the quadratic denominator is less than zero to guarantee no real roots.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ensure discriminant < 0",
+        "No real roots in denominator",
+        "Discriminant condition verified"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 359,
+      "completion_tokens": 31,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 346,
+      "completion_tokens": 39,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 357,
+      "completion_tokens": 38,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 581,
+      "completion_tokens": 174,
+      "total_tokens": 755,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 763,
+      "completion_tokens": 140,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 760,
+      "completion_tokens": 135,
+      "total_tokens": 895,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 774,
+      "completion_tokens": 133,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1123,
+      "completion_tokens": 103,
+      "total_tokens": 1226,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 568,
+      "completion_tokens": 56,
+      "total_tokens": 624,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 390,
+    "majority_vote_total_tokens": 1170,
+    "scrd_total_tokens": 6480,
+    "scrd_prompt_tokens": 5631,
+    "scrd_completion_tokens": 849,
+    "agent_total_tokens": 3875,
+    "recorder_total_tokens": 1981,
+    "evaluator_total_tokens": 624,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

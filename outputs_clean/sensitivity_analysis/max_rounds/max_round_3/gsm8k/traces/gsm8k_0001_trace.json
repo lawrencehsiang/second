@@ -1,0 +1,191 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "72",
+        "96",
+        "72"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "May sales are half of April sales.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B's total sales value of 96 versus Agents A and C's combined sales of 72.",
+          "why_still_open": "Agents have different interpretations of the total sales calculation.",
+          "involved_answers": [
+            "B",
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "April sales = 48",
+        "May sales = 48 / 2",
+        "Total sales = April + May",
+        "April sales = 48, May sales = 24, Total = 72",
+        "Calculate total clips sold by adding April sales to May sales."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "72",
+        "120",
+        "72"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of clips sold is the sum of April and May sales.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "April sales = 48",
+        "May sales = 48 / 2",
+        "Total sales = April + May",
+        "April sales = 48, May sales = 24, Total = 72",
+        "Calculate total clips sold by adding April sales to May sales."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0001",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 349,
+      "completion_tokens": 48,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0001",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 336,
+      "completion_tokens": 37,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0001",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 347,
+      "completion_tokens": 50,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0001",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 611,
+      "completion_tokens": 202,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0001",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 718,
+      "completion_tokens": 138,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0001",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 715,
+      "completion_tokens": 131,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0001",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 729,
+      "completion_tokens": 129,
+      "total_tokens": 858,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0001",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1159,
+      "completion_tokens": 142,
+      "total_tokens": 1301,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0001",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 55,
+      "total_tokens": 644,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 397,
+    "majority_vote_total_tokens": 1167,
+    "scrd_total_tokens": 6485,
+    "scrd_prompt_tokens": 5553,
+    "scrd_completion_tokens": 932,
+    "agent_total_tokens": 3727,
+    "recorder_total_tokens": 2114,
+    "evaluator_total_tokens": 644,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

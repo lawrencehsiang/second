@@ -1,0 +1,470 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "30",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total cost for 4 months.",
+          "claim_type": "constraint",
+          "related_answer": "A, B, C"
+        },
+        {
+          "text": "Determine monthly savings needed.",
+          "claim_type": "constraint",
+          "related_answer": "A, B, C"
+        },
+        {
+          "text": "Divide total savings needed by monthly earnings per chore.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods to calculate chores per month.",
+          "why_still_open": "Agents A and B calculate chores per month directly, while C calculates chores based on total savings needed.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = 4 * monthly cost",
+        "Monthly savings needed = Total cost / 4",
+        "Chores per month = Monthly savings needed / monthly earnings per chore"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "10",
+        "30",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Aligned calculation method with total savings needed.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Directly calculated chores per month.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verified chores per month using total savings needed.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 4 * monthly cost",
+        "Monthly savings needed = Total cost / 4",
+        "Chores per month = Monthly savings needed / monthly earnings per chore"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "32",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected the minority answer from 30 chores per month.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Clarified the need to calculate total cost and then determine chores per month.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verified the minority answer of 30 chores per month against total cost and duration.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the final number of chores per month.",
+          "why_still_open": "Different agents have different calculations leading to conflicting answers.",
+          "involved_answers": [
+            "8",
+            "32"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = 4 * monthly cost",
+        "Monthly savings needed = Total cost / 4",
+        "Chores per month = Monthly savings needed / monthly earnings per chore"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "30",
+        "30",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolved the conflict by recalculating the total cost of supplies over the season and determining the number of chores needed per month.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revised the calculation to align with the total cost and the number of available months.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Confirmed the correct number of chores per month is 30 through unit consistency and magnitude checks.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 4 * monthly cost",
+        "Monthly savings needed = Total cost / 4",
+        "Chores per month = Monthly savings needed / monthly earnings per chore"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "7",
+        "30",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated the total cost of supplies and determined the number of chores needed per month, resulting in 7 chores per month.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Confirmed the correct number of chores per month is 30 through unit consistency and magnitude checks.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 8 chores per month is inconsistent with the calculated result of 30 chores per month.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 8 chores per month remains unresolved.",
+          "why_still_open": "Despite multiple confirmations, the minority answer persists without resolution.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = $400",
+        "Charge per chore = $10",
+        "Months not playing baseball = 8",
+        "Chores per month = 50 chores / 8 months",
+        "Chores per month = 6.25 -> rounded up to 7 chores per month"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 384,
+      "completion_tokens": 52,
+      "total_tokens": 436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 371,
+      "completion_tokens": 45,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 382,
+      "completion_tokens": 37,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 615,
+      "completion_tokens": 246,
+      "total_tokens": 861,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 747,
+      "completion_tokens": 97,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 744,
+      "completion_tokens": 95,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 757,
+      "completion_tokens": 84,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1078,
+      "completion_tokens": 175,
+      "total_tokens": 1253,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 828,
+      "completion_tokens": 120,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 825,
+      "completion_tokens": 108,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 838,
+      "completion_tokens": 108,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1060,
+      "completion_tokens": 255,
+      "total_tokens": 1315,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 839,
+      "completion_tokens": 137,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 837,
+      "completion_tokens": 100,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 850,
+      "completion_tokens": 126,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1154,
+      "completion_tokens": 215,
+      "total_tokens": 1369,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 855,
+      "completion_tokens": 172,
+      "total_tokens": 1027,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 852,
+      "completion_tokens": 117,
+      "total_tokens": 969,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 866,
+      "completion_tokens": 130,
+      "total_tokens": 996,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0051",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1185,
+      "completion_tokens": 307,
+      "total_tokens": 1492,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 436,
+    "majority_vote_total_tokens": 1271,
+    "scrd_total_tokens": 18793,
+    "scrd_prompt_tokens": 16067,
+    "scrd_completion_tokens": 2726,
+    "agent_total_tokens": 12503,
+    "recorder_total_tokens": 6290,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

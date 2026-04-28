@@ -1,0 +1,206 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "240",
+        "280",
+        "224"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total allowance for two groups separately then sum.",
+          "claim_type": "support",
+          "related_answer": "240"
+        },
+        {
+          "text": "Calculate the total allowance by multiplying the number of students in each group by their respective averages.",
+          "claim_type": "support",
+          "related_answer": "280"
+        },
+        {
+          "text": "Calculate the total allowance by multiplying the fractions and averages given.",
+          "claim_type": "support",
+          "related_answer": "224"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Sum(group1) + Sum(group2)",
+        "Total = num_students * avg_allowance",
+        "Total = fraction * avg_allowance"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "224",
+        "280",
+        "224"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing the totals for two groups leads to an incorrect total.",
+          "claim_type": "rebuttal",
+          "related_answer": "240"
+        },
+        {
+          "text": "Multiplying the number of students by their respective averages gives the correct total allowance.",
+          "claim_type": "support",
+          "related_answer": "280"
+        },
+        {
+          "text": "Using fractions and averages as stated in the problem conditions yields the correct total.",
+          "claim_type": "support",
+          "related_answer": "224"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum(group1) + Sum(group2) ≠ Total",
+        "num_students * avg_allowance = Total",
+        "fraction * avg_allowance = Total"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 385,
+      "completion_tokens": 33,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 372,
+      "completion_tokens": 45,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 383,
+      "completion_tokens": 38,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 597,
+      "completion_tokens": 190,
+      "total_tokens": 787,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 819,
+      "completion_tokens": 118,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 816,
+      "completion_tokens": 232,
+      "total_tokens": 1048,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 830,
+      "completion_tokens": 147,
+      "total_tokens": 977,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1237,
+      "completion_tokens": 197,
+      "total_tokens": 1434,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 701,
+      "completion_tokens": 47,
+      "total_tokens": 748,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 418,
+    "majority_vote_total_tokens": 1256,
+    "scrd_total_tokens": 7187,
+    "scrd_prompt_tokens": 6140,
+    "scrd_completion_tokens": 1047,
+    "agent_total_tokens": 4218,
+    "recorder_total_tokens": 2221,
+    "evaluator_total_tokens": 748,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

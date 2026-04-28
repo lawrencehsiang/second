@@ -1,0 +1,422 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "14",
+        "14",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total games = 11 + 22",
+          "claim_type": "explanation",
+          "related_answer": "14"
+        },
+        {
+          "text": "Good games = Total games - 19",
+          "claim_type": "explanation",
+          "related_answer": "14"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "11 + 22 = 33",
+        "33 - 19 = 14",
+        "Total games = 33",
+        "Good games = 14"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "14",
+        "14",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of games Ned bought is 11 + 22 = 33.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "After removing the 19 games that didn't work, the remaining games are 33 - 19 = 14.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "11 + 22 = 33",
+        "33 - 19 = 14",
+        "Total games = 33",
+        "Good games = 14"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "14",
+        "14",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of games Ned bought is 33, but 19 of them didn't work. Therefore, the number of good games is 33 - 19.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "33 - 19 = 14",
+        "Total games = 33",
+        "Good games = 14",
+        "19 non-working games removed",
+        "Subtract non-working games from total"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "14",
+        "14",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of games Ned bought is 11 from a friend plus 22 from a garage sale, summing to 33 games.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ned bought 11 games from a friend and 22 at a garage sale, totaling 33 games",
+        "19 non-working games removed",
+        "Total games = 33",
+        "Good games = 14",
+        "Subtract non-working games from total"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "14",
+        "12",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous answer of 14 is incorrect because it does not account for the non-working games.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct number of good games is 14, calculated as 33 total games minus 19 non-working games.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B claims the answer should be 12, while Agent C and Agent A support 14.",
+          "why_still_open": "There is a discrepancy in interpreting the question regarding whether the total games bought or the good games are being asked for.",
+          "involved_answers": [
+            "12",
+            "14"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ned bought 11 games from a friend and 22 at a garage sale, totaling 33 games",
+        "19 non-working games removed",
+        "Total games = 33",
+        "Good games = 14",
+        "Subtract non-working games from total"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 361,
+      "completion_tokens": 37,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 348,
+      "completion_tokens": 46,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 359,
+      "completion_tokens": 46,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 608,
+      "completion_tokens": 154,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 622,
+      "completion_tokens": 37,
+      "total_tokens": 659,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 619,
+      "completion_tokens": 80,
+      "total_tokens": 699,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 633,
+      "completion_tokens": 55,
+      "total_tokens": 688,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 862,
+      "completion_tokens": 179,
+      "total_tokens": 1041,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 622,
+      "completion_tokens": 136,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 619,
+      "completion_tokens": 62,
+      "total_tokens": 681,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 633,
+      "completion_tokens": 58,
+      "total_tokens": 691,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 963,
+      "completion_tokens": 149,
+      "total_tokens": 1112,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 649,
+      "completion_tokens": 173,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 646,
+      "completion_tokens": 48,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 660,
+      "completion_tokens": 178,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1084,
+      "completion_tokens": 156,
+      "total_tokens": 1240,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 642,
+      "completion_tokens": 168,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 639,
+      "completion_tokens": 65,
+      "total_tokens": 704,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 653,
+      "completion_tokens": 66,
+      "total_tokens": 719,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0017",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 991,
+      "completion_tokens": 277,
+      "total_tokens": 1268,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 398,
+    "majority_vote_total_tokens": 1197,
+    "scrd_total_tokens": 15383,
+    "scrd_prompt_tokens": 13213,
+    "scrd_completion_tokens": 2170,
+    "agent_total_tokens": 9960,
+    "recorder_total_tokens": 5423,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,435 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "80",
+        "80",
+        "80"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total used fabric and subtract from total fabric.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total used area and subtract from bolt size.",
+        "Calculate total used fabric, subtract from total bolt fabric.",
+        "Calculate total used fabric, subtract from total fabric."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "40",
+        "80",
+        "80"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculating the total fabric used and subtracting from the total fabric available.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the initial calculation of 80 square feet.",
+          "why_still_open": "Agent A believes the previous answer was incorrect due to potential unit or quantity mismatches, while B and C maintain its correctness.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Re-calculate total used fabric and subtract from total fabric.",
+        "Previous answer of 80 sq ft was likely incorrect due to unit or quantity issues.",
+        "Calculate total used fabric, subtract from total fabric."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "160",
+        "80",
+        "80"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial calculation of 80 square feet is incorrect; the correct total used fabric is 32 square feet, leading to 160 square feet remaining.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous calculation of 80 square feet is verified correct by rechecking the area of the rectangles and the total fabric.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-calculate the total fabric used and subtract from the total fabric available.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the initial calculation of 80 square feet.",
+          "why_still_open": "While Agent A and B have resolved their disagreement, Agent C is still in the process of re-calculating.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total fabric used is 32 sq ft, so 160 sq ft remain.",
+        "Initial calculation of 80 sq ft is incorrect; it should be 32 sq ft.",
+        "Verify previous calculation of 80 sq ft by rechecking areas."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "160",
+        "80",
+        "160"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial calculation of 80 square feet is verified correct.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct total fabric used is 32 square feet, resulting in 160 square feet remaining.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the initial calculation of 80 square feet.",
+          "why_still_open": "Agent C is rechecking the calculations, but results are not yet finalized.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial calculation of 80 sq ft is verified correct.",
+        "Correct total fabric used is 32 sq ft, leaving 160 sq ft remaining.",
+        "Rechecking calculations for accuracy."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "160",
+        "160",
+        "160"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 80 square feet is resolved as incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Correct total fabric used is 160 sq ft.",
+        "Minority answer of 80 sq ft is incorrect.",
+        "Key rebuttal confirms 160 sq ft remaining."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 373,
+      "completion_tokens": 32,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 360,
+      "completion_tokens": 33,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 371,
+      "completion_tokens": 35,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 582,
+      "completion_tokens": 107,
+      "total_tokens": 689,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 633,
+      "completion_tokens": 114,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 630,
+      "completion_tokens": 64,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 644,
+      "completion_tokens": 42,
+      "total_tokens": 686,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 855,
+      "completion_tokens": 199,
+      "total_tokens": 1054,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 846,
+      "completion_tokens": 203,
+      "total_tokens": 1049,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 843,
+      "completion_tokens": 132,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 857,
+      "completion_tokens": 109,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1178,
+      "completion_tokens": 317,
+      "total_tokens": 1495,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 877,
+      "completion_tokens": 128,
+      "total_tokens": 1005,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 873,
+      "completion_tokens": 116,
+      "total_tokens": 989,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 887,
+      "completion_tokens": 96,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1194,
+      "completion_tokens": 230,
+      "total_tokens": 1424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 840,
+      "completion_tokens": 151,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 836,
+      "completion_tokens": 125,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 851,
+      "completion_tokens": 173,
+      "total_tokens": 1024,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0052",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1226,
+      "completion_tokens": 118,
+      "total_tokens": 1344,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 405,
+    "majority_vote_total_tokens": 1204,
+    "scrd_total_tokens": 18280,
+    "scrd_prompt_tokens": 15756,
+    "scrd_completion_tokens": 2524,
+    "agent_total_tokens": 12274,
+    "recorder_total_tokens": 6006,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,193 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "200",
+        "200",
+        "200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the weight gained from each source.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate gains from each food source and subtract from total needed.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating weight gain.",
+          "why_still_open": "Agents A and B have different approaches.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate the weight gained from each source to find the weight gained from small animals.",
+        "Calculate gains from each food source and subtract from total needed."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "200",
+        "200",
+        "200"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Resolved the conflict by choosing the method of calculating weight gained from each source.",
+        "We should calculate the weight gained from each source directly and then find how much was gained from small animals.",
+        "The correct method is to calculate the weight gained from each source and then determine the weight gained from small animals."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 410,
+      "completion_tokens": 42,
+      "total_tokens": 452,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 397,
+      "completion_tokens": 35,
+      "total_tokens": 432,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 408,
+      "completion_tokens": 42,
+      "total_tokens": 450,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 601,
+      "completion_tokens": 186,
+      "total_tokens": 787,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 845,
+      "completion_tokens": 94,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 842,
+      "completion_tokens": 103,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 856,
+      "completion_tokens": 102,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1032,
+      "completion_tokens": 97,
+      "total_tokens": 1129,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0062",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 55,
+      "total_tokens": 647,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 452,
+    "majority_vote_total_tokens": 1334,
+    "scrd_total_tokens": 6739,
+    "scrd_prompt_tokens": 5983,
+    "scrd_completion_tokens": 756,
+    "agent_total_tokens": 4176,
+    "recorder_total_tokens": 1916,
+    "evaluator_total_tokens": 647,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

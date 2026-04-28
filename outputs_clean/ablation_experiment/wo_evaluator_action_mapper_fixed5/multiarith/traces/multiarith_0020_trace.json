@@ -1,0 +1,434 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "25",
+        "15",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total carrots = 26 + 15",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Good carrots = 16",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Bad carrots = Total - Good",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total picked - Good carrots = Bad carrots",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total carrots = 26 + 15",
+        "Good carrots = 16",
+        "Bad carrots = Total - Good",
+        "Total picked = 26 + 15 = 41",
+        "Only 16 were good, so 41 - 16 = 25 were bad."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "25",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of carrots is 41, and only 16 are good.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Therefore, the number of bad carrots is 41 - 16.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total carrots = 41",
+        "Good carrots = 16",
+        "Bad carrots = 41 - 16",
+        "Total carrots = 26 + 15",
+        "Only 16 were good, so 41 - 16 = 25 were bad."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "25",
+        "9",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous answer was based on an incorrect assumption that all 41 carrots were counted as good, which contradicts the statement that only 16 are good.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revised the calculation to show the complete process and ensure accuracy.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The total carrots calculation (26 + 15 = 41) and the number of good carrots (16) are consistent. Therefore, the bad carrots are 41 - 16 = 25.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total carrots = 41",
+        "Good carrots = 16",
+        "Bad carrots = 41 - 16",
+        "Total carrots = 26 + 15",
+        "Only 16 were good, so 41 - 16 = 25 were bad."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "25",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revised the calculation to subtract only the 16 good carrots from the total of 41 carrots picked.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct approach is to subtract the number of good carrots (16) from the total number of carrots picked (41).",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The previous answer incorrectly assumed all 41 carrots were good. Only 16 carrots are good, so the bad carrots are 41 - 16.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total carrots = 41",
+        "Good carrots = 16",
+        "Bad carrots = 41 - 16",
+        "Total carrots = 26 + 15",
+        "Only 16 were good, so 41 - 16 = 25 were bad."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "25",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total carrots = 41",
+        "Good carrots = 16",
+        "Bad carrots = 41 - 16",
+        "Total carrots = 26 + 15",
+        "Only 16 were good, so 41 - 16 = 25 were bad."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 356,
+      "completion_tokens": 47,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 343,
+      "completion_tokens": 34,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 354,
+      "completion_tokens": 62,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 622,
+      "completion_tokens": 241,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 617,
+      "completion_tokens": 139,
+      "total_tokens": 756,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 614,
+      "completion_tokens": 61,
+      "total_tokens": 675,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 628,
+      "completion_tokens": 142,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1119,
+      "completion_tokens": 187,
+      "total_tokens": 1306,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 624,
+      "completion_tokens": 161,
+      "total_tokens": 785,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 621,
+      "completion_tokens": 114,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 635,
+      "completion_tokens": 162,
+      "total_tokens": 797,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1151,
+      "completion_tokens": 274,
+      "total_tokens": 1425,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 765,
+      "completion_tokens": 119,
+      "total_tokens": 884,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 761,
+      "completion_tokens": 138,
+      "total_tokens": 899,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 776,
+      "completion_tokens": 129,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1211,
+      "completion_tokens": 265,
+      "total_tokens": 1476,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 741,
+      "completion_tokens": 131,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 738,
+      "completion_tokens": 123,
+      "total_tokens": 861,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 752,
+      "completion_tokens": 130,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0020",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1201,
+      "completion_tokens": 101,
+      "total_tokens": 1302,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 403,
+    "majority_vote_total_tokens": 1196,
+    "scrd_total_tokens": 17389,
+    "scrd_prompt_tokens": 14629,
+    "scrd_completion_tokens": 2760,
+    "agent_total_tokens": 11017,
+    "recorder_total_tokens": 6372,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

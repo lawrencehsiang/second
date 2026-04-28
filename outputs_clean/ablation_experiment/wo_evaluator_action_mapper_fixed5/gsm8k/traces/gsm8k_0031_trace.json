@@ -1,0 +1,445 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "9",
+        "9",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each person ate 3/6 of their 3 pieces.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agreed on '9', but Agent C calculated '6'.",
+          "why_still_open": "Different methods led to different results.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Each person ate 3 pieces.",
+        "Total pieces = 18.",
+        "Eaten pieces = 9.",
+        "Uneaten pieces = 9.",
+        "C's method: 18 - 9 = 6."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "9",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each person had 4 pieces initially.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct method involves summing uneaten pieces per person.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each person bought a personal pan pizza cut into 4 pieces.",
+        "Total pieces = 18.",
+        "Eaten pieces = 9.",
+        "Uneaten pieces = 9.",
+        "C's initial method: 18 - 9 = 6."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer '6' aligns with the given consumption rates.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revising the calculation to reflect correct consumption rates leads to '6' uneaten pieces.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C now agree on '6', but Agent C's re-evaluation is still pending.",
+          "why_still_open": "Agent C is rechecking calculations.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Each person eats according to their specified percentage.",
+        "Bill and Dale eat 50%, Ann and Cate eat 75%.",
+        "Uneaten pieces per person: 2, 2, 1, 1.",
+        "Total uneaten pieces = 6.",
+        "Correct method: Sum uneaten pieces per person."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "9",
+        "6",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer '9' is incorrect based on re-evaluation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agent C is verifying both answers for correctness.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Two conflicting answers remain: 6 and 9.",
+          "why_still_open": "Agent C is still verifying both answers.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Bill and Dale each eat 2 pieces, Ann and Cate each eat 3 pieces.",
+        "Total uneaten pieces = 16 - 10 = 6.",
+        "Rechecking calculations for both answers.",
+        "Uneaten pieces per person: 2, 2, 1, 1.",
+        "The minority answer '9' is incorrect."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer '9' is incorrect, and the correct answer is 6.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Uneaten pieces per person: 2, 2, 1, 1.",
+        "Total uneaten pieces = 16 - 10 = 6.",
+        "Bill and Dale each eat 2 pieces, Ann and Cate each eat 3 pieces.",
+        "The minority answer '9' is incorrect.",
+        "Recalculating, Bill and Dale eat half (2 out of 4 pieces each), while Ann and Cate eat three-quarters (3 out of 4 pieces each)."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 365,
+      "completion_tokens": 38,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 352,
+      "completion_tokens": 34,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 363,
+      "completion_tokens": 36,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 580,
+      "completion_tokens": 185,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 728,
+      "completion_tokens": 129,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 725,
+      "completion_tokens": 132,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 739,
+      "completion_tokens": 85,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1083,
+      "completion_tokens": 166,
+      "total_tokens": 1249,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 821,
+      "completion_tokens": 180,
+      "total_tokens": 1001,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 818,
+      "completion_tokens": 110,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 832,
+      "completion_tokens": 94,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1096,
+      "completion_tokens": 261,
+      "total_tokens": 1357,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 812,
+      "completion_tokens": 115,
+      "total_tokens": 927,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 809,
+      "completion_tokens": 181,
+      "total_tokens": 990,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 823,
+      "completion_tokens": 91,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1192,
+      "completion_tokens": 243,
+      "total_tokens": 1435,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 813,
+      "completion_tokens": 94,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 810,
+      "completion_tokens": 96,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 824,
+      "completion_tokens": 180,
+      "total_tokens": 1004,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0031",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1165,
+      "completion_tokens": 188,
+      "total_tokens": 1353,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 403,
+    "majority_vote_total_tokens": 1188,
+    "scrd_total_tokens": 18388,
+    "scrd_prompt_tokens": 15750,
+    "scrd_completion_tokens": 2638,
+    "agent_total_tokens": 12229,
+    "recorder_total_tokens": 6159,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

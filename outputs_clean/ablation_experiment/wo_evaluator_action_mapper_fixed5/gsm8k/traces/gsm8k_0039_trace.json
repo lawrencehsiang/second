@@ -1,0 +1,438 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "72",
+        "36",
+        "48"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify the ratio and scale it up.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B used different methods to calculate the total tea needed.",
+          "why_still_open": "Different methods lead to different answers without clear resolution.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "72",
+        "36",
+        "48",
+        "Multiply people by cup size",
+        "Use tea-to-water ratio"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "72",
+        "72",
+        "72"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate using the tea-to-water ratio for 12 people.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "72",
+        "Multiply people by cup size",
+        "Use tea-to-water ratio",
+        "12 people * 6 ounces per person * 1 ounce of tea per 8 ounces of water",
+        "Mainstream support of 72 ounces"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "48",
+        "48",
+        "48"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the tea-to-water ratio for 12 people using the initial provided ratio.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recalculate using the tea-to-water ratio for 12 people as suggested by the key rebuttal.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recompute using the tea-to-water ratio for 12 people as suggested by the key rebuttal.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "72",
+        "Recalculate using the tea-to-water ratio for 12 people",
+        "Mainstream support of 72 ounces",
+        "12 people * 6 ounces per person * 1 ounce of tea per 8 ounces of water",
+        "48"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "72",
+        "72",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the tea-to-water ratio for 12 people using the initial provided ratio.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Conflict between 72 and 9 ounces of tea required.",
+          "why_still_open": "Different interpretations of the tea-to-water ratio lead to conflicting calculations.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "72 ounces of tea required based on the given ratio",
+        "12 people * 6 ounces per person = 72 ounces of tea required",
+        "1 ounce of tea for every 8 ounces of water",
+        "9 ounces of tea calculated using the ratio",
+        "Mainstream support of 48 ounces"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "9",
+        "48",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the tea-to-water ratio for 12 people using the initial provided ratio.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the amount of tea required: 48 ounces vs 9 ounces.",
+          "why_still_open": "The minority answer of 48 ounces contradicts the correct application of the 1:8 tea-to-water ratio.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "For 12 people, each needing 6 ounces of tea, 72 ounces of water are needed.",
+        "The correct ratio is 1 ounce of tea for every 8 ounces of water.",
+        "72 ounces of water divided by 8 equals 9 ounces of tea.",
+        "The minority answer incorrectly calculates 48 ounces of tea.",
+        "Mainstream support of 9 ounces"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 381,
+      "completion_tokens": 48,
+      "total_tokens": 429,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 368,
+      "completion_tokens": 49,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 379,
+      "completion_tokens": 33,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 609,
+      "completion_tokens": 155,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 741,
+      "completion_tokens": 114,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 738,
+      "completion_tokens": 159,
+      "total_tokens": 897,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 752,
+      "completion_tokens": 119,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1104,
+      "completion_tokens": 132,
+      "total_tokens": 1236,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 834,
+      "completion_tokens": 112,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 831,
+      "completion_tokens": 109,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 845,
+      "completion_tokens": 114,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1003,
+      "completion_tokens": 238,
+      "total_tokens": 1241,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 852,
+      "completion_tokens": 191,
+      "total_tokens": 1043,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 849,
+      "completion_tokens": 148,
+      "total_tokens": 997,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 863,
+      "completion_tokens": 163,
+      "total_tokens": 1026,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1275,
+      "completion_tokens": 212,
+      "total_tokens": 1487,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 848,
+      "completion_tokens": 203,
+      "total_tokens": 1051,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 845,
+      "completion_tokens": 135,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 858,
+      "completion_tokens": 151,
+      "total_tokens": 1009,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0039",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1240,
+      "completion_tokens": 247,
+      "total_tokens": 1487,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 429,
+    "majority_vote_total_tokens": 1258,
+    "scrd_total_tokens": 19047,
+    "scrd_prompt_tokens": 16215,
+    "scrd_completion_tokens": 2832,
+    "agent_total_tokens": 12832,
+    "recorder_total_tokens": 6215,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

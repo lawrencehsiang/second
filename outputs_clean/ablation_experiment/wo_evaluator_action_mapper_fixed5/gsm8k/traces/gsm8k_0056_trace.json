@@ -1,0 +1,444 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "75",
+        "50",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Percentage of non-rose flowers is 75%",
+          "claim_type": "support",
+          "related_answer": "A, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total flowers = 25 + 40 + 35",
+        "Not roses = 75",
+        "Percentage = (75/100)*100",
+        "Total flowers = 100",
+        "Percentage of non-rose flowers = 75%"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "75",
+        "75",
+        "70"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Percentage of non-rose flowers is 70%",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total flowers = 25 + 40 + 35",
+        "Not roses = 40 + 35",
+        "Percentage = (70/100)*100",
+        "Total flowers = 100",
+        "Percentage of non-rose flowers = 70%"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "75",
+        "70",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Percentage of non-rose flowers is 70%",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total flowers = 100",
+          "claim_type": "support",
+          "related_answer": "null"
+        },
+        {
+          "text": "Percentage of non-rose flowers = 70%",
+          "claim_type": "support",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Percentage of non-rose flowers being 75% vs 70%",
+          "why_still_open": "Conflict between agents B and C regarding the correct percentage.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total flowers = 100",
+        "Percentage of non-rose flowers = 70%",
+        "Not roses = 40 + 35",
+        "Percentage = (70/100)*100",
+        "Re-calculating the percentage of non-rose flowers using the provided quantities."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "65",
+        "75",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Percentage of non-rose flowers is 65%",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Percentage of non-rose flowers is 75%",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Percentage of non-rose flowers is 75%",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total flowers = 100",
+        "Non-rose flowers = 65 + 40 + 35",
+        "Percentage = (75 / 100) * 100",
+        "Re-calculation of non-rose flower percentage",
+        "Majority support for 75%"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "75",
+        "65",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The percentage of non-rose flowers is 75%",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The percentage of non-rose flowers is 75%, based on the total count of 100 flowers",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Percentage of non-rose flowers being 75% vs 65%",
+          "why_still_open": "The majority view was initially 65%, but it was challenged and updated to 75% based on recalculation.",
+          "involved_answers": [
+            "B",
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total flowers = 100",
+        "Non-rose flowers = 40 + 35",
+        "Percentage = (75 / 100) * 100",
+        "Recalculation of non-rose flower percentage",
+        "75% is the final agreed percentage"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 345,
+      "completion_tokens": 72,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 332,
+      "completion_tokens": 38,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 343,
+      "completion_tokens": 72,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 661,
+      "completion_tokens": 138,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 606,
+      "completion_tokens": 203,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 603,
+      "completion_tokens": 174,
+      "total_tokens": 777,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 617,
+      "completion_tokens": 157,
+      "total_tokens": 774,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1216,
+      "completion_tokens": 140,
+      "total_tokens": 1356,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 606,
+      "completion_tokens": 144,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 603,
+      "completion_tokens": 106,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 617,
+      "completion_tokens": 95,
+      "total_tokens": 712,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1037,
+      "completion_tokens": 269,
+      "total_tokens": 1306,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 812,
+      "completion_tokens": 195,
+      "total_tokens": 1007,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 809,
+      "completion_tokens": 121,
+      "total_tokens": 930,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 823,
+      "completion_tokens": 196,
+      "total_tokens": 1019,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1308,
+      "completion_tokens": 214,
+      "total_tokens": 1522,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 711,
+      "completion_tokens": 177,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 708,
+      "completion_tokens": 133,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 722,
+      "completion_tokens": 179,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0056",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1255,
+      "completion_tokens": 265,
+      "total_tokens": 1520,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 417,
+    "majority_vote_total_tokens": 1202,
+    "scrd_total_tokens": 17822,
+    "scrd_prompt_tokens": 14734,
+    "scrd_completion_tokens": 3088,
+    "agent_total_tokens": 11319,
+    "recorder_total_tokens": 6503,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

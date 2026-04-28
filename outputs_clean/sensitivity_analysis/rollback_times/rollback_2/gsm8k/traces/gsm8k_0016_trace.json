@@ -1,0 +1,207 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2400000",
+        "3900000",
+        "3900000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total sales, total cost, and then profit per day, multiply by 5 days, 20 weeks.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate total revenue, then subtract costs, then multiply by number of days and weeks.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate total revenue, subtract costs, and multiply by number of weeks.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Differing methods for calculating profit: A includes daily multiplication, B and C do not.",
+          "why_still_open": "Methods for daily vs weekly multiplication remain debated.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sales = 2400000",
+        "Revenue = 3900000",
+        "Profit = Revenue - Costs"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3900000",
+        "3900000",
+        "3900000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate weekly profit first, then multiply by 20 weeks.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Include daily multiplication in the profit calculation to align with mainstream support.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate daily profit and then multiply by the number of days in 20 weeks for consistency.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Profit = Revenue - Costs",
+        "Multiply by number of days and weeks",
+        "Calculate daily profit first"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 380,
+      "completion_tokens": 51,
+      "total_tokens": 431,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 367,
+      "completion_tokens": 44,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 378,
+      "completion_tokens": 44,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 636,
+      "completion_tokens": 265,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 770,
+      "completion_tokens": 108,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 767,
+      "completion_tokens": 118,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 781,
+      "completion_tokens": 130,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1209,
+      "completion_tokens": 182,
+      "total_tokens": 1391,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0016",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 738,
+      "completion_tokens": 52,
+      "total_tokens": 790,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 431,
+    "majority_vote_total_tokens": 1264,
+    "scrd_total_tokens": 7020,
+    "scrd_prompt_tokens": 6026,
+    "scrd_completion_tokens": 994,
+    "agent_total_tokens": 3938,
+    "recorder_total_tokens": 2292,
+    "evaluator_total_tokens": 790,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

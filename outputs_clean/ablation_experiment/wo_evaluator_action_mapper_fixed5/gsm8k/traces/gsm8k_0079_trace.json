@@ -1,0 +1,410 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total people = 24 + 1 + 1 = 26",
+        "Each pie has 10 slices, so 3 pies have 30 slices",
+        "26 people took 1 slice each"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "5",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The remaining slices are 30 - 25 = 5",
+          "claim_type": "rebuttal",
+          "related_answer": "5"
+        },
+        {
+          "text": "Subtracting the slices consumed leaves 4 slices",
+          "claim_type": "constraint",
+          "related_answer": "4"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total people = 24 + 1 + 1 = 26",
+        "Each pie has 10 slices, so 3 pies have 30 slices",
+        "26 people took 1 slice each",
+        "The remaining slices are 30 - 25 = 5",
+        "Subtracting the slices consumed leaves 4 slices"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 5 slices is correct as it aligns with the initial 30 slices and the subtraction of 25 slices consumed.",
+          "claim_type": "support",
+          "related_answer": "5"
+        },
+        {
+          "text": "The correct approach is to calculate the total slices initially available and subtract the slices consumed.",
+          "claim_type": "explanation",
+          "related_answer": "5"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer '5' remains unresolved.",
+          "why_still_open": "Different agents have varying interpretations of the calculation.",
+          "involved_answers": [
+            "5"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total slices = 3 pies * 10 slices = 30 slices",
+        "26 people took 1 slice each from 30 slices",
+        "Remaining slices = 30 - 25 = 5 slices",
+        "The minority answer '5' is correct based on the initial count and consumption",
+        "Recomputing the total slices and consumption"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of slices is 30, and after 25 are consumed, 5 remain.",
+          "claim_type": "support",
+          "related_answer": "5"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total slices = 3 pies * 10 slices = 30 slices",
+        "25 slices were consumed out of 30",
+        "Remaining slices = 30 - 25 = 5 slices",
+        "The minority answer '5' is correct based on the initial count and consumption",
+        "Recomputed total slices and consumption"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "5",
+        "4",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "After 25 people consume one slice each, 5 slices remain.",
+          "claim_type": "support",
+          "related_answer": "5"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total slices = 3 pies * 10 slices = 30 slices",
+        "25 people consume 1 slice each, leaving 5 slices",
+        "Recomputed total slices and consumption verify the minority answer '5'",
+        "After 25 people consume, 5 slices remain",
+        "The minority answer '5' is consistent with the problem's conditions"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 370,
+      "completion_tokens": 82,
+      "total_tokens": 452,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 357,
+      "completion_tokens": 96,
+      "total_tokens": 453,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 368,
+      "completion_tokens": 74,
+      "total_tokens": 442,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 727,
+      "completion_tokens": 83,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 636,
+      "completion_tokens": 131,
+      "total_tokens": 767,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 633,
+      "completion_tokens": 64,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 647,
+      "completion_tokens": 141,
+      "total_tokens": 788,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 941,
+      "completion_tokens": 193,
+      "total_tokens": 1134,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 828,
+      "completion_tokens": 152,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 825,
+      "completion_tokens": 107,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 839,
+      "completion_tokens": 88,
+      "total_tokens": 927,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1078,
+      "completion_tokens": 267,
+      "total_tokens": 1345,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 838,
+      "completion_tokens": 117,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 835,
+      "completion_tokens": 101,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 849,
+      "completion_tokens": 107,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1120,
+      "completion_tokens": 158,
+      "total_tokens": 1278,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 736,
+      "completion_tokens": 106,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 733,
+      "completion_tokens": 148,
+      "total_tokens": 881,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 747,
+      "completion_tokens": 106,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0079",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1056,
+      "completion_tokens": 155,
+      "total_tokens": 1211,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 452,
+    "majority_vote_total_tokens": 1347,
+    "scrd_total_tokens": 17639,
+    "scrd_prompt_tokens": 15163,
+    "scrd_completion_tokens": 2476,
+    "agent_total_tokens": 11861,
+    "recorder_total_tokens": 5778,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

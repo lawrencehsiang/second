@@ -1,0 +1,614 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "462",
+        "462",
+        "436"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate cost of 10 tickets + cost of 2 discounted tickets.",
+          "claim_type": "support",
+          "related_answer": "462"
+        },
+        {
+          "text": "Calculate total cost for first 10 tickets + discounted cost for additional 2 tickets.",
+          "claim_type": "support",
+          "related_answer": "462"
+        },
+        {
+          "text": "Calculate total cost without discount, apply discount to excess tickets, sum up.",
+          "claim_type": "support",
+          "related_answer": "436"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods to calculate the total cost.",
+          "why_still_open": "Agents used different approaches to account for the discount.",
+          "involved_answers": [
+            "462",
+            "436"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "10 tickets * full price + 2 tickets * half price",
+        "10 tickets * full price + 2 tickets * reduced price",
+        "Total cost without discount - discount on excess tickets"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "456",
+        "462",
+        "462"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the cost of 10 tickets at full price and 2 tickets with a 5% discount.",
+          "claim_type": "rebuttal",
+          "related_answer": "456"
+        },
+        {
+          "text": "Mainstream approach calculates the cost of 10 full-price tickets and 2 discounted tickets, totaling $462.",
+          "claim_type": "support",
+          "related_answer": "462"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "10 tickets * full price + 2 tickets * (full price - 5%)",
+        "Total cost = 10 * full price + 2 * 0.95 * full price"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "462",
+        "462",
+        "456"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The discount applies only to tickets exceeding 10, hence 2 tickets are discounted.",
+          "claim_type": "explanation",
+          "related_answer": "462"
+        },
+        {
+          "text": "The mainstream support method correctly accounts for the discount on tickets exceeding 10, leading to a total of $462.",
+          "claim_type": "support",
+          "related_answer": "462"
+        },
+        {
+          "text": "The original answer overcharged for the discount tickets. The correct approach is to apply the 5% discount only to the two extra tickets, not the entire batch.",
+          "claim_type": "rebuttal",
+          "related_answer": "456"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "10 tickets * full price + 2 tickets * (full price - 5%)",
+        "Total cost = 10 * full price + 2 * 0.95 * full price"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "456",
+        "456",
+        "462"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The discount applies to all tickets beyond the first 10, hence the last 2 tickets receive the 5% discount.",
+          "claim_type": "explanation",
+          "related_answer": "456"
+        },
+        {
+          "text": "The mainstream support method correctly applies the 5% discount to all tickets exceeding 10, ensuring accuracy.",
+          "claim_type": "support",
+          "related_answer": "462"
+        },
+        {
+          "text": "The original answer incorrectly applied the 5% discount to all 12 tickets, instead of only the 2 extra tickets.",
+          "claim_type": "rebuttal",
+          "related_answer": "456"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "10 tickets * full price + 2 tickets * (full price - 5%)",
+        "Total cost = 10 * full price + 2 * 0.95 * full price"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "464",
+        "462",
+        "456"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The discount only applies to the 2 extra tickets beyond the initial 10.",
+          "claim_type": "constraint",
+          "related_answer": "464"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "10 tickets * full price + 2 tickets * (full price - 5%)",
+        "Total cost = 10 * full price + 2 * 0.95 * full price"
+      ]
+    },
+    {
+      "round_id": 6,
+      "current_answers": [
+        "462",
+        "462",
+        "462"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "10 tickets * full price + 2 tickets * (full price - 5%)",
+        "Total cost = 10 * full price + 2 * 0.95 * full price"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 6,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 6,
+      "anchor_round": 5
+    },
+    {
+      "type": "repair_started",
+      "start_round": 6,
+      "anchor_round": 5
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 6,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 6
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 41,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 44,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 41,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 262,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 716,
+      "completion_tokens": 112,
+      "total_tokens": 828,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 713,
+      "completion_tokens": 117,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 108,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1162,
+      "completion_tokens": 183,
+      "total_tokens": 1345,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 651,
+      "completion_tokens": 54,
+      "total_tokens": 705,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 829,
+      "completion_tokens": 105,
+      "total_tokens": 934,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 826,
+      "completion_tokens": 105,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 840,
+      "completion_tokens": 112,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1055,
+      "completion_tokens": 241,
+      "total_tokens": 1296,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 671,
+      "completion_tokens": 57,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 872,
+      "completion_tokens": 150,
+      "total_tokens": 1022,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 869,
+      "completion_tokens": 148,
+      "total_tokens": 1017,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 883,
+      "completion_tokens": 136,
+      "total_tokens": 1019,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1209,
+      "completion_tokens": 238,
+      "total_tokens": 1447,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 670,
+      "completion_tokens": 50,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 854,
+      "completion_tokens": 151,
+      "total_tokens": 1005,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 851,
+      "completion_tokens": 144,
+      "total_tokens": 995,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 865,
+      "completion_tokens": 140,
+      "total_tokens": 1005,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1215,
+      "completion_tokens": 124,
+      "total_tokens": 1339,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 576,
+      "completion_tokens": 46,
+      "total_tokens": 622,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 6,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 854,
+      "completion_tokens": 151,
+      "total_tokens": 1005,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 6,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 851,
+      "completion_tokens": 138,
+      "total_tokens": 989,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 6,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 865,
+      "completion_tokens": 162,
+      "total_tokens": 1027,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 6,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1125,
+      "completion_tokens": 128,
+      "total_tokens": 1253,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 6,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 578,
+      "completion_tokens": 43,
+      "total_tokens": 621,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 649,
+      "completion_tokens": 85,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 919,
+      "completion_tokens": 137,
+      "total_tokens": 1056,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 918,
+      "completion_tokens": 142,
+      "total_tokens": 1060,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 919,
+      "completion_tokens": 136,
+      "total_tokens": 1055,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1073,
+      "completion_tokens": 78,
+      "total_tokens": 1151,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0041",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 627,
+      "completion_tokens": 48,
+      "total_tokens": 675,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1170,
+    "scrd_total_tokens": 32238,
+    "scrd_prompt_tokens": 28081,
+    "scrd_completion_tokens": 4157,
+    "agent_total_tokens": 15564,
+    "recorder_total_tokens": 8698,
+    "evaluator_total_tokens": 3396,
+    "repair_brief_total_tokens": 734,
+    "repair_evaluator_total_tokens": 675,
+    "repair_agent_total_tokens": 3171
+  }
+}

@@ -1,0 +1,515 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "6",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum of distances: 5 + 8 + x + 0 = 23.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of distances traveled between turns equals total distance.",
+        "Subtract known distances from total to find missing distance.",
+        "Sum of distances = total distance.",
+        "Solving for x gives the distance after 3rd turn."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "10",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated distance after 3rd turn to match total distance of 23 meters.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recalculated distance to ensure total distance is 23 meters.",
+        "Distance after 3rd turn recalculated from incorrect 10 meters to 6 meters.",
+        "Total distance constraint: 5 + 8 + x + 0 = 23."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "10",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 10 meters was recalculated and confirmed to be 6 meters.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer of 10 meters still present.",
+          "why_still_open": "The equation confirms the distance after the 3rd turn is 6 meters, but the minority answer persists.",
+          "involved_answers": [
+            "10",
+            "6"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "5 + 8 + x + 0 = 23 -> x = 6",
+        "Distance after 3rd turn recalculated to 6 meters.",
+        "Minority answer of 10 meters remains unresolved."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "4",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The remaining distance after the 3rd turn is calculated to be 4 meters, leading to a total distance of 23 meters.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 10 meters was recalculated and found to be incorrect, confirming the distance after the 3rd turn is 6 meters.",
+          "claim_type": "rebuttal",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5 + 8 + 6 + 4 = 23",
+        "Distance after 3rd turn recalculated to 6 meters.",
+        "Minority answer of 10 meters was recalculated and found incorrect."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct distance after the 3rd turn is 6 meters, as confirmed by the equation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5 + 8 + 6 + 4 = 23",
+        "Distance after 3rd turn recalculated to 6 meters.",
+        "Minority answer of 10 meters was recalculated and found incorrect."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 5
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 425,
+      "completion_tokens": 44,
+      "total_tokens": 469,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 412,
+      "completion_tokens": 37,
+      "total_tokens": 449,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 423,
+      "completion_tokens": 57,
+      "total_tokens": 480,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 615,
+      "completion_tokens": 128,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 692,
+      "completion_tokens": 142,
+      "total_tokens": 834,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 689,
+      "completion_tokens": 152,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 704,
+      "completion_tokens": 187,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1150,
+      "completion_tokens": 138,
+      "total_tokens": 1288,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 632,
+      "completion_tokens": 67,
+      "total_tokens": 699,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 726,
+      "completion_tokens": 98,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 673,
+      "completion_tokens": 142,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 672,
+      "completion_tokens": 109,
+      "total_tokens": 781,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 673,
+      "completion_tokens": 122,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1025,
+      "completion_tokens": 139,
+      "total_tokens": 1164,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 754,
+      "completion_tokens": 52,
+      "total_tokens": 806,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 857,
+      "completion_tokens": 164,
+      "total_tokens": 1021,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 854,
+      "completion_tokens": 137,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 870,
+      "completion_tokens": 108,
+      "total_tokens": 978,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1034,
+      "completion_tokens": 196,
+      "total_tokens": 1230,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 649,
+      "completion_tokens": 59,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 851,
+      "completion_tokens": 158,
+      "total_tokens": 1009,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 848,
+      "completion_tokens": 109,
+      "total_tokens": 957,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 864,
+      "completion_tokens": 156,
+      "total_tokens": 1020,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1120,
+      "completion_tokens": 199,
+      "total_tokens": 1319,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 721,
+      "completion_tokens": 49,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 872,
+      "completion_tokens": 141,
+      "total_tokens": 1013,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 869,
+      "completion_tokens": 155,
+      "total_tokens": 1024,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 885,
+      "completion_tokens": 160,
+      "total_tokens": 1045,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1129,
+      "completion_tokens": 133,
+      "total_tokens": 1262,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0033",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 53,
+      "total_tokens": 688,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 469,
+    "majority_vote_total_tokens": 1398,
+    "scrd_total_tokens": 26914,
+    "scrd_prompt_tokens": 23323,
+    "scrd_completion_tokens": 3591,
+    "agent_total_tokens": 3964,
+    "recorder_total_tokens": 7006,
+    "evaluator_total_tokens": 699,
+    "repair_brief_total_tokens": 824,
+    "repair_evaluator_total_tokens": 2972,
+    "repair_agent_total_tokens": 11449
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total problems = Math problems + Science problems",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Remaining problems = Total problems - finished problems",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Homework problems left = Total problems - problems done at school",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total problems = Math problems + Science problems",
+        "Remaining problems = Total problems - finished problems",
+        "Homework problems left = Total problems - problems done at school"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "11",
+        "12",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correct total problems = Math problems + Science problems",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Remaining problems = Correct total problems - finished problems",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the total number of problems.",
+          "why_still_open": "Agents B and C support 12 and 11 respectively, without clear resolution.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Remaining problems = Correct total problems - finished problems",
+        "Correct total problems = Math problems + Science problems",
+        "Total problems = Math problems + Science problems",
+        "Homework problems left = Total problems - problems done at school",
+        "Remaining problems = Total problems - finished problems"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "5",
+        "55",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correct total problems = 43 Math + 12 Science = 55",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Correct total problems = 43 Math + 12 Science = 55",
+        "Remaining problems = Correct total problems - finished problems",
+        "Correct total problems = Math problems + Science problems",
+        "Total problems = Math problems + Science problems",
+        "Homework problems left = Total problems - problems done at school"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "11",
+        "55",
+        "55"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Paige finished 44 problems at school.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Remaining problems = 55 - 44",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Correct total problems = 43 Math + 12 Science = 55",
+        "Remaining problems = Correct total problems - finished problems",
+        "Correct total problems = Math problems + Science problems",
+        "Total problems = Math problems + Science problems",
+        "Homework problems left = Total problems - problems done at school"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the calculation shows the minority answer of 11 is correct.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream view vs minority view on the number of remaining problems.",
+          "why_still_open": "The minority view suggests 11 remaining problems, while the mainstream view considers the total problems.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total problems = 43 Math + 12 Science = 55",
+        "Finished at school = 44",
+        "Remaining problems = 55 - 44 = 11",
+        "Minority view: 11 remaining problems",
+        "Mainstream view: Consider total problems"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 350,
+      "completion_tokens": 43,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 337,
+      "completion_tokens": 31,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 348,
+      "completion_tokens": 37,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 590,
+      "completion_tokens": 181,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 134,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 606,
+      "completion_tokens": 117,
+      "total_tokens": 723,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 620,
+      "completion_tokens": 49,
+      "total_tokens": 669,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1009,
+      "completion_tokens": 228,
+      "total_tokens": 1237,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 716,
+      "completion_tokens": 97,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 713,
+      "completion_tokens": 118,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 76,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1075,
+      "completion_tokens": 149,
+      "total_tokens": 1224,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 723,
+      "completion_tokens": 120,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 721,
+      "completion_tokens": 106,
+      "total_tokens": 827,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 735,
+      "completion_tokens": 122,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1048,
+      "completion_tokens": 178,
+      "total_tokens": 1226,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 711,
+      "completion_tokens": 150,
+      "total_tokens": 861,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 708,
+      "completion_tokens": 107,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 722,
+      "completion_tokens": 137,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0055",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1124,
+      "completion_tokens": 209,
+      "total_tokens": 1333,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 393,
+    "majority_vote_total_tokens": 1146,
+    "scrd_total_tokens": 16581,
+    "scrd_prompt_tokens": 14192,
+    "scrd_completion_tokens": 2389,
+    "agent_total_tokens": 10790,
+    "recorder_total_tokens": 5791,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

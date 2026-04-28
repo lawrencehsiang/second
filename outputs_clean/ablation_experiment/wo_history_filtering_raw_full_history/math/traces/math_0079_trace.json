@@ -1,0 +1,303 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Compute xyz by solving the given equations.",
+          "claim_type": "explanation",
+          "related_answer": "null"
+        },
+        {
+          "text": "Substitute and simplify equations to solve for x, y, z.",
+          "claim_type": "constraint",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (3 vs 6) from agents A, B, and C.",
+          "why_still_open": "Insufficient information to determine which solution is correct.",
+          "involved_answers": [
+            "3",
+            "6"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Solve for x, y, z using manipulation of equations.",
+        "Substitute and simplify to find x, y, z.",
+        "Agents A and B agree on answer 3.",
+        "Agent C provides a different answer 6.",
+        "Compute xyz based on solutions for x, y, z."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-examine and solve step-by-step to reach a consistent solution.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Carefully solve the system of equations to ensure accuracy.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify equations step-by-step for accuracy.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (3 vs 6) from agents A, B, and C.",
+          "why_still_open": "Insufficient information to determine which solution is correct despite re-evaluation.",
+          "involved_answers": [
+            "3",
+            "6"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Re-examine the equations and solve step-by-step.",
+        "Ensure all variables are correctly solved.",
+        "Verify equations step-by-step.",
+        "Agents A, B, and C now agree on answer 6.",
+        "Compute xyz based on the solutions."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 385,
+      "completion_tokens": 33,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 372,
+      "completion_tokens": 41,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 383,
+      "completion_tokens": 40,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 587,
+      "completion_tokens": 236,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 856,
+      "completion_tokens": 97,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 853,
+      "completion_tokens": 95,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 867,
+      "completion_tokens": 89,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1065,
+      "completion_tokens": 207,
+      "total_tokens": 1272,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 48,
+      "total_tokens": 651,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 862,
+      "completion_tokens": 86,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 621,
+      "completion_tokens": 108,
+      "total_tokens": 729,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 620,
+      "completion_tokens": 114,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 621,
+      "completion_tokens": 102,
+      "total_tokens": 723,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1084,
+      "completion_tokens": 266,
+      "total_tokens": 1350,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0079",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 790,
+      "completion_tokens": 51,
+      "total_tokens": 841,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 418,
+    "majority_vote_total_tokens": 1254,
+    "scrd_total_tokens": 12182,
+    "scrd_prompt_tokens": 10569,
+    "scrd_completion_tokens": 1613,
+    "agent_total_tokens": 4111,
+    "recorder_total_tokens": 3445,
+    "evaluator_total_tokens": 651,
+    "repair_brief_total_tokens": 948,
+    "repair_evaluator_total_tokens": 841,
+    "repair_agent_total_tokens": 2186
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

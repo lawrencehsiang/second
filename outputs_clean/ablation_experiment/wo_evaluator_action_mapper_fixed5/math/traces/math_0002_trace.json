@@ -1,0 +1,447 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "98",
+        "98",
+        "98"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Maximize N under constraints m*r = N and (m+1)*(r-2) = N with N < 100.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Solve for n where m*r = n-2 and (m+1)*(r-2) = n with n < 100.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Use simultaneous equations m*r + 2 = total and (m+1)*(r-2) = total to find maximum total < 100.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "m*r = N, (m+1)*(r-2) = N, N < 100",
+        "m*r = n-2, (m+1)*(r-2) = n, n < 100",
+        "m*r + 2 = total, (m+1)*(r-2) = total, solve for max total < 100"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "96",
+        "94",
+        "94"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify that 94 satisfies m*r = 94 and (m+1)*(r-2) = 94 with m and r as integers.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Check if 94 meets both constraints m*r = 94 and (m+1)*(r-2) = 94.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Both B and C updated their answers from 98 to 94, but the validity of 94 needs confirmation.",
+          "why_still_open": "The specific values of m and r must be verified for both constraints.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "m*r = 94, (m+1)*(r-2) = 94",
+        "Verify 94 satisfies both constraints",
+        "Previous answer was 98, updated to 94"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "98",
+        "94",
+        "98"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "94 does not satisfy the constraints m*r = 94 and (m+1)*(r-2) = 94 with integer m and r.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "94 satisfies m*r = 94 and (m+1)*(r-2) = 94 with m and r as integers.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "m*r = 94, (m+1)*(r-2) = 94",
+        "94 does not satisfy the constraints",
+        "94 satisfies both constraints"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "98",
+        "98",
+        "98"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "94 does not satisfy the constraints m*r = 94 and (m+1)*(r-2) = 94 with integer m and r.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "98 needs to be verified against the constraints m*r = 98 and (m+1)*(r-2) = 98 with integer values for m and r.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "94 does not satisfy the constraints, but 98 needs verification.",
+          "why_still_open": "Verification of 98 is pending.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "m*r = 94, (m+1)*(r-2) = 94",
+        "94 does not satisfy the constraints",
+        "98 needs to be verified"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "no_valid_solution",
+        "98",
+        "98"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "98 does not satisfy the constraints m*r = 98 and (m+1)*(r-2) = 98 with integer values for m and r.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "98 was incorrectly verified previously; further verification is necessary.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "94 does not satisfy the constraints, but 98 needs verification.",
+          "why_still_open": "Verification of 98's satisfaction of the constraints m*r = 98 and (m+1)*(r-2) = 98 is pending.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "m*r = 98, (m+1)*(r-2) = 98",
+        "94 does not satisfy the constraints",
+        "98 does not satisfy the constraints"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0002",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 423,
+      "completion_tokens": 59,
+      "total_tokens": 482,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 410,
+      "completion_tokens": 55,
+      "total_tokens": 465,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 421,
+      "completion_tokens": 51,
+      "total_tokens": 472,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 641,
+      "completion_tokens": 288,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 702,
+      "completion_tokens": 166,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 699,
+      "completion_tokens": 61,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 713,
+      "completion_tokens": 74,
+      "total_tokens": 787,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1133,
+      "completion_tokens": 267,
+      "total_tokens": 1400,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 925,
+      "completion_tokens": 182,
+      "total_tokens": 1107,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 922,
+      "completion_tokens": 159,
+      "total_tokens": 1081,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 936,
+      "completion_tokens": 133,
+      "total_tokens": 1069,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1298,
+      "completion_tokens": 191,
+      "total_tokens": 1489,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 916,
+      "completion_tokens": 106,
+      "total_tokens": 1022,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 913,
+      "completion_tokens": 174,
+      "total_tokens": 1087,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 927,
+      "completion_tokens": 227,
+      "total_tokens": 1154,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1242,
+      "completion_tokens": 256,
+      "total_tokens": 1498,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 916,
+      "completion_tokens": 213,
+      "total_tokens": 1129,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 913,
+      "completion_tokens": 228,
+      "total_tokens": 1141,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 927,
+      "completion_tokens": 130,
+      "total_tokens": 1057,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0002",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1369,
+      "completion_tokens": 263,
+      "total_tokens": 1632,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 482,
+    "majority_vote_total_tokens": 1419,
+    "scrd_total_tokens": 20629,
+    "scrd_prompt_tokens": 17346,
+    "scrd_completion_tokens": 3283,
+    "agent_total_tokens": 13681,
+    "recorder_total_tokens": 6948,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

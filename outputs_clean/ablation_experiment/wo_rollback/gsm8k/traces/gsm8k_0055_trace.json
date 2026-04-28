@@ -1,0 +1,203 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "26",
+        "20",
+        "26"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Loss = Earnings - (Milkshake + Savings) - 1",
+          "claim_type": "explanation",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Earnings - Milkshake - Savings - 1 = Loss",
+        "Total = Earnings - Expenses - Savings",
+        "Spent on milkshake + savings = $56",
+        "Remaining after savings = Earnings - $56",
+        "Final loss = Remaining - $1"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "21",
+        "26",
+        "27"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revised calculation accounts for exact fractions of milkshake and savings expenditures.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Loss = Earnings - (Milkshake + Savings) - 1, recalculated to confirm 26.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Formula correct, but previous answer of 26 may be incorrect.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Divergence between answers 21, 26, and 27.",
+          "why_still_open": "Pending confirmation of exact fractions in milkshake and savings expenditures.",
+          "involved_answers": [
+            "21",
+            "26",
+            "27"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recomputed loss accounting for exact fractions of milkshake and savings.",
+        "Loss = Earnings - (Milkshake + Savings) - 1, confirmed to be 26.",
+        "Previous answer 26 might be incorrect based on conditions.",
+        "Spent on milkshake and savings = $56.",
+        "Final loss = Remaining - $1."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 46,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 39,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 40,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 607,
+      "completion_tokens": 140,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 644,
+      "completion_tokens": 116,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 641,
+      "completion_tokens": 109,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 655,
+      "completion_tokens": 111,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1004,
+      "completion_tokens": 312,
+      "total_tokens": 1316,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0055",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 711,
+      "completion_tokens": 45,
+      "total_tokens": 756,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 424,
+    "majority_vote_total_tokens": 1244,
+    "scrd_total_tokens": 6339,
+    "scrd_prompt_tokens": 5381,
+    "scrd_completion_tokens": 958,
+    "agent_total_tokens": 3520,
+    "recorder_total_tokens": 2063,
+    "evaluator_total_tokens": 756,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+}

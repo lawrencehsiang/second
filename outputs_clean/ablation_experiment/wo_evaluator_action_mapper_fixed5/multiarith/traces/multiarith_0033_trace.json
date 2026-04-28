@@ -1,0 +1,439 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum the points from each round, accounting for the loss.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "17 + 6 - 16 = 7",
+        "Sum of points from each round: 17 + 6 - 16 = 7"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-3",
+        "1",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total score should consider both gains and losses.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recompute the total score step-by-step to verify calculations.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the total score calculation method.",
+          "why_still_open": "Different agents have different interpretations of how to account for points gained and lost.",
+          "involved_answers": [
+            "-3",
+            "1",
+            "7"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "17 + 6 - 16 = 7",
+        "Recompute the total score: 17 + 6 - 16 = 7",
+        "Account for gains and losses in the total score."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "-3",
+        "1",
+        "-5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the total score based on gains and losses.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "We need to consider both gains and losses in the total score calculation.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The total score should be calculated by adding the points gained and subtracting the points lost.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recompute the total score: 17 + 6 - 16 = 7",
+        "Account for gains and losses in the total score.",
+        "17 + 6 - 16 = 7",
+        "Final score: 17 + 6 - 16 = 7",
+        "Total score = gains - losses"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "-3",
+        "-3",
+        "-5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revisiting the calculation considering both positive and negative scores.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluating the total score based on gains and losses.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer (-3) is incorrect as it does not account for all rounds and their respective scores.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recompute the total score: 17 + 6 - 16 = 7",
+        "Account for gains and losses in the total score.",
+        "17 + 6 - 16 = 7",
+        "Final score: 17 + 6 - 16 = 7",
+        "Total score = gains - losses"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "7",
+        "-5",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the minority answer from -5 to 7 to align with the correct calculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the final score between 7 and -5.",
+          "why_still_open": "The minority answer (-5) still opposes the majority view despite resolution attempts.",
+          "involved_answers": [
+            "-5",
+            "7"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recompute the total score: 17 + 6 - 16 = 7",
+        "Final score: 17 + 6 - 16 = 7",
+        "Total score = 17 + 6 - 16",
+        "Correct calculation yields 7",
+        "17 + 6 - 16 = 7"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 362,
+      "completion_tokens": 37,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 349,
+      "completion_tokens": 33,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 360,
+      "completion_tokens": 45,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 111,
+      "total_tokens": 702,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 622,
+      "completion_tokens": 106,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 619,
+      "completion_tokens": 96,
+      "total_tokens": 715,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 633,
+      "completion_tokens": 100,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 943,
+      "completion_tokens": 219,
+      "total_tokens": 1162,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 723,
+      "completion_tokens": 81,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 720,
+      "completion_tokens": 82,
+      "total_tokens": 802,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 734,
+      "completion_tokens": 91,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1024,
+      "completion_tokens": 235,
+      "total_tokens": 1259,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 814,
+      "completion_tokens": 109,
+      "total_tokens": 923,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 811,
+      "completion_tokens": 90,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 825,
+      "completion_tokens": 114,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1094,
+      "completion_tokens": 237,
+      "total_tokens": 1331,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 812,
+      "completion_tokens": 135,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 809,
+      "completion_tokens": 104,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 823,
+      "completion_tokens": 108,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0033",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1122,
+      "completion_tokens": 223,
+      "total_tokens": 1345,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 399,
+    "majority_vote_total_tokens": 1186,
+    "scrd_total_tokens": 17146,
+    "scrd_prompt_tokens": 14790,
+    "scrd_completion_tokens": 2356,
+    "agent_total_tokens": 11347,
+    "recorder_total_tokens": 5799,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

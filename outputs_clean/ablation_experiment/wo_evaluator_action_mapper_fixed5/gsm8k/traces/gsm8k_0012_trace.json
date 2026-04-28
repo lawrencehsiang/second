@@ -1,0 +1,441 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2",
+        "2",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total savings minus shoe cost equals driveways shoveled.",
+          "claim_type": "support",
+          "related_answer": "2"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Savings - $50 = driveways shoveled * $12",
+        "50/60*12=10",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3",
+        "2",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial calculation did not include Tobias's allowance or lawn mowing income.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Total savings minus shoe cost equals driveways shoveled.",
+          "why_still_open": "The conflict remains as the answers have been updated, but the discrepancy in the number of driveways shoveled (3 vs. 4) is not fully resolved.",
+          "involved_answers": [
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Savings - $50 = driveways shoveled * $12",
+        "50/60*12=10",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "4",
+        "3",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed with all factors including Tobias's allowance and lawn mowing income.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 3 driveways shoveled remains unresolved.",
+          "why_still_open": "Despite recalculations, the number of driveways shoveled is still disputed between 3 and 4.",
+          "involved_answers": [
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Savings - $50 = driveways shoveled * $12",
+        "50/60*12=10",
+        "Apr=48, May=24, Total=72",
+        "Including allowance and lawn mowing, recompute total savings.",
+        "Resolve conflict on number of driveways shoveled."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "4",
+        "4",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed total savings including Tobias's allowance and lawn mowing income.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputed total savings including Tobias's allowance and lawn mowing income.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Dispute on the number of driveways shoveled remains.",
+          "why_still_open": "The minority answer of 3 driveways remains unaddressed despite recomputation.",
+          "involved_answers": [
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Savings - $50 = driveways shoveled * $12",
+        "50/60*12=10",
+        "Apr=48, May=24, Total=72",
+        "Including allowance and lawn mowing, recompute total savings.",
+        "Majority answer is 4 driveways shoveled."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "2",
+        "2",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed total savings including Tobias's allowance and lawn mowing income.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Dispute on the number of driveways shoveled remains.",
+          "why_still_open": "The minority answer of 2 driveways remains unaddressed despite recomputation.",
+          "involved_answers": [
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Savings - $50 = driveways shoveled * $12",
+        "50/60*12=10",
+        "Apr=48, May=24, Total=72",
+        "Including allowance and lawn mowing, recompute total savings.",
+        "Majority answer is 4 driveways shoveled."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 409,
+      "completion_tokens": 41,
+      "total_tokens": 450,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 396,
+      "completion_tokens": 40,
+      "total_tokens": 436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 407,
+      "completion_tokens": 42,
+      "total_tokens": 449,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 599,
+      "completion_tokens": 120,
+      "total_tokens": 719,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 668,
+      "completion_tokens": 114,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 665,
+      "completion_tokens": 43,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 679,
+      "completion_tokens": 135,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 942,
+      "completion_tokens": 205,
+      "total_tokens": 1147,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 860,
+      "completion_tokens": 165,
+      "total_tokens": 1025,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 857,
+      "completion_tokens": 104,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 871,
+      "completion_tokens": 131,
+      "total_tokens": 1002,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1157,
+      "completion_tokens": 228,
+      "total_tokens": 1385,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 861,
+      "completion_tokens": 124,
+      "total_tokens": 985,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 858,
+      "completion_tokens": 98,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 872,
+      "completion_tokens": 108,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1096,
+      "completion_tokens": 262,
+      "total_tokens": 1358,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 860,
+      "completion_tokens": 96,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 857,
+      "completion_tokens": 117,
+      "total_tokens": 974,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 871,
+      "completion_tokens": 119,
+      "total_tokens": 990,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0012",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1140,
+      "completion_tokens": 221,
+      "total_tokens": 1361,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 450,
+    "majority_vote_total_tokens": 1335,
+    "scrd_total_tokens": 18438,
+    "scrd_prompt_tokens": 15925,
+    "scrd_completion_tokens": 2513,
+    "agent_total_tokens": 12468,
+    "recorder_total_tokens": 5970,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

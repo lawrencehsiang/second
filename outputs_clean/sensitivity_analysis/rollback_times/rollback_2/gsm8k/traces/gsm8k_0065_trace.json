@@ -1,0 +1,203 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "690",
+        "840",
+        "840"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum earnings from both jobs.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and C provided the same answer '840'.",
+          "why_still_open": "Multiple agents arrived at the same answer without explicit justification of why it's correct.",
+          "involved_answers": [
+            "840"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate earnings from both jobs separately and sum them up.",
+        "Calculate earnings from both jobs separately then sum them.",
+        "Calculated earnings from both jobs."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "690",
+        "840",
+        "840"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking calculations for accuracy.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verifying the previous answer of 840.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Revisiting the calculation to verify.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and C provided the same answer '840'.",
+          "why_still_open": "Agents B and C are rechecking their calculations, but the status remains open until verification is complete.",
+          "involved_answers": [
+            "840"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Rechecking calculations to ensure correctness.",
+        "Recomputed the weekly earnings from both jobs to confirm the previous answer of 840.",
+        "Revisiting the calculation to verify the answer."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 367,
+      "completion_tokens": 34,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 354,
+      "completion_tokens": 37,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 365,
+      "completion_tokens": 33,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 585,
+      "completion_tokens": 165,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 733,
+      "completion_tokens": 93,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 730,
+      "completion_tokens": 109,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 744,
+      "completion_tokens": 83,
+      "total_tokens": 827,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 999,
+      "completion_tokens": 248,
+      "total_tokens": 1247,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 676,
+      "completion_tokens": 54,
+      "total_tokens": 730,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 401,
+    "majority_vote_total_tokens": 1190,
+    "scrd_total_tokens": 6409,
+    "scrd_prompt_tokens": 5553,
+    "scrd_completion_tokens": 856,
+    "agent_total_tokens": 3682,
+    "recorder_total_tokens": 1997,
+    "evaluator_total_tokens": 730,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

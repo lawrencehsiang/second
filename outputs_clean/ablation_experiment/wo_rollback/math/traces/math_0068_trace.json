@@ -1,0 +1,208 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Apply the inverse function three times.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Inverse operation applied thrice.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Threefold application of the inverse function.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Find f inverse of 1, then find the inverse again twice.",
+        "Apply the inverse value of f(1), then find the inverse of that result, and again find the inverse of that result.",
+        "Find f-1(1), then apply f-1 twice more."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4",
+        "2",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the application of the inverse function step-by-step.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Find the original input for f(f(f(1))).",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Find the inverse of 3 three times.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous mainstream support answer is 4, while agent C's answer is 3.",
+          "why_still_open": "Different interpretations of the inverse function application.",
+          "involved_answers": [
+            "4",
+            "3"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Find the original input for f(f(f(1))).",
+        "The correct value for f(1) is 3, so find the inverse of 3 three times.",
+        "Re-evaluate the application of the inverse function step-by-step."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 433,
+      "completion_tokens": 50,
+      "total_tokens": 483,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 420,
+      "completion_tokens": 39,
+      "total_tokens": 459,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 431,
+      "completion_tokens": 38,
+      "total_tokens": 469,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 600,
+      "completion_tokens": 192,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 688,
+      "completion_tokens": 124,
+      "total_tokens": 812,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 685,
+      "completion_tokens": 92,
+      "total_tokens": 777,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 699,
+      "completion_tokens": 67,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1021,
+      "completion_tokens": 256,
+      "total_tokens": 1277,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0068",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 738,
+      "completion_tokens": 44,
+      "total_tokens": 782,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 483,
+    "majority_vote_total_tokens": 1411,
+    "scrd_total_tokens": 6617,
+    "scrd_prompt_tokens": 5715,
+    "scrd_completion_tokens": 902,
+    "agent_total_tokens": 3766,
+    "recorder_total_tokens": 2069,
+    "evaluator_total_tokens": 782,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+}

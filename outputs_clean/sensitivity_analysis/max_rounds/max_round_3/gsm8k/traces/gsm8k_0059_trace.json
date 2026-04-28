@@ -1,0 +1,201 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "240",
+        "280",
+        "240"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total allowance by summing products of student count and allowance amount.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Sum allowances separately for different groups, then add the totals.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agree on the method but differ in the specific numbers used.",
+          "why_still_open": "The provided answers do not align with any expected total based on the context.",
+          "involved_answers": [
+            "240",
+            "280"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = 240 + 280",
+        "50 * 4.8 + 24 * 2",
+        "Apr=48, May=24, Total=72"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "280",
+        "280",
+        "240"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the distribution of students and their allowances.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agent A's initial calculation was incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the breakdown as 2/3 of 60 students receiving $6 each and 1/3 receiving $4 each.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 280",
+        "2/3 * 60 * 6 + 1/3 * 20 * 4",
+        "Apr=48, May=24, Total=72"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 385,
+      "completion_tokens": 45,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 372,
+      "completion_tokens": 41,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 383,
+      "completion_tokens": 38,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 609,
+      "completion_tokens": 233,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 760,
+      "completion_tokens": 93,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 757,
+      "completion_tokens": 135,
+      "total_tokens": 892,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 771,
+      "completion_tokens": 137,
+      "total_tokens": 908,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1156,
+      "completion_tokens": 211,
+      "total_tokens": 1367,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0059",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 716,
+      "completion_tokens": 59,
+      "total_tokens": 775,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 430,
+    "majority_vote_total_tokens": 1264,
+    "scrd_total_tokens": 6901,
+    "scrd_prompt_tokens": 5909,
+    "scrd_completion_tokens": 992,
+    "agent_total_tokens": 3917,
+    "recorder_total_tokens": 2209,
+    "evaluator_total_tokens": 775,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

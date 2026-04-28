@@ -1,0 +1,300 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10",
+        "5",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Divide total oil in full cans by number of remaining cans.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Subtract total oil in full cans from total oil to find oil in remaining cans.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating oil in remaining cans.",
+          "why_still_open": "Agents use different steps and order in their calculations.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total oil = 60",
+        "Full cans = 10",
+        "Remaining cans = 5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "6",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the distribution of oil among the remaining cans.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Use the mainstream support method for calculating oil in remaining cans.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the calculation by ensuring total oil matches the given value.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total oil = 60",
+        "Full cans = 10",
+        "Remaining cans = 5",
+        "New oil per can = 60 / 5 = 12",
+        "Oil in remaining cans = 12 * 5 = 60"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "15",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the oil distribution using the mainstream support method.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Resolve the minority objection regarding the incorrect oil per can value of 10 liters.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority objection suggests 10 liters per can, conflicting with the mainstream support method.",
+          "why_still_open": "The minority objection has not been fully addressed despite recalculations.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total oil = 290",
+        "Full cans = 10",
+        "Remaining cans = 14",
+        "Oil in remaining cans = 210",
+        "New oil per can = 210 / 14 = 15"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 350,
+      "completion_tokens": 48,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 337,
+      "completion_tokens": 37,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 348,
+      "completion_tokens": 54,
+      "total_tokens": 402,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 620,
+      "completion_tokens": 195,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 710,
+      "completion_tokens": 90,
+      "total_tokens": 800,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 706,
+      "completion_tokens": 94,
+      "total_tokens": 800,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 721,
+      "completion_tokens": 95,
+      "total_tokens": 816,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1029,
+      "completion_tokens": 210,
+      "total_tokens": 1239,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 656,
+      "completion_tokens": 58,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 802,
+      "completion_tokens": 141,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 799,
+      "completion_tokens": 119,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 814,
+      "completion_tokens": 140,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1158,
+      "completion_tokens": 235,
+      "total_tokens": 1393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 625,
+      "completion_tokens": 40,
+      "total_tokens": 665,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 398,
+    "majority_vote_total_tokens": 1174,
+    "scrd_total_tokens": 11231,
+    "scrd_prompt_tokens": 9675,
+    "scrd_completion_tokens": 1556,
+    "agent_total_tokens": 6405,
+    "recorder_total_tokens": 3447,
+    "evaluator_total_tokens": 1379,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,471 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "610",
+        "640",
+        "780"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate down payment + additional payment, subtract from total, then subtract monthly payments over 4 months.",
+          "claim_type": "explanation",
+          "related_answer": "610, 640"
+        },
+        {
+          "text": "Down payment = 20% of $1000 + $20.",
+          "claim_type": "constraint",
+          "related_answer": "780"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different interpretations on how to calculate the final amount after payments.",
+          "why_still_open": "Agents A and B consider the total payment over 4 months, while C focuses solely on the down payment and additional payment.",
+          "involved_answers": [
+            "610",
+            "640",
+            "780"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Down payment = 20% of $1000 + $20.",
+        "Total payment = Monthly payment * 4 months.",
+        "Subtract total payment from initial amount.",
+        "Calculate monthly payment based on given interest rate.",
+        "4 months of payments = $X."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "530",
+        "580",
+        "520"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Final balance is calculated as initial cost minus down payment and total installment payments.",
+          "claim_type": "explanation",
+          "related_answer": "520"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Down payment = $200 + $20 = $220.",
+        "Monthly payment = $65 * 4 = $260.",
+        "Initial cost = $1000.",
+        "Final balance = $1000 - $220 - $260 = $520.",
+        "Consider all elements: down payment, additional payment, and monthly installments."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "420",
+        "620",
+        "580"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The final balance calculation includes the down payment, additional $20, and total installment payments over 4 months.",
+          "claim_type": "explanation",
+          "related_answer": "620"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Down payment = $200 + $20 = $220.",
+        "Monthly payment = $65 * 4 = $260.",
+        "Initial cost = $1000.",
+        "Final balance = $1000 - $220 - $260 = $520.",
+        "Consider all elements: down payment, additional payment, and monthly installments."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "580",
+        "580",
+        "500"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The down payment and additional $20 should be deducted from the initial cost first.",
+          "claim_type": "explanation",
+          "related_answer": "500"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents propose final balances of $580, $580, and $500.",
+          "why_still_open": "The calculation method for determining the final balance is not fully agreed upon.",
+          "involved_answers": [
+            "580",
+            "500"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Down payment + additional $20 = $220.",
+        "Monthly payment = $65 * 4 = $260.",
+        "Initial cost = $1000.",
+        "Final balance = $1000 - $220 - $260 = $520.",
+        "Correct interpretation of the down payment and installment payments."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "540",
+        "500",
+        "580"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The down payment and additional $20 should be deducted from the initial cost first, resulting in a remaining balance of $800.",
+          "claim_type": "explanation",
+          "related_answer": "540"
+        },
+        {
+          "text": "After 4 months of payments, $260 would be paid, leaving a balance of $540.",
+          "claim_type": "rebuttal",
+          "related_answer": "540"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents propose final balances of $540, $500, and $580.",
+          "why_still_open": "There is disagreement on the exact amount deducted and the method of calculating the final balance.",
+          "involved_answers": [
+            "540",
+            "500",
+            "580"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Down payment + additional $20 = $220.",
+        "Monthly payment = $65 * 4 = $260.",
+        "Initial cost = $1000.",
+        "Final balance = $1000 - $220 - $260 = $520.",
+        "Correct interpretation of the down payment and installment payments."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 381,
+      "completion_tokens": 43,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 368,
+      "completion_tokens": 43,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 379,
+      "completion_tokens": 51,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 622,
+      "completion_tokens": 274,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 766,
+      "completion_tokens": 100,
+      "total_tokens": 866,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 763,
+      "completion_tokens": 102,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 777,
+      "completion_tokens": 193,
+      "total_tokens": 970,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1233,
+      "completion_tokens": 168,
+      "total_tokens": 1401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 617,
+      "completion_tokens": 47,
+      "total_tokens": 664,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 763,
+      "completion_tokens": 120,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 760,
+      "completion_tokens": 115,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 774,
+      "completion_tokens": 103,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1064,
+      "completion_tokens": 176,
+      "total_tokens": 1240,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 609,
+      "completion_tokens": 42,
+      "total_tokens": 651,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 656,
+      "completion_tokens": 138,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 653,
+      "completion_tokens": 121,
+      "total_tokens": 774,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 667,
+      "completion_tokens": 142,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1127,
+      "completion_tokens": 238,
+      "total_tokens": 1365,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 629,
+      "completion_tokens": 46,
+      "total_tokens": 675,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 764,
+      "completion_tokens": 201,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 761,
+      "completion_tokens": 125,
+      "total_tokens": 886,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 775,
+      "completion_tokens": 162,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1276,
+      "completion_tokens": 305,
+      "total_tokens": 1581,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0067",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 668,
+      "completion_tokens": 41,
+      "total_tokens": 709,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 424,
+    "majority_vote_total_tokens": 1265,
+    "scrd_total_tokens": 20948,
+    "scrd_prompt_tokens": 17852,
+    "scrd_completion_tokens": 3096,
+    "agent_total_tokens": 11766,
+    "recorder_total_tokens": 6483,
+    "evaluator_total_tokens": 2699,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+}

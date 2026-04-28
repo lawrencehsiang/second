@@ -1,0 +1,427 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "5",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Choose the largest valid t.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agreed on 5, but C chose 9 by selecting the largest valid t.",
+          "why_still_open": "Different strategies lead to different solutions.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "t = 5 or t = 7",
+        "Choose max(t) if solving quadratic",
+        "Set equation to 77"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "9",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve the quadratic equation for t.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Select the largest solution from the quadratic equation.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agreed on 9, but C revises their answer to 5, questioning the validity of 9.",
+          "why_still_open": "Verification of the largest valid t value is ongoing.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "t = 5 or t = 9",
+        "Solve -t^2 + 12t + 50 = 77",
+        "Select max(t)"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The quadratic equation yields two solutions, and the largest valid t value should be selected.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The largest solution from the quadratic equation is 9.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There was a previous answer of 5, which contradicts the current consensus on 9.",
+          "why_still_open": "Verification of the minority claim is pending.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "t = 5 or t = 9",
+        "Solve -t^2 + 12t + 50 = 77",
+        "Select max(t)"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "t = 9 or t = 3",
+        "Solve -t^2 + 12t + 50 = 77",
+        "Select max(t)"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The quadratic equation simplifies to $-t^2 + 12t - 27 = 0$.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The largest root of $-t^2 + 12t - 27 = 0$ is $t = 9$.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "t = 3 or t = 9",
+        "-t^2 + 12t + 50 = 77",
+        "Select max(t)"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0070",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 369,
+      "completion_tokens": 38,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 356,
+      "completion_tokens": 31,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 367,
+      "completion_tokens": 41,
+      "total_tokens": 408,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 585,
+      "completion_tokens": 160,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 729,
+      "completion_tokens": 161,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 726,
+      "completion_tokens": 147,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 740,
+      "completion_tokens": 106,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1126,
+      "completion_tokens": 216,
+      "total_tokens": 1342,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 811,
+      "completion_tokens": 96,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 808,
+      "completion_tokens": 127,
+      "total_tokens": 935,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 822,
+      "completion_tokens": 99,
+      "total_tokens": 921,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1090,
+      "completion_tokens": 214,
+      "total_tokens": 1304,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 821,
+      "completion_tokens": 120,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 818,
+      "completion_tokens": 125,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 832,
+      "completion_tokens": 158,
+      "total_tokens": 990,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1163,
+      "completion_tokens": 73,
+      "total_tokens": 1236,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 733,
+      "completion_tokens": 125,
+      "total_tokens": 858,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 730,
+      "completion_tokens": 193,
+      "total_tokens": 923,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 744,
+      "completion_tokens": 194,
+      "total_tokens": 938,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1131,
+      "completion_tokens": 178,
+      "total_tokens": 1309,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 407,
+    "majority_vote_total_tokens": 1202,
+    "scrd_total_tokens": 18103,
+    "scrd_prompt_tokens": 15501,
+    "scrd_completion_tokens": 2602,
+    "agent_total_tokens": 12167,
+    "recorder_total_tokens": 5936,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

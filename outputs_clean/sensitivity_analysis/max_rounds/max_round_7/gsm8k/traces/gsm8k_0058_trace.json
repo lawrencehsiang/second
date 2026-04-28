@@ -1,0 +1,206 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2.5",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate used butter, then find remaining.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Subtract used butter fraction from total.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate used butter, subtract, then verify remaining.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers: 2.5 vs 2 vs 2.",
+          "why_still_open": "Answers differ by 0.5, indicating a discrepancy in calculation.",
+          "involved_answers": [
+            "2.5",
+            "2"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Used 1.5/6 = 0.25, so 6 - 0.25 * 6 = 4.5 → 2.5",
+        "Used 1/3 = 2/6, so 6 - 2/6 * 6 = 4 → 2",
+        "Used 2/6, so 6 - 2/6 * 6 = 4 → 2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2.5",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed steps to confirm 2.5 kg is the correct remaining butter.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Initial calculation using fractions was accurate, leading to 2 kg remaining.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Step-by-step verification confirms the remaining butter is 2 kg.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Used 1.5/6 = 0.25, so 6 - 0.25 * 6 = 4.5 → 2.5",
+        "Used 1/3 = 2/6, so 6 - 2/6 * 6 = 4 → 2",
+        "Used 2/6, so 6 - 2/6 * 6 = 4 → 2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0058",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 370,
+      "completion_tokens": 30,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0058",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 357,
+      "completion_tokens": 35,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0058",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 368,
+      "completion_tokens": 36,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0058",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 578,
+      "completion_tokens": 297,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0058",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 734,
+      "completion_tokens": 120,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0058",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 729,
+      "completion_tokens": 106,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0058",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 743,
+      "completion_tokens": 88,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0058",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1155,
+      "completion_tokens": 249,
+      "total_tokens": 1404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0058",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 689,
+      "completion_tokens": 51,
+      "total_tokens": 740,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 400,
+    "majority_vote_total_tokens": 1196,
+    "scrd_total_tokens": 6735,
+    "scrd_prompt_tokens": 5723,
+    "scrd_completion_tokens": 1012,
+    "agent_total_tokens": 3716,
+    "recorder_total_tokens": 2279,
+    "evaluator_total_tokens": 740,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

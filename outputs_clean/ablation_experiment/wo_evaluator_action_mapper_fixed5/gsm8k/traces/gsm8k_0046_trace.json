@@ -1,0 +1,454 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "86",
+        "86",
+        "86"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total cost of treats and piñata.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Sum up all costs: piñata + (Reese's + Snickers + Skittles).",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculated total cost of items.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = piñata + Reese's + Snickers + Skittles",
+        "Cost breakdown: piñata = 40, Reese's = 10, Snickers = 10, Skittles = 26",
+        "Total = 40 + 10 + 10 + 26 = 86"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "89",
+        "86",
+        "86"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total cost of treats and piñata.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Correct total cost calculation: $13 piñata + (4 Reese's * $9) + (3 Snickers * $5) + (5 Skittles * $7).",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and C maintain the previous total of 86, while A disputes it due to a miscalculation.",
+          "why_still_open": "Agents disagree on the accuracy of the recalculated total cost.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = $13 piñata + 4*$9 Reese's + 3*$5 Snickers + 5*$7 Skittles",
+        "Correct total = $13 + $36 + $15 + $35 = $89",
+        "Previous total = 86, miscalculation identified"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "99",
+        "86",
+        "86"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total cost of treats and piñata using the correct calculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct calculation results in a total of $99.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = $13 piñata + 4*$9 Reese's + 3*$5 Snickers + 5*$7 Skittles",
+        "Correct total = $13 + $36 + $15 + $35 = $99",
+        "Initial total = $13 + $36 + $15 + $28 = $86 (miscalculation corrected)"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "99",
+        "99",
+        "99"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total cost of treats and piñata using the correct calculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct total cost is $99.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C maintain the previous total of $86, while A disputes it due to a miscalculation.",
+          "why_still_open": "Agent C's response for re-calculation remains pending verification.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = $13 piñata + 4*$9 Reese's + 3*$5 Snickers + 5*$7 Skittles",
+        "Correct total = $13 + $36 + $15 + $35 = $99",
+        "Initial total = $13 + $36 + $15 + $28 = $86 (miscalculation corrected)",
+        "Re-calculate the total cost of treats and piñata",
+        "Verify the accuracy of the previous answer"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "86",
+        "99",
+        "99"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the minority answer of $86.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "Confirm the recalculated total cost is indeed $99.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of $86 still exists, despite re-computation.",
+          "why_still_open": "Verification of the minority answer's correctness is pending.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Re-calculate the total cost of unicorn piñata and treats",
+        "Total = $13 piñata + 4*$9 Reese's + 3*$5 Snickers + 5*$7 Skittles = $99",
+        "Minority answer: $86 remains unverified",
+        "Correct total cost: $99",
+        "Verify minority answer of $86"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 393,
+      "completion_tokens": 32,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 380,
+      "completion_tokens": 43,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 391,
+      "completion_tokens": 32,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 227,
+      "total_tokens": 816,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 653,
+      "completion_tokens": 149,
+      "total_tokens": 802,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 650,
+      "completion_tokens": 46,
+      "total_tokens": 696,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 664,
+      "completion_tokens": 42,
+      "total_tokens": 706,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1000,
+      "completion_tokens": 287,
+      "total_tokens": 1287,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 890,
+      "completion_tokens": 180,
+      "total_tokens": 1070,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 887,
+      "completion_tokens": 144,
+      "total_tokens": 1031,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 901,
+      "completion_tokens": 145,
+      "total_tokens": 1046,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1290,
+      "completion_tokens": 207,
+      "total_tokens": 1497,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 866,
+      "completion_tokens": 115,
+      "total_tokens": 981,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 863,
+      "completion_tokens": 112,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 877,
+      "completion_tokens": 112,
+      "total_tokens": 989,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1090,
+      "completion_tokens": 302,
+      "total_tokens": 1392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 849,
+      "completion_tokens": 107,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 846,
+      "completion_tokens": 102,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 860,
+      "completion_tokens": 114,
+      "total_tokens": 974,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0046",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1175,
+      "completion_tokens": 257,
+      "total_tokens": 1432,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 425,
+    "majority_vote_total_tokens": 1271,
+    "scrd_total_tokens": 18869,
+    "scrd_prompt_tokens": 16114,
+    "scrd_completion_tokens": 2755,
+    "agent_total_tokens": 12445,
+    "recorder_total_tokens": 6424,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}
