@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 
 
-DEFAULT_DATASETS = ["math", "gsm8k", "multiarith"]
+DEFAULT_DATASETS = ["multiarith"]
 
 ALL_SEVEN_DATASETS = [
     "addsub",
@@ -682,7 +682,7 @@ def main() -> None:
     parser.add_argument(
         "--output-root",
         type=Path,
-        default=Path("outputs/ablation/wo_rollback_v2"),
+        default=Path("outputs/ablation/wo_rollback_v3"),
     )
 
     parser.add_argument("--repo-root", type=Path, default=Path("."))

@@ -3,42 +3,38 @@
     {
       "round_id": 1,
       "current_answers": [
-        "48",
         "51",
-        "51"
+        "51",
+        "73"
       ],
       "newly_added_claims": [
         {
-          "text": "Total apples minus apples eaten equals extra apples.",
+          "text": "Total apples - apples eaten = extra apples",
           "claim_type": "support",
           "related_answer": "A"
         },
         {
-          "text": "Total apples ordered minus apples consumed equals extras.",
-          "claim_type": "support",
-          "related_answer": "B"
-        },
-        {
-          "text": "Total apples minus student demand equals extras.",
+          "text": "Total apples - 2 = extra apples, total is 75",
           "claim_type": "support",
           "related_answer": "C"
         }
       ],
       "unresolved_conflicts": [
         {
-          "conflict": "Different interpretations of 'total apples' and 'apples consumed'.",
-          "why_still_open": "Definitions of terms are not aligned.",
+          "conflict": "Agent A and B agree on '51', but C claims '73'.",
+          "why_still_open": "C provides a different calculation.",
           "involved_answers": [
-            "A",
-            "B",
-            "C"
+            "51",
+            "73"
           ]
         }
       ],
       "key_raw_snippets": [
-        "Total = 48 + x",
-        "Order = 51 + y",
-        "Demand = z"
+        "Total = 43 + 32 = 75",
+        "2 apples were eaten",
+        "51 = 75 - 23",
+        "51 = 75 - 2",
+        "73 = 43 + 32"
       ]
     },
     {
@@ -46,30 +42,36 @@
       "current_answers": [
         "73",
         "73",
-        "73"
+        "51"
       ],
       "newly_added_claims": [
         {
-          "text": "Total apples ordered minus apples consumed equals extras.",
-          "claim_type": "support",
-          "related_answer": "B"
-        },
-        {
-          "text": "Red and green apples total 75, and 2 were consumed, leaving 73 extras.",
+          "text": "Total apples ordered = 43 + 32 = 75",
           "claim_type": "support",
           "related_answer": "A"
         },
         {
-          "text": "Clarified that the initial 51 was wrong due to misinterpretation.",
-          "claim_type": "explanation",
+          "text": "Eating 2 apples leaves 73 - 2 = 71 extra apples",
+          "claim_type": "rebuttal",
           "related_answer": "C"
         }
       ],
-      "unresolved_conflicts": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement between the calculated total of 75 and the claimed extra apples of 51 vs 73.",
+          "why_still_open": "The calculation of extra apples varies based on assumptions about what was eaten.",
+          "involved_answers": [
+            "73",
+            "51"
+          ]
+        }
+      ],
       "key_raw_snippets": [
-        "Total = 43 red + 32 green = 75",
-        "Consumed = 2",
-        "Extras = 75 - 2 = 73"
+        "Total = 43 + 32 = 75",
+        "2 apples were eaten",
+        "73 = 43 + 32 - 2",
+        "51 = 75 - 23",
+        "73 - 2 = 71"
       ]
     }
   ],
@@ -98,8 +100,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 349,
-      "completion_tokens": 34,
-      "total_tokens": 383,
+      "completion_tokens": 31,
+      "total_tokens": 380,
       "extra": {}
     },
     {
@@ -109,8 +111,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 336,
-      "completion_tokens": 34,
-      "total_tokens": 370,
+      "completion_tokens": 31,
+      "total_tokens": 367,
       "extra": {}
     },
     {
@@ -120,8 +122,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 347,
-      "completion_tokens": 31,
-      "total_tokens": 378,
+      "completion_tokens": 51,
+      "total_tokens": 398,
       "extra": {}
     },
     {
@@ -130,9 +132,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 575,
-      "completion_tokens": 218,
-      "total_tokens": 793,
+      "prompt_tokens": 595,
+      "completion_tokens": 228,
+      "total_tokens": 823,
       "extra": {}
     },
     {
@@ -141,9 +143,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 707,
-      "completion_tokens": 131,
-      "total_tokens": 838,
+      "prompt_tokens": 710,
+      "completion_tokens": 148,
+      "total_tokens": 858,
       "extra": {}
     },
     {
@@ -152,9 +154,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 704,
-      "completion_tokens": 131,
-      "total_tokens": 835,
+      "prompt_tokens": 707,
+      "completion_tokens": 107,
+      "total_tokens": 814,
       "extra": {}
     },
     {
@@ -163,9 +165,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 718,
-      "completion_tokens": 166,
-      "total_tokens": 884,
+      "prompt_tokens": 721,
+      "completion_tokens": 189,
+      "total_tokens": 910,
       "extra": {}
     },
     {
@@ -174,9 +176,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 1204,
-      "completion_tokens": 198,
-      "total_tokens": 1402,
+      "prompt_tokens": 1229,
+      "completion_tokens": 264,
+      "total_tokens": 1493,
       "extra": {}
     },
     {
@@ -185,21 +187,21 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 673,
+      "prompt_tokens": 664,
       "completion_tokens": 49,
-      "total_tokens": 722,
+      "total_tokens": 713,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 383,
-    "majority_vote_total_tokens": 1131,
-    "scrd_total_tokens": 6605,
-    "scrd_prompt_tokens": 5613,
-    "scrd_completion_tokens": 992,
-    "agent_total_tokens": 3688,
-    "recorder_total_tokens": 2195,
-    "evaluator_total_tokens": 722,
+    "single_agent_total_tokens": 380,
+    "majority_vote_total_tokens": 1145,
+    "scrd_total_tokens": 6756,
+    "scrd_prompt_tokens": 5658,
+    "scrd_completion_tokens": 1098,
+    "agent_total_tokens": 3727,
+    "recorder_total_tokens": 2316,
+    "evaluator_total_tokens": 713,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0

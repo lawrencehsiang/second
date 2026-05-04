@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any
 
 
-DEFAULT_DATASETS = ["math", "gsm8k", "multiarith"]
+DEFAULT_DATASETS = ["multiarith"]
 ALL_SEVEN_DATASETS = [
     "addsub",
     "asdiv",
@@ -749,13 +749,13 @@ def main() -> None:
     parser.add_argument(
         "--output-root",
         type=Path,
-        default=Path("outputs") / "ablation" / "wo_rollback",
+        default=Path("outputs") / "ablation" / "wo_rollback_beixuan",
         help="Where to write ablation outputs.",
     )
     parser.add_argument(
         "--limit",
         type=int,
-        default=80,
+        default=200,
         help="How many samples to load from each dataset. Should match the Full SCRD run.",
     )
     parser.add_argument(
