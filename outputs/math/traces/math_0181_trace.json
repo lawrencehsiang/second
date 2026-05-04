@@ -1,0 +1,440 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Roots of the equation x^2 + x - 156 = 0 are x = 12 or x = -13.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x + x^2 = 156",
+        "x^2 + x - 156 = 0",
+        "Positive solution is x = 12"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "We discard x = -13 since it does not meet the condition of being positive.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Reject x = -13 as it does not satisfy the condition of being positive.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Positive solution is x = 12",
+        "x^2 + x - 156 = 0",
+        "Discard x = -13"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Retain x = 12 as it is positive, discard x = -13.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Positive solution is x = 12",
+        "Discard x = -13",
+        "Equation: x^2 + x - 156 = 0"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Positive solution is x = 12",
+        "Discard x = -13",
+        "Equation: x + x^2 = 156"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "12 or -13",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Both x = 12 and x = -13 satisfy the equation, hence both should be considered.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Only positive numbers are valid solutions, hence x = 12 is retained.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "x = 12 is confirmed to be positive and valid.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Whether to retain both solutions x = 12 and x = -13 or just x = 12.",
+          "why_still_open": "Agents A and B disagree on whether to include the negative solution.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Positive solution is x = 12",
+        "Discard x = -13",
+        "Equation: x + x^2 = 156",
+        "Both x = 12 and x = -13 satisfy the equation",
+        "Only positive numbers are valid solutions"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0181",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 330,
+      "completion_tokens": 54,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 317,
+      "completion_tokens": 41,
+      "total_tokens": 358,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 328,
+      "completion_tokens": 74,
+      "total_tokens": 402,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 645,
+      "completion_tokens": 131,
+      "total_tokens": 776,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 611,
+      "completion_tokens": 113,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 608,
+      "completion_tokens": 77,
+      "total_tokens": 685,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 622,
+      "completion_tokens": 136,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 985,
+      "completion_tokens": 161,
+      "total_tokens": 1146,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 45,
+      "total_tokens": 639,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 708,
+      "completion_tokens": 138,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 705,
+      "completion_tokens": 125,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 719,
+      "completion_tokens": 141,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1117,
+      "completion_tokens": 121,
+      "total_tokens": 1238,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 547,
+      "completion_tokens": 46,
+      "total_tokens": 593,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 687,
+      "completion_tokens": 148,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 684,
+      "completion_tokens": 118,
+      "total_tokens": 802,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 698,
+      "completion_tokens": 92,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1031,
+      "completion_tokens": 70,
+      "total_tokens": 1101,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 495,
+      "completion_tokens": 44,
+      "total_tokens": 539,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 687,
+      "completion_tokens": 146,
+      "total_tokens": 833,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 684,
+      "completion_tokens": 114,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 698,
+      "completion_tokens": 104,
+      "total_tokens": 802,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 990,
+      "completion_tokens": 297,
+      "total_tokens": 1287,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0181",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 673,
+      "completion_tokens": 62,
+      "total_tokens": 735,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 384,
+    "majority_vote_total_tokens": 1144,
+    "scrd_total_tokens": 18761,
+    "scrd_prompt_tokens": 16163,
+    "scrd_completion_tokens": 2598,
+    "agent_total_tokens": 10707,
+    "recorder_total_tokens": 5548,
+    "evaluator_total_tokens": 2506,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

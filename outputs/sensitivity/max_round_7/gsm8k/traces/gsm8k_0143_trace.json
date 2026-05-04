@@ -1,0 +1,207 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40.0",
+        "60",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total germ reduction considering overlap.",
+          "claim_type": "support",
+          "related_answer": "40.0"
+        },
+        {
+          "text": "Calculate effective germ-killing percentage by adjusting for overlap.",
+          "claim_type": "support",
+          "related_answer": "60"
+        },
+        {
+          "text": "Calculate unique germ kill by accounting for overlap.",
+          "claim_type": "support",
+          "related_answer": "40"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on how to account for germ kill overlap.",
+          "why_still_open": "Different agents used different methods for overlap calculation.",
+          "involved_answers": [
+            "40.0",
+            "60",
+            "40"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total germ reduction = 40 + 60 - overlap",
+        "Effective germ kill = 100 - overlap",
+        "Unique germ kill = 100 - overlap"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "40.0",
+        "60",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Adjusted for overlap correctly to avoid double-counting.",
+          "claim_type": "rebuttal",
+          "related_answer": "40.0"
+        },
+        {
+          "text": "Overlap of 5% should be subtracted once to find the effective germ kill percentage.",
+          "claim_type": "support",
+          "related_answer": "60"
+        },
+        {
+          "text": "The overlap is already included in the 60% effective germ-killing percentage.",
+          "claim_type": "explanation",
+          "related_answer": "60"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Effective germ kill = 60% (overlap already accounted)",
+        "Total germ reduction = 40 + 60 - 5%",
+        "Unique germ kill = 95%"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 374,
+      "completion_tokens": 32,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 361,
+      "completion_tokens": 42,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 372,
+      "completion_tokens": 42,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 600,
+      "completion_tokens": 245,
+      "total_tokens": 845,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 736,
+      "completion_tokens": 85,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 731,
+      "completion_tokens": 105,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 745,
+      "completion_tokens": 115,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1112,
+      "completion_tokens": 205,
+      "total_tokens": 1317,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 674,
+      "completion_tokens": 59,
+      "total_tokens": 733,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 406,
+    "majority_vote_total_tokens": 1223,
+    "scrd_total_tokens": 6635,
+    "scrd_prompt_tokens": 5705,
+    "scrd_completion_tokens": 930,
+    "agent_total_tokens": 3740,
+    "recorder_total_tokens": 2162,
+    "evaluator_total_tokens": 733,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

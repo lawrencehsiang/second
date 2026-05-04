@@ -1,0 +1,187 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "59",
+        "59",
+        "59"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total pictures - colored pictures = pictures left to color",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total pictures - colored pictures = pictures left to color",
+        "Subtract total pictures from those colored.",
+        "Total pictures minus colored pictures."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "59",
+        "59",
+        "59"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of pictures is 24 + 39 = 63.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "After coloring 4 pictures, she has 63 - 4 = 59 pictures left to color.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total pictures - colored pictures = pictures left to color",
+        "Subtract total pictures from those colored.",
+        "Total pictures minus colored pictures.",
+        "24 + 39 = 63",
+        "63 - 4 = 59"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 36,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 30,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 31,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 576,
+      "completion_tokens": 102,
+      "total_tokens": 678,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 614,
+      "completion_tokens": 149,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 611,
+      "completion_tokens": 117,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 625,
+      "completion_tokens": 74,
+      "total_tokens": 699,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 970,
+      "completion_tokens": 182,
+      "total_tokens": 1152,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 65,
+      "total_tokens": 659,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 389,
+    "majority_vote_total_tokens": 1141,
+    "scrd_total_tokens": 5820,
+    "scrd_prompt_tokens": 5034,
+    "scrd_completion_tokens": 786,
+    "agent_total_tokens": 3331,
+    "recorder_total_tokens": 1830,
+    "evaluator_total_tokens": 659,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

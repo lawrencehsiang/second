@@ -1,0 +1,186 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Height increases by 3 inches per year over 10 years.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Height increase is 3 inches per year over 10 years.",
+        "Initial height + growth rate * number of years",
+        "Add annual growth over 10 years to current height."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correct calculation involves adding 3 inches per year over 10 years to the initial height of 20 inches.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Height increase is 3 inches per year over 10 years.",
+        "Initial height + growth rate * number of years = Final height.",
+        "Total growth over 10 years is 30 inches."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0126",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 344,
+      "completion_tokens": 32,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0126",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 331,
+      "completion_tokens": 37,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0126",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 342,
+      "completion_tokens": 46,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0126",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 116,
+      "total_tokens": 710,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0126",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 729,
+      "completion_tokens": 134,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0126",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 726,
+      "completion_tokens": 42,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0126",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 740,
+      "completion_tokens": 74,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0126",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 918,
+      "completion_tokens": 131,
+      "total_tokens": 1049,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0126",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 565,
+      "completion_tokens": 47,
+      "total_tokens": 612,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 376,
+    "majority_vote_total_tokens": 1132,
+    "scrd_total_tokens": 5948,
+    "scrd_prompt_tokens": 5289,
+    "scrd_completion_tokens": 659,
+    "agent_total_tokens": 3577,
+    "recorder_total_tokens": 1759,
+    "evaluator_total_tokens": 612,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

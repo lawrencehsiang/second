@@ -1,0 +1,209 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "4",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Apply the given operation definition.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Apply the given operation definition.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Substitute values into the given operation definition.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Operation definition applied.",
+        "Value substitution used."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4",
+        "8",
+        "22"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the expression using the correct operation definition.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Evaluating the operation $2Z6$ yields 22.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A's recalculated result (4) conflicts with the mainstream support (8).",
+          "why_still_open": "Agent A recalculated but the mainstream support still stands at 8.",
+          "involved_answers": [
+            "4",
+            "8"
+          ]
+        },
+        {
+          "conflict": "Agent B's recalculated result (8) conflicts with the mainstream support (8).",
+          "why_still_open": "Agent B recalculated but the mainstream support remains at 8.",
+          "involved_answers": [
+            "8"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Operation $Z$ is defined as $a Z b = b + 10a - a^2$.",
+        "For $2Z6$, we have $6 + 10*2 - 2^2 = 22$."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 30,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 30,
+      "total_tokens": 363,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 33,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 566,
+      "completion_tokens": 143,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 600,
+      "completion_tokens": 105,
+      "total_tokens": 705,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 597,
+      "completion_tokens": 108,
+      "total_tokens": 705,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 611,
+      "completion_tokens": 122,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1001,
+      "completion_tokens": 292,
+      "total_tokens": 1293,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 637,
+      "completion_tokens": 42,
+      "total_tokens": 679,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 376,
+    "majority_vote_total_tokens": 1116,
+    "scrd_total_tokens": 5940,
+    "scrd_prompt_tokens": 5035,
+    "scrd_completion_tokens": 905,
+    "agent_total_tokens": 3259,
+    "recorder_total_tokens": 2002,
+    "evaluator_total_tokens": 679,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

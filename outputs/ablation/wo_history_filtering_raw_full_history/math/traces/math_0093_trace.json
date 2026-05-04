@@ -1,0 +1,322 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2",
+        "2",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve for x in f(x) = 4, where f(x) = 3x^3 + 2.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B provide the same answer '2', while C provides a different answer '1'.",
+          "why_still_open": "The conflicting answers need further verification of the function and equation provided.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(x) = 4",
+        "f(x) = 3x^3 + 2",
+        "Find x such that f(x) = 4",
+        "Solve for x in f(x) = 4"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "1",
+        "1",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the solution for f(x) = 4 using f(x) = 3x^3 + 2.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify solutions by substituting into f(x) = 3x^3 + 2.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B provided '1', while C provided '2'.",
+          "why_still_open": "Verification is needed to confirm the correct solution by substituting into the function.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(x) = 3x^3 + 2",
+        "Solve f(x) = 4",
+        "Substitute x = 1 into f(x)",
+        "Substitute x = 2 into f(x)"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "2",
+        "2",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the solution for f(x) = 4 using f(x) = 3x^3 + 2.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "Verify solutions by substituting x values into f(x) = 3x^3 + 2.",
+          "claim_type": "constraint",
+          "related_answer": "A, B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B provided '1', while C provided '2'.",
+          "why_still_open": "Verification through substitution is required to confirm the correct solution.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(x) = 3x^3 + 2",
+        "Solve f(x) = 4",
+        "Substitute x = 1 into f(x)",
+        "Substitute x = 2 into f(x)",
+        "x = 1 -> f(1) = 5"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 343,
+      "completion_tokens": 35,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 330,
+      "completion_tokens": 36,
+      "total_tokens": 366,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 341,
+      "completion_tokens": 50,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 206,
+      "total_tokens": 800,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 800,
+      "completion_tokens": 116,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 797,
+      "completion_tokens": 134,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 811,
+      "completion_tokens": 164,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1148,
+      "completion_tokens": 246,
+      "total_tokens": 1394,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 629,
+      "completion_tokens": 43,
+      "total_tokens": 672,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 1010,
+      "completion_tokens": 145,
+      "total_tokens": 1155,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 1007,
+      "completion_tokens": 146,
+      "total_tokens": 1153,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1021,
+      "completion_tokens": 124,
+      "total_tokens": 1145,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1197,
+      "completion_tokens": 277,
+      "total_tokens": 1474,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 633,
+      "completion_tokens": 53,
+      "total_tokens": 686,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 633,
+      "completion_tokens": 49,
+      "total_tokens": 682,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 378,
+    "majority_vote_total_tokens": 1135,
+    "scrd_total_tokens": 13118,
+    "scrd_prompt_tokens": 11294,
+    "scrd_completion_tokens": 1824,
+    "agent_total_tokens": 7410,
+    "recorder_total_tokens": 3668,
+    "evaluator_total_tokens": 2040,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

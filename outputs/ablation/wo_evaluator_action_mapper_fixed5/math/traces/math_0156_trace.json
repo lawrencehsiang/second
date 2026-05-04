@@ -1,0 +1,418 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum of first four powers of 3.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Sum consecutive powers of 3 up to the 4th term.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Sum of first 4 terms of geometric series with a=1, r=3.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "3^0 + 3^1 + 3^2 + 3^3 = 40",
+        "Sum of consecutive powers of 3 up to 3^3 = 40",
+        "Geometric series sum: a=1, r=3, n=4 = 40"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "40",
+        "40",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The fourth term is the sum of the first four powers of 3.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Correcting the previous answer of 40 using the sum of the first four powers of 3.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Answer C changed from 40 to 60, but the explanation does not match the problem description.",
+          "why_still_open": "The new answer of 60 is not supported by the sequence description.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "3^0 + 3^1 + 3^2 + 3^3 = 40",
+        "Sum of first four powers of 3 = 40",
+        "Corrected answer: 60 (sum of first four terms)"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "40",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The fourth term is the sum of the first four powers of 3.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "3^0 + 3^1 + 3^2 + 3^3 = 40",
+        "The fourth term is the sum of the first four powers of 3.",
+        "Re-evaluating the sum of the first four powers of 3: 3^0 + 3^1 + 3^2 + 3^3 = 1 + 3 + 9 + 27 = 40."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "40",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The fourth term is the sum of the first four powers of 3.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The sequence is formed by adding consecutive powers of 3.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "3^0 + 3^1 + 3^2 + 3^3 = 40",
+        "The fourth term is the sum of the first four powers of 3.",
+        "Re-evaluating the sum: 1 + 3 + 9 + 27 = 40"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "13",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The fourth term is recalculated as 1 + 3 + 9 + 27 = 40.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "3^0 + 3^1 + 3^2 + 3^3 = 40",
+        "Re-evaluating the sum: 1 + 3 + 9 + 27 = 40",
+        "The fourth term is the sum of the first four powers of 3."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0156",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 369,
+      "completion_tokens": 68,
+      "total_tokens": 437,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 356,
+      "completion_tokens": 40,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 367,
+      "completion_tokens": 47,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 633,
+      "completion_tokens": 222,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 628,
+      "completion_tokens": 145,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 625,
+      "completion_tokens": 99,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 639,
+      "completion_tokens": 79,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1073,
+      "completion_tokens": 246,
+      "total_tokens": 1319,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 849,
+      "completion_tokens": 162,
+      "total_tokens": 1011,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 846,
+      "completion_tokens": 160,
+      "total_tokens": 1006,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 860,
+      "completion_tokens": 165,
+      "total_tokens": 1025,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1275,
+      "completion_tokens": 172,
+      "total_tokens": 1447,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 849,
+      "completion_tokens": 164,
+      "total_tokens": 1013,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 846,
+      "completion_tokens": 129,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 860,
+      "completion_tokens": 203,
+      "total_tokens": 1063,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1221,
+      "completion_tokens": 181,
+      "total_tokens": 1402,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 631,
+      "completion_tokens": 101,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 628,
+      "completion_tokens": 122,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 642,
+      "completion_tokens": 85,
+      "total_tokens": 727,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0156",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1017,
+      "completion_tokens": 153,
+      "total_tokens": 1170,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 437,
+    "majority_vote_total_tokens": 1247,
+    "scrd_total_tokens": 17957,
+    "scrd_prompt_tokens": 15214,
+    "scrd_completion_tokens": 2743,
+    "agent_total_tokens": 11764,
+    "recorder_total_tokens": 6193,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

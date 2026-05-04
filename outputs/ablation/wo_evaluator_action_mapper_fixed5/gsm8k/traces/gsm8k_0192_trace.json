@@ -1,0 +1,433 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "78",
+        "86",
+        "47"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total caught by foxes over 3 weeks, then subtract from initial population.",
+          "claim_type": "support",
+          "related_answer": "78"
+        },
+        {
+          "text": "Calculate total caught each week then multiply by 3 weeks.",
+          "claim_type": "support",
+          "related_answer": "86"
+        },
+        {
+          "text": "Calculate total catch by foxes over 3 weeks, then subtract from initial population.",
+          "claim_type": "support",
+          "related_answer": "47"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial population - Total caught = Remaining population",
+        "Total caught = Weekly catch * 3 weeks",
+        "Weekly catch = 50 min < 1 hr -> pay < $12"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "62",
+        "2",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Adjust the calculation to account for initial populations and total catches over 3 weeks.",
+          "claim_type": "support",
+          "related_answer": "62"
+        },
+        {
+          "text": "Differentiate the calculation between weasels and rabbits.",
+          "claim_type": "support",
+          "related_answer": "100"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There's a discrepancy in how the total catch is calculated over 3 weeks.",
+          "why_still_open": "Previous mainstream answers did not address the need to differentiate between weasels and rabbits.",
+          "involved_answers": [
+            "86",
+            "100"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial population - Total caught = Remaining population",
+        "Total caught = Weekly catch * 3 weeks",
+        "Differentiate between weasels and rabbits in the calculation."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "2 rabbits and 28 weasels",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total catches for weasels and rabbits separately over 3 weeks.",
+          "claim_type": "support",
+          "related_answer": "8"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total caught = Weekly catch * 3 weeks",
+        "Differentiate between weasels and rabbits in the calculation.",
+        "Initial population - Total caught = Remaining population"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "2",
+        "26 rabbits and 28 weasels",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate separate catches for weasels and rabbits over 3 weeks, then sum them up.",
+          "claim_type": "support",
+          "related_answer": "26 rabbits and 28 weasels"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total caught = Weekly catch * 3 weeks",
+        "Differentiate between weasels and rabbits in the calculation.",
+        "Summing up separate catches for weasels and rabbits."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "8",
+        "46 rabbits and 62 weasels",
+        "28"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Update the previous answer '2' to '8' as it represents the total number of foxes hunting, not the catches.",
+          "claim_type": "rebuttal",
+          "related_answer": "8"
+        },
+        {
+          "text": "Correct the previous answer '26 rabbits and 28 weasels' to '46 rabbits and 62 weasels' by accounting for total catches over 3 weeks.",
+          "claim_type": "rebuttal",
+          "related_answer": "46 rabbits and 62 weasels"
+        },
+        {
+          "text": "Adjust the previous answer '6' to '28' by calculating separate catches for rabbits and weasels and then summing them up.",
+          "claim_type": "rebuttal",
+          "related_answer": "28"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the exact numbers of rabbits and weasels caught.",
+          "why_still_open": "The current answers '46 rabbits and 62 weasels' and '28' are based on different assumptions and need further verification.",
+          "involved_answers": [
+            "46 rabbits and 62 weasels",
+            "28"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total caught = Initial population - Final population",
+        "Calculate separate catches for rabbits and weasels over 3 weeks.",
+        "Summing up the weekly catches for both species."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 39,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 34,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 42,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 597,
+      "completion_tokens": 202,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 638,
+      "completion_tokens": 119,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 635,
+      "completion_tokens": 54,
+      "total_tokens": 689,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 649,
+      "completion_tokens": 127,
+      "total_tokens": 776,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1038,
+      "completion_tokens": 220,
+      "total_tokens": 1258,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 753,
+      "completion_tokens": 106,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 749,
+      "completion_tokens": 110,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 765,
+      "completion_tokens": 105,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1104,
+      "completion_tokens": 112,
+      "total_tokens": 1216,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 750,
+      "completion_tokens": 109,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 755,
+      "completion_tokens": 116,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 762,
+      "completion_tokens": 113,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 998,
+      "completion_tokens": 128,
+      "total_tokens": 1126,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 643,
+      "completion_tokens": 125,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 649,
+      "completion_tokens": 71,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 654,
+      "completion_tokens": 74,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 947,
+      "completion_tokens": 346,
+      "total_tokens": 1293,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 415,
+    "majority_vote_total_tokens": 1228,
+    "scrd_total_tokens": 16551,
+    "scrd_prompt_tokens": 14199,
+    "scrd_completion_tokens": 2352,
+    "agent_total_tokens": 10859,
+    "recorder_total_tokens": 5692,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

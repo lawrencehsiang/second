@@ -1,0 +1,188 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "9",
+        "9",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Set up equation: (3+x)/(5+x) = 5/6. Cross-multiply and solve for x.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x + 3 = 5/6 * (x + 5)",
+        "x = 2",
+        "x = 9"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify the mainstream support solution.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between mainstream support and previous answers.",
+          "why_still_open": "Need verification of mainstream support solution.",
+          "involved_answers": [
+            "9"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x + 3 = 5/6 * (x + 5)",
+        "x = 2",
+        "x = 9"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 348,
+      "completion_tokens": 38,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 335,
+      "completion_tokens": 32,
+      "total_tokens": 367,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 346,
+      "completion_tokens": 49,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 117,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 621,
+      "completion_tokens": 42,
+      "total_tokens": 663,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 618,
+      "completion_tokens": 40,
+      "total_tokens": 658,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 632,
+      "completion_tokens": 100,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 837,
+      "completion_tokens": 151,
+      "total_tokens": 988,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 559,
+      "completion_tokens": 42,
+      "total_tokens": 601,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 386,
+    "majority_vote_total_tokens": 1148,
+    "scrd_total_tokens": 5499,
+    "scrd_prompt_tokens": 4888,
+    "scrd_completion_tokens": 611,
+    "agent_total_tokens": 3201,
+    "recorder_total_tokens": 1697,
+    "evaluator_total_tokens": 601,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

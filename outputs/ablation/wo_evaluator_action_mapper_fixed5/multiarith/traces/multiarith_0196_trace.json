@@ -1,0 +1,463 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "24",
+        "24",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Start with 25 books, sell 21, then add 30 new books.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Initial 25 books - 21 sold + 30 bought = 14 books.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A and B provide different answers (24 vs 14).",
+          "why_still_open": "Different interpretations of the sequence of events.",
+          "involved_answers": [
+            "24",
+            "14"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial 25 books",
+        "Sold 21 books",
+        "Bought 30 new books",
+        "Resulting in 14 books",
+        "25-21+30=14"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "34",
+        "24",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Start with 25 books, sell 21, then add 30 new books, resulting in 34 books.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Roger ends up with 24 books after selling 21 out of 25 and buying 30 new ones.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct sequence is to sell first and then buy, leading to 34 books.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial 25 books",
+        "Sold 21 books",
+        "Bought 30 new books",
+        "Resulting in 34 books",
+        "25-21+30=34"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "34",
+        "14",
+        "34"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct sequence is starting with 25 books, selling 21, and then buying 30 new books, leading to 34 books.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Considering the sequence of events, the correct number of books Roger ends up with is 14.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agent C confirmed that the initial calculation (25 - 21 + 30 = 34) by Agent A seems more consistent with the problem statement, but Agent B's result of 14 needs verification.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A and B provide conflicting answers (34 vs 14).",
+          "why_still_open": "Agent C's explanation shows that the calculation (25 - 21 + 30 = 34) aligns with Agent A's answer, but the sequence needs further validation.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Start with 25 books",
+        "Sell 21 books",
+        "Buy 30 new books",
+        "Resulting in 34 books",
+        "25 - 21 + 30 = 34"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "34",
+        "14",
+        "34"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The sequence of events shows Roger ends up with 34 books.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Selling 21 books from an initial 25 leaves Roger with 4 books, and buying 30 new books results in 34 books.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Start with 25 books",
+        "Sell 21 books",
+        "Buy 30 new books",
+        "Resulting in 34 books",
+        "25 - 21 + 30 = 34"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "34",
+        "34",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Roger ends up with 34 books after selling 21 and buying 30.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer incorrectly suggests Roger ends up with 14 books.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream support claims Roger ends up with 34 books, while a minority answer suggests 14 books.",
+          "why_still_open": "Despite revisiting the calculation, the minority answer persists without consensus.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Start with 25 books",
+        "Sell 21 books",
+        "Buy 30 new books",
+        "Resulting in 34 books",
+        "25 - 21 + 30 = 34"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 31,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 45,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 46,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 601,
+      "completion_tokens": 234,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 718,
+      "completion_tokens": 140,
+      "total_tokens": 858,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 715,
+      "completion_tokens": 125,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 729,
+      "completion_tokens": 112,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1160,
+      "completion_tokens": 232,
+      "total_tokens": 1392,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 725,
+      "completion_tokens": 128,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 722,
+      "completion_tokens": 107,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 736,
+      "completion_tokens": 161,
+      "total_tokens": 897,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1180,
+      "completion_tokens": 354,
+      "total_tokens": 1534,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 828,
+      "completion_tokens": 148,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 825,
+      "completion_tokens": 175,
+      "total_tokens": 1000,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 839,
+      "completion_tokens": 143,
+      "total_tokens": 982,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1378,
+      "completion_tokens": 186,
+      "total_tokens": 1564,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 810,
+      "completion_tokens": 157,
+      "total_tokens": 967,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 807,
+      "completion_tokens": 111,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 821,
+      "completion_tokens": 139,
+      "total_tokens": 960,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0196",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1145,
+      "completion_tokens": 241,
+      "total_tokens": 1386,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 377,
+    "majority_vote_total_tokens": 1145,
+    "scrd_total_tokens": 18777,
+    "scrd_prompt_tokens": 15762,
+    "scrd_completion_tokens": 3015,
+    "agent_total_tokens": 12066,
+    "recorder_total_tokens": 6711,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

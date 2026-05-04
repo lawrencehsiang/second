@@ -1,0 +1,272 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ernesto will be 14 in 3 years.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Jayden will be 7 in 3 years.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Jayden is currently 4 years old.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ernesto is 11 now, in 3 years he will be 14.",
+        "Jayden will be half of 14, so 7.",
+        "Therefore, Jayden is currently 4 years old."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ernesto will be 14 in 3 years, correcting the initial misinterpretation.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ernesto's current age is 8 years old, calculated from the condition he will be 14 in 3 years.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ernesto's age in 3 years is 14, correcting the initial misinterpretation.",
+        "Ernesto is 8 years old now, derived from the condition he will be 14 in 3 years.",
+        "Ernesto's future age was corrected from 11 to 14 in 3 years."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 345,
+      "completion_tokens": 73,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 332,
+      "completion_tokens": 61,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 343,
+      "completion_tokens": 69,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 679,
+      "completion_tokens": 194,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 602,
+      "completion_tokens": 133,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 599,
+      "completion_tokens": 69,
+      "total_tokens": 668,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 613,
+      "completion_tokens": 143,
+      "total_tokens": 756,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1069,
+      "completion_tokens": 280,
+      "total_tokens": 1349,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 645,
+      "completion_tokens": 51,
+      "total_tokens": 696,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 855,
+      "completion_tokens": 105,
+      "total_tokens": 960,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 600,
+      "completion_tokens": 135,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 599,
+      "completion_tokens": 144,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 600,
+      "completion_tokens": 157,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1152,
+      "completion_tokens": 207,
+      "total_tokens": 1359,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0150",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 738,
+      "completion_tokens": 50,
+      "total_tokens": 788,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 418,
+    "majority_vote_total_tokens": 1223,
+    "scrd_total_tokens": 11642,
+    "scrd_prompt_tokens": 9771,
+    "scrd_completion_tokens": 1871,
+    "agent_total_tokens": 3382,
+    "recorder_total_tokens": 3581,
+    "evaluator_total_tokens": 696,
+    "repair_brief_total_tokens": 960,
+    "repair_evaluator_total_tokens": 788,
+    "repair_agent_total_tokens": 2235
+  }
+}

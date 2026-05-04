@@ -1,0 +1,378 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "375",
+        "375",
+        "375"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Convert total amount to monthly payments for both periods, then find difference.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate monthly payments for both periods and find the difference.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate monthly payments for both durations and find the difference.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total amount → monthly payments",
+        "Periods: monthly calculations",
+        "Find difference"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "750",
+        "150",
+        "150"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate monthly payments for 2 years and 5 years, then find the difference.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The difference in monthly payments is $150 per month.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Monthly payments for 2 years are $250, and for 5 years, they are $100. The difference is $150.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Monthly payment 2 years: $250",
+        "Monthly payment 5 years: $100",
+        "Difference: $150"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "375",
+        "150",
+        "150"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute monthly payments for 2 years and 5 years to resolve the minority answer conflict.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recompute monthly payments for 2 years and 5 years to resolve the minority answer conflict.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Focus on the difference in monthly payments over different time periods to resolve the conflict.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer 375 remains unresolved.",
+          "why_still_open": "Recomputation needed to confirm accuracy and resolve the conflict.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Monthly payment 2 years: $250",
+        "Monthly payment 5 years: $100",
+        "Difference: $150"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 387,
+      "completion_tokens": 37,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 374,
+      "completion_tokens": 34,
+      "total_tokens": 408,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 385,
+      "completion_tokens": 37,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 593,
+      "completion_tokens": 170,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 653,
+      "completion_tokens": 145,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 650,
+      "completion_tokens": 91,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 664,
+      "completion_tokens": 44,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 992,
+      "completion_tokens": 275,
+      "total_tokens": 1267,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 743,
+      "completion_tokens": 50,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 882,
+      "completion_tokens": 105,
+      "total_tokens": 987,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 642,
+      "completion_tokens": 160,
+      "total_tokens": 802,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 641,
+      "completion_tokens": 246,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 642,
+      "completion_tokens": 240,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1350,
+      "completion_tokens": 211,
+      "total_tokens": 1561,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 839,
+      "completion_tokens": 44,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 724,
+      "completion_tokens": 99,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 721,
+      "completion_tokens": 109,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 737,
+      "completion_tokens": 122,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1075,
+      "completion_tokens": 259,
+      "total_tokens": 1334,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0200",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 717,
+      "completion_tokens": 57,
+      "total_tokens": 774,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 424,
+    "majority_vote_total_tokens": 1254,
+    "scrd_total_tokens": 16946,
+    "scrd_prompt_tokens": 14411,
+    "scrd_completion_tokens": 2535,
+    "agent_total_tokens": 3501,
+    "recorder_total_tokens": 4925,
+    "evaluator_total_tokens": 793,
+    "repair_brief_total_tokens": 987,
+    "repair_evaluator_total_tokens": 1657,
+    "repair_agent_total_tokens": 5083
+  }
+}

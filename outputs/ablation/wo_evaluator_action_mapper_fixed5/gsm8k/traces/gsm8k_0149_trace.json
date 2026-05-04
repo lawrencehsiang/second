@@ -1,0 +1,459 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "35",
+        "35",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate after-tax amount by subtracting tax and processing fee from total winnings.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C have different answers: 35, 35, and 40 respectively.",
+          "why_still_open": "Each agent used a different method to calculate the answer, leading to conflicting results.",
+          "involved_answers": [
+            "35",
+            "40"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate total deduction (tax + processing fee) from the lottery winnings.",
+        "Calculate net winnings after tax and fee.",
+        "Calculate after-tax amount by subtracting tax and processing fee from total winnings."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "35",
+        "40",
+        "35"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent B will re-evaluate the calculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C have differing answers post-reevaluation: 40 and 35 respectively.",
+          "why_still_open": "Agent B is re-evaluating the calculation but the outcome is uncertain.",
+          "involved_answers": [
+            "40",
+            "35"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate total deduction (tax + processing fee) from the lottery winnings.",
+        "Calculate net winnings after tax and fee.",
+        "Calculate after-tax amount by subtracting tax and processing fee from total winnings.",
+        "Re-evaluating the calculation to ensure the correct sequence of operations is followed.",
+        "Correct calculation: $50 - ($50 * 20%) - $5 = $35."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "40",
+        "35",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the calculation with the tax and processing fee.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verify both the mainstream support and the minority objection.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C have differing answers post-reevaluation: 35 and 40 respectively.",
+          "why_still_open": "Agent B's re-evaluation is ongoing, and Agent C is verifying both mainstream and minority answers, leading to conflicting results.",
+          "involved_answers": [
+            "35",
+            "40"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate total deduction (tax + processing fee) from the lottery winnings.",
+        "Calculate net winnings after tax and fee.",
+        "Re-evaluating the calculation to ensure the correct sequence of operations is followed.",
+        "Correct calculation: $50 - ($50 * 20%) - $5 = $35.",
+        "Re-checking calculations for both mainstream support and minority objections."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "30",
+        "40",
+        "35"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of $35 is incorrect because it does not account for the 20% tax and $5 processing fee.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The majority answer of $40 is correct based on the verified calculation.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluate the minority answer of $35 to ensure correctness.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a conflict between the minority answer of $35 and the majority answer of $40.",
+          "why_still_open": "The minority answer requires further verification despite being recalculated.",
+          "involved_answers": [
+            "35",
+            "40"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Winwin pays 20% tax on $50, which is $10, and a $5 processing fee, leaving her with $35.",
+        "The correct calculation should be $50 - ($50 * 20%) - $5.",
+        "The minority objection incorrectly calculates the take-home amount without considering the 20% tax and the $5 processing fee.",
+        "The majority answer of $40 is correct based on the calculation provided.",
+        "Re-evaluating the minority answer to ensure its correctness."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "30",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of $35 is incorrect as it does not account for the 20% tax and $5 processing fee.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The majority answer of $40 is correct as it includes the 20% tax and $5 processing fee in the calculation.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of $35 is incorrect because it fails to consider the 20% tax and $5 processing fee.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Winwin pays 20% tax on $50, which is $10, and a $5 processing fee, leaving her with $35.",
+        "The correct calculation should be $50 - ($50 * 20%) - $5.",
+        "The minority objection incorrectly calculates the take-home amount without considering the 20% tax and the $5 processing fee.",
+        "The majority answer of $40 is correct based on the calculation provided.",
+        "Re-evaluating the minority answer to ensure its correctness."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 348,
+      "completion_tokens": 36,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 335,
+      "completion_tokens": 33,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 346,
+      "completion_tokens": 40,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 588,
+      "completion_tokens": 197,
+      "total_tokens": 785,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 732,
+      "completion_tokens": 130,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 729,
+      "completion_tokens": 108,
+      "total_tokens": 837,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 743,
+      "completion_tokens": 142,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1130,
+      "completion_tokens": 232,
+      "total_tokens": 1362,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 802,
+      "completion_tokens": 115,
+      "total_tokens": 917,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 799,
+      "completion_tokens": 90,
+      "total_tokens": 889,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 813,
+      "completion_tokens": 84,
+      "total_tokens": 897,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1073,
+      "completion_tokens": 278,
+      "total_tokens": 1351,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 800,
+      "completion_tokens": 155,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 797,
+      "completion_tokens": 104,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 811,
+      "completion_tokens": 123,
+      "total_tokens": 934,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1204,
+      "completion_tokens": 356,
+      "total_tokens": 1560,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 820,
+      "completion_tokens": 141,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 817,
+      "completion_tokens": 113,
+      "total_tokens": 930,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 831,
+      "completion_tokens": 164,
+      "total_tokens": 995,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1326,
+      "completion_tokens": 309,
+      "total_tokens": 1635,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 384,
+    "majority_vote_total_tokens": 1138,
+    "scrd_total_tokens": 18794,
+    "scrd_prompt_tokens": 15844,
+    "scrd_completion_tokens": 2950,
+    "agent_total_tokens": 12101,
+    "recorder_total_tokens": 6693,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,529 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-1",
+        "-365",
+        "-1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Repeatedly applying f(x) = x^2 - 2x starting from -1 results in -1.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "Evaluating f(-1) yields -1.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Starting from -1 and applying f iteratively leads to -365.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents have different answers (-1, -365, -1).",
+          "why_still_open": "Insufficient evidence to determine the correct answer.",
+          "involved_answers": [
+            "-1",
+            "-365"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(x) = x^2 - 2x",
+        "Evaluate f(-1)",
+        "Apply f iteratively starting from -1"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-1",
+        "-1",
+        "-1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Repeated application of f(x) = x^2 - 2x starting from -1 results in -1 each time.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "The discrepancy between initial answers was due to incorrect iterative application of the function.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluation confirms that applying f(x) = x^2 - 2x iteratively from -1 consistently yields -1.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = x^2 - 2x",
+        "Evaluate f(-1) consistently",
+        "Iterative application of f(x)"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "-1",
+        "-1",
+        "-1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Repeated application of f(x) = x^2 - 2x starting from -1 results in -1 each time.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support confirms that applying f(x) = x^2 - 2x iteratively from -1 yields -1.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Consensus verifies that f(x) = x^2 - 2x applied repeatedly starting from -1 consistently yields -1.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = x^2 - 2x",
+        "Repeated application from -1 yields -1",
+        "Mainstream support for -1"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "-1",
+        "-1",
+        "-1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Applying f(x) = x^2 - 2x six times from -1 results in -1.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = x^2 - 2x",
+        "Repeated application from -1 yields -1",
+        "Mainstream support for -1"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-1",
+        "-1",
+        "-1"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = x^2 - 2x",
+        "Repeated application from -1 yields -1",
+        "Mainstream support for -1"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 35,
+      "total_tokens": 375,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 36,
+      "total_tokens": 363,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 45,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 256,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 715,
+      "completion_tokens": 145,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 714,
+      "completion_tokens": 146,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 726,
+      "completion_tokens": 129,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1229,
+      "completion_tokens": 237,
+      "total_tokens": 1466,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 639,
+      "completion_tokens": 43,
+      "total_tokens": 682,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 872,
+      "completion_tokens": 93,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 583,
+      "completion_tokens": 109,
+      "total_tokens": 692,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 582,
+      "completion_tokens": 114,
+      "total_tokens": 696,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 583,
+      "completion_tokens": 147,
+      "total_tokens": 730,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1151,
+      "completion_tokens": 210,
+      "total_tokens": 1361,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 795,
+      "completion_tokens": 48,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 683,
+      "completion_tokens": 145,
+      "total_tokens": 828,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 680,
+      "completion_tokens": 156,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 696,
+      "completion_tokens": 136,
+      "total_tokens": 832,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1129,
+      "completion_tokens": 221,
+      "total_tokens": 1350,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 667,
+      "completion_tokens": 57,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 579,
+      "completion_tokens": 57,
+      "total_tokens": 636,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 576,
+      "completion_tokens": 52,
+      "total_tokens": 628,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 592,
+      "completion_tokens": 69,
+      "total_tokens": 661,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 921,
+      "completion_tokens": 117,
+      "total_tokens": 1038,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 551,
+      "completion_tokens": 45,
+      "total_tokens": 596,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 577,
+      "completion_tokens": 54,
+      "total_tokens": 631,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 574,
+      "completion_tokens": 59,
+      "total_tokens": 633,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 590,
+      "completion_tokens": 59,
+      "total_tokens": 649,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 811,
+      "completion_tokens": 67,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 495,
+      "completion_tokens": 44,
+      "total_tokens": 539,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 375,
+    "majority_vote_total_tokens": 1121,
+    "scrd_total_tokens": 23437,
+    "scrd_prompt_tokens": 20306,
+    "scrd_completion_tokens": 3131,
+    "agent_total_tokens": 3696,
+    "recorder_total_tokens": 6940,
+    "evaluator_total_tokens": 682,
+    "repair_brief_total_tokens": 965,
+    "repair_evaluator_total_tokens": 2702,
+    "repair_agent_total_tokens": 8452
+  }
+}

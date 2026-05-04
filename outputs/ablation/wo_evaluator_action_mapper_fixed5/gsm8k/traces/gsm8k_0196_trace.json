@@ -1,0 +1,419 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "20",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculated total cost, subtracted from $200, got $30 as change.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C have different answers (20, 20, and 30 respectively).",
+          "why_still_open": "Insufficient evidence to resolve the discrepancy.",
+          "involved_answers": [
+            "20",
+            "30"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = 20 + 30 = 50",
+        "$200 - $50 = $150 remaining",
+        "Change = $30"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "0",
+        "30",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Mainstream support shows the correct calculation is $20 as change.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "The total cost matches the payment, so no change is due.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 5*6 + 10*14 = 200",
+        "$200 - $200 = $0 remaining",
+        "Change = $20"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "30",
+        "20",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total cost of items is $170, and since Mary paid $200, the change should be $30.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support consistently indicates $20 as the correct change, while the minority answer of $30 lacks sufficient evidence.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 5*6 + 10*14 = 170",
+        "$200 - $170 = $30 remaining",
+        "Mainstream support shows the correct calculation is $20 as change."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "30",
+        "30",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total cost of items is $170, and since Mary paid $200, the change should be $30.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream calculation of total cost ($170) and payment ($200) correctly determines the change as $30. The minority answer of 20 is incorrect.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The total cost is $170, and since Mary paid $200, the correct change is $30 - $20 = $10.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 5*6 + 10*14 = 170",
+        "$200 - $170 = $30 remaining",
+        "Mainstream support shows the correct calculation is $20 as change."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "30",
+        "30",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 20 remains inconsistent with the mainstream calculation of $170 total cost and $200 payment.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 5*6 + 10*14 = 170",
+        "$200 - $170 = $30 change",
+        "Mainstream calculation: $200 - $170 = $30"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 359,
+      "completion_tokens": 43,
+      "total_tokens": 402,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 346,
+      "completion_tokens": 36,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 357,
+      "completion_tokens": 45,
+      "total_tokens": 402,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 192,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 740,
+      "completion_tokens": 143,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 737,
+      "completion_tokens": 127,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 751,
+      "completion_tokens": 103,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1117,
+      "completion_tokens": 157,
+      "total_tokens": 1274,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 834,
+      "completion_tokens": 183,
+      "total_tokens": 1017,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 832,
+      "completion_tokens": 114,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 846,
+      "completion_tokens": 155,
+      "total_tokens": 1001,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1123,
+      "completion_tokens": 192,
+      "total_tokens": 1315,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 738,
+      "completion_tokens": 136,
+      "total_tokens": 874,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 735,
+      "completion_tokens": 138,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 749,
+      "completion_tokens": 175,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1185,
+      "completion_tokens": 263,
+      "total_tokens": 1448,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 738,
+      "completion_tokens": 145,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 735,
+      "completion_tokens": 103,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 749,
+      "completion_tokens": 121,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0196",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1184,
+      "completion_tokens": 147,
+      "total_tokens": 1331,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 402,
+    "majority_vote_total_tokens": 1186,
+    "scrd_total_tokens": 18176,
+    "scrd_prompt_tokens": 15458,
+    "scrd_completion_tokens": 2718,
+    "agent_total_tokens": 12013,
+    "recorder_total_tokens": 6163,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

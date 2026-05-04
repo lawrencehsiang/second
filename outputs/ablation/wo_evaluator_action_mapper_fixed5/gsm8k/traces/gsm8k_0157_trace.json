@@ -1,0 +1,424 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12.0",
+        "12.0",
+        "12.0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Find 75% of the total cost.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B calculates 75% of the total, while others do not.",
+          "why_still_open": "Different methods lead to the same result in this case, but the underlying logic is unclear.",
+          "involved_answers": [
+            "B",
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Cost = Item1 + Item2 + Item3",
+        "Total Cost = 12 * 3",
+        "75% of Total = 0.75 * Total",
+        "Result = 12",
+        "3 items, each costing 4"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12.0",
+        "12.0",
+        "12.0"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cost = Item1 + Item2 + Item3",
+        "Total Cost = 12 * 3",
+        "75% of Total = 0.75 * Total",
+        "Result = 12",
+        "3 items, each costing 4"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "21.0",
+        "12.0",
+        "10.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Milk's cost is 75% of the total cost of sandwich and juice.",
+          "claim_type": "constraint",
+          "related_answer": "Agent C's response"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cost = Item1 + Item2 + Item3",
+        "Total Cost = 12 * 3",
+        "75% of Total = 0.75 * Total",
+        "Result = 21",
+        "3 items, each costing 4"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "21.0",
+        "18.0",
+        "12.0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Milk costs 75% of the total cost of the sandwich and juice.",
+          "claim_type": "constraint",
+          "related_answer": "Agent A's response"
+        },
+        {
+          "text": "Recalculate the total cost step-by-step.",
+          "claim_type": "explanation",
+          "related_answer": "Agent B's response"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is disagreement on the exact breakdown of the total cost between the sandwich, juice, and milk.",
+          "why_still_open": "Different agents have different answers and explanations for the cost distribution.",
+          "involved_answers": [
+            "Agent A's response",
+            "Agent B's response",
+            "Agent C's response"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Cost = Item1 + Item2 + Item3",
+        "Total Cost = 12 * 3",
+        "75% of Total = 0.75 * Total",
+        "Milk = 75% of (Sandwich + Juice)",
+        "Recalculate step-by-step"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "24.0",
+        "21.0",
+        "21.0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the interpretation to ensure all costs are correctly calculated based on given relationships.",
+          "claim_type": "explanation",
+          "related_answer": "Agent A's response"
+        },
+        {
+          "text": "Resolved the cost distribution: sandwich = $4, juice = $8, milk = 75% of ($4 + $8) = $9. Total = $4 + $8 + $9 = $21.",
+          "claim_type": "constraint",
+          "related_answer": "Agent C's response"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cost = Item1 + Item2 + Item3",
+        "Total Cost = 4 + 8 + 9",
+        "75% of Total = 0.75 * Total",
+        "Milk = 75% of (Sandwich + Juice)",
+        "Revised calculation based on consistent information"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 377,
+      "completion_tokens": 38,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 364,
+      "completion_tokens": 43,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 375,
+      "completion_tokens": 37,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 200,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 843,
+      "completion_tokens": 124,
+      "total_tokens": 967,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 840,
+      "completion_tokens": 117,
+      "total_tokens": 957,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 854,
+      "completion_tokens": 112,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1099,
+      "completion_tokens": 92,
+      "total_tokens": 1191,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 843,
+      "completion_tokens": 189,
+      "total_tokens": 1032,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 840,
+      "completion_tokens": 108,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 854,
+      "completion_tokens": 124,
+      "total_tokens": 978,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1069,
+      "completion_tokens": 140,
+      "total_tokens": 1209,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 649,
+      "completion_tokens": 207,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 646,
+      "completion_tokens": 104,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 660,
+      "completion_tokens": 146,
+      "total_tokens": 806,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1137,
+      "completion_tokens": 259,
+      "total_tokens": 1396,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 865,
+      "completion_tokens": 142,
+      "total_tokens": 1007,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 862,
+      "completion_tokens": 101,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 876,
+      "completion_tokens": 162,
+      "total_tokens": 1038,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0157",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1210,
+      "completion_tokens": 225,
+      "total_tokens": 1435,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 415,
+    "majority_vote_total_tokens": 1234,
+    "scrd_total_tokens": 18536,
+    "scrd_prompt_tokens": 15866,
+    "scrd_completion_tokens": 2670,
+    "agent_total_tokens": 12502,
+    "recorder_total_tokens": 6034,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

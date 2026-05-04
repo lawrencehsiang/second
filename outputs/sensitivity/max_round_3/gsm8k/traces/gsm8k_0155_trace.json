@@ -1,0 +1,373 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "680",
+        "720",
+        "720"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ariella's initial amount is $600.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Ariella's account grows by 10% annually.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "After 2 years, Ariella's account grows by 20%.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different final amounts calculated.",
+          "why_still_open": "Agents A and B calculated different final amounts.",
+          "involved_answers": [
+            "680",
+            "720"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ariella's initial amount is $600.",
+        "Ariella's account grows by 10% annually.",
+        "After 2 years, Ariella's account grows by 20%.",
+        "$600 * 1.2 = $720",
+        "Final amount differs between $680 and $720."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "720",
+        "800",
+        "720"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the final amount using the correct simple interest formula.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Using simple interest, Ariella's initial $600 grows to $720 over two years at 10% annually.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Final amount discrepancy.",
+          "why_still_open": "Agents A and B still have differing final amounts despite reevaluation.",
+          "involved_answers": [
+            "720",
+            "800"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ariella's initial amount is $600.",
+        "Ariella's account grows by 10% annually.",
+        "Recomputed the final amount using the correct simple interest formula.",
+        "Total amount after 2 years is $720.",
+        "Final amount differs between $720 and $800."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "720",
+        "720",
+        "720"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Confirmed Ariella's initial amount of $600.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ariella's initial amount is $600.",
+        "Ariella's account grows by 10% annually.",
+        "Recomputed the final amount using the correct simple interest formula.",
+        "Total amount after 2 years is $720.",
+        "Final amount is now consistent across all answers."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 39,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 38,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 84,
+      "total_tokens": 457,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 643,
+      "completion_tokens": 281,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 731,
+      "completion_tokens": 98,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 728,
+      "completion_tokens": 96,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 742,
+      "completion_tokens": 115,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1145,
+      "completion_tokens": 268,
+      "total_tokens": 1413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 660,
+      "completion_tokens": 48,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 973,
+      "completion_tokens": 94,
+      "total_tokens": 1067,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 619,
+      "completion_tokens": 106,
+      "total_tokens": 725,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 618,
+      "completion_tokens": 101,
+      "total_tokens": 719,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 619,
+      "completion_tokens": 238,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1265,
+      "completion_tokens": 257,
+      "total_tokens": 1522,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 778,
+      "completion_tokens": 61,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 714,
+      "completion_tokens": 80,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 711,
+      "completion_tokens": 143,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 96,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1083,
+      "completion_tokens": 140,
+      "total_tokens": 1223,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 57,
+      "total_tokens": 651,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 414,
+    "majority_vote_total_tokens": 1271,
+    "scrd_total_tokens": 16900,
+    "scrd_prompt_tokens": 14460,
+    "scrd_completion_tokens": 2440,
+    "agent_total_tokens": 3781,
+    "recorder_total_tokens": 5082,
+    "evaluator_total_tokens": 708,
+    "repair_brief_total_tokens": 1067,
+    "repair_evaluator_total_tokens": 1490,
+    "repair_agent_total_tokens": 4772
+  }
+}

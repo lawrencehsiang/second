@@ -1,0 +1,199 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve for x and y, then compute (x+y)(x-y).",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Use difference of squares formula.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x^2 - y^2 = (x+y)(x-y)",
+        "Solve simultaneous equations for x and y.",
+        "Difference of squares: a^2 - b^2 = (a+b)(a-b)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "21",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Evaluate x and y first before applying the difference of squares formula.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "First, solve for x and y using the given equations.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Use difference of squares formula vs. solve for x and y first.",
+          "why_still_open": "There's a disagreement on whether the difference of squares formula can be applied directly or if x and y must be solved for first.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x^2 - y^2 = (x+y)(x-y)",
+        "Re-evaluated the equations and used the difference of squares formula correctly.",
+        "Evaluate x and y first before applying the difference of squares formula."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 43,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 27,
+      "total_tokens": 354,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 41,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 587,
+      "completion_tokens": 157,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 594,
+      "completion_tokens": 48,
+      "total_tokens": 642,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 591,
+      "completion_tokens": 94,
+      "total_tokens": 685,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 605,
+      "completion_tokens": 126,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 948,
+      "completion_tokens": 233,
+      "total_tokens": 1181,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 607,
+      "completion_tokens": 42,
+      "total_tokens": 649,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 383,
+    "majority_vote_total_tokens": 1116,
+    "scrd_total_tokens": 5748,
+    "scrd_prompt_tokens": 4937,
+    "scrd_completion_tokens": 811,
+    "agent_total_tokens": 3174,
+    "recorder_total_tokens": 1925,
+    "evaluator_total_tokens": 649,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

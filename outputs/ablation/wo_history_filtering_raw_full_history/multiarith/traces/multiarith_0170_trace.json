@@ -1,0 +1,180 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial count of 8, decrease by 5, increase by 8 results in 11.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Start: 8 students; Left: 5; Joined: 8; End: 8 - 5 + 8",
+        "Initial 8 students - 5 left + 8 new = 11 students",
+        "Initial count was 8, then reduced by 5 and increased by 8."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Start: 8 students; Left: 5; Joined: 8; End: 8 - 5 + 8",
+        "Initial 8 students - 5 left + 8 new = 11 students",
+        "Initial count was 8, then reduced by 5 and increased by 8."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 352,
+      "completion_tokens": 49,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 339,
+      "completion_tokens": 40,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 350,
+      "completion_tokens": 42,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 613,
+      "completion_tokens": 150,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 770,
+      "completion_tokens": 53,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 767,
+      "completion_tokens": 55,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 781,
+      "completion_tokens": 62,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 864,
+      "completion_tokens": 101,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 517,
+      "completion_tokens": 45,
+      "total_tokens": 562,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 401,
+    "majority_vote_total_tokens": 1172,
+    "scrd_total_tokens": 5950,
+    "scrd_prompt_tokens": 5353,
+    "scrd_completion_tokens": 597,
+    "agent_total_tokens": 3660,
+    "recorder_total_tokens": 1728,
+    "evaluator_total_tokens": 562,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

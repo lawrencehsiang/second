@@ -1,0 +1,208 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "16.67",
+        "20",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Alyssa ate 20 pieces.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C all claim the total is 100, but disagree on the value of the variable representing Alyssa's pieces.",
+          "why_still_open": "All agents use different variables (x, A) without resolving their equivalence.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Alyssa + 2*Keely + 2*Kendall = 100",
+        "A + 2A + 2A = 100",
+        "Alyssa ate 20 pieces"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "20",
+        "20",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Define Alyssa's nuggets as x, then the total is 5x.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Standardize the variable for Alyssa's pieces.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Using 5A = 100 confirms Alyssa ate 20 pieces.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Alyssa ate 20 pieces",
+        "Total is 5x",
+        "5A = 100"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0110",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 62,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0110",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 52,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0110",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 71,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0110",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 667,
+      "completion_tokens": 247,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0110",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 667,
+      "completion_tokens": 201,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0110",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 739,
+      "completion_tokens": 152,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0110",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 733,
+      "completion_tokens": 121,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0110",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 747,
+      "completion_tokens": 146,
+      "total_tokens": 893,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0110",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1181,
+      "completion_tokens": 185,
+      "total_tokens": 1366,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0110",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 695,
+      "completion_tokens": 57,
+      "total_tokens": 752,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 415,
+    "majority_vote_total_tokens": 1229,
+    "scrd_total_tokens": 7767,
+    "scrd_prompt_tokens": 6473,
+    "scrd_completion_tokens": 1294,
+    "agent_total_tokens": 3867,
+    "recorder_total_tokens": 3148,
+    "evaluator_total_tokens": 752,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Set area = perimeter and solve for x.",
+          "claim_type": "support",
+          "related_answer": "A, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Area = Perimeter",
+        "Solve for x"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the equation area = perimeter.",
+          "claim_type": "rebuttal",
+          "related_answer": "A, C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "All agents agreed on the value 5, but the correctness of area = perimeter was not fully verified.",
+          "why_still_open": "Insufficient evidence to confirm the solution.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Area = Perimeter",
+        "Solve for x"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0148",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 348,
+      "completion_tokens": 33,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0148",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 335,
+      "completion_tokens": 30,
+      "total_tokens": 365,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0148",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 346,
+      "completion_tokens": 33,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0148",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 572,
+      "completion_tokens": 85,
+      "total_tokens": 657,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0148",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 697,
+      "completion_tokens": 104,
+      "total_tokens": 801,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0148",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 694,
+      "completion_tokens": 38,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0148",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 708,
+      "completion_tokens": 86,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0148",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 859,
+      "completion_tokens": 148,
+      "total_tokens": 1007,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0148",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 576,
+      "completion_tokens": 62,
+      "total_tokens": 638,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 381,
+    "majority_vote_total_tokens": 1125,
+    "scrd_total_tokens": 5754,
+    "scrd_prompt_tokens": 5135,
+    "scrd_completion_tokens": 619,
+    "agent_total_tokens": 3452,
+    "recorder_total_tokens": 1664,
+    "evaluator_total_tokens": 638,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

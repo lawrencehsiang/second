@@ -1,0 +1,195 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "250",
+        "210",
+        "260"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing Lisa's and Carly's spending gives the total.",
+          "claim_type": "explanation",
+          "related_answer": "250"
+        },
+        {
+          "text": "Summing Lisa's and Carly's spending gives the total.",
+          "claim_type": "explanation",
+          "related_answer": "210"
+        },
+        {
+          "text": "Summing Lisa's and Carly's spending gives the total.",
+          "claim_type": "explanation",
+          "related_answer": "260"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Lisa's spending + Carly's spending",
+        "250 + 210 = 460",
+        "260 = Total"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "260",
+        "260",
+        "260"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream support approach is correct as it directly calculates the total spending of Lisa and Carly.",
+          "claim_type": "rebuttal",
+          "related_answer": "260"
+        },
+        {
+          "text": "The previous answer of 260 was derived by summing Lisa's and Carly's spending. This approach holds up under sanity checks.",
+          "claim_type": "explanation",
+          "related_answer": "260"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Lisa's spending + Carly's spending",
+        "250 + 210 = 460",
+        "260 = Total"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 385,
+      "completion_tokens": 37,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 372,
+      "completion_tokens": 37,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 383,
+      "completion_tokens": 41,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 600,
+      "completion_tokens": 191,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 649,
+      "completion_tokens": 137,
+      "total_tokens": 786,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 646,
+      "completion_tokens": 118,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 660,
+      "completion_tokens": 62,
+      "total_tokens": 722,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1042,
+      "completion_tokens": 174,
+      "total_tokens": 1216,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 641,
+      "completion_tokens": 54,
+      "total_tokens": 695,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 422,
+    "majority_vote_total_tokens": 1255,
+    "scrd_total_tokens": 6229,
+    "scrd_prompt_tokens": 5378,
+    "scrd_completion_tokens": 851,
+    "agent_total_tokens": 3527,
+    "recorder_total_tokens": 2007,
+    "evaluator_total_tokens": 695,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

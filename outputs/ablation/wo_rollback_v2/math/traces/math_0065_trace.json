@@ -3,83 +3,52 @@
     {
       "round_id": 1,
       "current_answers": [
-        "2.236",
-        "5",
-        "1"
+        "1",
+        "1",
+        "2"
       ],
       "newly_added_claims": [
         {
-          "text": "Set distances from center to points equal.",
+          "text": "Center lies on x-axis.",
           "claim_type": "constraint",
-          "related_answer": "B"
+          "related_answer": "A"
+        },
+        {
+          "text": "Distance from center to each point equals radius.",
+          "claim_type": "explanation",
+          "related_answer": "B, C"
         }
       ],
-      "unresolved_conflicts": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Location of center (x-axis vs general position).",
+          "why_still_open": "Different agents provided conflicting constraints without resolution.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
       "key_raw_snippets": [
-        "Distance = radius",
-        "Set dist(a,x) = dist(b,y)",
-        "Point distances = radius"
+        "Center on x-axis -> y=0",
+        "Distance = Radius",
+        "Points equidistant from center"
       ]
     },
     {
       "round_id": 2,
       "current_answers": [
         "1",
-        "2.236",
+        "1",
         "1"
       ],
-      "newly_added_claims": [
-        {
-          "text": "The distance from the center to both points should be equal.",
-          "claim_type": "constraint",
-          "related_answer": "B"
-        },
-        {
-          "text": "Using the distance formula, we find that the correct radius is 1.",
-          "claim_type": "explanation",
-          "related_answer": "C"
-        }
-      ],
+      "newly_added_claims": [],
       "unresolved_conflicts": [],
       "key_raw_snippets": [
-        "Distance from center to points = radius",
-        "Correct radius = 1",
-        "Previous answer of 5 is incorrect"
-      ]
-    },
-    {
-      "round_id": 3,
-      "current_answers": [
-        "1",
-        "2.236",
-        "1"
-      ],
-      "newly_added_claims": [
-        {
-          "text": "Verification of the minority answer 2.236 is required.",
-          "claim_type": "rebuttal",
-          "related_answer": "B"
-        },
-        {
-          "text": "The minority answer 2.236 does not satisfy the distance condition.",
-          "claim_type": "rebuttal",
-          "related_answer": "C"
-        }
-      ],
-      "unresolved_conflicts": [
-        {
-          "conflict": "Disagreement on whether the radius is 1 or 2.236.",
-          "why_still_open": "Further verification of the minority answer is needed.",
-          "involved_answers": [
-            "2.236",
-            "1"
-          ]
-        }
-      ],
-      "key_raw_snippets": [
-        "Distance from center to points = radius",
-        "Radius confirmed as 1 using distance formula",
-        "Verify minority answer 2.236"
+        "Center on x-axis -> y=0",
+        "Distance = Radius",
+        "Points equidistant from center"
       ]
     }
   ],
@@ -95,13 +64,8 @@
       "mode": "normal"
     },
     {
-      "type": "normal_round_executed",
-      "round_id": 3,
-      "mode": "normal"
-    },
-    {
       "type": "early_stop_triggered",
-      "round_id": 3,
+      "round_id": 2,
       "mode": "normal"
     }
   ],
@@ -113,8 +77,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 346,
-      "completion_tokens": 37,
-      "total_tokens": 383,
+      "completion_tokens": 46,
+      "total_tokens": 392,
       "extra": {}
     },
     {
@@ -124,8 +88,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 333,
-      "completion_tokens": 42,
-      "total_tokens": 375,
+      "completion_tokens": 33,
+      "total_tokens": 366,
       "extra": {}
     },
     {
@@ -145,20 +109,20 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 589,
+      "prompt_tokens": 585,
+      "completion_tokens": 183,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0065",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 697,
       "completion_tokens": 93,
-      "total_tokens": 682,
-      "extra": {}
-    },
-    {
-      "sample_id": "math_0065",
-      "round_id": 2,
-      "mode": "normal",
-      "component": "agent_normal",
-      "agent_id": "A",
-      "prompt_tokens": 606,
-      "completion_tokens": 119,
-      "total_tokens": 725,
+      "total_tokens": 790,
       "extra": {}
     },
     {
@@ -167,9 +131,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 599,
-      "completion_tokens": 134,
-      "total_tokens": 733,
+      "prompt_tokens": 694,
+      "completion_tokens": 108,
+      "total_tokens": 802,
       "extra": {}
     },
     {
@@ -178,9 +142,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 613,
-      "completion_tokens": 119,
-      "total_tokens": 732,
+      "prompt_tokens": 708,
+      "completion_tokens": 133,
+      "total_tokens": 841,
       "extra": {}
     },
     {
@@ -189,9 +153,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 995,
-      "completion_tokens": 141,
-      "total_tokens": 1136,
+      "prompt_tokens": 1069,
+      "completion_tokens": 59,
+      "total_tokens": 1128,
       "extra": {}
     },
     {
@@ -200,80 +164,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 604,
-      "completion_tokens": 45,
-      "total_tokens": 649,
-      "extra": {}
-    },
-    {
-      "sample_id": "math_0065",
-      "round_id": 3,
-      "mode": "normal",
-      "component": "agent_normal",
-      "agent_id": "A",
-      "prompt_tokens": 716,
-      "completion_tokens": 121,
-      "total_tokens": 837,
-      "extra": {}
-    },
-    {
-      "sample_id": "math_0065",
-      "round_id": 3,
-      "mode": "normal",
-      "component": "agent_normal",
-      "agent_id": "B",
-      "prompt_tokens": 717,
-      "completion_tokens": 94,
-      "total_tokens": 811,
-      "extra": {}
-    },
-    {
-      "sample_id": "math_0065",
-      "round_id": 3,
-      "mode": "normal",
-      "component": "agent_normal",
-      "agent_id": "C",
-      "prompt_tokens": 727,
-      "completion_tokens": 150,
-      "total_tokens": 877,
-      "extra": {}
-    },
-    {
-      "sample_id": "math_0065",
-      "round_id": 3,
-      "mode": "normal",
-      "component": "recorder",
-      "agent_id": null,
-      "prompt_tokens": 1052,
-      "completion_tokens": 215,
-      "total_tokens": 1267,
-      "extra": {}
-    },
-    {
-      "sample_id": "math_0065",
-      "round_id": 3,
-      "mode": "normal",
-      "component": "evaluator",
-      "agent_id": null,
-      "prompt_tokens": 629,
-      "completion_tokens": 44,
-      "total_tokens": 673,
+      "prompt_tokens": 520,
+      "completion_tokens": 49,
+      "total_tokens": 569,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 383,
+    "single_agent_total_tokens": 392,
     "majority_vote_total_tokens": 1135,
-    "scrd_total_tokens": 10257,
-    "scrd_prompt_tokens": 8870,
-    "scrd_completion_tokens": 1387,
-    "agent_total_tokens": 5850,
-    "recorder_total_tokens": 3085,
-    "evaluator_total_tokens": 1322,
+    "scrd_total_tokens": 6033,
+    "scrd_prompt_tokens": 5296,
+    "scrd_completion_tokens": 737,
+    "agent_total_tokens": 3568,
+    "recorder_total_tokens": 1896,
+    "evaluator_total_tokens": 569,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

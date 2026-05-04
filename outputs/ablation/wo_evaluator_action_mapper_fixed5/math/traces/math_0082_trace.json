@@ -1,0 +1,443 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2",
+        "3",
+        "-3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Square both sides, solve for x, then average solutions.",
+          "claim_type": "constraint",
+          "related_answer": "2,-3"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Square both sides, solve for x, then average solutions.",
+        "x = 2 or x = -3"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2",
+        "2",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the equation after squaring both sides.",
+          "claim_type": "constraint",
+          "related_answer": "A,2"
+        },
+        {
+          "text": "Ensure the solutions are correctly averaged.",
+          "claim_type": "constraint",
+          "related_answer": "C,3"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answers differ (2 vs 3).",
+          "why_still_open": "The equation yields multiple solutions, and averaging them is necessary.",
+          "involved_answers": [
+            "2",
+            "3"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Square both sides, solve for x, then average solutions.",
+        "x = 2 or x = -3"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "0",
+        "0",
+        "0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the equation to find correct solutions.",
+          "claim_type": "rebuttal",
+          "related_answer": "B,0"
+        },
+        {
+          "text": "Averaging the solutions of the squared equation.",
+          "claim_type": "explanation",
+          "related_answer": "C,0"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answers differ (2 vs 3 vs 0).",
+          "why_still_open": "The equation yields multiple solutions, and averaging them is necessary.",
+          "involved_answers": [
+            "2",
+            "3",
+            "0"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Square both sides, solve for x, then average solutions.",
+        "x = 2 or x = -2"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "2",
+        "2",
+        "-2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the equation to find all possible values of x.",
+          "claim_type": "rebuttal",
+          "related_answer": "A,2"
+        },
+        {
+          "text": "Verifying the minority answer of 2 against the original equation.",
+          "claim_type": "explanation",
+          "related_answer": "C,-2"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Divergent solutions between 2 and -2.",
+          "why_still_open": "Averaging the solutions is necessary to resolve the conflict.",
+          "involved_answers": [
+            "2",
+            "-2"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Square both sides, solve for x, then average solutions.",
+        "x = 2 or x = -2"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "1",
+        "1",
+        "0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Considering both 2 and 0 as possible values of x and calculating their average.",
+          "claim_type": "rebuttal",
+          "related_answer": "B,1"
+        },
+        {
+          "text": "Including the minority answer of 0 as it satisfies the original equation.",
+          "claim_type": "explanation",
+          "related_answer": "C,0"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Divergent solutions between 2, 0, and their average.",
+          "why_still_open": "Calculating the average is necessary but still under discussion.",
+          "involved_answers": [
+            "1",
+            "0",
+            "2"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Include both 2 and 0 as possible values of x.",
+        "Calculate the average of the solutions."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 342,
+      "completion_tokens": 33,
+      "total_tokens": 375,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 329,
+      "completion_tokens": 36,
+      "total_tokens": 365,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 340,
+      "completion_tokens": 36,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 581,
+      "completion_tokens": 100,
+      "total_tokens": 681,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 602,
+      "completion_tokens": 126,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 599,
+      "completion_tokens": 44,
+      "total_tokens": 643,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 613,
+      "completion_tokens": 119,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 920,
+      "completion_tokens": 188,
+      "total_tokens": 1108,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 800,
+      "completion_tokens": 166,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 797,
+      "completion_tokens": 104,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 811,
+      "completion_tokens": 168,
+      "total_tokens": 979,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1179,
+      "completion_tokens": 205,
+      "total_tokens": 1384,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 790,
+      "completion_tokens": 110,
+      "total_tokens": 900,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 787,
+      "completion_tokens": 110,
+      "total_tokens": 897,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 801,
+      "completion_tokens": 123,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1094,
+      "completion_tokens": 200,
+      "total_tokens": 1294,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 796,
+      "completion_tokens": 149,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 793,
+      "completion_tokens": 101,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 807,
+      "completion_tokens": 104,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1097,
+      "completion_tokens": 214,
+      "total_tokens": 1311,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 375,
+    "majority_vote_total_tokens": 1116,
+    "scrd_total_tokens": 17314,
+    "scrd_prompt_tokens": 14878,
+    "scrd_completion_tokens": 2436,
+    "agent_total_tokens": 11536,
+    "recorder_total_tokens": 5778,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

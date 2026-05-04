@@ -1,0 +1,640 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "42",
+        "46",
+        "42"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum of lengths in inches equals 42.",
+          "claim_type": "support",
+          "related_answer": "42"
+        },
+        {
+          "text": "Sum of lengths in inches equals 46.",
+          "claim_type": "rebuttal",
+          "related_answer": "46"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, C support 42, while B supports 46.",
+          "why_still_open": "Different sums reported.",
+          "involved_answers": [
+            "42",
+            "46"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sum = 42 (inches)",
+        "Sum = 46 (inches)",
+        "Convert all to inches"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correct total length is 50 inches after reevaluation.",
+          "claim_type": "rebuttal",
+          "related_answer": "50"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum = 50 (inches) after reevaluation",
+        "2 ft = 24 inches",
+        "24 + 16 + 10 = 50"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "46",
+        "46",
+        "46"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 42 inches is incorrect due to improper conversion of feet.",
+          "claim_type": "rebuttal",
+          "related_answer": "46"
+        },
+        {
+          "text": "Adopting the majority answer of 46 inches resolves the unresolved minority answer of 42 inches.",
+          "claim_type": "rebuttal",
+          "related_answer": "46"
+        },
+        {
+          "text": "Recalculate the sum of lengths in inches to resolve the minority answer of 42 inches.",
+          "claim_type": "explanation",
+          "related_answer": "46"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 42 inches remains unresolved.",
+          "why_still_open": "The minority answer was not fully resolved due to ongoing recalculations.",
+          "involved_answers": [
+            "46",
+            "42"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sum = 46 (inches) after recalculating",
+        "2 ft = 24 inches",
+        "24 + 16 + 16 = 56 (incorrect sum)",
+        "Revised sum = 46 (correct sum)"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "50",
+        "50",
+        "46"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Reevaluating the lengths in inches confirms the sum is 50 inches.",
+          "claim_type": "rebuttal",
+          "related_answer": "50"
+        },
+        {
+          "text": "The minority answer of 50 inches was incorrectly evaluated; recalculating shows it should be 46 inches.",
+          "claim_type": "rebuttal",
+          "related_answer": "46"
+        },
+        {
+          "text": "Correctly summing the lengths in inches results in 46 inches.",
+          "claim_type": "explanation",
+          "related_answer": "46"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 50 inches remains unresolved.",
+          "why_still_open": "Despite recalculations, the minority answer was not fully resolved.",
+          "involved_answers": [
+            "50",
+            "46"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sum = 50 (inches) after reevaluation",
+        "2 ft = 24 inches",
+        "16 + 10 + 24 = 50 (correct sum)",
+        "Reevaluated sum = 46 (inches)",
+        "24 + 16 + 16 = 56 (incorrect sum)"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "46",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 50 inches was resolved through rechecking conversions and summation.",
+          "claim_type": "rebuttal",
+          "related_answer": "50"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum = 46 (inches) after reevaluation",
+        "2 ft = 24 inches",
+        "16 + 10 + 24 = 50 (correct sum)",
+        "Reevaluated sum = 46 (inches)",
+        "24 + 16 + 10 = 50 (correct sum)"
+      ]
+    },
+    {
+      "round_id": 6,
+      "current_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecked calculations confirm the total length is 50 inches.",
+          "claim_type": "rebuttal",
+          "related_answer": "50"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2 ft = 24 inches",
+        "16 + 10 + 24 = 50 (correct sum)",
+        "Rechecked sum = 50 (inches)",
+        "Correct conversion and summation = 50 (inches)",
+        "Total length = 50 inches"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 6,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 6
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 355,
+      "completion_tokens": 34,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 342,
+      "completion_tokens": 35,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 353,
+      "completion_tokens": 35,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 580,
+      "completion_tokens": 192,
+      "total_tokens": 772,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 803,
+      "completion_tokens": 119,
+      "total_tokens": 922,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 800,
+      "completion_tokens": 101,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 814,
+      "completion_tokens": 132,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1093,
+      "completion_tokens": 181,
+      "total_tokens": 1274,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 583,
+      "completion_tokens": 46,
+      "total_tokens": 629,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 771,
+      "completion_tokens": 96,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 601,
+      "completion_tokens": 146,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 600,
+      "completion_tokens": 109,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 601,
+      "completion_tokens": 147,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1127,
+      "completion_tokens": 117,
+      "total_tokens": 1244,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 699,
+      "completion_tokens": 57,
+      "total_tokens": 756,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 772,
+      "completion_tokens": 124,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 769,
+      "completion_tokens": 108,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 785,
+      "completion_tokens": 104,
+      "total_tokens": 889,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 981,
+      "completion_tokens": 294,
+      "total_tokens": 1275,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 628,
+      "completion_tokens": 63,
+      "total_tokens": 691,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 785,
+      "completion_tokens": 119,
+      "total_tokens": 904,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 782,
+      "completion_tokens": 96,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 798,
+      "completion_tokens": 128,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1170,
+      "completion_tokens": 315,
+      "total_tokens": 1485,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 655,
+      "completion_tokens": 52,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 789,
+      "completion_tokens": 117,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 786,
+      "completion_tokens": 124,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 802,
+      "completion_tokens": 120,
+      "total_tokens": 922,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1204,
+      "completion_tokens": 160,
+      "total_tokens": 1364,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 582,
+      "completion_tokens": 61,
+      "total_tokens": 643,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 805,
+      "completion_tokens": 127,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 802,
+      "completion_tokens": 126,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 818,
+      "completion_tokens": 138,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1062,
+      "completion_tokens": 144,
+      "total_tokens": 1206,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0187",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 562,
+      "completion_tokens": 53,
+      "total_tokens": 615,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 389,
+    "majority_vote_total_tokens": 1154,
+    "scrd_total_tokens": 30579,
+    "scrd_prompt_tokens": 26459,
+    "scrd_completion_tokens": 4120,
+    "agent_total_tokens": 3923,
+    "recorder_total_tokens": 8620,
+    "evaluator_total_tokens": 629,
+    "repair_brief_total_tokens": 867,
+    "repair_evaluator_total_tokens": 3412,
+    "repair_agent_total_tokens": 13128
+  }
+}

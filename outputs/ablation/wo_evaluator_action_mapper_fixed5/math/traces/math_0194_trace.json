@@ -1,0 +1,425 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Brenda's age = 3",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Addison = 3 * Brenda",
+        "Janet = Brenda + 6",
+        "Addison = Janet",
+        "Solve: Brenda + 6 = 3 * Brenda",
+        "Brenda = 3"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "9",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Brenda's age = 1",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "Revised interpretation: Addison and Janet are not twins.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Addison's age = 3 * Brenda's age",
+        "Janet's age = Brenda's age + 6",
+        "Addison and Janet are not twins",
+        "Solve: Brenda + 6 = 3 * Brenda",
+        "Brenda = 1"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "1",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Brenda's age is 1 based on mainstream support.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Addison and Janet are twins, so their ages must be equal.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "If Brenda were 1, Addison would be 3, contradicting the twin condition.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Addison's age = 3 * Brenda's age",
+        "Janet's age = Brenda's age + 6",
+        "Addison and Janet are twins",
+        "Brenda's age = 1",
+        "Addison = 3, Janet = 7"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "3",
+        "3",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The age 1 for Brenda is rejected due to contradiction with the twin condition.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream support of Brenda's age being 3 is consistent with all given conditions.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "If Brenda were 1, Addison would be 3, contradicting the twin condition.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Addison's age = 3 * Brenda's age",
+        "Janet's age = Brenda's age + 6",
+        "Addison and Janet are twins",
+        "Brenda's age = 3",
+        "Addison = 9, Janet = 9"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Brenda's age of 3 satisfies all conditions: Addison is three times Brenda's age, Janet is six years older, and both Addison and Janet are twins.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Addison's age = 3 * Brenda's age",
+        "Janet's age = Brenda's age + 6",
+        "Addison and Janet are twins",
+        "Brenda's age = 3",
+        "Addison = 9, Janet = 9"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 85,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 83,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 59,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 703,
+      "completion_tokens": 120,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 597,
+      "completion_tokens": 112,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 594,
+      "completion_tokens": 110,
+      "total_tokens": 704,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 608,
+      "completion_tokens": 173,
+      "total_tokens": 781,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1037,
+      "completion_tokens": 167,
+      "total_tokens": 1204,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 597,
+      "completion_tokens": 128,
+      "total_tokens": 725,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 594,
+      "completion_tokens": 156,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 608,
+      "completion_tokens": 156,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1129,
+      "completion_tokens": 218,
+      "total_tokens": 1347,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 796,
+      "completion_tokens": 133,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 793,
+      "completion_tokens": 108,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 807,
+      "completion_tokens": 116,
+      "total_tokens": 923,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1113,
+      "completion_tokens": 226,
+      "total_tokens": 1339,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 700,
+      "completion_tokens": 214,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 697,
+      "completion_tokens": 167,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 711,
+      "completion_tokens": 265,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1402,
+      "completion_tokens": 155,
+      "total_tokens": 1557,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 425,
+    "majority_vote_total_tokens": 1232,
+    "scrd_total_tokens": 17442,
+    "scrd_prompt_tokens": 14491,
+    "scrd_completion_tokens": 2951,
+    "agent_total_tokens": 11172,
+    "recorder_total_tokens": 6270,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

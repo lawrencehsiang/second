@@ -1,0 +1,201 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "56",
+        "70",
+        "78"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the total value of quarters and then determine the number of nickels.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents arrived at different answers: 56, 70, and 78.",
+          "why_still_open": "Calculation steps may vary leading to different results.",
+          "involved_answers": [
+            "56",
+            "70",
+            "78"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50 * 4 = 200 cents",
+        "50 * 12 = 600 cents",
+        "50 * 12 * 5 = 300 cents",
+        "iron nickels = 60 / 12 = 5",
+        "iron nickels value = 5 * 5 = 25 cents"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "78",
+        "78",
+        "78"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct approach is to calculate the total value of quarters first, then convert it into nickels.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents arrived at different answers: 56, 70, and 78.",
+          "why_still_open": "While the majority supports 78, there is no clear consensus on the underlying calculation steps.",
+          "involved_answers": [
+            "56",
+            "70",
+            "78"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50 * 4 = 200 cents",
+        "50 * 12 = 600 cents",
+        "50 * 12 * 5 = 300 cents",
+        "iron nickels = 60 / 12 = 5",
+        "iron nickels value = 5 * 5 = 25 cents"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 370,
+      "completion_tokens": 47,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 357,
+      "completion_tokens": 52,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 368,
+      "completion_tokens": 45,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 626,
+      "completion_tokens": 225,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 743,
+      "completion_tokens": 114,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 740,
+      "completion_tokens": 144,
+      "total_tokens": 884,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 754,
+      "completion_tokens": 113,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1146,
+      "completion_tokens": 245,
+      "total_tokens": 1391,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 612,
+      "completion_tokens": 53,
+      "total_tokens": 665,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 417,
+    "majority_vote_total_tokens": 1239,
+    "scrd_total_tokens": 6754,
+    "scrd_prompt_tokens": 5716,
+    "scrd_completion_tokens": 1038,
+    "agent_total_tokens": 3847,
+    "recorder_total_tokens": 2242,
+    "evaluator_total_tokens": 665,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

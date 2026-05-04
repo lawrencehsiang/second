@@ -1,0 +1,529 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Convert total calories to dozens.",
+          "claim_type": "constraint",
+          "related_answer": "3"
+        },
+        {
+          "text": "Divide total calories by 12 to get dozens.",
+          "claim_type": "explanation",
+          "related_answer": "30"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "3 dozen = 36 items",
+        "30 calories / 12 = 2.5 dozens"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "225",
+        "18",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total calories from 45 candy bars.",
+          "claim_type": "support",
+          "related_answer": "225"
+        },
+        {
+          "text": "Convert 2700 calories to dozens.",
+          "claim_type": "explanation",
+          "related_answer": "225"
+        },
+        {
+          "text": "Round down 18.75 dozens to 18.",
+          "claim_type": "rebuttal",
+          "related_answer": "18"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "45 candy bars * 60 calories/bar = 2700 calories",
+        "2700 calories / 12 calories/dozen = 225 dozens",
+        "2700 calories / 144 calories/dozen ≈ 18.75 dozens, rounded down to 18 dozens"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "19",
+        "15",
+        "18.75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rounding 18.75 dozens correctly results in 19 dozens.",
+          "claim_type": "rebuttal",
+          "related_answer": "19"
+        },
+        {
+          "text": "Avoid rounding and calculate the exact number of dozens.",
+          "claim_type": "support",
+          "related_answer": "15"
+        },
+        {
+          "text": "Keep the exact value 18.75 dozens instead of rounding down.",
+          "claim_type": "support",
+          "related_answer": "18.75"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "45 candy bars * 60 calories/bar = 2700 calories",
+        "2700 calories / 12 calories/dozen = 225 dozens",
+        "2700 calories / 144 calories/dozen ≈ 18.75 dozens"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "19.25",
+        "18.75",
+        "18.75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the exact number of dozens to avoid inconsistency with previous answers.",
+          "claim_type": "rebuttal",
+          "related_answer": "19.25"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "45 candy bars * 60 calories/bar = 2700 calories",
+        "2700 calories / 12 calories/dozen = 225 dozens",
+        "2700 calories / 144 calories/dozen ≈ 18.75 dozens"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "18.75",
+        "18.75",
+        "18.75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the exact number of dozens to resolve the conflict.",
+          "claim_type": "rebuttal",
+          "related_answer": "18.75"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Two agents (A and C) still need to resolve their conflicting responses regarding the exact value of dozens.",
+          "why_still_open": "Agent A's response indicates the conflict remains open, and Agent C's response is partially resolved but not fully.",
+          "involved_answers": [
+            "18.75",
+            "19.25"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "45 candy bars * 60 calories/bar = 2700 calories",
+        "2700 calories / 12 calories/dozen = 225 dozens",
+        "2700 calories / 144 calories/dozen ≈ 18.75 dozens"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 334,
+      "completion_tokens": 27,
+      "total_tokens": 361,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 321,
+      "completion_tokens": 30,
+      "total_tokens": 351,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 332,
+      "completion_tokens": 37,
+      "total_tokens": 369,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 571,
+      "completion_tokens": 131,
+      "total_tokens": 702,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 588,
+      "completion_tokens": 112,
+      "total_tokens": 700,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 585,
+      "completion_tokens": 44,
+      "total_tokens": 629,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 600,
+      "completion_tokens": 119,
+      "total_tokens": 719,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 937,
+      "completion_tokens": 221,
+      "total_tokens": 1158,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 616,
+      "completion_tokens": 59,
+      "total_tokens": 675,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 724,
+      "completion_tokens": 110,
+      "total_tokens": 834,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 594,
+      "completion_tokens": 209,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 593,
+      "completion_tokens": 200,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 594,
+      "completion_tokens": 106,
+      "total_tokens": 700,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1172,
+      "completion_tokens": 226,
+      "total_tokens": 1398,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 728,
+      "completion_tokens": 54,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 648,
+      "completion_tokens": 172,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 645,
+      "completion_tokens": 117,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 661,
+      "completion_tokens": 136,
+      "total_tokens": 797,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1161,
+      "completion_tokens": 227,
+      "total_tokens": 1388,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 642,
+      "completion_tokens": 52,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 653,
+      "completion_tokens": 138,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 650,
+      "completion_tokens": 112,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 666,
+      "completion_tokens": 107,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1124,
+      "completion_tokens": 145,
+      "total_tokens": 1269,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 557,
+      "completion_tokens": 58,
+      "total_tokens": 615,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 664,
+      "completion_tokens": 108,
+      "total_tokens": 772,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 661,
+      "completion_tokens": 112,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 677,
+      "completion_tokens": 122,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1033,
+      "completion_tokens": 227,
+      "total_tokens": 1260,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0117",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 587,
+      "completion_tokens": 49,
+      "total_tokens": 636,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 361,
+    "majority_vote_total_tokens": 1081,
+    "scrd_total_tokens": 23885,
+    "scrd_prompt_tokens": 20318,
+    "scrd_completion_tokens": 3567,
+    "agent_total_tokens": 3129,
+    "recorder_total_tokens": 7175,
+    "evaluator_total_tokens": 675,
+    "repair_brief_total_tokens": 834,
+    "repair_evaluator_total_tokens": 2727,
+    "repair_agent_total_tokens": 9345
+  }
+}

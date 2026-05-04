@@ -1,0 +1,437 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total pastries sold = 72 - 32.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total pastries - remaining pastries = sold pastries.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "(41+31)-32=40",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "41 cupcakes + 31 cookies = 72",
+        "32 pastries taken back",
+        "pastries sold = 72 - 32"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "40",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total pastries baked are 41 cupcakes + 31 cookies = 72.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "If 32 pastries were taken back, then 72 - 32 = 40 pastries were sold.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous answer of 40 was correct, as it matches the total pastries baked and the remaining pastries.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "41 cupcakes + 31 cookies = 72",
+        "72 - 32 = 40",
+        "pastries sold = 72 - 32"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "40",
+        "39",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct total number of pastries baked is 72 (41 cupcakes + 31 cookies).",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Wendy sold 72 - 32 = 40 pastries after taking 32 back home.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B claims the conclusion that 40 pastries were sold needs verification, as it assumes Wendy took back 32 pastries.",
+          "why_still_open": "Verification of the pastries taken back and the calculation of sold pastries is necessary.",
+          "involved_answers": [
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "41 cupcakes + 31 cookies = 72",
+        "72 - 32 = 40",
+        "pastries sold = 72 - 32"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "40",
+        "40",
+        "39"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Wendy baked 41 cupcakes and 31 cookies, totaling 72 pastries. After the sale, she had 32 pastries left, thus selling 40 pastries.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "41 cupcakes + 31 cookies = 72",
+        "72 - 32 = 40",
+        "pastries sold = 72 - 32",
+        "total pastries = 41 + 31",
+        "pastries left = 32"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "40",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of pastries baked was 72, and after taking back 32 pastries, 40 were sold.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The calculation of 72 - 32 confirms 40 pastries were sold.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Given Wendy baked 41 cupcakes and 31 cookies, and had 32 pastries left, 40 pastries were sold.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "41 cupcakes + 31 cookies = 72",
+        "72 - 32 = 40",
+        "pastries sold = 72 - 32",
+        "total pastries = 41 + 31",
+        "pastries left = 32"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 67,
+      "total_tokens": 420,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 37,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 49,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 629,
+      "completion_tokens": 186,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 615,
+      "completion_tokens": 170,
+      "total_tokens": 785,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 612,
+      "completion_tokens": 184,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 626,
+      "completion_tokens": 110,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1186,
+      "completion_tokens": 224,
+      "total_tokens": 1410,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 623,
+      "completion_tokens": 186,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 620,
+      "completion_tokens": 161,
+      "total_tokens": 781,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 634,
+      "completion_tokens": 76,
+      "total_tokens": 710,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1175,
+      "completion_tokens": 250,
+      "total_tokens": 1425,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 749,
+      "completion_tokens": 152,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 746,
+      "completion_tokens": 138,
+      "total_tokens": 884,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 760,
+      "completion_tokens": 171,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1259,
+      "completion_tokens": 168,
+      "total_tokens": 1427,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 869,
+      "completion_tokens": 159,
+      "total_tokens": 1028,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 866,
+      "completion_tokens": 190,
+      "total_tokens": 1056,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 880,
+      "completion_tokens": 155,
+      "total_tokens": 1035,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0097",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1200,
+      "completion_tokens": 253,
+      "total_tokens": 1453,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 420,
+    "majority_vote_total_tokens": 1197,
+    "scrd_total_tokens": 18179,
+    "scrd_prompt_tokens": 15093,
+    "scrd_completion_tokens": 3086,
+    "agent_total_tokens": 11649,
+    "recorder_total_tokens": 6530,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

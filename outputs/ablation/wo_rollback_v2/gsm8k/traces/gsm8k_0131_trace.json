@@ -1,0 +1,200 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "55",
+        "55",
+        "55"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "After giving away 70 seashells, selling half of the remaining results in 55 seashells.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "180 - 70 = 110",
+        "110 / 2 = 55",
+        "Sell half after giving away 70"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "45",
+        "45",
+        "55"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected the total number of seashells given away from 70 to 70 (40 + 30).",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct sequence is to first subtract the seashells given away and then sell half of the remaining seashells.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify if the final answer of 55 seashells aligns with the problem conditions.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Differing answers of 45 and 55 seashells after resolving the initial conflicts.",
+          "why_still_open": "Need to confirm the final amount by recalculating based on the corrected information.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total seashells given away = 40 + 30 = 70",
+        "Sell half after giving away 70 seashells",
+        "Final answer needs verification"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 55,
+      "total_tokens": 433,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 34,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 38,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 606,
+      "completion_tokens": 124,
+      "total_tokens": 730,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 652,
+      "completion_tokens": 177,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 649,
+      "completion_tokens": 155,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 663,
+      "completion_tokens": 130,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1114,
+      "completion_tokens": 298,
+      "total_tokens": 1412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 734,
+      "completion_tokens": 49,
+      "total_tokens": 783,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 433,
+    "majority_vote_total_tokens": 1246,
+    "scrd_total_tokens": 6597,
+    "scrd_prompt_tokens": 5537,
+    "scrd_completion_tokens": 1060,
+    "agent_total_tokens": 3672,
+    "recorder_total_tokens": 2142,
+    "evaluator_total_tokens": 783,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

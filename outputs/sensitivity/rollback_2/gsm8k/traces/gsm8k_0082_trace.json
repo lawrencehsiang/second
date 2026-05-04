@@ -1,0 +1,363 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate Jeff's skips per round and then find the average.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate Jeff's skips per round then find average.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Sam's skips are given directly, and we calculate Jeff's based on these.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jeff's skips = Sam's skips / 2",
+        "Average skips = Sum of skips / Number of rounds",
+        "Sam skips 12 times"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "14.75",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated Jeff's skips per round based on Sam's consistent skips of 16 per round.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Step-by-step calculation of Jeff's skips per round using Sam's known skips.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluation of the relationship between Sam's and Jeff's skips in each round.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jeff skips 15, 13, 20, 8 times in 4 rounds respectively.",
+        "Average skips per round: (15 + 13 + 20 + 8) / 4 = 14.75",
+        "Sam skips 16 times per round."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated Jeff's skips per round again, confirming consistency with Sam's 16 skips per round.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Final resolution of the minority answer conflict by adhering to Sam's consistent skips of 16 per round.",
+          "claim_type": "rebuttal",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sam skips 16 times per round.",
+        "Average skips per round: (15 + 13 + 20 + 8) / 4 = 14.75",
+        "Resolved the minority answer conflict by recalculating Jeff's skips per round."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 409,
+      "completion_tokens": 37,
+      "total_tokens": 446,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 396,
+      "completion_tokens": 32,
+      "total_tokens": 428,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 407,
+      "completion_tokens": 41,
+      "total_tokens": 448,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 185,
+      "total_tokens": 774,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 675,
+      "completion_tokens": 111,
+      "total_tokens": 786,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 672,
+      "completion_tokens": 51,
+      "total_tokens": 723,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 686,
+      "completion_tokens": 67,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 965,
+      "completion_tokens": 224,
+      "total_tokens": 1189,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 687,
+      "completion_tokens": 47,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 861,
+      "completion_tokens": 111,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 670,
+      "completion_tokens": 248,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 669,
+      "completion_tokens": 135,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 670,
+      "completion_tokens": 122,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1221,
+      "completion_tokens": 236,
+      "total_tokens": 1457,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 855,
+      "completion_tokens": 44,
+      "total_tokens": 899,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 746,
+      "completion_tokens": 101,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 743,
+      "completion_tokens": 106,
+      "total_tokens": 849,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 759,
+      "completion_tokens": 108,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1082,
+      "completion_tokens": 193,
+      "total_tokens": 1275,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 681,
+      "completion_tokens": 53,
+      "total_tokens": 734,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 446,
+    "majority_vote_total_tokens": 1322,
+    "scrd_total_tokens": 16695,
+    "scrd_prompt_tokens": 14443,
+    "scrd_completion_tokens": 2252,
+    "agent_total_tokens": 3584,
+    "recorder_total_tokens": 4695,
+    "evaluator_total_tokens": 734,
+    "repair_brief_total_tokens": 972,
+    "repair_evaluator_total_tokens": 1633,
+    "repair_agent_total_tokens": 5077
+  }
+}

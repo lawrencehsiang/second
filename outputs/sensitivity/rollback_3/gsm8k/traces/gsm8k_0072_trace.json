@@ -1,0 +1,195 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "35",
+        "30",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total earnings plus extra minus deposit equals final amount.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on the process but disagree on the final answer.",
+          "why_still_open": "Different calculations lead to different results.",
+          "involved_answers": [
+            "35",
+            "25"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Earnings + extra - deposit = result",
+        "35 = result for Agent A",
+        "25 = result for Agent C",
+        "30 = result for Agent B",
+        "Total sales + extra - deposit = result"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "20",
+        "35",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct final amount is 35.",
+          "claim_type": "rebuttal",
+          "related_answer": "35"
+        },
+        {
+          "text": "The process includes adding extra money and subtracting the deposit.",
+          "claim_type": "support",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Earnings + extra - deposit = result",
+        "35 = result for Agent B",
+        "Total earnings + extra - deposit = result",
+        "24 = result for Agent C",
+        "The correct process involves adding extra money and subtracting the deposit."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 37,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 33,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 37,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 586,
+      "completion_tokens": 177,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 738,
+      "completion_tokens": 108,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 735,
+      "completion_tokens": 127,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 749,
+      "completion_tokens": 98,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1067,
+      "completion_tokens": 165,
+      "total_tokens": 1232,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0072",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 652,
+      "completion_tokens": 48,
+      "total_tokens": 700,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 415,
+    "majority_vote_total_tokens": 1226,
+    "scrd_total_tokens": 6476,
+    "scrd_prompt_tokens": 5646,
+    "scrd_completion_tokens": 830,
+    "agent_total_tokens": 3781,
+    "recorder_total_tokens": 1995,
+    "evaluator_total_tokens": 700,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

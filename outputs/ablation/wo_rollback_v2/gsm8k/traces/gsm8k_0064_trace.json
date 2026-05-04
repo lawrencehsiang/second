@@ -9,31 +9,51 @@
       ],
       "newly_added_claims": [
         {
-          "text": "Remaining situps on Wednesday = 30 - (12 + 19)",
+          "text": "situps remaining = total situps - situps done",
           "claim_type": "explanation",
-          "related_answer": "9"
+          "related_answer": "B"
+        },
+        {
+          "text": "situps required on Wed = situps remaining",
+          "claim_type": "constraint",
+          "related_answer": "C"
         }
       ],
       "unresolved_conflicts": [],
       "key_raw_snippets": [
         "Total situps needed = 30",
-        "Completed on Mon & Tue = 12 + 19",
-        "Remaining = 30 - (12 + 19)"
+        "Situps done on Mon = 12",
+        "Situps done on Tue = 19",
+        "Situps remaining = 30 - (12 + 19)",
+        "Situps remaining = situps required on Wed"
       ]
     },
     {
       "round_id": 2,
       "current_answers": [
+        "18",
         "9",
-        "9",
-        "9"
+        "0"
       ],
-      "newly_added_claims": [],
+      "newly_added_claims": [
+        {
+          "text": "situps required on Wed = situps missed on Mon + situps missed on Tue",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Shawna has already exceeded her goal, so no situps are required on Wed",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
       "unresolved_conflicts": [],
       "key_raw_snippets": [
         "Total situps needed = 30",
-        "Completed on Mon & Tue = 12 + 19",
-        "Remaining = 30 - (12 + 19)"
+        "Situps done on Mon = 12",
+        "Situps done on Tue = 19",
+        "Situps remaining = 30 - (12 + 19)",
+        "Situps required on Wed = 12 + 19"
       ]
     }
   ],
@@ -62,8 +82,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 397,
-      "completion_tokens": 59,
-      "total_tokens": 456,
+      "completion_tokens": 65,
+      "total_tokens": 462,
       "extra": {}
     },
     {
@@ -73,8 +93,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 384,
-      "completion_tokens": 47,
-      "total_tokens": 431,
+      "completion_tokens": 38,
+      "total_tokens": 422,
       "extra": {}
     },
     {
@@ -84,8 +104,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 395,
-      "completion_tokens": 51,
-      "total_tokens": 446,
+      "completion_tokens": 39,
+      "total_tokens": 434,
       "extra": {}
     },
     {
@@ -94,9 +114,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 636,
-      "completion_tokens": 122,
-      "total_tokens": 758,
+      "prompt_tokens": 614,
+      "completion_tokens": 173,
+      "total_tokens": 787,
       "extra": {}
     },
     {
@@ -105,9 +125,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 663,
-      "completion_tokens": 96,
-      "total_tokens": 759,
+      "prompt_tokens": 655,
+      "completion_tokens": 139,
+      "total_tokens": 794,
       "extra": {}
     },
     {
@@ -116,9 +136,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 660,
-      "completion_tokens": 42,
-      "total_tokens": 702,
+      "prompt_tokens": 652,
+      "completion_tokens": 59,
+      "total_tokens": 711,
       "extra": {}
     },
     {
@@ -127,9 +147,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 674,
-      "completion_tokens": 72,
-      "total_tokens": 746,
+      "prompt_tokens": 666,
+      "completion_tokens": 167,
+      "total_tokens": 833,
       "extra": {}
     },
     {
@@ -138,9 +158,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 870,
-      "completion_tokens": 76,
-      "total_tokens": 946,
+      "prompt_tokens": 1069,
+      "completion_tokens": 192,
+      "total_tokens": 1261,
       "extra": {}
     },
     {
@@ -149,25 +169,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 555,
-      "completion_tokens": 57,
-      "total_tokens": 612,
+      "prompt_tokens": 656,
+      "completion_tokens": 46,
+      "total_tokens": 702,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 456,
-    "majority_vote_total_tokens": 1333,
-    "scrd_total_tokens": 5856,
-    "scrd_prompt_tokens": 5234,
-    "scrd_completion_tokens": 622,
-    "agent_total_tokens": 3540,
-    "recorder_total_tokens": 1704,
-    "evaluator_total_tokens": 612,
+    "single_agent_total_tokens": 462,
+    "majority_vote_total_tokens": 1318,
+    "scrd_total_tokens": 6406,
+    "scrd_prompt_tokens": 5488,
+    "scrd_completion_tokens": 918,
+    "agent_total_tokens": 3656,
+    "recorder_total_tokens": 2048,
+    "evaluator_total_tokens": 702,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

@@ -1,0 +1,200 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3750",
+        "3950",
+        "3750"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total cases by adding daily increments and subtracting recoveries.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate daily changes in cases.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate cumulative cases by adding new cases and subtracting recoveries.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cases = sum(daily increments) - sum(recoveries)",
+        "Daily change = new cases - recoveries",
+        "Cumulative cases = sum(new cases) - sum(recoveries)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4750",
+        "4000",
+        "4200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate total cases based on corrected daily increments and recoveries.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ensure all recoveries are subtracted from new cases accurately.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Adopt the detailed case breakdown for accurate cumulative calculation.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cases = corrected daily increments - recoveries",
+        "Daily change = new cases - recoveries",
+        "Cumulative cases = corrected new cases - recoveries"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 397,
+      "completion_tokens": 40,
+      "total_tokens": 437,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 384,
+      "completion_tokens": 33,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 395,
+      "completion_tokens": 40,
+      "total_tokens": 435,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 185,
+      "total_tokens": 780,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 664,
+      "completion_tokens": 103,
+      "total_tokens": 767,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 661,
+      "completion_tokens": 110,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 675,
+      "completion_tokens": 117,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1071,
+      "completion_tokens": 183,
+      "total_tokens": 1254,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 705,
+      "completion_tokens": 57,
+      "total_tokens": 762,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 437,
+    "majority_vote_total_tokens": 1289,
+    "scrd_total_tokens": 6415,
+    "scrd_prompt_tokens": 5547,
+    "scrd_completion_tokens": 868,
+    "agent_total_tokens": 3619,
+    "recorder_total_tokens": 2034,
+    "evaluator_total_tokens": 762,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

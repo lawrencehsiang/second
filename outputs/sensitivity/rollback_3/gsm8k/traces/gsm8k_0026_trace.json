@@ -1,0 +1,212 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "85",
+        "85",
+        "65"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate hits in segments and subtract from total.",
+          "claim_type": "explanation",
+          "related_answer": "85"
+        },
+        {
+          "text": "65 hits were calculated and subtracted from total.",
+          "claim_type": "support",
+          "related_answer": "65"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agree on 85 but C calculates 65.",
+          "why_still_open": "Different calculations lead to different answers.",
+          "involved_answers": [
+            "85",
+            "65"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = 150",
+        "85 - (20 + 25) = 40",
+        "65 - (25 + 20) = 20",
+        "150 - 85 = 65",
+        "150 - 65 = 85"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "85",
+        "85",
+        "85"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking calculations for consistency.",
+          "claim_type": "explanation",
+          "related_answer": "85"
+        },
+        {
+          "text": "Re-evaluate the calculation based on segments and total balls.",
+          "claim_type": "rebuttal",
+          "related_answer": "85"
+        },
+        {
+          "text": "Recalculating based on verified segment hits and total balls.",
+          "claim_type": "explanation",
+          "related_answer": "85"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agree on 85 but C calculates 65.",
+          "why_still_open": "Calculation discrepancies persist despite re-evaluation.",
+          "involved_answers": [
+            "85",
+            "65"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = 150",
+        "85 - (20 + 25) = 40",
+        "150 - 85 = 65"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 404,
+      "completion_tokens": 36,
+      "total_tokens": 440,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 391,
+      "completion_tokens": 33,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 402,
+      "completion_tokens": 34,
+      "total_tokens": 436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 585,
+      "completion_tokens": 238,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 764,
+      "completion_tokens": 93,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 761,
+      "completion_tokens": 101,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 775,
+      "completion_tokens": 82,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1071,
+      "completion_tokens": 253,
+      "total_tokens": 1324,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0026",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 659,
+      "completion_tokens": 65,
+      "total_tokens": 724,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 440,
+    "majority_vote_total_tokens": 1300,
+    "scrd_total_tokens": 6747,
+    "scrd_prompt_tokens": 5812,
+    "scrd_completion_tokens": 935,
+    "agent_total_tokens": 3876,
+    "recorder_total_tokens": 2147,
+    "evaluator_total_tokens": 724,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,519 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "14",
+        "14",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Apply the given operation definition.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "2Z6 = 6 + 10*2 - 2^2",
+          "claim_type": "support",
+          "related_answer": "A,B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2Z6 = 6 + 10*2 - 2^2",
+        "Apply the given operation definition.",
+        "Substitute values into the given operation definition."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8",
+        "14",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the expression using the correct formula.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-calculated using the correct formula and values.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Re-evaluating the expression using the correct formula.",
+        "Re-calculated using the correct formula and values.",
+        "The previous answer was incorrect due to misapplication of the operation definition. Recalculating with the correct formula."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "22",
+        "18",
+        "22"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating using the correct formula: $2Z6 = 6 + 10(2) - 2^2 = 22$.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluating the expression using the correct formula results in 18.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 8 is incorrect; the correct calculation is 22.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Re-evaluating using the correct formula: $2Z6 = 6 + 10(2) - 2^2 = 22$.",
+        "Re-evaluating the expression using the correct formula results in 18.",
+        "The minority answer of 8 is incorrect; the correct calculation is 22."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "22",
+        "22",
+        "22"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating using the correct formula: $2Z6 = 6 + 10(2) - 2^2 = 22$.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluating using the correct formula: $2Z6 = 6 + 10(2) - 2^2 = 22$. The minority answer is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Re-evaluating using the correct formula: $2Z6 = 6 + 10(2) - 2^2 = 22$.",
+        "Re-evaluating using the correct formula: $2Z6 = 6 + 10(2) - 2^2 = 22$. The minority answer is incorrect."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "22",
+        "22",
+        "22"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer 'A' does not apply as it was not specified and the correct calculation yields 22.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Re-evaluating using the correct formula: $2Z6 = 6 + 10(2) - 2^2 = 22$.",
+        "The minority answer 'A' does not apply as it was not specified and the correct calculation yields 22."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 50,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 48,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 33,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 606,
+      "completion_tokens": 149,
+      "total_tokens": 755,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 602,
+      "completion_tokens": 105,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 599,
+      "completion_tokens": 46,
+      "total_tokens": 645,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 612,
+      "completion_tokens": 126,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 960,
+      "completion_tokens": 160,
+      "total_tokens": 1120,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 51,
+      "total_tokens": 645,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 789,
+      "completion_tokens": 105,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 787,
+      "completion_tokens": 125,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 801,
+      "completion_tokens": 98,
+      "total_tokens": 899,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1037,
+      "completion_tokens": 261,
+      "total_tokens": 1298,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 664,
+      "completion_tokens": 44,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 807,
+      "completion_tokens": 98,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 681,
+      "completion_tokens": 146,
+      "total_tokens": 827,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 680,
+      "completion_tokens": 175,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 681,
+      "completion_tokens": 149,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1157,
+      "completion_tokens": 256,
+      "total_tokens": 1413,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 788,
+      "completion_tokens": 65,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 809,
+      "completion_tokens": 138,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 806,
+      "completion_tokens": 151,
+      "total_tokens": 957,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 822,
+      "completion_tokens": 151,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1159,
+      "completion_tokens": 239,
+      "total_tokens": 1398,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 644,
+      "completion_tokens": 47,
+      "total_tokens": 691,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 713,
+      "completion_tokens": 46,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 710,
+      "completion_tokens": 150,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 726,
+      "completion_tokens": 51,
+      "total_tokens": 777,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1014,
+      "completion_tokens": 146,
+      "total_tokens": 1160,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 563,
+      "completion_tokens": 48,
+      "total_tokens": 611,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 396,
+    "majority_vote_total_tokens": 1154,
+    "scrd_total_tokens": 25291,
+    "scrd_prompt_tokens": 21834,
+    "scrd_completion_tokens": 3457,
+    "agent_total_tokens": 5949,
+    "recorder_total_tokens": 7144,
+    "evaluator_total_tokens": 1353,
+    "repair_brief_total_tokens": 905,
+    "repair_evaluator_total_tokens": 2155,
+    "repair_agent_total_tokens": 7785
+  }
+}

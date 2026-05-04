@@ -1,0 +1,197 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4.8",
+        "4.8",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Average speed = total distance / total time.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (4.8 vs 3) for the same problem.",
+          "why_still_open": "Disagreement on the correct total distance or time calculation.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total distance = 2 km.",
+        "Total time = 2/3 hr.",
+        "Average speed = 4.8 km/hr.",
+        "Average speed = 3 km/hr."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total time for the round trip is 2/3 hours.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total distance = 2 km.",
+        "Total time = 2/3 hr.",
+        "Average speed = 3 km/hr."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0195",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 364,
+      "completion_tokens": 42,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0195",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 351,
+      "completion_tokens": 37,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0195",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 362,
+      "completion_tokens": 54,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0195",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 613,
+      "completion_tokens": 174,
+      "total_tokens": 787,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0195",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 801,
+      "completion_tokens": 146,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0195",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 798,
+      "completion_tokens": 176,
+      "total_tokens": 974,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0195",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 810,
+      "completion_tokens": 148,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0195",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1184,
+      "completion_tokens": 104,
+      "total_tokens": 1288,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0195",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 593,
+      "completion_tokens": 60,
+      "total_tokens": 653,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 406,
+    "majority_vote_total_tokens": 1210,
+    "scrd_total_tokens": 6817,
+    "scrd_prompt_tokens": 5876,
+    "scrd_completion_tokens": 941,
+    "agent_total_tokens": 4089,
+    "recorder_total_tokens": 2075,
+    "evaluator_total_tokens": 653,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

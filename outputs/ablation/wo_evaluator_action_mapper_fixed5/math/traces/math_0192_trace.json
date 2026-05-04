@@ -1,0 +1,460 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve inequality x^2 < 7x by dividing by x and considering cases.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Factor the inequality to x(x-7) < 0 and determine the integer solutions between 0 and 7 excluding endpoints.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Solve x^2 < 7x",
+        "x(x-7) < 0, x in (0,7)",
+        "Count integers from 1 to 6"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "5",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the inequality x^2 < 7x by properly solving it without dividing by x.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Consider the cases where x is positive and negative separately when dividing by x.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answer was 6, but re-evaluation suggests the correct number of solutions is 5.",
+          "why_still_open": "Disagreement on whether the correct number of integer solutions is 5 or 6.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Solve x^2 < 7x without dividing by x",
+        "x(x-7) < 0 for 0 < x < 7",
+        "Integer solutions are 1 through 5"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "5",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the inequality x^2 < 7x by solving it without division.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The inequality x^2 < 7x has solutions between 0 and 7, giving 6 integer solutions.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the correct number of integer solutions, with one agent supporting 5 and another supporting 6.",
+          "why_still_open": "No consensus on the exact number of integer solutions despite re-evaluation.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Solve x^2 < 7x without dividing by x",
+        "x(x-7) < 0 for 0 < x < 7",
+        "Integer solutions are 1 through 6"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-examine the inequality x^2 < 7x to resolve the conflict.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Evaluate both claims thoroughly.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the correct number of integer solutions, with one agent supporting 5 and another supporting 6.",
+          "why_still_open": "Further scrutiny is needed for the minority objection of 5.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x(x-7) < 0 for 0 < x < 7",
+        "Integer solutions are 1 through 6",
+        "Re-examine the inequality without division",
+        "Evaluate both claims thoroughly",
+        "Minority answer '5' vs. mainstream support of '6'"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the inequality x^2 < 7x to determine the exact integer solutions.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The inequality x^2 < 7x simplifies to x(x - 7) < 0, holding for 0 < x < 7.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-examine the inequality x^2 < 7x to resolve the conflict.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the correct number of integer solutions, with one agent supporting 5 and another supporting 6.",
+          "why_still_open": "The minority objection of 5 remains unaddressed.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x(x-7) < 0 for 0 < x < 7",
+        "Integer solutions are 1 through 6",
+        "Re-examine the inequality without division",
+        "Evaluate both claims thoroughly",
+        "Minority answer '5' vs. mainstream support of '6'"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 330,
+      "completion_tokens": 55,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 317,
+      "completion_tokens": 66,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 328,
+      "completion_tokens": 34,
+      "total_tokens": 362,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 631,
+      "completion_tokens": 170,
+      "total_tokens": 801,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 596,
+      "completion_tokens": 110,
+      "total_tokens": 706,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 593,
+      "completion_tokens": 113,
+      "total_tokens": 706,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 607,
+      "completion_tokens": 91,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1006,
+      "completion_tokens": 241,
+      "total_tokens": 1247,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 794,
+      "completion_tokens": 102,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 791,
+      "completion_tokens": 93,
+      "total_tokens": 884,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 805,
+      "completion_tokens": 151,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1138,
+      "completion_tokens": 249,
+      "total_tokens": 1387,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 797,
+      "completion_tokens": 143,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 794,
+      "completion_tokens": 138,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 808,
+      "completion_tokens": 155,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1231,
+      "completion_tokens": 245,
+      "total_tokens": 1476,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 792,
+      "completion_tokens": 159,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 789,
+      "completion_tokens": 135,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 803,
+      "completion_tokens": 129,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0192",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1214,
+      "completion_tokens": 312,
+      "total_tokens": 1526,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 385,
+    "majority_vote_total_tokens": 1130,
+    "scrd_total_tokens": 18055,
+    "scrd_prompt_tokens": 15164,
+    "scrd_completion_tokens": 2891,
+    "agent_total_tokens": 11618,
+    "recorder_total_tokens": 6437,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

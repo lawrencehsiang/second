@@ -1,0 +1,445 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "18",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate remaining sales by subtracting sum of fabric and jewelry sales from total sales.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total sales = 36",
+        "Fabric sales = 12",
+        "Jewelry sales = 9",
+        "Remaining sales = 15",
+        "50% of 36 = 18"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correctly calculate remaining sales using subtraction.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Fabric sales equal one-third of total sales.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Jewelry sales equal one-fourth of total sales.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total sales = 36",
+        "Fabric sales = 12",
+        "Jewelry sales = 9",
+        "Remaining sales = 15",
+        "50% of 36 = 18"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "18",
+        "18",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated sales in the stationery section to ensure fractions sum correctly.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Used the correct method to find the remaining sales by subtracting fabric and jewelry sales from the total.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total sales = 36",
+        "Fabric sales = 12",
+        "Jewelry sales = 9",
+        "Stationery sales = 18",
+        "50% of 36 = 18"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "15",
+        "18",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated stationery sales ensuring fractions sum correctly to 15.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Derived stationery sales from 36 - (12 + 9) = 15, aligning with fractions.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Adjusted the calculation process to ensure accuracy, resulting in 15 sales.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer of 15 sales in stationery vs. mainstream support of 18 sales.",
+          "why_still_open": "Calculations differ based on fraction sums, requiring further verification.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total sales = 36",
+        "Fabric sales = 12",
+        "Jewelry sales = 9",
+        "50% of 36 = 18",
+        "5/12 * 36 = 15"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated stationery sales ensuring fractions sum correctly to 15.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Adjusted the fraction sum for stationery sales to 5/12, recalculating to 15.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verified the fraction sum and recalculated stationery sales to 15.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total sales = 36",
+        "Fabric sales = 12",
+        "Jewelry sales = 9",
+        "Fraction sum = 7/12",
+        "Stationery fraction = 5/12"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 361,
+      "completion_tokens": 40,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 348,
+      "completion_tokens": 85,
+      "total_tokens": 433,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 359,
+      "completion_tokens": 80,
+      "total_tokens": 439,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 684,
+      "completion_tokens": 127,
+      "total_tokens": 811,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 627,
+      "completion_tokens": 141,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 624,
+      "completion_tokens": 52,
+      "total_tokens": 676,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 638,
+      "completion_tokens": 84,
+      "total_tokens": 722,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 932,
+      "completion_tokens": 194,
+      "total_tokens": 1126,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 707,
+      "completion_tokens": 119,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 704,
+      "completion_tokens": 124,
+      "total_tokens": 828,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 718,
+      "completion_tokens": 154,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1143,
+      "completion_tokens": 175,
+      "total_tokens": 1318,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 826,
+      "completion_tokens": 196,
+      "total_tokens": 1022,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 823,
+      "completion_tokens": 143,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 837,
+      "completion_tokens": 142,
+      "total_tokens": 979,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1184,
+      "completion_tokens": 295,
+      "total_tokens": 1479,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 832,
+      "completion_tokens": 156,
+      "total_tokens": 988,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 829,
+      "completion_tokens": 154,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 843,
+      "completion_tokens": 172,
+      "total_tokens": 1015,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0101",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1327,
+      "completion_tokens": 218,
+      "total_tokens": 1545,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 401,
+    "majority_vote_total_tokens": 1273,
+    "scrd_total_tokens": 18197,
+    "scrd_prompt_tokens": 15346,
+    "scrd_completion_tokens": 2851,
+    "agent_total_tokens": 11918,
+    "recorder_total_tokens": 6279,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

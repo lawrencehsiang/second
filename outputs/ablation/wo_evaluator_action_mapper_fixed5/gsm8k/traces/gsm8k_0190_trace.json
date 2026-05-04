@@ -1,0 +1,440 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "160",
+        "64",
+        "64"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Thor's age is 1456 years.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Captain America's age is Thor's age divided by 13.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Peter Parker's age is Captain America's age divided by 7.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Ironman's age is Peter Parker's age plus 32.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the sequence of calculating ages.",
+          "why_still_open": "Different starting points lead to different final answers.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Thor = 1456 years",
+        "Captain America = Thor / 13",
+        "Peter Parker = Captain America / 7",
+        "Ironman = Peter Parker + 32",
+        "160, 64, 64"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "128",
+        "80",
+        "128"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolved the sequence of calculations by starting with Peter Parker's age.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Thor = 1456 years",
+        "Captain America = Thor / 13",
+        "Peter Parker = 80",
+        "Ironman = 112",
+        "128, 80, 128"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "1024",
+        "1456",
+        "320"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolved the sequence of calculations by starting with Thor's age.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Rechecked the sequence of calculations using the relationships between characters' ages.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Thor = 1456 years",
+        "Captain America = Thor / 13",
+        "Peter Parker = 80",
+        "Ironman = Peter Parker + 32",
+        "128, 80, 128"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "1024",
+        "112",
+        "480"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the ages step-by-step using the correct relationships.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Thor = 1456 years",
+        "Captain America = Thor / 13",
+        "Peter Parker = 80",
+        "Ironman = Peter Parker + 32",
+        "1456 / 13 = 112"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "48",
+        "1024",
+        "1024"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated Ironman's age based on the correct relationships between the characters.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Confirmed the mainstream support's calculation sequence as accurate.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Updated the previous incorrect answer of 480 to 1024.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Thor = 1456 years",
+        "Captain America = Thor / 13 = 112 years",
+        "Peter Parker = 112 / 7 = 16 years",
+        "Ironman = Peter Parker + 32 = 48 years",
+        "Corrected answer: Ironman = 1024 years"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 361,
+      "completion_tokens": 42,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 348,
+      "completion_tokens": 41,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 359,
+      "completion_tokens": 62,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 628,
+      "completion_tokens": 300,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 719,
+      "completion_tokens": 100,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 715,
+      "completion_tokens": 93,
+      "total_tokens": 808,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 729,
+      "completion_tokens": 90,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1144,
+      "completion_tokens": 130,
+      "total_tokens": 1274,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 823,
+      "completion_tokens": 128,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 819,
+      "completion_tokens": 93,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 834,
+      "completion_tokens": 110,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1012,
+      "completion_tokens": 172,
+      "total_tokens": 1184,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 719,
+      "completion_tokens": 160,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 716,
+      "completion_tokens": 102,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 729,
+      "completion_tokens": 136,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1115,
+      "completion_tokens": 132,
+      "total_tokens": 1247,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 720,
+      "completion_tokens": 200,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 716,
+      "completion_tokens": 151,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 730,
+      "completion_tokens": 139,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1174,
+      "completion_tokens": 236,
+      "total_tokens": 1410,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 403,
+    "majority_vote_total_tokens": 1213,
+    "scrd_total_tokens": 17727,
+    "scrd_prompt_tokens": 15110,
+    "scrd_completion_tokens": 2617,
+    "agent_total_tokens": 11684,
+    "recorder_total_tokens": 6043,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

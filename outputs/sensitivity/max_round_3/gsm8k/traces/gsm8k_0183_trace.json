@@ -1,0 +1,363 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "255",
+        "195",
+        "165"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum of Lisa's and Carly's expenses.",
+          "claim_type": "constraint",
+          "related_answer": "255, 195, 165"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 255 + 195 + 165",
+        "Lisa's expenses + Carly's expenses = 415 + 165",
+        "Spending categories summed for both Lisa and Carly",
+        "Initial calculation steps for individual expenses",
+        "Summation of all calculated expenses"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "270",
+        "270",
+        "270"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed total expenses.",
+          "claim_type": "constraint",
+          "related_answer": "270, 270, 270"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 270 + 270 + 270",
+        "Step-by-step recomputation of total expenses",
+        "Resolved disagreement on total expenses",
+        "Consistent recomputation results",
+        "Final total confirmed as 270"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "270",
+        "180",
+        "270"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the amounts spent by Lisa and Carly.",
+          "claim_type": "constraint",
+          "related_answer": "A, B, C"
+        },
+        {
+          "text": "Compute individual expenses and sum them up.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recompute individual expenses to verify the total.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the total amount spent between $270 and $180.",
+          "why_still_open": "Verification of individual expenses is ongoing.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Verify total by recomputing individual expenses",
+        "Resolve remaining parsing conflicts and entity mismatches",
+        "Compute total as sum of Lisa and Carly's expenses",
+        "Previous total of $270 under review",
+        "Individual expenses: Lisa = $90, Carly = $90"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 385,
+      "completion_tokens": 38,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 372,
+      "completion_tokens": 40,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 383,
+      "completion_tokens": 42,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 151,
+      "total_tokens": 756,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 646,
+      "completion_tokens": 110,
+      "total_tokens": 756,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 643,
+      "completion_tokens": 123,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 657,
+      "completion_tokens": 126,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1044,
+      "completion_tokens": 228,
+      "total_tokens": 1272,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 622,
+      "completion_tokens": 50,
+      "total_tokens": 672,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 813,
+      "completion_tokens": 89,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 624,
+      "completion_tokens": 105,
+      "total_tokens": 729,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 623,
+      "completion_tokens": 100,
+      "total_tokens": 723,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 624,
+      "completion_tokens": 101,
+      "total_tokens": 725,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 991,
+      "completion_tokens": 134,
+      "total_tokens": 1125,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 713,
+      "completion_tokens": 54,
+      "total_tokens": 767,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 606,
+      "completion_tokens": 94,
+      "total_tokens": 700,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 603,
+      "completion_tokens": 114,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 619,
+      "completion_tokens": 111,
+      "total_tokens": 730,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 987,
+      "completion_tokens": 266,
+      "total_tokens": 1253,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 701,
+      "completion_tokens": 75,
+      "total_tokens": 776,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 423,
+    "majority_vote_total_tokens": 1260,
+    "scrd_total_tokens": 15412,
+    "scrd_prompt_tokens": 13261,
+    "scrd_completion_tokens": 2151,
+    "agent_total_tokens": 3565,
+    "recorder_total_tokens": 4406,
+    "evaluator_total_tokens": 672,
+    "repair_brief_total_tokens": 902,
+    "repair_evaluator_total_tokens": 1543,
+    "repair_agent_total_tokens": 4324
+  }
+}

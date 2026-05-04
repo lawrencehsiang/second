@@ -1,0 +1,373 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2350",
+        "2150",
+        "2150"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "K = 10000, K = 4B + 600",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Solve 10000 = 4B + 600 for B",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C derived the same answer, but Agent B provided a different answer.",
+          "why_still_open": "Agents A and C used the constraint equation directly, while Agent B provided a step-by-step subtraction method which led to a different intermediate value.",
+          "involved_answers": [
+            "2350",
+            "2150"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "K = 4B + 600",
+        "10000 = 4B + 600",
+        "Subtract 600 from Kennedy's size then divide by 4.",
+        "K = 10000",
+        "Solve for B"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2150",
+        "2350",
+        "2150"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial conflict was resolved by validating the equation K = 4B + 600.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agent B's previous answer of 2150 was incorrect due to a miscalculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Direct application of the constraint equation is the correct method.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "K = 4B + 600",
+        "Solve 10000 = 4B + 600 for B",
+        "Agent B's method was flawed due to a miscalculation",
+        "Direct application of the constraint equation is correct",
+        "Initial conflict resolved by validating the equation"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "2350",
+        "2350",
+        "2350"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 2150 is incorrect due to misinterpreting the comparison direction in the equation.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct interpretation of K = 4B + 600 leads to B = 2350.",
+          "claim_type": "support",
+          "related_answer": "A,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "K = 4B + 600",
+        "Solve 10000 = 4B + 600 for B",
+        "Agent B's method was flawed due to a miscalculation",
+        "Direct application of the constraint equation is correct",
+        "Initial conflict resolved by validating the equation"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 47,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 40,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 46,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 618,
+      "completion_tokens": 275,
+      "total_tokens": 893,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 750,
+      "completion_tokens": 158,
+      "total_tokens": 908,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 747,
+      "completion_tokens": 155,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 761,
+      "completion_tokens": 132,
+      "total_tokens": 893,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1281,
+      "completion_tokens": 237,
+      "total_tokens": 1518,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 697,
+      "completion_tokens": 45,
+      "total_tokens": 742,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 825,
+      "completion_tokens": 136,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 822,
+      "completion_tokens": 137,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 836,
+      "completion_tokens": 128,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1194,
+      "completion_tokens": 265,
+      "total_tokens": 1459,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 657,
+      "completion_tokens": 41,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 910,
+      "completion_tokens": 98,
+      "total_tokens": 1008,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 827,
+      "completion_tokens": 221,
+      "total_tokens": 1048,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 826,
+      "completion_tokens": 197,
+      "total_tokens": 1023,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 827,
+      "completion_tokens": 204,
+      "total_tokens": 1031,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1399,
+      "completion_tokens": 207,
+      "total_tokens": 1606,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 757,
+      "completion_tokens": 53,
+      "total_tokens": 810,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 400,
+    "majority_vote_total_tokens": 1177,
+    "scrd_total_tokens": 18600,
+    "scrd_prompt_tokens": 15778,
+    "scrd_completion_tokens": 2822,
+    "agent_total_tokens": 6764,
+    "recorder_total_tokens": 5476,
+    "evaluator_total_tokens": 1440,
+    "repair_brief_total_tokens": 1008,
+    "repair_evaluator_total_tokens": 810,
+    "repair_agent_total_tokens": 3102
+  }
+}

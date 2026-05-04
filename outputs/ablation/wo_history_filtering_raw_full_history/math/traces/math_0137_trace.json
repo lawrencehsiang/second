@@ -1,0 +1,292 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate inside the absolute value before taking the absolute value.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Taking the absolute value of -5 results in 5.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C provided the same answer but without detailed steps.",
+          "why_still_open": "Steps are needed to confirm correctness.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "|-3^2+4|=5",
+        "Evaluate inside abs first, then abs again.",
+        "-3^2=-9, +4 gives -5, |{-5}|=5",
+        "Inside abs first, then outer abs.",
+        "Resulting in 5."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Evaluate inside the absolute value first, then take its absolute value.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Evaluating {-3^2 + 4} results in -5, and the absolute value of -5 is 5.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "-3^2=-9, +4 gives -5, |{-5}|=5",
+        "Evaluate inside abs first, then abs again.",
+        "The correct approach is to evaluate inside the absolute value first, which gives -9 + 4 = -5. Then take the absolute value of -5, resulting in 5.",
+        "Evaluating {-3^2 + 4} gives -9 + 4 = -5. The absolute value of -5 is 5.",
+        "Resulting in 5."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Evaluating inside the absolute value first leads to -5, and taking the absolute value results in 5.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Evaluating {-3^2 + 4} results in -9 + 4 = -5. Then taking the absolute value of -5 gives 5.",
+        "|-3^2 + 4| = |-9 + 4| = |-5| = 5.",
+        "Evaluating -3^2 gives -9, and adding 4 results in -5. Taking the absolute value of -5 results in 5.",
+        "The expression inside the absolute value is -3^2 + 4. Evaluating -3^2 gives -9, and adding 4 results in -5. Taking the absolute value of -5 results in 5.",
+        "Resulting in 5."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0137",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 324,
+      "completion_tokens": 54,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 311,
+      "completion_tokens": 32,
+      "total_tokens": 343,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 322,
+      "completion_tokens": 40,
+      "total_tokens": 362,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 221,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 785,
+      "completion_tokens": 126,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 782,
+      "completion_tokens": 104,
+      "total_tokens": 886,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 796,
+      "completion_tokens": 145,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1147,
+      "completion_tokens": 237,
+      "total_tokens": 1384,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 42,
+      "total_tokens": 645,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 999,
+      "completion_tokens": 131,
+      "total_tokens": 1130,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 996,
+      "completion_tokens": 128,
+      "total_tokens": 1124,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1010,
+      "completion_tokens": 130,
+      "total_tokens": 1140,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1164,
+      "completion_tokens": 234,
+      "total_tokens": 1398,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0137",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 538,
+      "completion_tokens": 55,
+      "total_tokens": 593,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 378,
+    "majority_vote_total_tokens": 1083,
+    "scrd_total_tokens": 12058,
+    "scrd_prompt_tokens": 10379,
+    "scrd_completion_tokens": 1679,
+    "agent_total_tokens": 7215,
+    "recorder_total_tokens": 3605,
+    "evaluator_total_tokens": 1238,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

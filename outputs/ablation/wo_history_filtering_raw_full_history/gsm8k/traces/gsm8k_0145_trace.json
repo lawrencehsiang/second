@@ -1,0 +1,200 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "8",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Third butcher delivered 32 pounds.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agreed on 8 packages, but C stated 6 packages.",
+          "why_still_open": "Different answers (8 vs 6 packages) without clear resolution.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First butcher: 10*4=40 lbs",
+        "Second butcher: 7*4=28 lbs",
+        "Total so far: 40+28=68 lbs",
+        "Remaining weight: 100-68=32 lbs",
+        "Packages: 32/4=8 packages"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Third butcher delivered 8 packages of 4 pounds each.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First butcher: 10*4=40 lbs",
+        "Second butcher: 7*4=28 lbs",
+        "Total so far: 40+28=68 lbs",
+        "Remaining weight: 100-68=32 lbs",
+        "Packages: 32/4=8 packages"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 408,
+      "completion_tokens": 107,
+      "total_tokens": 515,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 395,
+      "completion_tokens": 88,
+      "total_tokens": 483,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 406,
+      "completion_tokens": 41,
+      "total_tokens": 447,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 715,
+      "completion_tokens": 209,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 870,
+      "completion_tokens": 202,
+      "total_tokens": 1072,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 867,
+      "completion_tokens": 104,
+      "total_tokens": 971,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 881,
+      "completion_tokens": 187,
+      "total_tokens": 1068,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1246,
+      "completion_tokens": 148,
+      "total_tokens": 1394,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 633,
+      "completion_tokens": 52,
+      "total_tokens": 685,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 515,
+    "majority_vote_total_tokens": 1445,
+    "scrd_total_tokens": 7559,
+    "scrd_prompt_tokens": 6421,
+    "scrd_completion_tokens": 1138,
+    "agent_total_tokens": 4556,
+    "recorder_total_tokens": 2318,
+    "evaluator_total_tokens": 685,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,442 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "18",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve the equation for x.",
+          "claim_type": "support",
+          "related_answer": "6"
+        },
+        {
+          "text": "Solve the equation for x.",
+          "claim_type": "support",
+          "related_answer": "18"
+        },
+        {
+          "text": "Solve equation directly.",
+          "claim_type": "support",
+          "related_answer": "9"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x = 6",
+        "x = 18",
+        "x = 9"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "18",
+        "9",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected the equation simplification leading to $x = 18$.",
+          "claim_type": "rebuttal",
+          "related_answer": "18"
+        },
+        {
+          "text": "Resolved conflict by re-evaluating the equation and found $x = 9$ matches the simplified form.",
+          "claim_type": "rebuttal",
+          "related_answer": "9"
+        },
+        {
+          "text": "Verified the equation through recomputation and agreed on $x = 9$.",
+          "claim_type": "explanation",
+          "related_answer": "6"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x = 18",
+        "x = 9",
+        "$\\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$",
+        "$\\frac{3}{x} = \\frac{1}{6}$"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "18",
+        "9",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the equation and confirmed $x = 18$.",
+          "claim_type": "rebuttal",
+          "related_answer": "18"
+        },
+        {
+          "text": "Verified the equation through recomputation and agreed on $x = 9$.",
+          "claim_type": "explanation",
+          "related_answer": "9"
+        },
+        {
+          "text": "Confirmed that the minority answer of $x = 6$ is incorrect.",
+          "claim_type": "constraint",
+          "related_answer": "6"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x = 18",
+        "x = 9",
+        "$\\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$",
+        "$\\frac{3}{x} = \\frac{1}{6}$"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the equation to confirm $x = 9$.",
+          "claim_type": "explanation",
+          "related_answer": "9"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x = 9",
+        "$\\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$",
+        "$\\frac{3}{x} = \\frac{1}{6}$"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "18",
+        "18",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the equation to get $x = 18$.",
+          "claim_type": "explanation",
+          "related_answer": "18"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream supports $x = 9$, while minority and rechecking support $x = 18$.",
+          "why_still_open": "Rechecking shows $x = 18$, but the mainstream continues to support $x = 9$.",
+          "involved_answers": [
+            "9",
+            "18"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x = 18",
+        "$\\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$",
+        "$\\frac{3}{x} = \\frac{1}{6}$"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 349,
+      "completion_tokens": 28,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 336,
+      "completion_tokens": 32,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 347,
+      "completion_tokens": 29,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 566,
+      "completion_tokens": 152,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 602,
+      "completion_tokens": 184,
+      "total_tokens": 786,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 600,
+      "completion_tokens": 128,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 613,
+      "completion_tokens": 94,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1082,
+      "completion_tokens": 237,
+      "total_tokens": 1319,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 805,
+      "completion_tokens": 201,
+      "total_tokens": 1006,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 801,
+      "completion_tokens": 111,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 815,
+      "completion_tokens": 130,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1220,
+      "completion_tokens": 218,
+      "total_tokens": 1438,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 821,
+      "completion_tokens": 137,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 817,
+      "completion_tokens": 105,
+      "total_tokens": 922,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 832,
+      "completion_tokens": 101,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1101,
+      "completion_tokens": 125,
+      "total_tokens": 1226,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 810,
+      "completion_tokens": 174,
+      "total_tokens": 984,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 810,
+      "completion_tokens": 134,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 807,
+      "completion_tokens": 84,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 821,
+      "completion_tokens": 131,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1023,
+      "completion_tokens": 207,
+      "total_tokens": 1230,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 377,
+    "majority_vote_total_tokens": 1121,
+    "scrd_total_tokens": 18720,
+    "scrd_prompt_tokens": 15978,
+    "scrd_completion_tokens": 2742,
+    "agent_total_tokens": 12789,
+    "recorder_total_tokens": 5931,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

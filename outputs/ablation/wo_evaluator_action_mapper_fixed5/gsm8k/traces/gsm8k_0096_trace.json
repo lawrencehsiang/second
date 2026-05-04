@@ -1,0 +1,438 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "70",
+        "94"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total quarters value, then find value of iron nickels, subtract non-iron nickels, and add iron nickels.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate total value of quarters first, then find value of iron nickels, and finally sum up all values.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Convert quarters to cents, calculate nickels, find iron nickels, calculate their value, and add to total.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating the final amount, leading to different answers.",
+          "why_still_open": "Each method uses distinct steps which lead to varying results.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total quarters = 45",
+        "Iron nickels = 70",
+        "Non-iron nickels = 94"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "94",
+        "94",
+        "94"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total quarters = 94",
+        "Iron nickels = 94",
+        "Non-iron nickels = 94"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "67",
+        "94",
+        "94"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revised calculation accounts for iron nickels' special value.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total quarters = 94",
+        "Iron nickels = 67",
+        "Non-iron nickels = 94 - 67 = 27"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "93",
+        "258",
+        "156"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The special value of iron nickels should be included in the total value.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revisiting the calculation to include iron nickels' special value.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculating the total value considering iron nickels' special value.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different values for the total amount of money after exchanging quarters for nickels: 94 vs 258.",
+          "why_still_open": "The calculation varies based on whether iron nickels' special value is considered.",
+          "involved_answers": [
+            "93",
+            "258",
+            "156"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total value = 94 (mainstream support)",
+        "Special value of iron nickels = $3 each",
+        "Recalculate including iron nickels' special value",
+        "New total value = 258",
+        "Previous answers conflict on the total value"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "258",
+        "258",
+        "258"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct value should include the special value of iron nickels.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The special value of iron nickels must be included in the total value.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The previous mainstream support of 94 did not include the special value of iron nickels, leading to an underestimation.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total value = 258 (resolved)",
+        "Special value of iron nickels = $3 each",
+        "Recalculate including iron nickels' special value",
+        "Correct value includes iron nickels' special value",
+        "Mainstream support previously underestimated the total value"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 370,
+      "completion_tokens": 51,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 357,
+      "completion_tokens": 47,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 368,
+      "completion_tokens": 48,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 622,
+      "completion_tokens": 271,
+      "total_tokens": 893,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 748,
+      "completion_tokens": 122,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 745,
+      "completion_tokens": 95,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 759,
+      "completion_tokens": 128,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1166,
+      "completion_tokens": 64,
+      "total_tokens": 1230,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 748,
+      "completion_tokens": 99,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 745,
+      "completion_tokens": 137,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 759,
+      "completion_tokens": 103,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 947,
+      "completion_tokens": 113,
+      "total_tokens": 1060,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 729,
+      "completion_tokens": 159,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 726,
+      "completion_tokens": 114,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 740,
+      "completion_tokens": 113,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1053,
+      "completion_tokens": 295,
+      "total_tokens": 1348,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 846,
+      "completion_tokens": 111,
+      "total_tokens": 957,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 844,
+      "completion_tokens": 118,
+      "total_tokens": 962,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 858,
+      "completion_tokens": 165,
+      "total_tokens": 1023,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0096",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1228,
+      "completion_tokens": 227,
+      "total_tokens": 1455,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 421,
+    "majority_vote_total_tokens": 1241,
+    "scrd_total_tokens": 17938,
+    "scrd_prompt_tokens": 15358,
+    "scrd_completion_tokens": 2580,
+    "agent_total_tokens": 11952,
+    "recorder_total_tokens": 5986,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

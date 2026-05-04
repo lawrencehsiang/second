@@ -1,0 +1,217 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Addison's age = 3 * Brenda's age; Janet's age = Brenda's age + 6; Addison and Janet are twins, so Addison's age = Janet's age.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Let Brenda's age be x. Addison's age = 3x, Janet's age = x + 6. Since Addison and Janet are twins, 3x = x + 6.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Set up equations based on given relationships and solve for Brenda's age.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (3 vs 9) were provided.",
+          "why_still_open": "Insufficient information to resolve the conflict between the answers.",
+          "involved_answers": [
+            "3",
+            "9"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Addison and Janet are twins, so Addison's age = Janet's age.",
+        "Let Brenda's age be x. Addison's age = 3x, Janet's age = x + 6.",
+        "3x = x + 6",
+        "Brenda's age = 3",
+        "Addison's age = 9"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "9",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Addison's and Janet's ages are equal because they are twins, and Addison's age is three times Brenda's age.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Given Addison's age is three times Brenda's age and they are twins, Brenda's age must be 3 to make Addison's age 9.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (3 vs 9) were provided.",
+          "why_still_open": "The conflict remains due to differing interpretations despite resolving the primary arguments.",
+          "involved_answers": [
+            "3",
+            "9"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Addison's age = 3 * Brenda's age, and Addison and Janet are twins.",
+        "3x = x + 6",
+        "Brenda's age = 3",
+        "Addison's age = 9",
+        "Addison and Janet are twins, so Addison's age = Janet's age."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 78,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 64,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 38,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 653,
+      "completion_tokens": 331,
+      "total_tokens": 984,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 726,
+      "completion_tokens": 144,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 723,
+      "completion_tokens": 140,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 737,
+      "completion_tokens": 170,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1328,
+      "completion_tokens": 271,
+      "total_tokens": 1599,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 632,
+      "completion_tokens": 51,
+      "total_tokens": 683,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 418,
+    "majority_vote_total_tokens": 1185,
+    "scrd_total_tokens": 7091,
+    "scrd_prompt_tokens": 5804,
+    "scrd_completion_tokens": 1287,
+    "agent_total_tokens": 3825,
+    "recorder_total_tokens": 2583,
+    "evaluator_total_tokens": 683,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

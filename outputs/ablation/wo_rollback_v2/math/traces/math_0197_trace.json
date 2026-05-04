@@ -1,0 +1,188 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "400",
+        "100",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Maximize area using symmetry and perimeter constraint.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C propose different answers (400 vs 100) with similar reasoning.",
+          "why_still_open": "Ambiguity in applying the perimeter constraint.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Maximize area with perimeter constraint.",
+        "Using symmetry to maximize area."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "100",
+        "100",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Optimal shape for maximum area with fixed perimeter is a square.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Maximize area with fixed perimeter.",
+        "Square shape maximizes area given perimeter.",
+        "Each side of the square is 10 feet."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 33,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 33,
+      "total_tokens": 359,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 35,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 580,
+      "completion_tokens": 148,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 708,
+      "completion_tokens": 181,
+      "total_tokens": 889,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 705,
+      "completion_tokens": 121,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 719,
+      "completion_tokens": 163,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1176,
+      "completion_tokens": 105,
+      "total_tokens": 1281,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 581,
+      "completion_tokens": 66,
+      "total_tokens": 647,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 372,
+    "majority_vote_total_tokens": 1103,
+    "scrd_total_tokens": 6356,
+    "scrd_prompt_tokens": 5471,
+    "scrd_completion_tokens": 885,
+    "agent_total_tokens": 3700,
+    "recorder_total_tokens": 2009,
+    "evaluator_total_tokens": 647,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

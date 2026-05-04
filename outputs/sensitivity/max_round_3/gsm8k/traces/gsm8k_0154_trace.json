@@ -1,0 +1,196 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "110",
+        "135",
+        "135"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing individual visits' costs after insurance.",
+          "claim_type": "constraint",
+          "related_answer": "110"
+        },
+        {
+          "text": "Subtracting covered amounts from total costs.",
+          "claim_type": "constraint",
+          "related_answer": "135"
+        },
+        {
+          "text": "Adding post-insurance costs of both visits.",
+          "claim_type": "constraint",
+          "related_answer": "135"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods to calculate total payment.",
+          "why_still_open": "Agents use different constraints for calculation.",
+          "involved_answers": [
+            "110",
+            "135"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate total payment by summing individual visit costs after insurance.",
+        "Calculate total payment by subtracting covered amounts from total costs.",
+        "Add post-insurance costs of doctor and cat visits."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "135",
+        "135",
+        "135"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Subtracting covered amounts from total costs.",
+          "claim_type": "constraint",
+          "related_answer": "135"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total payment by subtracting covered amounts from total costs.",
+        "Resolved conflict by using the method of subtracting covered amounts from total costs.",
+        "The calculation should subtract the covered amounts from the total costs as per the problem statement."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 370,
+      "completion_tokens": 47,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 357,
+      "completion_tokens": 41,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 368,
+      "completion_tokens": 49,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 615,
+      "completion_tokens": 239,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 723,
+      "completion_tokens": 82,
+      "total_tokens": 805,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 720,
+      "completion_tokens": 88,
+      "total_tokens": 808,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 734,
+      "completion_tokens": 102,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1069,
+      "completion_tokens": 121,
+      "total_tokens": 1190,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 67,
+      "total_tokens": 663,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 417,
+    "majority_vote_total_tokens": 1232,
+    "scrd_total_tokens": 6388,
+    "scrd_prompt_tokens": 5552,
+    "scrd_completion_tokens": 836,
+    "agent_total_tokens": 3681,
+    "recorder_total_tokens": 2044,
+    "evaluator_total_tokens": 663,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

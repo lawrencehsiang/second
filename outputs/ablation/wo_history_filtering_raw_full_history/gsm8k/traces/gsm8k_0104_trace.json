@@ -1,0 +1,196 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "400",
+        "447",
+        "407"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total typing time, subtract erased sentences, and find initial count.",
+          "claim_type": "constraint",
+          "related_answer": "400"
+        },
+        {
+          "text": "Calculate total time spent typing, subtract erased sentences, and subtract from final sentence count.",
+          "claim_type": "constraint",
+          "related_answer": "447"
+        },
+        {
+          "text": "Calculate total time spent typing, subtract erased sentences, and find initial count.",
+          "claim_type": "constraint",
+          "related_answer": "407"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "total typing time - erased sentences = initial count",
+        "total time - erased sentences = final sentence count",
+        "typing time - erased sentences = initial count"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "400",
+        "400",
+        "407"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total time spent typing, subtract erased sentences, and then subtract from final sentence count to find the initial count.",
+          "claim_type": "constraint",
+          "related_answer": "400"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "total typing time - erased sentences = initial count",
+        "total time - erased sentences = final sentence count",
+        "typing time - erased sentences = initial count"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0104",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 409,
+      "completion_tokens": 40,
+      "total_tokens": 449,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0104",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 396,
+      "completion_tokens": 40,
+      "total_tokens": 436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0104",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 407,
+      "completion_tokens": 41,
+      "total_tokens": 448,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0104",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 197,
+      "total_tokens": 800,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0104",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 849,
+      "completion_tokens": 165,
+      "total_tokens": 1014,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0104",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 846,
+      "completion_tokens": 148,
+      "total_tokens": 994,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0104",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 860,
+      "completion_tokens": 197,
+      "total_tokens": 1057,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0104",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1217,
+      "completion_tokens": 120,
+      "total_tokens": 1337,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0104",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 638,
+      "completion_tokens": 65,
+      "total_tokens": 703,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 449,
+    "majority_vote_total_tokens": 1333,
+    "scrd_total_tokens": 7238,
+    "scrd_prompt_tokens": 6225,
+    "scrd_completion_tokens": 1013,
+    "agent_total_tokens": 4398,
+    "recorder_total_tokens": 2137,
+    "evaluator_total_tokens": 703,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

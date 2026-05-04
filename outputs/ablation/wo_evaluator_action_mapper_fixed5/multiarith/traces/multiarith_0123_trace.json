@@ -1,0 +1,444 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "80",
+        "89",
+        "89"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial stock minus giveaways plus purchases equals final stock.",
+          "claim_type": "explanation",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the final stock count.",
+          "why_still_open": "Different calculations lead to different results.",
+          "involved_answers": [
+            "80",
+            "89"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "34 - 3 + 48",
+        "Initial stock: 34, gave away: 3, bought: 48",
+        "Final stock: 80 or 89"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "80",
+        "89",
+        "80"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation 34 - 3 + 48 = 80 is correct.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The calculation 34 - 3 + 48 = 89 is also correct based on the given conditions.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Final stock is 80 after rechecking the calculation.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "34 - 3 + 48",
+        "Initial stock: 34, gave away: 3, bought: 48",
+        "Final stock: 80"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "79",
+        "80",
+        "80"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation 34 - 3 + 48 = 79 is correct.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The calculation 34 - 3 + 48 = 80 is correct.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer 89 is incorrect; the correct stock count is 79.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "34 - 3 + 48",
+        "Initial stock: 34, gave away: 3, bought: 48",
+        "Final stock: 79"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "79",
+        "79",
+        "79"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation 34 - 3 + 48 = 79 is correct.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer 89 is incorrect; the correct stock count is 79.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The calculation 34 - 3 + 48 = 79 is accurate and resolves the conflict.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "34 - 3 + 48",
+        "Initial stock: 34, gave away: 3, bought: 48",
+        "Final stock: 79"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "79",
+        "79",
+        "79"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 80 does not align with the mainstream support and key rebuttal.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer 80 remains unresolved despite the mainstream support confirming 79.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 80 remains unresolved.",
+          "why_still_open": "The mainstream support and key rebuttal confirm 79, but the minority answer of 80 is still unverified.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "34 - 3 + 48",
+        "Initial stock: 34, gave away: 3, bought: 48",
+        "Final stock: 79",
+        "Mainstream support: 79",
+        "Minority answer: 80"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 343,
+      "completion_tokens": 41,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 330,
+      "completion_tokens": 31,
+      "total_tokens": 361,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 341,
+      "completion_tokens": 37,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 175,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 696,
+      "completion_tokens": 104,
+      "total_tokens": 800,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 693,
+      "completion_tokens": 119,
+      "total_tokens": 812,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 707,
+      "completion_tokens": 115,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1060,
+      "completion_tokens": 209,
+      "total_tokens": 1269,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 806,
+      "completion_tokens": 109,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 803,
+      "completion_tokens": 107,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 817,
+      "completion_tokens": 99,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1068,
+      "completion_tokens": 210,
+      "total_tokens": 1278,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 709,
+      "completion_tokens": 112,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 706,
+      "completion_tokens": 134,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 720,
+      "completion_tokens": 119,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1127,
+      "completion_tokens": 214,
+      "total_tokens": 1341,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 810,
+      "completion_tokens": 128,
+      "total_tokens": 938,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 807,
+      "completion_tokens": 145,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 821,
+      "completion_tokens": 179,
+      "total_tokens": 1000,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0123",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1218,
+      "completion_tokens": 249,
+      "total_tokens": 1467,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 384,
+    "majority_vote_total_tokens": 1123,
+    "scrd_total_tokens": 17809,
+    "scrd_prompt_tokens": 15173,
+    "scrd_completion_tokens": 2636,
+    "agent_total_tokens": 11688,
+    "recorder_total_tokens": 6121,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

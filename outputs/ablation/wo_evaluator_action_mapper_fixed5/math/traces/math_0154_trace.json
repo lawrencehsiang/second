@@ -1,0 +1,443 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "28",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum all distances for each drop and bounce to get total distance.",
+          "claim_type": "explanation",
+          "related_answer": "28"
+        },
+        {
+          "text": "Total distance is the sum of all bounce and fall segments.",
+          "claim_type": "explanation",
+          "related_answer": "40"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on the method, but B provides a different numerical answer.",
+          "why_still_open": "Discrepancy in the final numerical result.",
+          "involved_answers": [
+            "28",
+            "40"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Distance = Sum(drops + bounces)",
+        "Total distance = 28",
+        "Total distance = 40"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "40",
+        "50",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the total distance considering all bounces and falls.",
+          "claim_type": "rebuttal",
+          "related_answer": "40"
+        },
+        {
+          "text": "The method of summing all bounce and fall segments is correct.",
+          "claim_type": "support",
+          "related_answer": "50"
+        },
+        {
+          "text": "The method used by A and C is correct, including both fall and rise distances.",
+          "claim_type": "support",
+          "related_answer": "40"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total distance = Sum(drops + bounces)",
+        "Previously calculated total distance = 40 m",
+        "Revised total distance = 50 m"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "40",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking all distances involved to ensure accuracy.",
+          "claim_type": "rebuttal",
+          "related_answer": "40"
+        },
+        {
+          "text": "Confirming the method used by A and C, which includes both fall and rise distances.",
+          "claim_type": "support",
+          "related_answer": "40"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Re-evaluating the total distance considering all bounces and falls.",
+        "The method used by A and C is correct, including both fall and rise distances.",
+        "Previously calculated total distance = 40 m",
+        "Revised total distance = 40 m"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "40",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial drop of 16 meters, followed by three bounces with respective heights of 12 meters, 9 meters, and 6.75 meters.",
+          "claim_type": "support",
+          "related_answer": "40"
+        },
+        {
+          "text": "Each bounce involves both falling and rising, except for the last rise which is the final high point before being caught.",
+          "claim_type": "support",
+          "related_answer": "40"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The total distance involves an initial drop of 16 meters.",
+        "Three bounces with heights of 12 meters, 9 meters, and 6.75 meters.",
+        "Each bounce includes both fall and rise distances, except the final rise.",
+        "The previous answer of 40 meters is confirmed correct by mainstream support."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "37",
+        "48",
+        "49"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial drop is 16 meters, and each subsequent bounce reaches 3/4 of the previous height.",
+          "claim_type": "support",
+          "related_answer": "49"
+        },
+        {
+          "text": "Rechecking all distances to ensure accuracy is necessary.",
+          "claim_type": "explanation",
+          "related_answer": "48"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The total distance should sum up to 40 meters, but calculations vary between 37, 48, and 49 meters.",
+          "why_still_open": "Different agents have proposed different totals, and rechecking is ongoing.",
+          "involved_answers": [
+            "37",
+            "48",
+            "49"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "The initial drop is 16 meters.",
+        "Each bounce reaches 3/4 of the previous height.",
+        "The total distance is recalculated to be 48.5 meters, rounded to 49 meters.",
+        "The previous answer of 40 meters is questioned.",
+        "Rechecking distances is essential for accuracy."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 377,
+      "completion_tokens": 44,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 364,
+      "completion_tokens": 39,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 375,
+      "completion_tokens": 40,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 204,
+      "total_tokens": 806,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 744,
+      "completion_tokens": 110,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 741,
+      "completion_tokens": 112,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 755,
+      "completion_tokens": 121,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1104,
+      "completion_tokens": 195,
+      "total_tokens": 1299,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 843,
+      "completion_tokens": 148,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 840,
+      "completion_tokens": 124,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 854,
+      "completion_tokens": 119,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1122,
+      "completion_tokens": 175,
+      "total_tokens": 1297,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 734,
+      "completion_tokens": 175,
+      "total_tokens": 909,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 731,
+      "completion_tokens": 110,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 745,
+      "completion_tokens": 50,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1054,
+      "completion_tokens": 217,
+      "total_tokens": 1271,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 750,
+      "completion_tokens": 137,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 747,
+      "completion_tokens": 88,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 761,
+      "completion_tokens": 164,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1158,
+      "completion_tokens": 274,
+      "total_tokens": 1432,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 421,
+    "majority_vote_total_tokens": 1239,
+    "scrd_total_tokens": 18047,
+    "scrd_prompt_tokens": 15401,
+    "scrd_completion_tokens": 2646,
+    "agent_total_tokens": 11942,
+    "recorder_total_tokens": 6105,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

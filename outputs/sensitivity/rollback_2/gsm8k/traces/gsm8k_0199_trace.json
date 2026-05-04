@@ -1,0 +1,293 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total miles run from Monday to Thursday.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Subtract total miles run from the weekly goal.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total miles run = 45",
+        "Weekly goal = 20 miles",
+        "Remaining distance = 20 - 45",
+        "Convert hours to minutes",
+        "45 min < 1 hr -> pay < $12"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "60",
+        "60",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the total distance run from Monday to Thursday using her speed and time.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recompute the total distance run from Monday to Thursday and determine the remaining distance needed on Friday.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the total distance run from Monday to Thursday and ensure the 45-minute answer meets the target of 20 miles.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total miles run = 60",
+        "Weekly goal = 20 miles",
+        "Remaining distance = 20 - 60",
+        "Convert hours to minutes",
+        "60 min > 1 hr -> pay > $12"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "60",
+        "75",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the total distance run from Monday to Thursday to resolve the minority answer of 45 minutes.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recompute the total distance run from Monday to Thursday to verify both mainstream and minority answers.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer of 45 minutes remains unresolved.",
+          "why_still_open": "Recomputation needed for verification but not yet completed.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total miles run = 60",
+        "Weekly goal = 20 miles",
+        "Remaining distance = 20 - 60",
+        "Convert hours to minutes",
+        "60 min > 1 hr -> pay > $12"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 371,
+      "completion_tokens": 40,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 358,
+      "completion_tokens": 35,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 369,
+      "completion_tokens": 49,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 160,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 630,
+      "completion_tokens": 130,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 627,
+      "completion_tokens": 150,
+      "total_tokens": 777,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 641,
+      "completion_tokens": 154,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1122,
+      "completion_tokens": 227,
+      "total_tokens": 1349,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 691,
+      "completion_tokens": 54,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 738,
+      "completion_tokens": 123,
+      "total_tokens": 861,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 735,
+      "completion_tokens": 98,
+      "total_tokens": 833,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 749,
+      "completion_tokens": 96,
+      "total_tokens": 845,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1096,
+      "completion_tokens": 234,
+      "total_tokens": 1330,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 653,
+      "completion_tokens": 51,
+      "total_tokens": 704,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 411,
+    "majority_vote_total_tokens": 1222,
+    "scrd_total_tokens": 10984,
+    "scrd_prompt_tokens": 9383,
+    "scrd_completion_tokens": 1601,
+    "agent_total_tokens": 6093,
+    "recorder_total_tokens": 3442,
+    "evaluator_total_tokens": 1449,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

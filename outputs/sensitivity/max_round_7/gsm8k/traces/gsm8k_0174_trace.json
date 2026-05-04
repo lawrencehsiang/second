@@ -1,0 +1,281 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "18",
+        "18",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate time for both to finish the race and find the difference.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Subtract turtle's time from hare's time to get the head start.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Both methods yield the same result of 18 minutes.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Hare finishes in 30 min, Turtle in 48 min, Difference = 18 min",
+        "Time for Hare = 30 min, Time for Turtle = 48 min, Hare's head start = 18 min",
+        "Calculate: 30 - 48 = -18, but since we need positive, |18| = 18"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "18",
+        "2",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The turtle needs a 2-second head start to finish in a tie with the hare.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The turtle needs an 18-second head start to match the hare's completion time.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the exact head start time between 2 seconds and 18 seconds.",
+          "why_still_open": "Different interpretations of the speeds and times involved lead to conflicting head start values.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Hare finishes in 20 seconds, Turtle in 20 seconds with a 2-second head start",
+        "Hare's speed: 10 ft/s, Turtle's speed: 1 ft/s, Head start needed: 18 seconds",
+        "Tie condition: Hare and Turtle finish in 20 seconds"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 371,
+      "completion_tokens": 41,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 358,
+      "completion_tokens": 36,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 369,
+      "completion_tokens": 44,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 600,
+      "completion_tokens": 238,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 634,
+      "completion_tokens": 148,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 631,
+      "completion_tokens": 122,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 645,
+      "completion_tokens": 98,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1134,
+      "completion_tokens": 299,
+      "total_tokens": 1433,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 706,
+      "completion_tokens": 52,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 951,
+      "completion_tokens": 110,
+      "total_tokens": 1061,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 631,
+      "completion_tokens": 223,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 630,
+      "completion_tokens": 200,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 631,
+      "completion_tokens": 212,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1400,
+      "completion_tokens": 260,
+      "total_tokens": 1660,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0174",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 786,
+      "completion_tokens": 50,
+      "total_tokens": 836,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 412,
+    "majority_vote_total_tokens": 1219,
+    "scrd_total_tokens": 12610,
+    "scrd_prompt_tokens": 10477,
+    "scrd_completion_tokens": 2133,
+    "agent_total_tokens": 3497,
+    "recorder_total_tokens": 3931,
+    "evaluator_total_tokens": 758,
+    "repair_brief_total_tokens": 1061,
+    "repair_evaluator_total_tokens": 836,
+    "repair_agent_total_tokens": 2527
+  }
+}

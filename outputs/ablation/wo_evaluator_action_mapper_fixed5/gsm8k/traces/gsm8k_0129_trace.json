@@ -1,0 +1,430 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "6",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rounding up is necessary when there's a remainder in division.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent C suggests rounding up due to remainders, while A and B do not.",
+          "why_still_open": "The method of handling remainders in division for room allocation is not agreed upon.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "30 students / 5 students per room = 6 rooms",
+        "2 beds * 2 students/bed + 1 student/pull-out couch",
+        "Divide by 5, round up if there's a remainder",
+        "Total students = 30, so rooms needed = 30 / 5 = 6",
+        "Each room fits 5 students"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "6",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Division without remainders means no need to round up.",
+          "claim_type": "constraint",
+          "related_answer": "A, B"
+        },
+        {
+          "text": "Ensure all students are accommodated by rounding up if there’s a remainder.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "30 students / 5 students per room = 6 rooms",
+        "Each room fits 5 students (2 per bed + 1 on the pull-out couch)",
+        "Divide 30 by 5, no remainder -> no need to round up",
+        "Ensure all students are accounted for, round up if necessary",
+        "Total students = 30, rooms = 30 / 5 = 6"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "7",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Round up to ensure all students have a place, especially when there's a remainder.",
+          "claim_type": "constraint",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ensure all students are accounted for, round up if necessary",
+        "Partial occupancy in a room still requires a full room to be booked",
+        "Verify the number of rooms needed based on the given constraints",
+        "30 students / 5 students per room = 6 rooms",
+        "Divide 30 by 5, no remainder -> no need to round up"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "6",
+        "7",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each room can fit 5 students (2 beds + 1 pull-out couch), so 30 students need 6 rooms.",
+          "claim_type": "explanation",
+          "related_answer": "A, C"
+        },
+        {
+          "text": "Rounding up ensures all students have a place when there's a remainder.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answers of 6 rooms vs majority answer of 7 rooms remain.",
+          "why_still_open": "Disagreement on whether to round up when there's an exact division.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ensure all students are accounted for, round up if necessary",
+        "30 students / 5 students per room = 6 rooms",
+        "2 beds per room can fit 4 students, and 1 pull-out couch can fit 1 student",
+        "Partial occupancy in a room still requires a full room to be booked",
+        "Verify the number of rooms needed based on the given constraints"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "6",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rounding up ensures all students are accommodated even when there's no remainder.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ensure all students are accounted for, round up if necessary",
+        "30 students / 5 students per room = 6 rooms",
+        "2 beds per room can fit 4 students, and 1 pull-out couch can fit 1 student",
+        "Partial occupancy in a room still requires a full room to be booked",
+        "Verify the number of rooms needed based on the given constraints"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 60,
+      "total_tokens": 446,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 58,
+      "total_tokens": 431,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 70,
+      "total_tokens": 454,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 667,
+      "completion_tokens": 224,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 758,
+      "completion_tokens": 140,
+      "total_tokens": 898,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 755,
+      "completion_tokens": 163,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 769,
+      "completion_tokens": 102,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1181,
+      "completion_tokens": 205,
+      "total_tokens": 1386,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 854,
+      "completion_tokens": 116,
+      "total_tokens": 970,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 851,
+      "completion_tokens": 97,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 865,
+      "completion_tokens": 107,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1063,
+      "completion_tokens": 161,
+      "total_tokens": 1224,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 749,
+      "completion_tokens": 161,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 746,
+      "completion_tokens": 102,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 760,
+      "completion_tokens": 82,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1052,
+      "completion_tokens": 282,
+      "total_tokens": 1334,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 853,
+      "completion_tokens": 123,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 850,
+      "completion_tokens": 134,
+      "total_tokens": 984,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 864,
+      "completion_tokens": 161,
+      "total_tokens": 1025,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0129",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1244,
+      "completion_tokens": 161,
+      "total_tokens": 1405,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 446,
+    "majority_vote_total_tokens": 1331,
+    "scrd_total_tokens": 18733,
+    "scrd_prompt_tokens": 16024,
+    "scrd_completion_tokens": 2709,
+    "agent_total_tokens": 12493,
+    "recorder_total_tokens": 6240,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

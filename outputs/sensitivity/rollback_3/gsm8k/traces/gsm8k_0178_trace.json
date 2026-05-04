@@ -1,0 +1,214 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10000",
+        "10000",
+        "11000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The sale price of the old car is 80% of $20,000.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "The purchase price of the new car is 90% of $30,000.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "The difference between the two amounts is $11,000.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agree on the final amount ($10,000), but C calculates it as $11,000.",
+          "why_still_open": "Different calculations lead to different results.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sale price of old car = 80% * $20,000",
+        "Purchase price of new car = 90% * $30,000",
+        "Out of pocket = $27,000 - $16,000"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "10000",
+        "10000",
+        "10000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The final amount agreed upon by Agents A and B is $10,000.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agent C is re-verifying the calculations to ensure they match the agreed amount of $10,000.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agree on the final amount ($10,000), but C calculates it as $11,000.",
+          "why_still_open": "Agent C is still verifying the calculations.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Final amount agreed by A and B = $10,000",
+        "Old car sale price = 80% * $20,000",
+        "New car purchase price = 90% * $30,000",
+        "Out of pocket = $27,000 - $16,000",
+        "Difference in prices = $11,000"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 48,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 47,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 105,
+      "total_tokens": 479,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 691,
+      "completion_tokens": 304,
+      "total_tokens": 995,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 768,
+      "completion_tokens": 106,
+      "total_tokens": 874,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 765,
+      "completion_tokens": 112,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 779,
+      "completion_tokens": 112,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1210,
+      "completion_tokens": 302,
+      "total_tokens": 1512,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 700,
+      "completion_tokens": 48,
+      "total_tokens": 748,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 424,
+    "majority_vote_total_tokens": 1313,
+    "scrd_total_tokens": 7210,
+    "scrd_prompt_tokens": 6026,
+    "scrd_completion_tokens": 1184,
+    "agent_total_tokens": 3955,
+    "recorder_total_tokens": 2507,
+    "evaluator_total_tokens": 748,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

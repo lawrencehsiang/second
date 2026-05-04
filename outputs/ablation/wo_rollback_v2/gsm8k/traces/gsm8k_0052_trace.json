@@ -10,24 +10,52 @@
       "newly_added_claims": [
         {
           "text": "Calculate total used fabric and subtract from total fabric.",
-          "claim_type": "explanation",
+          "claim_type": "support",
           "related_answer": "A"
         },
         {
-          "text": "Calculate total used fabric and subtract from bolt size.",
-          "claim_type": "explanation",
-          "related_answer": "B"
+          "text": "Calculate total used area and subtract from total area.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total used fabric, then subtract from total fabric.",
+        "Calculate total used area, then subtract from total fabric area."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "104",
+        "80",
+        "164"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate using the correct dimensions.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
         },
         {
-          "text": "Calculate total used area and subtract from bolt size.",
-          "claim_type": "explanation",
+          "text": "Total fabric used is 4*6 + 2*4 = 28 square feet.",
+          "claim_type": "support",
           "related_answer": "C"
         }
       ],
       "unresolved_conflicts": [
         {
-          "conflict": "Different methods of calculation lead to the same answer of 80.",
-          "why_still_open": "Multiple valid approaches exist.",
+          "conflict": "Answer A claims the previous answer was incorrect, while Answer B states it was correct.",
+          "why_still_open": "Different interpretations of the initial answer.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "conflict": "Answer C provides a different calculation for the total fabric used compared to Answers A and B.",
+          "why_still_open": "Disagreement on the method of calculating used fabric.",
           "involved_answers": [
             "A",
             "B",
@@ -36,24 +64,11 @@
         }
       ],
       "key_raw_snippets": [
-        "Total fabric = 100, Used fabric = 80, Remaining fabric = 20",
-        "Bolt size = 100, Used fabric = 80, Remaining fabric = 20",
-        "Used area = 80, Bolt size = 100, Remaining fabric = 20"
-      ]
-    },
-    {
-      "round_id": 2,
-      "current_answers": [
-        "80",
-        "80",
-        "80"
-      ],
-      "newly_added_claims": [],
-      "unresolved_conflicts": [],
-      "key_raw_snippets": [
-        "Total fabric = 100, Used fabric = 80, Remaining fabric = 20",
-        "Bolt size = 100, Used fabric = 80, Remaining fabric = 20",
-        "Used area = 80, Bolt size = 100, Remaining fabric = 20"
+        "Calculate total used fabric: 4*6 + 2*4 = 28 sq ft.",
+        "Total fabric: 16*12 = 192 sq ft.",
+        "Remaining fabric: 192 - 28 = 164 sq ft.",
+        "Initial answer was incorrect.",
+        "Calculate area of rectangles and subtract from total fabric."
       ]
     }
   ],
@@ -82,8 +97,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 373,
-      "completion_tokens": 32,
-      "total_tokens": 405,
+      "completion_tokens": 36,
+      "total_tokens": 409,
       "extra": {}
     },
     {
@@ -93,8 +108,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 360,
-      "completion_tokens": 32,
-      "total_tokens": 392,
+      "completion_tokens": 34,
+      "total_tokens": 394,
       "extra": {}
     },
     {
@@ -114,9 +129,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 581,
-      "completion_tokens": 270,
-      "total_tokens": 851,
+      "prompt_tokens": 584,
+      "completion_tokens": 132,
+      "total_tokens": 716,
       "extra": {}
     },
     {
@@ -125,9 +140,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 730,
-      "completion_tokens": 101,
-      "total_tokens": 831,
+      "prompt_tokens": 633,
+      "completion_tokens": 110,
+      "total_tokens": 743,
       "extra": {}
     },
     {
@@ -136,9 +151,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 727,
-      "completion_tokens": 97,
-      "total_tokens": 824,
+      "prompt_tokens": 630,
+      "completion_tokens": 59,
+      "total_tokens": 689,
       "extra": {}
     },
     {
@@ -147,9 +162,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 741,
-      "completion_tokens": 99,
-      "total_tokens": 840,
+      "prompt_tokens": 644,
+      "completion_tokens": 90,
+      "total_tokens": 734,
       "extra": {}
     },
     {
@@ -158,9 +173,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 1109,
-      "completion_tokens": 106,
-      "total_tokens": 1215,
+      "prompt_tokens": 921,
+      "completion_tokens": 314,
+      "total_tokens": 1235,
       "extra": {}
     },
     {
@@ -169,25 +184,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 556,
-      "completion_tokens": 52,
-      "total_tokens": 608,
+      "prompt_tokens": 672,
+      "completion_tokens": 43,
+      "total_tokens": 715,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 405,
-    "majority_vote_total_tokens": 1203,
-    "scrd_total_tokens": 6372,
-    "scrd_prompt_tokens": 5548,
-    "scrd_completion_tokens": 824,
-    "agent_total_tokens": 3698,
-    "recorder_total_tokens": 2066,
-    "evaluator_total_tokens": 608,
+    "single_agent_total_tokens": 409,
+    "majority_vote_total_tokens": 1209,
+    "scrd_total_tokens": 6041,
+    "scrd_prompt_tokens": 5188,
+    "scrd_completion_tokens": 853,
+    "agent_total_tokens": 3375,
+    "recorder_total_tokens": 1951,
+    "evaluator_total_tokens": 715,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

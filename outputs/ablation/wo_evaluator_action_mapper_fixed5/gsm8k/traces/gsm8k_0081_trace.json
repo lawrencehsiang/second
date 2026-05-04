@@ -1,0 +1,439 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "100",
+        "100",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jennifer bought 60 additional cans based on Mark’s purchase.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Jennifer initially had 40 cans.",
+          "claim_type": "constraint",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Mark bought 50 cans.",
+        "Jennifer bought 6*10 = 60 additional cans.",
+        "Jennifer initially had 40 cans.",
+        "Adding 60 to 40 gives 100 cans.",
+        "Jennifer brought home 100 cans."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "100",
+        "140",
+        "80"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing the total based on the correct ratio and quantities.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jennifer initially had 40 cans.",
+        "Mark bought 50 cans.",
+        "Jennifer bought 6 additional cans for every 5 cans Mark bought.",
+        "Adding 60 to 40 gives 100 cans.",
+        "Recomputing the total based on the correct ratio and quantities."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "140",
+        "100",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing the total based on the correct ratio and quantities.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jennifer initially had 40 cans.",
+        "Mark bought 50 cans.",
+        "Jennifer bought 6 additional cans for every 5 cans Mark bought.",
+        "Adding 60 to 40 gives 100 cans.",
+        "Recomputing the total based on the correct ratio and quantities."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "100",
+        "110",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jennifer bought 60 additional cans based on Mark’s purchase of 50 cans.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "The minority answer of 140 is incorrect because it doesn't follow the given ratio.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is disagreement on whether Jennifer's total is 100 or 110 cans.",
+          "why_still_open": "The agents have different interpretations of the ratio and quantities involved.",
+          "involved_answers": [
+            "100",
+            "110"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Jennifer initially had 40 cans.",
+        "Mark bought 50 cans.",
+        "For every 5 cans Mark bought, Jennifer bought 6 additional cans.",
+        "Adding 60 to 40 gives 100 cans.",
+        "Recomputing the total based on the correct ratio and quantities."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "100",
+        "100",
+        "110"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jennifer initially bought 40 cans.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "For every 5 cans Mark bought, Jennifer bought 6 additional cans.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Mark bought 50 cans.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Jennifer bought 60 additional cans based on Mark’s purchase of 50 cans.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Adding 60 additional cans to Jennifer's initial 40 cans gives a total of 100 cans.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jennifer initially had 40 cans.",
+        "Mark bought 50 cans.",
+        "For every 5 cans Mark bought, Jennifer bought 6 additional cans.",
+        "Jennifer bought 60 additional cans based on Mark’s purchase of 50 cans.",
+        "Adding 60 to 40 gives 100 cans."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 369,
+      "completion_tokens": 74,
+      "total_tokens": 443,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 356,
+      "completion_tokens": 35,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 367,
+      "completion_tokens": 74,
+      "total_tokens": 441,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 665,
+      "completion_tokens": 170,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 629,
+      "completion_tokens": 176,
+      "total_tokens": 805,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 626,
+      "completion_tokens": 121,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 640,
+      "completion_tokens": 147,
+      "total_tokens": 787,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1147,
+      "completion_tokens": 140,
+      "total_tokens": 1287,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 634,
+      "completion_tokens": 125,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 631,
+      "completion_tokens": 116,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 644,
+      "completion_tokens": 121,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1043,
+      "completion_tokens": 140,
+      "total_tokens": 1183,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 738,
+      "completion_tokens": 186,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 735,
+      "completion_tokens": 140,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 749,
+      "completion_tokens": 175,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1203,
+      "completion_tokens": 260,
+      "total_tokens": 1463,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 847,
+      "completion_tokens": 181,
+      "total_tokens": 1028,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 844,
+      "completion_tokens": 154,
+      "total_tokens": 998,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 858,
+      "completion_tokens": 196,
+      "total_tokens": 1054,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0081",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1330,
+      "completion_tokens": 305,
+      "total_tokens": 1635,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 443,
+    "majority_vote_total_tokens": 1275,
+    "scrd_total_tokens": 18091,
+    "scrd_prompt_tokens": 15055,
+    "scrd_completion_tokens": 3036,
+    "agent_total_tokens": 11688,
+    "recorder_total_tokens": 6403,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

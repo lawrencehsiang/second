@@ -1,0 +1,506 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "56",
+        "56",
+        "56"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sandy has 84 blue marbles per dozen.",
+          "claim_type": "constraint",
+          "related_answer": "56"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sandy has 84 * 8 = 672 blue marbles.",
+        "672 / 12 = 56 dozen.",
+        "8 * 84 = 672 blue marbles."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "84 * 8 / 12 = 56",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Interpreting 'dozen' as 12 units resolves the ambiguity.",
+          "claim_type": "explanation",
+          "related_answer": "84 * 8 / 12 = 56"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sandy has 84 * 8 = 672 blue marbles.",
+        "672 / 12 = 56 dozen.",
+        "8 * 84 = 672 blue marbles."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "56",
+        "7",
+        "56"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sandy has 672 blue marbles in total.",
+          "claim_type": "explanation",
+          "related_answer": "672 / 12 = 56 dozens"
+        },
+        {
+          "text": "'Dozen' is interpreted as 12 units to resolve ambiguity.",
+          "claim_type": "explanation",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sandy has 672 blue marbles in total.",
+        "672 / 12 = 56 dozens.",
+        "84 * 8 = 672 blue marbles."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "672",
+        "7",
+        "56"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sandy has 672 blue marbles, which is 8 times the amount Melanie has.",
+          "claim_type": "explanation",
+          "related_answer": "84 * 8 = 672"
+        },
+        {
+          "text": "The correct interpretation resolves the minority answer of 56 to 7 dozen blue marbles.",
+          "claim_type": "rebuttal",
+          "related_answer": "672 / 12 = 56"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sandy has 672 blue marbles in total.",
+        "672 / 12 = 56 dozens.",
+        "84 * 8 = 672 blue marbles."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "7",
+        "7",
+        "56"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 7 is incorrect, and Sandy has 56 dozen blue marbles.",
+          "claim_type": "rebuttal",
+          "related_answer": "672 / 12 = 56"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sandy has 672 blue marbles, which is 8 times the amount Melanie has.",
+        "672 / 12 = 56 dozens.",
+        "The minority answer of 7 is incorrect."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 342,
+      "completion_tokens": 57,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 329,
+      "completion_tokens": 56,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 340,
+      "completion_tokens": 57,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 646,
+      "completion_tokens": 124,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 604,
+      "completion_tokens": 162,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 601,
+      "completion_tokens": 64,
+      "total_tokens": 665,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 615,
+      "completion_tokens": 123,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1018,
+      "completion_tokens": 185,
+      "total_tokens": 1203,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 49,
+      "total_tokens": 644,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 690,
+      "completion_tokens": 93,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 585,
+      "completion_tokens": 112,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 584,
+      "completion_tokens": 123,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 585,
+      "completion_tokens": 124,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1020,
+      "completion_tokens": 140,
+      "total_tokens": 1160,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 687,
+      "completion_tokens": 59,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 676,
+      "completion_tokens": 154,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 673,
+      "completion_tokens": 157,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 689,
+      "completion_tokens": 189,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1161,
+      "completion_tokens": 170,
+      "total_tokens": 1331,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 616,
+      "completion_tokens": 44,
+      "total_tokens": 660,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 670,
+      "completion_tokens": 135,
+      "total_tokens": 805,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 667,
+      "completion_tokens": 129,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 683,
+      "completion_tokens": 122,
+      "total_tokens": 805,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1083,
+      "completion_tokens": 193,
+      "total_tokens": 1276,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 624,
+      "completion_tokens": 51,
+      "total_tokens": 675,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 784,
+      "completion_tokens": 112,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 781,
+      "completion_tokens": 122,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 797,
+      "completion_tokens": 127,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1080,
+      "completion_tokens": 141,
+      "total_tokens": 1221,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0119",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 563,
+      "completion_tokens": 50,
+      "total_tokens": 613,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 399,
+    "majority_vote_total_tokens": 1181,
+    "scrd_total_tokens": 24212,
+    "scrd_prompt_tokens": 20788,
+    "scrd_completion_tokens": 3424,
+    "agent_total_tokens": 3350,
+    "recorder_total_tokens": 6961,
+    "evaluator_total_tokens": 644,
+    "repair_brief_total_tokens": 783,
+    "repair_evaluator_total_tokens": 2694,
+    "repair_agent_total_tokens": 9780
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12.30",
+        "12.30",
+        "12.30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum the cost of the football and marbles.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Add the cost of the football and marbles.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Sum of individual costs: $5.71 + $6.59",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cost of football: $5.71",
+        "Cost of marbles: $6.59",
+        "Total cost: $12.30"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12.30",
+        "12.30",
+        "12.30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous answer of 12.30 is consistent with the sum of 5.71 and 6.59.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous answer of 12.30 was misunderstood as incorrect due to a self-consistency issue.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The previous answer of 12.30 was initially supported but later questioned for self-consistency.",
+          "why_still_open": "There is a misunderstanding about the correctness of the previous answer.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Cost of football: $5.71",
+        "Cost of marbles: $6.59",
+        "Total cost: $12.30",
+        "Sum: $5.71 + $6.59 = $12.30",
+        "Self-consistency issue with the previous answer."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "addsub_0125",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 354,
+      "completion_tokens": 38,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "addsub_0125",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 341,
+      "completion_tokens": 38,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "addsub_0125",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 352,
+      "completion_tokens": 45,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "addsub_0125",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 606,
+      "completion_tokens": 187,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "addsub_0125",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 620,
+      "completion_tokens": 188,
+      "total_tokens": 808,
+      "extra": {}
+    },
+    {
+      "sample_id": "addsub_0125",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 617,
+      "completion_tokens": 50,
+      "total_tokens": 667,
+      "extra": {}
+    },
+    {
+      "sample_id": "addsub_0125",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 631,
+      "completion_tokens": 60,
+      "total_tokens": 691,
+      "extra": {}
+    },
+    {
+      "sample_id": "addsub_0125",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1031,
+      "completion_tokens": 276,
+      "total_tokens": 1307,
+      "extra": {}
+    },
+    {
+      "sample_id": "addsub_0125",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 647,
+      "completion_tokens": 58,
+      "total_tokens": 705,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 392,
+    "majority_vote_total_tokens": 1168,
+    "scrd_total_tokens": 6139,
+    "scrd_prompt_tokens": 5199,
+    "scrd_completion_tokens": 940,
+    "agent_total_tokens": 3334,
+    "recorder_total_tokens": 2100,
+    "evaluator_total_tokens": 705,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

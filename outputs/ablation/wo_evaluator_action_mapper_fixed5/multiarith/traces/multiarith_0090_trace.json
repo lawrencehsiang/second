@@ -1,0 +1,430 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "12",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total customers = 39 + 12",
+          "claim_type": "explanation",
+          "related_answer": "8, 12, 2"
+        },
+        {
+          "text": "Customers with tips = Total - Customers without tips",
+          "claim_type": "rebuttal",
+          "related_answer": "8"
+        },
+        {
+          "text": "Customers who left a tip = Total - No tip",
+          "claim_type": "support",
+          "related_answer": "2"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 39 + 12",
+        "Customers with tips = Total - Customers without tips",
+        "Customers who left a tip = Total - No tip",
+        "Total = 51",
+        "No tips = 49"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8",
+        "8",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Both formulas yield the same result.",
+          "claim_type": "explanation",
+          "related_answer": "8, 8, 2"
+        },
+        {
+          "text": "The correct formula for customers with tips is Total - Customers without tips.",
+          "claim_type": "rebuttal",
+          "related_answer": "2"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 39 + 12",
+        "Customers with tips = Total - Customers without tips",
+        "Customers who left a tip = Total - No tip",
+        "Total = 51",
+        "No tips = 49"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "2",
+        "2",
+        "52"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct formula for customers who left a tip is Total - Customers without tips.",
+          "claim_type": "explanation",
+          "related_answer": "2, 52"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 51",
+        "Customers who left a tip = Total - Customers without tips",
+        "Customers without tips = 49",
+        "Total - 49 = 2",
+        "51 - 49 = 2"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "18",
+        "28",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 8 is incorrect because it does not follow the Total - Customers without tips formula.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "Using the correct formula Total - Customers without tips leads to 28 customers leaving a tip.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 51",
+        "Customers who left a tip = Total - Customers without tips",
+        "Customers without tips = 49",
+        "51 - 49 = 2",
+        "28 customers leaving a tip"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "2",
+        "28",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of customers is 51, and 49 did not leave a tip, resulting in 2 who did.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The formula Total - Customers without tips = 39 + 12 - 49 = 28 correctly identifies the number of customers who left a tip.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 8 is incorrect as it does not follow the Total - Customers without tips formula.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 51",
+        "Customers without tips = 49",
+        "51 - 49 = 2",
+        "Total - Customers without tips = 39 + 12 - 49 = 28",
+        "28 customers left a tip"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 363,
+      "completion_tokens": 53,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 350,
+      "completion_tokens": 45,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 361,
+      "completion_tokens": 61,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 632,
+      "completion_tokens": 206,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 711,
+      "completion_tokens": 106,
+      "total_tokens": 817,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 709,
+      "completion_tokens": 104,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 722,
+      "completion_tokens": 122,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1085,
+      "completion_tokens": 169,
+      "total_tokens": 1254,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 815,
+      "completion_tokens": 149,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 812,
+      "completion_tokens": 88,
+      "total_tokens": 900,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 826,
+      "completion_tokens": 96,
+      "total_tokens": 922,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1049,
+      "completion_tokens": 136,
+      "total_tokens": 1185,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 818,
+      "completion_tokens": 96,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 815,
+      "completion_tokens": 123,
+      "total_tokens": 938,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 830,
+      "completion_tokens": 156,
+      "total_tokens": 986,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1060,
+      "completion_tokens": 180,
+      "total_tokens": 1240,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 731,
+      "completion_tokens": 137,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 728,
+      "completion_tokens": 134,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 741,
+      "completion_tokens": 130,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0090",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1130,
+      "completion_tokens": 257,
+      "total_tokens": 1387,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 416,
+    "majority_vote_total_tokens": 1233,
+    "scrd_total_tokens": 17836,
+    "scrd_prompt_tokens": 15288,
+    "scrd_completion_tokens": 2548,
+    "agent_total_tokens": 11932,
+    "recorder_total_tokens": 5904,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

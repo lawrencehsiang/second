@@ -1,0 +1,425 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "1080",
+        "980",
+        "580"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum pages from full chapters and partial chapter.",
+          "claim_type": "support",
+          "related_answer": "1080"
+        },
+        {
+          "text": "Add pages from full chapters and partial pages read before 4 pm.",
+          "claim_type": "support",
+          "related_answer": "980"
+        },
+        {
+          "text": "Calculate pages read before 4 PM and add pages from full chapters after 4 PM.",
+          "claim_type": "support",
+          "related_answer": "580"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating total pages read.",
+          "why_still_open": "Each method provides a different total, indicating conflicting approaches.",
+          "involved_answers": [
+            "1080",
+            "980",
+            "580"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = Sum(full chapters) + Partial pages",
+        "Total = Sum(full chapters) + Pages read before 4 PM",
+        "Total = Pages read before 4 PM + Sum(full chapters after 4 PM)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "1080",
+        "1000",
+        "620"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total based on full chapters and partial pages before 4 PM.",
+          "claim_type": "support",
+          "related_answer": "1080"
+        },
+        {
+          "text": "Update the total by including full chapters and partial pages before 4 PM, then additional chapters after 4 PM.",
+          "claim_type": "support",
+          "related_answer": "620"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Sum(full chapters) + Partial pages before 4 PM",
+        "Total = Sum(full chapters) + Partial pages before 4 PM + Additional chapters after 4 PM"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "1060",
+        "1080",
+        "620"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculating the total using the full chapters and partial pages before 4 PM.",
+          "claim_type": "support",
+          "related_answer": "1060"
+        },
+        {
+          "text": "Including the partial page of the 11th chapter in the total calculation.",
+          "claim_type": "support",
+          "related_answer": "1080"
+        },
+        {
+          "text": "Aligning with the mainstream support by recalculating the total based on full chapters and partial pages before 4 PM.",
+          "claim_type": "support",
+          "related_answer": "620"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Sum(full chapters) + Partial pages before 4 PM",
+        "Include partial page of the 11th chapter in the total."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "620",
+        "620",
+        "620"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Sum(full chapters) + Partial pages before 4 PM",
+        "Partial page of the 11th chapter is not included as it was not fully read after 4 PM."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "620",
+        "620",
+        "520"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Mitchell read 2 more full chapters after the 4 PM deadline, adding 80 pages.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B maintain 620 pages, while C calculates 520 pages.",
+          "why_still_open": "Different interpretations of the number of pages read after 4 PM.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = Sum(full chapters) + Partial pages before 4 PM",
+        "Read 2 more full chapters after 4 PM, adding 80 pages."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 412,
+      "completion_tokens": 43,
+      "total_tokens": 455,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 399,
+      "completion_tokens": 41,
+      "total_tokens": 440,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 410,
+      "completion_tokens": 46,
+      "total_tokens": 456,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 610,
+      "completion_tokens": 266,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 776,
+      "completion_tokens": 100,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 772,
+      "completion_tokens": 110,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 786,
+      "completion_tokens": 121,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1164,
+      "completion_tokens": 169,
+      "total_tokens": 1333,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 780,
+      "completion_tokens": 90,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 777,
+      "completion_tokens": 117,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 790,
+      "completion_tokens": 159,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1075,
+      "completion_tokens": 208,
+      "total_tokens": 1283,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 801,
+      "completion_tokens": 153,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 798,
+      "completion_tokens": 118,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 811,
+      "completion_tokens": 122,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1161,
+      "completion_tokens": 74,
+      "total_tokens": 1235,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 688,
+      "completion_tokens": 44,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 685,
+      "completion_tokens": 36,
+      "total_tokens": 721,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 699,
+      "completion_tokens": 104,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 816,
+      "completion_tokens": 184,
+      "total_tokens": 1000,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 455,
+    "majority_vote_total_tokens": 1351,
+    "scrd_total_tokens": 17515,
+    "scrd_prompt_tokens": 15210,
+    "scrd_completion_tokens": 2305,
+    "agent_total_tokens": 11788,
+    "recorder_total_tokens": 5727,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

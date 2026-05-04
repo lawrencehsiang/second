@@ -1,0 +1,189 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "11",
+        "8",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "All agents solved the quadratic equation using the quadratic formula.",
+          "claim_type": "support",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Convert to standard quadratic form, solve using quadratic formula.",
+        "Rearrange and solve quadratic equation.",
+        "Solved quadratic equation, simplified to standard form, then used the quadratic formula."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "11",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous answer of 10 is incorrect, and the mainstream support answer of 8 is correct.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the value of the quadratic equation solution between agents A and B.",
+          "why_still_open": "Agent A needs to recheck the quadratic equation solution for consistency.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Solve quadratic equation using the quadratic formula.",
+        "Sum of roots equals m + n + p.",
+        "Correct interpretation of the quadratic formula yields the value 8."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0134",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 36,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0134",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 32,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0134",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 41,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0134",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 584,
+      "completion_tokens": 112,
+      "total_tokens": 696,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0134",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 646,
+      "completion_tokens": 102,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0134",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 642,
+      "completion_tokens": 67,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0134",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 657,
+      "completion_tokens": 116,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0134",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 938,
+      "completion_tokens": 182,
+      "total_tokens": 1120,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0134",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 619,
+      "completion_tokens": 49,
+      "total_tokens": 668,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 422,
+    "majority_vote_total_tokens": 1252,
+    "scrd_total_tokens": 5966,
+    "scrd_prompt_tokens": 5229,
+    "scrd_completion_tokens": 737,
+    "agent_total_tokens": 3482,
+    "recorder_total_tokens": 1816,
+    "evaluator_total_tokens": 668,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

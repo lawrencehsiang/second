@@ -1,0 +1,432 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "90",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total rooms minus unavailable floor's rooms.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total rooms minus unavailable floor's rooms.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total rooms minus the unavailable last floor.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total rooms - unavailable rooms = 90",
+        "Available rooms = 90"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "90",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Subtract the unavailable last floor's rooms (10) from the total rooms (100).",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The last floor is not included in the available rooms calculation.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total rooms = 100",
+        "Unavailable last floor rooms = 10",
+        "Available rooms = 100 - 10 = 90"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "90",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total rooms = 10 floors * 10 rooms/floor = 100",
+        "Unavailable last floor = 10 rooms",
+        "Available rooms = 100 - 10 = 90"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "90",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total rooms = 10 floors * 10 rooms/floor = 100",
+        "Unavailable last floor = 10 rooms",
+        "Available rooms = 100 - 10 = 90"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "80",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of available rooms is 90, but since the last floor is unavailable, we need to subtract those 10 rooms.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Since the last floor is unavailable, we should subtract the 10 rooms on that floor from the total.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The total number of rooms is 100, but since the last floor is unavailable, we subtract 10 rooms from the total.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total rooms = 10 floors * 10 rooms/floor = 100",
+        "Unavailable last floor = 10 rooms",
+        "Available rooms = 100 - 10 = 90"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 368,
+      "completion_tokens": 30,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 355,
+      "completion_tokens": 30,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 366,
+      "completion_tokens": 33,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 575,
+      "completion_tokens": 155,
+      "total_tokens": 730,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 626,
+      "completion_tokens": 137,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 623,
+      "completion_tokens": 91,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 637,
+      "completion_tokens": 70,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 981,
+      "completion_tokens": 158,
+      "total_tokens": 1139,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 601,
+      "completion_tokens": 47,
+      "total_tokens": 648,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 640,
+      "completion_tokens": 58,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 637,
+      "completion_tokens": 77,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 651,
+      "completion_tokens": 89,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 926,
+      "completion_tokens": 84,
+      "total_tokens": 1010,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 532,
+      "completion_tokens": 49,
+      "total_tokens": 581,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 640,
+      "completion_tokens": 142,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 637,
+      "completion_tokens": 65,
+      "total_tokens": 702,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 651,
+      "completion_tokens": 145,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 972,
+      "completion_tokens": 84,
+      "total_tokens": 1056,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 532,
+      "completion_tokens": 55,
+      "total_tokens": 587,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 638,
+      "completion_tokens": 119,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 635,
+      "completion_tokens": 120,
+      "total_tokens": 755,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 649,
+      "completion_tokens": 54,
+      "total_tokens": 703,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 921,
+      "completion_tokens": 246,
+      "total_tokens": 1167,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0085",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 707,
+      "completion_tokens": 56,
+      "total_tokens": 763,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 398,
+    "majority_vote_total_tokens": 1182,
+    "scrd_total_tokens": 17694,
+    "scrd_prompt_tokens": 15500,
+    "scrd_completion_tokens": 2194,
+    "agent_total_tokens": 10013,
+    "recorder_total_tokens": 5102,
+    "evaluator_total_tokens": 2579,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

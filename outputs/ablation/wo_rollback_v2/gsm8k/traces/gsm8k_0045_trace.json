@@ -3,41 +3,62 @@
     {
       "round_id": 1,
       "current_answers": [
+        "300",
         "400",
-        "400",
-        "400"
+        "450"
       ],
       "newly_added_claims": [
         {
-          "text": "Apply the remaining percentage to the total budget.",
+          "text": "Calculate remaining percentage and apply to total budget.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Subtract all percentages from 100% to find the remaining percentage.",
           "claim_type": "explanation",
-          "related_answer": "A"
+          "related_answer": "C"
         }
       ],
       "unresolved_conflicts": [],
       "key_raw_snippets": [
-        "Calculate remaining percentage after subtracting known expenses.",
-        "Apply the remaining percentage to the total budget."
+        "30% of $1000 = $300",
+        "remaining percentage * $1000",
+        "100% - (30% + 15% + 25%) = 30%",
+        "$450 = remaining percentage * $1000",
+        "calculate remaining percentage"
       ]
     },
     {
       "round_id": 2,
       "current_answers": [
-        "250",
-        "400",
-        "400"
+        "300",
+        "300",
+        "300"
       ],
       "newly_added_claims": [
         {
-          "text": "Recompute the remaining percentage after allocating to food, accommodation, and entertainment.",
-          "claim_type": "explanation",
+          "text": "Re-evaluate the remaining percentage after accounting for food, accommodation, and entertainment expenses.",
+          "claim_type": "rebuttal",
           "related_answer": "A"
+        },
+        {
+          "text": "The mainstream support calculated the remaining percentage after accounting for food, accommodation, and entertainment, which is 30%.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "James spends 30% on food, 15% on accommodation, and 25% on entertainment, summing up to 70%.",
+          "claim_type": "constraint",
+          "related_answer": "C"
         }
       ],
       "unresolved_conflicts": [],
       "key_raw_snippets": [
-        "Recompute the remaining percentage after allocating to food, accommodation, and entertainment.",
-        "The mainstream support answer correctly applies the remaining percentage to the total budget, ensuring that all expenditures sum up to the total budget."
+        "30% of $1000 = $300",
+        "remaining percentage * $1000",
+        "100% - (30% + 15% + 25%) = 30%",
+        "$300 = 30% * $1000",
+        "calculate remaining percentage after expenses"
       ]
     }
   ],
@@ -66,8 +87,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 378,
-      "completion_tokens": 47,
-      "total_tokens": 425,
+      "completion_tokens": 62,
+      "total_tokens": 440,
       "extra": {}
     },
     {
@@ -77,8 +98,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 365,
-      "completion_tokens": 32,
-      "total_tokens": 397,
+      "completion_tokens": 47,
+      "total_tokens": 412,
       "extra": {}
     },
     {
@@ -88,8 +109,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 376,
-      "completion_tokens": 37,
-      "total_tokens": 413,
+      "completion_tokens": 54,
+      "total_tokens": 430,
       "extra": {}
     },
     {
@@ -98,9 +119,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 601,
-      "completion_tokens": 92,
-      "total_tokens": 693,
+      "prompt_tokens": 648,
+      "completion_tokens": 186,
+      "total_tokens": 834,
       "extra": {}
     },
     {
@@ -110,8 +131,8 @@
       "component": "agent_normal",
       "agent_id": "A",
       "prompt_tokens": 639,
-      "completion_tokens": 105,
-      "total_tokens": 744,
+      "completion_tokens": 139,
+      "total_tokens": 778,
       "extra": {}
     },
     {
@@ -121,8 +142,8 @@
       "component": "agent_normal",
       "agent_id": "B",
       "prompt_tokens": 636,
-      "completion_tokens": 63,
-      "total_tokens": 699,
+      "completion_tokens": 174,
+      "total_tokens": 810,
       "extra": {}
     },
     {
@@ -132,8 +153,8 @@
       "component": "agent_normal",
       "agent_id": "C",
       "prompt_tokens": 650,
-      "completion_tokens": 124,
-      "total_tokens": 774,
+      "completion_tokens": 169,
+      "total_tokens": 819,
       "extra": {}
     },
     {
@@ -142,9 +163,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 918,
-      "completion_tokens": 120,
-      "total_tokens": 1038,
+      "prompt_tokens": 1202,
+      "completion_tokens": 265,
+      "total_tokens": 1467,
       "extra": {}
     },
     {
@@ -153,25 +174,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 597,
-      "completion_tokens": 68,
-      "total_tokens": 665,
+      "prompt_tokens": 718,
+      "completion_tokens": 55,
+      "total_tokens": 773,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 425,
-    "majority_vote_total_tokens": 1235,
-    "scrd_total_tokens": 5848,
-    "scrd_prompt_tokens": 5160,
-    "scrd_completion_tokens": 688,
-    "agent_total_tokens": 3452,
-    "recorder_total_tokens": 1731,
-    "evaluator_total_tokens": 665,
+    "single_agent_total_tokens": 440,
+    "majority_vote_total_tokens": 1282,
+    "scrd_total_tokens": 6763,
+    "scrd_prompt_tokens": 5612,
+    "scrd_completion_tokens": 1151,
+    "agent_total_tokens": 3689,
+    "recorder_total_tokens": 2301,
+    "evaluator_total_tokens": 773,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

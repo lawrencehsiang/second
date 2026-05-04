@@ -1,0 +1,434 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "60600",
+        "60060",
+        "60000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "All answers factor out 1212.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "12 * 5 = 60",
+        "12 * 50 = 600",
+        "Total = 60 + 600 + 6000 = 60600"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "60600",
+        "60600",
+        "48480"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream support answer of 60600 is correct after factoring out 1212.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "12 * 5 = 60",
+        "12 * 50 = 600",
+        "Total = 1212 * (55 - 15) = 48480"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "48480",
+        "60600",
+        "40080"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Factoring out 1212 simplifies the expression to 48480.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Factoring out 1212 simplifies the expression to 60600.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Factoring out 1212 simplifies the expression to 40080.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "12 * 5 = 60",
+        "12 * 50 = 600",
+        "Total = 1212 * (55 - 15)"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "60600",
+        "48480",
+        "48480"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Factoring out 1212 simplifies the expression to 60600.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Factoring out 1212 simplifies the expression to 48480.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The simplified expression is verified to be 48480.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the final simplified value of the expression.",
+          "why_still_open": "Agents A and B support 60600, while C supports 48480.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "12 * 5 = 60",
+        "12 * 50 = 600",
+        "Total = 1212 * (55 - 15)",
+        "Factoring out 1212 simplifies to 48480",
+        "Factoring out 1212 simplifies to 60600"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "48480",
+        "48480",
+        "48480"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Factoring out 1212 simplifies the expression to 1212 * (55 - 15), resulting in 48480.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Factoring out 1212 simplifies the expression to 40 * 1212, resulting in 48480.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Factoring out 1212 correctly yields 1212 * (55 - 15) = 48480, refuting the minority answer of 60600.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "12 * 5 = 60",
+        "12 * 50 = 600",
+        "Total = 1212 * (55 - 15)",
+        "Factoring out 1212 simplifies to 48480",
+        "(55-15) * 1212 = 40 * 1212"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 333,
+      "completion_tokens": 39,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 320,
+      "completion_tokens": 36,
+      "total_tokens": 356,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 331,
+      "completion_tokens": 39,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 599,
+      "completion_tokens": 121,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 599,
+      "completion_tokens": 48,
+      "total_tokens": 647,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 596,
+      "completion_tokens": 147,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 610,
+      "completion_tokens": 134,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1004,
+      "completion_tokens": 135,
+      "total_tokens": 1139,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 612,
+      "completion_tokens": 158,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 609,
+      "completion_tokens": 161,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 623,
+      "completion_tokens": 127,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1127,
+      "completion_tokens": 214,
+      "total_tokens": 1341,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 719,
+      "completion_tokens": 151,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 716,
+      "completion_tokens": 150,
+      "total_tokens": 866,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 730,
+      "completion_tokens": 124,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1209,
+      "completion_tokens": 318,
+      "total_tokens": 1527,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 831,
+      "completion_tokens": 166,
+      "total_tokens": 997,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 828,
+      "completion_tokens": 121,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 842,
+      "completion_tokens": 211,
+      "total_tokens": 1053,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0138",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1379,
+      "completion_tokens": 314,
+      "total_tokens": 1693,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 372,
+    "majority_vote_total_tokens": 1098,
+    "scrd_total_tokens": 17531,
+    "scrd_prompt_tokens": 14617,
+    "scrd_completion_tokens": 2914,
+    "agent_total_tokens": 11111,
+    "recorder_total_tokens": 6420,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

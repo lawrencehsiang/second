@@ -1,0 +1,538 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "400",
+        "100",
+        "400"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Maximize area with a given perimeter.",
+          "claim_type": "constraint",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on 400, but B suggests 100.",
+          "why_still_open": "Different interpretations of maximizing area under perimeter constraint.",
+          "involved_answers": [
+            "400",
+            "100"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Maximize area with perimeter constraint.",
+        "Area = 20*20 = 400",
+        "Perimeter = 4*side => side = 50, Area = 2500 > 400",
+        "Perimeter = 100, side = 25, Area = 625 > 400",
+        "For rectangles, max area occurs at square shape."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "100",
+        "2500",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Maximum area under a given perimeter is achieved with a square shape.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Maximize area with perimeter constraint.",
+        "Area = 10*10 = 100",
+        "Perimeter = 4*side => side = 10, Area = 100",
+        "Square shape maximizes area for a given perimeter.",
+        "Maximum area = 2500 with a square side of 25 feet."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "100",
+        "625",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The maximum area for a given perimeter is achieved with a square shape.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct approach is to maximize the area of a rectangle with a given perimeter, leading to a square shape.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Maximize area with perimeter constraint.",
+        "Area = 10*10 = 100",
+        "Perimeter = 4*side => side = 10, Area = 100",
+        "Square shape maximizes area for a given perimeter.",
+        "Maximum area = 625 with a square side of 25 feet."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "625",
+        "100",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The maximum area for a given perimeter is achieved with a square shape.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct approach is to consider the square shape, as it maximizes the area for a given perimeter, leading to an area of 625 square feet with a side length of 25 feet.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Square shape maximizes area for a given perimeter.",
+        "Side length = 25 feet, Area = 625 square feet.",
+        "Area = 10*10 = 100 square feet.",
+        "Perimeter = 40 feet, side = 10 feet.",
+        "Square shape results in maximum area."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "625",
+        "625",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The maximum area is 100 square feet with a side length of 10 feet.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Square shape maximizes area for a given perimeter.",
+        "Side length = 10 feet, Area = 100 square feet.",
+        "Area = 10*10 = 100 square feet.",
+        "Maximum area with 40 feet of fencing is 100 square feet.",
+        "Perimeter = 40 feet, side = 10 feet."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_started",
+      "start_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 5
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 33,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 30,
+      "total_tokens": 356,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 36,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 581,
+      "completion_tokens": 226,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 827,
+      "completion_tokens": 126,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 824,
+      "completion_tokens": 129,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 838,
+      "completion_tokens": 201,
+      "total_tokens": 1039,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1222,
+      "completion_tokens": 154,
+      "total_tokens": 1376,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 580,
+      "completion_tokens": 48,
+      "total_tokens": 628,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 981,
+      "completion_tokens": 155,
+      "total_tokens": 1136,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 979,
+      "completion_tokens": 164,
+      "total_tokens": 1143,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 992,
+      "completion_tokens": 165,
+      "total_tokens": 1157,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1189,
+      "completion_tokens": 202,
+      "total_tokens": 1391,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 611,
+      "completion_tokens": 54,
+      "total_tokens": 665,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 1166,
+      "completion_tokens": 183,
+      "total_tokens": 1349,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 1163,
+      "completion_tokens": 151,
+      "total_tokens": 1314,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1177,
+      "completion_tokens": 148,
+      "total_tokens": 1325,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1219,
+      "completion_tokens": 287,
+      "total_tokens": 1506,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 638,
+      "completion_tokens": 44,
+      "total_tokens": 682,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 878,
+      "completion_tokens": 102,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 1063,
+      "completion_tokens": 172,
+      "total_tokens": 1235,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 1062,
+      "completion_tokens": 173,
+      "total_tokens": 1235,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1063,
+      "completion_tokens": 204,
+      "total_tokens": 1267,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1285,
+      "completion_tokens": 219,
+      "total_tokens": 1504,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 750,
+      "completion_tokens": 46,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 1334,
+      "completion_tokens": 142,
+      "total_tokens": 1476,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 1331,
+      "completion_tokens": 174,
+      "total_tokens": 1505,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1347,
+      "completion_tokens": 320,
+      "total_tokens": 1667,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1389,
+      "completion_tokens": 167,
+      "total_tokens": 1556,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 559,
+      "completion_tokens": 69,
+      "total_tokens": 628,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 372,
+    "majority_vote_total_tokens": 1101,
+    "scrd_total_tokens": 32374,
+    "scrd_prompt_tokens": 28050,
+    "scrd_completion_tokens": 4324,
+    "agent_total_tokens": 11470,
+    "recorder_total_tokens": 8140,
+    "evaluator_total_tokens": 1975,
+    "repair_brief_total_tokens": 980,
+    "repair_evaluator_total_tokens": 1424,
+    "repair_agent_total_tokens": 8385
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,413 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial count was 9, then 6 left and 3 joined.",
+        "Initial 9 - 6 who left + 3 who joined = 6"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecked the calculation showing 9 - 6 + 3 = 9.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The calculation results in 6 (A, B, C) vs. 9 (A).",
+          "why_still_open": "Agent A recalculated and got 9, while others got 6.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial count was 9, then 6 left and 3 joined.",
+        "9 - 6 + 3 = 6",
+        "9 - 6 + 3 = 9"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "6",
+        "6",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "9 - 6 + 3 = 6",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "9 - 6 + 3 = 6",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "9 - 6 + 3 = 9",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial count was 9, then 6 left and 3 joined.",
+        "9 - 6 + 3 = 6",
+        "9 - 6 + 3 = 9"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation 9 - 6 + 3 = 6 holds true.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial count was 9, then 6 left and 3 joined, resulting in 6.",
+        "9 - 6 + 3 = 6",
+        "The correct calculation is 9 - 6 + 3 = 6."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial calculation was incorrect and should be 9 - 6 + 3 = 6.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The calculation 9 - 6 + 3 = 6 is accurate following the standard order of operations.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Given the context, the final number of people in line is 6 despite an expected answer not being provided.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The correct sequence is 9 - 6 + 3, resulting in 6 people remaining.",
+        "9 - 6 + 3 = 6 follows the standard order of operations.",
+        "The final number of people in line is 6 given the context."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 352,
+      "completion_tokens": 41,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 339,
+      "completion_tokens": 42,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 350,
+      "completion_tokens": 39,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 69,
+      "total_tokens": 664,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 615,
+      "completion_tokens": 146,
+      "total_tokens": 761,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 612,
+      "completion_tokens": 50,
+      "total_tokens": 662,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 626,
+      "completion_tokens": 42,
+      "total_tokens": 668,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 845,
+      "completion_tokens": 193,
+      "total_tokens": 1038,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 825,
+      "completion_tokens": 127,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 822,
+      "completion_tokens": 115,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 836,
+      "completion_tokens": 129,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1116,
+      "completion_tokens": 190,
+      "total_tokens": 1306,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 799,
+      "completion_tokens": 156,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 796,
+      "completion_tokens": 159,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 810,
+      "completion_tokens": 182,
+      "total_tokens": 992,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1233,
+      "completion_tokens": 130,
+      "total_tokens": 1363,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 706,
+      "completion_tokens": 133,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 703,
+      "completion_tokens": 122,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 717,
+      "completion_tokens": 136,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0110",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1067,
+      "completion_tokens": 234,
+      "total_tokens": 1301,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 393,
+    "majority_vote_total_tokens": 1163,
+    "scrd_total_tokens": 17199,
+    "scrd_prompt_tokens": 14764,
+    "scrd_completion_tokens": 2435,
+    "agent_total_tokens": 11527,
+    "recorder_total_tokens": 5672,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

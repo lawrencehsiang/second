@@ -1,0 +1,378 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "20",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial 6, minus 4 graded, plus 18 new = 20",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Start with 6, subtract 4, then add 18.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Initial 6, minus 4 graded, plus 18 new = 10",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C have conflicting answers.",
+          "why_still_open": "Different calculations lead to different results.",
+          "involved_answers": [
+            "20",
+            "10"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial 6, minus 4 graded, plus 18 new = 20",
+        "Start with 6, subtract 4, then add 18.",
+        "Initial 6, minus 4 graded, plus 18 new = 10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "10",
+        "20",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking confirms the initial 6, minus 4 graded, plus 18 new = 10.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The revised calculation shows 6 - 4 + 18 = 20.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The accurate count is 20, as 6 - 4 + 18 = 20.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "6 - 4 + 18 = 10",
+        "6 - 4 + 18 = 20",
+        "The accurate count is 20"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "20",
+        "20",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct calculation is 6 - 4 + 18 = 20.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream support is correct: 6 - 4 + 18 = 20.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct calculation is 6 - 4 + 18 = 20. The minority answer of 10 is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "6 - 4 + 18 = 20",
+        "The correct calculation is 6 - 4 + 18 = 20",
+        "The minority answer of 10 is incorrect"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "20",
+        "20",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation 6 - 4 + 18 = 20 is confirmed by straightforward arithmetic.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "6 - 4 + 18 = 20",
+        "The correct calculation is 6 - 4 + 18 = 20",
+        "The minority answer of 10 is incorrect"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 4,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 344,
+      "completion_tokens": 41,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 331,
+      "completion_tokens": 37,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 342,
+      "completion_tokens": 44,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 271,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 706,
+      "completion_tokens": 136,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 703,
+      "completion_tokens": 108,
+      "total_tokens": 811,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 717,
+      "completion_tokens": 129,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1201,
+      "completion_tokens": 216,
+      "total_tokens": 1417,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 680,
+      "completion_tokens": 49,
+      "total_tokens": 729,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 820,
+      "completion_tokens": 108,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 817,
+      "completion_tokens": 111,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 831,
+      "completion_tokens": 127,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1098,
+      "completion_tokens": 227,
+      "total_tokens": 1325,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 670,
+      "completion_tokens": 48,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 711,
+      "completion_tokens": 146,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 708,
+      "completion_tokens": 174,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 722,
+      "completion_tokens": 139,
+      "total_tokens": 861,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1230,
+      "completion_tokens": 129,
+      "total_tokens": 1359,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0107",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 563,
+      "completion_tokens": 48,
+      "total_tokens": 611,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 385,
+    "majority_vote_total_tokens": 1139,
+    "scrd_total_tokens": 16086,
+    "scrd_prompt_tokens": 13798,
+    "scrd_completion_tokens": 2288,
+    "agent_total_tokens": 9052,
+    "recorder_total_tokens": 4976,
+    "evaluator_total_tokens": 2058,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

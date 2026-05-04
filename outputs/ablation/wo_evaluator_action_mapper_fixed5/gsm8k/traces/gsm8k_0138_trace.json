@@ -1,0 +1,442 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total towels used (3*4*7), then divide by washing machine capacity (14 towels per load).",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total towels used, then divide by washing machine capacity.",
+        "3*4*7 = 84 towels, 84 / 14 = 6 loads"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate using the total number of towels used and the washing machine capacity.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The answer of 9 towels per day versus the mainstream support's answer of 6 loads.",
+          "why_still_open": "The calculation methods differ, leading to conflicting results.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate total towels used, then divide by washing machine capacity.",
+        "3*4*7 = 84 towels, 84 / 14 = 6 loads",
+        "New answer of 9 towels per day recalculates differently."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "6",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculating with the correct total towels used and washing machine capacity resolves the conflict.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The previous answer of 6 loads was based on a misunderstanding of daily towel usage.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total towels used: 3*4*7 = 84 towels.",
+        "Washing machine capacity: 14 towels per load.",
+        "84 towels / 14 towels per load = 6 loads.",
+        "Recalculate using the correct total towels and washing machine capacity.",
+        "Resolve the conflict with the accurate calculation method."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "6",
+        "9",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculating with the correct understanding of daily towel usage confirms 6 full loads are needed.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous answer of 9 was based on a misunderstanding of daily towel usage.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluating the total number of towels and washing machine capacity leads to the correct answer of 6 loads.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The previous mainstream support of 9 loads conflicts with the minority objection of 6 loads.",
+          "why_still_open": "Re-evaluation is needed to confirm the correct number of loads.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total towels used: 84 towels.",
+        "Washing machine capacity: 14 towels per load.",
+        "84 towels / 14 towels per load = 6 loads.",
+        "Correct answer: 6 loads due to accurate calculation.",
+        "Conflict between 6 and 9 loads remains."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "6",
+        "6",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous mainstream support of 6 is confirmed correct through recalculated daily towel usage.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 9 was incorrect due to a misunderstanding of daily towel usage.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 9 remains unverified despite being partially resolved.",
+          "why_still_open": "Further verification is needed to confirm its accuracy.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Each person uses one towel per day, leading to 84 towels over 7 days.",
+        "Washing machine capacity: 14 towels per load.",
+        "84 towels / 14 towels per load = 6 loads.",
+        "The previous answer of 9 was incorrect due to misunderstanding daily towel usage.",
+        "Verification of the minority answer of 9 is pending."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 373,
+      "completion_tokens": 33,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 360,
+      "completion_tokens": 33,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 371,
+      "completion_tokens": 49,
+      "total_tokens": 420,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 125,
+      "total_tokens": 719,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 646,
+      "completion_tokens": 112,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 643,
+      "completion_tokens": 33,
+      "total_tokens": 676,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 657,
+      "completion_tokens": 126,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 926,
+      "completion_tokens": 195,
+      "total_tokens": 1121,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 847,
+      "completion_tokens": 174,
+      "total_tokens": 1021,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 844,
+      "completion_tokens": 132,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 858,
+      "completion_tokens": 106,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1122,
+      "completion_tokens": 197,
+      "total_tokens": 1319,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 833,
+      "completion_tokens": 175,
+      "total_tokens": 1008,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 830,
+      "completion_tokens": 110,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 844,
+      "completion_tokens": 117,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1129,
+      "completion_tokens": 303,
+      "total_tokens": 1432,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 834,
+      "completion_tokens": 186,
+      "total_tokens": 1020,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 831,
+      "completion_tokens": 115,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 845,
+      "completion_tokens": 152,
+      "total_tokens": 997,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1299,
+      "completion_tokens": 260,
+      "total_tokens": 1559,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 406,
+    "majority_vote_total_tokens": 1219,
+    "scrd_total_tokens": 18419,
+    "scrd_prompt_tokens": 15686,
+    "scrd_completion_tokens": 2733,
+    "agent_total_tokens": 12269,
+    "recorder_total_tokens": 6150,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

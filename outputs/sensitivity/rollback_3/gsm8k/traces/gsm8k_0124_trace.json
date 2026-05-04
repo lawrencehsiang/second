@@ -1,0 +1,476 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "200",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Cost per can difference between two deals is calculated.",
+          "claim_type": "explanation",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cost per can = $200 / 4 = $50",
+        "Cost per can = $50 / 1 = $50",
+        "Deals differ in cost per can."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "50",
+        "75",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected cost per can calculation for the first deal.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Provided a new cost per can calculation for the second deal.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculating to verify the mainstream support's answer of 50 cents per can.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Verification of the mainstream support's cost per can calculation of 50 cents.",
+          "why_still_open": "Recalculation by C is ongoing.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Cost per can = $50 / 1 = $50",
+        "Cost per can = $75 / 3 = $25",
+        "Deals differ in cost per can."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "25",
+        "450",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated the cost per can for the first deal correctly to 25 cents.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "Confirmed the cost per can for the first deal is indeed 25 cents, aligning with the corrected calculation.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cost per can = $12 / 48 cans = $0.25",
+        "Correct cost per can = 25 cents",
+        "First deal cost per can verified as 25 cents"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "25",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The cost per can for the first deal is confirmed to be 25 cents, resolving the conflict.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support and key rebuttal have both verified that the cost per can for the first deal is 25 cents.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct cost per can for the first deal is 25 cents, as recalculated in round 3.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cost per can = $12 / 48 cans = $0.25",
+        "Correct cost per can = 25 cents",
+        "First deal cost per can verified as 25 cents",
+        "Grocery store offers same cans for 50 cents each, making it 25 cents more expensive per can",
+        "Recalculated the cost per can for the first deal correctly to 25 cents"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "25",
+        "50",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The cost per can for the first deal is confirmed to be 25 cents, with no conflicts remaining.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream support has confirmed the cost per can for the first deal is 25 cents, and we now need to calculate for the second deal.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The cost per can for the first deal is recalculated and confirmed to be 25 cents.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a discrepancy between the cost per can of 25 cents for the first deal and 50 cents for the second deal.",
+          "why_still_open": "The calculation for the second deal is not yet completed.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Cost per can = $12 / 48 cans = $0.25",
+        "First deal cost per can = 25 cents",
+        "Recalculated the cost per can for the first deal correctly to 25 cents",
+        "Grocery store offers same cans for 50 cents each, making it 25 cents more expensive per can",
+        "Second deal cost per can needs to be calculated"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 35,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 35,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 38,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 116,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 639,
+      "completion_tokens": 108,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 635,
+      "completion_tokens": 37,
+      "total_tokens": 672,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 649,
+      "completion_tokens": 103,
+      "total_tokens": 752,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 910,
+      "completion_tokens": 252,
+      "total_tokens": 1162,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 703,
+      "completion_tokens": 54,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 833,
+      "completion_tokens": 120,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 830,
+      "completion_tokens": 119,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 845,
+      "completion_tokens": 147,
+      "total_tokens": 992,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1196,
+      "completion_tokens": 175,
+      "total_tokens": 1371,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 670,
+      "completion_tokens": 42,
+      "total_tokens": 712,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 851,
+      "completion_tokens": 110,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 849,
+      "completion_tokens": 142,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 862,
+      "completion_tokens": 122,
+      "total_tokens": 984,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1094,
+      "completion_tokens": 274,
+      "total_tokens": 1368,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 708,
+      "completion_tokens": 51,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 753,
+      "completion_tokens": 51,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 750,
+      "completion_tokens": 152,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 764,
+      "completion_tokens": 123,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1152,
+      "completion_tokens": 347,
+      "total_tokens": 1499,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 742,
+      "completion_tokens": 52,
+      "total_tokens": 794,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 413,
+    "majority_vote_total_tokens": 1227,
+    "scrd_total_tokens": 20950,
+    "scrd_prompt_tokens": 18145,
+    "scrd_completion_tokens": 2805,
+    "agent_total_tokens": 11821,
+    "recorder_total_tokens": 6107,
+    "evaluator_total_tokens": 3022,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,358 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "15",
+        "16",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Herbert will be 16 next year.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Herbert's future age discrepancy.",
+          "why_still_open": "Different agents have different predictions for Herbert's age next year.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Kris is 24, Herbert is 10 years younger.",
+        "Next year, Herbert will be 15.",
+        "Kris's age +1 = 25.",
+        "Herbert's age = Kris's age -10.",
+        "Herbert's age next year = 15+1 = 16."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "15",
+        "15",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Herbert is currently 14 years old.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Herbert will be 15 next year.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Herbert will be 16 next year.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Kris is 24, Herbert is 10 years younger.",
+        "Herbert's age = Kris's age -10.",
+        "Next year, Herbert will be 15.",
+        "Herbert's age next year = 15+1 = 16.",
+        "Herbert is currently 14 years old."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Kris is 24, Herbert is 10 years younger.",
+        "Herbert's age = Kris's age -10.",
+        "Next year, Herbert will be 15.",
+        "Herbert's age next year = 15+1 = 16.",
+        "Herbert is currently 14 years old."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 55,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 64,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 62,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 663,
+      "completion_tokens": 201,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 790,
+      "completion_tokens": 110,
+      "total_tokens": 900,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 787,
+      "completion_tokens": 103,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 801,
+      "completion_tokens": 111,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1083,
+      "completion_tokens": 220,
+      "total_tokens": 1303,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 639,
+      "completion_tokens": 44,
+      "total_tokens": 683,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 794,
+      "completion_tokens": 187,
+      "total_tokens": 981,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 791,
+      "completion_tokens": 114,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 805,
+      "completion_tokens": 106,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1179,
+      "completion_tokens": 258,
+      "total_tokens": 1437,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 53,
+      "total_tokens": 645,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 859,
+      "completion_tokens": 94,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 865,
+      "completion_tokens": 136,
+      "total_tokens": 1001,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 864,
+      "completion_tokens": 139,
+      "total_tokens": 1003,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 865,
+      "completion_tokens": 152,
+      "total_tokens": 1017,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1175,
+      "completion_tokens": 107,
+      "total_tokens": 1282,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 615,
+      "completion_tokens": 53,
+      "total_tokens": 668,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1183,
+    "scrd_total_tokens": 17538,
+    "scrd_prompt_tokens": 15169,
+    "scrd_completion_tokens": 2369,
+    "agent_total_tokens": 6682,
+    "recorder_total_tokens": 4886,
+    "evaluator_total_tokens": 1328,
+    "repair_brief_total_tokens": 953,
+    "repair_evaluator_total_tokens": 668,
+    "repair_agent_total_tokens": 3021
+  }
+}

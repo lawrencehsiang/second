@@ -1,0 +1,304 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "49",
+        "24",
+        "49"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Dexter is 8 years old.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Darcy's age is double Dexter's.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Dallas's age last year was triple Darcy's.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Dallas is now 49 years old.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Dexter is 8.",
+        "Darcy is 16.",
+        "Dallas was 48 last year.",
+        "Dallas is now 49.",
+        "Darcy is 2 times Dexter."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "48",
+        "49",
+        "48"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed Dallas's age to be 48 based on the relationships.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support claim for Dallas's age is now updated to 48.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Confirmed Dallas's age is 48 by re-evaluating the constraints.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Dexter is 8.",
+        "Darcy is 16.",
+        "Dallas was 48 last year.",
+        "Dallas is now 48.",
+        "Darcy is 2 times Dexter."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "49",
+        "48",
+        "48"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated Dallas's age to be 48 based on the relationships and previous calculations.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "Updated the mainstream support to align with the recalculated age of 48.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the final age of Dallas: 49 vs. 48.",
+          "why_still_open": "The minority answer of 49 is still not fully resolved.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Dexter is 8.",
+        "Darcy is 16.",
+        "Dallas was 48 last year.",
+        "Dallas is now 49.",
+        "Darcy is 2 times Dexter."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 68,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 32,
+      "total_tokens": 365,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 68,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 644,
+      "completion_tokens": 218,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 605,
+      "completion_tokens": 136,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 602,
+      "completion_tokens": 118,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 616,
+      "completion_tokens": 105,
+      "total_tokens": 721,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1121,
+      "completion_tokens": 205,
+      "total_tokens": 1326,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 653,
+      "completion_tokens": 54,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 807,
+      "completion_tokens": 127,
+      "total_tokens": 934,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 804,
+      "completion_tokens": 147,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 818,
+      "completion_tokens": 114,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1145,
+      "completion_tokens": 235,
+      "total_tokens": 1380,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 633,
+      "completion_tokens": 53,
+      "total_tokens": 686,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 414,
+    "majority_vote_total_tokens": 1191,
+    "scrd_total_tokens": 11151,
+    "scrd_prompt_tokens": 9471,
+    "scrd_completion_tokens": 1680,
+    "agent_total_tokens": 6190,
+    "recorder_total_tokens": 3568,
+    "evaluator_total_tokens": 1393,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

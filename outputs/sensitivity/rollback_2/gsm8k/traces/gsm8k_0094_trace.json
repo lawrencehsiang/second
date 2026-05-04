@@ -1,0 +1,210 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "9600",
+        "12800",
+        "9600"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total cost is calculated by summing individual item costs.",
+          "claim_type": "constraint",
+          "related_answer": "9600"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents agree on total cost but disagree on intermediate values.",
+          "why_still_open": "Different agents provided different intermediate calculations without clear justification.",
+          "involved_answers": [
+            "9600",
+            "12800"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Beef cost + Chicken cost = Total cost",
+        "Quantity * Price = Cost per item",
+        "Summing up: 9600 + 9600 = 19200",
+        "Summing up: 12800 + 12800 = 25600",
+        "5 kg beef @ $16/kg + 4 kg chicken @ $40/kg"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "14400",
+        "14000",
+        "9600"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate intermediate values based on clear quantities and prices.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Intermediate values for beef and chicken are 8000 and 6000 respectively, summing to 14000.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify intermediate calculations to ensure consistency with the total cost.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on intermediate values despite agreement on the total cost.",
+          "why_still_open": "Agents have different intermediate calculations without clear justification.",
+          "involved_answers": [
+            "14400",
+            "14000",
+            "9600"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Beef cost + Chicken cost = Total cost",
+        "1000 kg beef @ $8/kg + 2000 kg chicken @ $3/kg",
+        "8000 + 6000 = 14000",
+        "Revised calculation ensures consistency with total cost of $9600",
+        "Intermediate values should align with given quantities and prices"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 356,
+      "completion_tokens": 35,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 343,
+      "completion_tokens": 36,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 354,
+      "completion_tokens": 45,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 229,
+      "total_tokens": 834,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 720,
+      "completion_tokens": 111,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 718,
+      "completion_tokens": 151,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 731,
+      "completion_tokens": 95,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1158,
+      "completion_tokens": 326,
+      "total_tokens": 1484,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 716,
+      "completion_tokens": 48,
+      "total_tokens": 764,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 391,
+    "majority_vote_total_tokens": 1169,
+    "scrd_total_tokens": 6777,
+    "scrd_prompt_tokens": 5701,
+    "scrd_completion_tokens": 1076,
+    "agent_total_tokens": 3695,
+    "recorder_total_tokens": 2318,
+    "evaluator_total_tokens": 764,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

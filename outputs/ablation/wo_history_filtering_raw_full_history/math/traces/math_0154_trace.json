@@ -1,0 +1,361 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "28",
+        "52",
+        "52"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum distances for drops and bounces.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 28 + 52 = 80 meters",
+        "Drop + Bounce = Distance",
+        "Round 52 to 52 meters"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "80",
+        "80",
+        "58"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum the distances of each bounce correctly.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 16 + 12 + 12 + 9 + 9 = 58 meters",
+        "Bounce pattern: 16, 12, 9, 9",
+        "Summing the correct bounce distances gives 58 meters",
+        "Correct calculation follows the bouncing pattern",
+        "Initial drop + first two bounces = 58 meters"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "58",
+        "58",
+        "58"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the total distance using the correct bouncing pattern.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Resolved the conflict by summing the distances of each bounce correctly.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The total distance is calculated by summing the initial drop and the subsequent bounces following the correct pattern.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 16 + 12 + 12 + 9 + 9 = 58 meters",
+        "Bounce pattern: 16, 12, 9, 9",
+        "Summing the correct bounce distances gives 58 meters",
+        "Correct calculation follows the bouncing pattern",
+        "Initial drop + first two bounces = 58 meters"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 377,
+      "completion_tokens": 36,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 364,
+      "completion_tokens": 34,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 375,
+      "completion_tokens": 40,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 106,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 751,
+      "completion_tokens": 147,
+      "total_tokens": 898,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 748,
+      "completion_tokens": 98,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 762,
+      "completion_tokens": 143,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1020,
+      "completion_tokens": 223,
+      "total_tokens": 1243,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 658,
+      "completion_tokens": 49,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 750,
+      "completion_tokens": 90,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 617,
+      "completion_tokens": 127,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 616,
+      "completion_tokens": 126,
+      "total_tokens": 742,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 617,
+      "completion_tokens": 193,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1080,
+      "completion_tokens": 153,
+      "total_tokens": 1233,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 690,
+      "completion_tokens": 51,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 862,
+      "completion_tokens": 120,
+      "total_tokens": 982,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 859,
+      "completion_tokens": 87,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 875,
+      "completion_tokens": 95,
+      "total_tokens": 970,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 953,
+      "completion_tokens": 243,
+      "total_tokens": 1196,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 677,
+      "completion_tokens": 60,
+      "total_tokens": 737,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 413,
+    "majority_vote_total_tokens": 1226,
+    "scrd_total_tokens": 16464,
+    "scrd_prompt_tokens": 14243,
+    "scrd_completion_tokens": 2221,
+    "agent_total_tokens": 3875,
+    "recorder_total_tokens": 4370,
+    "evaluator_total_tokens": 707,
+    "repair_brief_total_tokens": 840,
+    "repair_evaluator_total_tokens": 1478,
+    "repair_agent_total_tokens": 5194
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

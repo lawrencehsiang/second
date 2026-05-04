@@ -1,0 +1,448 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7",
+        "10",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Compute AB + A from factored form.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Factorize quadratic to find A and B.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Compare factored forms to identify values.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (7 vs 10).",
+          "why_still_open": "No clear method to resolve discrepancy.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "AB + A = 7",
+        "Factorize to find A and B",
+        "Quadratic: A(B+1) = 7",
+        "A * 2 + A = 7",
+        "10 = A * B"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "10",
+        "7",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recheck factorization for correct values of A and B.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Factorize $12y^2-65y+42$ to get $(4y-7)(3y-6)$.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (7 vs 10 vs 16).",
+          "why_still_open": "Discrepancy in factorization and value identification remains unresolved.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Quadratic: A(B+1) = 10",
+        "Factorize: (4y-7)(3y-6)",
+        "A = 4, B = 3",
+        "AB + A = 16",
+        "Recheck factorization"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "16",
+        "16",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct factorization of $12y^2-65y+42$ is $(4y-7)(3y-6)$, yielding $A=4$ and $B=3$.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 10 is incorrect due to an incorrect factorization.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between the majority answer (16) and the minority answer (10).",
+          "why_still_open": "The minority answer of 10 remains unverified despite rechecks.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Factorize: (4y-7)(3y-6)",
+        "A=4, B=3",
+        "AB + A = 16",
+        "Recheck factorization",
+        "Minority objection: 10"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "16",
+        "16",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The factorization $(4y-7)(3y-6)$ is correct, leading to $A=4$ and $B=3$, thus $AB + A = 16$.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Factorize: (4y-7)(3y-6)",
+        "A=4, B=3",
+        "AB + A = 16",
+        "Correct factorization verified",
+        "Resolving minority answer of 10"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "16",
+        "16",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The factorization $(4y-7)(3y-6)$ is correct, leading to $A=4$ and $B=3$, thus $AB + A = 16$.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Factorize: (4y-7)(3y-6)",
+        "A=4, B=3",
+        "AB + A = 16",
+        "Correct factorization verified",
+        "Resolving discrepancy with minority answer of 10"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0186",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 359,
+      "completion_tokens": 39,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 346,
+      "completion_tokens": 35,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 357,
+      "completion_tokens": 29,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 577,
+      "completion_tokens": 240,
+      "total_tokens": 817,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 711,
+      "completion_tokens": 92,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 709,
+      "completion_tokens": 87,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 722,
+      "completion_tokens": 130,
+      "total_tokens": 852,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1103,
+      "completion_tokens": 257,
+      "total_tokens": 1360,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 830,
+      "completion_tokens": 197,
+      "total_tokens": 1027,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 826,
+      "completion_tokens": 146,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 841,
+      "completion_tokens": 110,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1253,
+      "completion_tokens": 268,
+      "total_tokens": 1521,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 850,
+      "completion_tokens": 190,
+      "total_tokens": 1040,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 847,
+      "completion_tokens": 159,
+      "total_tokens": 1006,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 861,
+      "completion_tokens": 149,
+      "total_tokens": 1010,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1315,
+      "completion_tokens": 155,
+      "total_tokens": 1470,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 858,
+      "completion_tokens": 164,
+      "total_tokens": 1022,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 855,
+      "completion_tokens": 145,
+      "total_tokens": 1000,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 869,
+      "completion_tokens": 184,
+      "total_tokens": 1053,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1181,
+      "completion_tokens": 157,
+      "total_tokens": 1338,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 398,
+    "majority_vote_total_tokens": 1165,
+    "scrd_total_tokens": 19203,
+    "scrd_prompt_tokens": 16270,
+    "scrd_completion_tokens": 2933,
+    "agent_total_tokens": 12697,
+    "recorder_total_tokens": 6506,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

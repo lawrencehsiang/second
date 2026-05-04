@@ -1,0 +1,394 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "280",
+        "280",
+        "280"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing Washington's 140 goats and Paddington's 40 goats.",
+          "claim_type": "explanation",
+          "related_answer": "280"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Washington's 140 goats + Paddington's 40 goats = 280 goats",
+        "Total = 140 + 40"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "320",
+        "320",
+        "320"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Paddington has 180 goats (140 + 40).",
+          "claim_type": "explanation",
+          "related_answer": "320"
+        },
+        {
+          "text": "Adding Washington's 140 goats to Paddington's 180 goats results in 320 goats.",
+          "claim_type": "explanation",
+          "related_answer": "320"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Paddington's 180 goats + Washington's 140 goats = 320 goats",
+        "Total = 180 + 140"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "320",
+        "320",
+        "320"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Paddington has 180 goats, 40 more than Washington's 140 goats.",
+          "claim_type": "explanation",
+          "related_answer": "320"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Paddington has 180 goats (140 + 40)",
+        "Total goats = 140 + 180"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "320",
+        "320",
+        "360"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Paddington has 220 goats, 40 more than the corrected 180 goats.",
+          "claim_type": "rebuttal",
+          "related_answer": "360"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Paddington's goat count should be 180, but it was incorrectly updated to 220.",
+          "why_still_open": "Agent C's update of Paddington's goat count to 220 was not in alignment with the original problem statement.",
+          "involved_answers": [
+            "360"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Paddington has 180 goats (140 + 40)",
+        "Total goats = 140 + 180",
+        "Corrected Paddington's goat count to 180"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "360",
+        "360",
+        "320"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Corrected Paddington's goat count to 180",
+        "Paddington has 180 goats (140 + 40)",
+        "Total goats = 140 + 180"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 49,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 50,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 49,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 627,
+      "completion_tokens": 118,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 143,
+      "total_tokens": 752,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 606,
+      "completion_tokens": 63,
+      "total_tokens": 669,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 620,
+      "completion_tokens": 170,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1036,
+      "completion_tokens": 173,
+      "total_tokens": 1209,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 721,
+      "completion_tokens": 181,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 718,
+      "completion_tokens": 138,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 732,
+      "completion_tokens": 193,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1243,
+      "completion_tokens": 119,
+      "total_tokens": 1362,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 613,
+      "completion_tokens": 134,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 610,
+      "completion_tokens": 138,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 624,
+      "completion_tokens": 152,
+      "total_tokens": 776,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1077,
+      "completion_tokens": 214,
+      "total_tokens": 1291,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 842,
+      "completion_tokens": 116,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 839,
+      "completion_tokens": 115,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 853,
+      "completion_tokens": 110,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1117,
+      "completion_tokens": 82,
+      "total_tokens": 1199,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 388,
+    "majority_vote_total_tokens": 1150,
+    "scrd_total_tokens": 16996,
+    "scrd_prompt_tokens": 14489,
+    "scrd_completion_tokens": 2507,
+    "agent_total_tokens": 11190,
+    "recorder_total_tokens": 5806,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

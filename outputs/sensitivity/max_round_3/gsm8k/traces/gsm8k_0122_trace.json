@@ -1,0 +1,215 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total blocks filled initially.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Determine remaining blocks and time needed with additional workers.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Add contribution from additional workers.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers given by agents A, B, and C.",
+          "why_still_open": "Agents used different approaches to solve the problem, leading to conflicting answers.",
+          "involved_answers": [
+            "12",
+            "8"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate total blocks filled initially, then calculate remaining blocks, and finally determine time taken by all working together.",
+        "Calculate total blocks filled in first 4 hours, then determine remaining blocks and time needed with additional workers.",
+        "Calculate initial load, then add contribution from additional workers, check if full."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the problem based on consistent rates and total capacity.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Reconsider the combined effort of all workers after 4 hours.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the combined work rate and total time taken.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the correct answer.",
+          "why_still_open": "Re-evaluation is ongoing, but results are not yet conclusive.",
+          "involved_answers": [
+            "12",
+            "10"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Re-calculate using consistent rates and total capacity.",
+        "Account for the additional 6 workers after 4 hours.",
+        "Verify the combined work rate and total time taken."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 43,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 42,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 39,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 258,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 735,
+      "completion_tokens": 99,
+      "total_tokens": 834,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 731,
+      "completion_tokens": 96,
+      "total_tokens": 827,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 745,
+      "completion_tokens": 97,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1102,
+      "completion_tokens": 247,
+      "total_tokens": 1349,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 696,
+      "completion_tokens": 52,
+      "total_tokens": 748,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 419,
+    "majority_vote_total_tokens": 1237,
+    "scrd_total_tokens": 6699,
+    "scrd_prompt_tokens": 5726,
+    "scrd_completion_tokens": 973,
+    "agent_total_tokens": 3740,
+    "recorder_total_tokens": 2211,
+    "evaluator_total_tokens": 748,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

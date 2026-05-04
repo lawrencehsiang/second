@@ -1,0 +1,542 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "40",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total time and distance to determine return speed.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Use the round trip average speed formula to calculate return speed.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Apply the two-segment average speed formula to find the return speed.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total time = 2 * 20 min = 40 min",
+        "Total distance = 2 * 12 km = 24 km",
+        "Return speed = 24 km / 40 min = 60 km/hr"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "36",
+        "48",
+        "48"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Focus on the relationship between speeds, distances, and times for the round trip.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Use the average speed formula for the round trip to derive the return speed.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the correct method to calculate the return speed.",
+          "why_still_open": "Different agents have different interpretations of how to apply the average speed formula.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total distance = 2 * 12 km = 24 km",
+        "Total time = 2 * 20 min = 40 min",
+        "Return speed = 24 km / 40 min = 60 km/hr (incorrect)",
+        "Correct average speed = 36 km/hr",
+        "Using average speed: Return speed = 36 km/hr"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "48",
+        "48",
+        "48"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolved the disagreement on the correct method to calculate the return speed using the average speed formula.",
+          "claim_type": "rebuttal",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total distance = 2 * 12 km = 24 km",
+        "Total time = 2 * 20 min = 40 min",
+        "Return speed = 24 km / 40 min = 60 km/hr (incorrect)",
+        "Correct average speed = 36 km/hr",
+        "Using average speed: Return speed = 36 km/hr"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "48",
+        "48",
+        "48"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total distance = 2 * 12 km = 24 km",
+        "Total time = 2 * 20 min = 40 min",
+        "Return speed = 24 km / 40 min = 60 km/hr (incorrect)",
+        "Correct average speed = 36 km/hr",
+        "Using average speed: Return speed = 36 km/hr"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "36",
+        "48",
+        "48"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Given the average speed of 45 mph for the round trip, the total time is 240 miles / 45 mph = 5.333 hours.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The time for the first leg is 120 miles / 60 mph = 2 hours, leaving 3.333 hours for the return trip.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The return speed is calculated as 120 miles / 3.333 hours = 36 mph.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total distance = 2 * 12 km = 24 km",
+        "Total time = 2 * 20 min = 40 min",
+        "Return speed = 24 km / 40 min = 60 km/hr (incorrect)",
+        "Correct average speed = 36 km/hr",
+        "Using average speed: Return speed = 36 km/hr"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 387,
+      "completion_tokens": 32,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 374,
+      "completion_tokens": 35,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 385,
+      "completion_tokens": 40,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 204,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 827,
+      "completion_tokens": 117,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 824,
+      "completion_tokens": 119,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 838,
+      "completion_tokens": 123,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1107,
+      "completion_tokens": 199,
+      "total_tokens": 1306,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 678,
+      "completion_tokens": 65,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 828,
+      "completion_tokens": 79,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 616,
+      "completion_tokens": 144,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 615,
+      "completion_tokens": 76,
+      "total_tokens": 691,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 616,
+      "completion_tokens": 156,
+      "total_tokens": 772,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1108,
+      "completion_tokens": 265,
+      "total_tokens": 1373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 761,
+      "completion_tokens": 75,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 1026,
+      "completion_tokens": 134,
+      "total_tokens": 1160,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 1023,
+      "completion_tokens": 126,
+      "total_tokens": 1149,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1039,
+      "completion_tokens": 124,
+      "total_tokens": 1163,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1121,
+      "completion_tokens": 165,
+      "total_tokens": 1286,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 620,
+      "completion_tokens": 64,
+      "total_tokens": 684,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 1183,
+      "completion_tokens": 101,
+      "total_tokens": 1284,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 1180,
+      "completion_tokens": 94,
+      "total_tokens": 1274,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1196,
+      "completion_tokens": 112,
+      "total_tokens": 1308,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1000,
+      "completion_tokens": 119,
+      "total_tokens": 1119,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 548,
+      "completion_tokens": 46,
+      "total_tokens": 594,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 1308,
+      "completion_tokens": 238,
+      "total_tokens": 1546,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 1305,
+      "completion_tokens": 163,
+      "total_tokens": 1468,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 1321,
+      "completion_tokens": 125,
+      "total_tokens": 1446,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1152,
+      "completion_tokens": 296,
+      "total_tokens": 1448,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0128",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 682,
+      "completion_tokens": 61,
+      "total_tokens": 743,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 419,
+    "majority_vote_total_tokens": 1253,
+    "scrd_total_tokens": 29954,
+    "scrd_prompt_tokens": 26257,
+    "scrd_completion_tokens": 3697,
+    "agent_total_tokens": 4101,
+    "recorder_total_tokens": 7325,
+    "evaluator_total_tokens": 743,
+    "repair_brief_total_tokens": 907,
+    "repair_evaluator_total_tokens": 2857,
+    "repair_agent_total_tokens": 14021
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

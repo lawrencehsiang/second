@@ -4,10 +4,10 @@ Definition: preserve the internal State Recorder, evaluator, action mapper, roll
 
 | Dataset | N | Full Acc | Raw-History Acc | Δ Acc | Full wins | Ablation wins | Net Full-Ablation | Full tok | Raw-History tok |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| math | 79 | 63.29% | 48.10% | -15.19 pp | 17 | 5 | 12 | 10128.0 | 13309.9 |
-| gsm8k | 80 | 72.50% | 57.50% | -15.00 pp | 16 | 4 | 12 | 9381.3 | 11691.1 |
-| multiarith | 80 | 93.75% | 80.00% | -13.75 pp | 13 | 2 | 11 | 6411.1 | 10008.3 |
-| OVERALL | 239 | 76.57% | 61.92% | -14.64 pp | 46 | 11 | 35 | 8633.9 | 11662.9 |
+| math | 195 | 56.41% | 49.74% | -6.67 pp | 30 | 17 | 13 | 11385.5 | 13717.8 |
+| gsm8k | 200 | 57.00% | 55.50% | -1.50 pp | 29 | 26 | 3 | 11896.2 | 12187.9 |
+| multiarith | 200 | 89.00% | 84.50% | -4.50 pp | 22 | 13 | 9 | 8140.9 | 9820.8 |
+| OVERALL | 595 | 67.56% | 63.36% | -4.20 pp | 81 | 56 | 25 | 10466.5 | 11893.7 |
 
 ## Notes
 

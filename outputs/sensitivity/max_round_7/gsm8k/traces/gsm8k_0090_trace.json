@@ -1,0 +1,206 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "208",
+        "208",
+        "264"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate weekly borrowings with a 40% increase on Fridays.",
+          "claim_type": "support",
+          "related_answer": "208"
+        },
+        {
+          "text": "Calculate weekly borrowings with increased Friday count.",
+          "claim_type": "support",
+          "related_answer": "208"
+        },
+        {
+          "text": "Calculate daily borrowing, then adjust for Friday, sum weekly.",
+          "claim_type": "support",
+          "related_answer": "264"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods of calculating weekly borrowings.",
+          "why_still_open": "Agents have proposed multiple methods without consensus.",
+          "involved_answers": [
+            "208",
+            "264"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Weekly borrowings = Daily borrowings * 5 + Daily borrowings * 1.4",
+        "Friday count affects total weekly borrowings.",
+        "Daily borrowing = $48"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "200",
+        "208",
+        "224"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The 40% increase on Fridays should be applied only to that day, not the entire week.",
+          "claim_type": "rebuttal",
+          "related_answer": "200"
+        },
+        {
+          "text": "The mainstream method correctly includes the increased Friday borrowing in the weekly calculation.",
+          "claim_type": "support",
+          "related_answer": "208"
+        },
+        {
+          "text": "Increased Friday borrowing is calculated as 40% higher than the daily average of 40 books.",
+          "claim_type": "support",
+          "related_answer": "224"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Weekly borrowings = Daily borrowings * 5 + (Daily borrowings * 1.4)",
+        "Friday borrowing = 40 * 1.4 = 56 books",
+        "Mainstream method includes increased Friday borrowing."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 370,
+      "completion_tokens": 37,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 357,
+      "completion_tokens": 36,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 368,
+      "completion_tokens": 38,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 249,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 730,
+      "completion_tokens": 109,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 727,
+      "completion_tokens": 91,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 741,
+      "completion_tokens": 107,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1106,
+      "completion_tokens": 226,
+      "total_tokens": 1332,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 710,
+      "completion_tokens": 51,
+      "total_tokens": 761,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 407,
+    "majority_vote_total_tokens": 1206,
+    "scrd_total_tokens": 6645,
+    "scrd_prompt_tokens": 5701,
+    "scrd_completion_tokens": 944,
+    "agent_total_tokens": 3711,
+    "recorder_total_tokens": 2173,
+    "evaluator_total_tokens": 761,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

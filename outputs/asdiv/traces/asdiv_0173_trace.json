@@ -1,0 +1,206 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "no",
+        "yes",
+        "no"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Karen's total is less than 75 cents.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Calculate Karen's total money before comparing with the pen price.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on Karen not having enough money, but B suggests she might.",
+          "why_still_open": "Different calculations or interpretations of the problem.",
+          "involved_answers": [
+            "A",
+            "C",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "2 quarters = 50 cents",
+        "3 dimes = 30 cents",
+        "Total = 80 cents",
+        "Pen costs 75 cents",
+        "80 cents < 75 cents"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "yes",
+        "no",
+        "no"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the calculations confirms Karen has 80 cents.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Reevaluating shows Karen's total is less than 75 cents.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The calculations are consistent, confirming Karen lacks sufficient money.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2 quarters = 50 cents",
+        "3 dimes = 30 cents",
+        "Total = 80 cents",
+        "Pen costs 75 cents",
+        "80 cents > 75 cents"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "asdiv_0173",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 54,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0173",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 35,
+      "total_tokens": 361,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0173",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 54,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0173",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 616,
+      "completion_tokens": 220,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0173",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 702,
+      "completion_tokens": 137,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0173",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 699,
+      "completion_tokens": 109,
+      "total_tokens": 808,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0173",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 713,
+      "completion_tokens": 86,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0173",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1096,
+      "completion_tokens": 200,
+      "total_tokens": 1296,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0173",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 653,
+      "completion_tokens": 45,
+      "total_tokens": 698,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 393,
+    "majority_vote_total_tokens": 1145,
+    "scrd_total_tokens": 6421,
+    "scrd_prompt_tokens": 5481,
+    "scrd_completion_tokens": 940,
+    "agent_total_tokens": 3591,
+    "recorder_total_tokens": 2132,
+    "evaluator_total_tokens": 698,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

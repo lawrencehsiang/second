@@ -4,76 +4,50 @@
       "round_id": 1,
       "current_answers": [
         "4320",
-        "12960",
-        "4320"
-      ],
-      "newly_added_claims": [
-        {
-          "text": "Calculate beetles consumed by birds.",
-          "claim_type": "constraint",
-          "related_answer": "C"
-        }
-      ],
-      "unresolved_conflicts": [
-        {
-          "conflict": "Agents A and C agree on 4320, but B calculates 12960.",
-          "why_still_open": "Different calculations lead to different results.",
-          "involved_answers": [
-            "A",
-            "B",
-            "C"
-          ]
-        }
-      ],
-      "key_raw_snippets": [
-        "Beetles = 4320",
-        "Snakes = 12960",
-        "Birds eat 12960 snakes",
-        "Jaguars eat 4320 snakes",
-        "Beetles = Birds * Snakes / Jaguars"
-      ]
-    },
-    {
-      "round_id": 2,
-      "current_answers": [
-        "12960",
         "4320",
         "4320"
       ],
       "newly_added_claims": [
         {
-          "text": "Re-evaluate the calculation based on given relationships.",
-          "claim_type": "rebuttal",
-          "related_answer": "A"
-        },
-        {
-          "text": "Revising the calculation based on the problem structure.",
+          "text": "Calculate snakes eaten by jaguars, then birds eaten by snakes, and finally beetles eaten by birds.",
           "claim_type": "rebuttal",
           "related_answer": "B"
         },
         {
-          "text": "Verify both calculations.",
-          "claim_type": "constraint",
+          "text": "Calculate snakes eaten by jaguars, then birds eaten by snakes, then beetles eaten by birds.",
+          "claim_type": "rebuttal",
           "related_answer": "C"
         }
       ],
       "unresolved_conflicts": [
         {
-          "conflict": "Agents A and C agree on 4320, but B recalculated to 4320.",
-          "why_still_open": "Verification of calculations is necessary to confirm accuracy.",
+          "conflict": "Different sequences for calculating the total number of beetles eaten by jaguars.",
+          "why_still_open": "Agents have different approaches but agree on the final result.",
           "involved_answers": [
-            "A",
             "B",
             "C"
           ]
         }
       ],
       "key_raw_snippets": [
-        "Beetles = 4320",
-        "Snakes = 4320",
-        "Birds eat 4320 snakes",
-        "Jaguars eat 4320 snakes",
-        "Beetles = Birds * Snakes / Jaguars"
+        "Jaguar eats snakes -> snakes eaten = 10",
+        "Snake eats birds -> birds eaten = 60",
+        "Bird eats beetles -> beetles eaten = 4320"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4320",
+        "4320",
+        "4320"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jaguar eats snakes -> snakes eaten = 10",
+        "Snake eats birds -> birds eaten = 60",
+        "Bird eats beetles -> beetles eaten = 4320"
       ]
     }
   ],
@@ -102,8 +76,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 361,
-      "completion_tokens": 39,
-      "total_tokens": 400,
+      "completion_tokens": 43,
+      "total_tokens": 404,
       "extra": {}
     },
     {
@@ -113,8 +87,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 348,
-      "completion_tokens": 45,
-      "total_tokens": 393,
+      "completion_tokens": 48,
+      "total_tokens": 396,
       "extra": {}
     },
     {
@@ -135,8 +109,8 @@
       "component": "recorder",
       "agent_id": null,
       "prompt_tokens": 620,
-      "completion_tokens": 194,
-      "total_tokens": 814,
+      "completion_tokens": 233,
+      "total_tokens": 853,
       "extra": {}
     },
     {
@@ -145,9 +119,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 729,
-      "completion_tokens": 101,
-      "total_tokens": 830,
+      "prompt_tokens": 834,
+      "completion_tokens": 106,
+      "total_tokens": 940,
       "extra": {}
     },
     {
@@ -156,9 +130,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 727,
-      "completion_tokens": 120,
-      "total_tokens": 847,
+      "prompt_tokens": 831,
+      "completion_tokens": 113,
+      "total_tokens": 944,
       "extra": {}
     },
     {
@@ -167,9 +141,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 740,
-      "completion_tokens": 131,
-      "total_tokens": 871,
+      "prompt_tokens": 845,
+      "completion_tokens": 103,
+      "total_tokens": 948,
       "extra": {}
     },
     {
@@ -178,9 +152,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 1110,
-      "completion_tokens": 273,
-      "total_tokens": 1383,
+      "prompt_tokens": 1100,
+      "completion_tokens": 78,
+      "total_tokens": 1178,
       "extra": {}
     },
     {
@@ -189,25 +163,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 687,
-      "completion_tokens": 46,
-      "total_tokens": 733,
+      "prompt_tokens": 557,
+      "completion_tokens": 62,
+      "total_tokens": 619,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 400,
-    "majority_vote_total_tokens": 1199,
-    "scrd_total_tokens": 6677,
-    "scrd_prompt_tokens": 5681,
-    "scrd_completion_tokens": 996,
-    "agent_total_tokens": 3747,
-    "recorder_total_tokens": 2197,
-    "evaluator_total_tokens": 733,
+    "single_agent_total_tokens": 404,
+    "majority_vote_total_tokens": 1206,
+    "scrd_total_tokens": 6688,
+    "scrd_prompt_tokens": 5855,
+    "scrd_completion_tokens": 833,
+    "agent_total_tokens": 4038,
+    "recorder_total_tokens": 2031,
+    "evaluator_total_tokens": 619,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

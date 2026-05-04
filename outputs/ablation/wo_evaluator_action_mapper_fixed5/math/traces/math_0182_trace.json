@@ -1,0 +1,450 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing pre-images and applying the inverse function.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Direct computation of pre-image sums followed by function application.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "f^-1(5) = 2 and f^-1(4) = 3, thus f^-1(2+3) = f^-1(5) = 2.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Divergent answers: A & B suggest 3, C suggests 2.",
+          "why_still_open": "Different interpretations of how to apply the inverse function.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f^-1(5) = 2, f^-1(4) = 3",
+        "Summing pre-images: 2 + 3 = 5",
+        "Applying f^-1 again: f^-1(5) = 2",
+        "Two different results: A, B vs. C",
+        "Inverse function application steps"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2",
+        "3",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correctly identifying pre-images before applying the inverse function.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Aligning with the majority view on the answer.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Applying the inverse function twice to resolve the expression.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f^-1(5) = 2, f^-1(4) = 3",
+        "Summing pre-images: 2 + 3 = 5",
+        "Applying f^-1 again: f^-1(5) = 2",
+        "Correct approach involves two applications of the inverse function",
+        "Resolving to 2 based on correct application of inverse function"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "3",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revisiting the calculation to ensure accuracy and consistency with the given values.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Evaluating the inverse function step-by-step using the given function values.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer 3 does not align with the function evaluations and the application of the inverse function.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f^-1(5) = 2, f^-1(4) = 3",
+        "Summing pre-images: 2 + 3 = 5",
+        "Applying f^-1 again: f^-1(5) = 2",
+        "Correct approach involves two applications of the inverse function",
+        "Resolving to 2 based on correct application of inverse function"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Reaffirming the correctness of applying the inverse function twice.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(2)=5, f(3)=4",
+        "f^{-1}(5)=2, f^{-1}(4)=3",
+        "Summing pre-images: 2 + 3 = 5",
+        "Applying f^{-1} again: f^{-1}(5) = 2",
+        "Final result: f^{-1}(f^{-1}(5)+f^{-1}(4)) = 2"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "2",
+        "2",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolved the conflict by correctly identifying f^{-1}(5) and f^{-1}(4) based on given function values.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer 3 is incorrect. Using the function evaluations, we find f^(-1)(5) = 2 and f^(-1)(4) = 3.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluating using the correct function values confirms the previous answer of 2.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(2)=5, f(3)=4",
+        "f^{-1}(5)=2, f^{-1}(4)=3",
+        "Summing pre-images: 2 + 3 = 5",
+        "Applying f^{-1} again: f^{-1}(5) = 2",
+        "Final result: f^{-1}(f^{-1}(5)+f^{-1}(4)) = 2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 49,
+      "total_tokens": 427,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 49,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 70,
+      "total_tokens": 446,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 647,
+      "completion_tokens": 311,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 742,
+      "completion_tokens": 100,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 739,
+      "completion_tokens": 100,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 753,
+      "completion_tokens": 111,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1174,
+      "completion_tokens": 229,
+      "total_tokens": 1403,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 824,
+      "completion_tokens": 99,
+      "total_tokens": 923,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 821,
+      "completion_tokens": 108,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 835,
+      "completion_tokens": 103,
+      "total_tokens": 938,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1085,
+      "completion_tokens": 247,
+      "total_tokens": 1332,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 838,
+      "completion_tokens": 113,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 835,
+      "completion_tokens": 209,
+      "total_tokens": 1044,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 849,
+      "completion_tokens": 99,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1206,
+      "completion_tokens": 167,
+      "total_tokens": 1373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 738,
+      "completion_tokens": 164,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 735,
+      "completion_tokens": 177,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 749,
+      "completion_tokens": 130,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0182",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1184,
+      "completion_tokens": 286,
+      "total_tokens": 1470,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 427,
+    "majority_vote_total_tokens": 1287,
+    "scrd_total_tokens": 18794,
+    "scrd_prompt_tokens": 15873,
+    "scrd_completion_tokens": 2921,
+    "agent_total_tokens": 12258,
+    "recorder_total_tokens": 6536,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

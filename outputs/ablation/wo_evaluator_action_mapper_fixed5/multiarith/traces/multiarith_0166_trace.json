@@ -1,0 +1,434 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "39",
+        "39",
+        "29"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total books = 1 + 38.",
+          "claim_type": "explanation",
+          "related_answer": "39"
+        },
+        {
+          "text": "Initial 5 - 4 sold + 38 new = 29 books.",
+          "claim_type": "support",
+          "related_answer": "29"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5 - 4 + 38 = 29",
+        "1 + 38 = 39"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "38",
+        "39",
+        "39"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tom starts with 5 books, sells 4, and buys 38 more.",
+          "claim_type": "explanation",
+          "related_answer": "38"
+        },
+        {
+          "text": "Final total of books = 5 - 4 + 38.",
+          "claim_type": "support",
+          "related_answer": "39"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5 - 4 + 38 = 39",
+        "5 books - 4 sold + 38 bought"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "39",
+        "39",
+        "Need more information on the price of books to determine the exact number."
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation 5 - 4 + 38 is accurate, leading to the correct total of books.",
+          "claim_type": "support",
+          "related_answer": "39"
+        },
+        {
+          "text": "The previous answer of 38 was incorrect because it didn't account for the money constraint.",
+          "claim_type": "rebuttal",
+          "related_answer": "Need more information on the price of books to determine the exact number."
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The mainstream support claims 39 books as the final total, while Agent C argues that the money constraint makes the previous answer of 39 incorrect.",
+          "why_still_open": "The exact number of books Tom can buy depends on the price of books, which is not provided.",
+          "involved_answers": [
+            "39",
+            "Need more information on the price of books to determine the exact number."
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "5 - 4 + 38 = 39",
+        "5 books - 4 sold + 38 bought",
+        "Money constraint not considered in the previous answer"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "39",
+        "39",
+        "Need more information on the price of books to determine the exact number."
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The problem lacks information on the price of books, so the money constraint cannot be applied.",
+          "claim_type": "support",
+          "related_answer": "39"
+        },
+        {
+          "text": "The previous answers incorrectly assumed no price constraint was relevant.",
+          "claim_type": "rebuttal",
+          "related_answer": "Need more information on the price of books to determine the exact number."
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream support and Agent B argue that 39 books can be bought without considering the price constraint, while Agent C insists the price must be known to determine the exact number of books.",
+          "why_still_open": "The exact number of books Tom can purchase remains indeterminate without the price of books.",
+          "involved_answers": [
+            "39",
+            "Need more information on the price of books to determine the exact number."
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "The problem does not provide the price of books.",
+        "Previous answers did not consider the price constraint.",
+        "Exact number of books depends on the price per book."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "39",
+        "39",
+        "39"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The lack of book price information precludes applying monetary constraints.",
+          "claim_type": "support",
+          "related_answer": "39"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C all argue that the problem lacks information on the price of books, hence monetary constraints cannot be applied, but Agent C further asserts that the number of books is solely based on the initial count and sold books.",
+          "why_still_open": "The exact number of books Tom can purchase remains indeterminate without the price of books.",
+          "involved_answers": [
+            "39"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "The problem lacks information on the price of books.",
+        "Monetary constraints cannot be applied due to missing price data.",
+        "The number of books is determined by the initial count and those sold."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 344,
+      "completion_tokens": 55,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 331,
+      "completion_tokens": 39,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 342,
+      "completion_tokens": 44,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 617,
+      "completion_tokens": 143,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 604,
+      "completion_tokens": 142,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 601,
+      "completion_tokens": 35,
+      "total_tokens": 636,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 615,
+      "completion_tokens": 128,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 992,
+      "completion_tokens": 150,
+      "total_tokens": 1142,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 124,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 606,
+      "completion_tokens": 133,
+      "total_tokens": 739,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 620,
+      "completion_tokens": 199,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1145,
+      "completion_tokens": 277,
+      "total_tokens": 1422,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 855,
+      "completion_tokens": 136,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 852,
+      "completion_tokens": 150,
+      "total_tokens": 1002,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 877,
+      "completion_tokens": 157,
+      "total_tokens": 1034,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1291,
+      "completion_tokens": 270,
+      "total_tokens": 1561,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 838,
+      "completion_tokens": 115,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 835,
+      "completion_tokens": 108,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 860,
+      "completion_tokens": 158,
+      "total_tokens": 1018,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0166",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1190,
+      "completion_tokens": 214,
+      "total_tokens": 1404,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 399,
+    "majority_vote_total_tokens": 1155,
+    "scrd_total_tokens": 17801,
+    "scrd_prompt_tokens": 15024,
+    "scrd_completion_tokens": 2777,
+    "agent_total_tokens": 11512,
+    "recorder_total_tokens": 6289,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

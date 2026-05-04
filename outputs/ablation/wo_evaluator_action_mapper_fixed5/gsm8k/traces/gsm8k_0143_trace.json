@@ -1,0 +1,434 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "60",
+        "47.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the total effect of both sprays, accounting for overlap.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate combined effect, subtract overlapping kill rate.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate the effective germ removal rate by adjusting for overlapping kills.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating the combined spray effect.",
+          "why_still_open": "Agents use different constraints without resolving the overlap issue.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total effect = 40 + 60 - Overlap",
+        "Overlap = 40 - 47.5",
+        "Effective rate = 47.5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "30",
+        "45",
+        "47.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Account for overlap in calculating combined germ kill rate.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Adjust for double-counted germs in the combined effect calculation.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Apply inclusion-exclusion principle to avoid double-counting overlaps.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total effect = 50 + 25 - 5",
+        "Effective rate = 47.5",
+        "Overlap = 5%"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "47.5",
+        "47.5",
+        "47.5"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total effect = 50 + 25 - 5",
+        "Effective rate = 47.5",
+        "Overlap = 5%"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "37.5",
+        "37.5",
+        "52.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Overlap should be subtracted once to avoid double-counting.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The overlap needs to be accounted for accurately to avoid double-counting the germs.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "The overlap of 5% needs to be subtracted once to avoid double-counting.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total effect = 50 + 25 - 5",
+        "Effective rate = 37.5",
+        "Overlap = 5%"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "37.5",
+        "47.5",
+        "37.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The overlap should be subtracted once to avoid double-counting.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 47.5 has been resolved by aligning with mainstream support.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The final calculation results in 37.5% after subtracting the overlap.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total effect = 50 + 25 - 5",
+        "Effective rate = 37.5",
+        "Overlap = 5%"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 374,
+      "completion_tokens": 35,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 361,
+      "completion_tokens": 31,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 372,
+      "completion_tokens": 39,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 239,
+      "total_tokens": 828,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 734,
+      "completion_tokens": 138,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 731,
+      "completion_tokens": 107,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 747,
+      "completion_tokens": 99,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1129,
+      "completion_tokens": 179,
+      "total_tokens": 1308,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 733,
+      "completion_tokens": 102,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 730,
+      "completion_tokens": 95,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 746,
+      "completion_tokens": 98,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1026,
+      "completion_tokens": 67,
+      "total_tokens": 1093,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 638,
+      "completion_tokens": 112,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 635,
+      "completion_tokens": 130,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 649,
+      "completion_tokens": 130,
+      "total_tokens": 779,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 979,
+      "completion_tokens": 191,
+      "total_tokens": 1170,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 747,
+      "completion_tokens": 144,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 744,
+      "completion_tokens": 118,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 758,
+      "completion_tokens": 122,
+      "total_tokens": 880,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1139,
+      "completion_tokens": 196,
+      "total_tokens": 1335,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 409,
+    "majority_vote_total_tokens": 1212,
+    "scrd_total_tokens": 16933,
+    "scrd_prompt_tokens": 14561,
+    "scrd_completion_tokens": 2372,
+    "agent_total_tokens": 11199,
+    "recorder_total_tokens": 5734,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,198 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial 40 oranges - 25 thrown away + 21 new ones = 36 oranges",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial 40 oranges - 25 thrown away + 21 new ones = 36 oranges",
+        "Initial count minus thrown away plus added new ones"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial calculation was based on 40 oranges - 25 thrown away + 21 new ones = 36 oranges.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Arithmetic checks confirm 40 - 25 + 21 = 36.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Misinterpretation of the sequence of events in the initial calculation.",
+          "why_still_open": "Verification required to ensure the correct sequence of events.",
+          "involved_answers": [
+            "A"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial 40 oranges - 25 thrown away + 21 new ones = 36 oranges",
+        "40 - 25 + 21 = 36",
+        "Arithmetic checks confirm 40 - 25 + 21 = 36"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 350,
+      "completion_tokens": 45,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 337,
+      "completion_tokens": 32,
+      "total_tokens": 369,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 348,
+      "completion_tokens": 35,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 120,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 738,
+      "completion_tokens": 137,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 735,
+      "completion_tokens": 58,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 749,
+      "completion_tokens": 130,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 989,
+      "completion_tokens": 250,
+      "total_tokens": 1239,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 644,
+      "completion_tokens": 58,
+      "total_tokens": 702,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 395,
+    "majority_vote_total_tokens": 1147,
+    "scrd_total_tokens": 6349,
+    "scrd_prompt_tokens": 5484,
+    "scrd_completion_tokens": 865,
+    "agent_total_tokens": 3694,
+    "recorder_total_tokens": 1953,
+    "evaluator_total_tokens": 702,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

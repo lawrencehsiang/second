@@ -1,0 +1,351 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "27",
+        "27",
+        "27"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "cakes: 60-33=27, pastries: 48-21=27",
+        "sold cakes: 33, sold pastries: 21",
+        "initial cakes: 60, initial pastries: 48"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "24",
+        "24",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Focus on sold items rather than initial counts for calculating differences.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recalculated the difference based on sold items.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "cakes sold: 33, pastries sold: 21",
+        "cakes: 60-33=27, pastries: 48-21=27",
+        "difference: 27-21=6"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "24",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking calculations with sold items to address a minority answer.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 27 is incorrect when recalculated based on sold items.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 27 remains unresolved despite rechecks.",
+          "why_still_open": "Further verification needed to conclusively resolve the discrepancy.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "cakes sold: 33, pastries sold: 21",
+        "cakes: 60-33=27, pastries: 48-21=27",
+        "difference recalculated: 27-21=6"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 349,
+      "completion_tokens": 47,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 336,
+      "completion_tokens": 46,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 347,
+      "completion_tokens": 49,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 618,
+      "completion_tokens": 94,
+      "total_tokens": 712,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 614,
+      "completion_tokens": 118,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 611,
+      "completion_tokens": 77,
+      "total_tokens": 688,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 625,
+      "completion_tokens": 64,
+      "total_tokens": 689,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 889,
+      "completion_tokens": 252,
+      "total_tokens": 1141,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 655,
+      "completion_tokens": 52,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 733,
+      "completion_tokens": 81,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 580,
+      "completion_tokens": 114,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 579,
+      "completion_tokens": 91,
+      "total_tokens": 670,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 580,
+      "completion_tokens": 123,
+      "total_tokens": 703,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 950,
+      "completion_tokens": 167,
+      "total_tokens": 1117,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 698,
+      "completion_tokens": 44,
+      "total_tokens": 742,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 766,
+      "completion_tokens": 94,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 763,
+      "completion_tokens": 106,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 779,
+      "completion_tokens": 92,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 987,
+      "completion_tokens": 232,
+      "total_tokens": 1219,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0101",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 619,
+      "completion_tokens": 57,
+      "total_tokens": 676,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 396,
+    "majority_vote_total_tokens": 1174,
+    "scrd_total_tokens": 15078,
+    "scrd_prompt_tokens": 13078,
+    "scrd_completion_tokens": 2000,
+    "agent_total_tokens": 3283,
+    "recorder_total_tokens": 4189,
+    "evaluator_total_tokens": 707,
+    "repair_brief_total_tokens": 814,
+    "repair_evaluator_total_tokens": 1418,
+    "repair_agent_total_tokens": 4667
+  }
+}

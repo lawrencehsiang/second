@@ -1,0 +1,409 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Start with 23, subtract 10, then add 47.",
+          "claim_type": "explanation",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50",
+        "23 - 10 + 47"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "50",
+        "50",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation 23 - 10 + 47 yields 60.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50",
+        "23 - 10 + 47"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "60",
+        "60",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation 23 - 10 + 47 yields 60.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream support claims 60 while the correct calculation is 50.",
+          "why_still_open": "The mainstream support and the calculated result are in conflict.",
+          "involved_answers": [
+            "C",
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "23 - 10 + 47",
+        "50"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "60",
+        "50",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct sequence is 23 - 10 + 47 = 50, accounting for the initial count and discarded carrots.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Bianca initially had 23 carrots, threw out 10, and then received 47 more, resulting in 60.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream support claims 60 while the correct calculation is 50.",
+          "why_still_open": "The calculation methods differ, with one subtracting 10 from the initial count and the other not.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "23 - 10 + 47",
+        "23 - 10 + 47 = 60"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct sequence is 23 - 10 + 47 = 50, accounting for the initial count and discarded carrots.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "23 - 10 + 47",
+        "23 - 10 + 47 = 50"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 350,
+      "completion_tokens": 42,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 337,
+      "completion_tokens": 42,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 348,
+      "completion_tokens": 42,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 95,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 617,
+      "completion_tokens": 149,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 614,
+      "completion_tokens": 58,
+      "total_tokens": 672,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 628,
+      "completion_tokens": 107,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 937,
+      "completion_tokens": 97,
+      "total_tokens": 1034,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 618,
+      "completion_tokens": 122,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 615,
+      "completion_tokens": 123,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 629,
+      "completion_tokens": 137,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1015,
+      "completion_tokens": 159,
+      "total_tokens": 1174,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 824,
+      "completion_tokens": 124,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 821,
+      "completion_tokens": 126,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 835,
+      "completion_tokens": 166,
+      "total_tokens": 1001,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1133,
+      "completion_tokens": 250,
+      "total_tokens": 1383,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 839,
+      "completion_tokens": 151,
+      "total_tokens": 990,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 836,
+      "completion_tokens": 130,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 850,
+      "completion_tokens": 136,
+      "total_tokens": 986,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0171",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1195,
+      "completion_tokens": 121,
+      "total_tokens": 1316,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 392,
+    "majority_vote_total_tokens": 1161,
+    "scrd_total_tokens": 17020,
+    "scrd_prompt_tokens": 14643,
+    "scrd_completion_tokens": 2377,
+    "agent_total_tokens": 11416,
+    "recorder_total_tokens": 5604,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

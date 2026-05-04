@@ -1,0 +1,179 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "42.00",
+        "45.00",
+        "45.00"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Apply 10% discount if total exceeds $50.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total > $50 -> Discount = 10%",
+        "$42 > $50 -> No Discount",
+        "$45 > $50 -> No Discount"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "45.00",
+        "45.00",
+        "54.00"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total of $60 qualifies for a 10% discount.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total > $50 -> Apply 10% discount",
+        "Quiches: $30, Croissants: $18, Biscuits: $12 -> Total: $60",
+        "$60 > $50 -> Discount = 10%",
+        "No discount on $45",
+        "Silvia's total is $54"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 41,
+      "total_tokens": 427,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 40,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 44,
+      "total_tokens": 428,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 616,
+      "completion_tokens": 110,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 655,
+      "completion_tokens": 155,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 652,
+      "completion_tokens": 128,
+      "total_tokens": 780,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 666,
+      "completion_tokens": 186,
+      "total_tokens": 852,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1125,
+      "completion_tokens": 156,
+      "total_tokens": 1281,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 616,
+      "completion_tokens": 53,
+      "total_tokens": 669,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 427,
+    "majority_vote_total_tokens": 1268,
+    "scrd_total_tokens": 6386,
+    "scrd_prompt_tokens": 5473,
+    "scrd_completion_tokens": 913,
+    "agent_total_tokens": 3710,
+    "recorder_total_tokens": 2007,
+    "evaluator_total_tokens": 669,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

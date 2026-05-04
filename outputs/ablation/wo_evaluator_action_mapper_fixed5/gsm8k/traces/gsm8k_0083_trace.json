@@ -1,0 +1,416 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "700",
+        "600",
+        "600"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Regular pay for 40 hours + overtime pay for 10 hours.",
+          "claim_type": "support",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "40 hours * $17 = $680",
+        "10 hours * $25 = $250",
+        "$680 + $250 = $930"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "700",
+        "700",
+        "600"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct total income should be $700, calculated as $500 for regular pay and $200 for overtime pay.",
+          "claim_type": "support",
+          "related_answer": "A, B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent C maintains that the correct total income is $600, calculated as $500 for regular pay and $100 for overtime pay.",
+          "why_still_open": "There is a discrepancy in the overtime pay rate used in the calculations.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "40 hours * $17 = $680",
+        "10 hours * $20 = $200",
+        "$680 + $200 = $930 (incorrect total)",
+        "40 hours * $12.5 = $500",
+        "10 hours * $25 = $250 (overtime rate used by A and B)"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "700",
+        "700",
+        "700"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct overtime pay rate is $20 per hour, resulting in $200 for 10 hours of overtime.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "40 hours * $12.5 = $500",
+        "10 hours * $20 = $200",
+        "$500 + $200 = $700",
+        "10 hours * $25 = $250 (incorrect overtime rate used by C)",
+        "40 hours * $17 = $680"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "700",
+        "700",
+        "700"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct overtime pay rate is $20 per hour, resulting in $200 for 10 hours of overtime.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "40 hours * $12.5 = $500",
+        "10 hours * $20 = $200",
+        "$500 + $200 = $700",
+        "10 hours * $25 = $250 (incorrect overtime rate used by C)",
+        "40 hours * $17 = $680"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "900",
+        "700",
+        "900"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct total income should include the base pay plus the overtime pay.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream support correctly calculated Irene's income by adding her regular weekly earnings and her overtime pay.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct approach includes both the base salary and the overtime pay.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "40 hours * $12.5 = $500",
+        "10 hours * $20 = $200",
+        "$500 + $200 = $700",
+        "10 hours * $25 = $250 (incorrect overtime rate used by C)",
+        "40 hours * $17 = $680"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 355,
+      "completion_tokens": 46,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 342,
+      "completion_tokens": 42,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 353,
+      "completion_tokens": 42,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 612,
+      "completion_tokens": 126,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 623,
+      "completion_tokens": 186,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 620,
+      "completion_tokens": 130,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 634,
+      "completion_tokens": 74,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1050,
+      "completion_tokens": 256,
+      "total_tokens": 1306,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 864,
+      "completion_tokens": 126,
+      "total_tokens": 990,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 861,
+      "completion_tokens": 159,
+      "total_tokens": 1020,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 875,
+      "completion_tokens": 172,
+      "total_tokens": 1047,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1251,
+      "completion_tokens": 171,
+      "total_tokens": 1422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 757,
+      "completion_tokens": 148,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 754,
+      "completion_tokens": 139,
+      "total_tokens": 893,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 768,
+      "completion_tokens": 179,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1179,
+      "completion_tokens": 171,
+      "total_tokens": 1350,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 633,
+      "completion_tokens": 160,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 630,
+      "completion_tokens": 108,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 644,
+      "completion_tokens": 146,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0083",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1119,
+      "completion_tokens": 241,
+      "total_tokens": 1360,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 401,
+    "majority_vote_total_tokens": 1180,
+    "scrd_total_tokens": 17746,
+    "scrd_prompt_tokens": 14924,
+    "scrd_completion_tokens": 2822,
+    "agent_total_tokens": 11570,
+    "recorder_total_tokens": 6176,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

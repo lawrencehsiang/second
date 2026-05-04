@@ -1,0 +1,452 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "48",
+        "32",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "2/5 of 40 chairs are unoccupied, resulting in 24 occupied chairs.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Each occupied chair has 2 people, leading to 48 people attending.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "40 chairs * 2 people per chair = 80 people total",
+        "2/5 of 40 chairs are unoccupied (16 chairs)",
+        "24 occupied chairs * 2 people per chair = 48 people",
+        "Total capacity = 40 chairs",
+        "Occupied chairs = 24"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "24",
+        "24",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The number of occupied chairs is 24, and it is equal to the number of board members.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The calculation of occupied chairs is based on 2/5 of the total 40 chairs being unoccupied.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "24 occupied chairs = number of board members",
+        "2/5 of 40 chairs are unoccupied, leaving 24 occupied",
+        "Total chairs = 40, unoccupied = 16, occupied = 24",
+        "Occupied chairs * 2 people per chair = 48 people",
+        "Board members = occupied chairs = 24"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "24",
+        "24",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 32 is consistent with the majority reasoning, as 2/5 of 80 available seats being unoccupied leaves 64 occupied seats, representing 32 people.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 32 remains unresolved.",
+          "why_still_open": "The minority answer of 32 is supported by an alternative calculation that differs from the mainstream calculation of 24.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "24 occupied chairs = number of board members",
+        "2/5 of 40 chairs are unoccupied, leaving 24 occupied",
+        "Total chairs = 40, unoccupied = 16, occupied = 24",
+        "Occupied chairs * 2 people per chair = 48 people",
+        "Board members = occupied chairs = 24"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "32",
+        "48",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 32 is incorrect because it assumes each occupied seat has exactly 2 people, which contradicts the problem's interpretation where the number of board members equals the number of chairs.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct number of board members is 48, derived from interpreting that 2/5 of the 80 chairs were unoccupied, leaving 60 occupied chairs, representing 48 people.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2/5 of 80 chairs are unoccupied, leaving 60 occupied, representing 48 people",
+        "Total chairs = 80, unoccupied = 32, occupied = 48",
+        "Occupied chairs * 2 people per chair = 96 people",
+        "Board members = occupied chairs = 48",
+        "24 occupied chairs = number of board members"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 84,
+      "total_tokens": 470,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 38,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 35,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 639,
+      "completion_tokens": 197,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 656,
+      "completion_tokens": 142,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 653,
+      "completion_tokens": 69,
+      "total_tokens": 722,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 667,
+      "completion_tokens": 243,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1179,
+      "completion_tokens": 288,
+      "total_tokens": 1467,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 657,
+      "completion_tokens": 47,
+      "total_tokens": 704,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 914,
+      "completion_tokens": 125,
+      "total_tokens": 1039,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 661,
+      "completion_tokens": 179,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 660,
+      "completion_tokens": 184,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 661,
+      "completion_tokens": 187,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1275,
+      "completion_tokens": 214,
+      "total_tokens": 1489,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 773,
+      "completion_tokens": 54,
+      "total_tokens": 827,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 723,
+      "completion_tokens": 168,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 720,
+      "completion_tokens": 174,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 736,
+      "completion_tokens": 179,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1263,
+      "completion_tokens": 255,
+      "total_tokens": 1518,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 59,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 854,
+      "completion_tokens": 144,
+      "total_tokens": 998,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 851,
+      "completion_tokens": 199,
+      "total_tokens": 1050,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 867,
+      "completion_tokens": 170,
+      "total_tokens": 1037,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1258,
+      "completion_tokens": 258,
+      "total_tokens": 1516,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 707,
+      "completion_tokens": 75,
+      "total_tokens": 782,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 470,
+    "majority_vote_total_tokens": 1300,
+    "scrd_total_tokens": 22919,
+    "scrd_prompt_tokens": 19152,
+    "scrd_completion_tokens": 3767,
+    "agent_total_tokens": 3730,
+    "recorder_total_tokens": 6826,
+    "evaluator_total_tokens": 704,
+    "repair_brief_total_tokens": 1039,
+    "repair_evaluator_total_tokens": 2303,
+    "repair_agent_total_tokens": 8317
+  }
+}

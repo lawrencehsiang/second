@@ -1,0 +1,286 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "14",
+        "14",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing up individual categories of mail yields total stamps.",
+          "claim_type": "constraint",
+          "related_answer": "16"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agree on 14 stamps, while C calculates 16 stamps.",
+          "why_still_open": "Different approaches lead to conflicting totals.",
+          "involved_answers": [
+            "14",
+            "16"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Parse quantities and entities; compute based on relationships.",
+        "Calculate number of each type of mail, then sum up stamps needed.",
+        "Calculate each category of mail and their stamps, then sum them up."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "16",
+        "17",
+        "19"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Job applications and rebates are causing ambiguity in the stamp count.",
+          "claim_type": "constraint",
+          "related_answer": "16"
+        },
+        {
+          "text": "Reevaluating mail categories resolves discrepancies in stamp counts.",
+          "claim_type": "rebuttal",
+          "related_answer": "17"
+        },
+        {
+          "text": "Correct interpretation of electric bills determines the number of stamps.",
+          "claim_type": "explanation",
+          "related_answer": "19"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C still calculate different totals (16, 17, and 19 stamps respectively).",
+          "why_still_open": "Divergent interpretations of mail categories persist.",
+          "involved_answers": [
+            "16",
+            "17",
+            "19"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Clarify ambiguous mail categories to resolve stamp count discrepancies.",
+        "Re-evaluate mail types and their corresponding stamp requirements.",
+        "Electric bills need 2 stamps, all others need 1."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 410,
+      "completion_tokens": 32,
+      "total_tokens": 442,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 397,
+      "completion_tokens": 36,
+      "total_tokens": 433,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 408,
+      "completion_tokens": 39,
+      "total_tokens": 447,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 180,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 775,
+      "completion_tokens": 107,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 772,
+      "completion_tokens": 95,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 786,
+      "completion_tokens": 173,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1108,
+      "completion_tokens": 249,
+      "total_tokens": 1357,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 655,
+      "completion_tokens": 48,
+      "total_tokens": 703,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 878,
+      "completion_tokens": 98,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 658,
+      "completion_tokens": 131,
+      "total_tokens": 789,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 657,
+      "completion_tokens": 106,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 658,
+      "completion_tokens": 127,
+      "total_tokens": 785,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1073,
+      "completion_tokens": 266,
+      "total_tokens": 1339,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0117",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 854,
+      "completion_tokens": 43,
+      "total_tokens": 897,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 442,
+    "majority_vote_total_tokens": 1322,
+    "scrd_total_tokens": 12408,
+    "scrd_prompt_tokens": 10678,
+    "scrd_completion_tokens": 1730,
+    "agent_total_tokens": 4030,
+    "recorder_total_tokens": 3465,
+    "evaluator_total_tokens": 703,
+    "repair_brief_total_tokens": 976,
+    "repair_evaluator_total_tokens": 897,
+    "repair_agent_total_tokens": 2337
+  }
+}

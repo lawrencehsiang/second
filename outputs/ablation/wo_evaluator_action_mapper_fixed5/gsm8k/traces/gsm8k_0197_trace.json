@@ -1,0 +1,413 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Next year, Herbert will be 15.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different explanations for how Herbert's age is derived.",
+          "why_still_open": "Multiple agents provide slightly different but logically equivalent derivations.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Kris is 24 now.",
+        "Herbert is 24 - 10 = 14.",
+        "Next year, Herbert will be 15.",
+        "Kris is 24, so Herbert is 24 - 10 = 14.",
+        "Herbert is 14 next year."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Herbert will be 15 next year.",
+        "Kris is 24 now.",
+        "Herbert is 14 currently, and 15 next year.",
+        "Given Kris is 24, Herbert is 14 now, making him 15 next year.",
+        "Both agents agree that Herbert will be 15 next year."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Herbert is currently 14 years old.",
+        "He will be 15 years old next year.",
+        "Kris is 24 years old.",
+        "Herbert is 10 years younger than Kris.",
+        "Consensus: Herbert will be 15 next year."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "16",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Herbert is 14 years old now.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "If Kris is 24, Herbert will be 15 next year.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Herbert is currently 14 years old.",
+        "He will be 15 years old next year.",
+        "Kris is 24 years old.",
+        "Herbert is 10 years younger than Kris.",
+        "Consensus: Herbert will be 15 next year."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Herbert is currently 14 years old.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Next year, Herbert will be 15 years old.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Herbert is 10 years younger than Kris, who is 24.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Herbert is currently 14 years old.",
+        "He will be 15 years old next year.",
+        "Kris is 24 years old.",
+        "Herbert is 10 years younger than Kris.",
+        "Consensus: Herbert will be 15 next year."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 65,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 50,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 64,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 655,
+      "completion_tokens": 202,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 799,
+      "completion_tokens": 104,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 796,
+      "completion_tokens": 159,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 810,
+      "completion_tokens": 122,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1129,
+      "completion_tokens": 111,
+      "total_tokens": 1240,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 799,
+      "completion_tokens": 115,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 796,
+      "completion_tokens": 130,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 810,
+      "completion_tokens": 119,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1027,
+      "completion_tokens": 96,
+      "total_tokens": 1123,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 601,
+      "completion_tokens": 127,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 598,
+      "completion_tokens": 51,
+      "total_tokens": 649,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 612,
+      "completion_tokens": 141,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 951,
+      "completion_tokens": 175,
+      "total_tokens": 1126,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 605,
+      "completion_tokens": 166,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 602,
+      "completion_tokens": 132,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 616,
+      "completion_tokens": 135,
+      "total_tokens": 751,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0197",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1136,
+      "completion_tokens": 213,
+      "total_tokens": 1349,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 404,
+    "majority_vote_total_tokens": 1181,
+    "scrd_total_tokens": 16821,
+    "scrd_prompt_tokens": 14344,
+    "scrd_completion_tokens": 2477,
+    "agent_total_tokens": 11126,
+    "recorder_total_tokens": 5695,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

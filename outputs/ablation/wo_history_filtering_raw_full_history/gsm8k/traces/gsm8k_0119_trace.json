@@ -1,0 +1,186 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "13",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "starts with 3, +2 each week for 5 weeks",
+        "ends with 13"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "13",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The sequence starts at 3 and increases by 2 each week.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Verification of the sequence calculation.",
+          "why_still_open": "The response from agent A questions the correctness of the sequence calculation, but no resolution has been reached.",
+          "involved_answers": [
+            "A"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "starts with 3, +2 each week for 5 weeks",
+        "ends with 13"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 357,
+      "completion_tokens": 40,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 344,
+      "completion_tokens": 43,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 355,
+      "completion_tokens": 43,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 52,
+      "total_tokens": 657,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 695,
+      "completion_tokens": 129,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 692,
+      "completion_tokens": 104,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 706,
+      "completion_tokens": 82,
+      "total_tokens": 788,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 916,
+      "completion_tokens": 154,
+      "total_tokens": 1070,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 579,
+      "completion_tokens": 53,
+      "total_tokens": 632,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 397,
+    "majority_vote_total_tokens": 1182,
+    "scrd_total_tokens": 5949,
+    "scrd_prompt_tokens": 5249,
+    "scrd_completion_tokens": 700,
+    "agent_total_tokens": 3590,
+    "recorder_total_tokens": 1727,
+    "evaluator_total_tokens": 632,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,201 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "36",
+        "32",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total hats and divide by 2.",
+          "claim_type": "explanation",
+          "related_answer": "36"
+        },
+        {
+          "text": "Calculate total hats, then divide by 2.",
+          "claim_type": "explanation",
+          "related_answer": "32"
+        },
+        {
+          "text": "Calculate total hats, then divide by 2.",
+          "claim_type": "explanation",
+          "related_answer": "36"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on 36, but B proposes 32.",
+          "why_still_open": "Different calculations lead to different results.",
+          "involved_answers": [
+            "36",
+            "32"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total hats / 2 = result",
+        "Hats divided equally",
+        "Equal division of hats"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "36",
+        "18",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the calculation.",
+          "claim_type": "constraint",
+          "related_answer": "36"
+        },
+        {
+          "text": "The mainstream support indicates that the total number of hats is 36.",
+          "claim_type": "support",
+          "related_answer": "18"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total hats / 2 = result",
+        "Mainstream support for 36 hats",
+        "Re-evaluating the calculation"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 373,
+      "completion_tokens": 34,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 360,
+      "completion_tokens": 32,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 371,
+      "completion_tokens": 35,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 580,
+      "completion_tokens": 227,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 734,
+      "completion_tokens": 85,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 731,
+      "completion_tokens": 113,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 745,
+      "completion_tokens": 113,
+      "total_tokens": 858,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1095,
+      "completion_tokens": 138,
+      "total_tokens": 1233,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 646,
+      "completion_tokens": 57,
+      "total_tokens": 703,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 407,
+    "majority_vote_total_tokens": 1205,
+    "scrd_total_tokens": 6469,
+    "scrd_prompt_tokens": 5635,
+    "scrd_completion_tokens": 834,
+    "agent_total_tokens": 3726,
+    "recorder_total_tokens": 2040,
+    "evaluator_total_tokens": 703,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

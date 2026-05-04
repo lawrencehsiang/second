@@ -1,0 +1,190 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "20",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate hourly wage first, then determine weekly hours needed.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Amy needs 3000/30 = 100 hours during the school year.",
+        "Hourly wage: 3000 / (50+20) = 3000 / 70 ≈ 42.86 per week.",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Calculate Amy's hourly wage, then determine the number of hours needed per week during the school year to earn $3000 over 30 weeks."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "30",
+        "25",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate total hours needed directly from provided data.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Amy needs 3000/30 = 100 hours during the school year.",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Calculate Amy's hourly wage, then determine the number of hours needed per week during the school year to earn $3000 over 30 weeks.",
+        "Total hours: 3000 / 30 = 100 hours"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 377,
+      "completion_tokens": 57,
+      "total_tokens": 434,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 364,
+      "completion_tokens": 36,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 375,
+      "completion_tokens": 36,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 608,
+      "completion_tokens": 201,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 847,
+      "completion_tokens": 117,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 844,
+      "completion_tokens": 50,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 858,
+      "completion_tokens": 56,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 960,
+      "completion_tokens": 181,
+      "total_tokens": 1141,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 583,
+      "completion_tokens": 48,
+      "total_tokens": 631,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 434,
+    "majority_vote_total_tokens": 1245,
+    "scrd_total_tokens": 6598,
+    "scrd_prompt_tokens": 5816,
+    "scrd_completion_tokens": 782,
+    "agent_total_tokens": 4017,
+    "recorder_total_tokens": 1950,
+    "evaluator_total_tokens": 631,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

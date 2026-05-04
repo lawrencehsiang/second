@@ -1,0 +1,201 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-13",
+        "-6",
+        "-6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Evaluate f at x=1 and repeatedly apply f.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Evaluate nested function from innermost to outermost.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Evaluate nested function calls step-by-step starting from the innermost.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x)=-x-7",
+        "f(f(x))=f(-x-7)=x",
+        "f(f(f(x)))=f(x)=-x-7"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-13",
+        "-6",
+        "-6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correctly apply the piecewise function definition to get -6.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Resolve discrepancies by re-evaluating function applications step-by-step.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = -x^2 for x >= 0, f(x) = x + 8 for x < 0",
+        "f(-6) = -6 + 8 = 2",
+        "f(2) = -2^2 = -4"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 379,
+      "completion_tokens": 37,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 366,
+      "completion_tokens": 31,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 377,
+      "completion_tokens": 38,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 583,
+      "completion_tokens": 185,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 798,
+      "completion_tokens": 149,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 794,
+      "completion_tokens": 151,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 808,
+      "completion_tokens": 127,
+      "total_tokens": 935,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1152,
+      "completion_tokens": 174,
+      "total_tokens": 1326,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 624,
+      "completion_tokens": 52,
+      "total_tokens": 676,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 416,
+    "majority_vote_total_tokens": 1228,
+    "scrd_total_tokens": 6825,
+    "scrd_prompt_tokens": 5881,
+    "scrd_completion_tokens": 944,
+    "agent_total_tokens": 4055,
+    "recorder_total_tokens": 2094,
+    "evaluator_total_tokens": 676,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

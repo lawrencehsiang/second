@@ -1,0 +1,452 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "15",
+        "12.5",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate hourly wage with bonus.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate hourly wage with and without bonus.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "(80+20)/10=10 dollars per hour.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different hourly wages calculated.",
+          "why_still_open": "Agents used different assumptions.",
+          "involved_answers": [
+            "15",
+            "12.5",
+            "10"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "80+20=100",
+        "100/10=10",
+        "15 vs 12.5 vs 10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12",
+        "15",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluated total hours and recalculated with bonus.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream approach includes bonus in hourly wage calculation.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Mainstream assumes 8-hour workday, minority assumes 10-hour workday.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "80+20=100",
+        "100/10=10",
+        "12 vs 15 vs 8",
+        "8-hour day vs 10-hour day"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "10",
+        "12",
+        "9.76"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculated the hourly wage including the 2-hour longer workday due to the bonus effort.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Resolved the conflict by aligning the mainstream approach which includes the bonus in the hourly wage calculation.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputed the hourly wage considering the bonus and the increased work hours.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "100/10=10",
+        "12 vs 10 vs 9.76",
+        "8-hour day vs 10-hour day",
+        "Re-calculated hourly wage including bonus",
+        "Mainstream approach includes bonus"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "7.5",
+        "7",
+        "8.57"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Adjusted the calculation to include the extra 2-hour workday due to the bonus effort.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Adjusted the calculation to account for the 2-hour longer workday due to the bonus effort.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "7.5 vs 7 vs 8.57",
+        "Re-calculated hourly wage including bonus",
+        "Adjusted for 2-hour longer workday",
+        "Mainstream approach includes bonus",
+        "Correctly included bonus in hourly wage calculation"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "6.67",
+        "8",
+        "6.67"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Adjusted the calculation to include the extra 2-hour workday due to the bonus effort.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Adjusted the calculation to include the extra 2-hour workday due to the bonus effort.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Adjusted the calculation to account for the extra 2-hour workday due to the bonus effort.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "6.67 vs 8 vs 6.67",
+        "Recalculated hourly wage including bonus",
+        "Adjusted for 2-hour longer workday",
+        "Bonus included in hourly wage calculation",
+        "Mainstream approach includes bonus"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 33,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 30,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 47,
+      "total_tokens": 431,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 229,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 730,
+      "completion_tokens": 91,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 729,
+      "completion_tokens": 96,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 741,
+      "completion_tokens": 110,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1077,
+      "completion_tokens": 200,
+      "total_tokens": 1277,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 825,
+      "completion_tokens": 90,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 822,
+      "completion_tokens": 103,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 835,
+      "completion_tokens": 108,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1046,
+      "completion_tokens": 223,
+      "total_tokens": 1269,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 754,
+      "completion_tokens": 121,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 751,
+      "completion_tokens": 114,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 767,
+      "completion_tokens": 116,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1130,
+      "completion_tokens": 181,
+      "total_tokens": 1311,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 755,
+      "completion_tokens": 127,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 750,
+      "completion_tokens": 115,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 767,
+      "completion_tokens": 109,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1089,
+      "completion_tokens": 225,
+      "total_tokens": 1314,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 419,
+    "majority_vote_total_tokens": 1253,
+    "scrd_total_tokens": 17770,
+    "scrd_prompt_tokens": 15302,
+    "scrd_completion_tokens": 2468,
+    "agent_total_tokens": 11779,
+    "recorder_total_tokens": 5991,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

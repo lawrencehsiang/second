@@ -1,0 +1,414 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "16",
+        "16",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Compute using the given formula.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Apply the operation definition: 12 + 12/3 = 16",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Substitute values into the given operation definition.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "12 + 12/3 = 16",
+        "Compute using the given formula.",
+        "Substitute values into the given operation definition."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "16.0",
+        "16",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculating the expression using the correct formula.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A recalculated the expression but disagrees with Agent B and C who arrived at 16.",
+          "why_still_open": "Agent A used a different formula which led to a different result.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "12 + 12/3 = 16",
+        "Recompute using the given formula: 12 star 3 = 12 + 12/3 = 12 + 4 = 16",
+        "The previous answer of 16 was calculated incorrectly. The correct formula should be applied."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "16",
+        "16",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the expression using the correct formula.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-calculation to align with mainstream support.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-calculation confirms the answer.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "12 + 12/3 = 16",
+        "Recompute using the formula: $a \\star b = a + \\frac{a}{b}$",
+        "The correct formula yields: $12 + \\frac{12}{3} = 16$"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "16",
+        "16",
+        "16"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "12 + 12/3 = 16",
+        "Recompute using the formula: $a \\star b = a + \\frac{a}{b}$",
+        "The correct formula yields: $12 + \\frac{12}{3} = 16$"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "16",
+        "16",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute using the formula $a \\star b = a + \\frac{a}{b}$ with $a = 12$ and $b = 3$.",
+          "claim_type": "rebuttal",
+          "related_answer": "16"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "12 + 12/3 = 16",
+        "Recompute using the formula: $a \\star b = a + \\frac{a}{b}$",
+        "The correct formula yields: $12 + \\frac{12}{3} = 16$"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 349,
+      "completion_tokens": 31,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 336,
+      "completion_tokens": 44,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 347,
+      "completion_tokens": 34,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 585,
+      "completion_tokens": 178,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 605,
+      "completion_tokens": 117,
+      "total_tokens": 722,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 602,
+      "completion_tokens": 55,
+      "total_tokens": 657,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 616,
+      "completion_tokens": 73,
+      "total_tokens": 689,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 953,
+      "completion_tokens": 213,
+      "total_tokens": 1166,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 808,
+      "completion_tokens": 135,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 803,
+      "completion_tokens": 105,
+      "total_tokens": 908,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 817,
+      "completion_tokens": 148,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1161,
+      "completion_tokens": 209,
+      "total_tokens": 1370,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 822,
+      "completion_tokens": 115,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 819,
+      "completion_tokens": 154,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 833,
+      "completion_tokens": 171,
+      "total_tokens": 1004,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1185,
+      "completion_tokens": 97,
+      "total_tokens": 1282,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 711,
+      "completion_tokens": 153,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 708,
+      "completion_tokens": 133,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 722,
+      "completion_tokens": 93,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0164",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1028,
+      "completion_tokens": 163,
+      "total_tokens": 1191,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 380,
+    "majority_vote_total_tokens": 1141,
+    "scrd_total_tokens": 17231,
+    "scrd_prompt_tokens": 14810,
+    "scrd_completion_tokens": 2421,
+    "agent_total_tokens": 11459,
+    "recorder_total_tokens": 5772,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

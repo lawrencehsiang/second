@@ -1,0 +1,394 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "18",
+        "18",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "20% of 3-point shots * 3 + 30% of 2-point shots * 2 = 0.2 * x * 3 + 0.3 * (30-x) * 2",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different interpretations of the relationship between successful shots and total points.",
+          "why_still_open": "Agents A, B, and C provide different equations for calculating points based on successful shots.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total shots: 30",
+        "Points per 3-point shot: 3",
+        "Points per 2-point shot: 2",
+        "Successful shots: 18",
+        "Equation: 0.2x * 3 + 0.3(30-x) * 2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "18",
+        "15",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of shots is 30, with 20% being successful three-point shots and 30% being successful two-point shots.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "The points from successful three-point shots are 0.2x * 3 and from successful two-point shots are 0.3(30-x) * 2.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total shots: 30",
+        "20% of shots are three-point shots",
+        "30% of shots are two-point shots",
+        "Points per 3-point shot: 3",
+        "Points per 2-point shot: 2"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "15",
+        "18",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluated the contribution of successful three-point and two-point shots to the total points.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revised the calculation to account for the percentages of successful three-point and two-point shots.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Accounted for both three-point and two-point shots separately in the calculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total shots: 30",
+        "20% of shots are three-point shots",
+        "30% of shots are two-point shots",
+        "Points per 3-point shot: 3",
+        "Points per 2-point shot: 2"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "18",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the points based on the success rates and total shots.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluate the contributions of successful three-point and two-point shots to ensure consistency and accuracy.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluating the contributions of successful three-point and two-point shots.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 15 remains unresolved.",
+          "why_still_open": "Different agents recalculated but reached different answers due to varied interpretations of shot success rates.",
+          "involved_answers": [
+            "15",
+            "18"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total shots: 30",
+        "20% of shots are three-point shots",
+        "30% of shots are two-point shots",
+        "Points per 3-point shot: 3",
+        "Points per 2-point shot: 2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 4,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 30,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 33,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 85,
+      "total_tokens": 458,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 630,
+      "completion_tokens": 243,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 782,
+      "completion_tokens": 151,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 779,
+      "completion_tokens": 124,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 793,
+      "completion_tokens": 162,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1238,
+      "completion_tokens": 209,
+      "total_tokens": 1447,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 687,
+      "completion_tokens": 53,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 764,
+      "completion_tokens": 93,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 761,
+      "completion_tokens": 99,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 775,
+      "completion_tokens": 107,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1060,
+      "completion_tokens": 225,
+      "total_tokens": 1285,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 687,
+      "completion_tokens": 51,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 855,
+      "completion_tokens": 102,
+      "total_tokens": 957,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 852,
+      "completion_tokens": 103,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 866,
+      "completion_tokens": 91,
+      "total_tokens": 957,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1073,
+      "completion_tokens": 281,
+      "total_tokens": 1354,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 696,
+      "completion_tokens": 56,
+      "total_tokens": 752,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 405,
+    "majority_vote_total_tokens": 1258,
+    "scrd_total_tokens": 16706,
+    "scrd_prompt_tokens": 14408,
+    "scrd_completion_tokens": 2298,
+    "agent_total_tokens": 9517,
+    "recorder_total_tokens": 4959,
+    "evaluator_total_tokens": 2230,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

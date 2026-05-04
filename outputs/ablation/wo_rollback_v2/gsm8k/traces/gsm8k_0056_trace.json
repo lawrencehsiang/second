@@ -4,58 +4,61 @@
       "round_id": 1,
       "current_answers": [
         "75",
-        "70",
+        "60",
         "75"
       ],
       "newly_added_claims": [
         {
-          "text": "Percentage of non-rose flowers is 75%.",
-          "claim_type": "support",
-          "related_answer": "A"
-        }
-      ],
-      "unresolved_conflicts": [
-        {
-          "conflict": "Agent B's formula for calculating percentage does not specify the total.",
-          "why_still_open": "Formula ambiguity leads to different interpretations.",
-          "involved_answers": [
-            "B"
-          ]
-        }
-      ],
-      "key_raw_snippets": [
-        "Total flowers = 25 + 40 + 35 = 100",
-        "Not roses = 75",
-        "Percentage = (Not roses / Total) * 100",
-        "Percentage = 75%",
-        "Total = 100"
-      ]
-    },
-    {
-      "round_id": 2,
-      "current_answers": [
-        "60",
-        "60",
-        "65"
-      ],
-      "newly_added_claims": [
-        {
-          "text": "Total number of flowers is 100.",
-          "claim_type": "support",
-          "related_answer": "C"
-        },
-        {
-          "text": "Percentage of non-rose flowers is 65%.",
-          "claim_type": "support",
-          "related_answer": "C"
+          "text": "Percentage of flowers that are not roses is 75%.",
+          "claim_type": "explanation",
+          "related_answer": "A, C"
         }
       ],
       "unresolved_conflicts": [],
       "key_raw_snippets": [
         "Total flowers = 25 + 40 + 35 = 100",
-        "Percentage = (Non-roses / Total) * 100",
-        "Percentage = 65%",
-        "Total = 100"
+        "Not roses = 75",
+        "Percentage = (75/100) * 100",
+        "Total flowers = 25 + 40 + 35",
+        "Not roses = total - roses"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "75",
+        "60",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The percentage of flowers that are not roses is recalculated as 75%.",
+          "claim_type": "rebuttal",
+          "related_answer": "A, B, C"
+        },
+        {
+          "text": "The initial interpretation might have a mismatch in the problem statement.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a discrepancy between the mainstream support (75%) and the updated answers (60%).",
+          "why_still_open": "Further verification is needed to reconcile the differences.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total flowers = 25 + 40 + 35 = 100",
+        "Not roses = 40 + 35 = 75",
+        "Percentage = (75 / 100) * 100",
+        "Correct interpretation is crucial for accurate calculations.",
+        "Rechecking calculations to ensure accuracy."
       ]
     }
   ],
@@ -84,8 +87,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 345,
-      "completion_tokens": 71,
-      "total_tokens": 416,
+      "completion_tokens": 70,
+      "total_tokens": 415,
       "extra": {}
     },
     {
@@ -95,8 +98,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 332,
-      "completion_tokens": 64,
-      "total_tokens": 396,
+      "completion_tokens": 58,
+      "total_tokens": 390,
       "extra": {}
     },
     {
@@ -106,8 +109,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 343,
-      "completion_tokens": 71,
-      "total_tokens": 414,
+      "completion_tokens": 72,
+      "total_tokens": 415,
       "extra": {}
     },
     {
@@ -116,9 +119,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 685,
-      "completion_tokens": 185,
-      "total_tokens": 870,
+      "prompt_tokens": 679,
+      "completion_tokens": 151,
+      "total_tokens": 830,
       "extra": {}
     },
     {
@@ -127,9 +130,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 705,
-      "completion_tokens": 95,
-      "total_tokens": 800,
+      "prompt_tokens": 608,
+      "completion_tokens": 189,
+      "total_tokens": 797,
       "extra": {}
     },
     {
@@ -138,9 +141,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 702,
-      "completion_tokens": 101,
-      "total_tokens": 803,
+      "prompt_tokens": 605,
+      "completion_tokens": 135,
+      "total_tokens": 740,
       "extra": {}
     },
     {
@@ -149,9 +152,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 716,
-      "completion_tokens": 170,
-      "total_tokens": 886,
+      "prompt_tokens": 619,
+      "completion_tokens": 88,
+      "total_tokens": 707,
       "extra": {}
     },
     {
@@ -160,9 +163,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 1107,
-      "completion_tokens": 164,
-      "total_tokens": 1271,
+      "prompt_tokens": 1091,
+      "completion_tokens": 263,
+      "total_tokens": 1354,
       "extra": {}
     },
     {
@@ -171,25 +174,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 584,
-      "completion_tokens": 51,
-      "total_tokens": 635,
+      "prompt_tokens": 632,
+      "completion_tokens": 39,
+      "total_tokens": 671,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 416,
-    "majority_vote_total_tokens": 1226,
-    "scrd_total_tokens": 6491,
-    "scrd_prompt_tokens": 5519,
-    "scrd_completion_tokens": 972,
-    "agent_total_tokens": 3715,
-    "recorder_total_tokens": 2141,
-    "evaluator_total_tokens": 635,
+    "single_agent_total_tokens": 415,
+    "majority_vote_total_tokens": 1220,
+    "scrd_total_tokens": 6319,
+    "scrd_prompt_tokens": 5254,
+    "scrd_completion_tokens": 1065,
+    "agent_total_tokens": 3464,
+    "recorder_total_tokens": 2184,
+    "evaluator_total_tokens": 671,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

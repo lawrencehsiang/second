@@ -1,0 +1,193 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "18",
+        "18",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial songs - deleted songs + added songs = 18",
+          "claim_type": "explanation",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial songs - deleted songs + added songs",
+        "-",
+        "+",
+        "=",
+        "18"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "38",
+        "18",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the operations: Initial songs - deleted songs + added songs = 11 - 7 + 24 = 38",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the total number of songs between agents A and B/C",
+          "why_still_open": "Agent A recalculated the total as 38, while B and C maintained 18 based on mainstream support.",
+          "involved_answers": [
+            "38",
+            "18"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial songs - deleted songs + added songs",
+        "= 11 - 7 + 24",
+        "= 38",
+        "Mainstream support",
+        "18"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0173",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 34,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0173",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 34,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0173",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 34,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0173",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 578,
+      "completion_tokens": 98,
+      "total_tokens": 676,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0173",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 616,
+      "completion_tokens": 134,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0173",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 613,
+      "completion_tokens": 46,
+      "total_tokens": 659,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0173",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 627,
+      "completion_tokens": 48,
+      "total_tokens": 675,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0173",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 870,
+      "completion_tokens": 212,
+      "total_tokens": 1082,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0173",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 601,
+      "completion_tokens": 43,
+      "total_tokens": 644,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 387,
+    "majority_vote_total_tokens": 1146,
+    "scrd_total_tokens": 5632,
+    "scrd_prompt_tokens": 4949,
+    "scrd_completion_tokens": 683,
+    "agent_total_tokens": 3230,
+    "recorder_total_tokens": 1758,
+    "evaluator_total_tokens": 644,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

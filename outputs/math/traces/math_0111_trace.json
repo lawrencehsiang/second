@@ -1,0 +1,195 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "25",
+        "20",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Amy needs to work 25 hours per week to earn $3000 over 30 weeks.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The calculation involves determining Amy's hourly wage and required weekly hours.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on 25 hours, but B suggests 20 hours.",
+          "why_still_open": "Disagreement on the number of hours Amy needs to work per week.",
+          "involved_answers": [
+            "25",
+            "20"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Amy's hourly wage * 25 hours/week * 30 weeks = $3000",
+        "Hourly wage = $3000 / (25 * 30)",
+        "50/60*12=10 -> Amy's wage per hour",
+        "25*20*30=15000 -> total earnings if working 20 hours/week",
+        "25*25*30=18750 -> total earnings if working 25 hours/week"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "25",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verifying whether 20 hours per week can suffice for Amy to earn $3000 over 30 weeks.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Amy's hourly wage * 25 hours/week * 30 weeks = $3000",
+        "Hourly wage = $3000 / (25 * 30)",
+        "50/60*12=10 -> Amy's wage per hour",
+        "25*25*30=18750 -> total earnings if working 25 hours/week",
+        "The mainstream support indicates working 25 hours per week suffices."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 377,
+      "completion_tokens": 56,
+      "total_tokens": 433,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 364,
+      "completion_tokens": 43,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 375,
+      "completion_tokens": 54,
+      "total_tokens": 429,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 310,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 762,
+      "completion_tokens": 172,
+      "total_tokens": 934,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 759,
+      "completion_tokens": 134,
+      "total_tokens": 893,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 773,
+      "completion_tokens": 129,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1302,
+      "completion_tokens": 197,
+      "total_tokens": 1499,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 622,
+      "completion_tokens": 58,
+      "total_tokens": 680,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 433,
+    "majority_vote_total_tokens": 1269,
+    "scrd_total_tokens": 7122,
+    "scrd_prompt_tokens": 5969,
+    "scrd_completion_tokens": 1153,
+    "agent_total_tokens": 3998,
+    "recorder_total_tokens": 2444,
+    "evaluator_total_tokens": 680,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

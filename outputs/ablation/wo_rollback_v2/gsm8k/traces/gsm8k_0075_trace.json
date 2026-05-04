@@ -4,42 +4,79 @@
       "round_id": 1,
       "current_answers": [
         "28",
-        "28",
-        "28"
+        "29.5",
+        "25"
       ],
       "newly_added_claims": [
         {
-          "text": "Each of the last two people lost 28 kg.",
-          "claim_type": "explanation",
-          "related_answer": "C"
+          "text": "The total weight loss of the first two individuals is 47 kg.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The remaining weight loss is 56 kg, split equally between the last two individuals.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Each of the last two individuals lost 28 kg.",
+          "claim_type": "support",
+          "related_answer": "A"
         }
       ],
-      "unresolved_conflicts": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and C have different answers (29.5 vs 25).",
+          "why_still_open": "Different calculations for the remaining weight loss per individual.",
+          "involved_answers": [
+            "29.5",
+            "25"
+          ]
+        }
+      ],
       "key_raw_snippets": [
-        "Total loss: 103 kg, Remaining: 56 kg",
-        "First person: 27 kg, Second person: 20 kg",
-        "Divided equally: 28 kg each"
+        "First person: 27 kg; Second person: 20 kg; Total of first two: 47 kg; Remaining weight loss: 56 kg; Each of the last two lost 28 kg.",
+        "First person: 27 kg; Second person: 27 - 7 = 20 kg; Total of first two: 27 + 20 = 47 kg; Remaining weight loss: 103 - 47 = 56 kg; Last two equally: 56 / 2 = 28 kg each.",
+        "First person: 27 kg, second person: 20 kg, remaining 59 kg split equally between last two.",
+        "Sum of known weights lost by first two = 27 + (27 - 7). Remaining weight = 103 - sum. Each of the last two lost equal amounts, so divide remaining weight by 2.",
+        "Total weight loss of first two = 47 kg; Remaining weight loss = 56 kg; Each of the last two lost 28 kg."
       ]
     },
     {
       "round_id": 2,
       "current_answers": [
-        "29",
-        "29",
+        "24",
+        "25",
         "28"
       ],
       "newly_added_claims": [
         {
-          "text": "Each of the last two people lost 28 kg, confirmed by the total weight loss calculation.",
+          "text": "The recalculated remaining weight loss per individual is 29.5 kg.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The recalculated remaining weight loss per individual is 28 kg.",
           "claim_type": "support",
           "related_answer": "C"
         }
       ],
-      "unresolved_conflicts": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Differing recalculations for the remaining weight loss per individual (29.5 kg vs 28 kg).",
+          "why_still_open": "Agents B and C reached different conclusions despite re-evaluating the problem.",
+          "involved_answers": [
+            "29.5",
+            "28"
+          ]
+        }
+      ],
       "key_raw_snippets": [
-        "Total loss: 103 kg, Remaining: 56 kg",
-        "First person: 27 kg, Second person: 20 kg",
-        "Divided equally: 28 kg each"
+        "The total weight loss is 103 kg. After the first two individuals lose 47 kg, 56 kg remains for the last two.",
+        "Dividing the remaining 56 kg equally between the last two individuals results in 28 kg per person.",
+        "Agent B's revised calculation confirms the remaining weight loss per individual is 29.5 kg.",
+        "Agent C's revised calculation confirms the remaining weight loss per individual is 28 kg.",
+        "Total weight loss of first two individuals is 47 kg, leaving 56 kg for the last two."
       ]
     }
   ],
@@ -68,8 +105,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 367,
-      "completion_tokens": 69,
-      "total_tokens": 436,
+      "completion_tokens": 98,
+      "total_tokens": 465,
       "extra": {}
     },
     {
@@ -79,8 +116,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 354,
-      "completion_tokens": 66,
-      "total_tokens": 420,
+      "completion_tokens": 51,
+      "total_tokens": 405,
       "extra": {}
     },
     {
@@ -90,8 +127,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 365,
-      "completion_tokens": 82,
-      "total_tokens": 447,
+      "completion_tokens": 72,
+      "total_tokens": 437,
       "extra": {}
     },
     {
@@ -100,9 +137,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 695,
-      "completion_tokens": 121,
-      "total_tokens": 816,
+      "prompt_tokens": 705,
+      "completion_tokens": 457,
+      "total_tokens": 1162,
       "extra": {}
     },
     {
@@ -111,9 +148,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 629,
+      "prompt_tokens": 737,
       "completion_tokens": 123,
-      "total_tokens": 752,
+      "total_tokens": 860,
       "extra": {}
     },
     {
@@ -122,9 +159,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 626,
-      "completion_tokens": 125,
-      "total_tokens": 751,
+      "prompt_tokens": 736,
+      "completion_tokens": 115,
+      "total_tokens": 851,
       "extra": {}
     },
     {
@@ -133,9 +170,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 640,
-      "completion_tokens": 180,
-      "total_tokens": 820,
+      "prompt_tokens": 748,
+      "completion_tokens": 163,
+      "total_tokens": 911,
       "extra": {}
     },
     {
@@ -144,9 +181,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 1077,
-      "completion_tokens": 128,
-      "total_tokens": 1205,
+      "prompt_tokens": 1417,
+      "completion_tokens": 323,
+      "total_tokens": 1740,
       "extra": {}
     },
     {
@@ -155,25 +192,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 585,
-      "completion_tokens": 49,
-      "total_tokens": 634,
+      "prompt_tokens": 680,
+      "completion_tokens": 46,
+      "total_tokens": 726,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 436,
-    "majority_vote_total_tokens": 1303,
-    "scrd_total_tokens": 6281,
-    "scrd_prompt_tokens": 5338,
-    "scrd_completion_tokens": 943,
-    "agent_total_tokens": 3626,
-    "recorder_total_tokens": 2021,
-    "evaluator_total_tokens": 634,
+    "single_agent_total_tokens": 465,
+    "majority_vote_total_tokens": 1307,
+    "scrd_total_tokens": 7557,
+    "scrd_prompt_tokens": 6109,
+    "scrd_completion_tokens": 1448,
+    "agent_total_tokens": 3929,
+    "recorder_total_tokens": 2902,
+    "evaluator_total_tokens": 726,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

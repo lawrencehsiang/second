@@ -1,0 +1,450 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "395",
+        "390",
+        "349"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate daily loss and multiply by 7 days, then subtract from initial counts.",
+          "claim_type": "support",
+          "related_answer": "395"
+        },
+        {
+          "text": "Calculate daily loss and multiply by 7, then subtract from initial count.",
+          "claim_type": "support",
+          "related_answer": "390"
+        },
+        {
+          "text": "Daily loss: 20 chickens + 8 turkeys + 5 guinea fowls = 33 birds/day. Weekly loss: 33 * 7 = 231 birds. Total birds: 300 + 200 + 80 = 580. Remaining birds: 580 - 231 = 349.",
+          "claim_type": "support",
+          "related_answer": "349"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily loss: 20 chickens + 8 turkeys + 5 guinea fowls = 33 birds/day.",
+        "Weekly loss: 33 * 7 = 231 birds.",
+        "Total birds: 300 + 200 + 80 = 580.",
+        "Remaining birds: 580 - 231 = 349.",
+        "Calculate daily loss and multiply by 7 days, then subtract from initial counts."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "349",
+        "349",
+        "349"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected daily losses and recalculated weekly losses as 140 chickens, 56 turkeys, and 35 guinea fowls.",
+          "claim_type": "support",
+          "related_answer": "349"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "20 chickens/day * 7 days = 140 chickens",
+        "8 turkeys/day * 7 days = 56 turkeys",
+        "5 guinea fowls/day * 7 days = 35 guinea fowls",
+        "300 - 140 = 160 chickens",
+        "200 - 56 = 144 turkeys"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "267",
+        "275",
+        "291"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated weekly losses as 140 chickens, 56 turkeys, and 35 guinea fowls using corrected daily losses.",
+          "claim_type": "support",
+          "related_answer": "267"
+        },
+        {
+          "text": "Resolved conflict by recalculating weekly losses with corrected daily losses.",
+          "claim_type": "rebuttal",
+          "related_answer": "291"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "20 chickens/day * 7 days = 140 chickens",
+        "8 turkeys/day * 7 days = 56 turkeys",
+        "5 guinea fowls/day * 7 days = 35 guinea fowls",
+        "300 - 140 = 160 chickens",
+        "200 - 56 = 144 turkeys"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "291",
+        "291",
+        "291"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Adjusted weekly losses to 280 chickens, 42 turkeys, and 35 guinea fowls.",
+          "claim_type": "support",
+          "related_answer": "291"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answers provided conflicting values for weekly losses (291 vs 231).",
+          "why_still_open": "There is a discrepancy between recalculated values and previously accepted values.",
+          "involved_answers": [
+            "291"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "20 chickens/day * 7 days = 140 chickens",
+        "8 turkeys/day * 7 days = 56 turkeys",
+        "5 guinea fowls/day * 7 days = 35 guinea fowls",
+        "20 chickens/day * 7 days = 140 chickens/week",
+        "8 turkeys/day * 7 days = 56 turkeys/week"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 384,
+      "completion_tokens": 42,
+      "total_tokens": 426,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 371,
+      "completion_tokens": 38,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 382,
+      "completion_tokens": 109,
+      "total_tokens": 491,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 671,
+      "completion_tokens": 339,
+      "total_tokens": 1010,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 652,
+      "completion_tokens": 103,
+      "total_tokens": 755,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 649,
+      "completion_tokens": 115,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 663,
+      "completion_tokens": 126,
+      "total_tokens": 789,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1217,
+      "completion_tokens": 323,
+      "total_tokens": 1540,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 714,
+      "completion_tokens": 49,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 1095,
+      "completion_tokens": 109,
+      "total_tokens": 1204,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 643,
+      "completion_tokens": 104,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 642,
+      "completion_tokens": 104,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 643,
+      "completion_tokens": 264,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1345,
+      "completion_tokens": 185,
+      "total_tokens": 1530,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 749,
+      "completion_tokens": 50,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 632,
+      "completion_tokens": 215,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 629,
+      "completion_tokens": 150,
+      "total_tokens": 779,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 645,
+      "completion_tokens": 149,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1199,
+      "completion_tokens": 227,
+      "total_tokens": 1426,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 664,
+      "completion_tokens": 42,
+      "total_tokens": 706,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 726,
+      "completion_tokens": 169,
+      "total_tokens": 895,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 723,
+      "completion_tokens": 230,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 739,
+      "completion_tokens": 159,
+      "total_tokens": 898,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1299,
+      "completion_tokens": 251,
+      "total_tokens": 1550,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 48,
+      "total_tokens": 683,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 426,
+    "majority_vote_total_tokens": 1326,
+    "scrd_total_tokens": 22411,
+    "scrd_prompt_tokens": 18711,
+    "scrd_completion_tokens": 3700,
+    "agent_total_tokens": 3634,
+    "recorder_total_tokens": 7056,
+    "evaluator_total_tokens": 763,
+    "repair_brief_total_tokens": 1204,
+    "repair_evaluator_total_tokens": 2188,
+    "repair_agent_total_tokens": 7566
+  }
+}

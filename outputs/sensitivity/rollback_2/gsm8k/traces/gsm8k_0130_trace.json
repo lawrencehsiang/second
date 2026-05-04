@@ -1,0 +1,478 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "30",
+        "30",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total cones sold, then find sixths.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Divide total sales by price per cone to find number of cones sold. Then divide by 6 to find free cones.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total sales divided by cone price gives total cones sold. Then divide by 6 to find free cones.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total sales / cone price = total cones sold",
+        "total cones sold / 6 = free cones",
+        "30 cones sold, 5 free cones"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The number of free cones is calculated by dividing the total number of cones sold by 6 and rounding down.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Correcting the initial error by focusing on the number of cones sold rather than customers.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Rounding down to the nearest whole number when calculating free cones.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cones sold: 50",
+        "Free cones: 8",
+        "Price per cone: $2"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "30",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the answer based on the correct reading of the problem.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 30 is incorrect as it does not align with the calculation based on the number of cones sold.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Clarifying that the minority answer of 30 is incorrect due to the misalignment with the problem's conditions.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 30 persists despite resolution attempts.",
+          "why_still_open": "Different interpretations of the problem remain unaddressed.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cones sold: 30",
+        "Free cones: 5",
+        "Price per cone: $2"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "10",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the answer to align with the correct interpretation of the problem.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Confirming that the minority answer of 8 is correct based on the problem's constraints.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputing the answer to verify the minority objection.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 8 remains unresolved.",
+          "why_still_open": "Recomputation by C is still ongoing.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total sales: $100",
+        "Cost per cone: $2",
+        "Free cones for every 6th customer"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 354,
+      "completion_tokens": 35,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 341,
+      "completion_tokens": 47,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 352,
+      "completion_tokens": 46,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 607,
+      "completion_tokens": 205,
+      "total_tokens": 812,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 614,
+      "completion_tokens": 193,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 611,
+      "completion_tokens": 79,
+      "total_tokens": 690,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 625,
+      "completion_tokens": 128,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1132,
+      "completion_tokens": 252,
+      "total_tokens": 1384,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 698,
+      "completion_tokens": 45,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 848,
+      "completion_tokens": 150,
+      "total_tokens": 998,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 654,
+      "completion_tokens": 240,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 653,
+      "completion_tokens": 274,
+      "total_tokens": 927,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 654,
+      "completion_tokens": 245,
+      "total_tokens": 899,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1489,
+      "completion_tokens": 192,
+      "total_tokens": 1681,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 775,
+      "completion_tokens": 53,
+      "total_tokens": 828,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 778,
+      "completion_tokens": 118,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 775,
+      "completion_tokens": 137,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 791,
+      "completion_tokens": 137,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1109,
+      "completion_tokens": 260,
+      "total_tokens": 1369,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 685,
+      "completion_tokens": 59,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 785,
+      "completion_tokens": 119,
+      "total_tokens": 904,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 782,
+      "completion_tokens": 175,
+      "total_tokens": 957,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 798,
+      "completion_tokens": 92,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1178,
+      "completion_tokens": 237,
+      "total_tokens": 1415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 681,
+      "completion_tokens": 49,
+      "total_tokens": 730,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 389,
+    "majority_vote_total_tokens": 1175,
+    "scrd_total_tokens": 22336,
+    "scrd_prompt_tokens": 18769,
+    "scrd_completion_tokens": 3567,
+    "agent_total_tokens": 3425,
+    "recorder_total_tokens": 6661,
+    "evaluator_total_tokens": 743,
+    "repair_brief_total_tokens": 998,
+    "repair_evaluator_total_tokens": 2302,
+    "repair_agent_total_tokens": 8207
+  }
+}

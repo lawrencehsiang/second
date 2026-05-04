@@ -1,0 +1,460 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "7",
+        "7.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sixth term = 5 + common difference",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (8, 7, 7.5)",
+          "why_still_open": "Agents used different methods to calculate the common difference.",
+          "involved_answers": [
+            "8",
+            "7",
+            "7.5"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sum of first 4 terms = 10",
+        "Fifth term = 5",
+        "Difference between fifth and sixth term = common difference",
+        "Sixth term = 5 + common difference",
+        "Common difference = 2.5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "8",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the common difference to find the sixth term as 6",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Resolved the conflict by recalculating the common difference",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (6, 8, 7)",
+          "why_still_open": "Agents have recalculated but still differ on the common difference and sixth term.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sum of first 4 terms = 10",
+        "Fifth term = 5",
+        "Common difference = 1",
+        "Sixth term = 6",
+        "Resolving the common difference using provided terms"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer 7 is incorrect due to failing sequence conditions",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of first 4 terms = 10",
+        "Fifth term = 5",
+        "Common difference = 1",
+        "Sixth term = 6",
+        "Resolved minority answer of 7"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "6",
+        "8",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The sequence conditions confirm the sixth term is 6",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recalculation supports the sixth term as 6",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Consistency with mainstream support for 6",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sequence conditions imply common difference of 1",
+        "Fifth term is 5, implying previous terms are 1, 2, 3, 4",
+        "Sixth term follows as 6",
+        "Mainstream support confirms sixth term is 6",
+        "Recalculated common difference validates sixth term"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "7",
+        "4",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The fifth term being 5 implies the sixth term is 4 through arithmetic sequence properties",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The sixth term cannot be 7 due to violating arithmetic progression rules",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The fifth term being 5 leads to a sixth term of 4, contradicting the mainstream support of 6.",
+          "why_still_open": "New evidence from sequence properties resolved the sixth term to 4, but mainstream support remains unchallenged.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Fifth term is 5, sixth term should be 4 by sequence properties",
+        "Sum of first four terms + fifth term = 10, common difference is -1",
+        "Sixth term cannot be 7 as it violates arithmetic progression rules",
+        "Mainstream support states the sixth term is 6",
+        "Revised sixth term is 4 based on accurate sequence conditions"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0095",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 31,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 54,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 102,
+      "total_tokens": 440,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 665,
+      "completion_tokens": 187,
+      "total_tokens": 852,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 699,
+      "completion_tokens": 225,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 696,
+      "completion_tokens": 105,
+      "total_tokens": 801,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 712,
+      "completion_tokens": 93,
+      "total_tokens": 805,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1157,
+      "completion_tokens": 295,
+      "total_tokens": 1452,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1157,
+      "completion_tokens": 224,
+      "total_tokens": 1381,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 790,
+      "completion_tokens": 92,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 787,
+      "completion_tokens": 96,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 801,
+      "completion_tokens": 104,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1068,
+      "completion_tokens": 123,
+      "total_tokens": 1191,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 798,
+      "completion_tokens": 158,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 795,
+      "completion_tokens": 101,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 809,
+      "completion_tokens": 102,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1014,
+      "completion_tokens": 210,
+      "total_tokens": 1224,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 691,
+      "completion_tokens": 117,
+      "total_tokens": 808,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 688,
+      "completion_tokens": 135,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 702,
+      "completion_tokens": 108,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0095",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1108,
+      "completion_tokens": 281,
+      "total_tokens": 1389,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 371,
+    "majority_vote_total_tokens": 1192,
+    "scrd_total_tokens": 19085,
+    "scrd_prompt_tokens": 16142,
+    "scrd_completion_tokens": 2943,
+    "agent_total_tokens": 11596,
+    "recorder_total_tokens": 7489,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

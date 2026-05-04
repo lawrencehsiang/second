@@ -1,0 +1,205 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each part originally had 13 beads.",
+          "claim_type": "constraint",
+          "related_answer": "B, C"
+        },
+        {
+          "text": "After doubling, each part had 6 beads, leaving 3 beads per part.",
+          "claim_type": "explanation",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and C claim 10 beads were removed per part, while A claims 7 beads were removed per part.",
+          "why_still_open": "Different calculations for the number of beads removed lead to conflicting answers.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total beads = 23 + 16 = 39",
+        "Divided into 3 parts, each part had 13 beads",
+        "Doubled to 6 beads, means 3 beads remained",
+        "After removal, each part had 6 beads",
+        "10 beads were removed from each part"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "10",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "After doubling, each part had 6 beads, implying 3 beads were removed per part.",
+          "claim_type": "explanation",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each part originally had 13 beads.",
+        "After doubling, each part had 6 beads, leaving 3 beads per part.",
+        "10 beads were removed from each part.",
+        "Divided into 3 parts, each part had 13 beads initially.",
+        "Total beads = 23 + 16 = 39"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 369,
+      "completion_tokens": 73,
+      "total_tokens": 442,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 356,
+      "completion_tokens": 89,
+      "total_tokens": 445,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 367,
+      "completion_tokens": 77,
+      "total_tokens": 444,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 717,
+      "completion_tokens": 262,
+      "total_tokens": 979,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 870,
+      "completion_tokens": 153,
+      "total_tokens": 1023,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 868,
+      "completion_tokens": 144,
+      "total_tokens": 1012,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 882,
+      "completion_tokens": 99,
+      "total_tokens": 981,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1215,
+      "completion_tokens": 160,
+      "total_tokens": 1375,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 618,
+      "completion_tokens": 54,
+      "total_tokens": 672,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 442,
+    "majority_vote_total_tokens": 1331,
+    "scrd_total_tokens": 7373,
+    "scrd_prompt_tokens": 6262,
+    "scrd_completion_tokens": 1111,
+    "agent_total_tokens": 4347,
+    "recorder_total_tokens": 2354,
+    "evaluator_total_tokens": 672,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

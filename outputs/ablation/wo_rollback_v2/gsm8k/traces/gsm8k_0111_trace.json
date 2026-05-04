@@ -1,0 +1,194 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "140",
+        "140",
+        "140"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tina sold 3 times as many candy bars as Marvin, resulting in a $140 difference in earnings.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate total candy bars sold by Tina to determine the earnings difference.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Marvin sold 35 candy bars, and Tina sold 3 times that amount, leading to a $140 difference.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Tina sold 3 times Marvin's 35 candy bars.",
+        "Each candy bar costs $2.",
+        "Marvin's earnings were $70, and Tina's were $210.",
+        "The difference in earnings is $140.",
+        "Total candy bars sold by Tina: 105."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "280",
+        "140",
+        "140"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculate the earnings using the correct price of $2 per candy bar.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Correct price per candy bar is $2.",
+        "Marvin's earnings are $70, Tina's are $210.",
+        "Difference in earnings is $140.",
+        "Tina sold 105 candy bars.",
+        "Each candy bar costs $2."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 106,
+      "total_tokens": 482,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 37,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 94,
+      "total_tokens": 468,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0111",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 722,
+      "completion_tokens": 245,
+      "total_tokens": 967,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 652,
+      "completion_tokens": 127,
+      "total_tokens": 779,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 649,
+      "completion_tokens": 155,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 663,
+      "completion_tokens": 172,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1233,
+      "completion_tokens": 140,
+      "total_tokens": 1373,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0111",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 60,
+      "total_tokens": 655,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 482,
+    "majority_vote_total_tokens": 1350,
+    "scrd_total_tokens": 6763,
+    "scrd_prompt_tokens": 5627,
+    "scrd_completion_tokens": 1136,
+    "agent_total_tokens": 3768,
+    "recorder_total_tokens": 2340,
+    "evaluator_total_tokens": 655,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

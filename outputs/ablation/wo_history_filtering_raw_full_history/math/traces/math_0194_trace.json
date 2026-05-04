@@ -1,0 +1,284 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Brenda's age is 3, Addison's age is 9, and Janet's age is 15.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Brenda's age is x, Addison's age is 3x, Janet's age is x+6, 3x = x + 6",
+        "Solving for x gives x = 3",
+        "Brenda is 3 years old",
+        "Addison is 9 years old",
+        "Janet is 15 years old"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3",
+        "Brenda is 6 years old.",
+        "Brenda is 12 years old."
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Addison's age is three times Brenda's age.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Janet is six years older than Brenda.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Addison and Janet being twins contradicts the age difference of 6 years.",
+          "why_still_open": "The core conflict remains unresolved as Addison and Janet being twins cannot coexist with Janet being 6 years older than Brenda.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Brenda's age is x, Addison's age is 3x, Janet's age is x+6, 3x = x + 6",
+        "Solving for x gives x = 3",
+        "Brenda is 6 years old",
+        "Addison is 9 years old",
+        "Janet is 15 years old"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 84,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 61,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 84,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 708,
+      "completion_tokens": 165,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 759,
+      "completion_tokens": 156,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 756,
+      "completion_tokens": 106,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 770,
+      "completion_tokens": 129,
+      "total_tokens": 899,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1069,
+      "completion_tokens": 150,
+      "total_tokens": 1219,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 518,
+      "completion_tokens": 45,
+      "total_tokens": 563,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 691,
+      "completion_tokens": 108,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 598,
+      "completion_tokens": 155,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 597,
+      "completion_tokens": 140,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 598,
+      "completion_tokens": 143,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1140,
+      "completion_tokens": 256,
+      "total_tokens": 1396,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 743,
+      "completion_tokens": 44,
+      "total_tokens": 787,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 424,
+    "majority_vote_total_tokens": 1234,
+    "scrd_total_tokens": 11778,
+    "scrd_prompt_tokens": 9952,
+    "scrd_completion_tokens": 1826,
+    "agent_total_tokens": 3910,
+    "recorder_total_tokens": 3488,
+    "evaluator_total_tokens": 563,
+    "repair_brief_total_tokens": 799,
+    "repair_evaluator_total_tokens": 787,
+    "repair_agent_total_tokens": 2231
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

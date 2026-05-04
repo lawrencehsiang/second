@@ -1,0 +1,277 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Divide remaining money by number of tops to find cost per top.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers given: 8, 5, 5.",
+          "why_still_open": "Calculation steps are consistent but results differ.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = $75, Shorts + Shoes = $13",
+        "Remaining = $75 - $13",
+        "Cost per top = Remaining / 5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "7",
+        "6",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify calculations by recomputing total expenditures and distributing costs.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ensure accuracy by recomputing total expenditure and cost distribution.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate cost per top by subtracting expenses on shorts and shoes from total and dividing by number of tops.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total spent on shorts and shoes: $55",
+        "Remaining amount for tops: $20",
+        "Cost per top: $20 / 4"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 367,
+      "completion_tokens": 49,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 354,
+      "completion_tokens": 45,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 365,
+      "completion_tokens": 47,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 617,
+      "completion_tokens": 171,
+      "total_tokens": 788,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 729,
+      "completion_tokens": 116,
+      "total_tokens": 845,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 726,
+      "completion_tokens": 126,
+      "total_tokens": 852,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 740,
+      "completion_tokens": 134,
+      "total_tokens": 874,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1091,
+      "completion_tokens": 256,
+      "total_tokens": 1347,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 673,
+      "completion_tokens": 41,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 832,
+      "completion_tokens": 80,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 597,
+      "completion_tokens": 119,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 596,
+      "completion_tokens": 99,
+      "total_tokens": 695,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 597,
+      "completion_tokens": 212,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1129,
+      "completion_tokens": 197,
+      "total_tokens": 1326,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0024",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 781,
+      "completion_tokens": 42,
+      "total_tokens": 823,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 416,
+    "majority_vote_total_tokens": 1227,
+    "scrd_total_tokens": 11928,
+    "scrd_prompt_tokens": 10194,
+    "scrd_completion_tokens": 1734,
+    "agent_total_tokens": 3798,
+    "recorder_total_tokens": 3461,
+    "evaluator_total_tokens": 714,
+    "repair_brief_total_tokens": 912,
+    "repair_evaluator_total_tokens": 823,
+    "repair_agent_total_tokens": 2220
+  }
+}

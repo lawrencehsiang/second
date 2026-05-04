@@ -1,0 +1,204 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "38",
+        "31",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate individual totals, combine, then divide by 2.",
+          "claim_type": "constraint",
+          "related_answer": "38"
+        },
+        {
+          "text": "Calculate total hats, then divide by 2.",
+          "claim_type": "constraint",
+          "related_answer": "31"
+        },
+        {
+          "text": "Calculate individual totals, sum, divide by 2",
+          "claim_type": "constraint",
+          "related_answer": "36"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Sum / 2",
+        "Hats = Total Hats / 2",
+        "Individual + Individual = Combined"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "36",
+        "38",
+        "38"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct approach involves calculating the total number of hats and then dividing by 2.",
+          "claim_type": "rebuttal",
+          "related_answer": "38"
+        },
+        {
+          "text": "Recalculating the total number of hats and dividing by 2.",
+          "claim_type": "explanation",
+          "related_answer": "38"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The mainstream support provided an answer of 38, but the previous answers were 36 and 31.",
+          "why_still_open": "The conflict persists as the previous answers were incorrect, and a re-calculation is needed.",
+          "involved_answers": [
+            "36",
+            "38"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = Sum / 2",
+        "Hats = Total Hats / 2",
+        "Combine totals, then divide by 2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 373,
+      "completion_tokens": 34,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 360,
+      "completion_tokens": 32,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 371,
+      "completion_tokens": 36,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 584,
+      "completion_tokens": 174,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 635,
+      "completion_tokens": 130,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 632,
+      "completion_tokens": 112,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 646,
+      "completion_tokens": 115,
+      "total_tokens": 761,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1067,
+      "completion_tokens": 234,
+      "total_tokens": 1301,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 636,
+      "completion_tokens": 52,
+      "total_tokens": 688,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 407,
+    "majority_vote_total_tokens": 1206,
+    "scrd_total_tokens": 6223,
+    "scrd_prompt_tokens": 5304,
+    "scrd_completion_tokens": 919,
+    "agent_total_tokens": 3476,
+    "recorder_total_tokens": 2059,
+    "evaluator_total_tokens": 688,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,280 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7400",
+        "8000",
+        "11000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sold car for 80% of $20,000 and bought new car for 90% of $30,000.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "Out of pocket cost is $27,000 - $16,000 = $11,000.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sold car for 80% of $20,000 = $16,000",
+        "Bought new car for 90% of $30,000 = $27,000",
+        "$27,000 - $16,000 = $11,000 out of pocket"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6200",
+        "4000",
+        "11000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The net out-of-pocket cost is calculated by subtracting the net amount received from selling the old car from the net amount spent on the new car.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Net out-of-pocket = Net new car cost - Net old car sale",
+        "Old car sold for 80% of $20,000 = $16,000",
+        "New car bought for 90% of $30,000 = $27,000",
+        "$27,000 - $16,000 = $11,000 out of pocket"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "4700",
+        "11000",
+        "11000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated the net out-of-pocket cost using the correct method.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Corrected the previous answer of 4000 by applying the accurate calculation method.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the validity of the mainstream support of 11000.",
+          "why_still_open": "Agent C maintains that the support is valid, but Agents A and B argue for a different result.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Net out-of-pocket = Net new car cost - Net old car sale",
+        "Old car sold for 80% of $20,000 = $16,000",
+        "New car bought for 90% of $30,000 = $27,000",
+        "$27,000 - $16,000 = $11,000 out of pocket",
+        "Mainstream support: Net out-of-pocket = $11,000"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 60,
+      "total_tokens": 436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 41,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 105,
+      "total_tokens": 479,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 695,
+      "completion_tokens": 229,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 663,
+      "completion_tokens": 161,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 660,
+      "completion_tokens": 77,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 675,
+      "completion_tokens": 107,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1140,
+      "completion_tokens": 190,
+      "total_tokens": 1330,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 618,
+      "completion_tokens": 48,
+      "total_tokens": 666,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 661,
+      "completion_tokens": 112,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 658,
+      "completion_tokens": 133,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 673,
+      "completion_tokens": 55,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1041,
+      "completion_tokens": 308,
+      "total_tokens": 1349,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 674,
+      "completion_tokens": 62,
+      "total_tokens": 736,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 436,
+    "majority_vote_total_tokens": 1319,
+    "scrd_total_tokens": 10959,
+    "scrd_prompt_tokens": 9271,
+    "scrd_completion_tokens": 1688,
+    "agent_total_tokens": 5954,
+    "recorder_total_tokens": 3603,
+    "evaluator_total_tokens": 1402,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "20",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing annual growth results in total growth over two years.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods of calculating growth lead to different answers.",
+          "why_still_open": "Methods used by agents A, B, and C differ, leading to conflicting results.",
+          "involved_answers": [
+            "20",
+            "60"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Growth = original * (1 + rate)^years",
+        "20 * (1 + 0.1)^2",
+        "Sum: 20 * 1.1 + 20 * 1.1^2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "32.1",
+        "44",
+        "46"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking growth calculations based on the problem statement.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Using the compound growth formula ensures consistent application of the annual growth rate.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Using the compound growth formula aligns with the annual growth rate provided.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods of calculating growth lead to different answers.",
+          "why_still_open": "Agent A is rechecking their calculations, while B and C have resolved the conflict using the compound growth formula.",
+          "involved_answers": [
+            "20",
+            "60",
+            "32.1",
+            "44",
+            "46"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Growth = original * (1 + rate)^years",
+        "20 * (1 + 0.1)^2",
+        "Sum: 20 * 1.1 + 20 * 1.1^2"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "20",
+        "44",
+        "34"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculating with the correct method to address previous errors.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods of calculating growth lead to different answers.",
+          "why_still_open": "Agent A is recalculating their answer, while B and C have resolved the conflict using the compound growth formula.",
+          "involved_answers": [
+            "20",
+            "44",
+            "32.1",
+            "46",
+            "34"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Correct method for growth calculation",
+        "Compound growth formula: height = original * (1 + rate)^years",
+        "Sum: original * (1 + rate) + original * (1 + rate)^2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 367,
+      "completion_tokens": 62,
+      "total_tokens": 429,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 354,
+      "completion_tokens": 36,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 365,
+      "completion_tokens": 34,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 611,
+      "completion_tokens": 190,
+      "total_tokens": 801,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 734,
+      "completion_tokens": 104,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 731,
+      "completion_tokens": 112,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 745,
+      "completion_tokens": 122,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1067,
+      "completion_tokens": 291,
+      "total_tokens": 1358,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 681,
+      "completion_tokens": 55,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 832,
+      "completion_tokens": 127,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 827,
+      "completion_tokens": 80,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 841,
+      "completion_tokens": 87,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1131,
+      "completion_tokens": 210,
+      "total_tokens": 1341,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 48,
+      "total_tokens": 642,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 429,
+    "majority_vote_total_tokens": 1218,
+    "scrd_total_tokens": 11438,
+    "scrd_prompt_tokens": 9880,
+    "scrd_completion_tokens": 1558,
+    "agent_total_tokens": 6560,
+    "recorder_total_tokens": 3500,
+    "evaluator_total_tokens": 1378,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

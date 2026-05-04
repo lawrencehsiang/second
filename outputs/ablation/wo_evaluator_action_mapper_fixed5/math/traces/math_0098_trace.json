@@ -1,0 +1,412 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "sqrt(9 * 9^t) simplifies to 3 * 3^t",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "sqrt(9 * 9^t) = 3 * 3^t",
+        "simplify and isolate the exponential term",
+        "recognize properties of exponents and square roots"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "1",
+        "2",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "sqrt(9 * 9^t) simplifies to 3 * 3^t, which leads to 3^t = 3 and t = 1",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "sqrt(9 * 9^t) simplifies to 3 * 3^t",
+        "6 * 3^t = 18",
+        "3^t = 3",
+        "t = 1"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "1",
+        "2",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "sqrt(9 * 9^t) simplifies to 3 * 3^t, leading to 3^t = 3 and t = 1",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "sqrt(9 * 9^t) simplifies to 3 * 3^t",
+        "3^t = 3",
+        "t = 1"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "1",
+        "2",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority claim of t = 2 is incorrect as sqrt(9 * 9^2) = 27, violating the equation constraints.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 2 remains.",
+          "why_still_open": "Verification required for the correctness of the majority view and the minority claim.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "sqrt(9 * 9^t) simplifies to 3 * 3^t",
+        "3^t = 3",
+        "t = 1",
+        "sqrt(9 * 9^2) = 27"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "1",
+        "1",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority objection of t = 2 is resolved as incorrect since sqrt(9 * 9^2) = 27, violating the equation constraints.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of t = 2 remains.",
+          "why_still_open": "Verification required for the correctness of the majority view and the minority claim.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "sqrt(9 * 9^t) simplifies to 3 * 3^t",
+        "3^t = 3",
+        "t = 1",
+        "sqrt(9 * 9^2) = 27",
+        "sqrt(9 * 9^t) = 3 * 3^t"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 341,
+      "completion_tokens": 35,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 328,
+      "completion_tokens": 29,
+      "total_tokens": 357,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 339,
+      "completion_tokens": 53,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 593,
+      "completion_tokens": 123,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 159,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 606,
+      "completion_tokens": 72,
+      "total_tokens": 678,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 620,
+      "completion_tokens": 152,
+      "total_tokens": 772,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1044,
+      "completion_tokens": 148,
+      "total_tokens": 1192,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 723,
+      "completion_tokens": 159,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 720,
+      "completion_tokens": 95,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 734,
+      "completion_tokens": 133,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1081,
+      "completion_tokens": 134,
+      "total_tokens": 1215,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 722,
+      "completion_tokens": 174,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 719,
+      "completion_tokens": 80,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 733,
+      "completion_tokens": 108,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1042,
+      "completion_tokens": 200,
+      "total_tokens": 1242,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 831,
+      "completion_tokens": 106,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 828,
+      "completion_tokens": 120,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 842,
+      "completion_tokens": 122,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1099,
+      "completion_tokens": 229,
+      "total_tokens": 1328,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 376,
+    "majority_vote_total_tokens": 1125,
+    "scrd_total_tokens": 16985,
+    "scrd_prompt_tokens": 14554,
+    "scrd_completion_tokens": 2431,
+    "agent_total_tokens": 11292,
+    "recorder_total_tokens": 5693,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

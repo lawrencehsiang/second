@@ -1,0 +1,458 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "96",
+        "72",
+        "192"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total seats = First Class + Business Class + Economy.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Business Class = 0.25 * Total Seats.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Economy Class = (2/3) * Total Seats.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different expressions for total seats.",
+          "why_still_open": "Agents A, B, and C have different expressions for total seats.",
+          "involved_answers": [
+            "96",
+            "72",
+            "192"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = First + Business + Economy",
+        "Business = 0.25 * Total",
+        "Economy = (2/3) * Total"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "120",
+        "96",
+        "96"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total seats = First Class + Business Class + Economy.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Business Class = 0.25 * Total Seats.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Economy Class = (2/3) * Total Seats.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = First + Business + Economy",
+        "Business = 0.25 * Total",
+        "Economy = (2/3) * Total",
+        "Total seats = 96",
+        "Summing all classes equals 96"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "120",
+        "96",
+        "96"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream support expression for total seats aligns with the problem conditions.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = First + Business + Economy",
+        "Business = 0.25 * Total",
+        "Economy = (2/3) * Total",
+        "Total seats = 96",
+        "Summing all classes equals 96"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "96",
+        "96",
+        "120"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 120 seats needs verification against the problem conditions.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "The mainstream support of 96 seats is consistent with the given proportions.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 120 seats contradicts the mainstream support of 96 seats.",
+          "why_still_open": "Verification of both answers against the problem conditions is required.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = First + Business + Economy",
+        "Business = 0.25 * Total",
+        "Economy = (2/3) * Total",
+        "Summing all classes equals 96",
+        "Mainstream support: Total = 96"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "120",
+        "96",
+        "96"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct answer should be derived from the given proportions.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 120 seats remains in the recent window.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 120 seats contradicts the mainstream support of 96 seats.",
+          "why_still_open": "Verification of both answers against the problem conditions is still required.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = First + Business + Economy",
+        "Business = 0.25 * Total",
+        "Economy = (2/3) * Total",
+        "Summing all classes equals 96",
+        "Mainstream support: Total = 96"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 363,
+      "completion_tokens": 61,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 350,
+      "completion_tokens": 56,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 361,
+      "completion_tokens": 58,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 652,
+      "completion_tokens": 240,
+      "total_tokens": 892,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 722,
+      "completion_tokens": 81,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 719,
+      "completion_tokens": 90,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 734,
+      "completion_tokens": 110,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1081,
+      "completion_tokens": 201,
+      "total_tokens": 1282,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 723,
+      "completion_tokens": 93,
+      "total_tokens": 816,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 719,
+      "completion_tokens": 108,
+      "total_tokens": 827,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 733,
+      "completion_tokens": 100,
+      "total_tokens": 833,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1056,
+      "completion_tokens": 130,
+      "total_tokens": 1186,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 732,
+      "completion_tokens": 156,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 728,
+      "completion_tokens": 128,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 742,
+      "completion_tokens": 123,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1075,
+      "completion_tokens": 242,
+      "total_tokens": 1317,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 827,
+      "completion_tokens": 99,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 824,
+      "completion_tokens": 116,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 839,
+      "completion_tokens": 101,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0166",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1110,
+      "completion_tokens": 244,
+      "total_tokens": 1354,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 424,
+    "majority_vote_total_tokens": 1249,
+    "scrd_total_tokens": 17627,
+    "scrd_prompt_tokens": 15090,
+    "scrd_completion_tokens": 2537,
+    "agent_total_tokens": 11596,
+    "recorder_total_tokens": 6031,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

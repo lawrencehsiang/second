@@ -1,0 +1,195 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-17",
+        "-7",
+        "-5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substituting x=4 into a=-1, b=6, c=-13 gives m=-5.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "m = -5 when x=4, a=-1, b=6, c=-13",
+        "vertex form: a=-1, b=6, c=-13",
+        "find m when x=4 using a=-1/6, b=-1, c=-13"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-5",
+        "-5",
+        "-5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the quadratic equation using the given properties.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous answer of -7 was derived from incorrect coefficients.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The provided answer (-7) does not match the mainstream support (-5).",
+          "why_still_open": "The discrepancy remains unresolved due to differing interpretations of the coefficients.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "m = -5 when x=4, a=-1, b=6, c=-13",
+        "correct coefficients lead to m = -5",
+        "discrepancy between -7 and -5"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0153",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 400,
+      "completion_tokens": 44,
+      "total_tokens": 444,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0153",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 387,
+      "completion_tokens": 34,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0153",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 398,
+      "completion_tokens": 59,
+      "total_tokens": 457,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0153",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 614,
+      "completion_tokens": 151,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0153",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 673,
+      "completion_tokens": 106,
+      "total_tokens": 779,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0153",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 669,
+      "completion_tokens": 51,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0153",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 683,
+      "completion_tokens": 48,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0153",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 903,
+      "completion_tokens": 222,
+      "total_tokens": 1125,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0153",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 667,
+      "completion_tokens": 46,
+      "total_tokens": 713,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 444,
+    "majority_vote_total_tokens": 1322,
+    "scrd_total_tokens": 6155,
+    "scrd_prompt_tokens": 5394,
+    "scrd_completion_tokens": 761,
+    "agent_total_tokens": 3552,
+    "recorder_total_tokens": 1890,
+    "evaluator_total_tokens": 713,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

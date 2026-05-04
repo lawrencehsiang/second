@@ -1,0 +1,449 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "24",
+        "24",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Multiply the number of flights per trip by the number of trips.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Sum the flights for both up and down trips.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods to calculate total flights.",
+          "why_still_open": "No agreement on whether to multiply or sum the flights.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total flights = 4 * 6",
+        "Flights up + Flights down = 24",
+        "4 trips * 6 flights/trip = 24"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "24",
+        "24",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each trip involves both going up and coming down, so sum the flights.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Sum the flights for both directions of each trip.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Sum the flights of stairs separately for up and down, then add them.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum flights up and down for each trip.",
+        "Total flights = Sum(up flights + down flights)",
+        "Add up and down flights for each trip."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "24",
+        "24",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each trip involves both going up and coming down, so sum the flights.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "We should sum the flights since each trip involves both going up and coming down.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Sum the flights for each trip since each trip involves both going up and coming down.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each trip involves both going up and coming down.",
+        "Sum the flights for each trip.",
+        "Total flights = Sum(up flights + down flights)"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "24",
+        "24",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Janice walks up 3 flights 5 times and down 3 flights 3 times.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate the total flights based on the given trips and directions.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluate the trips to ensure the total number of flights matches the conditions.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The total flights calculation differs between agents, with answers of 24 and 18.",
+          "why_still_open": "The discrepancy needs further analysis to determine the correct total flights.",
+          "involved_answers": [
+            "24",
+            "18"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Janice walks up 3 flights 5 times and down 3 flights 3 times.",
+        "Total flights = Sum(up flights + down flights)",
+        "Sum the flights for each trip."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "24",
+        "24",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Janice uses the elevator for the remaining trips, implying she only walks up and down the specified 3 flights.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The calculation includes both upward and downward flights, summing to 24 flights.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Janice walks up 3 flights 5 times and down 3 flights 3 times.",
+        "Total flights = 15 (up) + 9 (down) = 24.",
+        "Elevator use implies only specified flights are walked."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 396,
+      "completion_tokens": 43,
+      "total_tokens": 439,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 383,
+      "completion_tokens": 43,
+      "total_tokens": 426,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 394,
+      "completion_tokens": 36,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 201,
+      "total_tokens": 805,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 755,
+      "completion_tokens": 95,
+      "total_tokens": 850,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 752,
+      "completion_tokens": 87,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 766,
+      "completion_tokens": 93,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1034,
+      "completion_tokens": 184,
+      "total_tokens": 1218,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 757,
+      "completion_tokens": 100,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 754,
+      "completion_tokens": 89,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 768,
+      "completion_tokens": 107,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1032,
+      "completion_tokens": 191,
+      "total_tokens": 1223,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 661,
+      "completion_tokens": 136,
+      "total_tokens": 797,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 658,
+      "completion_tokens": 131,
+      "total_tokens": 789,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 672,
+      "completion_tokens": 131,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1117,
+      "completion_tokens": 264,
+      "total_tokens": 1381,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 774,
+      "completion_tokens": 154,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 771,
+      "completion_tokens": 199,
+      "total_tokens": 970,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 785,
+      "completion_tokens": 148,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0140",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1322,
+      "completion_tokens": 182,
+      "total_tokens": 1504,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 439,
+    "majority_vote_total_tokens": 1295,
+    "scrd_total_tokens": 17769,
+    "scrd_prompt_tokens": 15155,
+    "scrd_completion_tokens": 2614,
+    "agent_total_tokens": 11638,
+    "recorder_total_tokens": 6131,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

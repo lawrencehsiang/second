@@ -1,0 +1,414 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-3",
+        "-3",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substitute x with (x+1)/4 in h(x) = x.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Substitute x with (x+1)/4 in h(x). Solve for x when h(x) = x.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Substitute h(x) = x into the given function and solve for x.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C used different substitutions but arrived at the same answer of -3.",
+          "why_still_open": "The underlying steps and functions were not explicitly checked for correctness.",
+          "involved_answers": [
+            "-3",
+            "8"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "h(x) = x",
+        "x = (x+1)/4",
+        "Solve for x"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-3",
+        "-3",
+        "-3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ensure the substitution aligns with the original equation h(4x-1) = 2x + 7.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verify the solution by substituting x = -3 into the function definition.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "h(4x-1) = 2x + 7",
+        "x = -3",
+        "Verify solution"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "-3",
+        "-3",
+        "-3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the substitution to ensure alignment with the original equation.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Confirming the answer is -3 through consistent substitutions.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying h(-3) = -3 to ensure the function holds.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents used different substitutions but agreed on the answer of -3.",
+          "why_still_open": "Verification of the substitution's correctness and alignment with the original function h(x).",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "h(4x-1) = 2x + 7",
+        "x = -3",
+        "Verify h(-3) = -3"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "-3",
+        "-3",
+        "-3"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": []
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-3",
+        "-3",
+        "-3"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": []
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 344,
+      "completion_tokens": 41,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 331,
+      "completion_tokens": 48,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 342,
+      "completion_tokens": 40,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 261,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 719,
+      "completion_tokens": 124,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 716,
+      "completion_tokens": 133,
+      "total_tokens": 849,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 730,
+      "completion_tokens": 114,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1171,
+      "completion_tokens": 153,
+      "total_tokens": 1324,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 726,
+      "completion_tokens": 129,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 723,
+      "completion_tokens": 122,
+      "total_tokens": 845,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 737,
+      "completion_tokens": 112,
+      "total_tokens": 849,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1062,
+      "completion_tokens": 247,
+      "total_tokens": 1309,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 711,
+      "completion_tokens": 96,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 708,
+      "completion_tokens": 103,
+      "total_tokens": 811,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 722,
+      "completion_tokens": 108,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1106,
+      "completion_tokens": 31,
+      "total_tokens": 1137,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 711,
+      "completion_tokens": 111,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 708,
+      "completion_tokens": 99,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 722,
+      "completion_tokens": 101,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0096",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 888,
+      "completion_tokens": 31,
+      "total_tokens": 919,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 385,
+    "majority_vote_total_tokens": 1146,
+    "scrd_total_tokens": 16683,
+    "scrd_prompt_tokens": 14479,
+    "scrd_completion_tokens": 2204,
+    "agent_total_tokens": 11131,
+    "recorder_total_tokens": 5552,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

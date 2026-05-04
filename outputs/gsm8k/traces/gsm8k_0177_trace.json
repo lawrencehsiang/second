@@ -1,0 +1,546 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Convert grams to kilograms and multiply by the number of packets.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Convert grams to kilograms by dividing by 1000, then multiply by the number of packets.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Convert grams to kilograms by dividing by 1000.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for converting grams to kilograms lead to the same answer.",
+          "why_still_open": "All methods seem valid but yield identical results.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "20 kg",
+        "4 packets",
+        "grams to kg conversion"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": []
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Dividing 2000 grams by 1000 gives 2 kilograms.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Each 100-gram packet converts to 0.1 kg, so 20 packets equal 2 kg.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Correct conversion is 20 * 100 / 1000 = 2 kg.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "20 packets * 100 grams/packet ÷ 1000 grams/kg = 2 kg",
+        "100 grams ÷ 1000 grams/kg = 0.1 kg",
+        "20 packets * 0.1 kg/packet = 2 kg",
+        "Grams to kg: divide by 1000",
+        "Correct weekly sales: 2 kg"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The majority answer is 2, resolving the conflict with the minority answer of 4.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Dividing 2000 grams by 1000 gives 2 kilograms, resolving the conflict.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct calculation is 20 packets * 100 grams/packet ÷ 1000 grams/kg = 2 kg, resolving the conflict.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "20 packets * 100 grams/packet ÷ 1000 grams/kg = 2 kg",
+        "100 grams ÷ 1000 grams/kg = 0.1 kg",
+        "20 packets * 0.1 kg/packet = 2 kg",
+        "Grams to kg: divide by 1000",
+        "Correct weekly sales: 2 kg"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The majority answer of 2 is confirmed through verification.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 4 is incorrect as 2000 grams divided by 1000 equals 2 kilograms.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "20 packets of 100 grams each equal 2 kilograms, confirming the majority answer.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "20 packets * 100 grams/packet ÷ 1000 grams/kg = 2 kg",
+        "100 grams ÷ 1000 grams/kg = 0.1 kg",
+        "20 packets * 0.1 kg/packet = 2 kg",
+        "Grams to kg: divide by 1000",
+        "Correct weekly sales: 2 kg"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 5
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 34,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 45,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 37,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 593,
+      "completion_tokens": 231,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 700,
+      "completion_tokens": 92,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 696,
+      "completion_tokens": 129,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 710,
+      "completion_tokens": 104,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1093,
+      "completion_tokens": 31,
+      "total_tokens": 1124,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 516,
+      "completion_tokens": 46,
+      "total_tokens": 562,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 699,
+      "completion_tokens": 98,
+      "total_tokens": 797,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 696,
+      "completion_tokens": 99,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 710,
+      "completion_tokens": 99,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 849,
+      "completion_tokens": 31,
+      "total_tokens": 880,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 498,
+      "completion_tokens": 42,
+      "total_tokens": 540,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 433,
+      "completion_tokens": 72,
+      "total_tokens": 505,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 753,
+      "completion_tokens": 192,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 752,
+      "completion_tokens": 153,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 753,
+      "completion_tokens": 150,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1048,
+      "completion_tokens": 272,
+      "total_tokens": 1320,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 750,
+      "completion_tokens": 51,
+      "total_tokens": 801,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 670,
+      "completion_tokens": 103,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 667,
+      "completion_tokens": 116,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 683,
+      "completion_tokens": 125,
+      "total_tokens": 808,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1138,
+      "completion_tokens": 281,
+      "total_tokens": 1419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 664,
+      "completion_tokens": 41,
+      "total_tokens": 705,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 673,
+      "completion_tokens": 117,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 670,
+      "completion_tokens": 181,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 686,
+      "completion_tokens": 136,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1237,
+      "completion_tokens": 265,
+      "total_tokens": 1502,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 647,
+      "completion_tokens": 64,
+      "total_tokens": 711,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 373,
+    "majority_vote_total_tokens": 1118,
+    "scrd_total_tokens": 24423,
+    "scrd_prompt_tokens": 20986,
+    "scrd_completion_tokens": 3437,
+    "agent_total_tokens": 5950,
+    "recorder_total_tokens": 7069,
+    "evaluator_total_tokens": 1102,
+    "repair_brief_total_tokens": 505,
+    "repair_evaluator_total_tokens": 2217,
+    "repair_agent_total_tokens": 7580
+  }
+}

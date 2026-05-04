@@ -1,0 +1,377 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "250",
+        "340",
+        "250"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Divide the total cost by 4 and multiply by 1 for John's share.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating shared costs vs. John's individual share.",
+          "why_still_open": "Agents differ in how they handle shared costs and individual contributions.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = 250",
+        "John's alcohol cost = 10",
+        "Shared cost per person = 250 / 4",
+        "John's total = (250 / 4) * 1 + 10",
+        "Condiments and propane = 250"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "330",
+        "340",
+        "250"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "John's share includes his alcohol cost of $10 and the shared costs divided by 4.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate the shared costs first and then add John's individual expenses.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "John's total share is $330, which includes his alcohol and the shared costs divided by 4.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 250 + 80 + 80 + 200",
+        "John's alcohol cost = 10",
+        "Shared cost per person = (250 + 80 + 80 + 200) / 4",
+        "John's total = (250 + 80 + 80 + 200) / 4 + 10",
+        "Condiments and propane = 250"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "340",
+        "250",
+        "275"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The shared costs are $300, split equally among four people.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "John's total share is $275, comprising $200 for alcohol and $25 for shared costs.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 300 (shared) + 200 (alcohol)",
+        "Shared costs per person = 300 / 4",
+        "John's total = 200 (alcohol) + (300 / 4) (shared)",
+        "Condiments and propane = 80",
+        "Burgers = 100 * 3"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "275",
+        "340",
+        "245"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "John's total share is $275, calculated as $200 for alcohol plus $75 for shared costs.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The total shared costs are $180, divided among 4 people, resulting in $45 per person.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 200 (alcohol) + 180 (shared) = 380",
+        "Shared costs per person = 180 / 4",
+        "John's total = 200 (alcohol) + (180 / 4) (shared)",
+        "Condiments and propane = 80",
+        "Burgers = 100 * 3"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 4,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 60,
+      "total_tokens": 438,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 41,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 58,
+      "total_tokens": 434,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 644,
+      "completion_tokens": 209,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 751,
+      "completion_tokens": 114,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 748,
+      "completion_tokens": 100,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 762,
+      "completion_tokens": 145,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1132,
+      "completion_tokens": 275,
+      "total_tokens": 1407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 717,
+      "completion_tokens": 48,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 860,
+      "completion_tokens": 96,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 857,
+      "completion_tokens": 152,
+      "total_tokens": 1009,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 871,
+      "completion_tokens": 174,
+      "total_tokens": 1045,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1247,
+      "completion_tokens": 213,
+      "total_tokens": 1460,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 624,
+      "completion_tokens": 46,
+      "total_tokens": 670,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 759,
+      "completion_tokens": 207,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 756,
+      "completion_tokens": 101,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 770,
+      "completion_tokens": 205,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1284,
+      "completion_tokens": 229,
+      "total_tokens": 1513,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0161",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 663,
+      "completion_tokens": 51,
+      "total_tokens": 714,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 438,
+    "majority_vote_total_tokens": 1278,
+    "scrd_total_tokens": 17088,
+    "scrd_prompt_tokens": 14564,
+    "scrd_completion_tokens": 2524,
+    "agent_total_tokens": 9706,
+    "recorder_total_tokens": 5233,
+    "evaluator_total_tokens": 2149,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

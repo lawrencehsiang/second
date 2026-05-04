@@ -1,0 +1,266 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total ounces by dividing total money spent by price per ounce.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total money spent = $2 - $0.50 = $1.50",
+        "Price per ounce = $0.25",
+        "Number of ounces = $1.50 / $0.25 = 6",
+        "Subtract change from money spent to find total spent",
+        "Divide total money spent by price per ounce to get number of ounces"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "8",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated that $1.50 spent on soda at $0.25 per ounce equals 6 ounces.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Confirmed the correct number of ounces bought is 6, not 8.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total money spent = $2 - $0.50 = $1.50",
+        "Price per ounce = $0.25",
+        "Number of ounces = $1.50 / $0.25 = 6",
+        "Subtract change from money spent to find total spent",
+        "Divide total money spent by price per ounce to get number of ounces"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 351,
+      "completion_tokens": 71,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 338,
+      "completion_tokens": 41,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 349,
+      "completion_tokens": 38,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 623,
+      "completion_tokens": 158,
+      "total_tokens": 781,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 612,
+      "completion_tokens": 120,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 609,
+      "completion_tokens": 103,
+      "total_tokens": 712,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 623,
+      "completion_tokens": 156,
+      "total_tokens": 779,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1059,
+      "completion_tokens": 295,
+      "total_tokens": 1354,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 671,
+      "completion_tokens": 53,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 842,
+      "completion_tokens": 93,
+      "total_tokens": 935,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 594,
+      "completion_tokens": 183,
+      "total_tokens": 777,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 593,
+      "completion_tokens": 166,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 594,
+      "completion_tokens": 178,
+      "total_tokens": 772,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1207,
+      "completion_tokens": 212,
+      "total_tokens": 1419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0087",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 725,
+      "completion_tokens": 58,
+      "total_tokens": 783,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 422,
+    "majority_vote_total_tokens": 1188,
+    "scrd_total_tokens": 11715,
+    "scrd_prompt_tokens": 9790,
+    "scrd_completion_tokens": 1925,
+    "agent_total_tokens": 3411,
+    "recorder_total_tokens": 3554,
+    "evaluator_total_tokens": 724,
+    "repair_brief_total_tokens": 935,
+    "repair_evaluator_total_tokens": 783,
+    "repair_agent_total_tokens": 2308
+  }
+}

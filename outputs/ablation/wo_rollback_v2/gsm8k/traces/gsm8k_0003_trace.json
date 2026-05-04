@@ -3,61 +3,75 @@
     {
       "round_id": 1,
       "current_answers": [
+        "10",
         "5",
-        "25",
-        "5"
+        "45"
       ],
       "newly_added_claims": [
         {
-          "text": "Betty still needs $5.",
-          "claim_type": "constraint",
-          "related_answer": "C"
-        }
-      ],
-      "unresolved_conflicts": [],
-      "key_raw_snippets": [
-        "Betty needs $100 total.",
-        "She has $50.",
-        "Parents give $15.",
-        "Grandparents give $30.",
-        "Total received = $45."
-      ]
-    },
-    {
-      "round_id": 2,
-      "current_answers": [
-        "0",
-        "5",
-        "5"
-      ],
-      "newly_added_claims": [
-        {
-          "text": "Betty's total received is $50, which meets her needs.",
+          "text": "Betty needs $5 more.",
           "claim_type": "rebuttal",
-          "related_answer": "A"
+          "related_answer": "B"
         },
         {
-          "text": "Betty still needs $5.",
-          "claim_type": "support",
+          "text": "Grandparents gave $30 which is double what parents gave.",
+          "claim_type": "constraint",
           "related_answer": "C"
         }
       ],
       "unresolved_conflicts": [
         {
-          "conflict": "Betty's total received is $50, but she needs $5 more according to mainstream support.",
-          "why_still_open": "There is discrepancy between the updated answer stating she has enough and the mainstream support indicating she still needs $5.",
+          "conflict": "Agent B claims Betty needs $5 more, while Agent C claims she needs $45 more.",
+          "why_still_open": "Different calculations for the amount Betty still needs.",
           "involved_answers": [
-            "A",
+            "B",
             "C"
           ]
         }
       ],
       "key_raw_snippets": [
-        "Betty needs $100 total.",
-        "Parents give $15.",
-        "Grandparents give $30.",
-        "Total received = $50.",
-        "Betty still needs $5."
+        "Betty needs $100, has $50, gets $15 from parents and $30 from grandparents.",
+        "$50 (half of $100) + $15 + $30 = $95.",
+        "Parents gave $15, grandparents gave $30 (double of $15).",
+        "$95 - $100 = $5 more needed.",
+        "$50 + $45 = $95, so $100 - $95 = $45 more needed."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "45",
+        "55",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revised calculation shows Betty has $45, needing $55 more.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agent C's previous answer was incorrect; Betty needs $5 more.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B claims Betty needs $55 more, while Agent C claims she needs $5 more.",
+          "why_still_open": "Different evaluations of the amount Betty still needs.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Betty needs $100, has $50, gets $15 from parents and $30 from grandparents.",
+        "$50 + $15 + $30 = $95.",
+        "Parents gave $15, grandparents gave $30 (double of $15).",
+        "$95 - $100 = $5 more needed.",
+        "Betty has $45, thus needs $55 more to reach $100."
       ]
     }
   ],
@@ -86,8 +100,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 371,
-      "completion_tokens": 74,
-      "total_tokens": 445,
+      "completion_tokens": 51,
+      "total_tokens": 422,
       "extra": {}
     },
     {
@@ -97,8 +111,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 358,
-      "completion_tokens": 35,
-      "total_tokens": 393,
+      "completion_tokens": 88,
+      "total_tokens": 446,
       "extra": {}
     },
     {
@@ -108,8 +122,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 369,
-      "completion_tokens": 88,
-      "total_tokens": 457,
+      "completion_tokens": 58,
+      "total_tokens": 427,
       "extra": {}
     },
     {
@@ -118,9 +132,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 674,
-      "completion_tokens": 112,
-      "total_tokens": 786,
+      "prompt_tokens": 672,
+      "completion_tokens": 286,
+      "total_tokens": 958,
       "extra": {}
     },
     {
@@ -129,9 +143,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 626,
-      "completion_tokens": 175,
-      "total_tokens": 801,
+      "prompt_tokens": 826,
+      "completion_tokens": 134,
+      "total_tokens": 960,
       "extra": {}
     },
     {
@@ -140,9 +154,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 624,
-      "completion_tokens": 117,
-      "total_tokens": 741,
+      "prompt_tokens": 822,
+      "completion_tokens": 116,
+      "total_tokens": 938,
       "extra": {}
     },
     {
@@ -151,9 +165,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 637,
-      "completion_tokens": 167,
-      "total_tokens": 804,
+      "prompt_tokens": 837,
+      "completion_tokens": 127,
+      "total_tokens": 964,
       "extra": {}
     },
     {
@@ -162,9 +176,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 1094,
-      "completion_tokens": 230,
-      "total_tokens": 1324,
+      "prompt_tokens": 1218,
+      "completion_tokens": 283,
+      "total_tokens": 1501,
       "extra": {}
     },
     {
@@ -173,25 +187,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 641,
-      "completion_tokens": 40,
-      "total_tokens": 681,
+      "prompt_tokens": 651,
+      "completion_tokens": 52,
+      "total_tokens": 703,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 445,
+    "single_agent_total_tokens": 422,
     "majority_vote_total_tokens": 1295,
-    "scrd_total_tokens": 6432,
-    "scrd_prompt_tokens": 5394,
-    "scrd_completion_tokens": 1038,
-    "agent_total_tokens": 3641,
-    "recorder_total_tokens": 2110,
-    "evaluator_total_tokens": 681,
+    "scrd_total_tokens": 7319,
+    "scrd_prompt_tokens": 6124,
+    "scrd_completion_tokens": 1195,
+    "agent_total_tokens": 4157,
+    "recorder_total_tokens": 2459,
+    "evaluator_total_tokens": 703,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

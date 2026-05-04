@@ -1,0 +1,409 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "45",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Gained double the loss.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (45 vs 40).",
+          "why_still_open": "Calculation methods differ.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Lost 20% (5), then gained double (10), total 15 more.",
+        "Calculate loss, then gain."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "60",
+        "40",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correctly calculates the remaining marbles after loss and the subsequent gift.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Mainstream support correctly calculates the gain as double the remaining marbles.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Lost 20% (5), then gained double the remaining amount (32), total 37 more.",
+        "Starts with 25, loses 20%, ends up with 20, friend gives double that amount (40)."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "60",
+        "45",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream method correctly calculates the gain as double the remaining marbles after losing 20%. The minority answer of 40 does not follow the problem's steps accurately.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream calculation method is correct: 25 marbles lost 20% (5 marbles), leaving 20. Then the friend gives her double that amount (40 marbles). So, 20 + 40 = 60 marbles.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Lost 20% (5), then gained double the remaining amount (40), total 60 more.",
+        "Starts with 25, loses 20%, ends up with 20, friend gives double that amount (40)."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "60",
+        "60",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream method correctly calculates the loss and gain, leading to 60 marbles.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 45 contradicts the mainstream calculation of 60.",
+          "why_still_open": "The minority answer remains unaddressed despite multiple resolutions.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Loses 20% (5 marbles), ends up with 20, then gains double that amount (40), totals 60.",
+        "Mainstream method: starts with 25, loses 20%, ends up with 20, gains 40 from friend, totals 60."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "60",
+        "60",
+        "60"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Loses 20% (5 marbles), ends up with 20, then gains double that amount (40), totals 60.",
+        "Mainstream method: starts with 25, loses 20%, ends up with 20, gains 40 from friend, totals 60."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 364,
+      "completion_tokens": 31,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 351,
+      "completion_tokens": 31,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 362,
+      "completion_tokens": 46,
+      "total_tokens": 408,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 584,
+      "completion_tokens": 149,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 714,
+      "completion_tokens": 156,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 711,
+      "completion_tokens": 153,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 725,
+      "completion_tokens": 102,
+      "total_tokens": 827,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1118,
+      "completion_tokens": 171,
+      "total_tokens": 1289,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 823,
+      "completion_tokens": 117,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 820,
+      "completion_tokens": 134,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 834,
+      "completion_tokens": 139,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1105,
+      "completion_tokens": 237,
+      "total_tokens": 1342,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 886,
+      "completion_tokens": 164,
+      "total_tokens": 1050,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 883,
+      "completion_tokens": 131,
+      "total_tokens": 1014,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 897,
+      "completion_tokens": 137,
+      "total_tokens": 1034,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1205,
+      "completion_tokens": 211,
+      "total_tokens": 1416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 852,
+      "completion_tokens": 161,
+      "total_tokens": 1013,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 849,
+      "completion_tokens": 134,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 863,
+      "completion_tokens": 142,
+      "total_tokens": 1005,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1182,
+      "completion_tokens": 103,
+      "total_tokens": 1285,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 395,
+    "majority_vote_total_tokens": 1185,
+    "scrd_total_tokens": 18777,
+    "scrd_prompt_tokens": 16128,
+    "scrd_completion_tokens": 2649,
+    "agent_total_tokens": 12712,
+    "recorder_total_tokens": 6065,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

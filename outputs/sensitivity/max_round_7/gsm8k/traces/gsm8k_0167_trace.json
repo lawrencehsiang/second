@@ -1,0 +1,217 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate movies per day by dividing total minutes by movie length.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate movies per day by converting hours to minutes and dividing.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Find the maximum number of movies that can be watched in a day.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the maximum number of movies that can be watched in a day.",
+          "why_still_open": "Different approaches lead to different results.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total time = 50 min + 60 min = 110 min",
+        "Movie length = 12 min",
+        "Movies per day = 110 min / 12 min/movie"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "10",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the maximum number of movies based on the total time available over both days.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ensure the calculation aligns with the correct time constraint over two days.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the proposed answer of 8 movies against the constraints.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the maximum number of movies that can be watched in a day.",
+          "why_still_open": "Need to verify if the proposed answers align with the total time spent over two days.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total time = 50 min + 60 min = 110 min",
+        "Movie length = 12 min",
+        "Movies per day = 110 min / 12 min/movie"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 401,
+      "completion_tokens": 33,
+      "total_tokens": 434,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 388,
+      "completion_tokens": 33,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 399,
+      "completion_tokens": 39,
+      "total_tokens": 438,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 584,
+      "completion_tokens": 257,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 764,
+      "completion_tokens": 94,
+      "total_tokens": 858,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 761,
+      "completion_tokens": 95,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 775,
+      "completion_tokens": 121,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1120,
+      "completion_tokens": 277,
+      "total_tokens": 1397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 721,
+      "completion_tokens": 68,
+      "total_tokens": 789,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 434,
+    "majority_vote_total_tokens": 1293,
+    "scrd_total_tokens": 6930,
+    "scrd_prompt_tokens": 5913,
+    "scrd_completion_tokens": 1017,
+    "agent_total_tokens": 3903,
+    "recorder_total_tokens": 2238,
+    "evaluator_total_tokens": 789,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

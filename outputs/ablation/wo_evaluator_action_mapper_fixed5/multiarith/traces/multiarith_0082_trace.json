@@ -1,0 +1,443 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "17",
+        "27",
+        "27"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Extra flowers = Total picked - Used",
+          "claim_type": "constraint",
+          "related_answer": "27"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total picked = 39 + 49",
+        "Used = 81",
+        "Extra = Total - Used",
+        "Extra flowers = Total picked - Used",
+        "27"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "7",
+        "27",
+        "27"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total picked = 39 + 49",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Extra flowers = 88 - 81",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total picked = 39 + 49",
+        "Used = 81",
+        "Extra flowers = 88 - 81",
+        "27",
+        "Extra flowers = Total picked - Used"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "27",
+        "27",
+        "27"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the answer to follow the mainstream support of 27.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support correctly calculates extra flowers as 27.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Extra flowers = Total picked - Used",
+        "27",
+        "39 + 49 - 81 = 27",
+        "Used = 81",
+        "Mainstream support calculates extra flowers as 27."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "27",
+        "27",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream support correctly calculates the extra flowers as 27.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verification of the calculation is needed to ensure accuracy.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement between the mainstream support (27) and Agent C (18).",
+          "why_still_open": "Agent C needs to recheck the calculation to resolve the discrepancy.",
+          "involved_answers": [
+            "27",
+            "18"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Extra flowers = Total picked - Used",
+        "27",
+        "39 + 49 - 81 = 27",
+        "Used = 81",
+        "Verification of the calculation is required."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "27",
+        "27",
+        "27"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the calculation to ensure accuracy.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "I will recheck the calculation to resolve the discrepancy.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "I will recheck the calculation to resolve the discrepancy.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement between the mainstream support (27) and Agent C (18).",
+          "why_still_open": "All agents are rechecking their calculations, but the discrepancy remains.",
+          "involved_answers": [
+            "27",
+            "18"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Extra flowers = Total picked - Used",
+        "27",
+        "39 + 49 - 81 = 27",
+        "Used = 81",
+        "Rechecking the calculation for accuracy."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 351,
+      "completion_tokens": 45,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 338,
+      "completion_tokens": 33,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 349,
+      "completion_tokens": 48,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 113,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 128,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 606,
+      "completion_tokens": 35,
+      "total_tokens": 641,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 620,
+      "completion_tokens": 101,
+      "total_tokens": 721,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 912,
+      "completion_tokens": 157,
+      "total_tokens": 1069,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 608,
+      "completion_tokens": 119,
+      "total_tokens": 727,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 606,
+      "completion_tokens": 108,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 620,
+      "completion_tokens": 54,
+      "total_tokens": 674,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 973,
+      "completion_tokens": 167,
+      "total_tokens": 1140,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 707,
+      "completion_tokens": 108,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 704,
+      "completion_tokens": 108,
+      "total_tokens": 812,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 718,
+      "completion_tokens": 105,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1040,
+      "completion_tokens": 224,
+      "total_tokens": 1264,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 818,
+      "completion_tokens": 99,
+      "total_tokens": 917,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 815,
+      "completion_tokens": 101,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 829,
+      "completion_tokens": 100,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1065,
+      "completion_tokens": 268,
+      "total_tokens": 1333,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 396,
+    "majority_vote_total_tokens": 1164,
+    "scrd_total_tokens": 16114,
+    "scrd_prompt_tokens": 13893,
+    "scrd_completion_tokens": 2221,
+    "agent_total_tokens": 10590,
+    "recorder_total_tokens": 5524,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,186 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "160",
+        "160",
+        "160"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Packet A height is 120% of Packet B height.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Packet A height = Packet B height * 1.2",
+        "Packet B height = Packet A height / 1.2",
+        "120% = 1.2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "160",
+        "160",
+        "160"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The height of Packet B is 192 / 1.2 inches.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Packet A height = Packet B height * 1.2",
+        "120% = 1.2",
+        "Packet B height = 192 / 1.2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 369,
+      "completion_tokens": 52,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 356,
+      "completion_tokens": 56,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 367,
+      "completion_tokens": 70,
+      "total_tokens": 437,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 663,
+      "completion_tokens": 116,
+      "total_tokens": 779,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 758,
+      "completion_tokens": 128,
+      "total_tokens": 886,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 755,
+      "completion_tokens": 157,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 769,
+      "completion_tokens": 92,
+      "total_tokens": 861,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1051,
+      "completion_tokens": 121,
+      "total_tokens": 1172,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 590,
+      "completion_tokens": 60,
+      "total_tokens": 650,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 421,
+    "majority_vote_total_tokens": 1270,
+    "scrd_total_tokens": 6530,
+    "scrd_prompt_tokens": 5678,
+    "scrd_completion_tokens": 852,
+    "agent_total_tokens": 3929,
+    "recorder_total_tokens": 1951,
+    "evaluator_total_tokens": 650,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

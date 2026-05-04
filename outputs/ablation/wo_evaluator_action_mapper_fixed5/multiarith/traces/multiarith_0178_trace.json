@@ -1,0 +1,405 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "41",
+        "41",
+        "31"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total roses after actions: 31.",
+          "claim_type": "constraint",
+          "related_answer": "31"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial 11, sold 2, picked 32 -> 31 roses.",
+        "Total: 11 - 2 + 32 = 31."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "31",
+        "41",
+        "41"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous answer was 41, corrected to 31.",
+          "claim_type": "rebuttal",
+          "related_answer": "31"
+        },
+        {
+          "text": "Correct calculation: 11 - 2 + 32 = 41.",
+          "claim_type": "explanation",
+          "related_answer": "41"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial 11, sold 2, added 32 -> 31 roses.",
+        "Corrected from 41 to 31 roses."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "41",
+        "31",
+        "41"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous mainstream answer of 41 was corrected to 31 based on the correct calculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "41"
+        },
+        {
+          "text": "The minority answer of 31 has been validated as correct after the initial mainstream answer of 41 was corrected.",
+          "claim_type": "support",
+          "related_answer": "31"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculation: 11 - 2 + 32 = 41 -> Corrected to 31 roses.",
+        "Minority answer of 31 validated as correct."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "31",
+        "31",
+        "31"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 31 is now the correct answer.",
+          "claim_type": "rebuttal",
+          "related_answer": "31"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The minority answer of 31 is now the correct answer.",
+        "The previous answer was 41, corrected to 31."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "41",
+        "31",
+        "31"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Starting with 11 roses, selling 2 leaves 9, and picking 32 more results in 41 roses.",
+          "claim_type": "support",
+          "related_answer": "41"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority objection of 41 remains, contradicting the corrected mainstream answer of 31.",
+          "why_still_open": "The calculation supporting 41 is still cited by some agents.",
+          "involved_answers": [
+            "41",
+            "31"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Starting with 11 roses, selling 2 leaves 9, and picking 32 more results in 41 roses.",
+        "The minority answer of 41 is still valid; the correct calculation shows 41 roses.",
+        "The previous answer was 41, corrected to 31."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 342,
+      "completion_tokens": 43,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 329,
+      "completion_tokens": 42,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 340,
+      "completion_tokens": 45,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 606,
+      "completion_tokens": 110,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 601,
+      "completion_tokens": 122,
+      "total_tokens": 723,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 598,
+      "completion_tokens": 112,
+      "total_tokens": 710,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 612,
+      "completion_tokens": 138,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1010,
+      "completion_tokens": 157,
+      "total_tokens": 1167,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 810,
+      "completion_tokens": 132,
+      "total_tokens": 942,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 807,
+      "completion_tokens": 114,
+      "total_tokens": 921,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 821,
+      "completion_tokens": 122,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1077,
+      "completion_tokens": 174,
+      "total_tokens": 1251,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 820,
+      "completion_tokens": 108,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 817,
+      "completion_tokens": 109,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 831,
+      "completion_tokens": 115,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1058,
+      "completion_tokens": 107,
+      "total_tokens": 1165,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 828,
+      "completion_tokens": 143,
+      "total_tokens": 971,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 825,
+      "completion_tokens": 122,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 839,
+      "completion_tokens": 160,
+      "total_tokens": 999,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1076,
+      "completion_tokens": 222,
+      "total_tokens": 1298,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 385,
+    "majority_vote_total_tokens": 1141,
+    "scrd_total_tokens": 17444,
+    "scrd_prompt_tokens": 15047,
+    "scrd_completion_tokens": 2397,
+    "agent_total_tokens": 11847,
+    "recorder_total_tokens": 5597,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

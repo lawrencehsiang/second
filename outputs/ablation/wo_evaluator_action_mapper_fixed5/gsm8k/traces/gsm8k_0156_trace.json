@@ -1,0 +1,469 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "80",
+        "192",
+        "192"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Half of the remaining 40 kg was sold to the community.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Subtract the 20 kg sold to the market from the total 100 kg.",
+          "claim_type": "support",
+          "related_answer": "B and C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers for the total number of mangoes.",
+          "why_still_open": "Agents B and C reached 192 mangoes, while A reached 80 mangoes.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total mangoes = 100 kg * 8 mangoes/kg",
+        "Mangoes sold to market = 20 kg",
+        "Remaining mangoes = 100 kg - 20 kg",
+        "Mangoes sold to community = 40 kg / 2",
+        "Total mangoes = 192"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "240",
+        "160",
+        "160"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of mangoes is 60 kg.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate the remaining mangoes after selling to the market and community.",
+          "claim_type": "support",
+          "related_answer": "B and C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total mangoes = 60 kg",
+        "Mangoes sold to market = 20 kg",
+        "Remaining mangoes = 40 kg",
+        "Mangoes sold to community = 20 kg",
+        "Each kg contains 8 mangoes"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "160",
+        "192",
+        "160"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the calculation based on the total harvest of 60 kg and the sales distribution.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 192 mangoes is based on a different interpretation, requiring a recheck of the operation order.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct calculation shows that Colby has 160 mangoes left.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a disagreement between 192 mangoes and 160 mangoes.",
+          "why_still_open": "Different interpretations of the sales distribution remain unresolved.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total mangoes = 60 kg",
+        "Mangoes sold to market = 20 kg",
+        "Remaining mangoes = 40 kg",
+        "Mangoes sold to community = 20 kg",
+        "Each kg contains 8 mangoes"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "160",
+        "160",
+        "192"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct remaining mangoes are 160 after rechecking the operations.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 192 mangoes was due to a misinterpretation of the operation order.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The initial calculation yielded 192 mangoes, but a recheck aligns with 160 mangoes.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement between 160 and 192 mangoes remaining.",
+          "why_still_open": "The minority answer suggests a different interpretation that needs further clarification.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total mangoes = 60 kg",
+        "Mangoes sold to market = 20 kg",
+        "Remaining mangoes = 40 kg",
+        "Mangoes sold to community = 20 kg",
+        "Each kg contains 8 mangoes"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "160",
+        "160",
+        "160"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 192 mangoes is incorrect and misinterprets the operation order.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct remaining mangoes are 160, following the proper sequence of operations.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 192 mangoes was due to a misinterpretation of the operations, now resolved.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total mangoes = 60 kg",
+        "Mangoes sold to market = 20 kg",
+        "Remaining mangoes = 40 kg",
+        "Mangoes sold to community = 20 kg",
+        "Each kg contains 8 mangoes"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 366,
+      "completion_tokens": 50,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 353,
+      "completion_tokens": 42,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 364,
+      "completion_tokens": 43,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 619,
+      "completion_tokens": 264,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 740,
+      "completion_tokens": 139,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 738,
+      "completion_tokens": 139,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 752,
+      "completion_tokens": 183,
+      "total_tokens": 935,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1288,
+      "completion_tokens": 174,
+      "total_tokens": 1462,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 826,
+      "completion_tokens": 123,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 823,
+      "completion_tokens": 108,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 837,
+      "completion_tokens": 156,
+      "total_tokens": 993,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1103,
+      "completion_tokens": 297,
+      "total_tokens": 1400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 849,
+      "completion_tokens": 220,
+      "total_tokens": 1069,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 846,
+      "completion_tokens": 177,
+      "total_tokens": 1023,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 860,
+      "completion_tokens": 136,
+      "total_tokens": 996,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1378,
+      "completion_tokens": 296,
+      "total_tokens": 1674,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 839,
+      "completion_tokens": 175,
+      "total_tokens": 1014,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 836,
+      "completion_tokens": 142,
+      "total_tokens": 978,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 850,
+      "completion_tokens": 129,
+      "total_tokens": 979,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0156",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1281,
+      "completion_tokens": 235,
+      "total_tokens": 1516,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 416,
+    "majority_vote_total_tokens": 1218,
+    "scrd_total_tokens": 19776,
+    "scrd_prompt_tokens": 16548,
+    "scrd_completion_tokens": 3228,
+    "agent_total_tokens": 12841,
+    "recorder_total_tokens": 6935,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

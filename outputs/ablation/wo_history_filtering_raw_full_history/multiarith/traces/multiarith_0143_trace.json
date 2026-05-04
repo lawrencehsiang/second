@@ -1,0 +1,203 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Start with 14 apples, subtract 13, then add 49.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Start with 14 apples, use 13, then add 49.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Start with 14 apples, subtract 13 used, then add 49 bought.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "14 apples - 13 + 49 = 50",
+        "14 apples - 13 used + 49 bought = 50"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The operations are clear: start with 14 apples, subtract 13 used, then add 49 bought.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Unfiltered raw debate history from previous rounds.",
+          "why_still_open": "Disagreement on the clarity and filtering of the raw debate history.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "14 apples - 13 used + 49 bought = 50",
+        "The initial answers were all 50, but the calculation steps varied."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 43,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 43,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 45,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 607,
+      "completion_tokens": 222,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 789,
+      "completion_tokens": 101,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 786,
+      "completion_tokens": 97,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 800,
+      "completion_tokens": 57,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1003,
+      "completion_tokens": 178,
+      "total_tokens": 1181,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 582,
+      "completion_tokens": 59,
+      "total_tokens": 641,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 389,
+    "majority_vote_total_tokens": 1154,
+    "scrd_total_tokens": 6435,
+    "scrd_prompt_tokens": 5590,
+    "scrd_completion_tokens": 845,
+    "agent_total_tokens": 3784,
+    "recorder_total_tokens": 2010,
+    "evaluator_total_tokens": 641,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

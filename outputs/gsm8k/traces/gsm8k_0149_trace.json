@@ -1,0 +1,196 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "35",
+        "35"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the amount after tax and processing fee.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate after-tax amount then subtract processing fee.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculated after tax and processing fee deductions.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C all arrived at the same answer of 35, but there is no explicit agreement on the method used to reach this conclusion.",
+          "why_still_open": "Each agent provided a different brief reason for their calculation.",
+          "involved_answers": [
+            "40",
+            "35"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "40",
+        "35",
+        "After-tax amount - Processing fee = 35"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "35",
+        "35",
+        "35"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The final amount is $35 after deducting 20% tax and $5 processing fee from an initial $50.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "40",
+        "35",
+        "After-tax amount - Processing fee = 35"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 348,
+      "completion_tokens": 34,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 335,
+      "completion_tokens": 34,
+      "total_tokens": 369,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 346,
+      "completion_tokens": 34,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 578,
+      "completion_tokens": 242,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 729,
+      "completion_tokens": 180,
+      "total_tokens": 909,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 726,
+      "completion_tokens": 145,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 740,
+      "completion_tokens": 113,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1233,
+      "completion_tokens": 110,
+      "total_tokens": 1343,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 610,
+      "completion_tokens": 54,
+      "total_tokens": 664,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 382,
+    "majority_vote_total_tokens": 1131,
+    "scrd_total_tokens": 6591,
+    "scrd_prompt_tokens": 5645,
+    "scrd_completion_tokens": 946,
+    "agent_total_tokens": 3764,
+    "recorder_total_tokens": 2163,
+    "evaluator_total_tokens": 664,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

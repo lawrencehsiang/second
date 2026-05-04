@@ -1,0 +1,200 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total time in minutes is 50 + 60 = 110.",
+          "claim_type": "explanation",
+          "related_answer": "3"
+        },
+        {
+          "text": "Convert 110 minutes to hours by dividing by 60.",
+          "claim_type": "explanation",
+          "related_answer": "3"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50+60=110",
+        "110/60=1.83 hours",
+        "Calculate total time and convert to hours"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "1.8333",
+        "1.8333",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total time is 40 minutes for Jeopardy and 80 minutes for Wheel of Fortune, summing to 120 minutes.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Converting 120 minutes to hours results in 2 hours.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Answer A claims the total time is 1.8333 hours from 110 minutes, while Answer C calculates it as 2 hours from 120 minutes.",
+          "why_still_open": "Different calculations lead to different answers, and the discrepancy remains unresolved.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "40+80=120",
+        "120/60=2 hours",
+        "110 minutes = 1.8333 hours",
+        "Calculate total time and convert to hours"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 355,
+      "completion_tokens": 36,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 342,
+      "completion_tokens": 30,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 353,
+      "completion_tokens": 35,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 580,
+      "completion_tokens": 157,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 621,
+      "completion_tokens": 150,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 618,
+      "completion_tokens": 77,
+      "total_tokens": 695,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 632,
+      "completion_tokens": 172,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1088,
+      "completion_tokens": 266,
+      "total_tokens": 1354,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 647,
+      "completion_tokens": 48,
+      "total_tokens": 695,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 391,
+    "majority_vote_total_tokens": 1151,
+    "scrd_total_tokens": 6207,
+    "scrd_prompt_tokens": 5236,
+    "scrd_completion_tokens": 971,
+    "agent_total_tokens": 3421,
+    "recorder_total_tokens": 2091,
+    "evaluator_total_tokens": 695,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

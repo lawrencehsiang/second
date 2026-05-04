@@ -1,0 +1,416 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "13",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing dogs, cats, and fish yields 13 pets.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total pets = Dogs + Cats + Fish",
+        "Sum = 5 + 4 + 4 = 13"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "17",
+        "17",
+        "17"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the total pets considering the correct number of fish.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total pets = 5 (dogs) + 4 (cats) + 12 (fish)",
+        "Sum = 5 + 4 + 12 = 17"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "20",
+        "17",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total number of pets based on the correct interpretation of the problem.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recalculate the total pets with the correct number of fish.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculate the total pets considering the correct number of fish.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the total number of pets: answers are 20, 17, and 18.",
+          "why_still_open": "Different recalculations yield different totals.",
+          "involved_answers": [
+            "20",
+            "17",
+            "18"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total pets = 5 (dogs) + 4 (cats) + 12 (fish)",
+        "Sum = 5 + 4 + 12 = 21"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "20",
+        "20",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of pets is 20 (5 dogs + 3 cats + 2*(5+3) fish).",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total pets = 5 (dogs) + 3 (cats) + 2 * (5 + 3) (fish) = 20",
+        "Sum = 5 + 3 + 2 * 8 = 20"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "15",
+        "20",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated total is 15 pets based on 2 dogs, 3 cats, and 10 fish.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Initial count of 20 pets was correct: 2 dogs, 3 cats, and 10 fish.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total is 5 dogs, 3 cats, and 10 fish, summing up to 20 pets.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 2 (dogs) + 3 (cats) + 2 * (2 + 3) (fish) = 15",
+        "Total = 5 (dogs) + 3 (cats) + 2 * 5 (fish) = 20",
+        "Total = 2 (dogs) + 3 (cats) + 2 * 8 (fish) = 20"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 37,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 37,
+      "total_tokens": 363,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 39,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 102,
+      "total_tokens": 691,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 603,
+      "completion_tokens": 104,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 600,
+      "completion_tokens": 100,
+      "total_tokens": 700,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 614,
+      "completion_tokens": 116,
+      "total_tokens": 730,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 958,
+      "completion_tokens": 115,
+      "total_tokens": 1073,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 795,
+      "completion_tokens": 123,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 792,
+      "completion_tokens": 130,
+      "total_tokens": 922,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 806,
+      "completion_tokens": 105,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1017,
+      "completion_tokens": 269,
+      "total_tokens": 1286,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 817,
+      "completion_tokens": 133,
+      "total_tokens": 950,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 814,
+      "completion_tokens": 117,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 828,
+      "completion_tokens": 135,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1196,
+      "completion_tokens": 143,
+      "total_tokens": 1339,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 838,
+      "completion_tokens": 181,
+      "total_tokens": 1019,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 835,
+      "completion_tokens": 123,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 849,
+      "completion_tokens": 113,
+      "total_tokens": 962,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1096,
+      "completion_tokens": 277,
+      "total_tokens": 1373,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 376,
+    "majority_vote_total_tokens": 1115,
+    "scrd_total_tokens": 17548,
+    "scrd_prompt_tokens": 15049,
+    "scrd_completion_tokens": 2499,
+    "agent_total_tokens": 11786,
+    "recorder_total_tokens": 5762,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

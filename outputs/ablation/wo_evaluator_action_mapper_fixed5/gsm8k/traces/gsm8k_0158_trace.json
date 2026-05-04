@@ -1,0 +1,458 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each part originally had 13 beads.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "After doubling, each part had 6 beads, thus 3 beads before doubling.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total beads = 23 + 16 = 39",
+        "Divided into 3 parts = 39 / 3 = 13",
+        "Doubled beads = 6 / 2 = 3",
+        "Removed beads = 13 - 3 = 10",
+        "Each part had 13 beads initially"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4",
+        "7",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each part originally had 13 beads.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Before doubling, each part had 3 beads.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The number of beads before removal must satisfy both the total count and the doubling condition.",
+          "why_still_open": "There is a discrepancy between the calculated 13 beads per part and the 6 beads after doubling.",
+          "involved_answers": [
+            "C",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total beads = 23 + 16 = 39",
+        "Divided into 3 parts = 39 / 3 = 13",
+        "Doubled beads = 6 / 2 = 3",
+        "Removed beads = 13 - 3 = 10",
+        "Each part originally had 13 beads"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "2",
+        "4",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Doubling 13 beads per part results in 26, contradicting the 6 beads per part after removal.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "Revised calculation shows that 7 beads were removed from each part, leading to 6 beads after doubling.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The number of beads before removal must satisfy both the total count and the doubling condition.",
+          "why_still_open": "There is a discrepancy between the calculated 13 beads per part and the 6 beads after doubling, indicating the need for further adjustment.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total beads = 39",
+        "Divided into 3 parts = 13 beads/part",
+        "Doubled beads = 6 / 2 = 3 beads/part",
+        "Removed beads = 13 - 3 = 10 beads/part",
+        "Revised calculation: 7 beads removed per part"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "7",
+        "10",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct initial division of beads is 13 per part, leading to 6 beads per part after removing 10 beads and doubling.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Removing 7 beads from each part and doubling the remainder does not satisfy the condition of having 6 beads per part.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a discrepancy between the calculated 13 beads per part and the 6 beads per part after removal, indicating the need for further adjustment.",
+          "why_still_open": "The minority answer of 4 beads removed remains unresolved.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total beads = 39",
+        "Divided into 3 parts = 13 beads/part",
+        "Removed beads = 10 beads/part",
+        "Remaining beads = 3 beads/part",
+        "Doubled beads = 6 beads/part"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "4",
+        "3",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correcting the initial division to 9 beads per part and removing 3 beads doubles to 6 beads per part.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying the minority answer of 4 beads removed to check if it leads to 6 beads per part after doubling.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between the initial division and the final bead count.",
+          "why_still_open": "Verification of the minority answer is pending.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total beads = 39",
+        "Initial division = 9 beads/part",
+        "Remove 3 beads and double = 6 beads/part",
+        "Minority answer: remove 4 beads and double",
+        "Final target: 6 beads/part"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 369,
+      "completion_tokens": 89,
+      "total_tokens": 458,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 356,
+      "completion_tokens": 100,
+      "total_tokens": 456,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 367,
+      "completion_tokens": 90,
+      "total_tokens": 457,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 761,
+      "completion_tokens": 193,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 628,
+      "completion_tokens": 132,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 625,
+      "completion_tokens": 189,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 639,
+      "completion_tokens": 156,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1196,
+      "completion_tokens": 256,
+      "total_tokens": 1452,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 743,
+      "completion_tokens": 155,
+      "total_tokens": 898,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 740,
+      "completion_tokens": 132,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 755,
+      "completion_tokens": 173,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1260,
+      "completion_tokens": 286,
+      "total_tokens": 1546,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 841,
+      "completion_tokens": 184,
+      "total_tokens": 1025,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 838,
+      "completion_tokens": 266,
+      "total_tokens": 1104,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 852,
+      "completion_tokens": 261,
+      "total_tokens": 1113,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1544,
+      "completion_tokens": 272,
+      "total_tokens": 1816,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 868,
+      "completion_tokens": 200,
+      "total_tokens": 1068,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 866,
+      "completion_tokens": 198,
+      "total_tokens": 1064,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 879,
+      "completion_tokens": 125,
+      "total_tokens": 1004,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1326,
+      "completion_tokens": 243,
+      "total_tokens": 1569,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 458,
+    "majority_vote_total_tokens": 1371,
+    "scrd_total_tokens": 20153,
+    "scrd_prompt_tokens": 16453,
+    "scrd_completion_tokens": 3700,
+    "agent_total_tokens": 12816,
+    "recorder_total_tokens": 7337,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

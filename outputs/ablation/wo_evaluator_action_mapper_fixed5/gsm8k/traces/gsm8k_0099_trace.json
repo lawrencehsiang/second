@@ -1,0 +1,447 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "29",
+        "37",
+        "34"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Reverse calculation from remaining gumballs to initial amount.",
+          "claim_type": "constraint",
+          "related_answer": "34"
+        },
+        {
+          "text": "Summing distributed gumballs plus remaining gives total.",
+          "claim_type": "support",
+          "related_answer": "37"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Reverse check: 50/60*12=10",
+        "Total = 10 + 24 + 30 = 64",
+        "Initial = 50 + 14 = 64",
+        "Distribute: 10, 24, 30",
+        "Verify: 64 = 64"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "45",
+        "40",
+        "37"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correct distribution results in 45 gumballs, resolving previous conflicts.",
+          "claim_type": "support",
+          "related_answer": "45"
+        },
+        {
+          "text": "Verification of distribution steps ensures accuracy.",
+          "claim_type": "explanation",
+          "related_answer": "45"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between 34 and 37 in the initial count.",
+          "why_still_open": "Need further verification of the initial gumball count.",
+          "involved_answers": [
+            "34",
+            "37"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Reverse check: 4*8-5+4+6=45",
+        "Distribute: 4, 8, 27, 6",
+        "Total = 45",
+        "Initial = 45",
+        "Verify: 45 = 45"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "37",
+        "40",
+        "34"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial count of 37 is more consistent with the problem statement.",
+          "claim_type": "support",
+          "related_answer": "40"
+        },
+        {
+          "text": "Verification of the initial count is necessary due to discrepancies.",
+          "claim_type": "explanation",
+          "related_answer": "37"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between 34 and 37 in the initial count.",
+          "why_still_open": "Further verification is needed to confirm the correct initial count.",
+          "involved_answers": [
+            "34",
+            "37"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial count: 37",
+        "Verify: 37 = 37",
+        "Reverse check: 37-4+8-5+6=40",
+        "Total = 40",
+        "Correct distribution results in 40 gumballs"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "37",
+        "37",
+        "37"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial count of 37 is supported by mainstream and minority objections.",
+          "claim_type": "support",
+          "related_answer": "37"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial count: 37",
+        "Verify: 37 = 37",
+        "Reverse check: 37-4+8-5+6=40",
+        "Total = 40",
+        "Correct distribution results in 40 gumballs"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "37",
+        "34",
+        "37"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The discrepancy regarding the initial count has been resolved by supporting 37.",
+          "claim_type": "rebuttal",
+          "related_answer": "37"
+        },
+        {
+          "text": "Verification process aims to ensure correctness through step-by-step calculation.",
+          "claim_type": "explanation",
+          "related_answer": "34"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between 34 and 37 in the initial count.",
+          "why_still_open": "Further verification is needed to confirm the accuracy of the count.",
+          "involved_answers": [
+            "34",
+            "37"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial count: 37",
+        "Verify: 37 = 37",
+        "Reverse check: 37-4+8-5+6=40",
+        "Total = 40",
+        "Correct distribution results in 40 gumballs"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 391,
+      "completion_tokens": 32,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 378,
+      "completion_tokens": 37,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 389,
+      "completion_tokens": 36,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 587,
+      "completion_tokens": 192,
+      "total_tokens": 779,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 652,
+      "completion_tokens": 207,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 649,
+      "completion_tokens": 110,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 663,
+      "completion_tokens": 132,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1169,
+      "completion_tokens": 237,
+      "total_tokens": 1406,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 758,
+      "completion_tokens": 117,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 755,
+      "completion_tokens": 114,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 769,
+      "completion_tokens": 119,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1136,
+      "completion_tokens": 243,
+      "total_tokens": 1379,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 865,
+      "completion_tokens": 104,
+      "total_tokens": 969,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 862,
+      "completion_tokens": 107,
+      "total_tokens": 969,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 876,
+      "completion_tokens": 121,
+      "total_tokens": 997,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1111,
+      "completion_tokens": 138,
+      "total_tokens": 1249,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 762,
+      "completion_tokens": 111,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 759,
+      "completion_tokens": 107,
+      "total_tokens": 866,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 773,
+      "completion_tokens": 115,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1023,
+      "completion_tokens": 242,
+      "total_tokens": 1265,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 423,
+    "majority_vote_total_tokens": 1263,
+    "scrd_total_tokens": 17948,
+    "scrd_prompt_tokens": 15327,
+    "scrd_completion_tokens": 2621,
+    "agent_total_tokens": 11870,
+    "recorder_total_tokens": 6078,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

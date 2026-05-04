@@ -1,0 +1,185 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "31",
+        "31",
+        "21"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial carrots minus those thrown out plus those picked next day equals 31.",
+          "claim_type": "support",
+          "related_answer": "31"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial carrots: 12 - thrown out: 2 + picked next day: 21 = 31",
+        "Initial 12, minus 2, plus 21 = 31",
+        "Initial count - thrown away + additional picked = 31"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "25",
+        "31",
+        "31"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculating the total number of carrots based on the steps provided in the question.",
+          "claim_type": "explanation",
+          "related_answer": "25"
+        },
+        {
+          "text": "The calculation should be: 12 (initial carrots) - 2 (thrown out) + 21 (picked next day) = 31 carrots.",
+          "claim_type": "support",
+          "related_answer": "31"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial carrots: 12, minus thrown out: 2, plus picked next day: 21 = 31",
+        "12 - 2 + 21 = 31",
+        "Initial carrots - thrown out + additional picked = 31 carrots"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 348,
+      "completion_tokens": 46,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 335,
+      "completion_tokens": 39,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 346,
+      "completion_tokens": 34,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 139,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 614,
+      "completion_tokens": 120,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 611,
+      "completion_tokens": 62,
+      "total_tokens": 673,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 625,
+      "completion_tokens": 143,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1000,
+      "completion_tokens": 201,
+      "total_tokens": 1201,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 630,
+      "completion_tokens": 46,
+      "total_tokens": 676,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1148,
+    "scrd_total_tokens": 5934,
+    "scrd_prompt_tokens": 5104,
+    "scrd_completion_tokens": 830,
+    "agent_total_tokens": 3323,
+    "recorder_total_tokens": 1935,
+    "evaluator_total_tokens": 676,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

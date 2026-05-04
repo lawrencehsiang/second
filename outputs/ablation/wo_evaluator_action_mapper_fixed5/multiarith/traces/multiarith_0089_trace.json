@@ -1,0 +1,428 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "19",
+        "29",
+        "29"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total towels = 40 + 44",
+          "claim_type": "explanation",
+          "related_answer": "19"
+        },
+        {
+          "text": "After giving away 65, remaining towels = Total towels - 65",
+          "claim_type": "support",
+          "related_answer": "19"
+        },
+        {
+          "text": "Total towels minus given towels.",
+          "claim_type": "constraint",
+          "related_answer": "29"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers between A and B/C for the same calculation",
+          "why_still_open": "Answers 19 and 29 are conflicting.",
+          "involved_answers": [
+            "19",
+            "29"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total towels = 40 + 44",
+        "After giving away 65, remaining towels = Total towels - 65",
+        "Total towels minus given towels."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "19",
+        "19",
+        "29"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correct calculation: 84 - 65 = 19 towels remaining.",
+          "claim_type": "support",
+          "related_answer": "19"
+        },
+        {
+          "text": "Verification of previous mainstream support answer was 29.",
+          "claim_type": "explanation",
+          "related_answer": "29"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Correct calculation: 84 - 65 = 19 towels remaining.",
+        "Verification of previous mainstream support answer was 29."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "19",
+        "19",
+        "19"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the calculation: 84 - 65 = 19. The minority answer of 29 is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "19"
+        },
+        {
+          "text": "The correct calculation is 84 - 65 = 19 towels remaining.",
+          "claim_type": "support",
+          "related_answer": "19"
+        },
+        {
+          "text": "The calculation is straightforward: 84 - 65 = 19. The previous mainstream support answer of 19 is correct.",
+          "claim_type": "support",
+          "related_answer": "19"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Correct calculation: 84 - 65 = 19 towels remaining.",
+        "The calculation 84 - 65 = 19 is verified and matches the mainstream support.",
+        "The minority answer of 29 is incorrect."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "19",
+        "19",
+        "19"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 29 was based on an incorrect total quantity.",
+          "claim_type": "rebuttal",
+          "related_answer": "19"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The correct calculation is 84 - 65 = 19 towels remaining.",
+        "The minority answer of 29 is incorrect due to a miscount of the initial quantity.",
+        "The calculation 84 - 65 = 19 has been rechecked and confirmed as correct."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "19",
+        "19",
+        "19"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct total quantity of towels Maria initially had is 84.",
+          "claim_type": "support",
+          "related_answer": "19"
+        },
+        {
+          "text": "After giving away 65 towels, Maria is left with 19 towels.",
+          "claim_type": "support",
+          "related_answer": "19"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The correct total quantity of towels Maria initially had is 84.",
+        "Giving away 65 towels leaves Maria with 19 towels.",
+        "The minority answer of 29 is incorrect due to a miscounted initial total quantity."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 347,
+      "completion_tokens": 50,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 334,
+      "completion_tokens": 31,
+      "total_tokens": 365,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 345,
+      "completion_tokens": 31,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 249,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 704,
+      "completion_tokens": 99,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 701,
+      "completion_tokens": 110,
+      "total_tokens": 811,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 715,
+      "completion_tokens": 94,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1105,
+      "completion_tokens": 148,
+      "total_tokens": 1253,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 818,
+      "completion_tokens": 114,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 815,
+      "completion_tokens": 108,
+      "total_tokens": 923,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 829,
+      "completion_tokens": 129,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1043,
+      "completion_tokens": 243,
+      "total_tokens": 1286,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 722,
+      "completion_tokens": 150,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 719,
+      "completion_tokens": 105,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 733,
+      "completion_tokens": 129,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1152,
+      "completion_tokens": 143,
+      "total_tokens": 1295,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 710,
+      "completion_tokens": 150,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 707,
+      "completion_tokens": 135,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 721,
+      "completion_tokens": 150,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0089",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1130,
+      "completion_tokens": 171,
+      "total_tokens": 1301,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 397,
+    "majority_vote_total_tokens": 1138,
+    "scrd_total_tokens": 17480,
+    "scrd_prompt_tokens": 14941,
+    "scrd_completion_tokens": 2539,
+    "agent_total_tokens": 11505,
+    "recorder_total_tokens": 5975,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

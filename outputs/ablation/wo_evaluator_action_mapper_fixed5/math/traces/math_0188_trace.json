@@ -1,0 +1,396 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "4",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Apply the given operation definition.",
+          "claim_type": "support",
+          "related_answer": "8"
+        },
+        {
+          "text": "Substitute values into the given operation definition.",
+          "claim_type": "support",
+          "related_answer": "8"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Apply the given operation definition.",
+        "Substitute values into the given operation definition."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8",
+        "8",
+        "22"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Apply the operation definition $a Z b = b + 10a - a^2$.",
+          "claim_type": "support",
+          "related_answer": "22"
+        },
+        {
+          "text": "Calculate $2Z6$ using the correct operation definition.",
+          "claim_type": "support",
+          "related_answer": "22"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answers were 8 and 4, but the correct answer is 22.",
+          "why_still_open": "The conflict arises from differing interpretations of the operation definition.",
+          "involved_answers": [
+            "8",
+            "4",
+            "22"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Apply the operation definition $a Z b = b + 10a - a^2$.",
+        "Calculate $2Z6$ using the correct operation definition."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "22",
+        "22",
+        "22"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The correct interpretation of the operation $a Z b = b + 10a - a^2$ should be re-evaluated with the given values $a=2$ and $b=6$. Let's compute it again.",
+        "The correct interpretation of the operation $a Z b = b + 10a - a^2$ should yield 22 when $a=2$ and $b=6$. The previous answers 8 and 4 seem to have misapplied the operation.",
+        "The correct interpretation of the operation $a Z b = b + 10a - a^2$ leads to the result 22. The minority answer of 8 might have incorrectly applied the operation, possibly due to a calculation error."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "22",
+        "22",
+        "22"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The operation $a Z b = b + 10a - a^2$ correctly yields 22 for $2Z6$.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The operation $a Z b = b + 10a - a^2$ should be correctly evaluated for $2Z6$.",
+        "Applying $a Z b = b + 10a - a^2$ to $2Z6$ results in 22.",
+        "The minority answer of 8 was incorrect due to a misinterpretation of the operation."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "22",
+        "22",
+        "22"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The operation $a Z b = b + 10a - a^2$ correctly evaluates $2Z6$ to 22.",
+        "Previous conflicts were resolved by correctly applying the operation definition.",
+        "Rechecking confirms $2Z6 = 6 + 10*2 - 2^2 = 22$."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 30,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 30,
+      "total_tokens": 363,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 33,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 566,
+      "completion_tokens": 119,
+      "total_tokens": 685,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 600,
+      "completion_tokens": 43,
+      "total_tokens": 643,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 597,
+      "completion_tokens": 91,
+      "total_tokens": 688,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 611,
+      "completion_tokens": 96,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 880,
+      "completion_tokens": 222,
+      "total_tokens": 1102,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 707,
+      "completion_tokens": 149,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 704,
+      "completion_tokens": 168,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 719,
+      "completion_tokens": 171,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1258,
+      "completion_tokens": 194,
+      "total_tokens": 1452,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 822,
+      "completion_tokens": 184,
+      "total_tokens": 1006,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 819,
+      "completion_tokens": 197,
+      "total_tokens": 1016,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 833,
+      "completion_tokens": 126,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1237,
+      "completion_tokens": 173,
+      "total_tokens": 1410,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 626,
+      "completion_tokens": 167,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 623,
+      "completion_tokens": 45,
+      "total_tokens": 668,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 637,
+      "completion_tokens": 79,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 992,
+      "completion_tokens": 107,
+      "total_tokens": 1099,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 376,
+    "majority_vote_total_tokens": 1116,
+    "scrd_total_tokens": 16678,
+    "scrd_prompt_tokens": 14254,
+    "scrd_completion_tokens": 2424,
+    "agent_total_tokens": 10930,
+    "recorder_total_tokens": 5748,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

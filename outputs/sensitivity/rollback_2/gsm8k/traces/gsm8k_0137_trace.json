@@ -1,0 +1,249 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "18",
+        "18",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Small animals use 6 sticks.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Large animals use 12 sticks.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Small animals have twice as many sticks as large animals.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total sticks = small + large.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Small animals: 12 / 2 = 6.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "Large animals: 6 / 3 = 2.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "Total: 2 * 4 + 12 = 20.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A and C provide different totals (18 vs 20).",
+          "why_still_open": "Calculations differ in the distribution of sticks between small and large animals.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Small animals use 6 sticks.",
+        "Large animals use 12 sticks.",
+        "Total sticks = small + large.",
+        "Small animals: 12 / 2 = 6.",
+        "Large animals: 6 / 3 = 2."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "20",
+        "20",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Small animals use 2 sticks each.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Loraine made three times as many small animals as large animals.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Given 12 sticks for small animals, there are 6 small animals.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Let x be the number of large animals; then 3x = 6, so x = 2.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total sticks: 8 from large animals + 12 from small animals = 20.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B's response is partially resolved, but Agent C's remains open.",
+          "why_still_open": "Agent C needs to verify the calculations further.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Small animals use 2 sticks each.",
+        "Loraine made three times as many small animals as large animals.",
+        "Given 12 sticks for small animals, there are 6 small animals.",
+        "Let x be the number of large animals; then 3x = 6, so x = 2.",
+        "Total sticks: 8 from large animals + 12 from small animals = 20."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0137",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 373,
+      "completion_tokens": 59,
+      "total_tokens": 432,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0137",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 360,
+      "completion_tokens": 35,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0137",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 371,
+      "completion_tokens": 67,
+      "total_tokens": 438,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0137",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 643,
+      "completion_tokens": 404,
+      "total_tokens": 1047,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0137",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 738,
+      "completion_tokens": 195,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0137",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 735,
+      "completion_tokens": 103,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0137",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 749,
+      "completion_tokens": 114,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0137",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1373,
+      "completion_tokens": 388,
+      "total_tokens": 1761,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0137",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 698,
+      "completion_tokens": 55,
+      "total_tokens": 753,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 432,
+    "majority_vote_total_tokens": 1265,
+    "scrd_total_tokens": 7460,
+    "scrd_prompt_tokens": 6040,
+    "scrd_completion_tokens": 1420,
+    "agent_total_tokens": 3899,
+    "recorder_total_tokens": 2808,
+    "evaluator_total_tokens": 753,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

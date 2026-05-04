@@ -1,0 +1,481 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "1200",
+        "720",
+        "1320"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ariella's account doubles after two years due to simple interest.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ariella's initial amount is $600.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers provided: 1200, 720, and 1320.",
+          "why_still_open": "Insufficient evidence to determine the correct answer.",
+          "involved_answers": [
+            "1200",
+            "720",
+            "1320"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ariella has $600 initially.",
+        "Interest rate is 10% annually.",
+        "Amount doubles after 2 years.",
+        "$600 * 1.1 * 2 = $1320",
+        "Ariella has $200 more than Daniella."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "840",
+        "720",
+        "840"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ariella's initial amount is $600.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "The correct simple interest formula is I = P * r * t.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Simple interest does not double the principal.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers provided: 720 and 840.",
+          "why_still_open": "Conflicting calculations and interpretations of the simple interest formula.",
+          "involved_answers": [
+            "720",
+            "840"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ariella has $600 initially.",
+        "Interest rate is 10% annually.",
+        "Amount doubles after 2 years does not apply to simple interest.",
+        "Total amount after 2 years using correct formula is $720.",
+        "Ariella has $200 more than Daniella."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "840",
+        "840",
+        "840"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the answer using correct values and formula.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Confirmed Ariella's initial amount is $600.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Revised the answer based on correct interpretation.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ariella starts with $600.",
+        "Interest rate is 10% annually.",
+        "Using the correct formula, the total is $840.",
+        "Ariella has $200 more than Daniella.",
+        "Recomputed the answer using accurate data."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "720",
+        "720",
+        "720"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the answer using correct values and formula.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Resolved conflicting answers by recomputing with correct initial amounts and formula.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Confirmed recomputation with correct initial amounts and simple interest formula.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ariella starts with $600.",
+        "Interest rate is 10% annually.",
+        "Using the correct formula, the total is $720.",
+        "Ariella has $200 more than Daniella.",
+        "Recomputed the answer using accurate data."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 97,
+      "total_tokens": 472,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 38,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 87,
+      "total_tokens": 460,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 706,
+      "completion_tokens": 252,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 751,
+      "completion_tokens": 142,
+      "total_tokens": 893,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 747,
+      "completion_tokens": 163,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 762,
+      "completion_tokens": 153,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1276,
+      "completion_tokens": 309,
+      "total_tokens": 1585,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 743,
+      "completion_tokens": 46,
+      "total_tokens": 789,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 988,
+      "completion_tokens": 129,
+      "total_tokens": 1117,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 654,
+      "completion_tokens": 171,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 653,
+      "completion_tokens": 265,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 654,
+      "completion_tokens": 165,
+      "total_tokens": 819,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1395,
+      "completion_tokens": 280,
+      "total_tokens": 1675,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 867,
+      "completion_tokens": 53,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 810,
+      "completion_tokens": 103,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 807,
+      "completion_tokens": 139,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 823,
+      "completion_tokens": 117,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1158,
+      "completion_tokens": 207,
+      "total_tokens": 1365,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 685,
+      "completion_tokens": 50,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 795,
+      "completion_tokens": 110,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 792,
+      "completion_tokens": 150,
+      "total_tokens": 942,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 808,
+      "completion_tokens": 118,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1039,
+      "completion_tokens": 212,
+      "total_tokens": 1251,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 672,
+      "completion_tokens": 59,
+      "total_tokens": 731,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 472,
+    "majority_vote_total_tokens": 1332,
+    "scrd_total_tokens": 23310,
+    "scrd_prompt_tokens": 19695,
+    "scrd_completion_tokens": 3615,
+    "agent_total_tokens": 4050,
+    "recorder_total_tokens": 6834,
+    "evaluator_total_tokens": 789,
+    "repair_brief_total_tokens": 1117,
+    "repair_evaluator_total_tokens": 2386,
+    "repair_agent_total_tokens": 8134
+  }
+}

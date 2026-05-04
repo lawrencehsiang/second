@@ -1,0 +1,412 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "75",
+        "75",
+        "75"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of arithmetic sequence: (12+3)*10/2",
+        "Total = (12 + 3) * 10 / 2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "60",
+        "75",
+        "65"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The number of rows is 10, not 12.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "The correct formula for the sum of an arithmetic sequence is (first_term + last_term) * number_of_terms / 2.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of arithmetic sequence: (12+3)*10/2",
+        "Total = (12 + 3) * 10 / 2"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "75",
+        "55",
+        "55"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = (12 + 3) * 10 / 2",
+        "Number of rows = 10"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "75",
+        "55",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The number of rows is 10, forming an arithmetic sequence from 12 to 3.",
+          "claim_type": "constraint",
+          "related_answer": "75"
+        },
+        {
+          "text": "Sum of logs = 10/2 * (12 + 3) = 75.",
+          "claim_type": "explanation",
+          "related_answer": "75"
+        },
+        {
+          "text": "The minority answer of 55 remains, needing further verification.",
+          "claim_type": "rebuttal",
+          "related_answer": "55"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Two conflicting answers: 75 and 55.",
+          "why_still_open": "Verification of both answers is required.",
+          "involved_answers": [
+            "75",
+            "55"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = 10/2 * (12 + 3)",
+        "Rows = 12 to 3 (arithmetic seq)",
+        "Minority: Sum = 55"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "55",
+        "55",
+        "55"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the arithmetic sequence sum for rows 12 to 3.",
+          "claim_type": "rebuttal",
+          "related_answer": "55"
+        },
+        {
+          "text": "The minority answer of 55 is revisited for verification.",
+          "claim_type": "explanation",
+          "related_answer": "55"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Verification of the minority answer of 55 is ongoing.",
+          "why_still_open": "Different evaluations of the arithmetic sequence are in progress.",
+          "involved_answers": [
+            "55"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Re-evaluate sum: 10/2 * (12 + 3)",
+        "Sequence: 12 to 3",
+        "Minority: Sum = 55"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 348,
+      "completion_tokens": 46,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 335,
+      "completion_tokens": 41,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 346,
+      "completion_tokens": 41,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 70,
+      "total_tokens": 674,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 614,
+      "completion_tokens": 154,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 611,
+      "completion_tokens": 52,
+      "total_tokens": 663,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 625,
+      "completion_tokens": 117,
+      "total_tokens": 742,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 929,
+      "completion_tokens": 163,
+      "total_tokens": 1092,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 612,
+      "completion_tokens": 110,
+      "total_tokens": 722,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 609,
+      "completion_tokens": 117,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 623,
+      "completion_tokens": 136,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1062,
+      "completion_tokens": 62,
+      "total_tokens": 1124,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 713,
+      "completion_tokens": 311,
+      "total_tokens": 1024,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 710,
+      "completion_tokens": 116,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 724,
+      "completion_tokens": 98,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1131,
+      "completion_tokens": 268,
+      "total_tokens": 1399,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 817,
+      "completion_tokens": 119,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 814,
+      "completion_tokens": 91,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 828,
+      "completion_tokens": 102,
+      "total_tokens": 930,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0117",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1137,
+      "completion_tokens": 218,
+      "total_tokens": 1355,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1157,
+    "scrd_total_tokens": 16624,
+    "scrd_prompt_tokens": 14192,
+    "scrd_completion_tokens": 2432,
+    "agent_total_tokens": 10980,
+    "recorder_total_tokens": 5644,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

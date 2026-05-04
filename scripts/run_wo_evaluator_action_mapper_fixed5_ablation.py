@@ -617,7 +617,7 @@ def main() -> None:
     )
     parser.add_argument("--datasets", nargs="+", default=DEFAULT_DATASETS)
     parser.add_argument("--all-seven", action="store_true")
-    parser.add_argument("--limit", type=int, default=80)
+    parser.add_argument("--limit", type=int, default=200)
     parser.add_argument("--max-round", type=int, default=5)
     parser.add_argument(
         "--full-root",

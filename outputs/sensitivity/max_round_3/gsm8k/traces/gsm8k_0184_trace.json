@@ -1,0 +1,376 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "395",
+        "390",
+        "395"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Multiply daily loss by 7 to find weekly loss.",
+          "claim_type": "explanation",
+          "related_answer": "395"
+        },
+        {
+          "text": "Subtract weekly loss from initial count to get remaining items.",
+          "claim_type": "support",
+          "related_answer": "395"
+        },
+        {
+          "text": "Weekly loss calculation is consistent across answers.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on whether to use 'initial count' or 'initial total'.",
+          "why_still_open": "Different agents used 'initial count' and 'initial total' in their calculations.",
+          "involved_answers": [
+            "395",
+            "390"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate daily loss * 7 days.",
+        "Subtract weekly loss from initial count.",
+        "Agents agree on weekly loss calculation method.",
+        "Initial total vs. initial count leads to conflict.",
+        "Daily loss = 50/60*12=10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "495",
+        "350",
+        "390"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Consistency with the repair brief mandates using 'initial count'.",
+          "claim_type": "support",
+          "related_answer": "495"
+        },
+        {
+          "text": "Using 'initial count' avoids discrepancies in starting numbers.",
+          "claim_type": "explanation",
+          "related_answer": "350"
+        },
+        {
+          "text": "'Initial count' represents the starting numbers of birds without cumulative errors.",
+          "claim_type": "explanation",
+          "related_answer": "390"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate daily loss * 7 days.",
+        "Subtract weekly loss from initial count.",
+        "Agents agree on weekly loss calculation method.",
+        "Initial total vs. initial count leads to conflict resolved.",
+        "Daily loss = 50/60*12=10"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "390",
+        "390",
+        "390"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Consistency with the repair brief requires using 'initial count'.",
+          "claim_type": "support",
+          "related_answer": "390"
+        },
+        {
+          "text": "Using 'initial count' avoids discrepancies in starting numbers.",
+          "claim_type": "explanation",
+          "related_answer": "390"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate daily loss * 7 days.",
+        "Subtract weekly loss from initial count.",
+        "Daily loss = 50/60*12=10"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 384,
+      "completion_tokens": 42,
+      "total_tokens": 426,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 371,
+      "completion_tokens": 38,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 382,
+      "completion_tokens": 42,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 274,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 759,
+      "completion_tokens": 117,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 756,
+      "completion_tokens": 97,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 770,
+      "completion_tokens": 100,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1151,
+      "completion_tokens": 136,
+      "total_tokens": 1287,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 628,
+      "completion_tokens": 49,
+      "total_tokens": 677,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 843,
+      "completion_tokens": 95,
+      "total_tokens": 938,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 629,
+      "completion_tokens": 108,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 628,
+      "completion_tokens": 116,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 629,
+      "completion_tokens": 119,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1156,
+      "completion_tokens": 216,
+      "total_tokens": 1372,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 827,
+      "completion_tokens": 55,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 830,
+      "completion_tokens": 129,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 827,
+      "completion_tokens": 102,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 843,
+      "completion_tokens": 128,
+      "total_tokens": 971,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1071,
+      "completion_tokens": 152,
+      "total_tokens": 1223,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 612,
+      "completion_tokens": 62,
+      "total_tokens": 674,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 426,
+    "majority_vote_total_tokens": 1259,
+    "scrd_total_tokens": 16877,
+    "scrd_prompt_tokens": 14700,
+    "scrd_completion_tokens": 2177,
+    "agent_total_tokens": 3858,
+    "recorder_total_tokens": 4760,
+    "evaluator_total_tokens": 677,
+    "repair_brief_total_tokens": 938,
+    "repair_evaluator_total_tokens": 1556,
+    "repair_agent_total_tokens": 5088
+  }
+}

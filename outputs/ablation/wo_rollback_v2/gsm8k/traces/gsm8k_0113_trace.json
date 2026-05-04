@@ -1,0 +1,183 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "920",
+        "920",
+        "920"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "400/2=200, 200+120=320, 400+200+320=920",
+        "First day: 400/2=200 photos, Second day: 200+120=320 photos, Total: 920 photos"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "920",
+        "920",
+        "920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of photos taken during the trip is 520.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is disagreement on whether the initial number of photos in the gallery was 400 or if it was calculated as 200 + 120 = 320.",
+          "why_still_open": "The exact initial count of photos in the gallery is unclear from the provided information.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "400 + 520 = 920, total photos including those taken during the trip",
+        "First day: 200 photos, Second day: 320 photos, Total trip: 520 photos",
+        "Initial gallery had 400 photos, plus 520 photos from the trip"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 390,
+      "completion_tokens": 81,
+      "total_tokens": 471,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 377,
+      "completion_tokens": 81,
+      "total_tokens": 458,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 388,
+      "completion_tokens": 84,
+      "total_tokens": 472,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 731,
+      "completion_tokens": 117,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 682,
+      "completion_tokens": 196,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 679,
+      "completion_tokens": 106,
+      "total_tokens": 785,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 693,
+      "completion_tokens": 45,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1022,
+      "completion_tokens": 240,
+      "total_tokens": 1262,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 651,
+      "completion_tokens": 51,
+      "total_tokens": 702,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 471,
+    "majority_vote_total_tokens": 1401,
+    "scrd_total_tokens": 6614,
+    "scrd_prompt_tokens": 5613,
+    "scrd_completion_tokens": 1001,
+    "agent_total_tokens": 3802,
+    "recorder_total_tokens": 2110,
+    "evaluator_total_tokens": 702,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,358 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "34",
+        "34",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "1/3 of 24 clownfish return to the main tank.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total fish = 100; half clownfish, half blowfish.",
+        "26 blowfish stay in the tank.",
+        "24 clownfish go to the display tank.",
+        "1/3 of 24 clownfish return.",
+        "Final count of fish in the display tank = 16."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "34",
+        "34",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated the exact number of clownfish returning to the main tank and remaining in the display tank.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total fish = 100; half clownfish, half blowfish.",
+        "26 blowfish stay in the tank.",
+        "24 clownfish go to the display tank.",
+        "1/3 of 24 clownfish return.",
+        "Final count of fish in the display tank = 14."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "28",
+        "34",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecked the total fish count and recalculated the distribution to ensure accuracy.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Adjusted the calculation to include the return of a third of the clownfish to the main tank after joining the display tank.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the final count of fish in the display tank between answers 34 and 18.",
+          "why_still_open": "Different approaches to recalculating the distribution of fish.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total fish = 100; half clownfish, half blowfish.",
+        "26 blowfish stay in the tank.",
+        "24 clownfish go to the display tank initially.",
+        "1/3 of 24 clownfish return to the main tank.",
+        "Final count of fish in the display tank = 18."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 404,
+      "completion_tokens": 74,
+      "total_tokens": 478,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 391,
+      "completion_tokens": 28,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 402,
+      "completion_tokens": 94,
+      "total_tokens": 496,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 678,
+      "completion_tokens": 145,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 669,
+      "completion_tokens": 137,
+      "total_tokens": 806,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 666,
+      "completion_tokens": 175,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 680,
+      "completion_tokens": 129,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1138,
+      "completion_tokens": 158,
+      "total_tokens": 1296,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 621,
+      "completion_tokens": 46,
+      "total_tokens": 667,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 745,
+      "completion_tokens": 102,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 656,
+      "completion_tokens": 119,
+      "total_tokens": 775,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 655,
+      "completion_tokens": 111,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 656,
+      "completion_tokens": 113,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1016,
+      "completion_tokens": 150,
+      "total_tokens": 1166,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 743,
+      "completion_tokens": 50,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 640,
+      "completion_tokens": 121,
+      "total_tokens": 761,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 637,
+      "completion_tokens": 60,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 653,
+      "completion_tokens": 133,
+      "total_tokens": 786,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 992,
+      "completion_tokens": 265,
+      "total_tokens": 1257,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 695,
+      "completion_tokens": 45,
+      "total_tokens": 740,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 478,
+    "majority_vote_total_tokens": 1393,
+    "scrd_total_tokens": 15992,
+    "scrd_prompt_tokens": 13737,
+    "scrd_completion_tokens": 2255,
+    "agent_total_tokens": 3849,
+    "recorder_total_tokens": 4542,
+    "evaluator_total_tokens": 667,
+    "repair_brief_total_tokens": 847,
+    "repair_evaluator_total_tokens": 1533,
+    "repair_agent_total_tokens": 4554
+  }
+}

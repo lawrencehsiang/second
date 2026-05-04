@@ -1,0 +1,399 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial books - sold books + bought books = current books",
+          "claim_type": "explanation",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial books - sold books + bought books",
+        "Subtract books sold from initial count, then add new books bought."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the calculation: 33 - 11 = 22, then 22 + 23 = 45.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The calculation 33 - 11 + 23 results in 45, which seems consistent with the operation order.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial books - sold books + bought books = current books",
+        "33 - 11 = 22, then 22 + 23 = 45",
+        "The calculation is correct based on the problem statement."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct calculation is 33 - 11 = 22, then 22 + 23 = 45.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "33 - 11 = 22, then 22 + 23 = 45",
+        "The calculation is correct based on the problem statement."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct sequence is to subtract the books sold and then add the new books purchased.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The calculation 33 - 11 = 22, then 22 + 23 = 45 seems plausible but needs magnitude verification.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Verification of magnitude and units for the calculation 33 - 11 = 22, then 22 + 23 = 45.",
+          "why_still_open": "Magnitude and unit verification is pending.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "33 - 11 = 22, then 22 + 23 = 45",
+        "The correct sequence is to subtract the books sold and then add the new books purchased."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The calculation is correct in terms of arithmetic and units.",
+        "The sequence of operations is correct: first subtract the books sold (33 - 11), then add the new books purchased (22 + 23).",
+        "The calculation follows the correct sequence of operations: subtracting the books sold and then adding the new books purchased."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 34,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 39,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 34,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 583,
+      "completion_tokens": 99,
+      "total_tokens": 682,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 608,
+      "completion_tokens": 163,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 605,
+      "completion_tokens": 182,
+      "total_tokens": 787,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 619,
+      "completion_tokens": 95,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1067,
+      "completion_tokens": 196,
+      "total_tokens": 1263,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 626,
+      "completion_tokens": 157,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 623,
+      "completion_tokens": 63,
+      "total_tokens": 686,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 637,
+      "completion_tokens": 118,
+      "total_tokens": 755,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1062,
+      "completion_tokens": 128,
+      "total_tokens": 1190,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 625,
+      "completion_tokens": 131,
+      "total_tokens": 756,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 622,
+      "completion_tokens": 141,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 636,
+      "completion_tokens": 133,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1061,
+      "completion_tokens": 252,
+      "total_tokens": 1313,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 843,
+      "completion_tokens": 165,
+      "total_tokens": 1008,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 840,
+      "completion_tokens": 172,
+      "total_tokens": 1012,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 854,
+      "completion_tokens": 160,
+      "total_tokens": 1014,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0135",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1281,
+      "completion_tokens": 107,
+      "total_tokens": 1388,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 380,
+    "majority_vote_total_tokens": 1130,
+    "scrd_total_tokens": 16784,
+    "scrd_prompt_tokens": 14215,
+    "scrd_completion_tokens": 2569,
+    "agent_total_tokens": 10948,
+    "recorder_total_tokens": 5836,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,470 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total distance run from Monday to Wednesday and convert Thursday's time to hours.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Convert all times to minutes for uniformity before calculating.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods of converting time units.",
+          "why_still_open": "Not all agents agreed on whether to convert all times to minutes first or to calculate in mixed units.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Mon-Wed: 15+15+15=45 min",
+        "Thu: 30 min = 0.5 hr",
+        "Total needed: 60*5 - 45 = 75 min",
+        "Remaining: 75 - 45 = 30 min",
+        "50/60*12=10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "60",
+        "60",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Converted all times to minutes for uniformity.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Converted all times to minutes for uniformity.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Converted all times to minutes and calculated the remaining distance.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Mon-Wed: 15+15+15=45 min",
+        "Thu: 30 min = 0.5 hr",
+        "Total needed: 60*5 - 45 = 75 min",
+        "Remaining: 75 - 45 = 30 min",
+        "50/60*12=10"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "75",
+        "60",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the total distance run and remaining distance needed.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluate the total distance run from Monday to Thursday and determine the remaining distance needed.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the minority answer of 45 minutes against the mainstream support of 60 minutes.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the total distance run and remaining distance needed.",
+          "why_still_open": "The minority answer of 45 minutes remains unresolved despite recalculations.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Mon-Wed: 15+15+15=45 min",
+        "Thu: 30 min = 0.5 hr",
+        "Total needed: 60*5 - 45 = 75 min",
+        "Remaining: 75 - 45 = 30 min",
+        "50/60*12=10"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "90",
+        "75",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revised calculations confirm the total distance run and the remaining distance needed.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 45 minutes was correctly recalculated and resolved.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Mon-Wed: 15+15+15=45 min",
+        "Thu: 30 min = 0.5 hr",
+        "Total needed: 60*5 - 45 = 75 min",
+        "Remaining: 75 - 45 = 30 min",
+        "90/60*12=18"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "60",
+        "17",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revisiting the calculation with the updated total running time, we need to ensure that the sum of all runs equals 20 miles.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recomputed the remaining distance and time needed on Friday, resolving the minority answer.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The mainstream calculation shows that running 75 minutes covers the remaining distance needed to reach 20 miles. The minority answer of 60 minutes contradicts this and thus is not accepted.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 60 minutes remains unresolved.",
+          "why_still_open": "Disagreement between agents A, B, and C regarding the correct remaining time needed.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "6 + 3 + 6 + 3.33 = 18.33 miles",
+        "20 - 18.33 = 1.67 miles remaining",
+        "1.67 / 6 * 60 = 17 minutes",
+        "Total needed: 60*5 - 45 = 75 min",
+        "75 - 45 = 30 min"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 371,
+      "completion_tokens": 46,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 358,
+      "completion_tokens": 53,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 369,
+      "completion_tokens": 48,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 625,
+      "completion_tokens": 262,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 832,
+      "completion_tokens": 93,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 829,
+      "completion_tokens": 85,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 843,
+      "completion_tokens": 95,
+      "total_tokens": 938,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1085,
+      "completion_tokens": 225,
+      "total_tokens": 1310,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 826,
+      "completion_tokens": 123,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 823,
+      "completion_tokens": 118,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 837,
+      "completion_tokens": 116,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1126,
+      "completion_tokens": 310,
+      "total_tokens": 1436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 836,
+      "completion_tokens": 100,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 833,
+      "completion_tokens": 95,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 847,
+      "completion_tokens": 163,
+      "total_tokens": 1010,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1202,
+      "completion_tokens": 203,
+      "total_tokens": 1405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 830,
+      "completion_tokens": 110,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 827,
+      "completion_tokens": 142,
+      "total_tokens": 969,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 841,
+      "completion_tokens": 122,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1129,
+      "completion_tokens": 359,
+      "total_tokens": 1488,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 417,
+    "majority_vote_total_tokens": 1245,
+    "scrd_total_tokens": 19137,
+    "scrd_prompt_tokens": 16269,
+    "scrd_completion_tokens": 2868,
+    "agent_total_tokens": 12611,
+    "recorder_total_tokens": 6526,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

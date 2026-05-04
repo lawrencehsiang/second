@@ -1,0 +1,382 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "72",
+        "48",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total seeds and find 60%.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers for the same calculation.",
+          "why_still_open": "Answers are 72, 48, and 24, but only one can be correct.",
+          "involved_answers": [
+            "72",
+            "48",
+            "24"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total seeds = 40",
+        "60% of 40 = 24",
+        "72 * 0.6 = 43.2",
+        "2 trees * 20 plants/tree * 1 seed/plant = 40 seeds",
+        "60% -> 0.6"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "48",
+        "48",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revisiting core calculations with corrected understanding.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Carefully re-evaluating the problem step-by-step.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Rechecking calculations step-by-step for correct interpretation.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total seeds = 2 trees * 20 plants/tree * 1 seed/plant = 40 seeds",
+        "60% of 40 seeds = 24 trees planted",
+        "James plants 60% of the total seeds",
+        "Previous interpretations led to multiple incorrect answers"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "72",
+        "72",
+        "48"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the answer due to conflicting results.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revising the calculation based on the corrected understanding.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying calculations to uphold accurate results.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers for the same calculation.",
+          "why_still_open": "Despite attempts to resolve, the conflict remains between 72 and 48.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total seeds = 2 trees * 20 plants/tree * 1 seed/plant = 40 seeds",
+        "60% of 40 seeds = 24 trees planted",
+        "James plants 60% of the total seeds",
+        "Resolved conflicts by revising answers based on verified calculations."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 355,
+      "completion_tokens": 38,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 342,
+      "completion_tokens": 34,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 353,
+      "completion_tokens": 70,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 621,
+      "completion_tokens": 210,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 722,
+      "completion_tokens": 175,
+      "total_tokens": 897,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 719,
+      "completion_tokens": 121,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 733,
+      "completion_tokens": 125,
+      "total_tokens": 858,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1189,
+      "completion_tokens": 321,
+      "total_tokens": 1510,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 686,
+      "completion_tokens": 47,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 930,
+      "completion_tokens": 125,
+      "total_tokens": 1055,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 630,
+      "completion_tokens": 117,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 629,
+      "completion_tokens": 107,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 630,
+      "completion_tokens": 149,
+      "total_tokens": 779,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1117,
+      "completion_tokens": 210,
+      "total_tokens": 1327,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 800,
+      "completion_tokens": 46,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 787,
+      "completion_tokens": 91,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 784,
+      "completion_tokens": 88,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 800,
+      "completion_tokens": 103,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1020,
+      "completion_tokens": 273,
+      "total_tokens": 1293,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 651,
+      "completion_tokens": 47,
+      "total_tokens": 698,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 393,
+    "majority_vote_total_tokens": 1192,
+    "scrd_total_tokens": 16995,
+    "scrd_prompt_tokens": 14498,
+    "scrd_completion_tokens": 2497,
+    "agent_total_tokens": 3787,
+    "recorder_total_tokens": 4961,
+    "evaluator_total_tokens": 733,
+    "repair_brief_total_tokens": 1055,
+    "repair_evaluator_total_tokens": 1544,
+    "repair_agent_total_tokens": 4915
+  }
+}

@@ -1,0 +1,413 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Third butcher delivered 32 pounds.",
+          "claim_type": "support",
+          "related_answer": "8"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First butcher: 10 packages * 4 pounds/package = 40 pounds.",
+        "Second butcher: 7 packages * 4 pounds/package = 28 pounds.",
+        "Total from first two butchers: 40 + 28 = 68 pounds.",
+        "Remaining weight for third butcher: 100 - 68 = 32 pounds.",
+        "Packages from third butcher: 32 pounds / 4 pounds/package = 8 packages."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8",
+        "32",
+        "8"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First butcher: 10 packages * 4 pounds/package = 40 pounds.",
+        "Second butcher: 7 packages * 4 pounds/package = 28 pounds.",
+        "Total from first two butchers: 40 + 28 = 68 pounds.",
+        "Remaining weight for third butcher: 100 - 68 = 32 pounds.",
+        "Packages from third butcher: 32 pounds / 4 pounds/package = 8 packages."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "12",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The third butcher delivered 32 pounds, which results in 8 packages.",
+          "claim_type": "rebuttal",
+          "related_answer": "8"
+        },
+        {
+          "text": "Recalculated number of packages for the third butcher is 8, resolving previous conflicts.",
+          "claim_type": "explanation",
+          "related_answer": "8"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First butcher: 10 packages * 4 pounds/package = 40 pounds.",
+        "Second butcher: 7 packages * 4 pounds/package = 28 pounds.",
+        "Total from first two butchers: 40 + 28 = 68 pounds.",
+        "Remaining weight for third butcher: 100 - 68 = 32 pounds.",
+        "Packages from third butcher: 32 pounds / 4 pounds/package = 8 packages."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The third butcher delivered 32 pounds, resulting in 8 packages, resolving previous conflicts.",
+          "claim_type": "explanation",
+          "related_answer": "8"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First butcher: 10 packages * 4 pounds/package = 40 pounds.",
+        "Second butcher: 7 packages * 4 pounds/package = 28 pounds.",
+        "Total from first two butchers: 40 + 28 = 68 pounds.",
+        "Remaining weight for third butcher: 100 - 68 = 32 pounds.",
+        "Packages from third butcher: 32 pounds / 4 pounds/package = 8 packages."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total weight distribution among the deliveries.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The third butcher's contribution of 32 pounds is correct, but we need to verify if it results in exactly 8 packages.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The third butcher delivered 32 pounds, resulting in 8 packages, which seems inconsistent with the total weight of 100 pounds.",
+          "why_still_open": "Verification of whether 32 pounds result in exactly 8 packages is pending.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First butcher: 10 packages * 4 pounds/package = 40 pounds.",
+        "Second butcher: 7 packages * 4 pounds/package = 28 pounds.",
+        "Total from first two butchers: 40 + 28 = 68 pounds.",
+        "Remaining weight for third butcher: 100 - 68 = 32 pounds.",
+        "Packages from third butcher: 32 pounds / 4 pounds/package = 8 packages."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 408,
+      "completion_tokens": 114,
+      "total_tokens": 522,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 395,
+      "completion_tokens": 109,
+      "total_tokens": 504,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 406,
+      "completion_tokens": 118,
+      "total_tokens": 524,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 817,
+      "completion_tokens": 172,
+      "total_tokens": 989,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 664,
+      "completion_tokens": 200,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 661,
+      "completion_tokens": 157,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 675,
+      "completion_tokens": 184,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1244,
+      "completion_tokens": 137,
+      "total_tokens": 1381,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 664,
+      "completion_tokens": 252,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 662,
+      "completion_tokens": 138,
+      "total_tokens": 800,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 675,
+      "completion_tokens": 106,
+      "total_tokens": 781,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1166,
+      "completion_tokens": 226,
+      "total_tokens": 1392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 769,
+      "completion_tokens": 138,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 767,
+      "completion_tokens": 112,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 781,
+      "completion_tokens": 114,
+      "total_tokens": 895,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1130,
+      "completion_tokens": 184,
+      "total_tokens": 1314,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 770,
+      "completion_tokens": 117,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 767,
+      "completion_tokens": 108,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 781,
+      "completion_tokens": 132,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1079,
+      "completion_tokens": 306,
+      "total_tokens": 1385,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 522,
+    "majority_vote_total_tokens": 1550,
+    "scrd_total_tokens": 18405,
+    "scrd_prompt_tokens": 15281,
+    "scrd_completion_tokens": 3124,
+    "agent_total_tokens": 11944,
+    "recorder_total_tokens": 6461,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

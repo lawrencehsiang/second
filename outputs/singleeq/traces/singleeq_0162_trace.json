@@ -1,0 +1,361 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "28",
+        "28",
+        "28"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Mary has 4 times more black balloons than Nancy.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Mary has 4 times more black balloons than Nancy's 7.",
+        "Multiply Nancy's balloons by 4."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "35",
+        "35",
+        "35"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Adding four times Nancy's 7 black balloons to her total results in 35.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "'4 times more' means Nancy's 7 balloons plus 4 times that amount.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Mary's total black balloons are 7 plus four times Nancy's 7.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Mary has 7 black balloons, and '4 times more' means adding four times Nancy's 7 to her total.",
+        "If Nancy has 7 balloons, '4 times more' adds 4 * 7 to her total."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "35",
+        "28",
+        "28"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 28 was proposed but not fully resolved.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Rechecking the calculations and conditions due to a conflict between 28 and 35.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement between answers 28 and 35 persists.",
+          "why_still_open": "The minority answer of 28 has not been fully resolved despite rechecking.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Mary has 4 times more black balloons than Nancy, resulting in 28 balloons.",
+        "The minority answer of 28 was proposed but not fully resolved.",
+        "Rechecking the calculations and conditions due to a conflict between 28 and 35."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 47,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 30,
+      "total_tokens": 357,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 51,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 607,
+      "completion_tokens": 98,
+      "total_tokens": 705,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 601,
+      "completion_tokens": 151,
+      "total_tokens": 752,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 598,
+      "completion_tokens": 60,
+      "total_tokens": 658,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 612,
+      "completion_tokens": 54,
+      "total_tokens": 666,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 899,
+      "completion_tokens": 102,
+      "total_tokens": 1001,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 547,
+      "completion_tokens": 52,
+      "total_tokens": 599,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 578,
+      "completion_tokens": 120,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 610,
+      "completion_tokens": 156,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 609,
+      "completion_tokens": 167,
+      "total_tokens": 776,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 610,
+      "completion_tokens": 160,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1109,
+      "completion_tokens": 215,
+      "total_tokens": 1324,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 787,
+      "completion_tokens": 60,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 674,
+      "completion_tokens": 110,
+      "total_tokens": 784,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 671,
+      "completion_tokens": 128,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 687,
+      "completion_tokens": 109,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1090,
+      "completion_tokens": 243,
+      "total_tokens": 1333,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0162",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 614,
+      "completion_tokens": 56,
+      "total_tokens": 670,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 387,
+    "majority_vote_total_tokens": 1133,
+    "scrd_total_tokens": 15077,
+    "scrd_prompt_tokens": 12908,
+    "scrd_completion_tokens": 2169,
+    "agent_total_tokens": 3209,
+    "recorder_total_tokens": 4363,
+    "evaluator_total_tokens": 599,
+    "repair_brief_total_tokens": 698,
+    "repair_evaluator_total_tokens": 1517,
+    "repair_agent_total_tokens": 4691
+  }
+}

@@ -1,0 +1,364 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "49",
+        "24",
+        "49"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Dallas is currently 49 years old.",
+          "claim_type": "support",
+          "related_answer": "A, C"
+        },
+        {
+          "text": "Darcy's age is twice Dexter's age.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Dexter is 8",
+        "Darcy is 2 * 8 = 16",
+        "Dallas was 3 * 16 = 48 last year",
+        "Dallas is now 48 + 1 = 49",
+        "Determine Darcy's age first, then Dallas's age."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "46",
+        "49",
+        "46"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Dallas's age is now recalculated as 46 years old.",
+          "claim_type": "rebuttal",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Dallas is 46 years old now.",
+        "Darcy's age is twice Dexter's age.",
+        "Dexter is 8 years old.",
+        "Darcy is 2 * 8 = 16 years old.",
+        "Dallas was 3 * 16 = 48 years old last year."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "46",
+        "46",
+        "46"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking calculations to resolve the minority answer of 46.",
+          "claim_type": "explanation",
+          "related_answer": "A, C"
+        },
+        {
+          "text": "The most coherent solution path confirms Dallas's age as 46.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer of 46 vs majority answer of 49.",
+          "why_still_open": "Rechecking calculations did not fully resolve the discrepancy.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Dallas is 46 years old now.",
+        "Darcy's age is twice Dexter's age.",
+        "Dexter is 8 years old.",
+        "Darcy is 2 * 8 = 16 years old.",
+        "Dallas was 3 * 16 = 48 years old last year."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 75,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 38,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 68,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 657,
+      "completion_tokens": 177,
+      "total_tokens": 834,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 605,
+      "completion_tokens": 177,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 602,
+      "completion_tokens": 132,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 616,
+      "completion_tokens": 109,
+      "total_tokens": 725,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1123,
+      "completion_tokens": 370,
+      "total_tokens": 1493,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 719,
+      "completion_tokens": 51,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 937,
+      "completion_tokens": 109,
+      "total_tokens": 1046,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 605,
+      "completion_tokens": 129,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 604,
+      "completion_tokens": 106,
+      "total_tokens": 710,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 605,
+      "completion_tokens": 115,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1055,
+      "completion_tokens": 149,
+      "total_tokens": 1204,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 689,
+      "completion_tokens": 54,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 768,
+      "completion_tokens": 89,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 765,
+      "completion_tokens": 110,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 781,
+      "completion_tokens": 112,
+      "total_tokens": 893,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 988,
+      "completion_tokens": 246,
+      "total_tokens": 1234,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0191",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 619,
+      "completion_tokens": 64,
+      "total_tokens": 683,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 421,
+    "majority_vote_total_tokens": 1204,
+    "scrd_total_tokens": 16241,
+    "scrd_prompt_tokens": 13761,
+    "scrd_completion_tokens": 2480,
+    "agent_total_tokens": 3445,
+    "recorder_total_tokens": 4765,
+    "evaluator_total_tokens": 770,
+    "repair_brief_total_tokens": 1046,
+    "repair_evaluator_total_tokens": 1426,
+    "repair_agent_total_tokens": 4789
+  }
+}

@@ -1,0 +1,353 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "24",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total earnings then convert to dozens.",
+          "claim_type": "explanation",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total earnings = 24",
+        "Convert to dozens: 24 / 12 = 2",
+        "Answer = 2 dozens"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "200",
+        "200",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sally earns $25 per house for cleaning 96 houses.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total earnings are calculated as $25 * 96 = $2400.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Converting $2400 to dozens gives 200 dozens.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total earnings = $2400",
+        "Convert to dozens: 2400 / 12 = 200 dozens",
+        "Answer = 200 dozens"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "200",
+        "200",
+        "200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct calculation involves multiplying the number of houses by Sally's earnings per house to get $2400, then converting it to dozens of dollars.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying the calculations shows that 2400 dollars divided by 12 equals 200 dozens.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total earnings = $2400",
+        "Convert to dozens: 2400 / 12 = 200 dozens",
+        "Answer = 200 dozens"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 342,
+      "completion_tokens": 30,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 329,
+      "completion_tokens": 33,
+      "total_tokens": 362,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 340,
+      "completion_tokens": 37,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 579,
+      "completion_tokens": 102,
+      "total_tokens": 681,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 600,
+      "completion_tokens": 97,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 597,
+      "completion_tokens": 120,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 611,
+      "completion_tokens": 66,
+      "total_tokens": 677,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 915,
+      "completion_tokens": 203,
+      "total_tokens": 1118,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 44,
+      "total_tokens": 639,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 712,
+      "completion_tokens": 108,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 709,
+      "completion_tokens": 136,
+      "total_tokens": 845,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 722,
+      "completion_tokens": 143,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1145,
+      "completion_tokens": 213,
+      "total_tokens": 1358,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 588,
+      "completion_tokens": 55,
+      "total_tokens": 643,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 805,
+      "completion_tokens": 107,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 688,
+      "completion_tokens": 238,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 687,
+      "completion_tokens": 196,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 688,
+      "completion_tokens": 195,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1365,
+      "completion_tokens": 183,
+      "total_tokens": 1548,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0116",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 755,
+      "completion_tokens": 53,
+      "total_tokens": 808,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 372,
+    "majority_vote_total_tokens": 1111,
+    "scrd_total_tokens": 16131,
+    "scrd_prompt_tokens": 13772,
+    "scrd_completion_tokens": 2359,
+    "agent_total_tokens": 5732,
+    "recorder_total_tokens": 4705,
+    "evaluator_total_tokens": 1282,
+    "repair_brief_total_tokens": 912,
+    "repair_evaluator_total_tokens": 808,
+    "repair_agent_total_tokens": 2692
+  }
+}

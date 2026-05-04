@@ -1,0 +1,378 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40.75",
+        "60",
+        "67.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Adjust for overlap in combined effects.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total effect equals sum of individual effects minus overlap.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Combined effectiveness minus overlap equals 67.5.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Overlap needs adjustment.",
+        "Sum of effects - overlap = 67.5",
+        "Spray A: 40.75",
+        "Spray B: 60",
+        "Combined: 67.5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "67.5",
+        "67.5",
+        "37.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correctly applied inclusion-exclusion principle.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Adjusted for overlap in combined effects.",
+        "Sum of effects - overlap = 67.5%",
+        "Spray A: 40.75%",
+        "Spray B: 60%",
+        "Combined: 67.5%"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "37.5",
+        "67.5",
+        "67.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The conflicting answers are 67.5%, 37.5%, and 60%, indicating an error in the application of the inclusion-exclusion principle.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct application of the inclusion-exclusion principle results in 67.5% germ reduction.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the final percentage of germs left after using both sprays.",
+          "why_still_open": "Multiple conflicting answers persist despite revisiting key claims and snippets.",
+          "involved_answers": [
+            "37.5",
+            "67.5",
+            "60"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Adjusted for overlap in combined effects.",
+        "Sum of effects - overlap = 67.5%",
+        "Spray A: 40.75%",
+        "Spray B: 60%",
+        "Combined: 67.5%"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 374,
+      "completion_tokens": 41,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 361,
+      "completion_tokens": 34,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 372,
+      "completion_tokens": 32,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 192,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 808,
+      "completion_tokens": 92,
+      "total_tokens": 900,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 802,
+      "completion_tokens": 94,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 818,
+      "completion_tokens": 104,
+      "total_tokens": 922,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1027,
+      "completion_tokens": 191,
+      "total_tokens": 1218,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 677,
+      "completion_tokens": 49,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 804,
+      "completion_tokens": 88,
+      "total_tokens": 892,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 612,
+      "completion_tokens": 137,
+      "total_tokens": 749,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 611,
+      "completion_tokens": 93,
+      "total_tokens": 704,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 612,
+      "completion_tokens": 105,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1066,
+      "completion_tokens": 124,
+      "total_tokens": 1190,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 697,
+      "completion_tokens": 60,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 896,
+      "completion_tokens": 135,
+      "total_tokens": 1031,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 893,
+      "completion_tokens": 114,
+      "total_tokens": 1007,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 909,
+      "completion_tokens": 101,
+      "total_tokens": 1010,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1014,
+      "completion_tokens": 268,
+      "total_tokens": 1282,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0143",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 686,
+      "completion_tokens": 50,
+      "total_tokens": 736,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 415,
+    "majority_vote_total_tokens": 1214,
+    "scrd_total_tokens": 16734,
+    "scrd_prompt_tokens": 14630,
+    "scrd_completion_tokens": 2104,
+    "agent_total_tokens": 3932,
+    "recorder_total_tokens": 4473,
+    "evaluator_total_tokens": 726,
+    "repair_brief_total_tokens": 892,
+    "repair_evaluator_total_tokens": 1493,
+    "repair_agent_total_tokens": 5218
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,353 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "134",
+        "134",
+        "94"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum daily car counts to get the total.",
+          "claim_type": "support",
+          "related_answer": "134"
+        },
+        {
+          "text": "Daily totals are summed to find the overall count.",
+          "claim_type": "support",
+          "related_answer": "94"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum daily totals.",
+        "Calculate daily car counts.",
+        "Total = sum of daily totals."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "134",
+        "134",
+        "134"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected daily counts and verified the total of 134 cars.",
+          "claim_type": "support",
+          "related_answer": "134"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily counts recalculated: Mon=20, Wed=22, Thu=10, Fri=10, Sat=5, Sun=5.",
+        "Total cars = 134.",
+        "Discrepancy resolved."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "134",
+        "134",
+        "137"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the numbers to ensure consistency with the breakdown.",
+          "claim_type": "rebuttal",
+          "related_answer": "137"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The previous answer of 134 cars contradicts the new breakdown.",
+          "why_still_open": "The breakdown needs verification.",
+          "involved_answers": [
+            "134",
+            "137"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Daily counts recalculated: Mon=20, Wed=22, Thu=10, Fri=10, Sat=5, Sun=5.",
+        "Total cars = 134 (verified).",
+        "New breakdown: Mon=20, Wed=22, Thu=10, Fri=10, Sat=5, Sun=5, Total=137.",
+        "Recomputing to resolve discrepancy."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 399,
+      "completion_tokens": 36,
+      "total_tokens": 435,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 386,
+      "completion_tokens": 30,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 397,
+      "completion_tokens": 33,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 580,
+      "completion_tokens": 129,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 660,
+      "completion_tokens": 110,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 657,
+      "completion_tokens": 44,
+      "total_tokens": 701,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 670,
+      "completion_tokens": 106,
+      "total_tokens": 776,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 938,
+      "completion_tokens": 187,
+      "total_tokens": 1125,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 673,
+      "completion_tokens": 54,
+      "total_tokens": 727,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 763,
+      "completion_tokens": 98,
+      "total_tokens": 861,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 647,
+      "completion_tokens": 128,
+      "total_tokens": 775,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 646,
+      "completion_tokens": 123,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 647,
+      "completion_tokens": 161,
+      "total_tokens": 808,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1074,
+      "completion_tokens": 130,
+      "total_tokens": 1204,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 735,
+      "completion_tokens": 59,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 630,
+      "completion_tokens": 61,
+      "total_tokens": 691,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 627,
+      "completion_tokens": 52,
+      "total_tokens": 679,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 643,
+      "completion_tokens": 98,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 875,
+      "completion_tokens": 227,
+      "total_tokens": 1102,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 631,
+      "completion_tokens": 58,
+      "total_tokens": 689,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 435,
+    "majority_vote_total_tokens": 1281,
+    "scrd_total_tokens": 15202,
+    "scrd_prompt_tokens": 13278,
+    "scrd_completion_tokens": 1924,
+    "agent_total_tokens": 3528,
+    "recorder_total_tokens": 4140,
+    "evaluator_total_tokens": 727,
+    "repair_brief_total_tokens": 861,
+    "repair_evaluator_total_tokens": 1483,
+    "repair_agent_total_tokens": 4463
+  }
+}

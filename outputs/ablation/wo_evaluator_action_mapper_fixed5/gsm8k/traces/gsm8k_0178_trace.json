@@ -1,0 +1,452 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10000",
+        "7000",
+        "6000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Net cost = buying price - selling price",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Selling price = 20000 * 0.8",
+        "Buying price = 30000 * 0.9",
+        "Net cost = 30000 * 0.9 - 20000 * 0.8",
+        "Result: 6000"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "14000",
+        "5000",
+        "7000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate net cost using 90% of buying price and 80% of selling price.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between recalculated net costs by different agents.",
+          "why_still_open": "Agents A and B recalculated but arrived at different net costs.",
+          "involved_answers": [
+            "14000",
+            "5000",
+            "7000"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Selling price = 20000 * 0.8",
+        "Buying price = 30000 * 0.9",
+        "Net cost = 30000 * 0.9 - 20000 * 0.8",
+        "Result: 6000",
+        "Net cost = 30000 * 0.9 * 0.9 - 20000 * 0.8 * 0.8"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "14000",
+        "4000",
+        "5000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate net cost using 90% of buying price and 80% of selling price.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-calculate net cost accurately based on correct percentages.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Step-by-step verification needed for accurate net cost calculation.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between recalculated net costs by different agents.",
+          "why_still_open": "Agents A, B, and C recalculated but still have differing results.",
+          "involved_answers": [
+            "14000",
+            "4000",
+            "5000"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Selling price = 20000 * 0.8",
+        "Buying price = 30000 * 0.9",
+        "Net cost = 30000 * 0.9 - 20000 * 0.8",
+        "Result: 6000",
+        "Verify: 30000 * 0.9 * 0.9 - 20000 * 0.8 * 0.8"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "5000",
+        "14000",
+        "5000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate net cost using 90% of buying price and 80% of selling price.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 14000 is incorrect, and the correct net cost is 5000.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between recalculated net costs by different agents.",
+          "why_still_open": "Agents A and C agree on a net cost of 5000, but B still supports 14000.",
+          "involved_answers": [
+            "5000",
+            "14000"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Selling price = 20000 * 0.8",
+        "Buying price = 30000 * 0.9",
+        "Net cost = 30000 * 0.9 - 20000 * 0.8",
+        "Result: 6000 (incorrect)",
+        "Correct net cost: 5000"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "5000",
+        "5000",
+        "5000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 14000 is incorrect, and the correct net cost is 5000.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between recalculated net costs by different agents.",
+          "why_still_open": "While the minority answer of 14000 is now resolved, there is still a need to reconcile why the calculated net cost differs from the agreed-upon 5000.",
+          "involved_answers": [
+            "5000",
+            "14000"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Net cost = 27000 - 16000",
+        "90% of buying price: 30000 * 0.9",
+        "80% of selling price: 20000 * 0.8",
+        "Correct net cost: 5000",
+        "Result: 11000 (incorrect)"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 48,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 37,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 67,
+      "total_tokens": 441,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 641,
+      "completion_tokens": 143,
+      "total_tokens": 784,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 640,
+      "completion_tokens": 148,
+      "total_tokens": 788,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 636,
+      "completion_tokens": 128,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 650,
+      "completion_tokens": 113,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1074,
+      "completion_tokens": 275,
+      "total_tokens": 1349,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 756,
+      "completion_tokens": 134,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 752,
+      "completion_tokens": 89,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 766,
+      "completion_tokens": 91,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1143,
+      "completion_tokens": 342,
+      "total_tokens": 1485,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 853,
+      "completion_tokens": 127,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 849,
+      "completion_tokens": 145,
+      "total_tokens": 994,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 863,
+      "completion_tokens": 115,
+      "total_tokens": 978,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1277,
+      "completion_tokens": 306,
+      "total_tokens": 1583,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 866,
+      "completion_tokens": 146,
+      "total_tokens": 1012,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 864,
+      "completion_tokens": 131,
+      "total_tokens": 995,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 877,
+      "completion_tokens": 265,
+      "total_tokens": 1142,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1397,
+      "completion_tokens": 269,
+      "total_tokens": 1666,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 424,
+    "majority_vote_total_tokens": 1265,
+    "scrd_total_tokens": 19136,
+    "scrd_prompt_tokens": 16017,
+    "scrd_completion_tokens": 3119,
+    "agent_total_tokens": 12269,
+    "recorder_total_tokens": 6867,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

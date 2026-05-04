@@ -1,0 +1,309 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "192",
+        "112",
+        "608"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate Peter Parker's age using Captain America's age.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate Ironman's age using Peter Parker's age.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate Peter Parker's age first, then Captain America's, and finally Ironman's.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Reverse calculation from Thor's age to Captain America's, then to Peter Parker's, and finally add Ironman's age difference.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different sequences of age calculations lead to different answers.",
+          "why_still_open": "The agents have used different sequences without validating their correctness.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Peter Parker's age = 192",
+        "Captain America's age = 112",
+        "Ironman's age = 608",
+        "Sequence A: Peter -> Cap -> Ironman",
+        "Sequence C: Thor -> Cap -> Peter -> Ironman"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "128",
+        "608",
+        "640"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the sequence of calculations starting with Thor's age and working backwards.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Select a coherent path for calculations to ensure consistency.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Validate the correctness of each sequence by ensuring all ages are consistent.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Peter Parker's age = 128",
+        "Captain America's age = 608",
+        "Ironman's age = 640",
+        "Sequence A: Thor -> Cap -> Peter -> Ironman",
+        "Ensure all ages are consistent with given conditions"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "128",
+        "1024",
+        "960"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Start calculations from Thor's age to ensure consistency.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Adopt a unified sequence for age calculations.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Work backwards from Thor's age to validate each step.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Peter Parker's age = 128",
+        "Captain America's age = 1024",
+        "Ironman's age = 960",
+        "Sequence: Thor -> Captain America -> Peter Parker -> Ironman",
+        "Consistent calculation from Thor's age downwards"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 361,
+      "completion_tokens": 49,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 348,
+      "completion_tokens": 41,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 359,
+      "completion_tokens": 52,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 624,
+      "completion_tokens": 319,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 723,
+      "completion_tokens": 88,
+      "total_tokens": 811,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 720,
+      "completion_tokens": 90,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 734,
+      "completion_tokens": 95,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1156,
+      "completion_tokens": 216,
+      "total_tokens": 1372,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 680,
+      "completion_tokens": 43,
+      "total_tokens": 723,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 818,
+      "completion_tokens": 86,
+      "total_tokens": 904,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 815,
+      "completion_tokens": 99,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 829,
+      "completion_tokens": 96,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1040,
+      "completion_tokens": 209,
+      "total_tokens": 1249,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0190",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 658,
+      "completion_tokens": 50,
+      "total_tokens": 708,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 410,
+    "majority_vote_total_tokens": 1210,
+    "scrd_total_tokens": 11398,
+    "scrd_prompt_tokens": 9865,
+    "scrd_completion_tokens": 1533,
+    "agent_total_tokens": 6403,
+    "recorder_total_tokens": 3564,
+    "evaluator_total_tokens": 1431,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

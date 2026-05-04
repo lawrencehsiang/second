@@ -1,0 +1,443 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7.5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate reading rate per hour and use it to find time for 120 pages.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Reading rate is used to determine the time needed for 120 pages.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Pages per hour are calculated to find the time required for 120 pages.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Reading 5 pages in 30 minutes results in 10 pages per hour.",
+        "120 pages divided by 10 pages per hour equals 12 hours.",
+        "50/3=16.67, 16.67*1.5=25, 25*1.2=30"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate time needed for 120 pages using the revised reading rate of 8 pages in 20 minutes.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Reading 8 pages in 20 minutes results in 24 pages per hour.",
+        "120 pages divided by 24 pages per hour equals 5 hours.",
+        "8 pages / 20 min = 24 pages / 1 hr"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "30",
+        "6",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revised calculation of 120 pages at 8 pages every 20 minutes yields 10 hours.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Reading 8 pages in 20 minutes equals 12 pages per hour.",
+        "120 pages divided by 12 pages per hour equals 10 hours.",
+        "8 pages / 20 min = 12 pages / 1 hr"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "6",
+        "5",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 5 hours is incorrect due to improper time conversion.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The majority answer of 10 hours is correct based on the revised calculation.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 5 hours versus the majority answer of 10 hours.",
+          "why_still_open": "The minority answer of 5 hours is supported by an agent but contradicts the majority's 10-hour calculation.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "8 pages / 20 min = 12 pages / 1 hr",
+        "120 pages / 12 pages/hr = 10 hours",
+        "20 min / 8 pages = 2.5 min/page"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 42,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 38,
+      "total_tokens": 365,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 40,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 242,
+      "total_tokens": 837,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 608,
+      "completion_tokens": 107,
+      "total_tokens": 715,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 603,
+      "completion_tokens": 47,
+      "total_tokens": 650,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 617,
+      "completion_tokens": 82,
+      "total_tokens": 699,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1002,
+      "completion_tokens": 144,
+      "total_tokens": 1146,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 559,
+      "completion_tokens": 46,
+      "total_tokens": 605,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 613,
+      "completion_tokens": 152,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 610,
+      "completion_tokens": 137,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 624,
+      "completion_tokens": 222,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1178,
+      "completion_tokens": 274,
+      "total_tokens": 1452,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 666,
+      "completion_tokens": 52,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 791,
+      "completion_tokens": 87,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 675,
+      "completion_tokens": 134,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 674,
+      "completion_tokens": 115,
+      "total_tokens": 789,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 675,
+      "completion_tokens": 146,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1063,
+      "completion_tokens": 143,
+      "total_tokens": 1206,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 663,
+      "completion_tokens": 55,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 676,
+      "completion_tokens": 107,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 673,
+      "completion_tokens": 175,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 689,
+      "completion_tokens": 109,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1059,
+      "completion_tokens": 245,
+      "total_tokens": 1304,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0015",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 614,
+      "completion_tokens": 55,
+      "total_tokens": 669,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 382,
+    "majority_vote_total_tokens": 1125,
+    "scrd_total_tokens": 19928,
+    "scrd_prompt_tokens": 16932,
+    "scrd_completion_tokens": 2996,
+    "agent_total_tokens": 5547,
+    "recorder_total_tokens": 5945,
+    "evaluator_total_tokens": 1323,
+    "repair_brief_total_tokens": 878,
+    "repair_evaluator_total_tokens": 1387,
+    "repair_agent_total_tokens": 4848
+  }
+}

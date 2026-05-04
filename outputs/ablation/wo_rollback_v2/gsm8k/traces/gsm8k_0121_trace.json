@@ -1,0 +1,205 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "200",
+        "200",
+        "200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Multiply weekly earnings by 4 to get monthly earnings.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Subtract bike cost directly from total savings.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "No conflict introduced in this round.",
+          "why_still_open": "All answers are consistent.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Weekly earnings * 4 = Monthly earnings",
+        "Total savings - Bike cost = Remaining savings",
+        "Calculated weekly, then multiplied by 4"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "200",
+        "200",
+        "200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute weekly earnings and multiply by 4 for monthly earnings.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "No conflict introduced in this round.",
+          "why_still_open": "All answers are consistent but the method of arriving at the answer differs slightly.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Weekly earnings * 4 = Monthly earnings",
+        "Total savings - Bike cost = Remaining savings",
+        "Recomputed weekly earnings, then multiplied by 4"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 39,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 34,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 49,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 607,
+      "completion_tokens": 187,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 726,
+      "completion_tokens": 78,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 723,
+      "completion_tokens": 50,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 737,
+      "completion_tokens": 57,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 936,
+      "completion_tokens": 172,
+      "total_tokens": 1108,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 60,
+      "total_tokens": 662,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 414,
+    "majority_vote_total_tokens": 1232,
+    "scrd_total_tokens": 6167,
+    "scrd_prompt_tokens": 5441,
+    "scrd_completion_tokens": 726,
+    "agent_total_tokens": 3603,
+    "recorder_total_tokens": 1902,
+    "evaluator_total_tokens": 662,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

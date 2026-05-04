@@ -1,0 +1,200 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "27",
+        "27",
+        "27"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Weekday price is $18, weekend price is 50% more.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Monday price is $18, weekend price is 50% higher.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Previous day (Sunday) price is $18 * 1.5",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The exact value of '27' was not explained.",
+          "why_still_open": "The numerical value '27' needs context to understand its derivation.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Weekday price = $18",
+        "Weekend price = $18 * 1.5",
+        "Monday price = $18"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "27",
+        "27",
+        "27"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Weekend price = $18 * 1.5",
+        "Weekday price = $18",
+        "Mario's haircut on Sunday costs $27"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0160",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 352,
+      "completion_tokens": 42,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0160",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 339,
+      "completion_tokens": 41,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0160",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 350,
+      "completion_tokens": 58,
+      "total_tokens": 408,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0160",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 617,
+      "completion_tokens": 257,
+      "total_tokens": 874,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0160",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 834,
+      "completion_tokens": 115,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0160",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 831,
+      "completion_tokens": 143,
+      "total_tokens": 974,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0160",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 845,
+      "completion_tokens": 123,
+      "total_tokens": 968,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0160",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1188,
+      "completion_tokens": 70,
+      "total_tokens": 1258,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0160",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 533,
+      "completion_tokens": 49,
+      "total_tokens": 582,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1182,
+    "scrd_total_tokens": 6787,
+    "scrd_prompt_tokens": 5889,
+    "scrd_completion_tokens": 898,
+    "agent_total_tokens": 4073,
+    "recorder_total_tokens": 2132,
+    "evaluator_total_tokens": 582,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

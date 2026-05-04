@@ -1,0 +1,428 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "30",
+        "30",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total cones sold divided by 6 yields the number of free cones.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total cones sold, then determine free cones based on sales.",
+        "Total sales / price per cone gives total cones sold.",
+        "Total cones sold / 6 gives free cones given away."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8",
+        "30",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total sales of $100 at $2 per cone result in 50 cones sold.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verification shows 30 free cones align with $100 total sales.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on whether 50 cones sold or 30 free cones align with the $100 sales amount.",
+          "why_still_open": "Needs further calculation to confirm which scenario matches the sales exactly.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate total cones sold from $100 sales at $2 per cone.",
+        "50 cones sold = $100 / $2.",
+        "30 free cones align with $100 sales, verified."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "25",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "50 cones sold result in approximately 8 free cones given away.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculation confirms 50 cones sold and 8 free cones given away match the $100 sales amount.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50 cones sold = $100 / $2.",
+        "Every sixth customer gets a free cone.",
+        "50 / 6 ≈ 8.33, rounding down to 8 free cones.",
+        "Sales of $100 at $2 per cone result in 50 cones sold.",
+        "8 free cones match the $100 sales amount."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "8",
+        "30",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 30 free cones contradicts the mainstream support of 8 free cones.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream support suggests 8 free cones, while the minority answer is 30 free cones.",
+          "why_still_open": "Verification against total sales is required to determine the correct number.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50 cones sold = $100 / $2.",
+        "Every sixth customer gets a free cone.",
+        "50 / 6 ≈ 8.33, rounding down to 8 free cones.",
+        "Sales of $100 at $2 per cone result in 50 cones sold.",
+        "8 free cones match the $100 sales amount."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "8",
+        "30",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculating the number of free cones based on the total sales shows that 8 free cones are correct.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 30 free cones is incorrect because it does not align with the problem conditions.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50 cones sold = $100 / $2.",
+        "Every sixth customer gets a free cone.",
+        "50 / 6 ≈ 8.33, rounding down to 8 free cones.",
+        "Sales of $100 at $2 per cone result in 50 cones sold.",
+        "8 free cones match the $100 sales amount."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 354,
+      "completion_tokens": 38,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 341,
+      "completion_tokens": 40,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 352,
+      "completion_tokens": 48,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 117,
+      "total_tokens": 719,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 618,
+      "completion_tokens": 177,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 615,
+      "completion_tokens": 80,
+      "total_tokens": 695,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 629,
+      "completion_tokens": 154,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1055,
+      "completion_tokens": 242,
+      "total_tokens": 1297,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 834,
+      "completion_tokens": 142,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 832,
+      "completion_tokens": 117,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 846,
+      "completion_tokens": 206,
+      "total_tokens": 1052,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1245,
+      "completion_tokens": 207,
+      "total_tokens": 1452,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 812,
+      "completion_tokens": 168,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 810,
+      "completion_tokens": 127,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 823,
+      "completion_tokens": 121,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1164,
+      "completion_tokens": 226,
+      "total_tokens": 1390,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 816,
+      "completion_tokens": 173,
+      "total_tokens": 989,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 814,
+      "completion_tokens": 168,
+      "total_tokens": 982,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 828,
+      "completion_tokens": 150,
+      "total_tokens": 978,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0130",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1262,
+      "completion_tokens": 215,
+      "total_tokens": 1477,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 392,
+    "majority_vote_total_tokens": 1173,
+    "scrd_total_tokens": 18568,
+    "scrd_prompt_tokens": 15652,
+    "scrd_completion_tokens": 2916,
+    "agent_total_tokens": 12233,
+    "recorder_total_tokens": 6335,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

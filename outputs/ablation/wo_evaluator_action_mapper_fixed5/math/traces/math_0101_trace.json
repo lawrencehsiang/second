@@ -1,0 +1,450 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-41",
+        "-4",
+        "-12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Nested function evaluation from innermost.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Successive application of f starting with f(1).",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Step-by-step evaluation of nested function calls.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different strategies for evaluating nested functions.",
+          "why_still_open": "Evaluation methods vary among agents.",
+          "involved_answers": [
+            "-41",
+            "-4",
+            "-12"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(x) = x * -12",
+        "f(f(1)) = -4",
+        "Nested function evaluation: innermost first."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-41",
+        "UNKNOWN",
+        "-41"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Evaluating nested function calls step-by-step using the piecewise function definition.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Evaluating nested function calls step-by-step using the piecewise function definition.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Evaluating nested function calls step-by-step using the piecewise function definition.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = x * -12",
+        "f(f(1)) = -4",
+        "Nested function evaluation: innermost first."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "-41",
+        "-41",
+        "-41"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating nested function calls step-by-step using the piecewise function definition.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agreeing to evaluate nested functions step-by-step according to the piecewise function definition.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Ensuring step-by-step evaluation aligns with the piecewise function definition.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Nested function evaluation: innermost first.",
+        "f(x) = x * -12",
+        "f(f(1)) = -4"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "-17",
+        "-41",
+        "-41"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the computation of nested function calls to -17 instead of -41.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Nested function evaluation: innermost first.",
+        "f(x) = x * -12",
+        "f(f(1)) = -4",
+        "f(f(f(f(f(1))))) = -17"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-17",
+        "-17",
+        "-17"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the computation of nested function calls to -17 based on the piecewise function definition.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Reevaluating nested function calls step-by-step using the piecewise function definition.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputing nested function calls step-by-step to verify correctness.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement between -41 and -17 in the result of nested function calls.",
+          "why_still_open": "Further verification needed through step-by-step recomputation.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Nested function evaluation: innermost first.",
+        "f(x) = x * -12",
+        "f(f(1)) = -4",
+        "f(f(f(f(f(1))))) = -17"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 379,
+      "completion_tokens": 35,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 366,
+      "completion_tokens": 43,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 377,
+      "completion_tokens": 39,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 225,
+      "total_tokens": 816,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 820,
+      "completion_tokens": 97,
+      "total_tokens": 917,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 816,
+      "completion_tokens": 100,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 831,
+      "completion_tokens": 90,
+      "total_tokens": 921,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1066,
+      "completion_tokens": 191,
+      "total_tokens": 1257,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 827,
+      "completion_tokens": 97,
+      "total_tokens": 924,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 823,
+      "completion_tokens": 90,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 838,
+      "completion_tokens": 87,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1008,
+      "completion_tokens": 196,
+      "total_tokens": 1204,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 743,
+      "completion_tokens": 72,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 740,
+      "completion_tokens": 46,
+      "total_tokens": 786,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 754,
+      "completion_tokens": 56,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 922,
+      "completion_tokens": 130,
+      "total_tokens": 1052,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 744,
+      "completion_tokens": 143,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 741,
+      "completion_tokens": 92,
+      "total_tokens": 833,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 755,
+      "completion_tokens": 113,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0101",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1031,
+      "completion_tokens": 271,
+      "total_tokens": 1302,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 414,
+    "majority_vote_total_tokens": 1239,
+    "scrd_total_tokens": 17385,
+    "scrd_prompt_tokens": 15172,
+    "scrd_completion_tokens": 2213,
+    "agent_total_tokens": 11754,
+    "recorder_total_tokens": 5631,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

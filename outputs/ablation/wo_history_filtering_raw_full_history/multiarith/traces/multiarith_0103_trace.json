@@ -1,0 +1,178 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "24",
+        "24",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial 34 - 17 sold + 7 bought = 24 books",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial 34 - 17 sold + 7 bought = 24 books",
+        "Subtract sold books from initial, then add bought books."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "24",
+        "24",
+        "24"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "34 - 17 + 7 = 24",
+        "Subtract sold books from initial, then add bought books."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 347,
+      "completion_tokens": 34,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 334,
+      "completion_tokens": 37,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 345,
+      "completion_tokens": 44,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 114,
+      "total_tokens": 705,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 728,
+      "completion_tokens": 132,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 725,
+      "completion_tokens": 52,
+      "total_tokens": 777,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 739,
+      "completion_tokens": 52,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 902,
+      "completion_tokens": 63,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 512,
+      "completion_tokens": 52,
+      "total_tokens": 564,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 381,
+    "majority_vote_total_tokens": 1141,
+    "scrd_total_tokens": 5803,
+    "scrd_prompt_tokens": 5223,
+    "scrd_completion_tokens": 580,
+    "agent_total_tokens": 3569,
+    "recorder_total_tokens": 1670,
+    "evaluator_total_tokens": 564,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

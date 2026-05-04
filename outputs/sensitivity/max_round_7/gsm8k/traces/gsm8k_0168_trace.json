@@ -1,0 +1,210 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "1920",
+        "19200",
+        "19200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the length of the new movie, then its cost per minute, and finally the total cost.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate the length and cost of the new movie.",
+          "claim_type": "constraint",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers provided by agents A, B, and C.",
+          "why_still_open": "Need to verify the correct answer.",
+          "involved_answers": [
+            "1920",
+            "19200"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Length of movie = 1920 minutes",
+        "Cost per minute = 0.1 dollars",
+        "Total cost = 1920 * 0.1 = 192 dollars",
+        "Correct answer needed",
+        "Verify calculations"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "1920",
+        "28800",
+        "19200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the total cost of filming Janet's newest movie step-by-step.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify calculations step-by-step.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C provided different answers.",
+          "why_still_open": "Need to confirm the correct answer through step-by-step verification.",
+          "involved_answers": [
+            "1920",
+            "28800",
+            "19200"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Length of movie = 1920 minutes",
+        "Cost per minute = 0.1 dollars",
+        "Total cost = 1920 * 0.1 = 192 dollars",
+        "Recompute total cost step-by-step",
+        "Verify calculations"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 379,
+      "completion_tokens": 47,
+      "total_tokens": 426,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 366,
+      "completion_tokens": 35,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 377,
+      "completion_tokens": 38,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 607,
+      "completion_tokens": 240,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 751,
+      "completion_tokens": 85,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 749,
+      "completion_tokens": 109,
+      "total_tokens": 858,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 763,
+      "completion_tokens": 100,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1100,
+      "completion_tokens": 247,
+      "total_tokens": 1347,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 659,
+      "completion_tokens": 47,
+      "total_tokens": 706,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 426,
+    "majority_vote_total_tokens": 1242,
+    "scrd_total_tokens": 6699,
+    "scrd_prompt_tokens": 5751,
+    "scrd_completion_tokens": 948,
+    "agent_total_tokens": 3799,
+    "recorder_total_tokens": 2194,
+    "evaluator_total_tokens": 706,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

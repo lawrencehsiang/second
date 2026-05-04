@@ -1,0 +1,195 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "20",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Convert grams to kilograms by dividing by 1000.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "20 g = 0.02 kg",
+        "4 packets * 0.02 kg/packet = 0.08 kg",
+        "Convert grams to kg and multiply by packet count."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2",
+        "2",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Maintaining consistency in gram-to-kilogram conversion.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verifying the correctness of previous answers.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Answer C claims the total weight is 4 kg, while A and B update their answers to 2 kg.",
+          "why_still_open": "C's calculation differs from A and B's, but C provides a detailed explanation based on gram-to-kilogram conversion.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "20 g = 0.02 kg",
+        "2000 g = 2 kg",
+        "2 kg * 20 packets = 4 kg"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 38,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 38,
+      "total_tokens": 364,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 37,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 588,
+      "completion_tokens": 119,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 602,
+      "completion_tokens": 36,
+      "total_tokens": 638,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 599,
+      "completion_tokens": 35,
+      "total_tokens": 634,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 612,
+      "completion_tokens": 97,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 827,
+      "completion_tokens": 227,
+      "total_tokens": 1054,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 610,
+      "completion_tokens": 40,
+      "total_tokens": 650,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 377,
+    "majority_vote_total_tokens": 1115,
+    "scrd_total_tokens": 5507,
+    "scrd_prompt_tokens": 4840,
+    "scrd_completion_tokens": 667,
+    "agent_total_tokens": 3096,
+    "recorder_total_tokens": 1761,
+    "evaluator_total_tokens": 650,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

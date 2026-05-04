@@ -1,0 +1,474 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "35",
+        "-17"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "First tank can hold 16 fish, second tank can hold 12 fish.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "First tank can hold 48 fish, second tank can hold 12 fish.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "First tank has 8 two-inch fish, second tank has 24 one-inch fish.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different calculations for the number of fish each tank can hold.",
+          "why_still_open": "Agents used different assumptions about fish size and tank capacity.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First tank: 48/3 = 16 fish",
+        "Second tank: 24/2 = 12 fish",
+        "One fish dies: 15 - 12 = 3",
+        "First tank: 2*24=48 fish",
+        "Second tank: 24/2=12 fish"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3",
+        "20",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The first tank's capacity was calculated as 48 gallons and the second as 24 gallons, aligning with the problem statement.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The conflicting answers were due to different assumptions about the size of the tanks and the length of the fish, leading to a consistent calculation.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The first tank holds 16 fish and the second tank holds 12 fish based on the provided calculations.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First tank: 48/3 = 16 fish",
+        "Second tank: 24/2 = 12 fish",
+        "One fish dies: 15 - 12 = 3",
+        "First tank: 2*24=48 fish",
+        "Second tank: 24/2=12 fish"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "3",
+        "4",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The first tank holds 16 fish and the second tank holds 12 fish based on the correct calculations.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First tank: 48/3 = 16 fish",
+        "Second tank: 24/2 = 12 fish",
+        "One fish dies: 15 - 12 = 3",
+        "First tank: 2*24=48 fish",
+        "Second tank: 24/2=12 fish"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The first tank can hold 16 fish (48 gallons / 3 inches per fish), and the second tank can hold 12 fish (24 gallons / 2 inches per fish).",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "One fish dies in the first tank, leaving 15 fish, and the difference is 15 - 12 = 3 fish.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First tank: 48/3 = 16 fish",
+        "Second tank: 24/2 = 12 fish",
+        "One fish dies: 15 - 12 = 3",
+        "First tank: 2*24=48 fish",
+        "Second tank: 24/2=12 fish"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The first tank can hold 16 fish (48 gallons / 3 inches per fish), and the second tank can hold 12 fish (24 gallons / 2 inches per fish).",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First tank: 48/3 = 16 fish",
+        "Second tank: 24/2 = 12 fish",
+        "One fish dies: 15 - 12 = 3",
+        "Tank capacity: 48/3 = 16 fish",
+        "Tank capacity: 24/2 = 12 fish"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 401,
+      "completion_tokens": 101,
+      "total_tokens": 502,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 388,
+      "completion_tokens": 93,
+      "total_tokens": 481,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 399,
+      "completion_tokens": 93,
+      "total_tokens": 492,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 765,
+      "completion_tokens": 304,
+      "total_tokens": 1069,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 928,
+      "completion_tokens": 151,
+      "total_tokens": 1079,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 926,
+      "completion_tokens": 119,
+      "total_tokens": 1045,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 940,
+      "completion_tokens": 119,
+      "total_tokens": 1059,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1225,
+      "completion_tokens": 268,
+      "total_tokens": 1493,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 752,
+      "completion_tokens": 55,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 1155,
+      "completion_tokens": 121,
+      "total_tokens": 1276,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 1153,
+      "completion_tokens": 144,
+      "total_tokens": 1297,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1166,
+      "completion_tokens": 181,
+      "total_tokens": 1347,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1253,
+      "completion_tokens": 162,
+      "total_tokens": 1415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 617,
+      "completion_tokens": 43,
+      "total_tokens": 660,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 1307,
+      "completion_tokens": 148,
+      "total_tokens": 1455,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 1304,
+      "completion_tokens": 191,
+      "total_tokens": 1495,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1318,
+      "completion_tokens": 210,
+      "total_tokens": 1528,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1233,
+      "completion_tokens": 236,
+      "total_tokens": 1469,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 696,
+      "completion_tokens": 37,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 1516,
+      "completion_tokens": 137,
+      "total_tokens": 1653,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 1513,
+      "completion_tokens": 121,
+      "total_tokens": 1634,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1527,
+      "completion_tokens": 172,
+      "total_tokens": 1699,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1196,
+      "completion_tokens": 183,
+      "total_tokens": 1379,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0100",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 46,
+      "total_tokens": 681,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 502,
+    "majority_vote_total_tokens": 1475,
+    "scrd_total_tokens": 27748,
+    "scrd_prompt_tokens": 24313,
+    "scrd_completion_tokens": 3435,
+    "agent_total_tokens": 18042,
+    "recorder_total_tokens": 6825,
+    "evaluator_total_tokens": 2881,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

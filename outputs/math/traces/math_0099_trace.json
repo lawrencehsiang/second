@@ -1,0 +1,548 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "14",
+        "14",
+        "19"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve by completing the square and identify a and b.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B have the same answer '14', while C has '19'.",
+          "why_still_open": "Different answers from agents indicate conflicting solutions.",
+          "involved_answers": [
+            "14",
+            "19"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Complete the square and solve for x.",
+        "Solve by completing the square and identify a and b."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "14",
+        "14",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream support indicates that the correct answer is 14.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agent C's previous answer '19' is incorrect based on solving the equation.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Complete the square and solve for x.",
+        "Solve by completing the square and identify a and b."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "19",
+        "14",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent C will verify the answers and resolve the conflict.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "Agent C's answer '19' is verified to be correct based on rechecking the equation.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B have the same answer '14', while C has '19'.",
+          "why_still_open": "Agent C's verification is pending.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Solve by completing the square.",
+        "Identify the values of a and b.",
+        "Mainstream support indicates the answer is 14."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "19",
+        "115",
+        "115"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent B's answer '115' is derived from solving the equation correctly, leading to a+b=115.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agent C's previous answer '19' is incorrect due to an error in the verification process.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "a+b=115 from solving the equation correctly.",
+        "sqrt(109) - 6 gives the positive solution.",
+        "Recheck confirms a = 109, b = 6."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "115",
+        "115",
+        "115"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verification of the solution is ongoing to ensure the minority answer of 19 is incorrect.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agent C is re-evaluating the equation to confirm the answer.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 19 remains unresolved.",
+          "why_still_open": "Verification and re-evaluation processes are ongoing.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "a+b=115 from solving the equation correctly.",
+        "sqrt(109) - 6 gives the positive solution.",
+        "Recheck confirms a = 109, b = 6.",
+        "Verifying the solution to ensure the minority answer of 19 is incorrect.",
+        "Re-evaluating the equation to confirm the answer."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_started",
+      "start_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 5
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 360,
+      "completion_tokens": 33,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 347,
+      "completion_tokens": 33,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 358,
+      "completion_tokens": 37,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 579,
+      "completion_tokens": 162,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 728,
+      "completion_tokens": 110,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 725,
+      "completion_tokens": 113,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 739,
+      "completion_tokens": 138,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1076,
+      "completion_tokens": 143,
+      "total_tokens": 1219,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 642,
+      "completion_tokens": 54,
+      "total_tokens": 696,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 820,
+      "completion_tokens": 98,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 817,
+      "completion_tokens": 124,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 831,
+      "completion_tokens": 108,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1025,
+      "completion_tokens": 213,
+      "total_tokens": 1238,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 616,
+      "completion_tokens": 51,
+      "total_tokens": 667,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 825,
+      "completion_tokens": 147,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 822,
+      "completion_tokens": 103,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 836,
+      "completion_tokens": 107,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1129,
+      "completion_tokens": 167,
+      "total_tokens": 1296,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 654,
+      "completion_tokens": 43,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 785,
+      "completion_tokens": 115,
+      "total_tokens": 900,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 916,
+      "completion_tokens": 132,
+      "total_tokens": 1048,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 915,
+      "completion_tokens": 113,
+      "total_tokens": 1028,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 916,
+      "completion_tokens": 195,
+      "total_tokens": 1111,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1189,
+      "completion_tokens": 180,
+      "total_tokens": 1369,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 793,
+      "completion_tokens": 67,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 802,
+      "completion_tokens": 118,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 799,
+      "completion_tokens": 98,
+      "total_tokens": 897,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 815,
+      "completion_tokens": 102,
+      "total_tokens": 917,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1012,
+      "completion_tokens": 247,
+      "total_tokens": 1259,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 53,
+      "total_tokens": 688,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 393,
+    "majority_vote_total_tokens": 1168,
+    "scrd_total_tokens": 26910,
+    "scrd_prompt_tokens": 23506,
+    "scrd_completion_tokens": 3404,
+    "agent_total_tokens": 9359,
+    "recorder_total_tokens": 7122,
+    "evaluator_total_tokens": 2060,
+    "repair_brief_total_tokens": 900,
+    "repair_evaluator_total_tokens": 1548,
+    "repair_agent_total_tokens": 5921
+  }
+}

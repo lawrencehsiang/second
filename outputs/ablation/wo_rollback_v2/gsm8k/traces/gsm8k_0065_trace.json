@@ -5,50 +5,64 @@
       "current_answers": [
         "840",
         "840",
-        "840"
+        "780"
       ],
       "newly_added_claims": [
         {
-          "text": "Summing earnings from both jobs.",
-          "claim_type": "explanation",
-          "related_answer": "840"
+          "text": "Summing separate job earnings.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Multiplying hourly wage by hours worked.",
+          "claim_type": "support",
+          "related_answer": "C"
         }
       ],
-      "unresolved_conflicts": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Method of calculating total earnings.",
+          "why_still_open": "Different methods were proposed but not resolved.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
       "key_raw_snippets": [
-        "Calculate earnings from both jobs separately then sum.",
-        "Calculate earnings from both jobs separately then sum them.",
-        "Calculated earnings from both jobs and summed them up."
+        "Earnings = Hourly Wage * Hours Worked",
+        "Sum of two jobs' earnings = 840",
+        "Hourly wage for two jobs = 780 / (8 + 10)",
+        "Total hours worked = 8 + 10"
       ]
     },
     {
       "round_id": 2,
       "current_answers": [
-        "960",
+        "840",
         "840",
         "840"
       ],
       "newly_added_claims": [
         {
-          "text": "Re-calculation due to misinterpretation of hourly rates.",
-          "claim_type": "rebuttal",
-          "related_answer": "960"
-        }
-      ],
-      "unresolved_conflicts": [
+          "text": "Calculating total earnings by summing separate job earnings.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
         {
-          "conflict": "Disagreement on whether the previous answer of 840 was correctly calculated.",
-          "why_still_open": "Agent A believes the previous answer was incorrect due to misinterpretation, while Agent C supports it.",
-          "involved_answers": [
-            "840",
-            "960"
-          ]
+          "text": "Verifying results after revising the calculation method.",
+          "claim_type": "constraint",
+          "related_answer": "C"
         }
       ],
+      "unresolved_conflicts": [],
       "key_raw_snippets": [
-        "Earnings from first job: 20*30=600.",
-        "Earnings from second job: 20*0.8*15=240.",
-        "Total earnings: 600+240=840."
+        "Earnings = Hourly Wage * Hours Worked",
+        "Weekly earnings from both jobs = 840",
+        "Hours worked in both jobs = 18",
+        "Hourly wage = 780 / 18",
+        "Total earnings = Sum of weekly earnings from both jobs"
       ]
     }
   ],
@@ -77,8 +91,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 367,
-      "completion_tokens": 35,
-      "total_tokens": 402,
+      "completion_tokens": 29,
+      "total_tokens": 396,
       "extra": {}
     },
     {
@@ -88,8 +102,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 354,
-      "completion_tokens": 33,
-      "total_tokens": 387,
+      "completion_tokens": 37,
+      "total_tokens": 391,
       "extra": {}
     },
     {
@@ -99,8 +113,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 365,
-      "completion_tokens": 37,
-      "total_tokens": 402,
+      "completion_tokens": 39,
+      "total_tokens": 404,
       "extra": {}
     },
     {
@@ -109,9 +123,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 587,
-      "completion_tokens": 106,
-      "total_tokens": 693,
+      "prompt_tokens": 586,
+      "completion_tokens": 209,
+      "total_tokens": 795,
       "extra": {}
     },
     {
@@ -120,9 +134,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 626,
-      "completion_tokens": 119,
-      "total_tokens": 745,
+      "prompt_tokens": 717,
+      "completion_tokens": 96,
+      "total_tokens": 813,
       "extra": {}
     },
     {
@@ -131,9 +145,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 623,
-      "completion_tokens": 125,
-      "total_tokens": 748,
+      "prompt_tokens": 714,
+      "completion_tokens": 102,
+      "total_tokens": 816,
       "extra": {}
     },
     {
@@ -142,9 +156,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 637,
-      "completion_tokens": 87,
-      "total_tokens": 724,
+      "prompt_tokens": 728,
+      "completion_tokens": 79,
+      "total_tokens": 807,
       "extra": {}
     },
     {
@@ -153,9 +167,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 971,
-      "completion_tokens": 210,
-      "total_tokens": 1181,
+      "prompt_tokens": 1050,
+      "completion_tokens": 172,
+      "total_tokens": 1222,
       "extra": {}
     },
     {
@@ -164,25 +178,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 607,
-      "completion_tokens": 49,
-      "total_tokens": 656,
+      "prompt_tokens": 633,
+      "completion_tokens": 54,
+      "total_tokens": 687,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 402,
+    "single_agent_total_tokens": 396,
     "majority_vote_total_tokens": 1191,
-    "scrd_total_tokens": 5938,
-    "scrd_prompt_tokens": 5137,
-    "scrd_completion_tokens": 801,
-    "agent_total_tokens": 3408,
-    "recorder_total_tokens": 1874,
-    "evaluator_total_tokens": 656,
+    "scrd_total_tokens": 6331,
+    "scrd_prompt_tokens": 5514,
+    "scrd_completion_tokens": 817,
+    "agent_total_tokens": 3627,
+    "recorder_total_tokens": 2017,
+    "evaluator_total_tokens": 687,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

@@ -1,0 +1,407 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "480",
+        "480",
+        "360"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Spends $120 on school supplies.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Spends half on textbooks, $480.",
+        "Spends a quarter on supplies, $120.",
+        "Remaining after supplies: $360."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "360",
+        "360",
+        "240"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Spends $120 on school supplies.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial $960 split: $480 on textbooks, $480 remaining.",
+        "Spends $120 on school supplies, leaving $360.",
+        "$480 / 4 = $120 spent on supplies."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "360",
+        "360",
+        "480"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "A quarter of $480 is $120 spent on school supplies.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial $960 split: $480 on textbooks, $480 remaining.",
+        "Spends $120 on school supplies, leaving $360.",
+        "$480 / 4 = $120 spent on supplies."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "240",
+        "240",
+        "240"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the remaining amount after spending on textbooks and school supplies.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recompute the remaining amount after both expenditures to ensure coherence.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "The initial calculation of $480 for textbooks and $120 for school supplies needs rechecking.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial $960 split: $480 on textbooks, $480 remaining.",
+        "Spends $120 on school supplies, leaving $360.",
+        "$480 / 4 = $120 spent on supplies."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "240",
+        "480",
+        "240"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the remaining amount after spending on textbooks and school supplies using the original amount of $960.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 360 does not hold up under detailed verification.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial $960 split: $480 on textbooks, $480 remaining.",
+        "Spends $120 on school supplies, leaving $360.",
+        "Recomputed total: $960 - $480 - $120 = $360, but Derek has $240 left.",
+        "$240 remaining after expenses.",
+        "Original amount of $960 used for accurate calculation."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 358,
+      "completion_tokens": 53,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 345,
+      "completion_tokens": 80,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 356,
+      "completion_tokens": 87,
+      "total_tokens": 443,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 699,
+      "completion_tokens": 108,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 620,
+      "completion_tokens": 152,
+      "total_tokens": 772,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 617,
+      "completion_tokens": 195,
+      "total_tokens": 812,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 631,
+      "completion_tokens": 142,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1131,
+      "completion_tokens": 129,
+      "total_tokens": 1260,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 813,
+      "completion_tokens": 141,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 810,
+      "completion_tokens": 133,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 824,
+      "completion_tokens": 113,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1066,
+      "completion_tokens": 134,
+      "total_tokens": 1200,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 716,
+      "completion_tokens": 124,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 713,
+      "completion_tokens": 88,
+      "total_tokens": 801,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 140,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1044,
+      "completion_tokens": 214,
+      "total_tokens": 1258,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 727,
+      "completion_tokens": 102,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 724,
+      "completion_tokens": 109,
+      "total_tokens": 833,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 738,
+      "completion_tokens": 117,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0181",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1100,
+      "completion_tokens": 225,
+      "total_tokens": 1325,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 411,
+    "majority_vote_total_tokens": 1279,
+    "scrd_total_tokens": 17345,
+    "scrd_prompt_tokens": 14759,
+    "scrd_completion_tokens": 2586,
+    "agent_total_tokens": 11495,
+    "recorder_total_tokens": 5850,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

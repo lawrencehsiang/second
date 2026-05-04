@@ -1,0 +1,456 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "30",
+        "30",
+        "33"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Half of the remaining pages should be read tomorrow.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B calculate half of the remaining pages differently.",
+          "why_still_open": "Agents A and B have different interpretations of 'half of the remaining pages'.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate pages read today, remaining pages, and then half of the remaining pages.",
+        "Calculate total pages read, subtract from total, then find half of remaining.",
+        "Calculate total pages read so far, then determine remaining pages."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "15",
+        "18",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Both agents agreed on the method to calculate half of the remaining pages.",
+          "claim_type": "rebuttal",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Re-evaluate the calculation of remaining pages and ensure both agree on the same method.",
+        "The correct approach is to subtract the pages already read from the total and then take half of the remaining pages.",
+        "Calculate the remaining pages after today, then find half of that amount."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "30",
+        "48",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority objection of 30 pages is incorrect, and the mainstream support of 48 pages is valid.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 30 pages is resolved as incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer of 30 pages remains unresolved.",
+          "why_still_open": "Agent A's re-evaluation is ongoing, but the minority answer persists.",
+          "involved_answers": [
+            "A"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Julie has 96 pages left after reading 24 pages today, and half of 96 is 48 pages.",
+        "The minority answer of 30 pages contradicts the mainstream support of 15 pages.",
+        "Re-evaluating the problem with all provided data to resolve the minority answer of 30 pages."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "30",
+        "48",
+        "30"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the entire process to ensure consistency in tomorrow’s reading.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying the minority answer of 30 pages by recalculating the steps involved.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between the answers of 42 and 48 pages for tomorrow’s reading.",
+          "why_still_open": "Agent B's re-evaluation is ongoing, and the discrepancy remains unaddressed.",
+          "involved_answers": [
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Julie has 96 pages left after reading 24 pages today, and half of 96 is 48 pages.",
+        "The minority answer of 30 pages contradicts the mainstream support of 48 pages.",
+        "Re-evaluating the problem with all provided data to resolve the minority answer of 30 pages.",
+        "Tomorrow's reading should be recalculated based on the remaining pages.",
+        "Ensure consistency in the calculation for tomorrow’s reading."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_started",
+      "start_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 364,
+      "completion_tokens": 41,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 351,
+      "completion_tokens": 41,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 362,
+      "completion_tokens": 47,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 179,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 730,
+      "completion_tokens": 96,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 727,
+      "completion_tokens": 114,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 741,
+      "completion_tokens": 88,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1034,
+      "completion_tokens": 139,
+      "total_tokens": 1173,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 41,
+      "total_tokens": 636,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 822,
+      "completion_tokens": 88,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 819,
+      "completion_tokens": 140,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 833,
+      "completion_tokens": 108,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1027,
+      "completion_tokens": 254,
+      "total_tokens": 1281,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 643,
+      "completion_tokens": 53,
+      "total_tokens": 696,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 841,
+      "completion_tokens": 195,
+      "total_tokens": 1036,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 838,
+      "completion_tokens": 161,
+      "total_tokens": 999,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 852,
+      "completion_tokens": 162,
+      "total_tokens": 1014,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1320,
+      "completion_tokens": 328,
+      "total_tokens": 1648,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 722,
+      "completion_tokens": 42,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 993,
+      "completion_tokens": 169,
+      "total_tokens": 1162,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 972,
+      "completion_tokens": 161,
+      "total_tokens": 1133,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 971,
+      "completion_tokens": 166,
+      "total_tokens": 1137,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 972,
+      "completion_tokens": 156,
+      "total_tokens": 1128,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1269,
+      "completion_tokens": 292,
+      "total_tokens": 1561,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0004",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 852,
+      "completion_tokens": 50,
+      "total_tokens": 902,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 405,
+    "majority_vote_total_tokens": 1206,
+    "scrd_total_tokens": 23565,
+    "scrd_prompt_tokens": 20254,
+    "scrd_completion_tokens": 3311,
+    "agent_total_tokens": 9561,
+    "recorder_total_tokens": 6446,
+    "evaluator_total_tokens": 2096,
+    "repair_brief_total_tokens": 1162,
+    "repair_evaluator_total_tokens": 902,
+    "repair_agent_total_tokens": 3398
+  }
+}

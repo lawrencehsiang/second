@@ -1,0 +1,203 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-8",
+        "-4",
+        "-8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve by considering two cases of absolute value: n + 6 = 2 - n and n + 6 = -(2 - n).",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Result in n = -8 for both cases.",
+          "claim_type": "support",
+          "related_answer": "A,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "n + 6 = 2 - n",
+        "n + 6 = -(2 - n)",
+        "Solve each equation",
+        "n = -8",
+        "Two cases considered"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-4",
+        "-4",
+        "-8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Reconsidering both cases of the absolute value equation: n + 6 = 2 - n and n + 6 = -(2 - n).",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the solution by substituting -8 into the original equation.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The mainstream support provided an incorrect answer (-8) and the minority answer is -4.",
+          "why_still_open": "No agreement on which answer satisfies the equation |n + 6| = 2 - n.",
+          "involved_answers": [
+            "-8",
+            "-4"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "n + 6 = 2 - n",
+        "n + 6 = -(2 - n)",
+        "Solve each equation",
+        "n = -4",
+        "Two cases considered"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0175",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 330,
+      "completion_tokens": 33,
+      "total_tokens": 363,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0175",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 317,
+      "completion_tokens": 54,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0175",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 328,
+      "completion_tokens": 39,
+      "total_tokens": 367,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0175",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 599,
+      "completion_tokens": 171,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0175",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 138,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0175",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 606,
+      "completion_tokens": 119,
+      "total_tokens": 725,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0175",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 620,
+      "completion_tokens": 100,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0175",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1050,
+      "completion_tokens": 245,
+      "total_tokens": 1295,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0175",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 619,
+      "completion_tokens": 51,
+      "total_tokens": 670,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 363,
+    "majority_vote_total_tokens": 1101,
+    "scrd_total_tokens": 6028,
+    "scrd_prompt_tokens": 5078,
+    "scrd_completion_tokens": 950,
+    "agent_total_tokens": 3293,
+    "recorder_total_tokens": 2065,
+    "evaluator_total_tokens": 670,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,281 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "280",
+        "200",
+        "200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Weekly earnings * 4 = monthly earnings",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B calculates monthly earnings as weekly * 4, others do not.",
+          "why_still_open": "Agents A and C do not specify multiplying weekly earnings by 4 for monthly earnings.",
+          "involved_answers": [
+            "B",
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate weekly earnings, then monthly earnings, subtract bike cost.",
+        "Weekly earnings * 4 = monthly earnings."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "720",
+        "280",
+        "120"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Monthly earnings = Weekly earnings * 4 weeks/month",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Correct calculation of monthly earnings resolves previous conflict",
+          "claim_type": "explanation",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate weekly earnings, then multiply by 4 for monthly earnings.",
+        "Resolved the conflict by calculating monthly earnings as 35 * 8 * 4."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "400",
+        "400",
+        "120"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolved the conflict by calculating monthly earnings correctly as weekly earnings times 4 weeks per month.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agreed to calculate monthly earnings correctly as weekly earnings times 4 weeks per month.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculated monthly earnings based on a 4-week month, aligning with Agent B’s approach.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate monthly earnings as weekly earnings * 4 weeks/month.",
+        "Agent B’s approach was agreed upon by all agents.",
+        "Resolved the conflict regarding the correct method for calculating monthly earnings."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 35,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 39,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 38,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 597,
+      "completion_tokens": 161,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 746,
+      "completion_tokens": 114,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 743,
+      "completion_tokens": 105,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 757,
+      "completion_tokens": 96,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1040,
+      "completion_tokens": 140,
+      "total_tokens": 1180,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 652,
+      "completion_tokens": 51,
+      "total_tokens": 703,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 852,
+      "completion_tokens": 117,
+      "total_tokens": 969,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 849,
+      "completion_tokens": 95,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 863,
+      "completion_tokens": 111,
+      "total_tokens": 974,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1005,
+      "completion_tokens": 211,
+      "total_tokens": 1216,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 695,
+      "completion_tokens": 60,
+      "total_tokens": 755,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 410,
+    "majority_vote_total_tokens": 1222,
+    "scrd_total_tokens": 11282,
+    "scrd_prompt_tokens": 9909,
+    "scrd_completion_tokens": 1373,
+    "agent_total_tokens": 6670,
+    "recorder_total_tokens": 3154,
+    "evaluator_total_tokens": 1458,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

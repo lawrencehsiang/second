@@ -1,0 +1,205 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "yes",
+        "yes",
+        "no"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total value and compare with 90 cents.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate total value of coins and compare with hat price.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate total value, compare to 90 cents.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agree on yes, but C disagrees.",
+          "why_still_open": "Different criteria for 'yes' vs 'no'.",
+          "involved_answers": [
+            "yes",
+            "no"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = 50/60*12 = 10 < 90 cents",
+        "Hat costs 90 cents",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Calculate total value, compare to 90 cents."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "yes",
+        "yes",
+        "no"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate total value of Alex's coins.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verify total value of Alex's coins against 90 cents.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 50/60*12 = 10 < 90 cents",
+        "Hat costs 90 cents",
+        "50 min < 1 hr -> pay < $12",
+        "Calculate total value, compare to 90 cents.",
+        "Re-calculate total value of Alex's coins."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "asdiv_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 35,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 35,
+      "total_tokens": 361,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 35,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0190",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 578,
+      "completion_tokens": 279,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 699,
+      "completion_tokens": 93,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 696,
+      "completion_tokens": 98,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 710,
+      "completion_tokens": 93,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1111,
+      "completion_tokens": 180,
+      "total_tokens": 1291,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0190",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 600,
+      "completion_tokens": 50,
+      "total_tokens": 650,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 374,
+    "majority_vote_total_tokens": 1107,
+    "scrd_total_tokens": 6294,
+    "scrd_prompt_tokens": 5396,
+    "scrd_completion_tokens": 898,
+    "agent_total_tokens": 3496,
+    "recorder_total_tokens": 2148,
+    "evaluator_total_tokens": 650,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

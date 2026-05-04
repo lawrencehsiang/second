@@ -3,60 +3,62 @@
     {
       "round_id": 1,
       "current_answers": [
-        "1",
         "21",
+        "1",
         "21"
       ],
       "newly_added_claims": [
         {
-          "text": "Start with 35, add 50, then subtract 84.",
-          "claim_type": "constraint",
-          "related_answer": "1"
-        },
-        {
-          "text": "Start with initial amount, add birthday money, then subtract cost of game.",
-          "claim_type": "support",
-          "related_answer": "21"
+          "text": "Initial amount plus birthday money minus expenses equals final amount.",
+          "claim_type": "explanation",
+          "related_answer": "C"
         }
       ],
-      "unresolved_conflicts": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on the final amount being 21, but Agent B calculates it as 1.",
+          "why_still_open": "Different interpretations of received and spent amounts.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
       "key_raw_snippets": [
-        "Initial amount + 50 - 84 = 21",
-        "Initial amount + birthday money - game cost = 21"
+        "Final amount = Initial + Birthday - Expenses",
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Initial + 10 - 10 = 21"
       ]
     },
     {
       "round_id": 2,
       "current_answers": [
         "21",
-        "1",
-        "1"
+        "21",
+        "21"
       ],
       "newly_added_claims": [
         {
-          "text": "Start with 35, add 50, then subtract 84.",
-          "claim_type": "constraint",
-          "related_answer": "1"
+          "text": "The initial amount is 35 dollars, with 50 more added and 84 spent, resulting in a final amount of 21.",
+          "claim_type": "explanation",
+          "related_answer": "A"
         },
         {
-          "text": "Initial amount + 50 - 84 = 1",
-          "claim_type": "support",
-          "related_answer": "C"
+          "text": "Agent B's previous calculation was incorrect; the correct final amount is 21.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
         }
       ],
-      "unresolved_conflicts": [
-        {
-          "conflict": "Previous answers were 21 and 1, with conflicting calculations.",
-          "why_still_open": "Different agents have different results based on their interpretations.",
-          "involved_answers": [
-            "1",
-            "21"
-          ]
-        }
-      ],
+      "unresolved_conflicts": [],
       "key_raw_snippets": [
-        "Initial amount + 50 - 84 = 21",
-        "Initial amount + 50 - 84 = 1"
+        "Final amount = 35 + 50 - 84",
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Initial + 10 - 10 = 21",
+        "Total operations confirm 21"
       ]
     }
   ],
@@ -85,8 +87,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 346,
-      "completion_tokens": 38,
-      "total_tokens": 384,
+      "completion_tokens": 40,
+      "total_tokens": 386,
       "extra": {}
     },
     {
@@ -96,8 +98,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 333,
-      "completion_tokens": 37,
-      "total_tokens": 370,
+      "completion_tokens": 33,
+      "total_tokens": 366,
       "extra": {}
     },
     {
@@ -107,8 +109,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 344,
-      "completion_tokens": 40,
-      "total_tokens": 384,
+      "completion_tokens": 33,
+      "total_tokens": 377,
       "extra": {}
     },
     {
@@ -117,9 +119,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 596,
-      "completion_tokens": 150,
-      "total_tokens": 746,
+      "prompt_tokens": 581,
+      "completion_tokens": 212,
+      "total_tokens": 793,
       "extra": {}
     },
     {
@@ -128,9 +130,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 610,
-      "completion_tokens": 113,
-      "total_tokens": 723,
+      "prompt_tokens": 716,
+      "completion_tokens": 140,
+      "total_tokens": 856,
       "extra": {}
     },
     {
@@ -139,9 +141,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 608,
-      "completion_tokens": 109,
-      "total_tokens": 717,
+      "prompt_tokens": 712,
+      "completion_tokens": 101,
+      "total_tokens": 813,
       "extra": {}
     },
     {
@@ -150,9 +152,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 622,
-      "completion_tokens": 127,
-      "total_tokens": 749,
+      "prompt_tokens": 727,
+      "completion_tokens": 147,
+      "total_tokens": 874,
       "extra": {}
     },
     {
@@ -161,9 +163,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 1024,
-      "completion_tokens": 206,
-      "total_tokens": 1230,
+      "prompt_tokens": 1149,
+      "completion_tokens": 208,
+      "total_tokens": 1357,
       "extra": {}
     },
     {
@@ -172,25 +174,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 620,
-      "completion_tokens": 40,
-      "total_tokens": 660,
+      "prompt_tokens": 648,
+      "completion_tokens": 63,
+      "total_tokens": 711,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 384,
-    "majority_vote_total_tokens": 1138,
-    "scrd_total_tokens": 5963,
-    "scrd_prompt_tokens": 5103,
-    "scrd_completion_tokens": 860,
-    "agent_total_tokens": 3327,
-    "recorder_total_tokens": 1976,
-    "evaluator_total_tokens": 660,
+    "single_agent_total_tokens": 386,
+    "majority_vote_total_tokens": 1129,
+    "scrd_total_tokens": 6533,
+    "scrd_prompt_tokens": 5556,
+    "scrd_completion_tokens": 977,
+    "agent_total_tokens": 3672,
+    "recorder_total_tokens": 2150,
+    "evaluator_total_tokens": 711,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

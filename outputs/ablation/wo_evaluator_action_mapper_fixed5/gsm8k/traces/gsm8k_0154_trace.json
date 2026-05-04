@@ -1,0 +1,433 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "105",
+        "135",
+        "135"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum of individual visit costs post-insurance equals Tim's total payment.",
+          "claim_type": "support",
+          "related_answer": "105"
+        },
+        {
+          "text": "Tim's payment is calculated by subtracting covered amounts from total costs per visit.",
+          "claim_type": "support",
+          "related_answer": "135"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating Tim's total payment.",
+          "why_still_open": "Agents use different approaches without consensus.",
+          "involved_answers": [
+            "105",
+            "135"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total payment = 50 + 55",
+        "Payment = Total cost - Covered amount",
+        "50/60*12=10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "115",
+        "135",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total payment is the sum of the uncovered costs for both visits.",
+          "claim_type": "support",
+          "related_answer": "115"
+        },
+        {
+          "text": "Verification of the calculation using the uncovered portions of each visit.",
+          "claim_type": "support",
+          "related_answer": "90"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total payment = Sum of uncovered costs",
+        "Payment = Total cost - Covered amount",
+        "50/60*12=10"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "115",
+        "135",
+        "150"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing uncovered costs from both visits ensures accurate total payment calculation.",
+          "claim_type": "support",
+          "related_answer": "115"
+        },
+        {
+          "text": "Subtracting covered amounts from total costs per visit is the mainstream approach.",
+          "claim_type": "support",
+          "related_answer": "135"
+        },
+        {
+          "text": "Summing uncovered portions of each visit prevents double counting and ensures accuracy.",
+          "claim_type": "support",
+          "related_answer": "150"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total payment = Sum of uncovered costs",
+        "Payment = Total cost - Covered amount",
+        "50/60*12=10"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "115",
+        "135",
+        "135"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Subtracting covered amounts from total costs per visit aligns with standard accounting practices for deductibles and copays.",
+          "claim_type": "support",
+          "related_answer": "115"
+        },
+        {
+          "text": "The mainstream approach of subtracting covered amounts from total costs per visit consistently yields accurate results.",
+          "claim_type": "support",
+          "related_answer": "135"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Payment = Total cost - Covered amount",
+        "50/60*12=10",
+        "Mainstream approach subtracts covered amounts from total costs per visit."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "135",
+        "135",
+        "135"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream approach of subtracting covered amounts from total costs per visit is correct for this scenario.",
+          "claim_type": "support",
+          "related_answer": "135"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "135 vs 115",
+          "why_still_open": "The minority answer of 115 remains unaddressed despite attempts to resolve the conflict.",
+          "involved_answers": [
+            "115",
+            "135"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Payment = Total cost - Covered amount",
+        "50/60*12=10",
+        "Mainstream approach subtracts covered amounts from total costs per visit."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 370,
+      "completion_tokens": 53,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 357,
+      "completion_tokens": 44,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 368,
+      "completion_tokens": 39,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 615,
+      "completion_tokens": 208,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 732,
+      "completion_tokens": 99,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 729,
+      "completion_tokens": 103,
+      "total_tokens": 832,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 743,
+      "completion_tokens": 99,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1042,
+      "completion_tokens": 148,
+      "total_tokens": 1190,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 732,
+      "completion_tokens": 106,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 729,
+      "completion_tokens": 98,
+      "total_tokens": 827,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 742,
+      "completion_tokens": 101,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1010,
+      "completion_tokens": 192,
+      "total_tokens": 1202,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 744,
+      "completion_tokens": 119,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 741,
+      "completion_tokens": 96,
+      "total_tokens": 837,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 755,
+      "completion_tokens": 105,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1070,
+      "completion_tokens": 169,
+      "total_tokens": 1239,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 757,
+      "completion_tokens": 179,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 754,
+      "completion_tokens": 106,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 768,
+      "completion_tokens": 109,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1113,
+      "completion_tokens": 184,
+      "total_tokens": 1297,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 423,
+    "majority_vote_total_tokens": 1231,
+    "scrd_total_tokens": 17228,
+    "scrd_prompt_tokens": 14871,
+    "scrd_completion_tokens": 2357,
+    "agent_total_tokens": 11477,
+    "recorder_total_tokens": 5751,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

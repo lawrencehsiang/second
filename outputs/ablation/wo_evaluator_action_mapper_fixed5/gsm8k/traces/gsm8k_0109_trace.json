@@ -1,0 +1,445 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "123",
+        "882",
+        "462"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate cost of 4 pills at $1.50 each and 5 pills at $6.50 each.",
+          "claim_type": "explanation",
+          "related_answer": "123"
+        },
+        {
+          "text": "Multiply the calculated daily cost by 14 days.",
+          "claim_type": "explanation",
+          "related_answer": "882"
+        },
+        {
+          "text": "Sum the costs of different types of pills.",
+          "claim_type": "explanation",
+          "related_answer": "462"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on whether to calculate the total cost per day or for 14 days.",
+          "why_still_open": "Different agents used different multipliers without clarification.",
+          "involved_answers": [
+            "123",
+            "882"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Cost of 4 pills * $1.50 + 5 pills * $6.50 = $39",
+        "Total cost * 14 days = $546",
+        "Sum of individual costs = $462"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "882",
+        "126",
+        "882"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the total cost for 14 days based on the daily cost.",
+          "claim_type": "rebuttal",
+          "related_answer": "882"
+        },
+        {
+          "text": "Confirm that the total cost calculation should cover 14 days.",
+          "claim_type": "support",
+          "related_answer": "882"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost over 14 days = $546",
+        "Daily cost calculation resolved the conflict",
+        "Total cost per day = $39",
+        "Sum of individual costs = $462",
+        "Calculate total cost for 14 days"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "1176",
+        "882",
+        "1176"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total cost should be calculated for 14 days.",
+          "claim_type": "rebuttal",
+          "related_answer": "1176"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost over 14 days = $546",
+        "Daily cost calculation resolved the conflict",
+        "Total cost per day = $39",
+        "Sum of individual costs = $462",
+        "Calculate total cost for 14 days"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "882",
+        "1176",
+        "882"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer '1176' needs verification for correctness and adherence to the problem conditions.",
+          "claim_type": "rebuttal",
+          "related_answer": "882"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Verification required for the minority answer '1176' to ensure it accounts for 14 days of pill consumption.",
+          "why_still_open": "The minority answer's correctness is in question and requires validation.",
+          "involved_answers": [
+            "882",
+            "1176"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost over 14 days = $546",
+        "Daily cost calculation resolved the conflict",
+        "Total cost per day = $39",
+        "Sum of individual costs = $462",
+        "Verify '1176' for 14 days of pill consumption"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "1176",
+        "882",
+        "882"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the total cost based on the correct number of pills and their respective costs.",
+          "claim_type": "rebuttal",
+          "related_answer": "882"
+        },
+        {
+          "text": "The minority answer '1176' conflicts with the mainstream support of '882'.",
+          "claim_type": "rebuttal",
+          "related_answer": "882"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 1176 remains unresolved despite reevaluation.",
+          "why_still_open": "The minority answer's correctness is still in question and requires further validation.",
+          "involved_answers": [
+            "882",
+            "1176"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost over 14 days = $546",
+        "Daily cost calculation resolved the conflict",
+        "Total cost per day = $39",
+        "Sum of individual costs = $462",
+        "Verify '1176' for 14 days of pill consumption"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 364,
+      "completion_tokens": 54,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 351,
+      "completion_tokens": 56,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 362,
+      "completion_tokens": 40,
+      "total_tokens": 402,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 632,
+      "completion_tokens": 282,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 732,
+      "completion_tokens": 123,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 729,
+      "completion_tokens": 113,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 743,
+      "completion_tokens": 113,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1186,
+      "completion_tokens": 177,
+      "total_tokens": 1363,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 830,
+      "completion_tokens": 124,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 827,
+      "completion_tokens": 110,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 841,
+      "completion_tokens": 105,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1076,
+      "completion_tokens": 135,
+      "total_tokens": 1211,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 832,
+      "completion_tokens": 124,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 828,
+      "completion_tokens": 100,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 843,
+      "completion_tokens": 126,
+      "total_tokens": 969,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1046,
+      "completion_tokens": 223,
+      "total_tokens": 1269,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 834,
+      "completion_tokens": 107,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 832,
+      "completion_tokens": 107,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 845,
+      "completion_tokens": 121,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1123,
+      "completion_tokens": 267,
+      "total_tokens": 1390,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 418,
+    "majority_vote_total_tokens": 1227,
+    "scrd_total_tokens": 18463,
+    "scrd_prompt_tokens": 15856,
+    "scrd_completion_tokens": 2607,
+    "agent_total_tokens": 12316,
+    "recorder_total_tokens": 6147,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

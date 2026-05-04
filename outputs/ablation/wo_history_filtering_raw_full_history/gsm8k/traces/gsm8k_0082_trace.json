@@ -1,0 +1,293 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "14",
+        "15",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jeff's average skips per round is 15.",
+          "claim_type": "support",
+          "related_answer": "15"
+        },
+        {
+          "text": "Sam skips 16 times per round.",
+          "claim_type": "support",
+          "related_answer": "15"
+        },
+        {
+          "text": "Calculate Jeff's skips based on Sam's skips.",
+          "claim_type": "explanation",
+          "related_answer": "12"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods to calculate Jeff's skips.",
+          "why_still_open": "Agents use different approaches: averaging vs. direct comparison.",
+          "involved_answers": [
+            "14",
+            "15",
+            "12"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Jeff's skips: 15, 13, 20, 8",
+        "Average skips: (15+13+20+8)/4",
+        "Sam skips: 16",
+        "Jeff's skips: 16",
+        "Calculate based on Sam"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "14",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jeff's skips are calculated by directly comparing his skips to Sam's skips.",
+          "claim_type": "explanation",
+          "related_answer": "13"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jeff's skips: 15, 13, 20, 8",
+        "Sam skips: 16",
+        "Calculate based on Sam's consistent 16 skips per round",
+        "Direct comparison method used",
+        "Rounds: 15, 13, 20, 8"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "13",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jeff's skips are calculated by summing his skips in each round and dividing by the number of rounds, based on Sam's consistent 16 skips per round.",
+          "claim_type": "explanation",
+          "related_answer": "13"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jeff's skips: 15, 13, 20, 8",
+        "Sam skips: 16",
+        "Calculate based on Sam's consistent 16 skips per round",
+        "Average skips per round = (15 + 13 + 20 + 8) / 4",
+        "Direct comparison method used"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 409,
+      "completion_tokens": 50,
+      "total_tokens": 459,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 396,
+      "completion_tokens": 75,
+      "total_tokens": 471,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 407,
+      "completion_tokens": 47,
+      "total_tokens": 454,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 654,
+      "completion_tokens": 267,
+      "total_tokens": 921,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 904,
+      "completion_tokens": 99,
+      "total_tokens": 1003,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 901,
+      "completion_tokens": 98,
+      "total_tokens": 999,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 915,
+      "completion_tokens": 135,
+      "total_tokens": 1050,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1157,
+      "completion_tokens": 149,
+      "total_tokens": 1306,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 59,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 1046,
+      "completion_tokens": 109,
+      "total_tokens": 1155,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 1043,
+      "completion_tokens": 127,
+      "total_tokens": 1170,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1057,
+      "completion_tokens": 93,
+      "total_tokens": 1150,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1022,
+      "completion_tokens": 173,
+      "total_tokens": 1195,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 641,
+      "completion_tokens": 55,
+      "total_tokens": 696,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 459,
+    "majority_vote_total_tokens": 1384,
+    "scrd_total_tokens": 12723,
+    "scrd_prompt_tokens": 11187,
+    "scrd_completion_tokens": 1536,
+    "agent_total_tokens": 7911,
+    "recorder_total_tokens": 3422,
+    "evaluator_total_tokens": 1390,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,435 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "180",
+        "153",
+        "180"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Increase 90 kg by 20%, then double for a year.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods to calculate the increased value.",
+          "why_still_open": "Agents used different steps and orders in calculations.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Increase 90 kg by 20%.",
+        "Then double the result.",
+        "Result is 180.",
+        "Calculate current annual usage, then increase by 20%.",
+        "Increase production by 20%, then calculate yearly consumption."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "216",
+        "180",
+        "216"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "First increase 90 kg by 20%, then double the result for a year.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Use the mainstream support method to calculate the increased value.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Increase the original 90 kg by 20%, then double the result for a year.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Increase 90 kg by 20%, then double the result for a year.",
+        "The mainstream support method is to increase production by 20% and then double the result for a full year.",
+        "First increase the original 90 kg by 20%, then double the result for a year.",
+        "The correct calculation yields 216 kg.",
+        "Calculate the increased value using the agreed method."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "360",
+        "216",
+        "216"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct method is to increase 90 kg by 20% first and then double the result for a year.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "The minority method of doubling the initial value first and then increasing by 20% is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Increase 90 kg by 20%, then double the result for a year.",
+        "The correct method yields 216 kg.",
+        "The minority method is incorrect as it doubles first and then increases.",
+        "Consistent method should be followed to calculate the increased value.",
+        "Resulting in 216 kg after applying the correct method."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "360",
+        "216",
+        "216"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Doubling the initial value first and then increasing by 20% is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Increasing 90 kg by 20% first and then doubling the result is the correct method.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Increase 90 kg by 20%, then double the result for a year.",
+        "Doubling the initial value first and then increasing by 20% is incorrect.",
+        "Correct method yields 216 kg.",
+        "Resulting in 216 kg after applying the correct method.",
+        "Doubling 90 kg first gives 180 kg, and then increasing by 20% results in 216 kg."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "720",
+        "216",
+        "216"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct method is to increase the initial value by 20% first and then double the result.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Doubling the initial value first followed by a 20% increase is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Increase 90 kg by 20%, then double the result.",
+        "Doubling the initial value first and then increasing by 20% is incorrect.",
+        "The correct method yields 216 kg.",
+        "Resulting in 216 kg after applying the correct method.",
+        "Doubling 90 kg first gives 180 kg, and then increasing by 20% results in 216 kg."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 351,
+      "completion_tokens": 36,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 338,
+      "completion_tokens": 35,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 349,
+      "completion_tokens": 42,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 598,
+      "completion_tokens": 186,
+      "total_tokens": 784,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 714,
+      "completion_tokens": 120,
+      "total_tokens": 834,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 711,
+      "completion_tokens": 111,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 725,
+      "completion_tokens": 131,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1112,
+      "completion_tokens": 251,
+      "total_tokens": 1363,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 821,
+      "completion_tokens": 136,
+      "total_tokens": 957,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 818,
+      "completion_tokens": 133,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 832,
+      "completion_tokens": 148,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1218,
+      "completion_tokens": 209,
+      "total_tokens": 1427,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 727,
+      "completion_tokens": 160,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 724,
+      "completion_tokens": 140,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 738,
+      "completion_tokens": 132,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1199,
+      "completion_tokens": 223,
+      "total_tokens": 1422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 824,
+      "completion_tokens": 198,
+      "total_tokens": 1022,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 821,
+      "completion_tokens": 128,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 835,
+      "completion_tokens": 195,
+      "total_tokens": 1030,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1294,
+      "completion_tokens": 221,
+      "total_tokens": 1515,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 387,
+    "majority_vote_total_tokens": 1151,
+    "scrd_total_tokens": 18684,
+    "scrd_prompt_tokens": 15749,
+    "scrd_completion_tokens": 2935,
+    "agent_total_tokens": 12173,
+    "recorder_total_tokens": 6511,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

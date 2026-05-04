@@ -1,0 +1,467 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "48",
+        "32",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total capacity is 80.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Occupied chairs are 24.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Each occupied chair holds 2 people.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B/C provided different answers for the number of attendees.",
+          "why_still_open": "Inconsistent calculations among agents.",
+          "involved_answers": [
+            "48",
+            "32"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total capacity = 40 * 2",
+        "Occupied chairs = 3/5 * 40",
+        "Attendees = Occupied chairs * 2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "48",
+        "48",
+        "64"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "2/5 of the chairs were unoccupied.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recomputed based on total capacity and fraction of occupied chairs.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Each occupied chair had 2 people.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total capacity = 80",
+        "Unoccupied chairs = 2/5 * 80",
+        "Occupied chairs = 3/5 * 80"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "32",
+        "32",
+        "38"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate based on the full capacity and the fraction of occupied seats.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Aligning with the condition that 2/5 of the chairs were unoccupied.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the calculation using the given conditions.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C provided conflicting answers for the number of attendees.",
+          "why_still_open": "Agent B partially resolved the conflict but Agent C's answer of 38 was not fully aligned with the recalculated result.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "2/5 unoccupied, 3/5 occupied",
+        "Each occupied chair had 2 people",
+        "Total capacity = 80"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "96",
+        "48",
+        "64"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecked calculations using full capacity and occupied fraction.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluated the minority answer of 48.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculated based on occupied chairs and people per chair.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Conflict between 96 and 64 attendees.",
+          "why_still_open": "Agent A recalculated to 96, while Agent C recalculated to 64, despite both using the same method.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Full capacity = 80",
+        "2/5 unoccupied, 3/5 occupied",
+        "Each occupied chair has 2 people"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "64",
+        "64",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolved the conflict by recalculating based on total capacity and occupied fraction.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Confirmed resolution of conflict using the same method as Agent A.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculated the number of attendees as 24 based on occupied chairs and people per chair.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total capacity = 80",
+        "2/5 unoccupied, 3/5 occupied",
+        "Each occupied chair has 2 people"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 87,
+      "total_tokens": 473,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 42,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 36,
+      "total_tokens": 420,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 647,
+      "completion_tokens": 233,
+      "total_tokens": 880,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 741,
+      "completion_tokens": 119,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 738,
+      "completion_tokens": 97,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 752,
+      "completion_tokens": 125,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1127,
+      "completion_tokens": 180,
+      "total_tokens": 1307,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 845,
+      "completion_tokens": 155,
+      "total_tokens": 1000,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 842,
+      "completion_tokens": 110,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 856,
+      "completion_tokens": 111,
+      "total_tokens": 967,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1092,
+      "completion_tokens": 257,
+      "total_tokens": 1349,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 838,
+      "completion_tokens": 200,
+      "total_tokens": 1038,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 835,
+      "completion_tokens": 97,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 849,
+      "completion_tokens": 183,
+      "total_tokens": 1032,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1278,
+      "completion_tokens": 256,
+      "total_tokens": 1534,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 852,
+      "completion_tokens": 102,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 849,
+      "completion_tokens": 103,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 863,
+      "completion_tokens": 172,
+      "total_tokens": 1035,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1169,
+      "completion_tokens": 193,
+      "total_tokens": 1362,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 473,
+    "majority_vote_total_tokens": 1308,
+    "scrd_total_tokens": 19174,
+    "scrd_prompt_tokens": 16316,
+    "scrd_completion_tokens": 2858,
+    "agent_total_tokens": 12742,
+    "recorder_total_tokens": 6432,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,184 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10000",
+        "3000",
+        "4000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Red jelly beans are 3/4 of the total.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total red = 3000",
+        "Total = 4000",
+        "Coconut = 750, which is 1/4 of red",
+        "Red = 3/4 of total",
+        "Total red = 3000, Total = 4000"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3000",
+        "4000",
+        "4000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of jelly beans is 4000.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total red = 3000",
+        "Total = 4000",
+        "Coconut = 750, which is 1/4 of red",
+        "Red = 3/4 of total",
+        "Total red = 3000, Total = 4000"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 362,
+      "completion_tokens": 42,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 349,
+      "completion_tokens": 42,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 360,
+      "completion_tokens": 92,
+      "total_tokens": 452,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 659,
+      "completion_tokens": 142,
+      "total_tokens": 801,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 629,
+      "completion_tokens": 161,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 625,
+      "completion_tokens": 137,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 639,
+      "completion_tokens": 125,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1106,
+      "completion_tokens": 143,
+      "total_tokens": 1249,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 586,
+      "completion_tokens": 41,
+      "total_tokens": 627,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 404,
+    "majority_vote_total_tokens": 1247,
+    "scrd_total_tokens": 6240,
+    "scrd_prompt_tokens": 5315,
+    "scrd_completion_tokens": 925,
+    "agent_total_tokens": 3563,
+    "recorder_total_tokens": 2050,
+    "evaluator_total_tokens": 627,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

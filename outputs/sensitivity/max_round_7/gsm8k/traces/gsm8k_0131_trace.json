@@ -1,0 +1,348 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "54",
+        "55",
+        "55"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Starts with 180, gives away 40+30, then sells half of the remainder.",
+          "claim_type": "support",
+          "related_answer": "54"
+        },
+        {
+          "text": "Subtract given seashells, then find half of the remainder.",
+          "claim_type": "support",
+          "related_answer": "55"
+        },
+        {
+          "text": "Initial seashells - given away - sold = remaining seashells",
+          "claim_type": "support",
+          "related_answer": "55"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial seashells - 40 - 30 = 110, then sell half -> 55",
+        "Starts with 180, give away 70, sell half -> 55",
+        "180 - 40 - 30 = 110, then sell half -> 55"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "55",
+        "75",
+        "55"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate after reevaluating the subtraction and halving process.",
+          "claim_type": "rebuttal",
+          "related_answer": "75"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Starts with 180, gives away 40+30, then sells half of the remainder -> 55",
+        "Initial seashells - 40 - 30 = 110, then sell half -> 55",
+        "Ali has 75 seashells left after recalculating."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "75",
+        "75",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the subtraction and halving process for accurate results.",
+          "claim_type": "rebuttal",
+          "related_answer": "75"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Starts with 180, gives away 40+30, then sells half of the remainder -> 55",
+        "Initial seashells - 40 - 30 = 110, then sell half -> 55",
+        "Ali has 75 seashells left after recalculating."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 46,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 36,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 40,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 244,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 642,
+      "completion_tokens": 162,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 639,
+      "completion_tokens": 59,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 653,
+      "completion_tokens": 130,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1123,
+      "completion_tokens": 308,
+      "total_tokens": 1431,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 683,
+      "completion_tokens": 43,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 973,
+      "completion_tokens": 110,
+      "total_tokens": 1083,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 638,
+      "completion_tokens": 165,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 637,
+      "completion_tokens": 123,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 638,
+      "completion_tokens": 101,
+      "total_tokens": 739,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1161,
+      "completion_tokens": 150,
+      "total_tokens": 1311,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 718,
+      "completion_tokens": 53,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 700,
+      "completion_tokens": 137,
+      "total_tokens": 837,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 697,
+      "completion_tokens": 167,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 713,
+      "completion_tokens": 148,
+      "total_tokens": 861,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1094,
+      "completion_tokens": 149,
+      "total_tokens": 1243,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0131",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 585,
+      "completion_tokens": 54,
+      "total_tokens": 639,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 424,
+    "majority_vote_total_tokens": 1241,
+    "scrd_total_tokens": 16442,
+    "scrd_prompt_tokens": 14017,
+    "scrd_completion_tokens": 2425,
+    "agent_total_tokens": 3526,
+    "recorder_total_tokens": 4833,
+    "evaluator_total_tokens": 726,
+    "repair_brief_total_tokens": 1083,
+    "repair_evaluator_total_tokens": 1410,
+    "repair_agent_total_tokens": 4864
+  }
+}

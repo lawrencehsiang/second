@@ -1,0 +1,279 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "62",
+        "62",
+        "62"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial count + additional cars = total cars",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Add 50 and 12.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "50 + 12 = 62",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50 + 12 = 62",
+        "Initial count + additional cars = total cars",
+        "Add 50 and 12."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "62",
+        "62",
+        "62"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Treated initial count of 50 as individual items.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Assumed initial count of 50 in standard unit (individual cars).",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Initial count of 50 as individual units, no tens.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial count of 50 as individual items.",
+        "Assumed initial count of 50 in standard unit (individual cars).",
+        "Initial count of 50 as individual units, no tens.",
+        "Adding 12 more cars directly to the initial 50.",
+        "50 + 12 = 62"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 331,
+      "completion_tokens": 31,
+      "total_tokens": 362,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 318,
+      "completion_tokens": 34,
+      "total_tokens": 352,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 329,
+      "completion_tokens": 36,
+      "total_tokens": 365,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 580,
+      "completion_tokens": 174,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 590,
+      "completion_tokens": 67,
+      "total_tokens": 657,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 587,
+      "completion_tokens": 47,
+      "total_tokens": 634,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 601,
+      "completion_tokens": 64,
+      "total_tokens": 665,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 888,
+      "completion_tokens": 215,
+      "total_tokens": 1103,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 614,
+      "completion_tokens": 45,
+      "total_tokens": 659,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 764,
+      "completion_tokens": 91,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 572,
+      "completion_tokens": 127,
+      "total_tokens": 699,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 571,
+      "completion_tokens": 115,
+      "total_tokens": 686,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 572,
+      "completion_tokens": 134,
+      "total_tokens": 706,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1078,
+      "completion_tokens": 225,
+      "total_tokens": 1303,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0134",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 741,
+      "completion_tokens": 49,
+      "total_tokens": 790,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 362,
+    "majority_vote_total_tokens": 1079,
+    "scrd_total_tokens": 10590,
+    "scrd_prompt_tokens": 9136,
+    "scrd_completion_tokens": 1454,
+    "agent_total_tokens": 3035,
+    "recorder_total_tokens": 3160,
+    "evaluator_total_tokens": 659,
+    "repair_brief_total_tokens": 855,
+    "repair_evaluator_total_tokens": 790,
+    "repair_agent_total_tokens": 2091
+  }
+}

@@ -1,0 +1,426 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate distance between points, then square it.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate diagonal length, then find side length and area.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Distance^2 = 9",
+        "Diagonal length squared = 9, side length = 3, area = 9",
+        "Area = 9"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify that the points are along the diagonal before squaring the distance.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "If the points are adjacent, the side length is 3, and the area is 9.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Whether the points form a side or diagonal of the square.",
+          "why_still_open": "Different agents have different interpretations of the point's position relative to the square.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Distance = 3",
+        "Diagonal length squared = 9, side length = 3, area = 9",
+        "Area = 9 (if points are not along the diagonal)"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "10",
+        "9",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The points (2,1) and (3,4) form a side of the square, not its diagonal.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The distance between the points is √10, confirming they are not on a side but rather the diagonal of the square.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Distance = √10",
+        "Side length = 3, Area = 9",
+        "Points form a side, not a diagonal"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The points (2,1) and (3,4) form a side of the square, not its diagonal.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Distance = √10",
+        "Side length = 3, Area = 9",
+        "Points form a side, not a diagonal"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "10",
+        "10",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The points (2,1) and (3,4) form a side of the square, not its diagonal.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The side length calculation leads to √10 versus √5, resulting in areas of 10 versus 5.",
+          "why_still_open": "Different interpretations of the relationship between the points lead to conflicting side lengths and areas.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Distance = √10",
+        "Points form a side, not a diagonal",
+        "Side length = √10, Area = 10",
+        "Side length = √5, Area = 5"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 344,
+      "completion_tokens": 33,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 331,
+      "completion_tokens": 32,
+      "total_tokens": 363,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 342,
+      "completion_tokens": 33,
+      "total_tokens": 375,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 574,
+      "completion_tokens": 142,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 601,
+      "completion_tokens": 148,
+      "total_tokens": 749,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 598,
+      "completion_tokens": 44,
+      "total_tokens": 642,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 612,
+      "completion_tokens": 192,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1056,
+      "completion_tokens": 224,
+      "total_tokens": 1280,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 717,
+      "completion_tokens": 179,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 714,
+      "completion_tokens": 168,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 728,
+      "completion_tokens": 166,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1284,
+      "completion_tokens": 170,
+      "total_tokens": 1454,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 823,
+      "completion_tokens": 131,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 819,
+      "completion_tokens": 133,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 834,
+      "completion_tokens": 131,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1103,
+      "completion_tokens": 119,
+      "total_tokens": 1222,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 822,
+      "completion_tokens": 157,
+      "total_tokens": 979,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 819,
+      "completion_tokens": 191,
+      "total_tokens": 1010,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 833,
+      "completion_tokens": 139,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0142",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1154,
+      "completion_tokens": 213,
+      "total_tokens": 1367,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 377,
+    "majority_vote_total_tokens": 1115,
+    "scrd_total_tokens": 17853,
+    "scrd_prompt_tokens": 15108,
+    "scrd_completion_tokens": 2745,
+    "agent_total_tokens": 11814,
+    "recorder_total_tokens": 6039,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

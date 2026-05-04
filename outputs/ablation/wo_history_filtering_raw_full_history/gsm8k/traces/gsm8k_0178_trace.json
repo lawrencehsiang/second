@@ -1,0 +1,285 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10000",
+        "8000",
+        "5000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the sale price of the old car and the purchase price of the new car, then find the difference.",
+          "claim_type": "explanation",
+          "related_answer": "10000"
+        },
+        {
+          "text": "Selling at 80% of $20,000 and buying at 90% of $30,000.",
+          "claim_type": "explanation",
+          "related_answer": "5000"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B provide the same answer 10000, while C provides 5000.",
+          "why_still_open": "Different methods lead to different results.",
+          "involved_answers": [
+            "10000",
+            "8000",
+            "5000"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Old car sale price: 80% * $20,000 = $16,000",
+        "New car purchase price: 90% * $30,000 = $27,000",
+        "$27,000 - $16,000 = $11,000",
+        "Agents disagree on the final price difference."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "11000",
+        "11000",
+        "11000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revised answer based on sale and purchase prices.",
+          "claim_type": "rebuttal",
+          "related_answer": "11000"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Old car sale price: 80% * $20,000 = $16,000",
+        "New car purchase price: 90% * $30,000 = $27,000",
+        "Difference: $27,000 - $16,000 = $11,000",
+        "Agents now agree on the final price difference of $11,000."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "11000",
+        "11000",
+        "11000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The final price difference is $11,000.",
+          "claim_type": "rebuttal",
+          "related_answer": "11000"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Old car sale price: 80% * $20,000 = $16,000",
+        "New car purchase price: 90% * $30,000 = $27,000",
+        "Difference: $27,000 - $16,000 = $11,000",
+        "Agents now agree on the final price difference of $11,000."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 50,
+      "total_tokens": 426,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 46,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 58,
+      "total_tokens": 432,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 640,
+      "completion_tokens": 314,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 944,
+      "completion_tokens": 174,
+      "total_tokens": 1118,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 940,
+      "completion_tokens": 259,
+      "total_tokens": 1199,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 954,
+      "completion_tokens": 234,
+      "total_tokens": 1188,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1555,
+      "completion_tokens": 179,
+      "total_tokens": 1734,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 632,
+      "completion_tokens": 58,
+      "total_tokens": 690,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 1127,
+      "completion_tokens": 251,
+      "total_tokens": 1378,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 1124,
+      "completion_tokens": 151,
+      "total_tokens": 1275,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1138,
+      "completion_tokens": 213,
+      "total_tokens": 1351,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1340,
+      "completion_tokens": 182,
+      "total_tokens": 1522,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 609,
+      "completion_tokens": 64,
+      "total_tokens": 673,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 426,
+    "majority_vote_total_tokens": 1267,
+    "scrd_total_tokens": 14349,
+    "scrd_prompt_tokens": 12116,
+    "scrd_completion_tokens": 2233,
+    "agent_total_tokens": 8776,
+    "recorder_total_tokens": 4210,
+    "evaluator_total_tokens": 1363,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

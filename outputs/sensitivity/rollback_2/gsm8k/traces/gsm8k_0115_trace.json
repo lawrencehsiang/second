@@ -1,0 +1,471 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "15",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum pets by adding dogs, cats, and fish.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate fish first, then sum all pets.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Each type of pet is calculated individually and summed up.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating the total number of pets.",
+          "why_still_open": "Agents A, B, and C propose different summation strategies.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "pets = dogs + cats + fish",
+        "fish_count * 3 + cats + dogs",
+        "sum(pets)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "15",
+        "15",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct method is to sum dogs, cats, and fish.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Summing dogs, cats, and fish ensures accurate counting.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the count of pets using consistent methods.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "pets = dogs + cats + fish",
+        "Ensure correct summation of pets",
+        "Revising to confirm accurate pet count"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "15",
+        "15",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking confirmed the correct calculation method.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 13 is incorrect due to miscalculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verification shows the minority answer of 13 needs checking.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Revising to confirm accurate pet count",
+        "pets = 2 dogs + 3 cats + 5 fish",
+        "Correct sum = 2 + 3 + 10"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 13 is incorrect based on reevaluation.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support confirms the correct answer is 15.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Pets = 2 dogs + 3 cats + 10 fish",
+        "Total = 2 + 3 + 10",
+        "Correct total = 15"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "15",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The number of fish is twice the sum of dogs and cats, totaling 10.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 13 is incorrect; the correct answer is 15.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Pets = 2 dogs + 3 cats + 10 fish",
+        "Total = 2 + 3 + 10",
+        "Correct total = 15",
+        "Fish = 2 * (dogs + cats) = 10"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 34,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 31,
+      "total_tokens": 357,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 35,
+      "total_tokens": 372,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 582,
+      "completion_tokens": 227,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 701,
+      "completion_tokens": 95,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 698,
+      "completion_tokens": 97,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 712,
+      "completion_tokens": 99,
+      "total_tokens": 811,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1076,
+      "completion_tokens": 174,
+      "total_tokens": 1250,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 647,
+      "completion_tokens": 47,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 804,
+      "completion_tokens": 137,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 801,
+      "completion_tokens": 117,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 815,
+      "completion_tokens": 120,
+      "total_tokens": 935,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1092,
+      "completion_tokens": 192,
+      "total_tokens": 1284,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 48,
+      "total_tokens": 683,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 793,
+      "completion_tokens": 143,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 790,
+      "completion_tokens": 105,
+      "total_tokens": 895,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 804,
+      "completion_tokens": 105,
+      "total_tokens": 909,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1097,
+      "completion_tokens": 153,
+      "total_tokens": 1250,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 50,
+      "total_tokens": 644,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 694,
+      "completion_tokens": 182,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 691,
+      "completion_tokens": 100,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 705,
+      "completion_tokens": 124,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1103,
+      "completion_tokens": 181,
+      "total_tokens": 1284,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0115",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 577,
+      "completion_tokens": 57,
+      "total_tokens": 634,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 373,
+    "majority_vote_total_tokens": 1102,
+    "scrd_total_tokens": 20066,
+    "scrd_prompt_tokens": 17413,
+    "scrd_completion_tokens": 2653,
+    "agent_total_tokens": 11534,
+    "recorder_total_tokens": 5877,
+    "evaluator_total_tokens": 2655,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,424 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate savings from milk and cereal separately then sum.",
+          "claim_type": "explanation",
+          "related_answer": "A, C"
+        },
+        {
+          "text": "Calculate savings per item then multiply by quantity.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate savings from milk and cereal separately then sum.",
+        "Calculate savings per item then multiply by quantity."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "7",
+        "8",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute total savings based on individual discounts.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on total savings amount.",
+          "why_still_open": "Agents A and B support $8, while C supports $11.",
+          "involved_answers": [
+            "7",
+            "8",
+            "11"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate savings from milk and cereal separately then sum.",
+        "Recompute total savings based on individual discounts."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "11",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute total savings based on individual discounts.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recompute total savings based on individual discounts.",
+        "Calculate savings from milk and cereal separately then sum."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "9",
+        "19",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute total savings based on individual discounts.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 11 remains unresolved.",
+          "why_still_open": "The minority answer of 11 was not fully addressed despite repeated calls to recompute total savings based on individual discounts.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recompute total savings based on individual discounts.",
+        "Calculate savings from milk and cereal separately then sum."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "9",
+        "11",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute total savings based on individual discounts.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 8 is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer of 8 vs. mainstream support of 11.",
+          "why_still_open": "The minority answer of 8 was not fully addressed, despite recomputing total savings based on individual discounts.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recompute total savings based on individual discounts.",
+        "Savings = 3 * $1 (gallons) + 5 * $1 (boxes)"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 363,
+      "completion_tokens": 34,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 350,
+      "completion_tokens": 33,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 361,
+      "completion_tokens": 34,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 574,
+      "completion_tokens": 131,
+      "total_tokens": 705,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 621,
+      "completion_tokens": 93,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 618,
+      "completion_tokens": 88,
+      "total_tokens": 706,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 632,
+      "completion_tokens": 42,
+      "total_tokens": 674,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 877,
+      "completion_tokens": 153,
+      "total_tokens": 1030,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 810,
+      "completion_tokens": 78,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 807,
+      "completion_tokens": 81,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 822,
+      "completion_tokens": 91,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 957,
+      "completion_tokens": 94,
+      "total_tokens": 1051,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 810,
+      "completion_tokens": 109,
+      "total_tokens": 919,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 808,
+      "completion_tokens": 90,
+      "total_tokens": 898,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 821,
+      "completion_tokens": 81,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 923,
+      "completion_tokens": 163,
+      "total_tokens": 1086,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 808,
+      "completion_tokens": 99,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 806,
+      "completion_tokens": 102,
+      "total_tokens": 908,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 820,
+      "completion_tokens": 135,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1054,
+      "completion_tokens": 211,
+      "total_tokens": 1265,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 397,
+    "majority_vote_total_tokens": 1175,
+    "scrd_total_tokens": 16584,
+    "scrd_prompt_tokens": 14642,
+    "scrd_completion_tokens": 1942,
+    "agent_total_tokens": 11447,
+    "recorder_total_tokens": 5137,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

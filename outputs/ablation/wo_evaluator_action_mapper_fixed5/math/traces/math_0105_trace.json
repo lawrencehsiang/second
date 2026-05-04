@@ -1,0 +1,436 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-125",
+        "-125",
+        "-50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substitute x and y values into the expression.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Apply the difference of squares formula.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Substitute values and simplify.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x=5, y=10 -> -125",
+        "a^2 - b^2 = (a+b)(a-b) -> -125",
+        "-50 = 5*10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "25",
+        "-125",
+        "-125"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the expression with correct signs.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recompute using the simplified form.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify both calculations for correctness.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Divergence between answers of -125 and 25.",
+          "why_still_open": "Calculation verification required.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Expression simplifies to 100 - 225 = -125",
+        "Correct signs yield 25",
+        "Rechecking both calculations"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "-125",
+        "25",
+        "-125"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The expression simplifies to x^2 - y^2, evaluating to 100 - 225 = -125.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Expression simplifies to x^2 - y^2",
+        "Plugging in x = 10 and y = 15, we get 100 - 225 = -125",
+        "Previous answer of 25 was incorrect due to sign errors"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "-125",
+        "-125",
+        "-125"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The expression simplifies to x^2 - y^2, and with x = 10, y = 15, it evaluates to -125.",
+          "claim_type": "support",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Expression simplifies to x^2 - y^2",
+        "Evaluating with x = 10 and y = 15 results in 100 - 225 = -125",
+        "Minority answer of 25 is incorrect"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-125",
+        "-125",
+        "-125"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The expression $(x - y)(x + y)$ simplifies to $x^2 - y^2$.",
+          "claim_type": "support",
+          "related_answer": "B, C"
+        },
+        {
+          "text": "Evaluating $10^2 - 15^2$ gives $100 - 225 = -125$.",
+          "claim_type": "support",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Expression simplifies to $(x - y)(x + y) = x^2 - y^2",
+        "Substituting x = 10, y = 15 yields 100 - 225 = -125",
+        "Minority answer of 25 is incorrect"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0105",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 341,
+      "completion_tokens": 36,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 328,
+      "completion_tokens": 33,
+      "total_tokens": 361,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 339,
+      "completion_tokens": 31,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 578,
+      "completion_tokens": 186,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 603,
+      "completion_tokens": 112,
+      "total_tokens": 715,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 600,
+      "completion_tokens": 150,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 613,
+      "completion_tokens": 102,
+      "total_tokens": 715,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1088,
+      "completion_tokens": 229,
+      "total_tokens": 1317,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 784,
+      "completion_tokens": 155,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 782,
+      "completion_tokens": 88,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 796,
+      "completion_tokens": 207,
+      "total_tokens": 1003,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1233,
+      "completion_tokens": 152,
+      "total_tokens": 1385,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1233,
+      "completion_tokens": 153,
+      "total_tokens": 1386,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 812,
+      "completion_tokens": 139,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 808,
+      "completion_tokens": 204,
+      "total_tokens": 1012,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 823,
+      "completion_tokens": 198,
+      "total_tokens": 1021,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1253,
+      "completion_tokens": 159,
+      "total_tokens": 1412,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 628,
+      "completion_tokens": 171,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 625,
+      "completion_tokens": 222,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 639,
+      "completion_tokens": 189,
+      "total_tokens": 828,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0105",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1275,
+      "completion_tokens": 213,
+      "total_tokens": 1488,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 377,
+    "majority_vote_total_tokens": 1108,
+    "scrd_total_tokens": 19310,
+    "scrd_prompt_tokens": 16181,
+    "scrd_completion_tokens": 3129,
+    "agent_total_tokens": 11558,
+    "recorder_total_tokens": 7752,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

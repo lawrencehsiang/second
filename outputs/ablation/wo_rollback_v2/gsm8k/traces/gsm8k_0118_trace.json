@@ -1,0 +1,198 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "34",
+        "34",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "After 1/3 of the joined clownfish return, 16 remain in the display tank.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total fish = 100",
+        "Half are clownfish (50)",
+        "26 blowfish stay in their own tank",
+        "Equal number of clownfish join blowfish",
+        "1/3 return (8)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "24",
+        "34",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initially, there are 50 clownfish and 50 blowfish.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "If 1/3 of the joined clownfish returned, the remaining 16 cannot be correct.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The correct number of clownfish in the display tank after some return is debated between agents A and C.",
+          "why_still_open": "Agent A recalculated the number of clownfish in the display tank, but the exact number remains unclear.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total fish = 100",
+        "Half are clownfish (50)",
+        "26 blowfish stay in their own tank",
+        "Equal number of clownfish join blowfish",
+        "1/3 return (8)"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 404,
+      "completion_tokens": 70,
+      "total_tokens": 474,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 391,
+      "completion_tokens": 46,
+      "total_tokens": 437,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 402,
+      "completion_tokens": 92,
+      "total_tokens": 494,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 690,
+      "completion_tokens": 134,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 675,
+      "completion_tokens": 157,
+      "total_tokens": 832,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 672,
+      "completion_tokens": 68,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 686,
+      "completion_tokens": 162,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1073,
+      "completion_tokens": 251,
+      "total_tokens": 1324,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 695,
+      "completion_tokens": 45,
+      "total_tokens": 740,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 474,
+    "majority_vote_total_tokens": 1405,
+    "scrd_total_tokens": 6713,
+    "scrd_prompt_tokens": 5688,
+    "scrd_completion_tokens": 1025,
+    "agent_total_tokens": 3825,
+    "recorder_total_tokens": 2148,
+    "evaluator_total_tokens": 740,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

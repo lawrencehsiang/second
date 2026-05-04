@@ -1,0 +1,414 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10000",
+        "3000",
+        "4000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Red jelly beans are 3000.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total jelly beans are 4000.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Red = 3/4 of total -> total = 4000",
+        "Coconut = 1/4 of red -> red = 3000",
+        "Total = 1/3 red + 1/4 coconut + others"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3000",
+        "4000",
+        "3000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Red jelly beans are 3000, calculated from the fraction given.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The total number of jelly beans is 4000, derived from the red and coconut-flavored counts.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The number of red jelly beans is either 3000 or 4000.",
+          "why_still_open": "The calculations lead to different totals, and the context is unclear.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Red = 3/4 of total -> total = 4000",
+        "Coconut = 1/4 of red -> red = 3000",
+        "Total = 3000 red + 750 coconut"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "3000",
+        "4000",
+        "4000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 4000 for red jelly beans is incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Red = 3/4 of total -> total = 4000",
+        "Coconut = 1/4 of red -> red = 3000",
+        "Total = 3000 red + 750 coconut"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "3000",
+        "4000",
+        "3000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 3000 for red jelly beans is derived from the fraction that three-fourths of the jelly beans are red.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Red = 3/4 of total -> total = 4000",
+        "Coconut = 1/4 of red -> red = 3000",
+        "750 coconut -> red = 3000"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "3000",
+        "3000",
+        "3000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 4000 for red jelly beans is incorrect and contradicts the fraction of three-fourths.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct number of red jelly beans is 3000 based on the fraction three-fourths.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Red = 3/4 of total -> total = 4000",
+        "Coconut = 1/4 of red -> red = 3000",
+        "750 coconut -> red = 3000"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 362,
+      "completion_tokens": 37,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 349,
+      "completion_tokens": 38,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 360,
+      "completion_tokens": 71,
+      "total_tokens": 431,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 629,
+      "completion_tokens": 162,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 627,
+      "completion_tokens": 164,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 623,
+      "completion_tokens": 122,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 637,
+      "completion_tokens": 222,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1211,
+      "completion_tokens": 245,
+      "total_tokens": 1456,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 850,
+      "completion_tokens": 115,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 847,
+      "completion_tokens": 133,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 861,
+      "completion_tokens": 220,
+      "total_tokens": 1081,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1274,
+      "completion_tokens": 134,
+      "total_tokens": 1408,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 834,
+      "completion_tokens": 147,
+      "total_tokens": 981,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 831,
+      "completion_tokens": 115,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 845,
+      "completion_tokens": 162,
+      "total_tokens": 1007,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1122,
+      "completion_tokens": 144,
+      "total_tokens": 1266,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 847,
+      "completion_tokens": 159,
+      "total_tokens": 1006,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 844,
+      "completion_tokens": 143,
+      "total_tokens": 987,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 858,
+      "completion_tokens": 128,
+      "total_tokens": 986,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0116",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1122,
+      "completion_tokens": 187,
+      "total_tokens": 1309,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 399,
+    "majority_vote_total_tokens": 1217,
+    "scrd_total_tokens": 18781,
+    "scrd_prompt_tokens": 15933,
+    "scrd_completion_tokens": 2848,
+    "agent_total_tokens": 12551,
+    "recorder_total_tokens": 6230,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

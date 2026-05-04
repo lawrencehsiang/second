@@ -1,0 +1,356 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "1",
+        "1",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Subtract lost candies from total, then divide by bag capacity.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Subtract the lost candies from total, then divide by 9.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Frank starts with 33 candies, loses 24, leaving 9.",
+        "Divide 9 by 9 to get 1 bag."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "1",
+        "1",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculating: 33 - 24 = 9 remaining pieces. Dividing by 9 per bag gives 1 bag.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support path: subtract lost candies from total, then divide by bag capacity.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Revising the calculation: 33 - 24 = 9, and 9 / 9 = 1, confirming 1 bag.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Frank starts with 33 candies, loses 24, leaving 9.",
+        "Divide 9 by 9 to get 1 bag.",
+        "33 - 24 = 9 remaining pieces."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "2",
+        "1",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculate: Frank has 9 pieces left after losing 24 out of 33. Dividing 9 by 9 per bag gives 1 bag, but there's an additional full bag with the remaining 9 pieces, totaling 2 bags.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answers suggested 1 bag, but re-evaluation shows 2 bags.",
+          "why_still_open": "One agent calculated 1 bag, missing the second bag from the remaining 9 pieces.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Frank starts with 33 candies, loses 24, leaving 9.",
+        "Divide 9 by 9 to get 1 bag, but there's an extra bag from the remaining 9.",
+        "33 - 24 = 9 remaining pieces."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "1",
+        "1",
+        "1"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Frank starts with 33 candies, loses 24, leaving 9.",
+        "Divide 9 by 9 to get 1 bag, no remainder.",
+        "33 - 24 = 9 remaining pieces."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 4,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 349,
+      "completion_tokens": 53,
+      "total_tokens": 402,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 336,
+      "completion_tokens": 34,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 347,
+      "completion_tokens": 38,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 601,
+      "completion_tokens": 148,
+      "total_tokens": 749,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 610,
+      "completion_tokens": 114,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 607,
+      "completion_tokens": 87,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 621,
+      "completion_tokens": 150,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1021,
+      "completion_tokens": 240,
+      "total_tokens": 1261,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 682,
+      "completion_tokens": 49,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 627,
+      "completion_tokens": 166,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 624,
+      "completion_tokens": 152,
+      "total_tokens": 776,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 638,
+      "completion_tokens": 140,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1220,
+      "completion_tokens": 241,
+      "total_tokens": 1461,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 615,
+      "completion_tokens": 47,
+      "total_tokens": 662,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 763,
+      "completion_tokens": 122,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 760,
+      "completion_tokens": 150,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 774,
+      "completion_tokens": 132,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1196,
+      "completion_tokens": 84,
+      "total_tokens": 1280,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0154",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 528,
+      "completion_tokens": 47,
+      "total_tokens": 575,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 402,
+    "majority_vote_total_tokens": 1157,
+    "scrd_total_tokens": 15113,
+    "scrd_prompt_tokens": 12919,
+    "scrd_completion_tokens": 2194,
+    "agent_total_tokens": 8394,
+    "recorder_total_tokens": 4751,
+    "evaluator_total_tokens": 1968,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

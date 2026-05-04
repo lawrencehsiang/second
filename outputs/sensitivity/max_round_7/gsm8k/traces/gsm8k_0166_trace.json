@@ -1,0 +1,549 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4.5",
+        "6.5",
+        "4.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total distance, convert speed to hours, add travel time and stay time.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents provided different answers: 4.5 vs 6.5.",
+          "why_still_open": "No clear method was agreed upon for conversion between distance, speed, and time.",
+          "involved_answers": [
+            "4.5",
+            "6.5"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total distance = 50 km",
+        "Speed = 60 km/h",
+        "Travel time = 50/60*12 = 10 h",
+        "Stay time = 2.5 h",
+        "Total time = 10 + 2.5 = 12.5 h"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "8.67",
+        "8.67"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum total distance and convert speed to time accurately.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verify calculations step-by-step for consistency.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total distance = 55 + 65 = 120 miles",
+        "Speed = 2 minutes per mile",
+        "Driving time = 120 * 2 = 240 minutes",
+        "Total time = 4 hours + 2 hours = 6 hours",
+        "Stay time = 2 hours"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "6.5",
+        "6.5",
+        "6.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total distance and conversion from speed to time.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous answer of 4.5 hours is incorrect due to an error in the total distance calculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate the total distance and convert it to time using the given speed.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total distance = 55 + 65 = 120 miles",
+        "Speed = 2 minutes per mile",
+        "Driving time = 120 * 2 = 240 minutes",
+        "Total time = 4 hours + 2 hours = 6 hours",
+        "Stay time = 2 hours"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "6.0",
+        "8.67",
+        "8.67"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the total distance and convert it to time correctly.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 8.67 hours is incorrect; the total time is 6 hours.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total distance = 55 + 65 = 120 miles",
+        "Speed = 2 minutes per mile",
+        "Driving time = 120 * 2 = 240 minutes",
+        "Total time = 4 hours + 2 hours = 6 hours",
+        "Stay time = 2 hours"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "6.33",
+        "8.67",
+        "6.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total travel time including the stay at the destination.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Multiple conflicting answers: 6.33, 8.67, and 6.5 hours.",
+          "why_still_open": "No clear consensus on the correct total travel time despite reevaluation.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total distance = 55 + 65 = 120 miles",
+        "Speed = 2 minutes per mile",
+        "Driving time = 120 * 2 = 240 minutes = 4 hours",
+        "Total time = Driving time + Stay time = 4 hours + 2 hours = 6 hours",
+        "Final answer: 6.5 hours"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 5
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 385,
+      "completion_tokens": 35,
+      "total_tokens": 420,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 372,
+      "completion_tokens": 40,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 383,
+      "completion_tokens": 42,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 216,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 763,
+      "completion_tokens": 152,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 760,
+      "completion_tokens": 162,
+      "total_tokens": 922,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 774,
+      "completion_tokens": 130,
+      "total_tokens": 904,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1224,
+      "completion_tokens": 350,
+      "total_tokens": 1574,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 699,
+      "completion_tokens": 56,
+      "total_tokens": 755,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 1001,
+      "completion_tokens": 101,
+      "total_tokens": 1102,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 636,
+      "completion_tokens": 168,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 635,
+      "completion_tokens": 115,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 636,
+      "completion_tokens": 111,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1149,
+      "completion_tokens": 177,
+      "total_tokens": 1326,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 777,
+      "completion_tokens": 45,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 826,
+      "completion_tokens": 118,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 823,
+      "completion_tokens": 149,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 839,
+      "completion_tokens": 121,
+      "total_tokens": 960,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1085,
+      "completion_tokens": 235,
+      "total_tokens": 1320,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 695,
+      "completion_tokens": 69,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 821,
+      "completion_tokens": 228,
+      "total_tokens": 1049,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 818,
+      "completion_tokens": 186,
+      "total_tokens": 1004,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 834,
+      "completion_tokens": 97,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1250,
+      "completion_tokens": 195,
+      "total_tokens": 1445,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 624,
+      "completion_tokens": 72,
+      "total_tokens": 696,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 818,
+      "completion_tokens": 123,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 815,
+      "completion_tokens": 129,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 831,
+      "completion_tokens": 114,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1084,
+      "completion_tokens": 232,
+      "total_tokens": 1316,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 630,
+      "completion_tokens": 48,
+      "total_tokens": 678,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 420,
+    "majority_vote_total_tokens": 1257,
+    "scrd_total_tokens": 27605,
+    "scrd_prompt_tokens": 23589,
+    "scrd_completion_tokens": 4016,
+    "agent_total_tokens": 3998,
+    "recorder_total_tokens": 7799,
+    "evaluator_total_tokens": 755,
+    "repair_brief_total_tokens": 1102,
+    "repair_evaluator_total_tokens": 2960,
+    "repair_agent_total_tokens": 10991
+  }
+}

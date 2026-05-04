@@ -1,0 +1,275 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "140",
+        "110",
+        "135"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate Tim's total payment by summing up the uncovered costs.",
+          "claim_type": "constraint",
+          "related_answer": "140"
+        },
+        {
+          "text": "Calculate Tim's total payment after applying insurance coverage.",
+          "claim_type": "constraint",
+          "related_answer": "110, 135"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total payment = sum of uncovered costs",
+        "Insurance reduces total payment",
+        "Total payment = 140",
+        "Total payment = 110 after insurance",
+        "Total payment = 135 after insurance"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "140",
+        "135",
+        "135"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum up individual out-of-pocket costs after applying insurance coverage.",
+          "claim_type": "constraint",
+          "related_answer": "135"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate Tim's out-of-pocket costs after insurance coverage",
+        "Doctor's visit: $300 * 25% = $75",
+        "Cat's visit: $120 - $60 = $60",
+        "Total payment = $75 + $60 = $135",
+        "Sum up individual costs after applying insurance"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 370,
+      "completion_tokens": 39,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 357,
+      "completion_tokens": 32,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 368,
+      "completion_tokens": 35,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 588,
+      "completion_tokens": 169,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 795,
+      "completion_tokens": 130,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 792,
+      "completion_tokens": 137,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 806,
+      "completion_tokens": 100,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1078,
+      "completion_tokens": 224,
+      "total_tokens": 1302,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 608,
+      "completion_tokens": 45,
+      "total_tokens": 653,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 813,
+      "completion_tokens": 98,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 618,
+      "completion_tokens": 138,
+      "total_tokens": 756,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 617,
+      "completion_tokens": 186,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 618,
+      "completion_tokens": 191,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1218,
+      "completion_tokens": 154,
+      "total_tokens": 1372,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 704,
+      "completion_tokens": 62,
+      "total_tokens": 766,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 409,
+    "majority_vote_total_tokens": 1201,
+    "scrd_total_tokens": 12090,
+    "scrd_prompt_tokens": 10350,
+    "scrd_completion_tokens": 1740,
+    "agent_total_tokens": 3961,
+    "recorder_total_tokens": 3431,
+    "evaluator_total_tokens": 653,
+    "repair_brief_total_tokens": 911,
+    "repair_evaluator_total_tokens": 766,
+    "repair_agent_total_tokens": 2368
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,183 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Daily consumption is 1 cup.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B vs C on the total monthly and three-monthly consumption.",
+          "why_still_open": "Different interpretations of daily consumption lead to conflicting totals.",
+          "involved_answers": [
+            "45",
+            "90"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Daily consumption = 1 cup",
+        "30 days/month * 1 cup/day = 30 cups/month",
+        "3 months * 30 cups/month = 90 cups",
+        "Daily consumption = 1/2 + 1/2 = 1 cup",
+        "90 cups over 3 months"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "90",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily consumption = 1 cup",
+        "30 cups/month * 3 months = 90 cups",
+        "Consistent interpretation of daily consumption confirmed",
+        "Total consumption = 90 cups over 3 months"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 360,
+      "completion_tokens": 38,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 347,
+      "completion_tokens": 39,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 358,
+      "completion_tokens": 53,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 606,
+      "completion_tokens": 204,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 721,
+      "completion_tokens": 153,
+      "total_tokens": 874,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 718,
+      "completion_tokens": 112,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 732,
+      "completion_tokens": 139,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1161,
+      "completion_tokens": 82,
+      "total_tokens": 1243,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 544,
+      "completion_tokens": 48,
+      "total_tokens": 592,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 398,
+    "majority_vote_total_tokens": 1195,
+    "scrd_total_tokens": 6415,
+    "scrd_prompt_tokens": 5547,
+    "scrd_completion_tokens": 868,
+    "agent_total_tokens": 3770,
+    "recorder_total_tokens": 2053,
+    "evaluator_total_tokens": 592,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

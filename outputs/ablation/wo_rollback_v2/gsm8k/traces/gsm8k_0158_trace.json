@@ -1,0 +1,219 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "After removing some and doubling the rest, each part ends up with 6 beads.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Doubling the remaining beads results in 3 beads per part.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The initial division of beads into three parts results in 13 beads per part.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and C claim 10 beads were removed, while A claims 7 beads were removed.",
+          "why_still_open": "Different calculations lead to different numbers of beads removed.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total beads = 23 + 16 = 39",
+        "Divided by 3, each part initially has 13 beads",
+        "Doubled beads = 6 / 2 = 3",
+        "Each part ends up with 6 beads",
+        "Initial beads per part = 13"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "5",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solving (13 - x) * 2 = 6 yields x = 5.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verification of bead removal calculations is ongoing to resolve discrepancies.",
+          "claim_type": "explanation",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the number of beads removed (5 vs. 7).",
+          "why_still_open": "Calculations from different agents yield conflicting results.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Each part ends up with 6 beads after doubling.",
+        "Initial beads per part = 13",
+        "Equation: (13 - x) * 2 = 6",
+        "x = 5 (beads removed)",
+        "Discrepancy in bead removal calculations"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 369,
+      "completion_tokens": 80,
+      "total_tokens": 449,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 356,
+      "completion_tokens": 71,
+      "total_tokens": 427,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 367,
+      "completion_tokens": 84,
+      "total_tokens": 451,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 713,
+      "completion_tokens": 298,
+      "total_tokens": 1011,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 840,
+      "completion_tokens": 162,
+      "total_tokens": 1002,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 838,
+      "completion_tokens": 115,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 852,
+      "completion_tokens": 119,
+      "total_tokens": 971,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1248,
+      "completion_tokens": 245,
+      "total_tokens": 1493,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0158",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 672,
+      "completion_tokens": 47,
+      "total_tokens": 719,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 449,
+    "majority_vote_total_tokens": 1327,
+    "scrd_total_tokens": 7476,
+    "scrd_prompt_tokens": 6255,
+    "scrd_completion_tokens": 1221,
+    "agent_total_tokens": 4253,
+    "recorder_total_tokens": 2504,
+    "evaluator_total_tokens": 719,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

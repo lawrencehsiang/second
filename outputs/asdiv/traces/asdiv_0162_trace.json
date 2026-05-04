@@ -1,0 +1,201 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "1 quarter, 3 pennies",
+        "1 quarter, 1 nickel, and 3 pennies",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Use of one nickel minimizes coin count.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total amount is 28 cents.",
+          "claim_type": "constraint",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B uses one nickel while others do not.",
+          "why_still_open": "Different agents have different strategies for minimizing coin count.",
+          "involved_answers": [
+            "B",
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Minimize number of coins, start with largest denomination.",
+        "Minimize coin count by using quarters, dimes, nickels, and pennies.",
+        "Minimize coin count by using the largest denominations first: 25 cents (quarter), 3 cents (three pennies).",
+        "Total amount is 28 cents.",
+        "1 nickel minimizes coin count."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "1 quarter, 3 pennies",
+        "1 quarter, 1 nickel, and 3 pennies",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Focus on minimizing coins without using nickels.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Using a nickel minimizes the total number of coins.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Minimize number of coins, start with largest denomination.",
+        "Minimize coin count by using quarters, dimes, nickels, and pennies.",
+        "Total amount is 28 cents.",
+        "1 nickel minimizes coin count.",
+        "Minimize coin count by using the largest denominations first: 25 cents (quarter), 3 cents (three pennies)."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "asdiv_0162",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 328,
+      "completion_tokens": 38,
+      "total_tokens": 366,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0162",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 315,
+      "completion_tokens": 53,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0162",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 326,
+      "completion_tokens": 52,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0162",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 636,
+      "completion_tokens": 241,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0162",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 776,
+      "completion_tokens": 109,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0162",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 778,
+      "completion_tokens": 99,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0162",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 781,
+      "completion_tokens": 100,
+      "total_tokens": 881,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0162",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1135,
+      "completion_tokens": 189,
+      "total_tokens": 1324,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0162",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 619,
+      "completion_tokens": 48,
+      "total_tokens": 667,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 366,
+    "majority_vote_total_tokens": 1112,
+    "scrd_total_tokens": 6623,
+    "scrd_prompt_tokens": 5694,
+    "scrd_completion_tokens": 929,
+    "agent_total_tokens": 3755,
+    "recorder_total_tokens": 2201,
+    "evaluator_total_tokens": 667,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

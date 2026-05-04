@@ -1,0 +1,185 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "9",
+        "10",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "After giving away some crayons, 2 green and 7 blue crayons remain.",
+          "claim_type": "support",
+          "related_answer": "9"
+        },
+        {
+          "text": "Total crayons left equals the sum of remaining green and blue crayons.",
+          "claim_type": "support",
+          "related_answer": "9"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5 - 3 = 2 (green crayons left)",
+        "8 - 1 = 7 (blue crayons left)",
+        "2 + 7 = 9 (total crayons left)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "5 - 3 = 2 (green crayons left)",
+        "8 - 1 = 7 (blue crayons left)",
+        "2 + 7 = 9 (total crayons left)"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0148",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 354,
+      "completion_tokens": 67,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0148",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 341,
+      "completion_tokens": 33,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0148",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 352,
+      "completion_tokens": 32,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0148",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 606,
+      "completion_tokens": 163,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0148",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 773,
+      "completion_tokens": 130,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0148",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 771,
+      "completion_tokens": 132,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0148",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 784,
+      "completion_tokens": 164,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0148",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1128,
+      "completion_tokens": 78,
+      "total_tokens": 1206,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0148",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 514,
+      "completion_tokens": 44,
+      "total_tokens": 558,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 421,
+    "majority_vote_total_tokens": 1179,
+    "scrd_total_tokens": 6466,
+    "scrd_prompt_tokens": 5623,
+    "scrd_completion_tokens": 843,
+    "agent_total_tokens": 3933,
+    "recorder_total_tokens": 1975,
+    "evaluator_total_tokens": 558,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

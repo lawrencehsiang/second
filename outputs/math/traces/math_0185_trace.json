@@ -1,0 +1,519 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "100",
+        "-4",
+        "-4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The intersection points of the two circles are (1,5) and (4,5), resulting in a product of coordinates 1*5*4*5=100.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Both circles have vertical intersections at y=5.",
+        "Intersection points are (1,5) and (4,5).",
+        "Product of coordinates = 1*5*4*5=100."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "25",
+        "125",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verified all intersection points and found they intersect only at (1,5) and (4,5).",
+          "claim_type": "support",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Intersection points are confirmed to be (1,5) and (4,5).",
+        "No other intersection points exist between the two circles.",
+        "Both agents agree on the intersection points."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "25",
+        "100",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The product of the coordinates at the intersection points (1,5) and (4,5) is 1*5 * 4*5 = 100.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer -4 is incorrect; the correct answer is 25 based on verified intersection points.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The majority answer is 25, supported by verified intersection points.",
+        "The product of intersection points' coordinates is 1*5 * 4*5 = 100.",
+        "Minority answer -4 is incorrect; the correct answer is 25."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "100",
+        "100",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The product of the coordinates at the intersection points (1,5) and (4,5) is 1*5 * 4*5 = 100.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer -4 is incorrect; the correct answer is 100 based on verified intersection points.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The product of intersection points' coordinates is 1*5 * 4*5 = 100.",
+        "Minority answer -4 is incorrect; the correct answer is 100.",
+        "Resolved the conflict: the correct product of the intersection points' coordinates is 100."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "100",
+        "100",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The verified intersection points (1,5) and (4,5) confirm the product 1*5 * 4*5 = 100.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer 25 is incorrect; the verified intersection points yield a product of 100.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 25 remains unverified and unresolved.",
+          "why_still_open": "No additional evidence or verification provided for the minority answer.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Verified intersection points (1,5) and (4,5) give a product of 100.",
+        "Minority answer 25 is incorrect; verified points yield 100.",
+        "Resolved the minority answer of 25; verified points confirm 100."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 373,
+      "completion_tokens": 150,
+      "total_tokens": 523,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 360,
+      "completion_tokens": 36,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 371,
+      "completion_tokens": 37,
+      "total_tokens": 408,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 704,
+      "completion_tokens": 146,
+      "total_tokens": 850,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 661,
+      "completion_tokens": 162,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 656,
+      "completion_tokens": 72,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 670,
+      "completion_tokens": 56,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 990,
+      "completion_tokens": 193,
+      "total_tokens": 1183,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 621,
+      "completion_tokens": 48,
+      "total_tokens": 669,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 756,
+      "completion_tokens": 90,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 613,
+      "completion_tokens": 124,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 612,
+      "completion_tokens": 119,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 613,
+      "completion_tokens": 128,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1045,
+      "completion_tokens": 128,
+      "total_tokens": 1173,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 705,
+      "completion_tokens": 58,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 708,
+      "completion_tokens": 115,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 705,
+      "completion_tokens": 128,
+      "total_tokens": 833,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 721,
+      "completion_tokens": 115,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 994,
+      "completion_tokens": 203,
+      "total_tokens": 1197,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 657,
+      "completion_tokens": 67,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 724,
+      "completion_tokens": 159,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 721,
+      "completion_tokens": 141,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 737,
+      "completion_tokens": 108,
+      "total_tokens": 845,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1142,
+      "completion_tokens": 210,
+      "total_tokens": 1352,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 659,
+      "completion_tokens": 49,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 827,
+      "completion_tokens": 164,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 824,
+      "completion_tokens": 175,
+      "total_tokens": 999,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 840,
+      "completion_tokens": 149,
+      "total_tokens": 989,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1178,
+      "completion_tokens": 258,
+      "total_tokens": 1436,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0185",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 675,
+      "completion_tokens": 52,
+      "total_tokens": 727,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 523,
+    "majority_vote_total_tokens": 1327,
+    "scrd_total_tokens": 25502,
+    "scrd_prompt_tokens": 21862,
+    "scrd_completion_tokens": 3640,
+    "agent_total_tokens": 3604,
+    "recorder_total_tokens": 7191,
+    "evaluator_total_tokens": 669,
+    "repair_brief_total_tokens": 846,
+    "repair_evaluator_total_tokens": 2922,
+    "repair_agent_total_tokens": 10270
+  }
+}

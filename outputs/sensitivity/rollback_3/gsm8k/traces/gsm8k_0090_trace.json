@@ -1,0 +1,185 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "256",
+        "200",
+        "216"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Friday's borrowing is 40% higher than the weekday average.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Sum of weekday and Friday borrowings equals total weekly borrowings.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Differing totals for weekly borrowings (256 vs 216).",
+          "why_still_open": "Calculations for Friday's borrowing differ.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "40 books/day * 4 days + 56 books = 216 books",
+        "256 books per week",
+        "200 books per week"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "216",
+        "216",
+        "216"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "40 books/day * 4 days + 56 books = 216 books",
+        "Krystian borrows 40% more on Fridays.",
+        "Corrected total weekly borrowings: 216 books"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 370,
+      "completion_tokens": 39,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 357,
+      "completion_tokens": 39,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 368,
+      "completion_tokens": 76,
+      "total_tokens": 444,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 632,
+      "completion_tokens": 212,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 741,
+      "completion_tokens": 128,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 738,
+      "completion_tokens": 157,
+      "total_tokens": 895,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 752,
+      "completion_tokens": 162,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1222,
+      "completion_tokens": 85,
+      "total_tokens": 1307,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0090",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 564,
+      "completion_tokens": 51,
+      "total_tokens": 615,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 409,
+    "majority_vote_total_tokens": 1249,
+    "scrd_total_tokens": 6693,
+    "scrd_prompt_tokens": 5744,
+    "scrd_completion_tokens": 949,
+    "agent_total_tokens": 3927,
+    "recorder_total_tokens": 2151,
+    "evaluator_total_tokens": 615,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,622 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "224",
+        "480",
+        "224"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate remaining files after each deletion.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Files left = 600 - 8 * 50 = 224",
+        "Files left = 480 - 8 * 50 = 224",
+        "Total deletions = 8 * 50 = 400",
+        "Initial files = 600",
+        "Deletions per round = 8"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "224",
+        "224",
+        "120"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the number of valuable files after each deletion step.",
+          "claim_type": "constraint",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Files left = 600 - 8 * 50 = 224",
+        "Files left = 480 - 8 * 50 = 224",
+        "Total deletions = 8 * 50 = 400",
+        "Initial files = 600",
+        "Deletions per round = 8"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "168",
+        "224",
+        "256"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the number of valuable files after each deletion step.",
+          "claim_type": "constraint",
+          "related_answer": "A, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Files left = 600 - 8 * 50 = 224",
+        "Files left = 480 - 8 * 50 = 224",
+        "Total deletions = 8 * 50 = 400",
+        "Initial files = 600",
+        "Deletions per round = 8"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "168",
+        "224",
+        "304"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "After downloading 400 more files, 80 were valuable, added to the previous 224 valuable files, resulting in 304.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The history suggests recomputing the number of valuable files after each deletion step, but the current answers do not fully align with this approach.",
+          "why_still_open": "There is ongoing debate on how to accurately reflect the recomputation in the final answer.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Files left = 600 - 8 * 50 = 224",
+        "Files left = 480 - 8 * 50 = 224",
+        "Total deletions = 8 * 50 = 400",
+        "Initial files = 600",
+        "Deletions per round = 8"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "304",
+        "168",
+        "304"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing the number of valuable files after each deletion step provides a more accurate final answer.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The history suggests recomputing the number of valuable files after each deletion step, but the current answers do not fully align with this approach.",
+          "why_still_open": "There is ongoing debate on how to accurately reflect the recomputation in the final answer.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Files left = 600 - 8 * 50 = 224",
+        "Files left = 480 - 8 * 50 = 224",
+        "Total deletions = 8 * 50 = 400",
+        "Initial files = 600",
+        "Deletions per round = 8"
+      ]
+    },
+    {
+      "round_id": 6,
+      "current_answers": [
+        "304",
+        "168",
+        "304"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the number of valuable files after each deletion step to ensure accuracy.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recomputed the number of valuable files after each deletion step to align with the mainstream support and resolve the conflict.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputed the number of valuable files after each deletion step to align with the suggested approach.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Files left = 600 - 8 * 50 = 224",
+        "Files left = 480 - 8 * 50 = 224",
+        "Total deletions = 8 * 50 = 400",
+        "Initial files = 600",
+        "Deletions per round = 8"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 6,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 6
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 397,
+      "completion_tokens": 30,
+      "total_tokens": 427,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 384,
+      "completion_tokens": 30,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 395,
+      "completion_tokens": 39,
+      "total_tokens": 434,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 584,
+      "completion_tokens": 150,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 656,
+      "completion_tokens": 101,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 653,
+      "completion_tokens": 36,
+      "total_tokens": 689,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 667,
+      "completion_tokens": 96,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 933,
+      "completion_tokens": 260,
+      "total_tokens": 1193,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 673,
+      "completion_tokens": 43,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 857,
+      "completion_tokens": 89,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 636,
+      "completion_tokens": 98,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 635,
+      "completion_tokens": 103,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 636,
+      "completion_tokens": 100,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 985,
+      "completion_tokens": 157,
+      "total_tokens": 1142,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 720,
+      "completion_tokens": 53,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 625,
+      "completion_tokens": 102,
+      "total_tokens": 727,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 622,
+      "completion_tokens": 55,
+      "total_tokens": 677,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 638,
+      "completion_tokens": 215,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1063,
+      "completion_tokens": 157,
+      "total_tokens": 1220,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 609,
+      "completion_tokens": 56,
+      "total_tokens": 665,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 625,
+      "completion_tokens": 117,
+      "total_tokens": 742,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 622,
+      "completion_tokens": 55,
+      "total_tokens": 677,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 638,
+      "completion_tokens": 183,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1046,
+      "completion_tokens": 254,
+      "total_tokens": 1300,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 660,
+      "completion_tokens": 73,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 873,
+      "completion_tokens": 139,
+      "total_tokens": 1012,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 870,
+      "completion_tokens": 141,
+      "total_tokens": 1011,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 886,
+      "completion_tokens": 123,
+      "total_tokens": 1009,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1182,
+      "completion_tokens": 249,
+      "total_tokens": 1431,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 646,
+      "completion_tokens": 57,
+      "total_tokens": 703,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 859,
+      "completion_tokens": 117,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 856,
+      "completion_tokens": 166,
+      "total_tokens": 1022,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 872,
+      "completion_tokens": 121,
+      "total_tokens": 993,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1163,
+      "completion_tokens": 251,
+      "total_tokens": 1414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0028",
+      "round_id": 6,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 744,
+      "completion_tokens": 54,
+      "total_tokens": 798,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 427,
+    "majority_vote_total_tokens": 1275,
+    "scrd_total_tokens": 29980,
+    "scrd_prompt_tokens": 25910,
+    "scrd_completion_tokens": 4070,
+    "agent_total_tokens": 3484,
+    "recorder_total_tokens": 8434,
+    "evaluator_total_tokens": 716,
+    "repair_brief_total_tokens": 946,
+    "repair_evaluator_total_tokens": 3672,
+    "repair_agent_total_tokens": 12728
+  }
+}

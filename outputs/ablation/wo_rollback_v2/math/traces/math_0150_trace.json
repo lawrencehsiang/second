@@ -1,0 +1,204 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "50",
+        "150"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solving the system of equations yields soda cost as 150 cents.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2b + s = 210",
+        "b + 2s = 240",
+        "b - s = -30",
+        "s = 150",
+        "Total cost = 210 cents"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "40",
+        "150",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous mainstream support incorrectly interpreted the solution, leading to a soda cost of 150 cents. The correct answer is 40 cents.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Upon review, the calculations confirm that a soda costs 50 cents, not 150 cents.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "The minority view claims the soda costs 150 cents, while the correct answer is 50 cents.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A claims the soda costs 40 cents, Agent C claims it costs 50 cents, and the minority view supports 150 cents.",
+          "why_still_open": "Different interpretations of the system of equations lead to conflicting answers.",
+          "involved_answers": [
+            "40",
+            "50",
+            "150"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "2b + s = 210",
+        "b + 2s = 240",
+        "b - s = -30",
+        "s = 50",
+        "Total cost = 210 cents"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0150",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 352,
+      "completion_tokens": 43,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0150",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 339,
+      "completion_tokens": 44,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0150",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 350,
+      "completion_tokens": 87,
+      "total_tokens": 437,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0150",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 651,
+      "completion_tokens": 131,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0150",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 618,
+      "completion_tokens": 141,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0150",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 615,
+      "completion_tokens": 131,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0150",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 630,
+      "completion_tokens": 125,
+      "total_tokens": 755,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0150",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1058,
+      "completion_tokens": 328,
+      "total_tokens": 1386,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0150",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 723,
+      "completion_tokens": 46,
+      "total_tokens": 769,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 395,
+    "majority_vote_total_tokens": 1215,
+    "scrd_total_tokens": 6412,
+    "scrd_prompt_tokens": 5336,
+    "scrd_completion_tokens": 1076,
+    "agent_total_tokens": 3475,
+    "recorder_total_tokens": 2168,
+    "evaluator_total_tokens": 769,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,513 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "180",
+        "180",
+        "158"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Increase original annual usage by 20%.",
+          "claim_type": "constraint",
+          "related_answer": "158"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods of calculating annual usage.",
+          "why_still_open": "Agents use different starting points for calculation.",
+          "involved_answers": [
+            "180",
+            "158"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Annual usage * 1.2 = New usage",
+        "Original usage + 20%",
+        "Calculate from original, not current"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "216",
+        "216",
+        "180"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Annual usage * 1.2 = New usage",
+        "Current annual usage is 180 kg",
+        "Calculate directly from semi-annual usage"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "360",
+        "216",
+        "216"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Increase half-yearly usage by 20% first, then double it for a full year.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Correct approach is to increase the original 90 kg by 20%, resulting in 216 kg per year.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Annual usage = 2 * (90 kg + 90 kg * 20%)",
+        "New usage = Original usage * 1.2",
+        "Original annual usage was 180 kg"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "108",
+        "216",
+        "300"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify annual usage by doubling the half-yearly amount and applying a 20% increase.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Increase 90 kg by 20% to get 108 kg per 6 months, resulting in 300 kg per year.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Annual usage = 2 * (90 kg + 90 kg * 20%)",
+        "New usage = Original usage * 1.2",
+        "Correct annual usage = 300 kg"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "216",
+        "216",
+        "216"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Apply 20% increase to 90 kg to get 108 kg for 6 months, then double to find the yearly usage.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Annual usage = 2 * (90 kg + 90 kg * 20%)",
+        "Correct annual usage = 216 kg",
+        "Yearly usage before increase = 90 kg * 2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_started",
+      "start_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 5
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 351,
+      "completion_tokens": 39,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 338,
+      "completion_tokens": 36,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 349,
+      "completion_tokens": 43,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 600,
+      "completion_tokens": 154,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 706,
+      "completion_tokens": 140,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 703,
+      "completion_tokens": 93,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 717,
+      "completion_tokens": 91,
+      "total_tokens": 808,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1041,
+      "completion_tokens": 68,
+      "total_tokens": 1109,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 533,
+      "completion_tokens": 51,
+      "total_tokens": 584,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 810,
+      "completion_tokens": 104,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 807,
+      "completion_tokens": 130,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 821,
+      "completion_tokens": 141,
+      "total_tokens": 962,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1001,
+      "completion_tokens": 181,
+      "total_tokens": 1182,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 632,
+      "completion_tokens": 50,
+      "total_tokens": 682,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 728,
+      "completion_tokens": 172,
+      "total_tokens": 900,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 725,
+      "completion_tokens": 174,
+      "total_tokens": 899,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 739,
+      "completion_tokens": 120,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1205,
+      "completion_tokens": 238,
+      "total_tokens": 1443,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 648,
+      "completion_tokens": 47,
+      "total_tokens": 695,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 820,
+      "completion_tokens": 95,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 885,
+      "completion_tokens": 147,
+      "total_tokens": 1032,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 884,
+      "completion_tokens": 120,
+      "total_tokens": 1004,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 885,
+      "completion_tokens": 190,
+      "total_tokens": 1075,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1172,
+      "completion_tokens": 186,
+      "total_tokens": 1358,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 750,
+      "completion_tokens": 51,
+      "total_tokens": 801,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 697,
+      "completion_tokens": 150,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 694,
+      "completion_tokens": 179,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 710,
+      "completion_tokens": 143,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1192,
+      "completion_tokens": 144,
+      "total_tokens": 1336,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0170",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 582,
+      "completion_tokens": 52,
+      "total_tokens": 634,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 390,
+    "majority_vote_total_tokens": 1156,
+    "scrd_total_tokens": 26254,
+    "scrd_prompt_tokens": 22725,
+    "scrd_completion_tokens": 3529,
+    "agent_total_tokens": 9077,
+    "recorder_total_tokens": 7182,
+    "evaluator_total_tokens": 1961,
+    "repair_brief_total_tokens": 915,
+    "repair_evaluator_total_tokens": 1435,
+    "repair_agent_total_tokens": 5684
+  }
+}

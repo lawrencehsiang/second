@@ -1,0 +1,448 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "47 + (4 - 2) = 49",
+        "59",
+        "47"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Spent 2 tickets, then won 47 more.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Subtract spent tickets from initial count, then add won tickets.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Start with 4 tickets, spend 2, and end up with 47.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Differing final ticket counts: 49, 59, and 47.",
+          "why_still_open": "Agents used different methods to calculate the final ticket count.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "47 + (4 - 2) = 49",
+        "59",
+        "47"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "59",
+        "49",
+        "59"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct calculation starts with 4 initial tickets, subtracts 2 spent tickets, and adds 47 won tickets.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The method is to subtract spent tickets from the initial count and then add the newly won tickets.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "The final ticket count is 59 after subtracting spent tickets and adding won tickets.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "59",
+        "49",
+        "47"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "59",
+        "59",
+        "59"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct calculation is 4 initial tickets - 2 spent tickets + 47 won tickets = 59 tickets.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Starting with initial tickets, subtracting those spent, and adding the newly won tickets yields a final count of 59.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "The final ticket count is confirmed to be 59 after applying the correct calculation.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "59",
+        "4",
+        "2",
+        "47"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "50",
+        "59",
+        "59"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the operations: Initial 4 tickets, minus 2 spent on a beanie, plus 47 won later.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "We will recompute the total tickets Jerry has after each step to ensure accuracy.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The mainstream support claims Jerry has 59 tickets, but this seems incorrect given the operations described.",
+          "why_still_open": "The conflicting parties have not reached a consensus on the correct final ticket count.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50",
+        "4",
+        "2",
+        "47"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "49",
+        "59",
+        "59"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the total tickets Jerry has step-by-step: initially 4 tickets, minus 2 for a beanie, plus 47 won later, resulting in 49 tickets.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "49",
+        "4",
+        "2",
+        "47"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 344,
+      "completion_tokens": 50,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 331,
+      "completion_tokens": 40,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 342,
+      "completion_tokens": 41,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 621,
+      "completion_tokens": 248,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 727,
+      "completion_tokens": 124,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 713,
+      "completion_tokens": 118,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 143,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1194,
+      "completion_tokens": 189,
+      "total_tokens": 1383,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 722,
+      "completion_tokens": 136,
+      "total_tokens": 858,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 719,
+      "completion_tokens": 125,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 733,
+      "completion_tokens": 139,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1130,
+      "completion_tokens": 197,
+      "total_tokens": 1327,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 619,
+      "completion_tokens": 123,
+      "total_tokens": 742,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 616,
+      "completion_tokens": 35,
+      "total_tokens": 651,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 630,
+      "completion_tokens": 110,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1001,
+      "completion_tokens": 216,
+      "total_tokens": 1217,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 723,
+      "completion_tokens": 140,
+      "total_tokens": 863,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 720,
+      "completion_tokens": 96,
+      "total_tokens": 816,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 734,
+      "completion_tokens": 103,
+      "total_tokens": 837,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0133",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1113,
+      "completion_tokens": 117,
+      "total_tokens": 1230,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1148,
+    "scrd_total_tokens": 16949,
+    "scrd_prompt_tokens": 14459,
+    "scrd_completion_tokens": 2490,
+    "agent_total_tokens": 10923,
+    "recorder_total_tokens": 6026,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,460 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the square root of 140 and apply the ceiling function.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Find the smallest integer greater than or equal to the square root of 140.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate the square root of 140 and apply the ceiling function.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Square root of 140 ≈ 11.832",
+        "Ceiling of 11.832 = 12",
+        "12 is the final answer."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "13",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the square root of 140 and applying the ceiling function.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents provide conflicting answers for the ceiling of the square root of 140.",
+          "why_still_open": "Agents A and B/C disagree on whether the correct answer is 13 or 12.",
+          "involved_answers": [
+            "13",
+            "12"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Square root of 140 ≈ 11.832",
+        "Ceiling of 11.832 = 12",
+        "Agent A re-evaluates and finds the ceiling is 13.",
+        "Agent B maintains the previous answer of 12.",
+        "13 is the new proposed answer."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "12",
+        "12",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculating the square root of 140 and applying the ceiling function.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluating the square root of 140 and finding it to be 13.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the ceiling of the square root of 140.",
+          "why_still_open": "Agents A and B agree on 12, but C proposes 13.",
+          "involved_answers": [
+            "12",
+            "13"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Square root of 140 ≈ 11.832",
+        "Ceiling of 11.832 = 12",
+        "12^2 = 144 > 140, 11^2 = 121 < 140, hence ceiling is 13",
+        "Agent C re-evaluates and finds the ceiling is 13.",
+        "Agreement on 12 from Agents A and B, disagreement with Agent C on 13."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "13",
+        "12",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The square root of 140 is approximately 12.165, rounding up gives 13.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluating the square root of 140 shows it to be 12.165, which rounds to 12 using the ceiling function.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority objection maintains the square root of 140 is 13, supported by a re-evaluation.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the ceiling of the square root of 140.",
+          "why_still_open": "Agents B and C maintain 12, while Agent A supports 13.",
+          "involved_answers": [
+            "12",
+            "13"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Square root of 140 ≈ 12.165, ceiling is 13",
+        "Square root of 140 ≈ 12.165, ceiling is 12",
+        "12^2 = 144 > 140, 11^2 = 121 < 140",
+        "Agent A supports 13, Agent B supports 12, Agent C supports 13",
+        "Re-evaluation of square root of 140 by Agent C"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "13",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the square root of 140 confirms it is 12.165, and the ceiling function rounds it to 13.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluating the square root of 140, it is approximately 12.165, which rounds to 13 using the ceiling function.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The ceiling function rounds 12.165 up to 13.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Square root of 140 ≈ 12.165, ceiling is 13",
+        "12^2 = 144 > 140, 11^2 = 121 < 140",
+        "Agent A, B, and C all agree on 13 as the answer",
+        "Ceiling function rounds 12.165 to 13",
+        "Square root of 140 is approximately 12.165"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0081",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 330,
+      "completion_tokens": 38,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 317,
+      "completion_tokens": 43,
+      "total_tokens": 360,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 328,
+      "completion_tokens": 39,
+      "total_tokens": 367,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 599,
+      "completion_tokens": 206,
+      "total_tokens": 805,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 595,
+      "completion_tokens": 147,
+      "total_tokens": 742,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 592,
+      "completion_tokens": 67,
+      "total_tokens": 659,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 606,
+      "completion_tokens": 64,
+      "total_tokens": 670,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1012,
+      "completion_tokens": 227,
+      "total_tokens": 1239,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 714,
+      "completion_tokens": 115,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 711,
+      "completion_tokens": 109,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 725,
+      "completion_tokens": 148,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1156,
+      "completion_tokens": 320,
+      "total_tokens": 1476,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 799,
+      "completion_tokens": 133,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 796,
+      "completion_tokens": 148,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 810,
+      "completion_tokens": 127,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1275,
+      "completion_tokens": 388,
+      "total_tokens": 1663,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 820,
+      "completion_tokens": 125,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 817,
+      "completion_tokens": 139,
+      "total_tokens": 956,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 831,
+      "completion_tokens": 151,
+      "total_tokens": 982,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0081",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1352,
+      "completion_tokens": 311,
+      "total_tokens": 1663,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 368,
+    "majority_vote_total_tokens": 1095,
+    "scrd_total_tokens": 18230,
+    "scrd_prompt_tokens": 15185,
+    "scrd_completion_tokens": 3045,
+    "agent_total_tokens": 11384,
+    "recorder_total_tokens": 6846,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,209 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "31",
+        "31",
+        "21"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Mouse's jump length is 31 inches.",
+          "claim_type": "support",
+          "related_answer": "31"
+        },
+        {
+          "text": "Frog's jump length is 57 inches.",
+          "claim_type": "support",
+          "related_answer": "31"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent C provided a different answer (21) compared to Agents A and B.",
+          "why_still_open": "Agents A and B both arrived at 31 inches through detailed calculations, while Agent C's calculation seems to lack the same steps.",
+          "involved_answers": [
+            "21",
+            "31"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Grasshopper jumps 25 inches.",
+        "Frog jumps 25 + 32 = 57 inches.",
+        "Mouse jumps 57 - 26 = 31 inches.",
+        "Frog's jump exceeds grasshopper's by 32 inches.",
+        "Mouse's jump is less than frog's by 26 inches."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "31",
+        "31",
+        "31"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The frog's jump length is 57 inches.",
+          "claim_type": "support",
+          "related_answer": "31"
+        },
+        {
+          "text": "The mouse's jump length is 31 inches.",
+          "claim_type": "support",
+          "related_answer": "31"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent C's partially resolved response indicates ongoing recalibration of calculations.",
+          "why_still_open": "Further verification needed to align with Agents A and B's answers.",
+          "involved_answers": [
+            "31",
+            "21"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Frog jumps 25 + 32 = 57 inches.",
+        "Mouse jumps 57 - 26 = 31 inches.",
+        "Grasshopper jumps 25 inches.",
+        "Frog's jump exceeds grasshopper's by 32 inches.",
+        "Mouse's jump is less than frog's by 26 inches."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "svamp_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 367,
+      "completion_tokens": 62,
+      "total_tokens": 429,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 354,
+      "completion_tokens": 62,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 365,
+      "completion_tokens": 54,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 660,
+      "completion_tokens": 270,
+      "total_tokens": 930,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 749,
+      "completion_tokens": 132,
+      "total_tokens": 881,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 746,
+      "completion_tokens": 103,
+      "total_tokens": 849,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 760,
+      "completion_tokens": 94,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1152,
+      "completion_tokens": 254,
+      "total_tokens": 1406,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 628,
+      "completion_tokens": 53,
+      "total_tokens": 681,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 429,
+    "majority_vote_total_tokens": 1264,
+    "scrd_total_tokens": 6865,
+    "scrd_prompt_tokens": 5781,
+    "scrd_completion_tokens": 1084,
+    "agent_total_tokens": 3848,
+    "recorder_total_tokens": 2336,
+    "evaluator_total_tokens": 681,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

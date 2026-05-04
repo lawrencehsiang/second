@@ -1,0 +1,420 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "395",
+        "395",
+        "345"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate daily loss and multiply by 7 days, then subtract from initial counts.",
+          "claim_type": "support",
+          "related_answer": "395"
+        },
+        {
+          "text": "Daily loss calculation and weekly total.",
+          "claim_type": "support",
+          "related_answer": "345"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily loss * 7 - Initial count = Final count",
+        "Daily loss * 7 - Initial total = Remaining total"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "285",
+        "345",
+        "345"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the daily losses and total loss over a week, then subtract from initial counts.",
+          "claim_type": "rebuttal",
+          "related_answer": "285"
+        },
+        {
+          "text": "Ensure exact counts of each bird type after 7 days of losses.",
+          "claim_type": "explanation",
+          "related_answer": "345"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily loss * 7 - Initial count = Final count",
+        "Ensure exact counts of each bird type after 7 days."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "345",
+        "285",
+        "285"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct method is to calculate weekly losses and subtract from initial counts.",
+          "claim_type": "rebuttal",
+          "related_answer": "345"
+        },
+        {
+          "text": "Revise the calculation to ensure it aligns with the problem conditions and daily losses.",
+          "claim_type": "explanation",
+          "related_answer": "285"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 395 is still incorrect.",
+          "why_still_open": "The minority answer fails to correctly account for daily losses over a week.",
+          "involved_answers": [
+            "285",
+            "345"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Daily loss * 7 - Initial count = Final count",
+        "Ensure correct alignment with problem conditions and daily losses."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "285",
+        "285",
+        "331"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing up daily losses from chickens, turkeys, and guinea fowls yields 331 birds remaining.",
+          "claim_type": "explanation",
+          "related_answer": "331"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the final count of birds remaining.",
+          "why_still_open": "The minority continues to support 345 as the correct answer.",
+          "involved_answers": [
+            "285",
+            "331"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Daily loss * 7 - Initial count = Final count",
+        "300 chickens - 7*20 = 160, 200 turkeys - 7*8 = 136, 80 guinea fowls - 7*5 = 35",
+        "Summing daily losses results in 331 birds remaining"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "345",
+        "345",
+        "349"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Reviewing daily losses over a week leads to 349 birds remaining.",
+          "claim_type": "explanation",
+          "related_answer": "349"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily loss * 7 - Initial count = Final count",
+        "140 chickens - 300 = 160, 56 turkeys - 200 = 144, 35 guinea fowls - 80 = 45",
+        "Total remaining birds: 160 + 144 + 45 = 349"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 384,
+      "completion_tokens": 42,
+      "total_tokens": 426,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 371,
+      "completion_tokens": 39,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 382,
+      "completion_tokens": 33,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 140,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 652,
+      "completion_tokens": 110,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 649,
+      "completion_tokens": 129,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 663,
+      "completion_tokens": 152,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1065,
+      "completion_tokens": 153,
+      "total_tokens": 1218,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 860,
+      "completion_tokens": 177,
+      "total_tokens": 1037,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 857,
+      "completion_tokens": 119,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 871,
+      "completion_tokens": 109,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1108,
+      "completion_tokens": 211,
+      "total_tokens": 1319,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 856,
+      "completion_tokens": 127,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 853,
+      "completion_tokens": 139,
+      "total_tokens": 992,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 867,
+      "completion_tokens": 189,
+      "total_tokens": 1056,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1229,
+      "completion_tokens": 236,
+      "total_tokens": 1465,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 851,
+      "completion_tokens": 115,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 848,
+      "completion_tokens": 111,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 862,
+      "completion_tokens": 209,
+      "total_tokens": 1071,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0184",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1213,
+      "completion_tokens": 168,
+      "total_tokens": 1381,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 426,
+    "majority_vote_total_tokens": 1251,
+    "scrd_total_tokens": 18745,
+    "scrd_prompt_tokens": 16037,
+    "scrd_completion_tokens": 2708,
+    "agent_total_tokens": 12626,
+    "recorder_total_tokens": 6119,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

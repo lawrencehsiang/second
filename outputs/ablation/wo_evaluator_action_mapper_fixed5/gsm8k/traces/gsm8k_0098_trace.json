@@ -1,0 +1,424 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "37",
+        "37",
+        "37"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum all books shelved and returned.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum all books shelved and returned."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "49",
+        "37",
+        "37"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking quantities to ensure all books are accounted for.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A updated the answer to 49, while Agents B and C kept it at 37.",
+          "why_still_open": "Disagreement on whether the total should be recalculated or remain consistent with previous answers.",
+          "involved_answers": [
+            "49",
+            "37"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sum all books shelved and returned.",
+        "Rechecking quantities to ensure all books are accounted for."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "49",
+        "37",
+        "49"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the answer to 49 based on the total number of books shelved.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "Rechecking the quantities provided in the problem statement.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C maintained the answer at 37, while Agent C updated it to 49.",
+          "why_still_open": "Disagreement on whether the total should be recalculated or remain consistent with previous answers.",
+          "involved_answers": [
+            "37",
+            "49"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sum all books shelved and returned.",
+        "Rechecking the quantities provided in the problem statement.",
+        "Total books shelved: 12 + 8 + 4 + 5 + 6 = 35 from top and bottom sections.",
+        "Mystery books are excluded as they were put back.",
+        "Total books = 35 + 24 (half of bottom section) = 49."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "49",
+        "49",
+        "49"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of books shelved is 35 from top and bottom sections plus 10 for the bottom half, making 45.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Revisiting the calculations to ensure accuracy.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 37 remains, contradicting the majority's answer of 49.",
+          "why_still_open": "Uncertainty about the inclusion of the bottom half books as part of the total.",
+          "involved_answers": [
+            "37",
+            "49"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Summing the top and bottom sections: 12 + 8 + 4 + 5 + 6 = 35.",
+        "Including half of the bottom section: 35 + 10 = 45.",
+        "Total books shelved: 35 from top and bottom sections.",
+        "Mystery books were returned and should not be included.",
+        "Final total: 49."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "49",
+        "49",
+        "49"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Summing the top and bottom sections: 12 + 8 + 4 + 5 + 6 = 35.",
+        "Including all bottom section books, including the 5 Western novels and 6 biographies, totals 49.",
+        "The bottom half of the cart's mystery books were initially counted separately, leading to an incorrect total. Including them correctly leads to 49 books.",
+        "Given the problem statement, all books from both sections should be included, so the minority answer of 37 is incorrect.",
+        "The final total is 49."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 413,
+      "completion_tokens": 37,
+      "total_tokens": 450,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 400,
+      "completion_tokens": 30,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 411,
+      "completion_tokens": 33,
+      "total_tokens": 444,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 579,
+      "completion_tokens": 79,
+      "total_tokens": 658,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 671,
+      "completion_tokens": 37,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 668,
+      "completion_tokens": 50,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 682,
+      "completion_tokens": 44,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 762,
+      "completion_tokens": 169,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 792,
+      "completion_tokens": 113,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 789,
+      "completion_tokens": 152,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 803,
+      "completion_tokens": 151,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1142,
+      "completion_tokens": 286,
+      "total_tokens": 1428,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 872,
+      "completion_tokens": 116,
+      "total_tokens": 988,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 869,
+      "completion_tokens": 192,
+      "total_tokens": 1061,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 883,
+      "completion_tokens": 122,
+      "total_tokens": 1005,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1260,
+      "completion_tokens": 291,
+      "total_tokens": 1551,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 895,
+      "completion_tokens": 166,
+      "total_tokens": 1061,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 892,
+      "completion_tokens": 114,
+      "total_tokens": 1006,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 906,
+      "completion_tokens": 144,
+      "total_tokens": 1050,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1251,
+      "completion_tokens": 157,
+      "total_tokens": 1408,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 450,
+    "majority_vote_total_tokens": 1324,
+    "scrd_total_tokens": 18423,
+    "scrd_prompt_tokens": 15940,
+    "scrd_completion_tokens": 2483,
+    "agent_total_tokens": 12447,
+    "recorder_total_tokens": 5976,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

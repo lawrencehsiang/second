@@ -1,0 +1,505 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10",
+        "12.5",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total earnings with bonus and divide by new total hours worked.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating the hourly wage.",
+          "why_still_open": "No agreement on the correct method of calculation.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "10 = Calculate hourly wage with bonus.",
+        "12.5 = Calculate hourly wage with bonus.",
+        "15 = Calculate total earnings with bonus and divide by new total hours worked."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "15",
+        "15",
+        "10"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total earnings with bonus and divide by new total hours worked.",
+        "The mainstream support suggests calculating total earnings with bonus and dividing by the new total hours worked.",
+        "The correct method is to calculate total earnings with the bonus and divide by the new total hours worked."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "12",
+        "10",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream support method is correct: Calculate total earnings with bonus and divide by new total hours worked.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The mainstream method calculates total earnings with the bonus and divides by the new total hours worked.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total earnings with bonus and divide by new total hours worked.",
+        "The mainstream method results in $10 per hour.",
+        "The correct calculation method involves total earnings with bonus divided by new total hours."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "12",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream support method correctly calculates total earnings with bonus and divides by new total hours worked, resulting in $10 per hour.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The mainstream method calculates total earnings with bonus and divides by new total hours worked.",
+        "The mainstream support method is correct: $100 total earnings divided by 10 hours worked equals $10 per hour.",
+        "The correct calculation method involves total earnings with bonus divided by new total hours."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "10",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The mainstream support method calculates total earnings ($80 + $20 = $100) and divides by total hours worked (8 + 2 = 10), resulting in $10 per hour.",
+        "The minority answer of $12 is incorrect.",
+        "John's hourly wage is correctly calculated as $10 per hour by dividing total earnings by total hours worked.",
+        "The minority answer of $12 is incorrect due to miscalculation.",
+        "Total earnings with bonus divided by new total hours results in $10 per hour."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 5,
+      "anchor_round": 4
+    },
+    {
+      "type": "repair_started",
+      "start_round": 5,
+      "anchor_round": 4
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 5
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 31,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 30,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 38,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 580,
+      "completion_tokens": 167,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 744,
+      "completion_tokens": 100,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 743,
+      "completion_tokens": 125,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 755,
+      "completion_tokens": 92,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1044,
+      "completion_tokens": 90,
+      "total_tokens": 1134,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 565,
+      "completion_tokens": 41,
+      "total_tokens": 606,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 845,
+      "completion_tokens": 106,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 842,
+      "completion_tokens": 113,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 856,
+      "completion_tokens": 122,
+      "total_tokens": 978,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 959,
+      "completion_tokens": 168,
+      "total_tokens": 1127,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 653,
+      "completion_tokens": 48,
+      "total_tokens": 701,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 757,
+      "completion_tokens": 97,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 754,
+      "completion_tokens": 114,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 768,
+      "completion_tokens": 124,
+      "total_tokens": 892,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1055,
+      "completion_tokens": 150,
+      "total_tokens": 1205,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 610,
+      "completion_tokens": 53,
+      "total_tokens": 663,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 763,
+      "completion_tokens": 131,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 760,
+      "completion_tokens": 120,
+      "total_tokens": 880,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 774,
+      "completion_tokens": 92,
+      "total_tokens": 866,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1045,
+      "completion_tokens": 277,
+      "total_tokens": 1322,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 713,
+      "completion_tokens": 49,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 855,
+      "completion_tokens": 117,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 855,
+      "completion_tokens": 175,
+      "total_tokens": 1030,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 854,
+      "completion_tokens": 162,
+      "total_tokens": 1016,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 855,
+      "completion_tokens": 179,
+      "total_tokens": 1034,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1194,
+      "completion_tokens": 152,
+      "total_tokens": 1346,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 686,
+      "completion_tokens": 54,
+      "total_tokens": 740,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 417,
+    "majority_vote_total_tokens": 1242,
+    "scrd_total_tokens": 26344,
+    "scrd_prompt_tokens": 23027,
+    "scrd_completion_tokens": 3317,
+    "agent_total_tokens": 11939,
+    "recorder_total_tokens": 6881,
+    "evaluator_total_tokens": 2732,
+    "repair_brief_total_tokens": 972,
+    "repair_evaluator_total_tokens": 740,
+    "repair_agent_total_tokens": 3080
+  }
+}

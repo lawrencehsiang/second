@@ -1,0 +1,434 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Daily consumption is 1 cup.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "There are 3 months, each with approximately 30 days.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B vs. C on the total number of cups consumed.",
+          "why_still_open": "Agent A calculates 45 cups, Agent B calculates 90 cups, and Agent C also calculates 90 cups.",
+          "involved_answers": [
+            "45",
+            "90"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Daily consumption is 1 cup.",
+        "There are 3 months, each with approximately 30 days.",
+        "Total days = 90.",
+        "Total cups = 90 * 1 = 90.",
+        "45 < 90"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "90",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent A's initial calculation of 45 cups was incorrect due to missing the full duration of the feeding period.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct total number of cups consumed is 90, matching Agents B and C's calculations.",
+          "claim_type": "support",
+          "related_answer": "B,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily consumption is 1 cup.",
+        "There are 3 months, each with approximately 30 days.",
+        "Total days = 90.",
+        "Total cups = 90 * 1 = 90.",
+        "Agent A's initial calculation of 45 cups was incorrect."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "90",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent A will re-evaluate the problem to ensure the correct interpretation and calculation.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily consumption is 1 cup.",
+        "There are 3 months, each with approximately 30 days.",
+        "Total days = 90.",
+        "Total cups = 90 * 1 = 90.",
+        "Agent A's initial calculation was incorrect due to missing the full duration."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "90",
+        "135",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The feeding period spans December, January, and February.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The revised calculation includes all days of the three-month feeding period.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The initial calculation was incomplete and missed the full duration of the feeding period.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily consumption is 1 cup.",
+        "There are 3 months, each with approximately 30 days.",
+        "Total days = 90.",
+        "Total cups = 90 * 1 = 90.",
+        "Agent A's re-evaluation ensures the full duration of the feeding period is considered."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "90",
+        "90",
+        "180"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Herman feeds the birds every day throughout December, January, and February.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The feeding period spans December, January, and February, ensuring daily feeding.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily consumption is 1 cup.",
+        "There are 3 months, each with approximately 30 days.",
+        "Total days = 90.",
+        "Total cups = 90 * 1 = 90.",
+        "The feeding period spans December, January, and February, ensuring daily feeding."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 360,
+      "completion_tokens": 37,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 347,
+      "completion_tokens": 36,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 358,
+      "completion_tokens": 76,
+      "total_tokens": 434,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 628,
+      "completion_tokens": 245,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 736,
+      "completion_tokens": 148,
+      "total_tokens": 884,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 733,
+      "completion_tokens": 138,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 747,
+      "completion_tokens": 136,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1220,
+      "completion_tokens": 196,
+      "total_tokens": 1416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 851,
+      "completion_tokens": 102,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 848,
+      "completion_tokens": 137,
+      "total_tokens": 985,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 862,
+      "completion_tokens": 114,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1085,
+      "completion_tokens": 143,
+      "total_tokens": 1228,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 728,
+      "completion_tokens": 132,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 725,
+      "completion_tokens": 131,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 739,
+      "completion_tokens": 147,
+      "total_tokens": 886,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1106,
+      "completion_tokens": 221,
+      "total_tokens": 1327,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 715,
+      "completion_tokens": 100,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 713,
+      "completion_tokens": 147,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 726,
+      "completion_tokens": 99,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0091",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1121,
+      "completion_tokens": 183,
+      "total_tokens": 1304,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 397,
+    "majority_vote_total_tokens": 1214,
+    "scrd_total_tokens": 18016,
+    "scrd_prompt_tokens": 15348,
+    "scrd_completion_tokens": 2668,
+    "agent_total_tokens": 11868,
+    "recorder_total_tokens": 6148,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

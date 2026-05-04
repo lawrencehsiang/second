@@ -1,0 +1,465 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Compute (x+y)(x-y) after solving equations.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Apply difference of squares formula directly.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Solve for x and y.",
+        "Then compute x^2 - y^2.",
+        "This simplifies to (x+y)(x-y).",
+        "Apply difference of squares formula."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute using the given equations to ensure accuracy.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ensure the values of x and y satisfy both equations before computing x^2 - y^2.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Rechecking the computation to avoid errors.",
+        "Verify if x and y satisfy both equations.",
+        "Compute x^2 - y^2 after solving.",
+        "Ensure accuracy by recomputing."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "12",
+        "9",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ensure the values of x and y satisfy both equations before computing x^2 - y^2.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Evaluate x and y first using the provided equations, then compute x^2 - y^2.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The previous answers (9 and 12) seem to differ due to different interpretations of solving the system of equations.",
+          "why_still_open": "Different agents have varying interpretations of solving the system of equations, leading to conflicting answers.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ensure accuracy by recomputing.",
+        "Verify if x and y satisfy both equations.",
+        "Solve the system of equations to find x and y accurately.",
+        "Compute x^2 - y^2 after solving.",
+        "Evaluate x and y first using the provided equations."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed using the provided equations x + y = 10 and 2x + y = 13.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 9 was incorrect, and recomputing with correct equations yields 12.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verified the answer by recomputing with the given equations.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recomputed using the provided equations x + y = 10 and 2x + y = 13.",
+        "The minority answer of 9 was incorrect.",
+        "The majority now agrees on 12 after rechecking the equations.",
+        "Recomputed with the correct equations to verify the answer.",
+        "Ensure accuracy by recomputing."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-40",
+        "-40",
+        "-40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolved the system of equations x + y = 10 and 2x + y = 13 to find x = 3 and y = 7, then computed x^2 - y^2 = -40.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Used the identity \\(x^2 - y^2 = (x+y)(x-y)\\) to compute x^2 - y^2 = 10 \times (3-7) = -40.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputed the system of equations x + y = 10 and 2x + y = 13, finding x = 3 and y = 7, then evaluated x^2 - y^2 = -40.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Resolved the system of equations x + y = 10 and 2x + y = 13 to find x = 3 and y = 7, then computed x^2 - y^2 = -40.",
+        "Used the identity \\(x^2 - y^2 = (x+y)(x-y)\\) to compute x^2 - y^2 = 10 \times (3-7) = -40.",
+        "Recomputed the system of equations x + y = 10 and 2x + y = 13, finding x = 3 and y = 7, then evaluated x^2 - y^2 = -40.",
+        "The minority answer of 9 was incorrect, and recomputing with correct equations yields -40.",
+        "Ensure accuracy by recomputing."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 41,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 43,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 43,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 600,
+      "completion_tokens": 147,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 600,
+      "completion_tokens": 97,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 597,
+      "completion_tokens": 104,
+      "total_tokens": 701,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 611,
+      "completion_tokens": 144,
+      "total_tokens": 755,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1015,
+      "completion_tokens": 161,
+      "total_tokens": 1176,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 698,
+      "completion_tokens": 129,
+      "total_tokens": 827,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 694,
+      "completion_tokens": 214,
+      "total_tokens": 908,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 708,
+      "completion_tokens": 89,
+      "total_tokens": 797,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1147,
+      "completion_tokens": 263,
+      "total_tokens": 1410,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 797,
+      "completion_tokens": 116,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 793,
+      "completion_tokens": 101,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 808,
+      "completion_tokens": 80,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1109,
+      "completion_tokens": 246,
+      "total_tokens": 1355,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 833,
+      "completion_tokens": 186,
+      "total_tokens": 1019,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 830,
+      "completion_tokens": 225,
+      "total_tokens": 1055,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 844,
+      "completion_tokens": 194,
+      "total_tokens": 1038,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1400,
+      "completion_tokens": 308,
+      "total_tokens": 1708,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1400,
+      "completion_tokens": 437,
+      "total_tokens": 1837,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1400,
+      "completion_tokens": 439,
+      "total_tokens": 1839,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 381,
+    "majority_vote_total_tokens": 1132,
+    "scrd_total_tokens": 21696,
+    "scrd_prompt_tokens": 17889,
+    "scrd_completion_tokens": 3807,
+    "agent_total_tokens": 11624,
+    "recorder_total_tokens": 10072,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,452 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "720",
+        "720",
+        "720"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ariella's account grows by 10% annually.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "After two years, the account grows by 20% total.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "20% of $600 is $120.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ariella has $600 and earns $120 in interest over 2 years.",
+        "Initial amount + Interest = Total amount after 2 years.",
+        "10% annual growth results in 20% total growth over 2 years."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "680",
+        "880",
+        "720"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Simple interest formula A = P(1 + rt) should be used for calculation.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ariella earns $60 in interest each year, totaling $120 over two years.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Starting with $600, Ariella's total after 2 years is $760.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B provided an answer of $880, which contradicts the correct calculation of $760.",
+          "why_still_open": "Agent B's response does not acknowledge the use of simple interest or provide a corrected calculation.",
+          "involved_answers": [
+            "880",
+            "760"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ariella earns $60 annually in simple interest.",
+        "Total interest over 2 years is $120.",
+        "Using A = P(1 + rt), the final amount is $760.",
+        "Starting with $600, Ariella earns a total of $120 in interest.",
+        "Interest per year is 10%, leading to a total of 20% over 2 years."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "760",
+        "760",
+        "760"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct calculation using the simple interest formula A = P(1 + rt) is $760.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agent B's previous answer of $880 is incorrect and should be revised.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ariella earns $60 annually in simple interest.",
+        "Total interest over 2 years is $120.",
+        "Using A = P(1 + rt), the final amount is $760.",
+        "Interest per year is 10%, leading to a total of 20% over 2 years.",
+        "Agent B's initial amount was incorrectly stated as $720 instead of $600."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "760",
+        "760",
+        "760"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ariella has $600 initially, calculated as $400 + $200.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agent B acknowledged the conflict and revised their answer to $760.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ariella earns $60 annually in simple interest.",
+        "Total interest over 2 years is $120.",
+        "Using A = P(1 + rt), the final amount is $760.",
+        "Interest per year is 10%, leading to a total of 20% over 2 years.",
+        "Agent B revised their answer to $760."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "840",
+        "840",
+        "760"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial amount for Ariella is $600, not $400.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct final amount after 2 years of 10% simple interest is $840.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is disagreement on the correct final amount, with answers $840 and $760.",
+          "why_still_open": "The discrepancy arises from differing interpretations of the initial amount and subsequent calculations.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ariella's initial amount is $600.",
+        "Interest rate is 10% per year.",
+        "Final amount after 2 years is $840.",
+        "Corrected initial amount leads to a different final amount.",
+        "Agent C confirmed the final amount as $760."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 55,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 40,
+      "total_tokens": 402,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 95,
+      "total_tokens": 468,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 675,
+      "completion_tokens": 208,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 640,
+      "completion_tokens": 124,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 637,
+      "completion_tokens": 75,
+      "total_tokens": 712,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 651,
+      "completion_tokens": 85,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1026,
+      "completion_tokens": 340,
+      "total_tokens": 1366,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 763,
+      "completion_tokens": 135,
+      "total_tokens": 898,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 760,
+      "completion_tokens": 143,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 774,
+      "completion_tokens": 149,
+      "total_tokens": 923,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1330,
+      "completion_tokens": 220,
+      "total_tokens": 1550,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 864,
+      "completion_tokens": 155,
+      "total_tokens": 1019,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 861,
+      "completion_tokens": 113,
+      "total_tokens": 974,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 875,
+      "completion_tokens": 134,
+      "total_tokens": 1009,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1172,
+      "completion_tokens": 209,
+      "total_tokens": 1381,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 743,
+      "completion_tokens": 150,
+      "total_tokens": 893,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 740,
+      "completion_tokens": 139,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 754,
+      "completion_tokens": 134,
+      "total_tokens": 888,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0155",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1190,
+      "completion_tokens": 261,
+      "total_tokens": 1451,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 430,
+    "majority_vote_total_tokens": 1300,
+    "scrd_total_tokens": 18529,
+    "scrd_prompt_tokens": 15565,
+    "scrd_completion_tokens": 2964,
+    "agent_total_tokens": 11898,
+    "recorder_total_tokens": 6631,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

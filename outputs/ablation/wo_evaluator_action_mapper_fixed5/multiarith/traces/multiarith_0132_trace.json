@@ -1,0 +1,422 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "67",
+        "67",
+        "67"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial songs = deleted songs + added songs"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "67",
+        "57",
+        "67"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Zoe ends up with 57 songs after deleting 8 from 15 and adding 50.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial songs = 15 - 8 + 50",
+        "Final songs = 57",
+        "15 - 8 + 50 ≠ 15"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "57",
+        "67",
+        "57"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct sequence is to subtract 8 from 15 first, then add 50.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Deleting 8 songs from 15 leaves 7, then adding 50 gives 57.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Zoe ends up with 57 songs vs. 67 songs.",
+          "why_still_open": "Different agents provide conflicting calculations despite agreeing on the operation sequence.",
+          "involved_answers": [
+            "57",
+            "67"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "15 - 8 + 50 = 57",
+        "Correct sequence: subtract 8 from 15, then add 50",
+        "Initial songs = 15 - 8 + 50",
+        "Final songs = 57",
+        "Mainstream support: 67 songs"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "67",
+        "57",
+        "57"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 67 is correct based on the calculation 15 - 8 + 50.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct sequence is to subtract 8 from 15 first, then add 50, leading to 67.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Starting with 15 songs, deleting 8 leaves 7, then adding 50 results in 57, contradicting the minority answer of 67.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "15 - 8 + 50 = 67",
+        "Correct sequence: 15 - 8 + 50",
+        "Starting with 15, delete 8, then add 50",
+        "Final songs = 67",
+        "Minority answer: 67"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "67",
+        "67",
+        "67"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 67 is correct based on the calculation 15 - 8 + 50.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct sequence is to subtract 8 from 15 first, then add 50, leading to 67.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 67 is calculated correctly as 15 - 8 + 50.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "15 - 8 + 50 = 67",
+        "Proper sequence: 15 - 8 + 50",
+        "Final songs = 67",
+        "Minority answer: 67",
+        "Subtract 8 from 15, then add 50"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 34,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 31,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 34,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 578,
+      "completion_tokens": 40,
+      "total_tokens": 618,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 612,
+      "completion_tokens": 136,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 609,
+      "completion_tokens": 64,
+      "total_tokens": 673,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 623,
+      "completion_tokens": 136,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 916,
+      "completion_tokens": 124,
+      "total_tokens": 1040,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 626,
+      "completion_tokens": 137,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 623,
+      "completion_tokens": 141,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 637,
+      "completion_tokens": 157,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1087,
+      "completion_tokens": 263,
+      "total_tokens": 1350,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 825,
+      "completion_tokens": 127,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 822,
+      "completion_tokens": 110,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 836,
+      "completion_tokens": 150,
+      "total_tokens": 986,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1199,
+      "completion_tokens": 269,
+      "total_tokens": 1468,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 833,
+      "completion_tokens": 117,
+      "total_tokens": 950,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 830,
+      "completion_tokens": 137,
+      "total_tokens": 967,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 844,
+      "completion_tokens": 109,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0132",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1176,
+      "completion_tokens": 256,
+      "total_tokens": 1432,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 387,
+    "majority_vote_total_tokens": 1143,
+    "scrd_total_tokens": 17292,
+    "scrd_prompt_tokens": 14720,
+    "scrd_completion_tokens": 2572,
+    "agent_total_tokens": 11384,
+    "recorder_total_tokens": 5908,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

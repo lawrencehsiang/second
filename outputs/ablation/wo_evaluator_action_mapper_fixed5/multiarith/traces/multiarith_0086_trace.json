@@ -1,0 +1,408 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "49",
+        "49"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial count of cats is 64.",
+          "claim_type": "constraint",
+          "related_answer": "45"
+        },
+        {
+          "text": "Sold 19 cats.",
+          "claim_type": "constraint",
+          "related_answer": "45"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cats - 19 = 45",
+        "Initial count: 15 + 49 = 64 cats",
+        "Sold 19 cats"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "46",
+        "4",
+        "4"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected initial cat count to 64.",
+          "claim_type": "constraint",
+          "related_answer": "46"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cats - 19 = 45",
+        "Initial count: 15 + 49 = 64 cats",
+        "Sold 19 cats"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "4",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Corrected initial cat count to 64.",
+          "claim_type": "constraint",
+          "related_answer": "46"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cats - 19 = 45",
+        "Initial count: 15 + 49 = 64 cats",
+        "Sold 19 cats"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "60",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 45 remains unresolved despite corrections.",
+          "claim_type": "rebuttal",
+          "related_answer": "60"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between answers 60 and 45 regarding the total number of cats.",
+          "why_still_open": "Agent A's answer of 60 contradicts the corrected initial cat count of 64.",
+          "involved_answers": [
+            "60",
+            "45"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cats - 19 = 45",
+        "Initial count: 15 + 49 = 64 cats",
+        "Sold 19 cats",
+        "60 contradicts the corrected initial cat count of 64",
+        "Recomputed final answer based on 64 cats"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The corrected initial cat count of 64, minus 19 sold cats, results in 45 remaining cats.",
+          "claim_type": "explanation",
+          "related_answer": "45"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cats - 19 = 45",
+        "Initial count: 15 + 49 = 64 cats",
+        "Sold 19 cats",
+        "Corrected initial total of 64 cats",
+        "64 - 19 = 45"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 59,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 34,
+      "total_tokens": 367,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 34,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 606,
+      "completion_tokens": 141,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 605,
+      "completion_tokens": 123,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 602,
+      "completion_tokens": 145,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 616,
+      "completion_tokens": 141,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1084,
+      "completion_tokens": 110,
+      "total_tokens": 1194,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 706,
+      "completion_tokens": 134,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 702,
+      "completion_tokens": 124,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 716,
+      "completion_tokens": 127,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1044,
+      "completion_tokens": 110,
+      "total_tokens": 1154,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 705,
+      "completion_tokens": 107,
+      "total_tokens": 812,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 703,
+      "completion_tokens": 106,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 717,
+      "completion_tokens": 109,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 975,
+      "completion_tokens": 217,
+      "total_tokens": 1192,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 816,
+      "completion_tokens": 128,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 813,
+      "completion_tokens": 131,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 827,
+      "completion_tokens": 117,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0086",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1150,
+      "completion_tokens": 151,
+      "total_tokens": 1301,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 405,
+    "majority_vote_total_tokens": 1150,
+    "scrd_total_tokens": 16758,
+    "scrd_prompt_tokens": 14410,
+    "scrd_completion_tokens": 2348,
+    "agent_total_tokens": 11170,
+    "recorder_total_tokens": 5588,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,449 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "42",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Both A and C calculate the same total time.",
+          "claim_type": "support",
+          "related_answer": "45"
+        },
+        {
+          "text": "B calculates different total time due to different activities.",
+          "claim_type": "rebuttal",
+          "related_answer": "42"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on 45 minutes, while B calculates 42 minutes.",
+          "why_still_open": "Different interpretations of 'activities related to the dog'.",
+          "involved_answers": [
+            "45",
+            "42"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total dog-related activities: 45 min",
+        "Total dog activities: 42 min",
+        "Calculate time spent: dog-related activities",
+        "Agreement on 45 min",
+        "Disagreement on 42 min"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Feeding the dog is considered a relevant activity related to the dog.",
+          "claim_type": "support",
+          "related_answer": "45"
+        },
+        {
+          "text": "Walking and playing are directly related to the dog's care.",
+          "claim_type": "support",
+          "related_answer": "45"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different interpretations of the relevance of feeding the dog.",
+          "why_still_open": "Whether feeding is considered a directly related activity to the dog.",
+          "involved_answers": [
+            "45",
+            "42"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Walking and playing are directly related to the dog.",
+        "Feeding the dog is relevant.",
+        "Calculate total dog-related activities: 45 min",
+        "Disagree on whether feeding counts as a relevant activity.",
+        "Re-evaluation of activities related to the dog."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Walking and playing are directly related to the dog.",
+        "Feeding the dog is relevant.",
+        "Calculate total dog-related activities: 45 min",
+        "Resolved disagreement on the relevance of feeding the dog.",
+        "Re-evaluation of activities related to the dog."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "60",
+        "90",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Including feeding the dog as relevant.",
+          "claim_type": "support",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Walking and playing are directly related to the dog.",
+        "Feeding the dog is relevant.",
+        "Calculate total dog-related activities: 60 min",
+        "Resolved disagreement on the relevance of feeding the dog.",
+        "Re-evaluation of activities related to the dog."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 351,
+      "completion_tokens": 35,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 338,
+      "completion_tokens": 33,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 349,
+      "completion_tokens": 36,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 583,
+      "completion_tokens": 227,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 809,
+      "completion_tokens": 174,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 806,
+      "completion_tokens": 183,
+      "total_tokens": 989,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 820,
+      "completion_tokens": 134,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1275,
+      "completion_tokens": 191,
+      "total_tokens": 1466,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 629,
+      "completion_tokens": 50,
+      "total_tokens": 679,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 812,
+      "completion_tokens": 108,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 609,
+      "completion_tokens": 147,
+      "total_tokens": 756,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 608,
+      "completion_tokens": 195,
+      "total_tokens": 803,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 609,
+      "completion_tokens": 124,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1226,
+      "completion_tokens": 233,
+      "total_tokens": 1459,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 741,
+      "completion_tokens": 51,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 770,
+      "completion_tokens": 140,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 767,
+      "completion_tokens": 100,
+      "total_tokens": 867,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 783,
+      "completion_tokens": 100,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1083,
+      "completion_tokens": 91,
+      "total_tokens": 1174,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 526,
+      "completion_tokens": 54,
+      "total_tokens": 580,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 680,
+      "completion_tokens": 101,
+      "total_tokens": 781,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 677,
+      "completion_tokens": 111,
+      "total_tokens": 788,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 693,
+      "completion_tokens": 151,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 959,
+      "completion_tokens": 129,
+      "total_tokens": 1088,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 556,
+      "completion_tokens": 51,
+      "total_tokens": 607,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 386,
+    "majority_vote_total_tokens": 1142,
+    "scrd_total_tokens": 21008,
+    "scrd_prompt_tokens": 18059,
+    "scrd_completion_tokens": 2949,
+    "agent_total_tokens": 4068,
+    "recorder_total_tokens": 5997,
+    "evaluator_total_tokens": 679,
+    "repair_brief_total_tokens": 920,
+    "repair_evaluator_total_tokens": 1979,
+    "repair_agent_total_tokens": 7365
+  }
+}

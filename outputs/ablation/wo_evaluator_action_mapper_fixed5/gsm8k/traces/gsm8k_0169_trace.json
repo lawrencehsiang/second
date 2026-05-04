@@ -1,0 +1,412 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45.00",
+        "45.00",
+        "45"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C all agree on the final answer being less than $50 after applying the 10% discount, but the exact representation of the answer varies slightly.",
+          "why_still_open": "Different representations of the same value ($45.00 vs $45) are causing minor discrepancies in the final answer.",
+          "involved_answers": [
+            "45.00",
+            "45"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost < $50 -> no discount",
+        "Total cost > $50 -> 10% discount",
+        "$45 < $50 -> no discount applied",
+        "Final amount = $45",
+        "10% of $50 = $5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "45.00",
+        "45.00",
+        "45.00"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total cost before discount is $54, which rounds to $45 after applying the 10% discount.",
+          "claim_type": "explanation",
+          "related_answer": "45.00"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost < $50 -> no discount",
+        "Total cost > $50 -> 10% discount",
+        "$54 > $50 -> 10% discount applied",
+        "Final amount = $45",
+        "10% of $54 = $5.40"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "45.00",
+        "49.00",
+        "45.00"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total cost before discount is $54, which rounds to $49 after applying the 10% discount.",
+          "claim_type": "explanation",
+          "related_answer": "49.00"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the rounding of the discounted amount from $48.60 to either $45 or $49.",
+          "why_still_open": "Different interpretations of rounding rules were applied.",
+          "involved_answers": [
+            "45.00",
+            "49.00"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost < $50 -> no discount",
+        "Total cost > $50 -> 10% discount",
+        "$54 > $50 -> 10% discount applied",
+        "10% of $54 = $5.40",
+        "$48.60 rounds to $49"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "49.00",
+        "49",
+        "49.00"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Standard rounding rules dictate that $48.60 should be rounded up to $49.",
+          "claim_type": "explanation",
+          "related_answer": "49.00"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost > $50 -> 10% discount",
+        "$54 > $50 -> 10% discount applied",
+        "10% of $54 = $5.40",
+        "Standard rounding rules: .60 rounds up",
+        "$48.60 rounds to $49"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "49.00",
+        "49",
+        "44.00"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Standard rounding rules dictate that $48.60 should be rounded up to $49.",
+          "claim_type": "explanation",
+          "related_answer": "49.00"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost > $50 -> 10% discount",
+        "Standard rounding rules: .60 rounds up",
+        "$48.60 rounds to $49",
+        "10% of $54 = $5.40",
+        "43.74 rounds to $44"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 47,
+      "total_tokens": 433,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 41,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 41,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 614,
+      "completion_tokens": 203,
+      "total_tokens": 817,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 797,
+      "completion_tokens": 144,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 794,
+      "completion_tokens": 158,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 805,
+      "completion_tokens": 169,
+      "total_tokens": 974,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1239,
+      "completion_tokens": 158,
+      "total_tokens": 1397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 809,
+      "completion_tokens": 139,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 806,
+      "completion_tokens": 164,
+      "total_tokens": 970,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 820,
+      "completion_tokens": 142,
+      "total_tokens": 962,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1173,
+      "completion_tokens": 236,
+      "total_tokens": 1409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 779,
+      "completion_tokens": 117,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 776,
+      "completion_tokens": 111,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 790,
+      "completion_tokens": 127,
+      "total_tokens": 917,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1163,
+      "completion_tokens": 157,
+      "total_tokens": 1320,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 884,
+      "completion_tokens": 164,
+      "total_tokens": 1048,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 878,
+      "completion_tokens": 134,
+      "total_tokens": 1012,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 895,
+      "completion_tokens": 181,
+      "total_tokens": 1076,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0169",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1153,
+      "completion_tokens": 154,
+      "total_tokens": 1307,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 433,
+    "majority_vote_total_tokens": 1272,
+    "scrd_total_tokens": 19105,
+    "scrd_prompt_tokens": 16318,
+    "scrd_completion_tokens": 2787,
+    "agent_total_tokens": 12855,
+    "recorder_total_tokens": 6250,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

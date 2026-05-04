@@ -1,0 +1,442 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "13",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total candy equals 8 + 23.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Subtracting eaten candy from total gives remaining candy.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total candy = 8 + 23",
+        "Katie + sister's candy - eaten candy = remaining candy"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "13",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify the units and magnitude of the answer.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The mainstream support answer is 13, which seems correct based on the subtraction, but verification of all units and magnitudes is needed.",
+          "why_still_open": "Units and magnitudes need rechecking.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total candy = 8 + 23",
+        "Katie + sister's candy - eaten candy = remaining candy"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "13",
+        "13",
+        "23"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-checking units and magnitudes confirms the initial calculation.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Reviewing the subtraction and units verifies the previous mainstream support answer.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Units and magnitudes align with the problem statement, resulting in 23 as the final count.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total candy = 8 + 23",
+        "Katie + sister's candy - eaten candy = remaining candy",
+        "8 + 23 - 8 = 13"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "23",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial calculation of total candy is 31, and after eating 8 pieces, 23 remain.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a conflict between the answers 23 and 13.",
+          "why_still_open": "Both sides have verified their calculations, but the discrepancy remains.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total candy = 8 + 23",
+        "Katie + sister's candy - eaten candy = remaining candy",
+        "8 + 23 - 8 = 23",
+        "Initial subtraction: 8 + 23 - 8 = 13",
+        "Total candy = 31 after adding Katie's and sister's candy"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "23",
+        "23",
+        "23"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total candy is correctly calculated as 31, and after eating 8 pieces, 23 should remain.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 23 is verified through the calculation 31 - 8.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a conflict between the answers 23 and 13.",
+          "why_still_open": "Despite verification, the majority continues to support 13, while the minority supports 23.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total candy = 8 + 23",
+        "31 - 8 = 23",
+        "Katie + sister's candy - eaten candy = remaining candy",
+        "Initial subtraction: 31 - 8 = 23",
+        "Total candy = 31 after adding Katie's and sister's candy"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 355,
+      "completion_tokens": 35,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 342,
+      "completion_tokens": 41,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 353,
+      "completion_tokens": 34,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 134,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 616,
+      "completion_tokens": 34,
+      "total_tokens": 650,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 613,
+      "completion_tokens": 57,
+      "total_tokens": 670,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 627,
+      "completion_tokens": 105,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 866,
+      "completion_tokens": 167,
+      "total_tokens": 1033,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 728,
+      "completion_tokens": 132,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 725,
+      "completion_tokens": 130,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 739,
+      "completion_tokens": 173,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1152,
+      "completion_tokens": 200,
+      "total_tokens": 1352,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 823,
+      "completion_tokens": 136,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 820,
+      "completion_tokens": 113,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 834,
+      "completion_tokens": 127,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1120,
+      "completion_tokens": 224,
+      "total_tokens": 1344,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 821,
+      "completion_tokens": 125,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 818,
+      "completion_tokens": 130,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 832,
+      "completion_tokens": 106,
+      "total_tokens": 938,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0095",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1127,
+      "completion_tokens": 277,
+      "total_tokens": 1404,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 390,
+    "majority_vote_total_tokens": 1160,
+    "scrd_total_tokens": 17383,
+    "scrd_prompt_tokens": 14903,
+    "scrd_completion_tokens": 2480,
+    "agent_total_tokens": 11524,
+    "recorder_total_tokens": 5859,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

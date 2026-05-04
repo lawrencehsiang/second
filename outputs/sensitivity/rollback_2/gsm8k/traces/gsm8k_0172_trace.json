@@ -1,0 +1,206 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "72",
+        "48",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "He plants 60% of 40 seeds.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A and B both claim 72, but C claims 24.",
+          "why_still_open": "Different interpretations of 'total seeds'.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "2 trees * 20 plants/tree * 1 seed/plant = 40 seeds",
+        "60% of 40 seeds = 24 seeds",
+        "Total seeds = 40, 60% = 24",
+        "72 seeds * 60% = 43.2 (round to 43 or 44)",
+        "24 trees planted"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "24",
+        "24",
+        "48"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total seeds are 80.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "60% of 80 seeds is 48 seeds.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B claim 24, while C claims 48.",
+          "why_still_open": "Different interpretations of the total seeds and percentage planting.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "2 trees * 20 plants/tree * 1 seed/plant = 40 seeds",
+        "60% of 40 seeds = 24 seeds",
+        "Total seeds = 80, 60% = 48",
+        "24 trees planted based on 40 seeds",
+        "48 trees planted based on 80 seeds"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 355,
+      "completion_tokens": 34,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 342,
+      "completion_tokens": 37,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 353,
+      "completion_tokens": 82,
+      "total_tokens": 435,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 632,
+      "completion_tokens": 222,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 720,
+      "completion_tokens": 131,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 717,
+      "completion_tokens": 159,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 731,
+      "completion_tokens": 178,
+      "total_tokens": 909,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1248,
+      "completion_tokens": 249,
+      "total_tokens": 1497,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0172",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 51,
+      "total_tokens": 647,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 389,
+    "majority_vote_total_tokens": 1203,
+    "scrd_total_tokens": 6837,
+    "scrd_prompt_tokens": 5694,
+    "scrd_completion_tokens": 1143,
+    "agent_total_tokens": 3839,
+    "recorder_total_tokens": 2351,
+    "evaluator_total_tokens": 647,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

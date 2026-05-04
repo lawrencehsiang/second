@@ -1,0 +1,572 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "54",
+        "50",
+        "54"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate stickers given to friends and subtract from total.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate stickers given to friends and subtract from initial amount.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculated stickers given to each friend and total, then subtracted from initial amount.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C have different final answers (54, 50, 54).",
+          "why_still_open": "The calculations might differ in how stickers were distributed among friends.",
+          "involved_answers": [
+            "54",
+            "50"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total stickers = 120",
+        "Stickers given to friends = 60",
+        "Initial amount of stickers = 120"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "42",
+        "50",
+        "54"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the distribution of stickers, resulting in 42 stickers remaining for Colton.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Reevaluated the distribution to ensure accuracy, settling on 50 stickers remaining for Colton.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Adjusted the calculation to match the exact distribution, concluding with 54 stickers remaining for Colton.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C have different final answers (50 and 54).",
+          "why_still_open": "Discrepancy persists in the exact method of distributing stickers.",
+          "involved_answers": [
+            "50",
+            "54"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total stickers = 120",
+        "Stickers given to friends = 60",
+        "Colton initially had 120 stickers"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "54",
+        "54",
+        "54"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the distribution of stickers step-by-step to ensure accuracy.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verified the distribution by recomputing to confirm 54 stickers remain for Colton.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total stickers = 120",
+        "Stickers given to friends = 60",
+        "Colton initially had 120 stickers",
+        "Final count: 54 stickers remaining"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "54",
+        "54",
+        "54"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the distribution of stickers to find the correct final answer.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recomputed the distribution of stickers step-by-step to ensure accuracy and resolve the discrepancy between previous answers.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Resolved the discrepancy by recomputing the distribution.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C had different final answers (50 and 54) previously.",
+          "why_still_open": "Both B and C recomputed but agreed on 54, indicating no further discrepancy.",
+          "involved_answers": [
+            "50",
+            "54"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total stickers = 120",
+        "Stickers given to friends = 60",
+        "Colton initially had 120 stickers",
+        "Final count: 54 stickers remaining"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "54",
+        "54",
+        "54"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous discrepancy between answers 50 and 54 has been resolved with consensus on 54.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agents B and C confirmed their agreement on 54 after rechecking.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Final answer confirmed to be 54 after rechecking the distribution.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total stickers = 120",
+        "Stickers given to friends = 60",
+        "Final count: 54 stickers remaining",
+        "Consensus on 54 stickers given away",
+        "Rechecked distribution to confirm accuracy"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 372,
+      "completion_tokens": 39,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 359,
+      "completion_tokens": 33,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 370,
+      "completion_tokens": 42,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 593,
+      "completion_tokens": 256,
+      "total_tokens": 849,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 746,
+      "completion_tokens": 96,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 743,
+      "completion_tokens": 105,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 757,
+      "completion_tokens": 114,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1124,
+      "completion_tokens": 231,
+      "total_tokens": 1355,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 645,
+      "completion_tokens": 46,
+      "total_tokens": 691,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 898,
+      "completion_tokens": 99,
+      "total_tokens": 997,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 621,
+      "completion_tokens": 214,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 620,
+      "completion_tokens": 103,
+      "total_tokens": 723,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 621,
+      "completion_tokens": 123,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1225,
+      "completion_tokens": 271,
+      "total_tokens": 1496,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 828,
+      "completion_tokens": 52,
+      "total_tokens": 880,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 814,
+      "completion_tokens": 111,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 811,
+      "completion_tokens": 111,
+      "total_tokens": 922,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 827,
+      "completion_tokens": 102,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1110,
+      "completion_tokens": 161,
+      "total_tokens": 1271,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 649,
+      "completion_tokens": 59,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 708,
+      "completion_tokens": 118,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 705,
+      "completion_tokens": 112,
+      "total_tokens": 817,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 721,
+      "completion_tokens": 115,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1001,
+      "completion_tokens": 268,
+      "total_tokens": 1269,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 693,
+      "completion_tokens": 65,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 714,
+      "completion_tokens": 116,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 711,
+      "completion_tokens": 106,
+      "total_tokens": 817,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 112,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1135,
+      "completion_tokens": 215,
+      "total_tokens": 1350,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0180",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 701,
+      "completion_tokens": 54,
+      "total_tokens": 755,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 411,
+    "majority_vote_total_tokens": 1215,
+    "scrd_total_tokens": 26198,
+    "scrd_prompt_tokens": 22549,
+    "scrd_completion_tokens": 3649,
+    "agent_total_tokens": 3776,
+    "recorder_total_tokens": 7590,
+    "evaluator_total_tokens": 691,
+    "repair_brief_total_tokens": 997,
+    "repair_evaluator_total_tokens": 3101,
+    "repair_agent_total_tokens": 10043
+  }
+}

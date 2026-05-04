@@ -3,42 +3,73 @@
     {
       "round_id": 1,
       "current_answers": [
-        "51",
+        "48",
         "51",
         "51"
       ],
       "newly_added_claims": [
         {
-          "text": "Total apples ordered minus total students wanting fruit equals extras.",
-          "claim_type": "constraint",
+          "text": "Total apples minus apples eaten equals extra apples.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total apples ordered minus apples consumed equals extras.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total apples minus student demand equals extras.",
+          "claim_type": "support",
           "related_answer": "C"
         }
       ],
-      "unresolved_conflicts": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different interpretations of 'total apples' and 'apples consumed'.",
+          "why_still_open": "Definitions of terms are not aligned.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
       "key_raw_snippets": [
-        "Total apples - apples eaten = extras",
-        "Total ordered - total students = extras"
+        "Total = 48 + x",
+        "Order = 51 + y",
+        "Demand = z"
       ]
     },
     {
       "round_id": 2,
       "current_answers": [
-        "75",
-        "48",
+        "73",
+        "73",
         "73"
       ],
       "newly_added_claims": [
         {
-          "text": "Total apples ordered minus total students wanting fruit equals extras.",
-          "claim_type": "constraint",
+          "text": "Total apples ordered minus apples consumed equals extras.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Red and green apples total 75, and 2 were consumed, leaving 73 extras.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Clarified that the initial 51 was wrong due to misinterpretation.",
+          "claim_type": "explanation",
           "related_answer": "C"
         }
       ],
       "unresolved_conflicts": [],
       "key_raw_snippets": [
-        "Total apples - apples eaten = extras",
-        "Total ordered - total students = extras",
-        "75 - 2 = 73"
+        "Total = 43 red + 32 green = 75",
+        "Consumed = 2",
+        "Extras = 75 - 2 = 73"
       ]
     }
   ],
@@ -67,8 +98,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 349,
-      "completion_tokens": 31,
-      "total_tokens": 380,
+      "completion_tokens": 34,
+      "total_tokens": 383,
       "extra": {}
     },
     {
@@ -78,8 +109,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 336,
-      "completion_tokens": 30,
-      "total_tokens": 366,
+      "completion_tokens": 34,
+      "total_tokens": 370,
       "extra": {}
     },
     {
@@ -89,8 +120,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 347,
-      "completion_tokens": 34,
-      "total_tokens": 381,
+      "completion_tokens": 31,
+      "total_tokens": 378,
       "extra": {}
     },
     {
@@ -99,9 +130,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 577,
-      "completion_tokens": 91,
-      "total_tokens": 668,
+      "prompt_tokens": 575,
+      "completion_tokens": 218,
+      "total_tokens": 793,
       "extra": {}
     },
     {
@@ -110,9 +141,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 610,
-      "completion_tokens": 116,
-      "total_tokens": 726,
+      "prompt_tokens": 707,
+      "completion_tokens": 131,
+      "total_tokens": 838,
       "extra": {}
     },
     {
@@ -121,9 +152,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 607,
-      "completion_tokens": 126,
-      "total_tokens": 733,
+      "prompt_tokens": 704,
+      "completion_tokens": 131,
+      "total_tokens": 835,
       "extra": {}
     },
     {
@@ -132,9 +163,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 621,
-      "completion_tokens": 148,
-      "total_tokens": 769,
+      "prompt_tokens": 718,
+      "completion_tokens": 166,
+      "total_tokens": 884,
       "extra": {}
     },
     {
@@ -143,9 +174,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 1009,
-      "completion_tokens": 103,
-      "total_tokens": 1112,
+      "prompt_tokens": 1204,
+      "completion_tokens": 198,
+      "total_tokens": 1402,
       "extra": {}
     },
     {
@@ -154,25 +185,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 558,
-      "completion_tokens": 44,
-      "total_tokens": 602,
+      "prompt_tokens": 673,
+      "completion_tokens": 49,
+      "total_tokens": 722,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 380,
-    "majority_vote_total_tokens": 1127,
-    "scrd_total_tokens": 5737,
-    "scrd_prompt_tokens": 5014,
-    "scrd_completion_tokens": 723,
-    "agent_total_tokens": 3355,
-    "recorder_total_tokens": 1780,
-    "evaluator_total_tokens": 602,
+    "single_agent_total_tokens": 383,
+    "majority_vote_total_tokens": 1131,
+    "scrd_total_tokens": 6605,
+    "scrd_prompt_tokens": 5613,
+    "scrd_completion_tokens": 992,
+    "agent_total_tokens": 3688,
+    "recorder_total_tokens": 2195,
+    "evaluator_total_tokens": 722,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

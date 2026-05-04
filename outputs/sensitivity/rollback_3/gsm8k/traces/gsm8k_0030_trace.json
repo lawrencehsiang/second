@@ -1,0 +1,283 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2400",
+        "2400",
+        "2400"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate original income using percentage change in rent/utilities.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Set up equations based on given percentages to find initial income.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Formulate an equation from new and old percentages to determine original income.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Income change = 10% increase in rent + 20% increase in utilities",
+        "New income = 2400",
+        "Original income = x"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2400",
+        "2400",
+        "2400"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the problem using the correct interpretation of the income increase and its effect on the rent/utilities percentage.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "After careful review, the correct interpretation leads to an original income of $2400.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the original income value between answers A (3200) and B/C (2400).",
+          "why_still_open": "The problem statement's ambiguity remains unaddressed, leading to different interpretations.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Income increase = 10% rent + 20% utilities",
+        "New income = 2400",
+        "Original income = 2400",
+        "Rent + Utilities = 25% of income"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 365,
+      "completion_tokens": 38,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 352,
+      "completion_tokens": 36,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 363,
+      "completion_tokens": 43,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 186,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 630,
+      "completion_tokens": 114,
+      "total_tokens": 744,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 627,
+      "completion_tokens": 61,
+      "total_tokens": 688,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 641,
+      "completion_tokens": 63,
+      "total_tokens": 704,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 964,
+      "completion_tokens": 229,
+      "total_tokens": 1193,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 625,
+      "completion_tokens": 59,
+      "total_tokens": 684,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 836,
+      "completion_tokens": 111,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 626,
+      "completion_tokens": 141,
+      "total_tokens": 767,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 625,
+      "completion_tokens": 144,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 626,
+      "completion_tokens": 152,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1163,
+      "completion_tokens": 258,
+      "total_tokens": 1421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0030",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 808,
+      "completion_tokens": 47,
+      "total_tokens": 855,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 403,
+    "majority_vote_total_tokens": 1197,
+    "scrd_total_tokens": 11538,
+    "scrd_prompt_tokens": 9856,
+    "scrd_completion_tokens": 1682,
+    "agent_total_tokens": 3333,
+    "recorder_total_tokens": 3405,
+    "evaluator_total_tokens": 684,
+    "repair_brief_total_tokens": 947,
+    "repair_evaluator_total_tokens": 855,
+    "repair_agent_total_tokens": 2314
+  }
+}

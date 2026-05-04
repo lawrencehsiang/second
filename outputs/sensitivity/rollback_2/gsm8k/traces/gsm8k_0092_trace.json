@@ -1,0 +1,215 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "11.11",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "New daily earnings = $80 + $20",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "New daily hours = 8 + 2",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Hourly wage = $100 / 10 hours",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different calculated hourly wages ($12 vs $11.11 vs $10)",
+          "why_still_open": "Calculations differ in rounding and assumptions.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate hourly wage with bonus.",
+        "$80 + $20 = $100",
+        "8 + 2 = 10",
+        "$100 / 10 = $10",
+        "Hourly wage = $10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "11.11",
+        "12",
+        "11.11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Standardize hourly wage calculation to $12",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify calculations with consistent assumptions",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Consistency in hourly wage calculation ($12 vs $11.11)",
+          "why_still_open": "Disagreement on the correct interpretation and rounding method.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate hourly wage with bonus.",
+        "$80 + $20 = $100",
+        "8 + 2 = 10",
+        "$100 / 10 = $10",
+        "Consistent hourly wage = $12"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 28,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 34,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 83,
+      "total_tokens": 467,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 627,
+      "completion_tokens": 268,
+      "total_tokens": 895,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 753,
+      "completion_tokens": 124,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 753,
+      "completion_tokens": 116,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 764,
+      "completion_tokens": 125,
+      "total_tokens": 889,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1200,
+      "completion_tokens": 221,
+      "total_tokens": 1421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 661,
+      "completion_tokens": 62,
+      "total_tokens": 723,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 414,
+    "majority_vote_total_tokens": 1288,
+    "scrd_total_tokens": 6962,
+    "scrd_prompt_tokens": 5901,
+    "scrd_completion_tokens": 1061,
+    "agent_total_tokens": 3923,
+    "recorder_total_tokens": 2316,
+    "evaluator_total_tokens": 723,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

@@ -1,0 +1,418 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-1",
+        "-561",
+        "-379"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Applying f(x) = x^2 - 2x repeatedly starting from -1 leads to -1.",
+          "claim_type": "support",
+          "related_answer": "-1"
+        },
+        {
+          "text": "Evaluating f(-1) and applying f again results in -561.",
+          "claim_type": "support",
+          "related_answer": "-561"
+        },
+        {
+          "text": "Starting from -1, repeated application of f yields -379.",
+          "claim_type": "support",
+          "related_answer": "-379"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = x^2 - 2x",
+        "start from -1",
+        "-1 -> -1",
+        "-1 -> -561 -> -379"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-1",
+        "-561",
+        "-561"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Evaluating f(-1) step-by-step results in -1.",
+          "claim_type": "support",
+          "related_answer": "-1"
+        },
+        {
+          "text": "Re-evaluating f(-1) and applying f again results in -561.",
+          "claim_type": "support",
+          "related_answer": "-561"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = x^2 - 2x",
+        "start from -1",
+        "-1 -> -1",
+        "-1 -> -561"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "3",
+        "-561",
+        "-1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The function f(x) = x^2 - 2x consistently evaluates to 3 when applied repeatedly starting from -1.",
+          "claim_type": "support",
+          "related_answer": "3"
+        },
+        {
+          "text": "The minority answer f(-1) = -1 is incorrect as it contradicts the consistent evaluation of f(x) starting from -1 which yields -561.",
+          "claim_type": "rebuttal",
+          "related_answer": "-561"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = x^2 - 2x",
+        "f(f(f(f(f(f(-1)))))) = 3",
+        "-1 -> -1",
+        "-1 -> -561",
+        "3 -> 3"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "-561",
+        "-561",
+        "-561"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer f(-1) = -1 is incorrect as it contradicts the consistent evaluation of f(x) starting from -1 which yields -561.",
+          "claim_type": "rebuttal",
+          "related_answer": "-561"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = x^2 - 2x",
+        "f(f(f(f(f(f(-1)))))) = 3",
+        "-1 -> -561",
+        "Consistent evaluation of f(x) starting from -1 yields -561",
+        "The minority answer f(-1) = -1 is incorrect"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-561",
+        "-561",
+        "-561"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Starting from f(-1), the function consistently evaluates to -561.",
+          "claim_type": "support",
+          "related_answer": "-561"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = x^2 - 2x",
+        "f(f(f(f(f(f(-1)))))) = 3",
+        "-1 -> -561",
+        "Consistent evaluation of f(x) starting from -1 yields -561",
+        "The minority answer f(-1) = -1 is incorrect"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 45,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 36,
+      "total_tokens": 363,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 47,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 212,
+      "total_tokens": 817,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 608,
+      "completion_tokens": 132,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 607,
+      "completion_tokens": 114,
+      "total_tokens": 721,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 621,
+      "completion_tokens": 133,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1121,
+      "completion_tokens": 158,
+      "total_tokens": 1279,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 714,
+      "completion_tokens": 187,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 713,
+      "completion_tokens": 159,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 103,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1159,
+      "completion_tokens": 202,
+      "total_tokens": 1361,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 829,
+      "completion_tokens": 139,
+      "total_tokens": 968,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 828,
+      "completion_tokens": 138,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 840,
+      "completion_tokens": 176,
+      "total_tokens": 1016,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1190,
+      "completion_tokens": 171,
+      "total_tokens": 1361,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 733,
+      "completion_tokens": 219,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 730,
+      "completion_tokens": 139,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 744,
+      "completion_tokens": 232,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0152",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1303,
+      "completion_tokens": 151,
+      "total_tokens": 1454,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 385,
+    "majority_vote_total_tokens": 1133,
+    "scrd_total_tokens": 17970,
+    "scrd_prompt_tokens": 15077,
+    "scrd_completion_tokens": 2893,
+    "agent_total_tokens": 11698,
+    "recorder_total_tokens": 6272,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

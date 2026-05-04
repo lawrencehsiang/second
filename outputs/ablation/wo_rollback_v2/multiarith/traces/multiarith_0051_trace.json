@@ -9,9 +9,19 @@
       ],
       "newly_added_claims": [
         {
-          "text": "New books = Total books - Used books.",
-          "claim_type": "explanation",
+          "text": "Total books = 13 + 17 = 30.",
+          "claim_type": "constraint",
           "related_answer": "C"
+        },
+        {
+          "text": "Used books = 15.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "New books = Total - Used = 30 - 15 = 15.",
+          "claim_type": "explanation",
+          "related_answer": "A"
         }
       ],
       "unresolved_conflicts": [],
@@ -30,25 +40,15 @@
       ],
       "newly_added_claims": [
         {
-          "text": "Incorrect initial answers due to missing specific quantities of books.",
-          "claim_type": "rebuttal",
-          "related_answer": "A"
-        },
-        {
-          "text": "Correct calculation based on total and used books.",
-          "claim_type": "support",
+          "text": "If 15 books are used, then the remaining books are new.",
+          "claim_type": "explanation",
           "related_answer": "B"
-        },
-        {
-          "text": "Formula validation of New books = Total books - Used books.",
-          "claim_type": "support",
-          "related_answer": "C"
         }
       ],
       "unresolved_conflicts": [
         {
-          "conflict": "Agent A claims previous answers were incorrect, while B and C support the correctness of those answers.",
-          "why_still_open": "Disagreement on the validity of previous answers without clear resolution.",
+          "conflict": "The total number of books is calculated as 30, but the question asks for the number of new books.",
+          "why_still_open": "The response did not clarify that the total includes both used and new books.",
           "involved_answers": [
             "A",
             "B",
@@ -88,8 +88,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 347,
-      "completion_tokens": 56,
-      "total_tokens": 403,
+      "completion_tokens": 68,
+      "total_tokens": 415,
       "extra": {}
     },
     {
@@ -99,8 +99,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 334,
-      "completion_tokens": 46,
-      "total_tokens": 380,
+      "completion_tokens": 43,
+      "total_tokens": 377,
       "extra": {}
     },
     {
@@ -110,8 +110,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 345,
-      "completion_tokens": 68,
-      "total_tokens": 413,
+      "completion_tokens": 66,
+      "total_tokens": 411,
       "extra": {}
     },
     {
@@ -120,9 +120,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 646,
-      "completion_tokens": 113,
-      "total_tokens": 759,
+      "prompt_tokens": 656,
+      "completion_tokens": 195,
+      "total_tokens": 851,
       "extra": {}
     },
     {
@@ -131,9 +131,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 606,
-      "completion_tokens": 60,
-      "total_tokens": 666,
+      "prompt_tokens": 612,
+      "completion_tokens": 134,
+      "total_tokens": 746,
       "extra": {}
     },
     {
@@ -142,9 +142,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 603,
-      "completion_tokens": 65,
-      "total_tokens": 668,
+      "prompt_tokens": 609,
+      "completion_tokens": 142,
+      "total_tokens": 751,
       "extra": {}
     },
     {
@@ -153,9 +153,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 617,
-      "completion_tokens": 95,
-      "total_tokens": 712,
+      "prompt_tokens": 623,
+      "completion_tokens": 161,
+      "total_tokens": 784,
       "extra": {}
     },
     {
@@ -164,9 +164,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 885,
-      "completion_tokens": 254,
-      "total_tokens": 1139,
+      "prompt_tokens": 1160,
+      "completion_tokens": 192,
+      "total_tokens": 1352,
       "extra": {}
     },
     {
@@ -175,25 +175,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 662,
-      "completion_tokens": 53,
-      "total_tokens": 715,
+      "prompt_tokens": 587,
+      "completion_tokens": 60,
+      "total_tokens": 647,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 403,
-    "majority_vote_total_tokens": 1196,
-    "scrd_total_tokens": 5855,
-    "scrd_prompt_tokens": 5045,
-    "scrd_completion_tokens": 810,
-    "agent_total_tokens": 3242,
-    "recorder_total_tokens": 1898,
-    "evaluator_total_tokens": 715,
+    "single_agent_total_tokens": 415,
+    "majority_vote_total_tokens": 1203,
+    "scrd_total_tokens": 6334,
+    "scrd_prompt_tokens": 5273,
+    "scrd_completion_tokens": 1061,
+    "agent_total_tokens": 3484,
+    "recorder_total_tokens": 2203,
+    "evaluator_total_tokens": 647,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

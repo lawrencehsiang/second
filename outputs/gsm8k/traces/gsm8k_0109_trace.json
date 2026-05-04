@@ -1,0 +1,467 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "63",
+        "63",
+        "630"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Multiply individual pill costs by quantity and sum to get total.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = (4 * $1.50) + (5 * $6.50) * 14",
+        "$1.50 per pill * 4 pills",
+        "$6.50 per pill * 5 pills",
+        "Multiply by 14 days",
+        "Sum the daily costs"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "497",
+        "189",
+        "189"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correct total cost per day is $35.50, derived from 4 pills at $1.50 and 5 pills at $6.50.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Resolving discrepancies by recalculating the total cost based on accurate pricing and quantities.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Separate the cost calculations for different types of pills and sum them over the duration.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = (4 * $1.50) + (5 * $6.50) * 14",
+        "Cost of 4 pills at $1.50 each",
+        "Cost of 5 pills at $6.50 each",
+        "Multiply by 14 days",
+        "Sum the daily costs"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "189",
+        "63",
+        "189"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the calculation based on correct pricing and quantities.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recomputed the daily cost using correct quantities and prices.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculating the total cost to ensure alignment with accurate data.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of $63 remains unresolved.",
+          "why_still_open": "The minority answer requires further review and justification.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Daily cost = (4 * $1.50) + (5 * $6.50)",
+        "Multiply by 14 days",
+        "Sum the daily costs",
+        "Ensure correct pricing and quantities",
+        "Resolve minority answer of $63"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "63",
+        "63",
+        "63"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolved the minority answer of $63 by recomputing the total cost.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verified the total cost with correct quantities and prices.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Step-by-step recomputation to ensure accuracy in the total cost.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Daily cost = (4 * $1.50) + (5 * $6.50)",
+        "Multiply by 14 days",
+        "Sum the daily costs",
+        "Ensure correct pricing and quantities",
+        "Resolved minority answer of $63"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 364,
+      "completion_tokens": 40,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 351,
+      "completion_tokens": 38,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 362,
+      "completion_tokens": 61,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 619,
+      "completion_tokens": 144,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 626,
+      "completion_tokens": 188,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 623,
+      "completion_tokens": 42,
+      "total_tokens": 665,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 638,
+      "completion_tokens": 100,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1005,
+      "completion_tokens": 309,
+      "total_tokens": 1314,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 645,
+      "completion_tokens": 50,
+      "total_tokens": 695,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 864,
+      "completion_tokens": 89,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 603,
+      "completion_tokens": 198,
+      "total_tokens": 801,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 602,
+      "completion_tokens": 117,
+      "total_tokens": 719,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 603,
+      "completion_tokens": 138,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1129,
+      "completion_tokens": 257,
+      "total_tokens": 1386,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 804,
+      "completion_tokens": 42,
+      "total_tokens": 846,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 812,
+      "completion_tokens": 98,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 809,
+      "completion_tokens": 108,
+      "total_tokens": 917,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 825,
+      "completion_tokens": 101,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1097,
+      "completion_tokens": 262,
+      "total_tokens": 1359,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 676,
+      "completion_tokens": 67,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 779,
+      "completion_tokens": 92,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 776,
+      "completion_tokens": 95,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 792,
+      "completion_tokens": 98,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1083,
+      "completion_tokens": 210,
+      "total_tokens": 1293,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 675,
+      "completion_tokens": 49,
+      "total_tokens": 724,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 404,
+    "majority_vote_total_tokens": 1216,
+    "scrd_total_tokens": 21155,
+    "scrd_prompt_tokens": 18162,
+    "scrd_completion_tokens": 2993,
+    "agent_total_tokens": 3433,
+    "recorder_total_tokens": 6115,
+    "evaluator_total_tokens": 695,
+    "repair_brief_total_tokens": 953,
+    "repair_evaluator_total_tokens": 2313,
+    "repair_agent_total_tokens": 7646
+  }
+}

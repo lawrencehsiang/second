@@ -1,0 +1,523 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "980",
+        "980",
+        "980"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total pages read before 4pm, then add pages read after 4pm.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate pages read before 4 PM, then add pages read after 4 PM.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate pages from full chapters plus partial chapter and additional chapters.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Pages = sum(full chapters) + sum(partial chapter) + sum(additional chapters)",
+        "Total time = before 4pm + after 4pm",
+        "980 pages in total"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "500",
+        "1000",
+        "960"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total pages are calculated as 10 full chapters before 4 PM (400 pages), 20 pages of the 11th chapter, and 2 full chapters after 4 PM (80 pages).",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The total pages are recalculated to be 960, confirming the previous disagreement was resolved.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total pages = 10 full chapters (400 pages) + 20 pages of 11th chapter + 2 full chapters after 4 PM (80 pages)",
+        "Resolved disagreement on total pages to be 960",
+        "Pages read before 4 PM + pages read after 4 PM"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "960",
+        "500",
+        "960"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct total pages read by Mitchell are 960, resolving the previous discrepancy.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        },
+        {
+          "text": "The initial calculation mistakenly included 20 pages of the 11th chapter, leading to an incorrect total of 980 pages.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total pages = 400 + 20 + 80 = 500",
+        "Revised total pages = 400 + 80 = 480 + 20 (11th chapter) = 960",
+        "Conflict resolved: 980 pages → 960 pages"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "500",
+        "960",
+        "500"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated total pages read by Mitchell are 500, resolving the minority answer of 960.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total pages = 10 chapters * 40 pages/chapter + 20 pages = 420 + 80 = 500",
+        "Conflict resolved: 960 pages → 500 pages",
+        "Minority answer of 960 resolved by recalculating"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "500",
+        "500",
+        "500"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 960 is resolved by recalculating the total pages read correctly.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct total excludes partial pages read after 4 o'clock.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total pages = 10 chapters * 40 pages/chapter + 20 pages = 500",
+        "Conflict resolved: 960 pages → 500 pages",
+        "Minority answer of 960 resolved by recalculating",
+        "Excluding partial pages read after 4 o'clock",
+        "Each full chapter = 40 pages, Mitchell read 10 full chapters before 4 o'clock"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 412,
+      "completion_tokens": 44,
+      "total_tokens": 456,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 399,
+      "completion_tokens": 43,
+      "total_tokens": 442,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 410,
+      "completion_tokens": 38,
+      "total_tokens": 448,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 204,
+      "total_tokens": 808,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 682,
+      "completion_tokens": 99,
+      "total_tokens": 781,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 679,
+      "completion_tokens": 52,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 693,
+      "completion_tokens": 55,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 961,
+      "completion_tokens": 272,
+      "total_tokens": 1233,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 717,
+      "completion_tokens": 48,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 938,
+      "completion_tokens": 133,
+      "total_tokens": 1071,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 695,
+      "completion_tokens": 236,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 694,
+      "completion_tokens": 110,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 695,
+      "completion_tokens": 174,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1259,
+      "completion_tokens": 227,
+      "total_tokens": 1486,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 866,
+      "completion_tokens": 63,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 775,
+      "completion_tokens": 116,
+      "total_tokens": 891,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 772,
+      "completion_tokens": 149,
+      "total_tokens": 921,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 788,
+      "completion_tokens": 125,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1152,
+      "completion_tokens": 211,
+      "total_tokens": 1363,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 690,
+      "completion_tokens": 59,
+      "total_tokens": 749,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 858,
+      "completion_tokens": 192,
+      "total_tokens": 1050,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 855,
+      "completion_tokens": 212,
+      "total_tokens": 1067,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 871,
+      "completion_tokens": 235,
+      "total_tokens": 1106,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1384,
+      "completion_tokens": 155,
+      "total_tokens": 1539,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 55,
+      "total_tokens": 690,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 864,
+      "completion_tokens": 111,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 861,
+      "completion_tokens": 168,
+      "total_tokens": 1029,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 877,
+      "completion_tokens": 168,
+      "total_tokens": 1045,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1120,
+      "completion_tokens": 217,
+      "total_tokens": 1337,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0132",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 675,
+      "completion_tokens": 50,
+      "total_tokens": 725,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 456,
+    "majority_vote_total_tokens": 1346,
+    "scrd_total_tokens": 27902,
+    "scrd_prompt_tokens": 23881,
+    "scrd_completion_tokens": 4021,
+    "agent_total_tokens": 3606,
+    "recorder_total_tokens": 7766,
+    "evaluator_total_tokens": 765,
+    "repair_brief_total_tokens": 1071,
+    "repair_evaluator_total_tokens": 3093,
+    "repair_agent_total_tokens": 11601
+  }
+}

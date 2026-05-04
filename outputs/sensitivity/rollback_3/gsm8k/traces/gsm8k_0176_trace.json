@@ -1,0 +1,350 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "84",
+        "74",
+        "78"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate speeds for each terrain and find the average speed weighted by time spent on each.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Average speed formula: (1/3 * flat speed) + (1/3 * downhill speed) + (1/3 * uphill speed)",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Average speed = (sum of speeds * time spent at each speed) / total time",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Speeds for each terrain weighted by time spent",
+        "Average speed formula: (1/3 * flat speed) + (1/3 * downhill speed) + (1/3 * uphill speed)",
+        "Average speed = (sum of speeds * time spent) / total time"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "58",
+        "54",
+        "74.0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed average speed using correct speed values for each terrain.",
+          "claim_type": "rebuttal",
+          "related_answer": "A,B,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recomputed average speed with correct speeds",
+        "Speeds for each terrain weighted by time spent",
+        "Average speed formula: (1/3 * flat speed) + (1/3 * downhill speed) + (1/3 * uphill speed)"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "80.0",
+        "80.0",
+        "60.0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Using updated downhill and uphill speeds in recalculating average speed.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recomputed average speed with correct speeds",
+        "Speeds for each terrain weighted by time spent",
+        "Average speed formula: (1/3 * flat speed) + (1/3 * downhill speed) + (1/3 * uphill speed)",
+        "Downhill speed = 72 mph (60 + 12)",
+        "Uphill speed = 42 mph (60 - 18)"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 449,
+      "completion_tokens": 42,
+      "total_tokens": 491,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 436,
+      "completion_tokens": 51,
+      "total_tokens": 487,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 447,
+      "completion_tokens": 43,
+      "total_tokens": 490,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 615,
+      "completion_tokens": 236,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 716,
+      "completion_tokens": 37,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 713,
+      "completion_tokens": 105,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 213,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1143,
+      "completion_tokens": 174,
+      "total_tokens": 1317,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 674,
+      "completion_tokens": 52,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 897,
+      "completion_tokens": 79,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 678,
+      "completion_tokens": 118,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 677,
+      "completion_tokens": 94,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 678,
+      "completion_tokens": 95,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1073,
+      "completion_tokens": 130,
+      "total_tokens": 1203,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 760,
+      "completion_tokens": 49,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 776,
+      "completion_tokens": 117,
+      "total_tokens": 893,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 773,
+      "completion_tokens": 117,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 789,
+      "completion_tokens": 162,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1045,
+      "completion_tokens": 166,
+      "total_tokens": 1211,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0176",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 664,
+      "completion_tokens": 52,
+      "total_tokens": 716,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 491,
+    "majority_vote_total_tokens": 1468,
+    "scrd_total_tokens": 16862,
+    "scrd_prompt_tokens": 14730,
+    "scrd_completion_tokens": 2132,
+    "agent_total_tokens": 3979,
+    "recorder_total_tokens": 4582,
+    "evaluator_total_tokens": 726,
+    "repair_brief_total_tokens": 976,
+    "repair_evaluator_total_tokens": 1525,
+    "repair_agent_total_tokens": 5074
+  }
+}

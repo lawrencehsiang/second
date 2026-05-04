@@ -1,0 +1,434 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "63855",
+        "11346",
+        "1638"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The middle integer x is 39.",
+          "claim_type": "support",
+          "related_answer": "63855"
+        },
+        {
+          "text": "Consecutive integers sum of squares leads to x=39.",
+          "claim_type": "support",
+          "related_answer": "11346"
+        },
+        {
+          "text": "Sum of cubes for 38, 39, 40 is calculated.",
+          "claim_type": "support",
+          "related_answer": "1638"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x=39",
+        "sum of squares leads to x=39",
+        "sum of cubes: 38^3 + 39^3 + 40^3"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "64575",
+        "63855",
+        "1638"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify the claim about the middle integer x being 39.",
+          "claim_type": "rebuttal",
+          "related_answer": "64575"
+        },
+        {
+          "text": "Compute the sum of the cubes of 37, 39, and 41 if the sum of their squares equals 7805.",
+          "claim_type": "constraint",
+          "related_answer": "1638"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "'The middle integer x is 39' vs 'previous answer of 11346 does not align with mainstream support of 63855'.",
+          "why_still_open": "Verification needed for the claim about the middle integer.",
+          "involved_answers": [
+            "64575",
+            "63855"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "verify x=39",
+        "sum of squares: 37^2 + 39^2 + 41^2 = 7805",
+        "sum of cubes: 37^3 + 39^3 + 41^3"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "63855",
+        "1638",
+        "1638"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the sum of cubes using the correct middle integer.",
+          "claim_type": "rebuttal",
+          "related_answer": "1638"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "sum of squares: 37^2 + 39^2 + 41^2 = 7805",
+        "sum of cubes: 37^3 + 39^3 + 41^3",
+        "verify x=39"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "64575",
+        "64575",
+        "1638"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the minority answer of 63855 due to conflicting mainstream support.",
+          "claim_type": "rebuttal",
+          "related_answer": "64575"
+        },
+        {
+          "text": "The minority answer 63855 is inconsistent with the mainstream solution of 64575.",
+          "claim_type": "rebuttal",
+          "related_answer": "1638"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answers 63855 vs 1638 conflict with the mainstream support of 64575.",
+          "why_still_open": "The minority answers do not align with the verified solution.",
+          "involved_answers": [
+            "63855",
+            "64575",
+            "1638"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "sum of squares: 37^2 + 39^2 + 41^2 = 7805",
+        "sum of cubes: 37^3 + 39^3 + 41^3 = 64575",
+        "verify x=39"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "63855",
+        "63855",
+        "1638"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 64575 is incorrect based on the mainstream support of 63855.",
+          "claim_type": "rebuttal",
+          "related_answer": "63855"
+        },
+        {
+          "text": "The minority answer of 64575 does not align with the verified mainstream solution of 1638.",
+          "claim_type": "rebuttal",
+          "related_answer": "1638"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "sum of squares: 37^2 + 39^2 + 41^2 = 7805",
+        "verify x=39",
+        "64575 is the sum of cubes: 37^3 + 39^3 + 41^3"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 102,
+      "total_tokens": 442,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 37,
+      "total_tokens": 364,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 59,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 682,
+      "completion_tokens": 204,
+      "total_tokens": 886,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 605,
+      "completion_tokens": 110,
+      "total_tokens": 715,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 602,
+      "completion_tokens": 136,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 615,
+      "completion_tokens": 78,
+      "total_tokens": 693,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1080,
+      "completion_tokens": 286,
+      "total_tokens": 1366,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 829,
+      "completion_tokens": 116,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 826,
+      "completion_tokens": 103,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 839,
+      "completion_tokens": 120,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1197,
+      "completion_tokens": 139,
+      "total_tokens": 1336,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 833,
+      "completion_tokens": 142,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 829,
+      "completion_tokens": 125,
+      "total_tokens": 954,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 843,
+      "completion_tokens": 118,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1091,
+      "completion_tokens": 292,
+      "total_tokens": 1383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 842,
+      "completion_tokens": 149,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 839,
+      "completion_tokens": 159,
+      "total_tokens": 998,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 852,
+      "completion_tokens": 185,
+      "total_tokens": 1037,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0114",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1359,
+      "completion_tokens": 215,
+      "total_tokens": 1574,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 442,
+    "majority_vote_total_tokens": 1203,
+    "scrd_total_tokens": 18643,
+    "scrd_prompt_tokens": 15768,
+    "scrd_completion_tokens": 2875,
+    "agent_total_tokens": 12098,
+    "recorder_total_tokens": 6545,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

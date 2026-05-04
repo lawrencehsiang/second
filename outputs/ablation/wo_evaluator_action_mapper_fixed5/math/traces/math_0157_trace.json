@@ -1,0 +1,454 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "36",
+        "324",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "ab = constant in inverse variation.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different values for b when ab=48.",
+          "why_still_open": "Agents A, B, and C have different answers for b when ab=48.",
+          "involved_answers": [
+            "36",
+            "324",
+            "32"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "a^2 * sqrt(b) = constant",
+        "Given: a=2, b=81 -> 4 * sqrt(81) = constant",
+        "Constant = 36",
+        "When ab=48, 36/b = 48/b -> b = 32",
+        "b = 324 when ab=48"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "32",
+        "18",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Inverse relationship between the square of a and the square root of b.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different values for b when ab=48.",
+          "why_still_open": "Agents A and B still have differing answers for b.",
+          "involved_answers": [
+            "32",
+            "18",
+            "24"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Given: a=2, b=81 -> 4 * sqrt(81) = k",
+        "k = 36",
+        "When ab=48, 36/b = 48/b -> b = 18",
+        "When ab=48, 36/b = 48/b -> b = 24",
+        "Square of a and square root of b vary inversely."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "36",
+        "32",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Inverse relationship ensures (a^2)(√b) = k, where k is constant.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Corrected calculation shows b=32 under ab=48.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different values for b when ab=48.",
+          "why_still_open": "Agent A's response did not fully resolve the conflict.",
+          "involved_answers": [
+            "36",
+            "32"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Given: a=2, b=81 -> (2^2)(sqrt(81)) = 36",
+        "When ab=48, 36/b = 48/b -> b = 32",
+        "Inverse relationship: (a^2)(√b) = k",
+        "Resolved: b = 32 when ab=48",
+        "Square of a and square root of b vary inversely."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "32",
+        "9",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated b=32 under ab=48.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Confirmed inverse relationship through detailed algebraic manipulation.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Inverse relationship: (a^2)(√b) = k",
+        "Resolved: b = 32 when ab=48",
+        "Square of a and square root of b vary inversely.",
+        "Rechecked calculations, confirming b=32 under ab=48.",
+        "Algebraic manipulation confirms b=32 when ab=48."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "18",
+        "32",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolved the inverse relationship with ab=48, yielding b=18.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Reconfirmed the inverse relationship using algebraic manipulation.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different values for b when ab=48.",
+          "why_still_open": "Multiple agents provided different answers (18, 32, 36) despite resolving the conflict.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Inverse relationship: a² * √b = k",
+        "Resolved: b = 18 when ab=48",
+        "Algebraic manipulation confirms b=18 under ab=48.",
+        "Square of a and square root of b vary inversely.",
+        "Rechecked calculations, confirming b=18 under ab=48."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0157",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 354,
+      "completion_tokens": 52,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 341,
+      "completion_tokens": 54,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 352,
+      "completion_tokens": 49,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 216,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 717,
+      "completion_tokens": 98,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 715,
+      "completion_tokens": 114,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 728,
+      "completion_tokens": 132,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1119,
+      "completion_tokens": 233,
+      "total_tokens": 1352,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 717,
+      "completion_tokens": 127,
+      "total_tokens": 844,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 714,
+      "completion_tokens": 117,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 728,
+      "completion_tokens": 94,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1115,
+      "completion_tokens": 280,
+      "total_tokens": 1395,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 717,
+      "completion_tokens": 125,
+      "total_tokens": 842,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 714,
+      "completion_tokens": 99,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 728,
+      "completion_tokens": 311,
+      "total_tokens": 1039,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1371,
+      "completion_tokens": 187,
+      "total_tokens": 1558,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 716,
+      "completion_tokens": 242,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 712,
+      "completion_tokens": 88,
+      "total_tokens": 800,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 101,
+      "total_tokens": 828,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0157",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1178,
+      "completion_tokens": 256,
+      "total_tokens": 1434,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 406,
+    "majority_vote_total_tokens": 1202,
+    "scrd_total_tokens": 18073,
+    "scrd_prompt_tokens": 15098,
+    "scrd_completion_tokens": 2975,
+    "agent_total_tokens": 11483,
+    "recorder_total_tokens": 6590,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

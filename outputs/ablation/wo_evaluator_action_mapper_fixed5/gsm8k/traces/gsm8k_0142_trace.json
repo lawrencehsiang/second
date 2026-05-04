@@ -1,0 +1,454 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "42",
+        "42",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing individual activity times gives the total.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents provide different totals.",
+          "why_still_open": "Agents A and B agree on 42, but C calculates 45.",
+          "involved_answers": [
+            "42",
+            "45"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = Walk + Play + Feed",
+        "Walk = 15 min, Play = 20 min, Feed = 15 min",
+        "15 + 20 + 15 = 50 min",
+        "50 min < 1 hr -> pay < $12",
+        "April = 48, May = 24, Total = 72"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "42",
+        "45",
+        "42"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Majority view supports the total as 42 minutes.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recalculation confirms the total as 42 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verification process adjusts previous answer from 45 to 42 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Walk + Play + Feed",
+        "Walk = 15 min, Play = 20 min, Feed = 15 min",
+        "15 + 20 + 15 = 50 min",
+        "50 min < 1 hr -> pay < $12",
+        "April = 48, May = 24, Total = 72"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "72",
+        "42",
+        "42"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking confirms the total as 72 minutes.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support and key rebuttal confirm the total as 42 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculation confirms the total as 42 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 45 minutes remains unresolved.",
+          "why_still_open": "Previous mainstream support and key rebuttal confirm 42 minutes, but a minority answer of 72 minutes is still present.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = Walk + Play + Feed",
+        "Walk = 0.5 hr * 2 = 1 hr, Feed = 0.25 hr = 15 min, Total = 1.2 hr = 72 min",
+        "50 min < 1 hr -> pay < $12",
+        "April = 48, May = 24, Total = 72",
+        "15 + 20 + 15 = 50 min"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "42",
+        "42",
+        "42"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The majority view, supported by mainstream and key rebuttal, is that Larry spends 42 minutes on his dog each day.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream support and key rebuttal confirm the total as 42 minutes, indicating a calculation error in the minority answer of 72 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The calculations consistently show that Larry spends 42 minutes on his dog each day, which is supported by mainstream support and key rebuttal.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Walk + Play + Feed",
+        "Walk = 0.5 hr * 2 = 1 hr, Feed = 0.25 hr = 15 min, Total = 1.2 hr = 72 min",
+        "50 min < 1 hr -> pay < $12",
+        "April = 48, May = 24, Total = 72",
+        "15 + 20 + 15 = 50 min"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "42",
+        "42",
+        "42"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream support and key rebuttal confirm the total as 42 minutes, indicating a calculation error in the minority answer of 72 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The mainstream support and key rebuttal confirm the total as 42 minutes, indicating a calculation error in the minority answer of 45 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = Walk + Play + Feed",
+        "15 + 20 + 15 = 50 min",
+        "50 min < 1 hr -> pay < $12",
+        "April = 48, May = 24, Total = 72",
+        "Walk = 0.5 hr * 2 = 1 hr, Feed = 0.25 hr = 15 min"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 351,
+      "completion_tokens": 35,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 338,
+      "completion_tokens": 33,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 349,
+      "completion_tokens": 36,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 583,
+      "completion_tokens": 213,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 711,
+      "completion_tokens": 114,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 708,
+      "completion_tokens": 87,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 722,
+      "completion_tokens": 100,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1071,
+      "completion_tokens": 240,
+      "total_tokens": 1311,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 805,
+      "completion_tokens": 179,
+      "total_tokens": 984,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 802,
+      "completion_tokens": 125,
+      "total_tokens": 927,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 816,
+      "completion_tokens": 132,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1220,
+      "completion_tokens": 333,
+      "total_tokens": 1553,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 822,
+      "completion_tokens": 124,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 819,
+      "completion_tokens": 228,
+      "total_tokens": 1047,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 833,
+      "completion_tokens": 204,
+      "total_tokens": 1037,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1439,
+      "completion_tokens": 304,
+      "total_tokens": 1743,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 851,
+      "completion_tokens": 204,
+      "total_tokens": 1055,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 848,
+      "completion_tokens": 189,
+      "total_tokens": 1037,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 862,
+      "completion_tokens": 203,
+      "total_tokens": 1065,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0142",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1444,
+      "completion_tokens": 244,
+      "total_tokens": 1688,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 386,
+    "majority_vote_total_tokens": 1142,
+    "scrd_total_tokens": 19721,
+    "scrd_prompt_tokens": 16394,
+    "scrd_completion_tokens": 3327,
+    "agent_total_tokens": 12630,
+    "recorder_total_tokens": 7091,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

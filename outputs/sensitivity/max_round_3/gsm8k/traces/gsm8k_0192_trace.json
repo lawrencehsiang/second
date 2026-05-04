@@ -1,0 +1,374 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "100",
+        "47",
+        "74 rabbits, 86 weasels"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Weekly catch multiplied by 3 gives the total catch.",
+          "claim_type": "constraint",
+          "related_answer": "100"
+        },
+        {
+          "text": "Weekly catch multiplied by 3 gives the total catch.",
+          "claim_type": "constraint",
+          "related_answer": "47"
+        },
+        {
+          "text": "Total losses were calculated over 3 weeks and subtracted from initial populations.",
+          "claim_type": "explanation",
+          "related_answer": "74 rabbits, 86 weasels"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Weekly catch * 3 = total catch",
+        "Total losses (3 weeks) - initial pop = current pop",
+        "74 rabbits, 86 weasels"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "32",
+        "86",
+        "86"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correct initial populations are 100 weasels and 50 rabbits.",
+          "claim_type": "explanation",
+          "related_answer": "32"
+        },
+        {
+          "text": "Each fox catches 4 weasels and 2 rabbits per week.",
+          "claim_type": "constraint",
+          "related_answer": "32"
+        },
+        {
+          "text": "Over 3 weeks, each fox catches 12 weasels and 6 rabbits.",
+          "claim_type": "constraint",
+          "related_answer": "32"
+        },
+        {
+          "text": "Total caught by 3 foxes is 36 weasels and 18 rabbits.",
+          "claim_type": "constraint",
+          "related_answer": "32"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial populations: 100 weasels, 50 rabbits",
+        "Each fox catches 4 weasels, 2 rabbits per week",
+        "36 weasels, 18 rabbits caught in 3 weeks",
+        "74 rabbits, 86 weasels remaining after 3 weeks"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "74",
+        "140",
+        "86"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing the total number of rabbits and weasels left after 3 weeks.",
+          "claim_type": "explanation",
+          "related_answer": "74"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The previous answer of 86 seems to be for weasels only, but the question asks about both weasels and rabbits.",
+          "why_still_open": "The conflict remains as the previous answer did not account for rabbits.",
+          "involved_answers": [
+            "86"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial populations: 100 weasels, 50 rabbits",
+        "Each fox catches 4 weasels, 2 rabbits per week",
+        "36 weasels, 18 rabbits caught in 3 weeks",
+        "74 rabbits, 86 weasels remaining after 3 weeks",
+        "Total caught by 3 foxes is 36 weasels and 18 rabbits"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 34,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 33,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 49,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 607,
+      "completion_tokens": 199,
+      "total_tokens": 806,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 650,
+      "completion_tokens": 113,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 646,
+      "completion_tokens": 163,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 668,
+      "completion_tokens": 122,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1158,
+      "completion_tokens": 300,
+      "total_tokens": 1458,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 751,
+      "completion_tokens": 48,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 943,
+      "completion_tokens": 114,
+      "total_tokens": 1057,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 640,
+      "completion_tokens": 249,
+      "total_tokens": 889,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 639,
+      "completion_tokens": 151,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 640,
+      "completion_tokens": 189,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1301,
+      "completion_tokens": 282,
+      "total_tokens": 1583,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 793,
+      "completion_tokens": 43,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 606,
+      "completion_tokens": 125,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 603,
+      "completion_tokens": 49,
+      "total_tokens": 652,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 619,
+      "completion_tokens": 122,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1107,
+      "completion_tokens": 244,
+      "total_tokens": 1351,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0192",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 622,
+      "completion_tokens": 58,
+      "total_tokens": 680,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 410,
+    "majority_vote_total_tokens": 1229,
+    "scrd_total_tokens": 16793,
+    "scrd_prompt_tokens": 14106,
+    "scrd_completion_tokens": 2687,
+    "agent_total_tokens": 3591,
+    "recorder_total_tokens": 5198,
+    "evaluator_total_tokens": 799,
+    "repair_brief_total_tokens": 1057,
+    "repair_evaluator_total_tokens": 1516,
+    "repair_agent_total_tokens": 4632
+  }
+}

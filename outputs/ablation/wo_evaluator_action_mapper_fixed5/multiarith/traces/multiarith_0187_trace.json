@@ -1,0 +1,443 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "23",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial songs: 6, minus 3 deleted, plus 20 added.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Initial songs - deleted songs + added songs",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Initial count minus deleted songs plus added songs",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial songs: 6, minus 3 deleted, plus 20 added.",
+        "Initial songs - deleted songs + added songs",
+        "Initial count minus deleted songs plus added songs"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "23",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial number of songs is 6, then subtract 3 deleted and add 20 new ones.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Correct calculation: 6 - 3 + 20 = 13 songs.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Updated count: 6 initial songs, 3 deleted, 20 added.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial songs: 6, minus 3 deleted, plus 20 added.",
+        "6 - 3 + 20 = 13 songs.",
+        "Final song count: 13."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "13",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 23 remains incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct calculation is 6 - 3 + 20 = 13 songs.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer 23 persists.",
+          "why_still_open": "No further evidence or consensus to resolve the remaining disagreement.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial songs: 6, minus 3 deleted, plus 20 added.",
+        "6 - 3 + 20 = 13 songs.",
+        "Final song count: 13."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "13",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation 6 - 3 + 20 = 13 songs was rechecked and confirmed.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 23 is incorrect based on the arithmetic check.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial songs: 6, minus 3 deleted, plus 20 added.",
+        "6 - 3 + 20 = 13 songs.",
+        "Final song count: 13."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "13",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation 6 - 3 + 20 = 13 songs was rechecked and confirmed.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "The minority answer of 23 is incorrect based on the arithmetic check.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer 23 persists.",
+          "why_still_open": "Despite multiple confirmations, one agent still supports the minority answer.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial songs: 6, minus 3 deleted, plus 20 added.",
+        "6 - 3 + 20 = 13 songs.",
+        "Final song count: 13."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 352,
+      "completion_tokens": 42,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 339,
+      "completion_tokens": 34,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 350,
+      "completion_tokens": 34,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 586,
+      "completion_tokens": 186,
+      "total_tokens": 772,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 619,
+      "completion_tokens": 139,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 616,
+      "completion_tokens": 127,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 630,
+      "completion_tokens": 123,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1103,
+      "completion_tokens": 214,
+      "total_tokens": 1317,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 822,
+      "completion_tokens": 110,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 819,
+      "completion_tokens": 118,
+      "total_tokens": 937,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 833,
+      "completion_tokens": 109,
+      "total_tokens": 942,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1095,
+      "completion_tokens": 215,
+      "total_tokens": 1310,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 807,
+      "completion_tokens": 103,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 804,
+      "completion_tokens": 114,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 818,
+      "completion_tokens": 122,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1112,
+      "completion_tokens": 169,
+      "total_tokens": 1281,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 815,
+      "completion_tokens": 121,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 812,
+      "completion_tokens": 111,
+      "total_tokens": 923,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 826,
+      "completion_tokens": 113,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0187",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1066,
+      "completion_tokens": 219,
+      "total_tokens": 1285,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1151,
+    "scrd_total_tokens": 17747,
+    "scrd_prompt_tokens": 15224,
+    "scrd_completion_tokens": 2523,
+    "agent_total_tokens": 11782,
+    "recorder_total_tokens": 5965,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

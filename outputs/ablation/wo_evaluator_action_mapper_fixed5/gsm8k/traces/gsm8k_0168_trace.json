@@ -1,0 +1,449 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3600",
+        "3600",
+        "4800"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the length and cost of the new movie.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agreed on 3600 minutes, but C proposed 4800 minutes for the movie length.",
+          "why_still_open": "Different interpretations of the problem statement.",
+          "involved_answers": [
+            "3600",
+            "4800"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total time = 3600 minutes",
+        "Cost per minute = $2",
+        "Total cost = 3600 * $2 = $7200",
+        "Alternatively, if the length is 4800 minutes, then total cost would be 4800 * $2 = $9600",
+        "Calculate 3600 / 60 = 60 minutes per hour"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3744",
+        "3600",
+        "3600"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The new movie is 192 minutes longer than the original 2-hour movie.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The new movie's length is 3600 minutes, derived from the original 2-hour movie being 60% longer.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "New movie length: 120 minutes + 192 minutes = 312 minutes",
+        "Cost per minute: $2",
+        "Total cost for 3600 minutes: 3600 * $2 = $7200",
+        "Original movie length: 2 hours = 120 minutes",
+        "60% increase in length: 120 * 1.6 = 192 minutes"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "3744",
+        "4800",
+        "4800"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The new movie is 480 minutes long, calculated as 60% longer than the original 2-hour movie.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B initially agreed on 3600 minutes, but C proposed 4800 minutes for the movie length.",
+          "why_still_open": "There is still ambiguity regarding the exact length of the new movie.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "New movie length: 2 hours * 1.6 = 480 minutes",
+        "Cost per minute: $2",
+        "Total cost for 480 minutes: 480 * $2 = $960",
+        "Original movie length: 2 hours = 120 minutes",
+        "60% increase in length: 120 * 1.6 = 192 minutes"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "32000",
+        "44000",
+        "374400"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The new movie is 320 minutes long, which is 60% longer than the original 2-hour movie.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The cost per minute for the new movie is $100, twice the cost of the original movie.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The total cost for the new movie is $44000, calculated as 440 minutes * $100 per minute.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The new movie length is 3744 minutes, which is 60% longer than the original 2-hour movie.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "New movie length: 2 hours * 1.6 = 320 minutes",
+        "Cost per minute: $100",
+        "Total cost for 320 minutes: 320 * $100 = $32000",
+        "Original movie length: 2 hours = 120 minutes",
+        "60% increase in length: 120 * 1.6 = 192 minutes"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "19200",
+        "38400",
+        "19200"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The new movie is 192 minutes long, derived from a 60% increase over the original 2-hour movie.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "The cost per minute for the new movie is $100, twice the cost of the original movie.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "The total cost for the new movie is $19200, calculated as 192 minutes * $100 per minute.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "New movie length: 2 hours * 1.6 = 192 minutes",
+        "Cost per minute: $100",
+        "Total cost for 192 minutes: 192 * $100 = $19200",
+        "Original movie length: 2 hours = 120 minutes",
+        "60% increase in length: 120 * 1.6 = 192 minutes"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 379,
+      "completion_tokens": 44,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 366,
+      "completion_tokens": 44,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 377,
+      "completion_tokens": 37,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 613,
+      "completion_tokens": 238,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 755,
+      "completion_tokens": 176,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 752,
+      "completion_tokens": 200,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 766,
+      "completion_tokens": 163,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1346,
+      "completion_tokens": 234,
+      "total_tokens": 1580,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 870,
+      "completion_tokens": 118,
+      "total_tokens": 988,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 867,
+      "completion_tokens": 226,
+      "total_tokens": 1093,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 881,
+      "completion_tokens": 113,
+      "total_tokens": 994,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1231,
+      "completion_tokens": 257,
+      "total_tokens": 1488,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 863,
+      "completion_tokens": 251,
+      "total_tokens": 1114,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 860,
+      "completion_tokens": 166,
+      "total_tokens": 1026,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 874,
+      "completion_tokens": 190,
+      "total_tokens": 1064,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1414,
+      "completion_tokens": 341,
+      "total_tokens": 1755,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 779,
+      "completion_tokens": 213,
+      "total_tokens": 992,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 776,
+      "completion_tokens": 158,
+      "total_tokens": 934,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 791,
+      "completion_tokens": 240,
+      "total_tokens": 1031,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1523,
+      "completion_tokens": 290,
+      "total_tokens": 1813,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 423,
+    "majority_vote_total_tokens": 1247,
+    "scrd_total_tokens": 20782,
+    "scrd_prompt_tokens": 17083,
+    "scrd_completion_tokens": 3699,
+    "agent_total_tokens": 13295,
+    "recorder_total_tokens": 7487,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,200 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "30",
+        "26",
+        "34"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total gumballs given to each person and add to remaining gumballs.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Reverse calculate from remaining gumballs.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Reverse check from remaining gumballs to initial count.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total gumballs = 30 + 26 + 34",
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Remaining gumballs = Initial gumballs - distributed gumballs"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "30",
+        "26",
+        "34"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify calculations step-by-step using given conditions.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total gumballs = 30 + 26 + 34",
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Remaining gumballs = Initial gumballs - distributed gumballs"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 391,
+      "completion_tokens": 39,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 378,
+      "completion_tokens": 30,
+      "total_tokens": 408,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 389,
+      "completion_tokens": 36,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 587,
+      "completion_tokens": 229,
+      "total_tokens": 816,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 856,
+      "completion_tokens": 84,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 853,
+      "completion_tokens": 97,
+      "total_tokens": 950,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 867,
+      "completion_tokens": 96,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1058,
+      "completion_tokens": 152,
+      "total_tokens": 1210,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 597,
+      "completion_tokens": 58,
+      "total_tokens": 655,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 430,
+    "majority_vote_total_tokens": 1263,
+    "scrd_total_tokens": 6797,
+    "scrd_prompt_tokens": 5976,
+    "scrd_completion_tokens": 821,
+    "agent_total_tokens": 4116,
+    "recorder_total_tokens": 2026,
+    "evaluator_total_tokens": 655,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

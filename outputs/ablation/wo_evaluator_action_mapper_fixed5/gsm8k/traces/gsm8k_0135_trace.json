@@ -1,0 +1,450 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "436",
+        "386",
+        "436"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total ticket cost and subtract from $500.",
+          "claim_type": "constraint",
+          "related_answer": "436"
+        },
+        {
+          "text": "Calculate total cost, subtract from $500, find change.",
+          "claim_type": "constraint",
+          "related_answer": "386"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "total ticket cost = $500 - x",
+        "total cost = $500 - y",
+        "find change = z"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "430",
+        "74",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate ticket cost with children's discount.",
+          "claim_type": "rebuttal",
+          "related_answer": "430"
+        },
+        {
+          "text": "Correct approach is to calculate total ticket cost and subtract from $500.",
+          "claim_type": "support",
+          "related_answer": "74"
+        },
+        {
+          "text": "Reevaluate the previous answers as they exceed the given amount.",
+          "claim_type": "constraint",
+          "related_answer": "6"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the recalculated ticket cost.",
+          "why_still_open": "Different agents provided different recalculated values.",
+          "involved_answers": [
+            "430",
+            "74",
+            "6"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "recalculate ticket cost with children's discount",
+        "calculate total ticket cost and subtract from $500",
+        "previous answers exceeded $500"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "386",
+        "140",
+        "60"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the ticket cost considering the children's discount.",
+          "claim_type": "rebuttal",
+          "related_answer": "386"
+        },
+        {
+          "text": "Reevaluate the ticket costs considering the children's discount.",
+          "claim_type": "support",
+          "related_answer": "140"
+        },
+        {
+          "text": "Recalculate the ticket cost with children's discount and verify the change amount.",
+          "claim_type": "explanation",
+          "related_answer": "60"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the recalculated ticket cost.",
+          "why_still_open": "Agents provided different recalculated values even after considering the children's discount.",
+          "involved_answers": [
+            "386",
+            "140",
+            "60"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "recalculate ticket cost with children's discount",
+        "reevaluate ticket costs with children's discount",
+        "verify change amount after recalculating ticket cost"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "283",
+        "183",
+        "46"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecked the ticket cost calculation including children's discount.",
+          "claim_type": "rebuttal",
+          "related_answer": "283"
+        },
+        {
+          "text": "Calculated the correct ticket cost for children under 12 years old.",
+          "claim_type": "support",
+          "related_answer": "183"
+        },
+        {
+          "text": "Verified the recalculated ticket cost and confirmed the change amount.",
+          "claim_type": "explanation",
+          "related_answer": "46"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "recalculate ticket cost with children's discount",
+        "correct ticket cost for children under 12",
+        "verify recalculated ticket cost change amount"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "74",
+        "84",
+        "282"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculated the ticket cost for two children with a $5 discount each.",
+          "claim_type": "support",
+          "related_answer": "84"
+        },
+        {
+          "text": "Verified the recalculated ticket cost and confirmed the change amount of $74.",
+          "claim_type": "explanation",
+          "related_answer": "74"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "ticket cost for two children with $5 discount each",
+        "total ticket cost for two adults and two children",
+        "$500 payment and $74 change"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 374,
+      "completion_tokens": 38,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 361,
+      "completion_tokens": 37,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 372,
+      "completion_tokens": 39,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 147,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 638,
+      "completion_tokens": 119,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 635,
+      "completion_tokens": 117,
+      "total_tokens": 752,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 649,
+      "completion_tokens": 69,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 983,
+      "completion_tokens": 243,
+      "total_tokens": 1226,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 824,
+      "completion_tokens": 107,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 820,
+      "completion_tokens": 84,
+      "total_tokens": 904,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 833,
+      "completion_tokens": 98,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1076,
+      "completion_tokens": 259,
+      "total_tokens": 1335,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 834,
+      "completion_tokens": 134,
+      "total_tokens": 968,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 831,
+      "completion_tokens": 144,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 844,
+      "completion_tokens": 98,
+      "total_tokens": 942,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1183,
+      "completion_tokens": 189,
+      "total_tokens": 1372,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 831,
+      "completion_tokens": 183,
+      "total_tokens": 1014,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 828,
+      "completion_tokens": 144,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 841,
+      "completion_tokens": 135,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0135",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1206,
+      "completion_tokens": 156,
+      "total_tokens": 1362,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 412,
+    "majority_vote_total_tokens": 1221,
+    "scrd_total_tokens": 18099,
+    "scrd_prompt_tokens": 15559,
+    "scrd_completion_tokens": 2540,
+    "agent_total_tokens": 12061,
+    "recorder_total_tokens": 6038,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

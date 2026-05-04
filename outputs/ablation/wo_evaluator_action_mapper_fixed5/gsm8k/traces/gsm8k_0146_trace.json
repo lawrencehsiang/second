@@ -1,0 +1,424 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Convert 120 minutes to 2 hours.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2 shows * 20 min/show = 40 min",
+        "2 shows * 20 min/show * 2 = 80 min",
+        "40 min + 80 min = 120 min",
+        "120 min / 60 = 2 hours",
+        "Total time: 2 hours"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify the conversion of 120 minutes to 2 hours.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total time: 2 hours",
+        "120 min / 60 = 2 hours",
+        "2 shows * 20 min/show = 40 min",
+        "2 shows * 20 min/show * 2 = 80 min",
+        "40 min + 80 min = 120 min"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "2",
+        "2",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "James watched 2 episodes of Jeopardy and 2 episodes of Wheel of Fortune, totaling 2 hours.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The total time is calculated as 2 * 20 minutes for Jeopardy and 2 * 40 minutes for Wheel of Fortune, summing up to 120 minutes or 2 hours.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total time: 2 hours",
+        "2 shows * 20 min/show = 40 min",
+        "2 shows * 40 min/show = 80 min",
+        "40 min + 80 min = 120 min",
+        "120 min / 60 = 2 hours"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "2",
+        "2",
+        "1.333"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jeopardy is 20 minutes per episode, and Wheel of Fortune is 40 minutes per episode. Therefore, 2 episodes of each would total 120 minutes, which is 2 hours.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Jeopardy is 20 minutes per episode, so 2 episodes are 40 minutes. Wheel of Fortune is twice as long, so each is 40 minutes. Thus, 2 episodes of each is 80 minutes total, which is 1.333 hours.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The total time of 2 hours vs. 1.333 hours.",
+          "why_still_open": "Different agents provided conflicting calculations, and no clear resolution has been established.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total time: 2 hours",
+        "2 shows * 20 min/show = 40 min",
+        "2 shows * 40 min/show = 80 min",
+        "40 min + 40 min = 80 min",
+        "80 min = 1.333 hours"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "2",
+        "2",
+        "1.333"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "2 episodes of Jeopardy and 2 episodes of Wheel of Fortune total 120 minutes, which is 2 hours.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct calculation confirms that 2 episodes of Jeopardy and 2 episodes of Wheel of Fortune total 80 minutes, or 1.333 hours.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total time: 2 hours",
+        "2 episodes of Jeopardy: 40 minutes",
+        "2 episodes of Wheel of Fortune: 80 minutes",
+        "40 min + 80 min = 120 min",
+        "120 min = 2 hours"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 355,
+      "completion_tokens": 32,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 342,
+      "completion_tokens": 31,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 353,
+      "completion_tokens": 92,
+      "total_tokens": 445,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 634,
+      "completion_tokens": 147,
+      "total_tokens": 781,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 614,
+      "completion_tokens": 109,
+      "total_tokens": 723,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 611,
+      "completion_tokens": 114,
+      "total_tokens": 725,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 625,
+      "completion_tokens": 140,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1040,
+      "completion_tokens": 150,
+      "total_tokens": 1190,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 715,
+      "completion_tokens": 133,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 712,
+      "completion_tokens": 167,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 726,
+      "completion_tokens": 94,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1090,
+      "completion_tokens": 226,
+      "total_tokens": 1316,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 626,
+      "completion_tokens": 148,
+      "total_tokens": 774,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 623,
+      "completion_tokens": 62,
+      "total_tokens": 685,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 637,
+      "completion_tokens": 104,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1066,
+      "completion_tokens": 326,
+      "total_tokens": 1392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 896,
+      "completion_tokens": 163,
+      "total_tokens": 1059,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 893,
+      "completion_tokens": 119,
+      "total_tokens": 1012,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 911,
+      "completion_tokens": 179,
+      "total_tokens": 1090,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1311,
+      "completion_tokens": 214,
+      "total_tokens": 1525,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 387,
+    "majority_vote_total_tokens": 1205,
+    "scrd_total_tokens": 17530,
+    "scrd_prompt_tokens": 14780,
+    "scrd_completion_tokens": 2750,
+    "agent_total_tokens": 11326,
+    "recorder_total_tokens": 6204,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

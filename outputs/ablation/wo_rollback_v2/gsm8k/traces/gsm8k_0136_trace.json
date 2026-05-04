@@ -1,0 +1,198 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2350",
+        "2150",
+        "2300"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "K's house = 10000 sq ft",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Benedict's house = 2300 sq ft",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "K's house = 4 * B's house + 600",
+        "K's house = 10000",
+        "Benedict's house = (10000 - 600) / 4",
+        "B's house = 2150",
+        "K's house = 4 * 2150 + 600"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2300",
+        "2350",
+        "2350"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct size of Benedict's house is derived from the equation Kennedy's house = 4 * Benedict's house + 600.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a discrepancy between the mainstream support claiming Benedict's house is 2350 sq ft and the previous answer of 2300 sq ft.",
+          "why_still_open": "Verification against the equation is required to determine the accurate size.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Kennedy's house = 4 * Benedict's house + 600",
+        "Kennedy's house = 10000",
+        "Benedict's house = (10000 - 600) / 4",
+        "B's house = 2350",
+        "2350 = 4 * 2350 + 600"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 60,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 44,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 74,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 660,
+      "completion_tokens": 199,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 621,
+      "completion_tokens": 173,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 618,
+      "completion_tokens": 119,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 632,
+      "completion_tokens": 141,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1172,
+      "completion_tokens": 255,
+      "total_tokens": 1427,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0136",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 627,
+      "completion_tokens": 55,
+      "total_tokens": 682,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 413,
+    "majority_vote_total_tokens": 1222,
+    "scrd_total_tokens": 6494,
+    "scrd_prompt_tokens": 5374,
+    "scrd_completion_tokens": 1120,
+    "agent_total_tokens": 3526,
+    "recorder_total_tokens": 2286,
+    "evaluator_total_tokens": 682,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

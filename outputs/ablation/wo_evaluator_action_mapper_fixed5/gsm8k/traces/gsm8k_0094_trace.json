@@ -1,0 +1,452 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "9600",
+        "9600",
+        "7600"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum individual costs for beef and chicken.",
+          "claim_type": "constraint",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B agree on 9600, but C calculates 7600.",
+          "why_still_open": "Different results from agents suggest conflicting calculations.",
+          "involved_answers": [
+            "9600",
+            "7600"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = Beef + Chicken",
+        "Beef cost = 80 * 120 / 100",
+        "Chicken cost = 70 * 120 / 100",
+        "Sum = 9600",
+        "Sum = 7600"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9600",
+        "9600",
+        "9600"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-checking the beef and chicken costs.",
+          "claim_type": "constraint",
+          "related_answer": "null"
+        },
+        {
+          "text": "Aligning with the mainstream support of 9600.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C all calculate 9600, but there was initial confusion with a different result of 7600.",
+          "why_still_open": "Verification and recomputation are ongoing to ensure accuracy.",
+          "involved_answers": [
+            "9600",
+            "7600"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = Beef + Chicken",
+        "Beef cost = 80 * 120 / 100",
+        "Chicken cost = 70 * 120 / 100",
+        "Sum = 9600",
+        "Rechecking calculations"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "7600",
+        "9600",
+        "9600"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing the total cost to resolve discrepancies.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Consistent verification of the 9600 total cost.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Confirming the beef and chicken costs add up to 9600.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Initial confusion with a different result of 7600.",
+          "why_still_open": "Verification and recomputation are ongoing to ensure accuracy.",
+          "involved_answers": [
+            "7600",
+            "9600"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = Beef + Chicken",
+        "Beef cost = 80 * 120 / 100",
+        "Chicken cost = 70 * 120 / 100",
+        "Sum = 9600",
+        "Rechecking calculations"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "9600",
+        "9600",
+        "9600"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputed the total cost based on provided quantities and prices.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Resolved discrepancies in the initial confusion about a different result of 7600.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verified the recalculated total cost of 9600.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 1000 * 8 + 2000 * 3",
+        "Sum = 9600",
+        "Rechecked calculations",
+        "Beef cost = 80 * 120 / 100",
+        "Chicken cost = 70 * 120 / 100"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "9600",
+        "9600",
+        "9600"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Confirmed calculations align with the given quantities and prices, resolving all discrepancies.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 1000 * 8 + 2000 * 3",
+        "Sum = 9600",
+        "Rechecked calculations",
+        "Beef cost = 80 * 120 / 100",
+        "Chicken cost = 70 * 120 / 100"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 356,
+      "completion_tokens": 37,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 343,
+      "completion_tokens": 36,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 354,
+      "completion_tokens": 36,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 597,
+      "completion_tokens": 202,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 725,
+      "completion_tokens": 96,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 722,
+      "completion_tokens": 106,
+      "total_tokens": 828,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 736,
+      "completion_tokens": 100,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1073,
+      "completion_tokens": 256,
+      "total_tokens": 1329,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 830,
+      "completion_tokens": 114,
+      "total_tokens": 944,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 827,
+      "completion_tokens": 118,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 841,
+      "completion_tokens": 155,
+      "total_tokens": 996,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1199,
+      "completion_tokens": 281,
+      "total_tokens": 1480,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 813,
+      "completion_tokens": 117,
+      "total_tokens": 930,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 810,
+      "completion_tokens": 87,
+      "total_tokens": 897,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 824,
+      "completion_tokens": 96,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1137,
+      "completion_tokens": 232,
+      "total_tokens": 1369,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 819,
+      "completion_tokens": 138,
+      "total_tokens": 957,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 816,
+      "completion_tokens": 116,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 830,
+      "completion_tokens": 115,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0094",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1149,
+      "completion_tokens": 152,
+      "total_tokens": 1301,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 393,
+    "majority_vote_total_tokens": 1162,
+    "scrd_total_tokens": 18391,
+    "scrd_prompt_tokens": 15801,
+    "scrd_completion_tokens": 2590,
+    "agent_total_tokens": 12113,
+    "recorder_total_tokens": 6278,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,463 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "17.5",
+        "16.5",
+        "13.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total cost before discount is $30.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Applying 10% discount reduces the cost by $3.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the final amount after applying the discount.",
+          "why_still_open": "Each agent used different intermediate steps.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = 50 - 17.5 = 32.5",
+        "Discounted cost = 50 - 16.5 = 33.5",
+        "Discounted cost = 50 - 13.5 = 36.5",
+        "10% of 50 = 5",
+        "Final cost = 50 - (50 * 0.1)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "22.5",
+        "18.5",
+        "16.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total cost before discount is $30.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Applying 10% discount reduces the cost by $5.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Final payment is $22.50 after applying the discount.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 50 - 30 = 20",
+        "10% of 50 = 5",
+        "Final cost = 50 - 5 = 45",
+        "Change = 50 - 22.5 = 27.5",
+        "Total cost = 30, Discount = 10%, Final cost = 27"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "13.5",
+        "17.5",
+        "13.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the total cost before and after the 10% discount.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct final payment is $22.50 after applying the 10% discount.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 22.5 + 5 = 27.5",
+        "10% of 22.5 = 2.25",
+        "Final cost = 22.5 - 2.25 = 20.25",
+        "Change = 27.5 - 20.25 = 7.25",
+        "Total cost = 22.5, Discount = 10%, Final cost = 20.25"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "22.5",
+        "17.5",
+        "17.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing the total cost and applying the 10% discount.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct final payment is $17.50 after applying the 10% discount.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the total cost before discount between agents A and C.",
+          "why_still_open": "Agents A and C have different calculations for the total cost before applying the 10% discount.",
+          "involved_answers": [
+            "22.5",
+            "17.5"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = 22.5 + 5 = 27.5",
+        "10% of 22.5 = 2.25",
+        "Final cost = 22.5 - 2.25 = 20.25",
+        "Change = 27.5 - 20.25 = 7.25",
+        "Total cost = 17.5, Discount = 10%, Final cost = 15.75"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "17.5",
+        "13.5",
+        "13.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the total cost before applying the 10% discount.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculating the total cost to ensure consistency across agents.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The recalculated total cost before discount is $13.50.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the total cost before discount between agents A and C.",
+          "why_still_open": "All agents have recalculated but need verification of the total cost before discount.",
+          "involved_answers": [
+            "17.5",
+            "13.5"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost = 13.5",
+        "10% of 13.5 = 1.35",
+        "Final cost = 13.5 - 1.35 = 12.15",
+        "Rechecked calculations for consistency",
+        "Resolved disagreement on total cost before discount"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 403,
+      "completion_tokens": 40,
+      "total_tokens": 443,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 390,
+      "completion_tokens": 39,
+      "total_tokens": 429,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 401,
+      "completion_tokens": 42,
+      "total_tokens": 443,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 606,
+      "completion_tokens": 259,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 762,
+      "completion_tokens": 123,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 759,
+      "completion_tokens": 95,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 773,
+      "completion_tokens": 105,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1152,
+      "completion_tokens": 237,
+      "total_tokens": 1389,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 767,
+      "completion_tokens": 101,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 764,
+      "completion_tokens": 126,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 778,
+      "completion_tokens": 95,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1123,
+      "completion_tokens": 234,
+      "total_tokens": 1357,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 677,
+      "completion_tokens": 137,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 674,
+      "completion_tokens": 118,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 688,
+      "completion_tokens": 130,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1183,
+      "completion_tokens": 305,
+      "total_tokens": 1488,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 897,
+      "completion_tokens": 106,
+      "total_tokens": 1003,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 894,
+      "completion_tokens": 97,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 908,
+      "completion_tokens": 110,
+      "total_tokens": 1018,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1171,
+      "completion_tokens": 299,
+      "total_tokens": 1470,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 443,
+    "majority_vote_total_tokens": 1315,
+    "scrd_total_tokens": 18568,
+    "scrd_prompt_tokens": 15770,
+    "scrd_completion_tokens": 2798,
+    "agent_total_tokens": 11999,
+    "recorder_total_tokens": 6569,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

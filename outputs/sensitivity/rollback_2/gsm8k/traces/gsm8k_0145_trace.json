@@ -1,0 +1,378 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Third butcher delivered 32 pounds of ground beef.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Third butcher delivered 8 packages of ground beef.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First butcher: 10 packages * 4 pounds/package = 40 pounds.",
+        "Second butcher: 7 packages * 4 pounds/package = 28 pounds.",
+        "Total from first two butchers: 40 + 28 = 68 pounds.",
+        "Third butcher: 100 - 68 = 32 pounds.",
+        "Packages from third butcher: 32 pounds / 4 pounds/package = 8 packages."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Third butcher delivered 12 packages, each weighing 2.67 pounds, totaling 32 pounds.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Third butcher delivered 12 packages, each weighing 2.67 pounds, totaling 32 pounds.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Third butcher delivered 12 packages, each weighing 2.67 pounds, totaling 32 pounds.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First butcher: 10 packages * 4 pounds/package = 40 pounds.",
+        "Second butcher: 7 packages * 4 pounds/package = 28 pounds.",
+        "Total from first two butchers: 40 + 28 = 68 pounds.",
+        "Third butcher: 100 - 68 = 32 pounds.",
+        "Packages from third butcher: 32 pounds / 4 pounds/package = 8 packages."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The third butcher delivered 8 packages, each weighing 4 pounds, totaling 32 pounds.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The third butcher delivered 12 packages, each weighing 4 pounds, totaling 48 pounds.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculating shows the third butcher delivered 8 packages, each weighing 4 pounds, totaling 32 pounds.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a conflict between 8 packages and 12 packages delivered by the third butcher.",
+          "why_still_open": "Both sides have valid calculations, but they differ.",
+          "involved_answers": [
+            "8",
+            "12"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First butcher: 10 packages * 4 pounds/package = 40 pounds.",
+        "Second butcher: 7 packages * 4 pounds/package = 28 pounds.",
+        "Total from first two butchers: 40 + 28 = 68 pounds.",
+        "Third butcher: 100 - 68 = 32 pounds.",
+        "Packages from third butcher: 32 pounds / 4 pounds/package = 8 packages."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 408,
+      "completion_tokens": 127,
+      "total_tokens": 535,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 395,
+      "completion_tokens": 87,
+      "total_tokens": 482,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 406,
+      "completion_tokens": 107,
+      "total_tokens": 513,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 797,
+      "completion_tokens": 207,
+      "total_tokens": 1004,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 667,
+      "completion_tokens": 234,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 664,
+      "completion_tokens": 267,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 678,
+      "completion_tokens": 132,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1379,
+      "completion_tokens": 228,
+      "total_tokens": 1607,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 629,
+      "completion_tokens": 54,
+      "total_tokens": 683,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 882,
+      "completion_tokens": 90,
+      "total_tokens": 972,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 648,
+      "completion_tokens": 122,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 647,
+      "completion_tokens": 152,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 648,
+      "completion_tokens": 135,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1141,
+      "completion_tokens": 280,
+      "total_tokens": 1421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 842,
+      "completion_tokens": 56,
+      "total_tokens": 898,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 744,
+      "completion_tokens": 174,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 741,
+      "completion_tokens": 104,
+      "total_tokens": 845,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 757,
+      "completion_tokens": 130,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1215,
+      "completion_tokens": 342,
+      "total_tokens": 1557,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0145",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 752,
+      "completion_tokens": 56,
+      "total_tokens": 808,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 535,
+    "majority_vote_total_tokens": 1530,
+    "scrd_total_tokens": 18124,
+    "scrd_prompt_tokens": 15040,
+    "scrd_completion_tokens": 3084,
+    "agent_total_tokens": 4172,
+    "recorder_total_tokens": 5589,
+    "evaluator_total_tokens": 683,
+    "repair_brief_total_tokens": 972,
+    "repair_evaluator_total_tokens": 1706,
+    "repair_agent_total_tokens": 5002
+  }
+}

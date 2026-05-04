@@ -1,0 +1,470 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "19",
+        "19",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Positive solution is sqrt(97)-6.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Multiple correct answers provided (19 by A and B, 13 by C).",
+          "why_still_open": "Not all agents agreed on a single correct answer.",
+          "involved_answers": [
+            "19",
+            "13"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Complete the square and solve for x.",
+        "sqrt(97)-6"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "19",
+        "19",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The positive solution is sqrt(97)-6, which sums to 19.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support and previous answers indicate sqrt(97)-6 leads to a sum of 19.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Multiple correct answers provided (19 by A and B, 13 by C).",
+          "why_still_open": "Agent C is re-evaluating the answers.",
+          "involved_answers": [
+            "19",
+            "13"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Complete the square and solve for x.",
+        "sqrt(97)-6",
+        "19"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "103",
+        "19",
+        "19"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The positive solution simplifies to -6 + sqrt(97), resulting in a sum of 103.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The positive solution is sqrt(97)-6, which sums to 19, resolving the conflict.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Multiple correct answers provided (19 by A and B, 13 by C).",
+          "why_still_open": "Agent C is re-evaluating both answers.",
+          "involved_answers": [
+            "19",
+            "13"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Positive solution: -6 + sqrt(97) -> sum = 103",
+        "sqrt(97)-6 -> sum = 19",
+        "Rechecking calculations for 19 and 13"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "19",
+        "19",
+        "19"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The positive solution is sqrt(97)-6, confirming the sum is 19.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The positive solution is sqrt(97)-6, matching the previous key rebuttal and resolving the conflict.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The positive solution is sqrt(97) - 6, confirming the minority answer of 19.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "sqrt(97)-6 -> sum = 19",
+        "Positive solution confirmed: sqrt(97) - 6 = 19",
+        "All agents agree on the positive solution: sqrt(97) - 6"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "19",
+        "19",
+        "19"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent C reevaluates their answer due to potential discrepancy with the standard form.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between answers 19 and 13.",
+          "why_still_open": "Agent C needs further verification before agreeing on 19.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "sqrt(97)-6 -> sum = 19",
+        "Agent C reevaluates based on the standard form.",
+        "Positive solution: sqrt(97)-6",
+        "Multiple correct answers: 19 (A, B), 13 (C)",
+        "Form verification needed for 19"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 360,
+      "completion_tokens": 33,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 347,
+      "completion_tokens": 33,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 358,
+      "completion_tokens": 43,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 585,
+      "completion_tokens": 152,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 727,
+      "completion_tokens": 104,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 724,
+      "completion_tokens": 127,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 738,
+      "completion_tokens": 105,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1045,
+      "completion_tokens": 217,
+      "total_tokens": 1262,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 836,
+      "completion_tokens": 182,
+      "total_tokens": 1018,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 833,
+      "completion_tokens": 125,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 847,
+      "completion_tokens": 104,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1181,
+      "completion_tokens": 254,
+      "total_tokens": 1435,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1181,
+      "completion_tokens": 246,
+      "total_tokens": 1427,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1181,
+      "completion_tokens": 251,
+      "total_tokens": 1432,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 843,
+      "completion_tokens": 121,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 839,
+      "completion_tokens": 116,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 853,
+      "completion_tokens": 117,
+      "total_tokens": 970,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1142,
+      "completion_tokens": 232,
+      "total_tokens": 1374,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 839,
+      "completion_tokens": 118,
+      "total_tokens": 957,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 836,
+      "completion_tokens": 115,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 850,
+      "completion_tokens": 127,
+      "total_tokens": 977,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0099",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1144,
+      "completion_tokens": 208,
+      "total_tokens": 1352,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 393,
+    "majority_vote_total_tokens": 1174,
+    "scrd_total_tokens": 21419,
+    "scrd_prompt_tokens": 18289,
+    "scrd_completion_tokens": 3130,
+    "agent_total_tokens": 12400,
+    "recorder_total_tokens": 9019,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

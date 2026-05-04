@@ -1,0 +1,438 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "324",
+        "324",
+        "360"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Multiply total people by dozen and then by cards per dozen.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Multiply the number of people by the dozens of cards each has.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C use different methods for calculating the total number of cards.",
+          "why_still_open": "Different approaches lead to different answers without clear resolution.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "324",
+        "360"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "324",
+        "324",
+        "324"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Use the mainstream method for calculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Consistency with the problem statement ensures avoiding confusion.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "324"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "432",
+        "432",
+        "432"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each person has 9 dozen cards, converting to 108 individual cards per person.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Consistency with the mainstream method resolves the disagreement on the correct number of cards.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "432",
+        "4 people * 9 dozens * 12 cards per dozen = 432 cards"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "432",
+        "432",
+        "432"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 324 does not align with the calculation of 9 dozen cards per person, resulting in 432 cards in total.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4 people * 9 dozens * 12 cards per dozen = 432 cards",
+        "9 dozen cards = 108 cards per person"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 43,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 38,
+      "total_tokens": 364,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 39,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 599,
+      "completion_tokens": 179,
+      "total_tokens": 778,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 706,
+      "completion_tokens": 99,
+      "total_tokens": 805,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 703,
+      "completion_tokens": 110,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 717,
+      "completion_tokens": 111,
+      "total_tokens": 828,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1062,
+      "completion_tokens": 111,
+      "total_tokens": 1173,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 608,
+      "completion_tokens": 49,
+      "total_tokens": 657,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 790,
+      "completion_tokens": 102,
+      "total_tokens": 892,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 787,
+      "completion_tokens": 97,
+      "total_tokens": 884,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 801,
+      "completion_tokens": 141,
+      "total_tokens": 942,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1009,
+      "completion_tokens": 126,
+      "total_tokens": 1135,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 51,
+      "total_tokens": 655,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 620,
+      "completion_tokens": 87,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 773,
+      "completion_tokens": 161,
+      "total_tokens": 934,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 772,
+      "completion_tokens": 110,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 773,
+      "completion_tokens": 190,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1106,
+      "completion_tokens": 151,
+      "total_tokens": 1257,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 712,
+      "completion_tokens": 46,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 773,
+      "completion_tokens": 172,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 770,
+      "completion_tokens": 127,
+      "total_tokens": 897,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 786,
+      "completion_tokens": 149,
+      "total_tokens": 935,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1133,
+      "completion_tokens": 130,
+      "total_tokens": 1263,
+      "extra": {}
+    },
+    {
+      "sample_id": "singleeq_0178",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 569,
+      "completion_tokens": 61,
+      "total_tokens": 630,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 382,
+    "majority_vote_total_tokens": 1122,
+    "scrd_total_tokens": 20855,
+    "scrd_prompt_tokens": 18175,
+    "scrd_completion_tokens": 2680,
+    "agent_total_tokens": 6286,
+    "recorder_total_tokens": 5606,
+    "evaluator_total_tokens": 1312,
+    "repair_brief_total_tokens": 707,
+    "repair_evaluator_total_tokens": 1388,
+    "repair_agent_total_tokens": 5556
+  }
+}

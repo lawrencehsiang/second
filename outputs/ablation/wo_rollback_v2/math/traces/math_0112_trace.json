@@ -1,0 +1,442 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-6",
+        "-12",
+        "-6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Factorize x^2 - 16x + 60 into (x - 10)(x - 6) to find b = 10 and a = 6.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Factorize: x^2 - 16x + 60 = (x - 10)(x - 6)",
+        "a = 6, b = 10",
+        "3b - a = 3(10) - 6 = 24 - 6 = -6"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-4",
+        "8",
+        "3 * 10 - 6 = 24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correct factorization is (x - 10)(x - 6) yielding a = 10 and b = 6.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Swap a and b to satisfy a > b, resulting in a = 6 and b = 10.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the value of 3b - a given a = 6 and b = 10.",
+          "why_still_open": "Different interpretations of the calculation.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Factorize correctly: (x - 10)(x - 6) => a = 10, b = 6",
+        "Swap a and b for a > b: a = 6, b = 10",
+        "3b - a = 3(10) - 6 = 24 - 6 = 18"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "-8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolved the disagreement on the value of 3b - a by correctly factoring the quadratic.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Factorize correctly: (x - 10)(x - 6) => a = 10, b = 6",
+        "Swap a and b for a > b: a = 6, b = 10",
+        "3b - a = 3(6) - 10 = 18 - 10 = 8"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "2",
+        "4",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluated and confirmed the value of 3b - a as 8 with a = 6 and b = 10.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Consensus reached on the value of 3b - a being 8.",
+          "claim_type": "support",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Re-evaluated: 3b - a = 3(6) - 10 = 18 - 10 = 8",
+        "Consensus: 3b - a = 8",
+        "a = 6, b = 10"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated the value of 3b - a as 8 with the correct factorization of (x - 6)(x - 10).",
+          "claim_type": "rebuttal",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Recalculated: 3b - a = 3(6) - 10 = 18 - 10 = 8",
+        "Factorization: (x - 6)(x - 10)",
+        "a = 6, b = 10"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0112",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 373,
+      "completion_tokens": 43,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 360,
+      "completion_tokens": 57,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 371,
+      "completion_tokens": 42,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 619,
+      "completion_tokens": 171,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 661,
+      "completion_tokens": 138,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 659,
+      "completion_tokens": 76,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 672,
+      "completion_tokens": 160,
+      "total_tokens": 832,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1095,
+      "completion_tokens": 281,
+      "total_tokens": 1376,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 687,
+      "completion_tokens": 46,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 859,
+      "completion_tokens": 101,
+      "total_tokens": 960,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 856,
+      "completion_tokens": 176,
+      "total_tokens": 1032,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 881,
+      "completion_tokens": 161,
+      "total_tokens": 1042,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1273,
+      "completion_tokens": 161,
+      "total_tokens": 1434,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 623,
+      "completion_tokens": 49,
+      "total_tokens": 672,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 850,
+      "completion_tokens": 127,
+      "total_tokens": 977,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 847,
+      "completion_tokens": 122,
+      "total_tokens": 969,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 861,
+      "completion_tokens": 118,
+      "total_tokens": 979,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1058,
+      "completion_tokens": 195,
+      "total_tokens": 1253,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 643,
+      "completion_tokens": 51,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 843,
+      "completion_tokens": 157,
+      "total_tokens": 1000,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 840,
+      "completion_tokens": 112,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 854,
+      "completion_tokens": 143,
+      "total_tokens": 997,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1153,
+      "completion_tokens": 162,
+      "total_tokens": 1315,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0112",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 47,
+      "total_tokens": 649,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 416,
+    "majority_vote_total_tokens": 1246,
+    "scrd_total_tokens": 21436,
+    "scrd_prompt_tokens": 18540,
+    "scrd_completion_tokens": 2896,
+    "agent_total_tokens": 12520,
+    "recorder_total_tokens": 6168,
+    "evaluator_total_tokens": 2748,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

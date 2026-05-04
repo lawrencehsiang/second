@@ -1,0 +1,205 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "35",
+        "35",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Net amount after tax and fee is $35.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Answer '40' is incorrect as it does not account for tax and fee.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent C's answer of 40 versus Agent A and B's answer of 35.",
+          "why_still_open": "Disagreement on whether tax and fee were correctly applied.",
+          "involved_answers": [
+            "35",
+            "40"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Winnings = $50, Tax = 20%, Fee = $5",
+        "Net Amount = Winnings - Tax - Fee",
+        "$35 = 50 - 10 - 5",
+        "40 > 35, thus 40 is incorrect",
+        "Tax = 50 * 20%"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "35",
+        "35",
+        "35"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct calculation involves deducting both the tax and the fee from the initial amount.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 40 does not account for the 20% tax and $5 fee deduction.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The initial answer of 40 was incorrect as it did not account for the 20% tax and the $5 processing fee.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Winnings = $50, Tax = 20%, Fee = $5",
+        "Net Amount = Winnings - Tax - Fee",
+        "$35 = 50 - 10 - 5",
+        "40 > 35, thus 40 is incorrect",
+        "Tax = 50 * 20%"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 348,
+      "completion_tokens": 45,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 335,
+      "completion_tokens": 33,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 346,
+      "completion_tokens": 35,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 258,
+      "total_tokens": 850,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 815,
+      "completion_tokens": 150,
+      "total_tokens": 965,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 812,
+      "completion_tokens": 154,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 826,
+      "completion_tokens": 173,
+      "total_tokens": 999,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1262,
+      "completion_tokens": 260,
+      "total_tokens": 1522,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0149",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 700,
+      "completion_tokens": 52,
+      "total_tokens": 752,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 393,
+    "majority_vote_total_tokens": 1142,
+    "scrd_total_tokens": 7196,
+    "scrd_prompt_tokens": 6036,
+    "scrd_completion_tokens": 1160,
+    "agent_total_tokens": 4072,
+    "recorder_total_tokens": 2372,
+    "evaluator_total_tokens": 752,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

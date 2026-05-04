@@ -1,0 +1,214 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "12.5",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "New daily wage = $80 + $20 = $100.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "New daily hours = 8 + 2 = 10 hours.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Hourly wage = new daily wage / new daily hours.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B have different answers (12 vs 12.5).",
+          "why_still_open": "Different interpretations of bonus application.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "New daily wage = $80 + $20 = $100.",
+        "New daily hours = 8 + 2 = 10 hours.",
+        "Hourly wage = $100 / 10 = $10.",
+        "Bonus adds $20 to the daily wage.",
+        "$80 base wage + $20 bonus = $100 total wage."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12.5",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The bonus should be included in the daily wage before calculating the hourly rate.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream support sets the new daily wage to $100.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B have different answers (12 vs 10).",
+          "why_still_open": "Disagreement on the sequence of applying bonus and adjusting hours.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "New daily wage = $80 + $20 = $100.",
+        "Bonus adds $20 to the daily wage.",
+        "New daily hours = 8 + 2 = 10 hours.",
+        "Hourly wage = $100 / 10 = $10.",
+        "$80 base wage + $20 bonus = $100 total wage."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 31,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 30,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 75,
+      "total_tokens": 459,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 617,
+      "completion_tokens": 299,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 757,
+      "completion_tokens": 115,
+      "total_tokens": 872,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 756,
+      "completion_tokens": 149,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 768,
+      "completion_tokens": 138,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1254,
+      "completion_tokens": 263,
+      "total_tokens": 1517,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0092",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 668,
+      "completion_tokens": 47,
+      "total_tokens": 715,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 417,
+    "majority_vote_total_tokens": 1279,
+    "scrd_total_tokens": 7110,
+    "scrd_prompt_tokens": 5963,
+    "scrd_completion_tokens": 1147,
+    "agent_total_tokens": 3962,
+    "recorder_total_tokens": 2433,
+    "evaluator_total_tokens": 715,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

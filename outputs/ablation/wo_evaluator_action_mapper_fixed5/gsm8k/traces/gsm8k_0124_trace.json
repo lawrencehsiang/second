@@ -1,0 +1,441 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "50",
+        "20",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Both stores have the same cost per can.",
+          "claim_type": "constraint",
+          "related_answer": "50"
+        },
+        {
+          "text": "The difference in cost between the two stores is zero.",
+          "claim_type": "constraint",
+          "related_answer": "20"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on '50', but B states '20'.",
+          "why_still_open": "Different answers despite similar calculations.",
+          "involved_answers": [
+            "50",
+            "20"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Cost per can = 50 cents",
+        "Difference in cost = 0",
+        "Both stores cost the same"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "25",
+        "25",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The grocery store costs $0.50 per can, whereas the bulk warehouse costs $0.25 per can.",
+          "claim_type": "support",
+          "related_answer": "25"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agreed on '50', but B stated '25'.",
+          "why_still_open": "Disagreement persists regarding the correct cost per can between the two stores.",
+          "involved_answers": [
+            "50",
+            "25"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Cost per can at grocery store = $0.50",
+        "Cost per can at bulk warehouse = $0.25",
+        "Difference in cost per can = $0.25",
+        "Verify calculations for consistency",
+        "Correct cost per can comparison"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "25",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The grocery store is $0.25 more expensive per can compared to the bulk warehouse.",
+          "claim_type": "support",
+          "related_answer": "25"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cost per can at grocery store = $0.50",
+        "Cost per can at bulk warehouse = $0.25",
+        "Difference in cost per can = $0.25",
+        "Verify calculations for consistency",
+        "Correct cost per can comparison"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "25",
+        "50",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The cost per can at the bulk warehouse is $0.25, and at the grocery store, it is $0.50. The difference is $0.25 per can.",
+          "claim_type": "support",
+          "related_answer": "25"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B initially stated '50' but later updated to '25' after reevaluation.",
+          "why_still_open": "Agent B needs to fully reconcile their previous answer with the new consensus.",
+          "involved_answers": [
+            "50",
+            "25"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Cost per can at bulk warehouse = $0.25",
+        "Cost per can at grocery store = $0.50",
+        "Difference in cost per can = $0.25",
+        "Bulk warehouse: 48 cans for $12",
+        "Grocery store: 12 cans for $6"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "25",
+        "25",
+        "25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The cost per can at the grocery store is $0.50, which is $0.25 more than the cost at the bulk warehouse.",
+          "claim_type": "support",
+          "related_answer": "25"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cost per can at bulk warehouse = $0.25",
+        "Cost per can at grocery store = $0.50",
+        "Difference in cost per can = $0.25",
+        "Bulk warehouse: 48 cans for $12",
+        "Grocery store: 12 cans for $6"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 378,
+      "completion_tokens": 37,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 365,
+      "completion_tokens": 34,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 376,
+      "completion_tokens": 37,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 587,
+      "completion_tokens": 193,
+      "total_tokens": 780,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 739,
+      "completion_tokens": 173,
+      "total_tokens": 912,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 736,
+      "completion_tokens": 175,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 750,
+      "completion_tokens": 120,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1218,
+      "completion_tokens": 212,
+      "total_tokens": 1430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 865,
+      "completion_tokens": 135,
+      "total_tokens": 1000,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 862,
+      "completion_tokens": 157,
+      "total_tokens": 1019,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 876,
+      "completion_tokens": 159,
+      "total_tokens": 1035,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1212,
+      "completion_tokens": 139,
+      "total_tokens": 1351,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 758,
+      "completion_tokens": 195,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 755,
+      "completion_tokens": 106,
+      "total_tokens": 861,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 769,
+      "completion_tokens": 198,
+      "total_tokens": 967,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1190,
+      "completion_tokens": 238,
+      "total_tokens": 1428,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1190,
+      "completion_tokens": 241,
+      "total_tokens": 1431,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 780,
+      "completion_tokens": 116,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 777,
+      "completion_tokens": 150,
+      "total_tokens": 927,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 791,
+      "completion_tokens": 161,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0124",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1225,
+      "completion_tokens": 164,
+      "total_tokens": 1389,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 415,
+    "majority_vote_total_tokens": 1227,
+    "scrd_total_tokens": 20339,
+    "scrd_prompt_tokens": 17199,
+    "scrd_completion_tokens": 3140,
+    "agent_total_tokens": 12530,
+    "recorder_total_tokens": 7809,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

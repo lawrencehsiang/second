@@ -10,32 +10,34 @@
       "newly_added_claims": [
         {
           "text": "Total problems - problems done = remaining problems",
-          "claim_type": "constraint",
-          "related_answer": "A, B"
+          "claim_type": "support",
+          "related_answer": "A"
         },
         {
-          "text": "Total problems minus those done at school equals remaining problems",
-          "claim_type": "constraint",
+          "text": "Total problems - problems done = remaining problems",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total problems - problems done = remaining problems; C's answer is 1 less",
+          "claim_type": "rebuttal",
           "related_answer": "C"
         }
       ],
       "unresolved_conflicts": [
         {
-          "conflict": "Agents A and B agree on 12, but C suggests 11.",
-          "why_still_open": "Different interpretations of 'problems done at school'.",
+          "conflict": "Agents A, B, and C provide the same support but reach different answers.",
+          "why_still_open": "Disagreement on the final count despite similar reasoning.",
           "involved_answers": [
-            "A",
-            "B",
-            "C"
+            "12",
+            "11"
           ]
         }
       ],
       "key_raw_snippets": [
-        "Total problems - problems done = remaining problems",
-        "Total problems minus those done at school equals remaining problems",
-        "12",
-        "11",
-        "Remaining problems = Total - Done"
+        "Total problems - done = remaining",
+        "C's answer is 1 less than others",
+        "12 problems total"
       ]
     },
     {
@@ -47,18 +49,36 @@
       ],
       "newly_added_claims": [
         {
-          "text": "If 44 problems were done at school, 11 remain unsolved.",
+          "text": "Re-calculated based on total problems and those completed.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total problems is 55, problems done at school is 44, so remaining problems are 11.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Arithmetic check to ensure correctness of the remaining problems.",
           "claim_type": "constraint",
-          "related_answer": "A, B, C"
+          "related_answer": "C"
         }
       ],
-      "unresolved_conflicts": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C provide the same support but reach different answers.",
+          "why_still_open": "C's response indicates ongoing review for potential minor arithmetic errors, but the answers remain inconsistent.",
+          "involved_answers": [
+            "11"
+          ]
+        }
+      ],
       "key_raw_snippets": [
-        "Total problems - problems done = remaining problems",
-        "11",
-        "Remaining problems = Total - Done",
-        "Total problems = 43 + 12 = 55",
-        "44 problems done at school -> 55 - 44 = 11 remaining"
+        "Total problems is 55",
+        "Problems done at school is 44",
+        "Remaining problems are 11",
+        "Re-checking arithmetic calculations",
+        "Correct calculation ensures consistent answers"
       ]
     }
   ],
@@ -87,8 +107,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 350,
-      "completion_tokens": 34,
-      "total_tokens": 384,
+      "completion_tokens": 31,
+      "total_tokens": 381,
       "extra": {}
     },
     {
@@ -120,8 +140,8 @@
       "component": "recorder",
       "agent_id": null,
       "prompt_tokens": 580,
-      "completion_tokens": 212,
-      "total_tokens": 792,
+      "completion_tokens": 240,
+      "total_tokens": 820,
       "extra": {}
     },
     {
@@ -130,9 +150,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 714,
-      "completion_tokens": 164,
-      "total_tokens": 878,
+      "prompt_tokens": 810,
+      "completion_tokens": 96,
+      "total_tokens": 906,
       "extra": {}
     },
     {
@@ -141,9 +161,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 711,
-      "completion_tokens": 130,
-      "total_tokens": 841,
+      "prompt_tokens": 807,
+      "completion_tokens": 123,
+      "total_tokens": 930,
       "extra": {}
     },
     {
@@ -152,9 +172,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 725,
-      "completion_tokens": 141,
-      "total_tokens": 866,
+      "prompt_tokens": 821,
+      "completion_tokens": 110,
+      "total_tokens": 931,
       "extra": {}
     },
     {
@@ -163,9 +183,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 1205,
-      "completion_tokens": 145,
-      "total_tokens": 1350,
+      "prompt_tokens": 1122,
+      "completion_tokens": 281,
+      "total_tokens": 1403,
       "extra": {}
     },
     {
@@ -174,25 +194,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 589,
-      "completion_tokens": 59,
-      "total_tokens": 648,
+      "prompt_tokens": 675,
+      "completion_tokens": 45,
+      "total_tokens": 720,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 384,
-    "majority_vote_total_tokens": 1136,
-    "scrd_total_tokens": 6511,
-    "scrd_prompt_tokens": 5559,
-    "scrd_completion_tokens": 952,
-    "agent_total_tokens": 3721,
-    "recorder_total_tokens": 2142,
-    "evaluator_total_tokens": 648,
+    "single_agent_total_tokens": 381,
+    "majority_vote_total_tokens": 1133,
+    "scrd_total_tokens": 6843,
+    "scrd_prompt_tokens": 5850,
+    "scrd_completion_tokens": 993,
+    "agent_total_tokens": 3900,
+    "recorder_total_tokens": 2223,
+    "evaluator_total_tokens": 720,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

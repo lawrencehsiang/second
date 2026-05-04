@@ -3,50 +3,65 @@
     {
       "round_id": 1,
       "current_answers": [
-        "20",
         "40",
-        "40"
+        "40",
+        "10"
       ],
       "newly_added_claims": [
         {
-          "text": "Total savings needed is $400.",
-          "claim_type": "explanation",
-          "related_answer": "B"
+          "text": "Total savings needed is $100 * 4 months.",
+          "claim_type": "constraint",
+          "related_answer": "C"
         },
         {
-          "text": "Earnings per chore are $10.",
+          "text": "Chores per month = Total savings / 8 months.",
           "claim_type": "explanation",
-          "related_answer": "B"
+          "related_answer": "C"
         }
       ],
       "unresolved_conflicts": [],
       "key_raw_snippets": [
-        "Savings needed = $100/month * 4 months",
-        "Earnings per chore = $10",
-        "Total chores needed = $400 / $10"
+        "Total savings needed = $100 * 4 months.",
+        "Chores per month = Total savings / 8 months.",
+        "Calculate total savings needed, then divide by monthly earnings per chore."
       ]
     },
     {
       "round_id": 2,
       "current_answers": [
         "40",
-        "5",
-        "50"
+        "40",
+        "5"
       ],
       "newly_added_claims": [
         {
-          "text": "Gerald needs to average 50 chores per month.",
-          "claim_type": "constraint",
+          "text": "The total number of chores needed is 40, not 40 per month.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct number of chores per month is 5.",
+          "claim_type": "support",
           "related_answer": "C"
         }
       ],
-      "unresolved_conflicts": [],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a disagreement on whether the total chores needed is 40 or 40 per month.",
+          "why_still_open": "Agent A argues the total chores are 40, while Agent B maintains the original 40 chores per month. Agent C supports the 5 chores per month.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
       "key_raw_snippets": [
-        "Total savings needed = $400",
-        "Earnings per chore = $10",
-        "Chores needed per month = $400 / $10 / 8 months",
-        "Total chores needed = 40 chores",
-        "Average chores per month = 50 chores"
+        "Total savings needed = $400.",
+        "Chores per month = Total savings / 8 months.",
+        "Calculate total chores needed, then divide by 8 months.",
+        "Total chores = 40.",
+        "Chores per month = 5."
       ]
     }
   ],
@@ -75,8 +90,8 @@
       "component": "agent_round_1",
       "agent_id": "A",
       "prompt_tokens": 384,
-      "completion_tokens": 35,
-      "total_tokens": 419,
+      "completion_tokens": 38,
+      "total_tokens": 422,
       "extra": {}
     },
     {
@@ -86,8 +101,8 @@
       "component": "agent_round_1",
       "agent_id": "B",
       "prompt_tokens": 371,
-      "completion_tokens": 64,
-      "total_tokens": 435,
+      "completion_tokens": 35,
+      "total_tokens": 406,
       "extra": {}
     },
     {
@@ -97,8 +112,8 @@
       "component": "agent_round_1",
       "agent_id": "C",
       "prompt_tokens": 382,
-      "completion_tokens": 38,
-      "total_tokens": 420,
+      "completion_tokens": 55,
+      "total_tokens": 437,
       "extra": {}
     },
     {
@@ -107,9 +122,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 619,
-      "completion_tokens": 147,
-      "total_tokens": 766,
+      "prompt_tokens": 607,
+      "completion_tokens": 155,
+      "total_tokens": 762,
       "extra": {}
     },
     {
@@ -118,9 +133,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "A",
-      "prompt_tokens": 643,
-      "completion_tokens": 159,
-      "total_tokens": 802,
+      "prompt_tokens": 647,
+      "completion_tokens": 150,
+      "total_tokens": 797,
       "extra": {}
     },
     {
@@ -129,9 +144,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "B",
-      "prompt_tokens": 640,
-      "completion_tokens": 169,
-      "total_tokens": 809,
+      "prompt_tokens": 644,
+      "completion_tokens": 83,
+      "total_tokens": 727,
       "extra": {}
     },
     {
@@ -140,9 +155,9 @@
       "mode": "normal",
       "component": "agent_normal",
       "agent_id": "C",
-      "prompt_tokens": 654,
-      "completion_tokens": 167,
-      "total_tokens": 821,
+      "prompt_tokens": 658,
+      "completion_tokens": 178,
+      "total_tokens": 836,
       "extra": {}
     },
     {
@@ -151,9 +166,9 @@
       "mode": "normal",
       "component": "recorder",
       "agent_id": null,
-      "prompt_tokens": 1169,
-      "completion_tokens": 138,
-      "total_tokens": 1307,
+      "prompt_tokens": 1093,
+      "completion_tokens": 264,
+      "total_tokens": 1357,
       "extra": {}
     },
     {
@@ -162,25 +177,26 @@
       "mode": "normal",
       "component": "evaluator",
       "agent_id": null,
-      "prompt_tokens": 592,
-      "completion_tokens": 45,
-      "total_tokens": 637,
+      "prompt_tokens": 665,
+      "completion_tokens": 53,
+      "total_tokens": 718,
       "extra": {}
     }
   ],
   "usage_summary": {
-    "single_agent_total_tokens": 419,
-    "majority_vote_total_tokens": 1274,
-    "scrd_total_tokens": 6416,
-    "scrd_prompt_tokens": 5454,
-    "scrd_completion_tokens": 962,
-    "agent_total_tokens": 3706,
-    "recorder_total_tokens": 2073,
-    "evaluator_total_tokens": 637,
+    "single_agent_total_tokens": 422,
+    "majority_vote_total_tokens": 1265,
+    "scrd_total_tokens": 6462,
+    "scrd_prompt_tokens": 5451,
+    "scrd_completion_tokens": 1011,
+    "agent_total_tokens": 3625,
+    "recorder_total_tokens": 2119,
+    "evaluator_total_tokens": 718,
     "repair_brief_total_tokens": 0,
     "repair_evaluator_total_tokens": 0,
     "repair_agent_total_tokens": 0
   },
   "ablation": "wo_rollback",
-  "ablation_policy": "rollback_disabled_degraded_to_early_stop"
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
 }

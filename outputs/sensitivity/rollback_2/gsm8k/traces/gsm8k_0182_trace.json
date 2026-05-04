@@ -1,0 +1,475 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "60",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Tree grows 10% more each year.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Growth calculation using compound interest formula.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Annual 10% growth rate used for calculation.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating growth were used.",
+          "why_still_open": "Agents used compound interest and simple annual growth rate without reconciliation.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Growth = Principal * (1 + Rate)^Time",
+        "20 * (1 + 0.10)^2",
+        "20 * 1.10^2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "61",
+        "60",
+        "61"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Consistently using compound interest for growth calculation.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Compound interest aligns with the growth pattern described.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Avoiding discrepancies by using compound interest.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Growth = Principal * (1 + Rate)^Time",
+        "60 * (1 + 0.10)^2",
+        "60 * 1.10^2"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "61",
+        "61",
+        "21"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revised calculation confirms the compound growth method is correct.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluating the growth calculation using the compound interest formula.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Revising the calculation confirms the compound growth method is correct, showing a total growth of 21 meters.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Growth = Principal * (1 + Rate)^Time",
+        "100 * (1 + 0.10)^2",
+        "100 * 1.10^2",
+        "Total Growth: 121 - 100 = 21 meters",
+        "Compound growth over two years results in 21 meters total growth."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "61",
+        "61",
+        "61"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Using compound interest aligns better with the problem's growth description.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verification needed for the correct growth method, considering compound interest.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement between the compound interest method and the direct growth method regarding the final height.",
+          "why_still_open": "Verification of which method correctly models the annual growth is pending.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Growth = Principal * (1 + Rate)^Time",
+        "100 * (1 + 0.10)^2",
+        "100 * 1.10^2",
+        "Total Growth: 121 - 100 = 21 meters",
+        "Compound growth over two years results in 21 meters total growth."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 367,
+      "completion_tokens": 55,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 354,
+      "completion_tokens": 45,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 365,
+      "completion_tokens": 48,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 623,
+      "completion_tokens": 234,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 723,
+      "completion_tokens": 90,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 720,
+      "completion_tokens": 110,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 734,
+      "completion_tokens": 90,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1081,
+      "completion_tokens": 184,
+      "total_tokens": 1265,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 667,
+      "completion_tokens": 53,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 817,
+      "completion_tokens": 100,
+      "total_tokens": 917,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 814,
+      "completion_tokens": 106,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 828,
+      "completion_tokens": 113,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1055,
+      "completion_tokens": 274,
+      "total_tokens": 1329,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 696,
+      "completion_tokens": 53,
+      "total_tokens": 749,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 868,
+      "completion_tokens": 93,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 797,
+      "completion_tokens": 155,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 796,
+      "completion_tokens": 110,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 797,
+      "completion_tokens": 227,
+      "total_tokens": 1024,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1204,
+      "completion_tokens": 238,
+      "total_tokens": 1442,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 785,
+      "completion_tokens": 63,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 682,
+      "completion_tokens": 94,
+      "total_tokens": 776,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 679,
+      "completion_tokens": 115,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 695,
+      "completion_tokens": 137,
+      "total_tokens": 832,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1112,
+      "completion_tokens": 252,
+      "total_tokens": 1364,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0182",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 639,
+      "completion_tokens": 48,
+      "total_tokens": 687,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 422,
+    "majority_vote_total_tokens": 1234,
+    "scrd_total_tokens": 21985,
+    "scrd_prompt_tokens": 18898,
+    "scrd_completion_tokens": 3087,
+    "agent_total_tokens": 6479,
+    "recorder_total_tokens": 6257,
+    "evaluator_total_tokens": 1469,
+    "repair_brief_total_tokens": 961,
+    "repair_evaluator_total_tokens": 1535,
+    "repair_agent_total_tokens": 5284
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "12",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total apples ordered = 42.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "Only 10 students wanted fruit, so 32 extra apples remain.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total apples = 42",
+        "10 students wanted fruit",
+        "32 extra apples"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "15",
+        "12",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous answer of 12 does not account for the number of students who wanted fruit.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous answer of 12 assumes all apples were used, but only 10 students wanted fruit.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The mainstream answer calculates 42 total apples ordered minus 10 apples consumed, resulting in 32 extra apples.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "42 total apples ordered",
+        "10 students wanted fruit",
+        "32 extra apples"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "15",
+        "32",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct approach is to subtract the number of students wanting fruit from the total number of apples ordered, resulting in 32 extra apples.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "42 total apples ordered",
+        "10 students wanted fruit",
+        "32 extra apples"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "15",
+        "32",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 15 is consistent with 10 students wanting fruit, leading to 15 extra apples.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "42 total apples ordered",
+        "10 students wanted fruit",
+        "15 extra apples (minority answer)"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "22",
+        "15",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "If only 10 students wanted fruit, the cafeteria would have 22 extra apples.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 32 remains unresolved.",
+          "why_still_open": "The minority answer contradicts the total number of apples ordered and the mainstream support.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "42 total apples ordered",
+        "10 students wanted fruit",
+        "22 extra apples (if only 10 students wanted fruit)",
+        "15 extra apples (mainstream support)",
+        "32 extra apples (minority answer, invalid)"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 350,
+      "completion_tokens": 34,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 337,
+      "completion_tokens": 30,
+      "total_tokens": 367,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 348,
+      "completion_tokens": 64,
+      "total_tokens": 412,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 607,
+      "completion_tokens": 135,
+      "total_tokens": 742,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 608,
+      "completion_tokens": 132,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 605,
+      "completion_tokens": 141,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 619,
+      "completion_tokens": 141,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1077,
+      "completion_tokens": 203,
+      "total_tokens": 1280,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 824,
+      "completion_tokens": 157,
+      "total_tokens": 981,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 821,
+      "completion_tokens": 128,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 835,
+      "completion_tokens": 185,
+      "total_tokens": 1020,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1225,
+      "completion_tokens": 111,
+      "total_tokens": 1336,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 827,
+      "completion_tokens": 169,
+      "total_tokens": 996,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 824,
+      "completion_tokens": 210,
+      "total_tokens": 1034,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 838,
+      "completion_tokens": 161,
+      "total_tokens": 999,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1195,
+      "completion_tokens": 112,
+      "total_tokens": 1307,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 726,
+      "completion_tokens": 130,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 723,
+      "completion_tokens": 107,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 737,
+      "completion_tokens": 178,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1079,
+      "completion_tokens": 193,
+      "total_tokens": 1272,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 384,
+    "majority_vote_total_tokens": 1163,
+    "scrd_total_tokens": 17926,
+    "scrd_prompt_tokens": 15205,
+    "scrd_completion_tokens": 2721,
+    "agent_total_tokens": 11989,
+    "recorder_total_tokens": 5937,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

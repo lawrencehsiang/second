@@ -1,0 +1,443 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "36",
+        "38",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Divide total hats by 2.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on 36 hats, but B suggests 38 hats.",
+          "why_still_open": "Different calculations lead to different results.",
+          "involved_answers": [
+            "36",
+            "38"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total hats / 2 = X",
+        "Zola's hats + others' hats = total hats",
+        "Calculate total hats first."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total hats / 2 = 36",
+        "Sum hats and divide by 2",
+        "Verify calculations to resolve conflicts"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "37",
+        "37",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the calculation based on the provided quantities.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recalculate the total number of hats considering all provided quantities and divide by 2.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C agree on 36 hats, but B suggests 38 hats.",
+          "why_still_open": "B's recalculation results in 38 hats, which contradicts the agreement of A and C on 36 hats.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total hats / 2 = 36",
+        "Verify calculations to resolve conflicts",
+        "Re-evaluate the calculation based on the provided quantities."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "36",
+        "36",
+        "37"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the total number of hats considering all provided quantities and divide by 2.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Let's recalculate the total number of hats and share them equally.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C agree on 36 hats, but a minority answer of 37 persists.",
+          "why_still_open": "The minority answer of 37 was re-evaluated but still disagrees with the majority.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recalculate the total number of hats considering all provided quantities and divide by 2.",
+        "The previous answer was 36, but a minority objection of 37 remains.",
+        "Verify calculations to resolve conflicts."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "36",
+        "37",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the calculation based on the provided quantities to resolve the conflict.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluate the calculation based on the provided quantities.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculate the total number of hats and verify the division.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C initially agreed on 36 hats, but a minority answer of 37 persisted.",
+          "why_still_open": "Despite re-evaluation, the minority answer of 37 remains unconvincingly resolved.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recalculate the total number of hats and verify the division.",
+        "The previous mainstream support was 36, but a minority objection suggested 37.",
+        "Re-evaluate the calculation based on the provided quantities to resolve the conflict."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 373,
+      "completion_tokens": 32,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 360,
+      "completion_tokens": 32,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 371,
+      "completion_tokens": 40,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 586,
+      "completion_tokens": 162,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 735,
+      "completion_tokens": 131,
+      "total_tokens": 866,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 732,
+      "completion_tokens": 102,
+      "total_tokens": 834,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 746,
+      "completion_tokens": 94,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1042,
+      "completion_tokens": 63,
+      "total_tokens": 1105,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 735,
+      "completion_tokens": 98,
+      "total_tokens": 833,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 732,
+      "completion_tokens": 98,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 746,
+      "completion_tokens": 102,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 913,
+      "completion_tokens": 230,
+      "total_tokens": 1143,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 831,
+      "completion_tokens": 122,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 828,
+      "completion_tokens": 111,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 842,
+      "completion_tokens": 101,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1114,
+      "completion_tokens": 249,
+      "total_tokens": 1363,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 831,
+      "completion_tokens": 105,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 828,
+      "completion_tokens": 104,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 842,
+      "completion_tokens": 106,
+      "total_tokens": 948,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0084",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1108,
+      "completion_tokens": 287,
+      "total_tokens": 1395,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 405,
+    "majority_vote_total_tokens": 1208,
+    "scrd_total_tokens": 17664,
+    "scrd_prompt_tokens": 15295,
+    "scrd_completion_tokens": 2369,
+    "agent_total_tokens": 11910,
+    "recorder_total_tokens": 5754,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

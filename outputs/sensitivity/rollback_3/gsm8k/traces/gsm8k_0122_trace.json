@@ -1,0 +1,281 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total blocks filled in first 4 hours, then determine remaining blocks and time needed with additional workers.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate total blocks filled in first 4 hours, then determine remaining blocks. Calculate time taken by 8 people to fill remaining blocks.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculate total blocks filled in first 4 hours, then find remaining blocks. Divide remaining blocks by new total rate to get additional hours.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total blocks = 4 * 60 = 240 blocks",
+        "Remaining blocks = 300 - 240 = 60 blocks",
+        "New rate = 8 people * 60 blocks/hour = 480 blocks/hour",
+        "Additional hours = 60 / 480 = 0.125 hours = 7.5 minutes",
+        "Total time = 4 hours + 0.125 hours = 4.125 hours"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12",
+        "12",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Reiterate the steps to calculate initial blocks, remaining blocks, and time with additional workers.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Reiterate the steps to calculate initial blocks, remaining blocks, and time with additional workers.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Reiterate the steps to calculate initial blocks, remaining blocks, and time with additional workers.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial blocks = 4 hours * 60 blocks/hour = 240 blocks",
+        "Remaining blocks = 300 - 240 = 60 blocks",
+        "New rate = 16 people * 60 blocks/hour = 960 blocks/hour",
+        "Time for remaining blocks = 60 / 960 = 0.0625 hours = 3.75 minutes",
+        "Total time = 4 hours + 3.75 minutes = 4.0625 hours"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 2
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 42,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 48,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 51,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 620,
+      "completion_tokens": 300,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 645,
+      "completion_tokens": 113,
+      "total_tokens": 758,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 642,
+      "completion_tokens": 131,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 656,
+      "completion_tokens": 200,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1269,
+      "completion_tokens": 361,
+      "total_tokens": 1630,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 729,
+      "completion_tokens": 52,
+      "total_tokens": 781,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 1077,
+      "completion_tokens": 100,
+      "total_tokens": 1177,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 626,
+      "completion_tokens": 167,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 625,
+      "completion_tokens": 142,
+      "total_tokens": 767,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 626,
+      "completion_tokens": 135,
+      "total_tokens": 761,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1269,
+      "completion_tokens": 288,
+      "total_tokens": 1557,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0122",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 804,
+      "completion_tokens": 49,
+      "total_tokens": 853,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 418,
+    "majority_vote_total_tokens": 1254,
+    "scrd_total_tokens": 12880,
+    "scrd_prompt_tokens": 10701,
+    "scrd_completion_tokens": 2179,
+    "agent_total_tokens": 3641,
+    "recorder_total_tokens": 4107,
+    "evaluator_total_tokens": 781,
+    "repair_brief_total_tokens": 1177,
+    "repair_evaluator_total_tokens": 853,
+    "repair_agent_total_tokens": 2321
+  }
+}

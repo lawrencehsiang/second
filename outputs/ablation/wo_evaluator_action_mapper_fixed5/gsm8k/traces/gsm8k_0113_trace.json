@@ -1,0 +1,429 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "920",
+        "720",
+        "920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Second day total photos is 320.",
+          "claim_type": "support",
+          "related_answer": "920"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First day: 400/2 = 200 photos.",
+        "Second day: 200 + 120 = 320 photos.",
+        "Total: 400 + 200 + 320 = 920 photos."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "760",
+        "1080",
+        "720"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "First day total photos is 200.",
+          "claim_type": "support",
+          "related_answer": "720"
+        },
+        {
+          "text": "Second day total photos is 320.",
+          "claim_type": "support",
+          "related_answer": "720"
+        },
+        {
+          "text": "Total photos is 760.",
+          "claim_type": "support",
+          "related_answer": "760"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First day: 200 photos.",
+        "Second day: 200 + 120 = 320 photos.",
+        "Total: 760 photos."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "920",
+        "1020",
+        "920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Second day total photos is 320.",
+          "claim_type": "support",
+          "related_answer": "920"
+        },
+        {
+          "text": "Total photos is 920.",
+          "claim_type": "support",
+          "related_answer": "920"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First day: 200 photos.",
+        "Second day: 200 + 120 = 320 photos.",
+        "Total: 200 + 320 = 920 photos."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "880",
+        "1320",
+        "920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The second day's total photos is 440, not 320.",
+          "claim_type": "rebuttal",
+          "related_answer": "880"
+        },
+        {
+          "text": "The second day's total photos should be 120 more than the first day, not 320.",
+          "claim_type": "rebuttal",
+          "related_answer": "1320"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The total number of photos is either 920 or 1320.",
+          "why_still_open": "Different agents have updated their answers based on different calculations and assumptions about the second day's photo count.",
+          "involved_answers": [
+            "880",
+            "1320",
+            "920"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First day: 200 photos.",
+        "Second day: 160 * 2 + 120 = 440 photos.",
+        "Total: 200 + 440 = 640 photos (Agent A's calculation).",
+        "Total: 200 + 320 = 520 photos (Agent C's calculation).",
+        "Total: 200 + 120 + 200 + 120 = 640 photos (Corrected total based on consistent calculations)."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "1320",
+        "920",
+        "1320"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The second day's total photos is 440, not 320.",
+          "claim_type": "rebuttal",
+          "related_answer": "1320"
+        },
+        {
+          "text": "The correct calculation for the second day is 120 more than the first day, which is 320.",
+          "claim_type": "rebuttal",
+          "related_answer": "920"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First day: 200 photos.",
+        "Second day: 120 more than the first day = 320 photos.",
+        "Total: 200 + 320 = 520 photos.",
+        "Second day: 120 more than the first day = 440 photos.",
+        "Total: 200 + 440 = 640 photos."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 390,
+      "completion_tokens": 81,
+      "total_tokens": 471,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 377,
+      "completion_tokens": 34,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 388,
+      "completion_tokens": 84,
+      "total_tokens": 472,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 684,
+      "completion_tokens": 136,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 652,
+      "completion_tokens": 118,
+      "total_tokens": 770,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 649,
+      "completion_tokens": 120,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 663,
+      "completion_tokens": 197,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1114,
+      "completion_tokens": 186,
+      "total_tokens": 1300,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 756,
+      "completion_tokens": 146,
+      "total_tokens": 902,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 754,
+      "completion_tokens": 188,
+      "total_tokens": 942,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 767,
+      "completion_tokens": 180,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1260,
+      "completion_tokens": 159,
+      "total_tokens": 1419,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 652,
+      "completion_tokens": 150,
+      "total_tokens": 802,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 650,
+      "completion_tokens": 112,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 663,
+      "completion_tokens": 250,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1207,
+      "completion_tokens": 342,
+      "total_tokens": 1549,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 867,
+      "completion_tokens": 149,
+      "total_tokens": 1016,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 865,
+      "completion_tokens": 185,
+      "total_tokens": 1050,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 878,
+      "completion_tokens": 152,
+      "total_tokens": 1030,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0113",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1306,
+      "completion_tokens": 230,
+      "total_tokens": 1536,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 471,
+    "majority_vote_total_tokens": 1354,
+    "scrd_total_tokens": 18741,
+    "scrd_prompt_tokens": 15542,
+    "scrd_completion_tokens": 3199,
+    "agent_total_tokens": 12117,
+    "recorder_total_tokens": 6624,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

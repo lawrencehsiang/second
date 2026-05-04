@@ -1,0 +1,442 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "50",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum of squares of coefficients is 50.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Result is obtained by expanding, combining like terms, squaring coefficients, and summing.",
+          "claim_type": "explanation",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of squares = 50",
+        "Expand, combine, square, sum",
+        "Coefficients squared summed = 50"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the sum of squares of coefficients.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The sum of squares of coefficients is indeed 50, contradicting the previous answer of 6.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verification needed for the discrepancy between 50 and 6.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Sum of squares of coefficients is 50 vs 6",
+          "why_still_open": "Verification required by agent C.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Rechecking sum of squares",
+        "Sum of squares = 50",
+        "Discrepancy between 50 and 6"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "50",
+        "6",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 6 is contradicted by the mainstream support of 50.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "After rechecking, the correct sum of squares of coefficients is 6.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The previous answer of 6 is incorrect. Rechecking yields 50.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of squares confirmed as 6",
+        "Minority answer 6 contradicted",
+        "Correct sum of squares is 6"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 6 is contradicted by the mainstream support of 50.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream support of 50 is based on the rechecked simplified expression.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 6 is incorrect based on the mainstream support of 50.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Given the mainstream support of 50 and the lack of any concrete evidence to refute it, the minority answer of 6 is not valid.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Mainstream support of 50 validated",
+        "Minority answer 6 contradicted",
+        "Correct sum of squares is 50",
+        "Lack of evidence refutes minority answer 6"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "250",
+        "50",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the simplified expression shows the sum of the squares of coefficients is 250, contradicting the minority answer of 6.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of squares recalculated to 250",
+        "Minority answer 6 is incorrect",
+        "Mainstream support of 50 validated",
+        "Lack of evidence refutes minority answer 6",
+        "Rechecked simplified expression confirms 250"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0193",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 352,
+      "completion_tokens": 37,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 339,
+      "completion_tokens": 36,
+      "total_tokens": 375,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 350,
+      "completion_tokens": 39,
+      "total_tokens": 389,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 586,
+      "completion_tokens": 147,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 611,
+      "completion_tokens": 119,
+      "total_tokens": 730,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 607,
+      "completion_tokens": 101,
+      "total_tokens": 708,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 621,
+      "completion_tokens": 127,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1027,
+      "completion_tokens": 238,
+      "total_tokens": 1265,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 808,
+      "completion_tokens": 109,
+      "total_tokens": 917,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 806,
+      "completion_tokens": 102,
+      "total_tokens": 908,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 820,
+      "completion_tokens": 113,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1117,
+      "completion_tokens": 191,
+      "total_tokens": 1308,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 812,
+      "completion_tokens": 101,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 808,
+      "completion_tokens": 101,
+      "total_tokens": 909,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 823,
+      "completion_tokens": 122,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1058,
+      "completion_tokens": 263,
+      "total_tokens": 1321,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 715,
+      "completion_tokens": 188,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 712,
+      "completion_tokens": 120,
+      "total_tokens": 832,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 726,
+      "completion_tokens": 113,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0193",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1229,
+      "completion_tokens": 149,
+      "total_tokens": 1378,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 389,
+    "majority_vote_total_tokens": 1153,
+    "scrd_total_tokens": 17443,
+    "scrd_prompt_tokens": 14927,
+    "scrd_completion_tokens": 2516,
+    "agent_total_tokens": 11438,
+    "recorder_total_tokens": 6005,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,205 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "11",
+        "11",
+        "21"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Chloe ends up with 11 cupcakes.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The final count of cupcakes is 11.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Chloe initially had 28 cupcakes, sold 25, and made 8 more.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent C claims the final count is 21.",
+          "why_still_open": "No supporting details provided by Agent C.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Chloe starts with 28 cupcakes, sells 25, leaving her with 3. Then she makes 8 more, resulting in 11 cupcakes.",
+        "Initial cupcakes minus sold ones plus new ones made.",
+        "Start with 28 cupcakes, subtract 25 sold, then add 8 more."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Chloe ends up with 11 cupcakes after selling and making more.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The final count of cupcakes is 11.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct calculation is 28 - 25 + 8 = 11.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Starting with 28 cupcakes, subtract 25 sold, then add 8 made.",
+        "Chloe's final count is 11 cupcakes.",
+        "28 - 25 + 8 = 11."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0200",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 344,
+      "completion_tokens": 59,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0200",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 331,
+      "completion_tokens": 44,
+      "total_tokens": 375,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0200",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 342,
+      "completion_tokens": 35,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0200",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 614,
+      "completion_tokens": 268,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0200",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 701,
+      "completion_tokens": 113,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0200",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 698,
+      "completion_tokens": 136,
+      "total_tokens": 834,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0200",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 712,
+      "completion_tokens": 111,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0200",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1184,
+      "completion_tokens": 205,
+      "total_tokens": 1389,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0200",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 663,
+      "completion_tokens": 60,
+      "total_tokens": 723,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 403,
+    "majority_vote_total_tokens": 1155,
+    "scrd_total_tokens": 6620,
+    "scrd_prompt_tokens": 5589,
+    "scrd_completion_tokens": 1031,
+    "agent_total_tokens": 3626,
+    "recorder_total_tokens": 2271,
+    "evaluator_total_tokens": 723,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

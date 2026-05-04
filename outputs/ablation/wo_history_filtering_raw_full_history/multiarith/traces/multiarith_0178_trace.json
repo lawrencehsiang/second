@@ -1,0 +1,293 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "41",
+        "41",
+        "31"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial 11 roses, sold 2, then picked 32 more.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Start with 11 roses, sell 2, then add 32.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Initial 11 roses - 2 sold + 32 picked = 31 roses",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "11 - 2 + 32 = 31",
+        "sold 2 roses from initial 11",
+        "picked 32 more roses",
+        "total roses now are 31",
+        "start with 11, sell 2, then add 32"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "41",
+        "31",
+        "31"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Florist ends up with 41 roses based on 11 initial, sold 2, then added 32.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Incorrect interpretation leading to 31 roses is resolved as 41 roses are correct.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "11 - 2 + 32 = 41",
+        "initial 11 roses, sold 2, then picked 32 more",
+        "florist ends with 41 roses",
+        "correct sequence is 11 - 2 + 32",
+        "previous answers incorrectly stated 31"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "31",
+        "31",
+        "31"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct sequence of operations is 11 - 2 + 32, resulting in 31 roses.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The initial calculation of 11 - 2 + 32 = 31 is validated by the provided constraint.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "11 - 2 + 32 = 31",
+        "correct sequence is 11 - 2 + 32",
+        "florist ends with 31 roses",
+        "previous answers incorrectly stated 41",
+        "validated by the constraint provided"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 342,
+      "completion_tokens": 42,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 329,
+      "completion_tokens": 42,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 340,
+      "completion_tokens": 45,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 231,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 807,
+      "completion_tokens": 185,
+      "total_tokens": 992,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 804,
+      "completion_tokens": 146,
+      "total_tokens": 950,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 818,
+      "completion_tokens": 129,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1235,
+      "completion_tokens": 205,
+      "total_tokens": 1440,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 616,
+      "completion_tokens": 59,
+      "total_tokens": 675,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 988,
+      "completion_tokens": 187,
+      "total_tokens": 1175,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 985,
+      "completion_tokens": 97,
+      "total_tokens": 1082,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 999,
+      "completion_tokens": 140,
+      "total_tokens": 1139,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1130,
+      "completion_tokens": 196,
+      "total_tokens": 1326,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0178",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 620,
+      "completion_tokens": 49,
+      "total_tokens": 669,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 384,
+    "majority_vote_total_tokens": 1140,
+    "scrd_total_tokens": 12371,
+    "scrd_prompt_tokens": 10618,
+    "scrd_completion_tokens": 1753,
+    "agent_total_tokens": 7425,
+    "recorder_total_tokens": 3602,
+    "evaluator_total_tokens": 1344,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

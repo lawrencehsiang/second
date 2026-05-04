@@ -1,0 +1,424 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "720",
+        "760",
+        "420"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Multiply weekly earnings by 4 to get monthly earnings.",
+          "claim_type": "constraint",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different final answers (720, 760, 420) despite similar steps.",
+          "why_still_open": "Unclear how costs were handled in calculations.",
+          "involved_answers": [
+            "720",
+            "760",
+            "420"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Weekly earnings * 4 = Monthly earnings",
+        "Subtract bike cost from total savings",
+        "Weekly earnings * 4 - Bike cost = Final amount"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "340",
+        "420",
+        "360"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total monthly earnings should be calculated before subtracting bike cost.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Correctly subtract bike cost from total monthly earnings.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Carrie's total monthly earnings minus bike cost equals $360.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total monthly earnings - Bike cost = Remaining money",
+        "Carrie earns $760 per month, needs $400 for a bike",
+        "Final amount after buying bike = $360"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "320",
+        "300",
+        "340"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ensure correct subtraction of bike cost from total monthly earnings.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total monthly earnings - Bike cost = Remaining money",
+        "Carrie earns $760 per month, needs $400 for a bike",
+        "Final amount after buying bike = $360"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "340",
+        "340",
+        "340"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream support correctly ensures the subtraction of bike cost from total monthly earnings.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total monthly earnings - Bike cost = Remaining money",
+        "Carrie earns $760 per month, needs $400 for a bike",
+        "Final amount after buying bike = $360"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "1840",
+        "340",
+        "340"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revised calculation needed for correct remaining money after buying the bike.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verification required for the mainstream support answer of $340.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The mainstream support answer of $340 is disputed by agent A and agent C.",
+          "why_still_open": "Agent A argues for a recalculated remaining money, and agent C requests verification.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Carrie earns $2240 per month, needs $400 for a bike",
+        "Total monthly earnings - Bike cost = Remaining money",
+        "Final amount after buying bike = $1840"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 38,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 43,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 48,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 614,
+      "completion_tokens": 182,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 747,
+      "completion_tokens": 124,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 744,
+      "completion_tokens": 159,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 758,
+      "completion_tokens": 149,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1178,
+      "completion_tokens": 196,
+      "total_tokens": 1374,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 837,
+      "completion_tokens": 110,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 834,
+      "completion_tokens": 117,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 848,
+      "completion_tokens": 110,
+      "total_tokens": 958,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1075,
+      "completion_tokens": 117,
+      "total_tokens": 1192,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 727,
+      "completion_tokens": 132,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 724,
+      "completion_tokens": 125,
+      "total_tokens": 849,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 738,
+      "completion_tokens": 121,
+      "total_tokens": 859,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1053,
+      "completion_tokens": 121,
+      "total_tokens": 1174,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 642,
+      "completion_tokens": 142,
+      "total_tokens": 784,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 639,
+      "completion_tokens": 107,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 653,
+      "completion_tokens": 108,
+      "total_tokens": 761,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0121",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1013,
+      "completion_tokens": 227,
+      "total_tokens": 1240,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 413,
+    "majority_vote_total_tokens": 1239,
+    "scrd_total_tokens": 17410,
+    "scrd_prompt_tokens": 14934,
+    "scrd_completion_tokens": 2476,
+    "agent_total_tokens": 11634,
+    "recorder_total_tokens": 5776,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

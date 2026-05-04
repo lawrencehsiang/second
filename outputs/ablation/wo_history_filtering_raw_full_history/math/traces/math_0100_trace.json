@@ -1,0 +1,368 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Isolate x in the equation F(2, x, 4, 11) = 300.",
+          "claim_type": "constraint",
+          "related_answer": "6"
+        },
+        {
+          "text": "Solve 2^x + 44 = 300 for x.",
+          "claim_type": "constraint",
+          "related_answer": "5"
+        },
+        {
+          "text": "Substitute known values into the equation to find x.",
+          "claim_type": "constraint",
+          "related_answer": "5"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "F(2, x, 4, 11) = 300",
+        "2^x + 44 = 300",
+        "Isolate x"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correctly isolate 2^x by accounting for all terms in the equation 2^x + 44 = 300.",
+          "claim_type": "constraint",
+          "related_answer": "8"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2^x + 44 = 300",
+        "2^x = 256",
+        "Isolate 2^x"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Subtract 44 from both sides to isolate 2^x.",
+          "claim_type": "constraint",
+          "related_answer": "8"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2^x + 44 = 300",
+        "2^x = 256",
+        "x = 8"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0100",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 362,
+      "completion_tokens": 49,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 349,
+      "completion_tokens": 45,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 360,
+      "completion_tokens": 37,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 604,
+      "completion_tokens": 206,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 802,
+      "completion_tokens": 124,
+      "total_tokens": 926,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 799,
+      "completion_tokens": 143,
+      "total_tokens": 942,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 813,
+      "completion_tokens": 144,
+      "total_tokens": 957,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1161,
+      "completion_tokens": 124,
+      "total_tokens": 1285,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1161,
+      "completion_tokens": 107,
+      "total_tokens": 1268,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 569,
+      "completion_tokens": 51,
+      "total_tokens": 620,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 707,
+      "completion_tokens": 133,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 645,
+      "completion_tokens": 159,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 644,
+      "completion_tokens": 166,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 645,
+      "completion_tokens": 186,
+      "total_tokens": 831,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1239,
+      "completion_tokens": 124,
+      "total_tokens": 1363,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 734,
+      "completion_tokens": 59,
+      "total_tokens": 793,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 887,
+      "completion_tokens": 148,
+      "total_tokens": 1035,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 884,
+      "completion_tokens": 235,
+      "total_tokens": 1119,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 900,
+      "completion_tokens": 138,
+      "total_tokens": 1038,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1138,
+      "completion_tokens": 108,
+      "total_tokens": 1246,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0100",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 565,
+      "completion_tokens": 58,
+      "total_tokens": 623,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 411,
+    "majority_vote_total_tokens": 1202,
+    "scrd_total_tokens": 18512,
+    "scrd_prompt_tokens": 15968,
+    "scrd_completion_tokens": 2544,
+    "agent_total_tokens": 4027,
+    "recorder_total_tokens": 5972,
+    "evaluator_total_tokens": 620,
+    "repair_brief_total_tokens": 840,
+    "repair_evaluator_total_tokens": 1416,
+    "repair_agent_total_tokens": 5637
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

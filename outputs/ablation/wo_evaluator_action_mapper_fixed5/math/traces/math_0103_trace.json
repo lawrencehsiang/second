@@ -1,0 +1,457 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Find q(4) and substitute into p(x) to solve for b.",
+          "claim_type": "constraint",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "q(4) = 5",
+        "p(x) = 5x + b",
+        "b = -20"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "11",
+        "5",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculate b using the correct function values.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verify the correctness of the previous answer of 5.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recompute the final answer using updated values.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the recalculated value of b.",
+          "why_still_open": "Different agents provided different recalculated values.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "q(4) = 5",
+        "p(x) = 5x + b",
+        "b = -20"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "5",
+        "8",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the expression p(q(4)) with the given functions and solve for b.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluate the calculation to determine the correct value of b.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluate the expression p(q(4)) = 7 with the correct values of p(x) and q(x).",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "p(x) = 5x + b",
+        "q(4) = 5",
+        "p(q(4)) = 7"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "8",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct value of b is 8, as previously determined.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluate the calculation step-by-step to find the correct value of b.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculate using the original functions p(x) and q(x) with x=4.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the recalculated value of b.",
+          "why_still_open": "Different recalculations yield different values for b.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "p(x) = 5x + b",
+        "q(4) = 5",
+        "p(q(4)) = 7"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "5",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the calculation step-by-step to find the correct value of b.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluate the calculation step-by-step to ensure accuracy.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluate the calculation step-by-step to verify the correct value of b.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the recalculated value of b.",
+          "why_still_open": "Different recalculations yield different values for b.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "p(x) = 5x + b",
+        "q(4) = 5",
+        "p(q(4)) = 7"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 40,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 39,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 40,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 110,
+      "total_tokens": 702,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 617,
+      "completion_tokens": 107,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 614,
+      "completion_tokens": 45,
+      "total_tokens": 659,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 628,
+      "completion_tokens": 43,
+      "total_tokens": 671,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 836,
+      "completion_tokens": 222,
+      "total_tokens": 1058,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 710,
+      "completion_tokens": 103,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 706,
+      "completion_tokens": 104,
+      "total_tokens": 810,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 720,
+      "completion_tokens": 113,
+      "total_tokens": 833,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1086,
+      "completion_tokens": 201,
+      "total_tokens": 1287,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 809,
+      "completion_tokens": 111,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 806,
+      "completion_tokens": 107,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 820,
+      "completion_tokens": 100,
+      "total_tokens": 920,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1065,
+      "completion_tokens": 246,
+      "total_tokens": 1311,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 807,
+      "completion_tokens": 112,
+      "total_tokens": 919,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 804,
+      "completion_tokens": 95,
+      "total_tokens": 899,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 818,
+      "completion_tokens": 122,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1126,
+      "completion_tokens": 251,
+      "total_tokens": 1377,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 393,
+    "majority_vote_total_tokens": 1163,
+    "scrd_total_tokens": 16919,
+    "scrd_prompt_tokens": 14608,
+    "scrd_completion_tokens": 2311,
+    "agent_total_tokens": 11184,
+    "recorder_total_tokens": 5735,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

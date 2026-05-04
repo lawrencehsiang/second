@@ -1,0 +1,440 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "26",
+        "26",
+        "26"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "There are 2 days in a week starting with T and S.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "She reads 13 books each of these 2 days.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "2 days in a week start with T and S.",
+        "She reads 13 books each on these 2 days.",
+        "13 books/day * 2 days = 26 books."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "13 * 3 = 39",
+        "13 * 2 = 26",
+        "26"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Days starting with T are Tuesday and Thursday.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Days starting with S are none.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Mrs. Hilt reads on Tuesday and Thursday.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Days starting with T are Tuesday and Thursday.",
+        "Days starting with S are none.",
+        "Mrs. Hilt reads on Tuesday and Thursday.",
+        "13 books/day * 2 days = 26 books."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "52",
+        "52",
+        "52"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "There are two days starting with T (Tuesday and Thursday).",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mrs. Hilt reads 13 books each on Tuesday and Thursday.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Days starting with T are Tuesday and Thursday.",
+        "Mrs. Hilt reads 13 books on Tuesday and Thursday.",
+        "13 books/day * 2 days = 52 books."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "26",
+        "26",
+        "26"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "There are two days starting with T (Tuesday and Thursday).",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Days starting with T are Tuesday and Thursday.",
+        "Mrs. Hilt reads 13 books on Tuesday and Thursday.",
+        "2 days * 13 books/day = 26 books."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 60,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 44,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 62,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 642,
+      "completion_tokens": 156,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 604,
+      "completion_tokens": 128,
+      "total_tokens": 732,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 601,
+      "completion_tokens": 76,
+      "total_tokens": 677,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 615,
+      "completion_tokens": 116,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1011,
+      "completion_tokens": 118,
+      "total_tokens": 1129,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 551,
+      "completion_tokens": 44,
+      "total_tokens": 595,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 651,
+      "completion_tokens": 94,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 584,
+      "completion_tokens": 133,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 583,
+      "completion_tokens": 118,
+      "total_tokens": 701,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 584,
+      "completion_tokens": 133,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1082,
+      "completion_tokens": 185,
+      "total_tokens": 1267,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 752,
+      "completion_tokens": 60,
+      "total_tokens": 812,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 564,
+      "completion_tokens": 117,
+      "total_tokens": 681,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 561,
+      "completion_tokens": 87,
+      "total_tokens": 648,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 577,
+      "completion_tokens": 48,
+      "total_tokens": 625,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 979,
+      "completion_tokens": 157,
+      "total_tokens": 1136,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 607,
+      "completion_tokens": 45,
+      "total_tokens": 652,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 568,
+      "completion_tokens": 104,
+      "total_tokens": 672,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 565,
+      "completion_tokens": 65,
+      "total_tokens": 630,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 581,
+      "completion_tokens": 59,
+      "total_tokens": 640,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 913,
+      "completion_tokens": 116,
+      "total_tokens": 1029,
+      "extra": {}
+    },
+    {
+      "sample_id": "asdiv_0152",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 547,
+      "completion_tokens": 50,
+      "total_tokens": 597,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 400,
+    "majority_vote_total_tokens": 1171,
+    "scrd_total_tokens": 18102,
+    "scrd_prompt_tokens": 15727,
+    "scrd_completion_tokens": 2375,
+    "agent_total_tokens": 3311,
+    "recorder_total_tokens": 5359,
+    "evaluator_total_tokens": 595,
+    "repair_brief_total_tokens": 745,
+    "repair_evaluator_total_tokens": 2061,
+    "repair_agent_total_tokens": 6031
+  }
+}

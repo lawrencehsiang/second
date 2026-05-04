@@ -1,0 +1,445 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each bounce halves the height.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "height = 1000 * (1/2)^n",
+        "height < 1 ft",
+        "Sum until height < 1 ft"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "11",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the number of bounces needed for the ball to first reach a height less than 1 foot.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The nth term of the series is 1000 * (1/2)^(n-1). Setting this less than 1 and solving gives n = 10.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "We need to ensure the height after 10 bounces is less than 1 foot.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The previous answer of 10 bounces does not match the condition that the ball must reach a height less than 1 foot.",
+          "why_still_open": "The exact number of bounces causing the height to drop below 1 foot is disputed.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Height after n bounces: 1000 * (1/2)^(n-1)",
+        "Height < 1 ft",
+        "Sum until height < 1 ft"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The ball reaches less than 1 foot after more than 10 bounces.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluate the number of bounces needed for the ball to first reach a height less than 1 foot.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The correct number of bounces is more than 10, as the height after 10 bounces is still above 1 foot.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Height after n bounces: 1000 * (1/2)^(n-1)",
+        "Height < 1 ft",
+        "Sum until height < 1 ft",
+        "More than 10 bounces required",
+        "Correct number of bounces > 10"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "10",
+        "10",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The ball's height after 10 bounces is 9.765625 feet, which is above 1 foot.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        },
+        {
+          "text": "After 10 bounces, the height is just below 1 foot, while after 11 bounces, it is below 1 foot.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on whether the ball first reaches less than 1 foot after 10 or 11 bounces.",
+          "why_still_open": "The exact bounce count remains debated despite calculations.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Height after n bounces: 1000 * (1/2)^(n-1)",
+        "Height < 1 ft",
+        "1000 * (1/2)^10 = 9.765625 ft",
+        "More than 10 bounces required",
+        "Correct number of bounces > 10"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The ball's height after 11 bounces is below 1 foot, resolving the conflict.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The ball's height after 10 bounces is just above 1 foot, confirming the previous answer.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Height after 10 bounces: just above 1 ft",
+        "Height after 11 bounces: below 1 ft",
+        "1000 * (1/2)^10 = 9.765625 ft",
+        "1000 * (1/2)^11 = 4.8828125 ft",
+        "Geometric progression with a common ratio of 0.5"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 354,
+      "completion_tokens": 41,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 341,
+      "completion_tokens": 55,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 352,
+      "completion_tokens": 61,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 633,
+      "completion_tokens": 101,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 610,
+      "completion_tokens": 137,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 607,
+      "completion_tokens": 129,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 621,
+      "completion_tokens": 143,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1038,
+      "completion_tokens": 316,
+      "total_tokens": 1354,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 849,
+      "completion_tokens": 131,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 846,
+      "completion_tokens": 137,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 860,
+      "completion_tokens": 142,
+      "total_tokens": 1002,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1268,
+      "completion_tokens": 249,
+      "total_tokens": 1517,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 830,
+      "completion_tokens": 261,
+      "total_tokens": 1091,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 827,
+      "completion_tokens": 113,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 841,
+      "completion_tokens": 240,
+      "total_tokens": 1081,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1419,
+      "completion_tokens": 295,
+      "total_tokens": 1714,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 844,
+      "completion_tokens": 160,
+      "total_tokens": 1004,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 841,
+      "completion_tokens": 137,
+      "total_tokens": 978,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 855,
+      "completion_tokens": 153,
+      "total_tokens": 1008,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1294,
+      "completion_tokens": 228,
+      "total_tokens": 1522,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 395,
+    "majority_vote_total_tokens": 1204,
+    "scrd_total_tokens": 19359,
+    "scrd_prompt_tokens": 16130,
+    "scrd_completion_tokens": 3229,
+    "agent_total_tokens": 12518,
+    "recorder_total_tokens": 6841,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

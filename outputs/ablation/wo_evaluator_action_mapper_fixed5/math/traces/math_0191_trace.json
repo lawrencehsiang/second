@@ -1,0 +1,388 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "11",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "sqrt(x) > 2 and sqrt(x) < 4 implies 4 < x < 16; integers from 5 to 15.",
+          "claim_type": "support",
+          "related_answer": "11"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "sqrt(x) > 2 and sqrt(x) < 4; x = (sqrt(x))^2 => 4 < x < 16; integers from 5 to 15.",
+        "4 < x < 16; integers are 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "12",
+        "11",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The interval 4 < x < 16 contains 12 integers, specifically 5 through 15.",
+          "claim_type": "support",
+          "related_answer": "12"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Disagreement on the number of integers in the range 4 < x < 16.",
+          "why_still_open": "Agent B and C assert there are 11 integers, while A correctly identifies 12 integers.",
+          "involved_answers": [
+            "11",
+            "12"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "4 < x < 16; integers from 5 to 15; total of 12 integers.",
+        "Counting integers from 5 to 15 gives 12 integers."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "12",
+        "11",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The range 4 < x < 16 includes integers from 5 to 15, totaling 12 integers.",
+          "claim_type": "support",
+          "related_answer": "12"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4 < x < 16; integers from 5 to 15; total of 12 integers.",
+        "Range 4 < x < 16 includes integers 5 to 15, making 12 integers in total."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The range 4 < x < 16 includes integers from 5 to 15, totaling 12 integers.",
+          "claim_type": "support",
+          "related_answer": "12"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4 < x < 16; integers from 5 to 15; total of 12 integers.",
+        "Range 4 < x < 16 includes integers 5 to 15, making 12 integers in total."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4 < x < 16; integers from 5 to 15; total of 12 integers.",
+        "Square root of x > 2 and < 4 -> 4 < x < 16; integers 5 to 15; 12 integers."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 66,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 87,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 60,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 689,
+      "completion_tokens": 186,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 622,
+      "completion_tokens": 182,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 619,
+      "completion_tokens": 71,
+      "total_tokens": 690,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 633,
+      "completion_tokens": 74,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1041,
+      "completion_tokens": 204,
+      "total_tokens": 1245,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 741,
+      "completion_tokens": 194,
+      "total_tokens": 935,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 738,
+      "completion_tokens": 132,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 752,
+      "completion_tokens": 141,
+      "total_tokens": 893,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1219,
+      "completion_tokens": 141,
+      "total_tokens": 1360,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 836,
+      "completion_tokens": 148,
+      "total_tokens": 984,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 833,
+      "completion_tokens": 146,
+      "total_tokens": 979,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 847,
+      "completion_tokens": 129,
+      "total_tokens": 976,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1108,
+      "completion_tokens": 141,
+      "total_tokens": 1249,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 616,
+      "completion_tokens": 164,
+      "total_tokens": 780,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 613,
+      "completion_tokens": 61,
+      "total_tokens": 674,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 627,
+      "completion_tokens": 172,
+      "total_tokens": 799,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0191",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1074,
+      "completion_tokens": 95,
+      "total_tokens": 1169,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 406,
+    "majority_vote_total_tokens": 1218,
+    "scrd_total_tokens": 17207,
+    "scrd_prompt_tokens": 14613,
+    "scrd_completion_tokens": 2594,
+    "agent_total_tokens": 11309,
+    "recorder_total_tokens": 5898,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

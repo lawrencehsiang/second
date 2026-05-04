@@ -1,0 +1,215 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "50",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial 25 marbles, lose 20%, then gain double the remaining.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "First calculate loss, then gain, ending with total.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Lost 20% of 25, then gained double what was left.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (45 vs 50) without clear resolution.",
+          "why_still_open": "Agents have different calculations but no consensus.",
+          "involved_answers": [
+            "45",
+            "50"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial 25 marbles, lose 20%, then gain double the remaining.",
+        "First calculate loss, then gain, ending with total.",
+        "Lost 20% of 25, then gained double what was left."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "50",
+        "45",
+        "50"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the calculation step-by-step to ensure accuracy.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support calculates correctly as 45 marbles after losing 20% and then gaining double that amount.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recompute the calculation step-by-step to verify which answer is correct.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (45 vs 50) without clear resolution.",
+          "why_still_open": "Agent C's re-computation is ongoing and has not yet resolved the discrepancy.",
+          "involved_answers": [
+            "45",
+            "50"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Lost 20% of 25, then gained double what was left.",
+        "Re-evaluating the calculation step-by-step to ensure accuracy.",
+        "Mainstream support calculates correctly as 45 marbles after losing 20% and then gaining double that amount."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 364,
+      "completion_tokens": 43,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 351,
+      "completion_tokens": 33,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 362,
+      "completion_tokens": 42,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 597,
+      "completion_tokens": 264,
+      "total_tokens": 861,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 732,
+      "completion_tokens": 105,
+      "total_tokens": 837,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 729,
+      "completion_tokens": 108,
+      "total_tokens": 837,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 743,
+      "completion_tokens": 95,
+      "total_tokens": 838,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1121,
+      "completion_tokens": 294,
+      "total_tokens": 1415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 693,
+      "completion_tokens": 52,
+      "total_tokens": 745,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 407,
+    "majority_vote_total_tokens": 1195,
+    "scrd_total_tokens": 6728,
+    "scrd_prompt_tokens": 5692,
+    "scrd_completion_tokens": 1036,
+    "agent_total_tokens": 3707,
+    "recorder_total_tokens": 2276,
+    "evaluator_total_tokens": 745,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

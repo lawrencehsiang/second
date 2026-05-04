@@ -1,0 +1,409 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-3",
+        "-3",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substituting given values simplifies the expression.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Substitute values, simplify -> result = -3",
+        "Substitute values, simplify step-by-step -> result = -3",
+        "Result = 16 after substitution and simplification"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-9",
+        "-3",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluation of the expression with given values leads to the correct result.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Verification through step-by-step simplification confirms the correct answer is 10.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous mainstream support of -3 versus C's previous answer of 16.",
+          "why_still_open": "C's new claim provides a detailed verification leading to 10, but the previous mainstream support remains unchallenged.",
+          "involved_answers": [
+            "-3",
+            "16"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Re-evaluate expression with given values -> result = -9",
+        "Simplify step-by-step: [17 - 16] - [-4 - 5] = 1 + 9 = 10",
+        "Correct answer confirmed: 10"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "10",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous mainstream support of -3 was incorrect due to improper simplification.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Detailed verification confirms the correct answer is 10.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Detailed verification: [17 - 16] - [-4 - 5] = 10",
+        "Correct answer: 10",
+        "Previous mainstream support of -3 was incorrect"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "10",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Detailed verification confirms the correct answer is 10.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Detailed verification: [17 - 16] - [-4 - 5] = 10",
+        "Correct answer: 10",
+        "Previous mainstream support of -3 was incorrect"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-3",
+        "-3",
+        "-3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The expression [a-(b-c)] - [(a-b)-c] simplifies to -3 when evaluated correctly.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Expression simplification: [a-(b-c)] - [(a-b)-c] = -3",
+        "Correct answer: -3",
+        "Previous mainstream support of 10 was incorrect due to improper simplification."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0102",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 355,
+      "completion_tokens": 32,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 342,
+      "completion_tokens": 31,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 353,
+      "completion_tokens": 31,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 571,
+      "completion_tokens": 113,
+      "total_tokens": 684,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 613,
+      "completion_tokens": 104,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 610,
+      "completion_tokens": 48,
+      "total_tokens": 658,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 625,
+      "completion_tokens": 200,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 989,
+      "completion_tokens": 253,
+      "total_tokens": 1242,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 832,
+      "completion_tokens": 108,
+      "total_tokens": 940,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 829,
+      "completion_tokens": 132,
+      "total_tokens": 961,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 844,
+      "completion_tokens": 103,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1142,
+      "completion_tokens": 159,
+      "total_tokens": 1301,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 829,
+      "completion_tokens": 117,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 826,
+      "completion_tokens": 108,
+      "total_tokens": 934,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 840,
+      "completion_tokens": 113,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1033,
+      "completion_tokens": 117,
+      "total_tokens": 1150,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 710,
+      "completion_tokens": 175,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 707,
+      "completion_tokens": 127,
+      "total_tokens": 834,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 721,
+      "completion_tokens": 115,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0102",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1083,
+      "completion_tokens": 132,
+      "total_tokens": 1215,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 387,
+    "majority_vote_total_tokens": 1144,
+    "scrd_total_tokens": 17172,
+    "scrd_prompt_tokens": 14854,
+    "scrd_completion_tokens": 2318,
+    "agent_total_tokens": 11580,
+    "recorder_total_tokens": 5592,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

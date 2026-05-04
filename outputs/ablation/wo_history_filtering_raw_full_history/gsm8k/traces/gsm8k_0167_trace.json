@@ -1,0 +1,377 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "7",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Convert total time to minutes and calculate movies per day.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Convert time to minutes, calculate movies on Tuesday, then double for Wednesday.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C provided the same explanation but different answers.",
+          "why_still_open": "The calculation method is clear, but the final answer differs.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Convert total time to minutes and calculate movies per day.",
+        "Convert time to minutes, calculate movies on Tuesday, then double for Wednesday."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "15",
+        "8",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Reviewing the explanation confirmed the correctness of Agents B and C’s methods, leading to a total of 15 movies.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Convert total time to minutes and calculate movies per day.",
+        "Total time in minutes, double Tuesday’s movies for Wednesday."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Reevaluating the total time and daily movie counts using the agreed method should resolve the discrepancy.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The method of converting total time to minutes and calculating the number of movies per day was agreed upon. The discrepancy arose from the application of the method.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Revised the calculation to ensure consistency with the agreed method.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Convert total time to minutes and calculate movies per day.",
+        "Total time in minutes, double Tuesday’s movies for Wednesday."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_started",
+      "start_round": 3,
+      "anchor_round": 2
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 401,
+      "completion_tokens": 35,
+      "total_tokens": 436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 388,
+      "completion_tokens": 36,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 399,
+      "completion_tokens": 40,
+      "total_tokens": 439,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 587,
+      "completion_tokens": 245,
+      "total_tokens": 832,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 886,
+      "completion_tokens": 142,
+      "total_tokens": 1028,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 883,
+      "completion_tokens": 102,
+      "total_tokens": 985,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 897,
+      "completion_tokens": 92,
+      "total_tokens": 989,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1117,
+      "completion_tokens": 161,
+      "total_tokens": 1278,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 47,
+      "total_tokens": 682,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 1043,
+      "completion_tokens": 169,
+      "total_tokens": 1212,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 1039,
+      "completion_tokens": 122,
+      "total_tokens": 1161,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 1053,
+      "completion_tokens": 114,
+      "total_tokens": 1167,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1099,
+      "completion_tokens": 204,
+      "total_tokens": 1303,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 629,
+      "completion_tokens": 41,
+      "total_tokens": 670,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 806,
+      "completion_tokens": 89,
+      "total_tokens": 895,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 957,
+      "completion_tokens": 112,
+      "total_tokens": 1069,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 956,
+      "completion_tokens": 130,
+      "total_tokens": 1086,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 957,
+      "completion_tokens": 92,
+      "total_tokens": 1049,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1018,
+      "completion_tokens": 249,
+      "total_tokens": 1267,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 824,
+      "completion_tokens": 52,
+      "total_tokens": 876,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 436,
+    "majority_vote_total_tokens": 1299,
+    "scrd_total_tokens": 18848,
+    "scrd_prompt_tokens": 16574,
+    "scrd_completion_tokens": 2274,
+    "agent_total_tokens": 7841,
+    "recorder_total_tokens": 4680,
+    "evaluator_total_tokens": 1352,
+    "repair_brief_total_tokens": 895,
+    "repair_evaluator_total_tokens": 876,
+    "repair_agent_total_tokens": 3204
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

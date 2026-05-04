@@ -1,0 +1,195 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5120",
+        "640",
+        "64000"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Population grows by 2^9 after 9 doublings.",
+          "claim_type": "support",
+          "related_answer": "5120"
+        },
+        {
+          "text": "Growth over 15 minutes results in 2^5 doubling.",
+          "claim_type": "support",
+          "related_answer": "640"
+        },
+        {
+          "text": "Total doubling periods in 21.",
+          "claim_type": "support",
+          "related_answer": "64000"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Pop doubles every 3 min, 9x in 15 min -> 20 * 2^9 = 5120",
+        "5 intervals of 3 min growth -> 2^5 = 640",
+        "21 doublings in 15 min -> 20 * 2^21 = 64000"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "640",
+        "640",
+        "640"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "15 minutes consist of 5 intervals of 3 minutes each, resulting in 5 doublings.",
+          "claim_type": "support",
+          "related_answer": "640"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Pop doubles every 3 min, 5 intervals in 15 min -> 20 * 2^5 = 640",
+        "5 intervals of 3 min growth -> 2^5 = 640"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 369,
+      "completion_tokens": 85,
+      "total_tokens": 454,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 356,
+      "completion_tokens": 49,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 367,
+      "completion_tokens": 53,
+      "total_tokens": 420,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 672,
+      "completion_tokens": 237,
+      "total_tokens": 909,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 854,
+      "completion_tokens": 154,
+      "total_tokens": 1008,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 850,
+      "completion_tokens": 158,
+      "total_tokens": 1008,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 866,
+      "completion_tokens": 139,
+      "total_tokens": 1005,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1249,
+      "completion_tokens": 135,
+      "total_tokens": 1384,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 599,
+      "completion_tokens": 46,
+      "total_tokens": 645,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 454,
+    "majority_vote_total_tokens": 1279,
+    "scrd_total_tokens": 7238,
+    "scrd_prompt_tokens": 6182,
+    "scrd_completion_tokens": 1056,
+    "agent_total_tokens": 4300,
+    "recorder_total_tokens": 2293,
+    "evaluator_total_tokens": 645,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

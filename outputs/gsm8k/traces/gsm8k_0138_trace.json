@@ -1,0 +1,513 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Divide total towels by washing machine capacity.",
+          "claim_type": "explanation",
+          "related_answer": "6"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total towels used, then divide by washing machine capacity.",
+        "6 towels / 1 load = 6 loads"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "6",
+        "21"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total towels used over 7 days.",
+          "claim_type": "explanation",
+          "related_answer": "6"
+        },
+        {
+          "text": "Each person uses one towel per day.",
+          "claim_type": "constraint",
+          "related_answer": "21"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total towels used over 7 days, then divide by washing machine capacity.",
+        "Each person uses one towel per day, so total towels = 3 families * 4 people * 7 days = 84 towels.",
+        "84 towels / 14 towels per load = 6 loads"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "6",
+        "6",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the total number of towels used and the capacity of the washing machine.",
+          "claim_type": "explanation",
+          "related_answer": "6"
+        },
+        {
+          "text": "The total number of towels used is 42, resulting in exactly 3 loads of laundry.",
+          "claim_type": "constraint",
+          "related_answer": "3"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The previous calculation did not account for the number of people using the towels and the capacity of the washing machine.",
+          "why_still_open": "Previous answers did not consider the number of people involved in towel usage.",
+          "involved_answers": [
+            "6"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total towels used = 42, resulting in 3 loads of laundry.",
+        "Re-evaluating the total number of towels used and the capacity of the washing machine.",
+        "The previous calculation did not account for the number of people using the towels and the capacity of the washing machine."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "21",
+        "21",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculated the total number of towels used and divided by the washing machine's capacity to determine the number of loads.",
+          "claim_type": "explanation",
+          "related_answer": "21"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "To correctly calculate the number of loads, we need to determine the total number of towels used by the people over the 7 days, and then divide that by the washing machine's capacity per load.",
+        "Resolved the conflict by recalculating the total number of towels used and dividing by the washing machine's capacity.",
+        "I will calculate the total number of towels used by all people over the 7 days and then determine how many loads are needed based on the washing machine's capacity."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "6",
+        "21",
+        "21"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculated the total number of towels used by 12 people over 7 days, resulting in 84 towels, which requires 6 loads of laundry.",
+          "claim_type": "explanation",
+          "related_answer": "6"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Determined the total number of towels used by 12 people over 7 days, leading to a requirement of 6 loads of laundry.",
+        "Recalculated the total number of towels used (84) and divided by the washing machine's capacity (14 towels per load) to find 6 loads are needed.",
+        "Resolved the conflict by recalculating the total number of towels used and determining the number of loads required."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 373,
+      "completion_tokens": 33,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 360,
+      "completion_tokens": 33,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 371,
+      "completion_tokens": 35,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 580,
+      "completion_tokens": 97,
+      "total_tokens": 677,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 630,
+      "completion_tokens": 109,
+      "total_tokens": 739,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 627,
+      "completion_tokens": 123,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 641,
+      "completion_tokens": 113,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 966,
+      "completion_tokens": 221,
+      "total_tokens": 1187,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 679,
+      "completion_tokens": 43,
+      "total_tokens": 722,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 725,
+      "completion_tokens": 88,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 611,
+      "completion_tokens": 153,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 610,
+      "completion_tokens": 124,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 611,
+      "completion_tokens": 141,
+      "total_tokens": 752,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1038,
+      "completion_tokens": 170,
+      "total_tokens": 1208,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 722,
+      "completion_tokens": 52,
+      "total_tokens": 774,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 596,
+      "completion_tokens": 122,
+      "total_tokens": 718,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 593,
+      "completion_tokens": 67,
+      "total_tokens": 660,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 609,
+      "completion_tokens": 73,
+      "total_tokens": 682,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 933,
+      "completion_tokens": 251,
+      "total_tokens": 1184,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 658,
+      "completion_tokens": 48,
+      "total_tokens": 706,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 719,
+      "completion_tokens": 165,
+      "total_tokens": 884,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 716,
+      "completion_tokens": 127,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 732,
+      "completion_tokens": 150,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1176,
+      "completion_tokens": 187,
+      "total_tokens": 1363,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 615,
+      "completion_tokens": 49,
+      "total_tokens": 664,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 835,
+      "completion_tokens": 185,
+      "total_tokens": 1020,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 832,
+      "completion_tokens": 143,
+      "total_tokens": 975,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 848,
+      "completion_tokens": 135,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1176,
+      "completion_tokens": 186,
+      "total_tokens": 1362,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0138",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 599,
+      "completion_tokens": 58,
+      "total_tokens": 657,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 406,
+    "majority_vote_total_tokens": 1205,
+    "scrd_total_tokens": 24662,
+    "scrd_prompt_tokens": 21181,
+    "scrd_completion_tokens": 3481,
+    "agent_total_tokens": 3448,
+    "recorder_total_tokens": 6981,
+    "evaluator_total_tokens": 722,
+    "repair_brief_total_tokens": 813,
+    "repair_evaluator_total_tokens": 2801,
+    "repair_agent_total_tokens": 9897
+  }
+}

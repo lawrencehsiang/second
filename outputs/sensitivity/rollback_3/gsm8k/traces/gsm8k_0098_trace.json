@@ -1,0 +1,205 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "35",
+        "39",
+        "35"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum all books shelved and reversed calculated.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Sum all books shelved: 12 + 8 + 4 + 5 + 6 + half of mystery books.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different totals due to inclusion of 'half of mystery books'.",
+          "why_still_open": "Inclusion of half of mystery books is not agreed upon.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total = 12 + 8 + 4 + 5 + 6 + half of mystery books",
+        "Sum all books shelved",
+        "35 books total",
+        "39 books total",
+        "Books in top and bottom sections"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "35",
+        "35",
+        "29"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The problem does not specify the number of mystery books, thus excluding 'half of mystery books'.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Assuming mystery books were not initially counted, the total remains 35.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verification confirms no inclusion of 'half of mystery books', leading to a total of 35.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total = 12 + 8 + 4 + 5 + 6",
+        "Sum all books shelved: 35",
+        "Problem does not specify mystery books count",
+        "Assume mystery books were not initially counted",
+        "Verification: total = 35"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 413,
+      "completion_tokens": 72,
+      "total_tokens": 485,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 400,
+      "completion_tokens": 30,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 411,
+      "completion_tokens": 34,
+      "total_tokens": 445,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 618,
+      "completion_tokens": 234,
+      "total_tokens": 852,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 793,
+      "completion_tokens": 126,
+      "total_tokens": 919,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 790,
+      "completion_tokens": 121,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 804,
+      "completion_tokens": 114,
+      "total_tokens": 918,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1152,
+      "completion_tokens": 229,
+      "total_tokens": 1381,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 745,
+      "completion_tokens": 66,
+      "total_tokens": 811,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 485,
+    "majority_vote_total_tokens": 1360,
+    "scrd_total_tokens": 7152,
+    "scrd_prompt_tokens": 6126,
+    "scrd_completion_tokens": 1026,
+    "agent_total_tokens": 4108,
+    "recorder_total_tokens": 2233,
+    "evaluator_total_tokens": 811,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

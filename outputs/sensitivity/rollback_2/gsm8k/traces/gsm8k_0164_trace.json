@@ -1,0 +1,547 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "96",
+        "96",
+        "78"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total points from touchdowns and 2-point conversions.",
+          "claim_type": "constraint",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for comparing new total points to the old record.",
+          "why_still_open": "Agents used subtraction in different contexts.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total points = 6*touchdowns + 2*conversions",
+        "New total > Old record",
+        "Old record = 96",
+        "New total = 96",
+        "New total = 78"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "66",
+        "78",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Consistently use subtraction to compare James's total points to the old record.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate James's total points using the formula 6*touchdowns + 2*conversions.",
+          "claim_type": "support",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total points = 6*touchdowns + 2*conversions",
+        "New total - Old record = Points difference",
+        "Old record = 300",
+        "New total = 90",
+        "New total = 78"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "78",
+        "66",
+        "78"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the total points scored by James and compare it directly to the old record of 300 points.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Clarify that we need to subtract the old record from James's total points to find out how much he beat it by.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculate James's total points using the correct formula and compare it directly to the old record.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total points = 6*touchdowns + 2*conversions",
+        "Compare new total directly to old record of 300 points",
+        "Subtract old record from James's total points",
+        "New total = 78",
+        "Old record = 300"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "372",
+        "78",
+        "372"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the total points scored by James using the correct formula: 6 touchdowns per game * 6 points per touchdown * 15 games + 2 point conversions * 6.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recompute the total points scored by James and compare it directly to the old record of 300 points.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculate using the correct formula: 6 * touchdowns + 2 * conversions = 6 * 4 * 15 + 2 * 6 = 360 + 12 = 372.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total points = 6*touchdowns + 2*conversions",
+        "Compare new total directly to old record of 300 points",
+        "New total = 372",
+        "Old record = 300"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "372",
+        "78",
+        "372"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the total points scored by James using the correct formula: 6 touchdowns per game * 6 points per touchdown * 15 games + 2 point conversions * 6.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recompute the total points scored by James using the correct formula: 6 touchdowns per game * 6 points per touchdown * 15 games + 2 point conversions * 6.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recompute the total points scored by James using the correct formula: 6 touchdowns per game * 6 points per touchdown * 15 games + 2 point conversions * 6.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total points = 6*touchdowns + 2*conversions",
+        "New total = 372",
+        "Old record = 300"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 391,
+      "completion_tokens": 43,
+      "total_tokens": 434,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 378,
+      "completion_tokens": 38,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 389,
+      "completion_tokens": 38,
+      "total_tokens": 427,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 598,
+      "completion_tokens": 179,
+      "total_tokens": 777,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 749,
+      "completion_tokens": 92,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 746,
+      "completion_tokens": 97,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 760,
+      "completion_tokens": 104,
+      "total_tokens": 864,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1021,
+      "completion_tokens": 135,
+      "total_tokens": 1156,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 623,
+      "completion_tokens": 53,
+      "total_tokens": 676,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 748,
+      "completion_tokens": 87,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 628,
+      "completion_tokens": 105,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 627,
+      "completion_tokens": 121,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 628,
+      "completion_tokens": 110,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1048,
+      "completion_tokens": 183,
+      "total_tokens": 1231,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 782,
+      "completion_tokens": 41,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 825,
+      "completion_tokens": 125,
+      "total_tokens": 950,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 822,
+      "completion_tokens": 112,
+      "total_tokens": 934,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 838,
+      "completion_tokens": 113,
+      "total_tokens": 951,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1047,
+      "completion_tokens": 248,
+      "total_tokens": 1295,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 714,
+      "completion_tokens": 53,
+      "total_tokens": 767,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 830,
+      "completion_tokens": 148,
+      "total_tokens": 978,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 827,
+      "completion_tokens": 102,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 843,
+      "completion_tokens": 170,
+      "total_tokens": 1013,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1158,
+      "completion_tokens": 278,
+      "total_tokens": 1436,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 757,
+      "completion_tokens": 52,
+      "total_tokens": 809,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 841,
+      "completion_tokens": 145,
+      "total_tokens": 986,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 838,
+      "completion_tokens": 156,
+      "total_tokens": 994,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 854,
+      "completion_tokens": 162,
+      "total_tokens": 1016,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1206,
+      "completion_tokens": 268,
+      "total_tokens": 1474,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0164",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 765,
+      "completion_tokens": 55,
+      "total_tokens": 820,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 434,
+    "majority_vote_total_tokens": 1277,
+    "scrd_total_tokens": 26894,
+    "scrd_prompt_tokens": 23281,
+    "scrd_completion_tokens": 3613,
+    "agent_total_tokens": 3825,
+    "recorder_total_tokens": 7369,
+    "evaluator_total_tokens": 676,
+    "repair_brief_total_tokens": 835,
+    "repair_evaluator_total_tokens": 3219,
+    "repair_agent_total_tokens": 10970
+  }
+}

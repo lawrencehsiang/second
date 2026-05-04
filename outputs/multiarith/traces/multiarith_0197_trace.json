@@ -1,0 +1,195 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "36",
+        "36",
+        "33"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial 5 roses, sold 3, then added 34.",
+          "claim_type": "explanation",
+          "related_answer": "36"
+        },
+        {
+          "text": "Start with 5, subtract 3, then add 34.",
+          "claim_type": "explanation",
+          "related_answer": "36"
+        },
+        {
+          "text": "Initial 5 roses, sold 3 (2 left), then picked 34 more.",
+          "claim_type": "explanation",
+          "related_answer": "33"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A and B agree on 36, but Agent C provides a different calculation leading to 33.",
+          "why_still_open": "Disagreement on the final count of roses.",
+          "involved_answers": [
+            "36",
+            "33"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial 5, -3 sold, +34 = 36",
+        "5 - 3 + 34 = 36",
+        "5, 3 sold, +34 = 33"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "After selling 3 out of 5 roses, 2 remain. Adding 34 more results in 36 roses.",
+          "claim_type": "explanation",
+          "related_answer": "36"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial 5, -3 sold, +34 = 36",
+        "5 - 3 + 34 = 36"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 341,
+      "completion_tokens": 40,
+      "total_tokens": 381,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 328,
+      "completion_tokens": 40,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 339,
+      "completion_tokens": 44,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 600,
+      "completion_tokens": 281,
+      "total_tokens": 881,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 717,
+      "completion_tokens": 139,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 714,
+      "completion_tokens": 100,
+      "total_tokens": 814,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 728,
+      "completion_tokens": 173,
+      "total_tokens": 901,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1250,
+      "completion_tokens": 121,
+      "total_tokens": 1371,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 593,
+      "completion_tokens": 56,
+      "total_tokens": 649,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 381,
+    "majority_vote_total_tokens": 1132,
+    "scrd_total_tokens": 6604,
+    "scrd_prompt_tokens": 5610,
+    "scrd_completion_tokens": 994,
+    "agent_total_tokens": 3703,
+    "recorder_total_tokens": 2252,
+    "evaluator_total_tokens": 649,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

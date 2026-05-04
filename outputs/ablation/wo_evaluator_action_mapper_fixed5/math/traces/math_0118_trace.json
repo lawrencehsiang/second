@@ -1,0 +1,438 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-33",
+        "-33",
+        "-56"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum of intercepts equals 22.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum = 22",
+        "x-intercept: y=0",
+        "y-intercept: x=0",
+        "Intercepts sum = -c/4 - c/7",
+        "Solve for c"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "33",
+        "-33",
+        "-33"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous answer -56 is incorrect because it contradicts the condition that the sum of intercepts is 22.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A proposes 33, Agent B and C propose -33, based on the condition that the sum of intercepts equals 22.",
+          "why_still_open": "The condition about the sum of intercepts being 22 is not sufficient to resolve the conflict between positive and negative values.",
+          "involved_answers": [
+            "33",
+            "-33"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sum = 22",
+        "Intercepts sum = -c/4 - c/7",
+        "The previous answer -56 is incorrect",
+        "x-intercept: y=0",
+        "y-intercept: x=0"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "-33",
+        "-33",
+        "-33"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The revised answer -33 aligns with the condition that the sum of intercepts equals 22.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Using the intercept form of the line equation confirms that c = -33.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum = 22",
+        "Intercepts sum = -c/4 - c/7",
+        "Revising the answer to -33",
+        "x-intercept: y=0, x = -c/4",
+        "y-intercept: x=0, y = -c/7"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "-56",
+        "-33",
+        "-33"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the intercepts with the equation $4x + 7y + c = 0$ leads to $c = -56$.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of -33 is incorrect due to the intercept sum condition.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents B and C propose $c = -33$ while Agent A proposes $c = -56$ based on the intercept sum condition.",
+          "why_still_open": "Both sides have valid explanations based on the intercept sum condition, but there is no further evidence to resolve the conflict.",
+          "involved_answers": [
+            "-33",
+            "-56"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sum of intercepts = 22",
+        "x-intercept: $x = -\\frac{c}{4}$",
+        "y-intercept: $y = -\\frac{c}{7}$",
+        "Setting $-\\frac{11c}{28} = 22$ gives $c = -56$",
+        "Minority answer of -33 is incorrect"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "-56",
+        "-56",
+        "-56"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The intercept sum condition is correctly applied, leading to \\( c = -56 \\).",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "After re-examining the intercept sum condition, it is clear that the sum of the x-intercept and y-intercept is $22$. Solving the equation using this condition leads to $c = -56$. The previous answer of -33 was incorrect.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Re-evaluating the intercepts with the equation \\( 4x + 7y + c = 0 \\) and checking if they sum to 22.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of intercepts = 22",
+        "x-intercept: $x = -\\frac{c}{4}$",
+        "y-intercept: $y = -\\frac{c}{7}$",
+        "Setting $-\\frac{11c}{28} = 22$ gives $c = -56$",
+        "Minority answer of -33 is incorrect"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 348,
+      "completion_tokens": 55,
+      "total_tokens": 403,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 335,
+      "completion_tokens": 33,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 346,
+      "completion_tokens": 50,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 614,
+      "completion_tokens": 119,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 607,
+      "completion_tokens": 54,
+      "total_tokens": 661,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 604,
+      "completion_tokens": 50,
+      "total_tokens": 654,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 618,
+      "completion_tokens": 63,
+      "total_tokens": 681,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 838,
+      "completion_tokens": 231,
+      "total_tokens": 1069,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 845,
+      "completion_tokens": 146,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 842,
+      "completion_tokens": 243,
+      "total_tokens": 1085,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 856,
+      "completion_tokens": 127,
+      "total_tokens": 983,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1296,
+      "completion_tokens": 193,
+      "total_tokens": 1489,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 858,
+      "completion_tokens": 234,
+      "total_tokens": 1092,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 855,
+      "completion_tokens": 133,
+      "total_tokens": 988,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 869,
+      "completion_tokens": 132,
+      "total_tokens": 1001,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1244,
+      "completion_tokens": 312,
+      "total_tokens": 1556,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 857,
+      "completion_tokens": 146,
+      "total_tokens": 1003,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 854,
+      "completion_tokens": 192,
+      "total_tokens": 1046,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 868,
+      "completion_tokens": 131,
+      "total_tokens": 999,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0118",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1347,
+      "completion_tokens": 310,
+      "total_tokens": 1657,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 403,
+    "majority_vote_total_tokens": 1167,
+    "scrd_total_tokens": 18855,
+    "scrd_prompt_tokens": 15901,
+    "scrd_completion_tokens": 2954,
+    "agent_total_tokens": 12351,
+    "recorder_total_tokens": 6504,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

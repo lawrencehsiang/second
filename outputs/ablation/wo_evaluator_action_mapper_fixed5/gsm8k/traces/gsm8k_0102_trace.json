@@ -1,0 +1,436 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each tub serves 6 people.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total tubes = 6 tubs * 2 tubes/tub = 12 tubes.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each tube serves 3 people.",
+        "6 tubs * 2 tubes/tub = 12 tubes.",
+        "12 tubes * 3 people/tube = 36 people."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "36",
+        "12",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each tube serves 3 people.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "There are 2 tubes per tub.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total tubes = 6 tubs * 2 tubes/tub = 12 tubes.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total people = 12 tubes * 3 people/tube = 36 people.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each tube serves 3 people.",
+        "2 tubes/tub * 6 tubs = 12 tubes.",
+        "12 tubes * 3 people/tube = 36 people.",
+        "Each tub serves 6 people (corrected)."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "36",
+        "36",
+        "24"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous answer of 36 was incorrect due to overestimating the number of tubes.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct calculation shows 12 tubes serving 36 people.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recalculating from 12 tubes, each serving 3 people, results in 36 people.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each tube serves 3 people.",
+        "12 tubes * 3 people/tube = 36 people.",
+        "Revised the calculation to align with the provided quantities.",
+        "Correcting the previous overestimation of tubes."
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "24",
+        "12",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The revised calculation confirms 12 tubes serving 36 people.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The initial overestimation of the number of tubes has been corrected.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Revised the calculation based on the correct number of tubes.",
+        "12 tubes * 3 people/tube = 36 people.",
+        "Correcting the overestimation of the number of tubes.",
+        "6 tubs * 2 tubes/tub = 12 tubes.",
+        "Each tube serves 3 people."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "36",
+        "36",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The revised calculation shows 12 tubes serving 36 people, confirming the correct total.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority objection of 24 is incorrect because the total is 12 tubes, each serving 3 people.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "12 tubes * 3 people/tube = 36 people.",
+        "Each tube serves 3 people.",
+        "Total of 12 tubes from 6 tubs, each holding 2 tubes.",
+        "Minority objection of 24 is incorrect.",
+        "Correcting the initial overestimation of 24 to 36."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 414,
+      "completion_tokens": 69,
+      "total_tokens": 483,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 401,
+      "completion_tokens": 65,
+      "total_tokens": 466,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 412,
+      "completion_tokens": 60,
+      "total_tokens": 472,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 676,
+      "completion_tokens": 154,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 671,
+      "completion_tokens": 133,
+      "total_tokens": 804,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 668,
+      "completion_tokens": 127,
+      "total_tokens": 795,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 682,
+      "completion_tokens": 157,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1123,
+      "completion_tokens": 244,
+      "total_tokens": 1367,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 671,
+      "completion_tokens": 180,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 668,
+      "completion_tokens": 155,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 682,
+      "completion_tokens": 68,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1199,
+      "completion_tokens": 219,
+      "total_tokens": 1418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 776,
+      "completion_tokens": 93,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 773,
+      "completion_tokens": 105,
+      "total_tokens": 878,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 787,
+      "completion_tokens": 163,
+      "total_tokens": 950,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1132,
+      "completion_tokens": 186,
+      "total_tokens": 1318,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 872,
+      "completion_tokens": 171,
+      "total_tokens": 1043,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 869,
+      "completion_tokens": 127,
+      "total_tokens": 996,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 883,
+      "completion_tokens": 164,
+      "total_tokens": 1047,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0102",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1163,
+      "completion_tokens": 206,
+      "total_tokens": 1369,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 483,
+    "majority_vote_total_tokens": 1421,
+    "scrd_total_tokens": 18368,
+    "scrd_prompt_tokens": 15522,
+    "scrd_completion_tokens": 2846,
+    "agent_total_tokens": 12066,
+    "recorder_total_tokens": 6302,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

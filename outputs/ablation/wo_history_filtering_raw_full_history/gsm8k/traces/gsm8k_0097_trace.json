@@ -1,0 +1,205 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "108",
+        "108",
+        "126"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Convert inches of rain to gallons.",
+          "claim_type": "constraint",
+          "related_answer": "126"
+        },
+        {
+          "text": "Calculate total rainfall in inches first.",
+          "claim_type": "constraint",
+          "related_answer": "108"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (108 vs 126) for the same problem.",
+          "why_still_open": "Calculating total rainfall vs inches of rain leads to different outcomes.",
+          "involved_answers": [
+            "108",
+            "126"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total rain = Inches * Area",
+        "Gallons = Inches * 231 * Area",
+        "$ = Gallons * Price_per_gallon"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "108",
+        "108",
+        "126"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correctly calculate total rainfall in inches.",
+          "claim_type": "support",
+          "related_answer": "108"
+        },
+        {
+          "text": "Convert inches of rain to gallons correctly.",
+          "claim_type": "rebuttal",
+          "related_answer": "126"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total rain = Inches * Area",
+        "Gallons = Inches * 15",
+        "$ = Gallons * Price_per_gallon"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0097",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 37,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0097",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 41,
+      "total_tokens": 404,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0097",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 40,
+      "total_tokens": 414,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0097",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 603,
+      "completion_tokens": 204,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0097",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 829,
+      "completion_tokens": 144,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0097",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 826,
+      "completion_tokens": 127,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0097",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 840,
+      "completion_tokens": 179,
+      "total_tokens": 1019,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0097",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1209,
+      "completion_tokens": 139,
+      "total_tokens": 1348,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0097",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 652,
+      "completion_tokens": 59,
+      "total_tokens": 711,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 413,
+    "majority_vote_total_tokens": 1231,
+    "scrd_total_tokens": 7042,
+    "scrd_prompt_tokens": 6072,
+    "scrd_completion_tokens": 970,
+    "agent_total_tokens": 4176,
+    "recorder_total_tokens": 2155,
+    "evaluator_total_tokens": 711,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

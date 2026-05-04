@@ -1,0 +1,210 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "45",
+        "45",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Convert all times to minutes for uniformity.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "All agents agree on the final answer but differ in the breakdown of distances run from Mon-Wed vs. Fri.",
+          "why_still_open": "Agents did not specify the exact breakdown of distances.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Mon: 3 miles, Tue: 4 miles, Wed: 5 miles",
+        "Total: 12 miles",
+        "Remaining: 8 miles",
+        "Friday: 45 minutes",
+        "50/60*12=10"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "30",
+        "60",
+        "45"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculated the total distance run from Monday to Thursday.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The previous answers were consistent, so the breakdown needs to align with the total distance of 20 miles.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify if 45 minutes on Friday allows Rosie to reach 20 miles.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Mon: 3 miles, Tue: 4 miles, Wed: 5 miles",
+        "Total: 12 miles",
+        "Remaining: 8 miles",
+        "Friday: 45 minutes",
+        "50/60*12=10"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 371,
+      "completion_tokens": 58,
+      "total_tokens": 429,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 358,
+      "completion_tokens": 49,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 369,
+      "completion_tokens": 47,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 629,
+      "completion_tokens": 197,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 826,
+      "completion_tokens": 95,
+      "total_tokens": 921,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 823,
+      "completion_tokens": 107,
+      "total_tokens": 930,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 837,
+      "completion_tokens": 122,
+      "total_tokens": 959,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1071,
+      "completion_tokens": 221,
+      "total_tokens": 1292,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0199",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 708,
+      "completion_tokens": 54,
+      "total_tokens": 762,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 429,
+    "majority_vote_total_tokens": 1252,
+    "scrd_total_tokens": 6942,
+    "scrd_prompt_tokens": 5992,
+    "scrd_completion_tokens": 950,
+    "agent_total_tokens": 4062,
+    "recorder_total_tokens": 2118,
+    "evaluator_total_tokens": 762,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

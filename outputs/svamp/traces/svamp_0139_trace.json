@@ -1,0 +1,354 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "0.8",
+        "8",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Only one shelf is needed because the room fits 8 action figures.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each shelf holds 10 action figures.",
+        "The room fits 8 action figures.",
+        "8 action figures / 10 per shelf = 0.8 shelves.",
+        "Therefore, 1 shelf is sufficient.",
+        "8 shelves * 10 = 80 total capacity."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "1",
+        "1",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The room's total capacity dictates the number of shelves needed, not the shelf capacity.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The room fits 8 action figures, thus requiring only 1 shelf.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The room's total capacity is 8 action figures.",
+        "Only one shelf is required for 8 action figures.",
+        "The shelf's capacity does not affect the number of shelves needed.",
+        "8 action figures / 1 shelf = 8 action figures per shelf.",
+        "Therefore, 1 shelf suffices."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "0.8",
+        "8",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The room's total capacity (8 action figures) is the limiting factor, not the shelf capacity (10 action figures).",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Considering both the shelf capacity and the room's total capacity leads to needing 1 shelf.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The room's total capacity limits the number of shelves needed to 1.",
+        "Shelf capacity (10 action figures) does not dictate the number of shelves for 8 action figures.",
+        "8 action figures fit in 1 shelf.",
+        "Total capacity (8) determines the number of shelves (1).",
+        "One shelf is sufficient for 8 action figures."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 343,
+      "completion_tokens": 48,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 330,
+      "completion_tokens": 47,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 341,
+      "completion_tokens": 52,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 625,
+      "completion_tokens": 138,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 607,
+      "completion_tokens": 144,
+      "total_tokens": 751,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 602,
+      "completion_tokens": 143,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 616,
+      "completion_tokens": 125,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1074,
+      "completion_tokens": 237,
+      "total_tokens": 1311,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 601,
+      "completion_tokens": 50,
+      "total_tokens": 651,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 756,
+      "completion_tokens": 134,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 627,
+      "completion_tokens": 161,
+      "total_tokens": 788,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 626,
+      "completion_tokens": 140,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 627,
+      "completion_tokens": 147,
+      "total_tokens": 774,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1110,
+      "completion_tokens": 185,
+      "total_tokens": 1295,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 752,
+      "completion_tokens": 60,
+      "total_tokens": 812,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 574,
+      "completion_tokens": 193,
+      "total_tokens": 767,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 571,
+      "completion_tokens": 109,
+      "total_tokens": 680,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 587,
+      "completion_tokens": 54,
+      "total_tokens": 641,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1065,
+      "completion_tokens": 209,
+      "total_tokens": 1274,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0139",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 608,
+      "completion_tokens": 47,
+      "total_tokens": 655,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 391,
+    "majority_vote_total_tokens": 1161,
+    "scrd_total_tokens": 15465,
+    "scrd_prompt_tokens": 13042,
+    "scrd_completion_tokens": 2423,
+    "agent_total_tokens": 3398,
+    "recorder_total_tokens": 4643,
+    "evaluator_total_tokens": 651,
+    "repair_brief_total_tokens": 890,
+    "repair_evaluator_total_tokens": 1467,
+    "repair_agent_total_tokens": 4416
+  }
+}

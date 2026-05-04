@@ -1,0 +1,456 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7",
+        "8",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate savings from milk and cereal separately then sum.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate savings per item and multiply by quantity.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating total savings: summing individual savings vs multiplying per-item savings by quantity.",
+          "why_still_open": "Both methods are valid but lead to different results without clear criteria for choosing one over the other.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Savings = (Milk Savings + Cereal Savings)",
+        "Savings = Quantity * Item Savings",
+        "Sum individual savings",
+        "Multiply per-item savings by quantity",
+        "Calculate separately then sum"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "17",
+        "8",
+        "14"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Resolve the conflict by summing individual savings.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Directly account for each item's discount by summing individual savings.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Savings = Sum of individual savings",
+        "Calculate separately then sum",
+        "Align with the mainstream support",
+        "Directly accounts for each item’s discount",
+        "Total savings via discounts"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "17",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing individual savings resolves the minority answer.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support and key rebuttal agree on 8, resolving the minority objection.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Summing individual savings results in the correct total of $8.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of individual savings = $8",
+        "Mainstream support: $8",
+        "Resolve minority answer of 7",
+        "Sum 3 gallons at $1 and 5 boxes at $1",
+        "Correct total: $8"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "17",
+        "17",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing individual savings for milk and cereal yields $8.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Sum of individual savings = $8",
+        "Calculate savings: milk ($3) + cereal ($5)",
+        "Total savings: $3 + $5 = $8",
+        "Resolve minority answer of 17",
+        "Re-evaluate savings per item"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_started",
+      "start_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 4
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 363,
+      "completion_tokens": 35,
+      "total_tokens": 398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 350,
+      "completion_tokens": 34,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 361,
+      "completion_tokens": 35,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 576,
+      "completion_tokens": 220,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 737,
+      "completion_tokens": 112,
+      "total_tokens": 849,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 734,
+      "completion_tokens": 122,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 748,
+      "completion_tokens": 108,
+      "total_tokens": 856,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1099,
+      "completion_tokens": 154,
+      "total_tokens": 1253,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 634,
+      "completion_tokens": 46,
+      "total_tokens": 680,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 812,
+      "completion_tokens": 88,
+      "total_tokens": 900,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 808,
+      "completion_tokens": 102,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 823,
+      "completion_tokens": 104,
+      "total_tokens": 927,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 997,
+      "completion_tokens": 205,
+      "total_tokens": 1202,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 659,
+      "completion_tokens": 51,
+      "total_tokens": 710,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 818,
+      "completion_tokens": 118,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 814,
+      "completion_tokens": 114,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 828,
+      "completion_tokens": 122,
+      "total_tokens": 950,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1107,
+      "completion_tokens": 311,
+      "total_tokens": 1418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 724,
+      "completion_tokens": 52,
+      "total_tokens": 776,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 919,
+      "completion_tokens": 94,
+      "total_tokens": 1013,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 887,
+      "completion_tokens": 112,
+      "total_tokens": 999,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 886,
+      "completion_tokens": 120,
+      "total_tokens": 1006,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 887,
+      "completion_tokens": 186,
+      "total_tokens": 1073,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1148,
+      "completion_tokens": 130,
+      "total_tokens": 1278,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0139",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 682,
+      "completion_tokens": 52,
+      "total_tokens": 734,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 398,
+    "majority_vote_total_tokens": 1178,
+    "scrd_total_tokens": 22228,
+    "scrd_prompt_tokens": 19401,
+    "scrd_completion_tokens": 2827,
+    "agent_total_tokens": 9290,
+    "recorder_total_tokens": 5947,
+    "evaluator_total_tokens": 2166,
+    "repair_brief_total_tokens": 1013,
+    "repair_evaluator_total_tokens": 734,
+    "repair_agent_total_tokens": 3078
+  }
+}

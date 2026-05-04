@@ -1,0 +1,570 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "60",
+        "100",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each cat's meows per minute summed over 5 minutes equals 60.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Multiplying each cat's meowing rate by time gives 100.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Summing each cat's meows per minute over 5 minutes results in 90.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different answers (60, 100, 90) for the total number of meows.",
+          "why_still_open": "Calculation methods differ among agents.",
+          "involved_answers": [
+            "60",
+            "100",
+            "90"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Cat A: 12 meows/minute",
+        "Cat B: 15 meows/minute",
+        "Cat C: 18 meows/minute",
+        "Total meows = 12 + 15 + 18 = 45 * 2 = 90",
+        "Total meows = 12 + 15 + 18 = 45 * (5/2) = 112.5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "90",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluation of meow rates resolved the discrepancy between previous answers.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recalculation confirmed the total number of meows is 90.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Correct summation of meows per minute over 5 minutes yields 90.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cat A: 12 meows/minute",
+        "Cat B: 15 meows/minute",
+        "Cat C: 18 meows/minute",
+        "Total meows = 12 + 15 + 18 = 45 * 2 = 90",
+        "Summing meows per minute over 5 minutes gives 90"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "55",
+        "90",
+        "90"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Adjusted the calculation method to match the given frequencies.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The conflict was resolved by recalculating the combined frequency of meows and confirming it's 18 per minute, leading to a total of 90 meows in 5 minutes.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Recomputed based on the given frequencies.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First cat: 3 meows/min",
+        "Second cat: 6 meows/min",
+        "Third cat: 2 meows/min",
+        "Total meows per minute: 3 + 6 + 2 = 11",
+        "Over 5 minutes: 11 * 5 = 55 meows"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "90",
+        "55",
+        "55"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The frequency calculations were corrected to find the total meows in 5 minutes as 55.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The initial frequency application was incorrect, and after correction, the total meows in 5 minutes is 55.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "First cat: 3 meows/min",
+        "Second cat: 6 meows/min",
+        "Third cat: 2 meows/min",
+        "Combined frequency: 3 + 6 + 2 = 11 meows/min",
+        "Total meows in 5 minutes: 11 * 5 = 55"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "55",
+        "55",
+        "55"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing the total meows with corrected frequencies resolves the minority answer of 90.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 90 persists despite recomputation, indicating unresolved conflict.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 90 remains unaddressed after recomputation.",
+          "why_still_open": "The recomputation did not align with the majority support of 55.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First cat: 3 meows/min",
+        "Second cat: 6 meows/min",
+        "Third cat: 2 meows/min",
+        "Combined frequency: 3 + 6 + 2 = 11 meows/min",
+        "Total meows in 5 minutes: 11 * 5 = 55"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 5
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 385,
+      "completion_tokens": 43,
+      "total_tokens": 428,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 372,
+      "completion_tokens": 35,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 383,
+      "completion_tokens": 42,
+      "total_tokens": 425,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 600,
+      "completion_tokens": 334,
+      "total_tokens": 934,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 760,
+      "completion_tokens": 109,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 758,
+      "completion_tokens": 113,
+      "total_tokens": 871,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 771,
+      "completion_tokens": 123,
+      "total_tokens": 894,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1232,
+      "completion_tokens": 349,
+      "total_tokens": 1581,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 735,
+      "completion_tokens": 56,
+      "total_tokens": 791,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 1120,
+      "completion_tokens": 94,
+      "total_tokens": 1214,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 629,
+      "completion_tokens": 124,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 628,
+      "completion_tokens": 102,
+      "total_tokens": 730,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 629,
+      "completion_tokens": 116,
+      "total_tokens": 745,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1211,
+      "completion_tokens": 242,
+      "total_tokens": 1453,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 831,
+      "completion_tokens": 48,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 723,
+      "completion_tokens": 162,
+      "total_tokens": 885,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 720,
+      "completion_tokens": 164,
+      "total_tokens": 884,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 736,
+      "completion_tokens": 99,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1195,
+      "completion_tokens": 245,
+      "total_tokens": 1440,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 698,
+      "completion_tokens": 49,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 728,
+      "completion_tokens": 62,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 725,
+      "completion_tokens": 191,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 741,
+      "completion_tokens": 168,
+      "total_tokens": 909,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1194,
+      "completion_tokens": 204,
+      "total_tokens": 1398,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 654,
+      "completion_tokens": 51,
+      "total_tokens": 705,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 810,
+      "completion_tokens": 112,
+      "total_tokens": 922,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 807,
+      "completion_tokens": 90,
+      "total_tokens": 897,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 823,
+      "completion_tokens": 93,
+      "total_tokens": 916,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1027,
+      "completion_tokens": 264,
+      "total_tokens": 1291,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 664,
+      "completion_tokens": 59,
+      "total_tokens": 723,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 428,
+    "majority_vote_total_tokens": 1260,
+    "scrd_total_tokens": 27232,
+    "scrd_prompt_tokens": 23289,
+    "scrd_completion_tokens": 3943,
+    "agent_total_tokens": 3894,
+    "recorder_total_tokens": 8097,
+    "evaluator_total_tokens": 791,
+    "repair_brief_total_tokens": 1214,
+    "repair_evaluator_total_tokens": 3054,
+    "repair_agent_total_tokens": 10182
+  }
+}

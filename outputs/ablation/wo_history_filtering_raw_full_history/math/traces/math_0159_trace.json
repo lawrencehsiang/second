@@ -1,0 +1,210 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "9",
+        "18",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Isolate x to find 9.",
+          "claim_type": "support",
+          "related_answer": "9"
+        },
+        {
+          "text": "Cross-multiply and simplify to get 18.",
+          "claim_type": "support",
+          "related_answer": "18"
+        },
+        {
+          "text": "Cross-multiply and simplify results in 9.",
+          "claim_type": "support",
+          "related_answer": "9"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B's result (18) differs from Agents A and C's (9).",
+          "why_still_open": "Different methods of solving the equation.",
+          "involved_answers": [
+            "18",
+            "9"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Solve the equation by isolating x.",
+        "Solve for x by cross-multiplying and simplifying.",
+        "Cross-multiply and simplify to get 9."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "9",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correcting the initial error, cross-multiplication shows x = 18.",
+          "claim_type": "support",
+          "related_answer": "18"
+        },
+        {
+          "text": "Review confirms the correct value of x is 9.",
+          "claim_type": "support",
+          "related_answer": "9"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Cross-multiplication and simplification confirm x = 9.",
+        "Agent B's revised method shows x = 18.",
+        "Correcting the initial error, cross-multiplication shows x = 18."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 349,
+      "completion_tokens": 33,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 336,
+      "completion_tokens": 35,
+      "total_tokens": 371,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 347,
+      "completion_tokens": 36,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 581,
+      "completion_tokens": 240,
+      "total_tokens": 821,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 812,
+      "completion_tokens": 101,
+      "total_tokens": 913,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 810,
+      "completion_tokens": 115,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 823,
+      "completion_tokens": 208,
+      "total_tokens": 1031,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1206,
+      "completion_tokens": 162,
+      "total_tokens": 1368,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 624,
+      "completion_tokens": 45,
+      "total_tokens": 669,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 382,
+    "majority_vote_total_tokens": 1136,
+    "scrd_total_tokens": 6863,
+    "scrd_prompt_tokens": 5888,
+    "scrd_completion_tokens": 975,
+    "agent_total_tokens": 4005,
+    "recorder_total_tokens": 2189,
+    "evaluator_total_tokens": 669,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_history_filtering_raw_full_history",
+  "history_scope": "all",
+  "max_history_chars": null,
+  "state_recorder_internal_only": true,
+  "history_manager_replaced": true,
+  "evaluator_preserved": true,
+  "action_mapper_preserved": true,
+  "rollback_repair_preserved": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

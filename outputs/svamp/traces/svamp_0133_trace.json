@@ -1,0 +1,544 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "1",
+        "5",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each friend gets 1 cracker and there's a remainder.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Since can't give fraction of cracker, each got 1, total 5.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "3 are left over after giving 1 cracker to each friend.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "How many crackers are left over?",
+          "why_still_open": "Different answers provided by agents A and C.",
+          "involved_answers": [
+            "1"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "31 - 23 = 8",
+        "8 / 5 = 1.6",
+        "Each friend gets 1 cracker",
+        "5 crackers distributed",
+        "3 crackers left over"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8",
+        "3",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The number of crackers left over is 8, calculated as 31 - 23.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The remainder of crackers is 3 after distributing 1 cracker to each friend.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "31 - 23 = 8",
+        "Each friend gets 1 cracker",
+        "5 crackers distributed",
+        "3 crackers left over",
+        "Matthew started with 31 crackers and ended with 23"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The mainstream view correctly calculates 31 - 23 = 8 crackers per friend.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "31 - 23 = 8",
+        "Each friend gets 1 cracker",
+        "5 crackers distributed",
+        "3 crackers left over",
+        "Matthew started with 31 crackers and ended with 23"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "8",
+        "3",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The division of 8 crackers among 5 friends results in each receiving 1 cracker with a remainder, supporting the minority view.",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "The mainstream view's calculation of 8 crackers given to friends equally is correct but does not imply equal distribution among all friends.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority view correctly identifies that each friend receives 1 cracker with a remainder, resolving the conflict about equal distribution.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "31 - 23 = 8",
+        "Each friend gets 1 cracker with a remainder",
+        "8 crackers distributed unevenly",
+        "3 crackers left over",
+        "Matthew started with 31 crackers and ended with 23"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "15",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Dividing 8 crackers among 5 friends results in each receiving 1 cracker with 3 remaining, refuting the minority view.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "The calculation shows Matthew gave away 8 crackers, resolving the conflict about the number of crackers distributed.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "31 - 23 = 8",
+        "8 crackers distributed",
+        "Each friend gets 1 cracker with 3 remaining",
+        "Matthew has 23 crackers left",
+        "Crackers given away: 8"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_started",
+      "start_round": 4,
+      "anchor_round": 3
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 4,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 5,
+      "mode": "repair"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 69,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 63,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 63,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 668,
+      "completion_tokens": 253,
+      "total_tokens": 921,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 798,
+      "completion_tokens": 149,
+      "total_tokens": 947,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 795,
+      "completion_tokens": 133,
+      "total_tokens": 928,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 809,
+      "completion_tokens": 157,
+      "total_tokens": 966,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1218,
+      "completion_tokens": 174,
+      "total_tokens": 1392,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 617,
+      "completion_tokens": 43,
+      "total_tokens": 660,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 804,
+      "completion_tokens": 139,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 801,
+      "completion_tokens": 113,
+      "total_tokens": 914,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 815,
+      "completion_tokens": 126,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1098,
+      "completion_tokens": 130,
+      "total_tokens": 1228,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 557,
+      "completion_tokens": 47,
+      "total_tokens": 604,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 613,
+      "completion_tokens": 162,
+      "total_tokens": 775,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 610,
+      "completion_tokens": 53,
+      "total_tokens": 663,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 624,
+      "completion_tokens": 136,
+      "total_tokens": 760,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1003,
+      "completion_tokens": 212,
+      "total_tokens": 1215,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 45,
+      "total_tokens": 641,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 725,
+      "completion_tokens": 126,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 912,
+      "completion_tokens": 172,
+      "total_tokens": 1084,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 911,
+      "completion_tokens": 192,
+      "total_tokens": 1103,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 912,
+      "completion_tokens": 191,
+      "total_tokens": 1103,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1192,
+      "completion_tokens": 243,
+      "total_tokens": 1435,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 4,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 791,
+      "completion_tokens": 56,
+      "total_tokens": 847,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 587,
+      "completion_tokens": 211,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 584,
+      "completion_tokens": 210,
+      "total_tokens": 794,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 600,
+      "completion_tokens": 182,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1322,
+      "completion_tokens": 187,
+      "total_tokens": 1509,
+      "extra": {}
+    },
+    {
+      "sample_id": "svamp_0133",
+      "round_id": 5,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 614,
+      "completion_tokens": 52,
+      "total_tokens": 666,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 415,
+    "majority_vote_total_tokens": 1218,
+    "scrd_total_tokens": 26688,
+    "scrd_prompt_tokens": 22599,
+    "scrd_completion_tokens": 4089,
+    "agent_total_tokens": 9055,
+    "recorder_total_tokens": 7700,
+    "evaluator_total_tokens": 1905,
+    "repair_brief_total_tokens": 851,
+    "repair_evaluator_total_tokens": 1513,
+    "repair_agent_total_tokens": 5664
+  }
+}

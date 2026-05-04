@@ -1,0 +1,347 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "52",
+        "28"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum the distances of all bounces and the initial drop.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "total = initial + sum(bounces)",
+        "calculate distance for each bounce",
+        "sum distances until third catch"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "52",
+        "70",
+        "58"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each bounce's distance is twice the height it reaches (up and down).",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "initial drop + 2 * sum(bounces)",
+        "geometric series: 16 + 2 * (16 * (3/4) + 16 * (3/4)^2)",
+        "third bounce high point is last catch point"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "52",
+        "52",
+        "52"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each bounce reaches $\\frac{3}{4}$ the height of the previous one.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The total distance calculation for the third bounce.",
+          "why_still_open": "Different interpretations of the distance calculation for the third bounce.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "initial drop + 2 * sum(bounces)",
+        "geometric series: 16 + 2 * (16 * (3/4) + 16 * (3/4)^2)",
+        "third bounce high point is last catch point"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "rollback_triggered",
+      "trigger_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_started",
+      "start_round": 2,
+      "anchor_round": 1
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 2,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_round_executed",
+      "round_id": 3,
+      "mode": "repair"
+    },
+    {
+      "type": "repair_finalized",
+      "final_round": 3
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 377,
+      "completion_tokens": 34,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 364,
+      "completion_tokens": 31,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 375,
+      "completion_tokens": 41,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 588,
+      "completion_tokens": 98,
+      "total_tokens": 686,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 639,
+      "completion_tokens": 129,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 636,
+      "completion_tokens": 61,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 650,
+      "completion_tokens": 109,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 949,
+      "completion_tokens": 238,
+      "total_tokens": 1187,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 656,
+      "completion_tokens": 53,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": null,
+      "mode": "repair",
+      "component": "repair_brief_generator",
+      "agent_id": null,
+      "prompt_tokens": 757,
+      "completion_tokens": 97,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 624,
+      "completion_tokens": 133,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 623,
+      "completion_tokens": 162,
+      "total_tokens": 785,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 624,
+      "completion_tokens": 253,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1174,
+      "completion_tokens": 133,
+      "total_tokens": 1307,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 705,
+      "completion_tokens": 67,
+      "total_tokens": 772,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "A",
+      "prompt_tokens": 608,
+      "completion_tokens": 123,
+      "total_tokens": 731,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "B",
+      "prompt_tokens": 605,
+      "completion_tokens": 111,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_agent",
+      "agent_id": "C",
+      "prompt_tokens": 621,
+      "completion_tokens": 69,
+      "total_tokens": 690,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 964,
+      "completion_tokens": 189,
+      "total_tokens": 1153,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 3,
+      "mode": "repair",
+      "component": "repair_evaluator",
+      "agent_id": null,
+      "prompt_tokens": 601,
+      "completion_tokens": 54,
+      "total_tokens": 655,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 411,
+    "majority_vote_total_tokens": 1222,
+    "scrd_total_tokens": 15325,
+    "scrd_prompt_tokens": 13140,
+    "scrd_completion_tokens": 2185,
+    "agent_total_tokens": 3446,
+    "recorder_total_tokens": 4333,
+    "evaluator_total_tokens": 709,
+    "repair_brief_total_tokens": 854,
+    "repair_evaluator_total_tokens": 1427,
+    "repair_agent_total_tokens": 4556
+  }
+}

@@ -1,0 +1,382 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4.5",
+        "4.5",
+        "6.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total time includes driving and staying.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Convert driving distance to minutes before adding stay time.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Driving time in hours plus stay time equals total time.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods of calculating total time.",
+          "why_still_open": "Methods lead to different answers without clear resolution.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "4.5 = 50/60*12 + 1.5",
+        "4.5 = 50 + 30 / 60 * 60 + 1.5",
+        "6.5 = 50/60 * 60 + 1.5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6.5",
+        "7.5",
+        "7.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The additional 10 miles on the return trip should be included in the total time.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Both driving time and stay time must be included in the total time calculation.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority answer of 4.5 hours excludes the stay time, which is incorrect.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "6.5 = 50/60*12 + 1.5",
+        "7.5 = 50 + 30/60*60 + 1.5",
+        "7.5 = 50/60*60 + 1.5"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8.5",
+        "8.0",
+        "8.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct approach includes both the outbound and return trips, plus the 2-hour stay at the destination.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The minority answer of 6.5 hours does not account for the full journey and the 2-hour stay.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "8.5 = 50/60*12 + 10/60*60 + 2",
+        "8.0 = 50 + 30/60*60 + 1.5",
+        "8.5 = 50/60*60 + 10/60*60 + 2"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "8.5",
+        "8.5",
+        "8.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 7.5 hours does not account for the full journey and the 2-hour stay at the destination.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 7.5 hours is still considered incorrect as it does not account for the full journey and the 2-hour stay.",
+          "why_still_open": "There is consensus on the need to include both the outbound and return trips, but the minority still disputes this.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "8.5 = 50/60*12 + 10/60*60 + 2",
+        "8.5 = 50/60*60 + 10/60*60 + 2",
+        "8.5 > 7.5 because the full journey and 2-hour stay must be included."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 4,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 385,
+      "completion_tokens": 33,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 372,
+      "completion_tokens": 37,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 383,
+      "completion_tokens": 40,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 259,
+      "total_tokens": 854,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 738,
+      "completion_tokens": 120,
+      "total_tokens": 858,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 735,
+      "completion_tokens": 94,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 749,
+      "completion_tokens": 108,
+      "total_tokens": 857,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1137,
+      "completion_tokens": 228,
+      "total_tokens": 1365,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 713,
+      "completion_tokens": 61,
+      "total_tokens": 774,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 853,
+      "completion_tokens": 120,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 850,
+      "completion_tokens": 131,
+      "total_tokens": 981,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 864,
+      "completion_tokens": 142,
+      "total_tokens": 1006,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1155,
+      "completion_tokens": 214,
+      "total_tokens": 1369,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 664,
+      "completion_tokens": 45,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 864,
+      "completion_tokens": 122,
+      "total_tokens": 986,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 861,
+      "completion_tokens": 149,
+      "total_tokens": 1010,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 875,
+      "completion_tokens": 146,
+      "total_tokens": 1021,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1173,
+      "completion_tokens": 249,
+      "total_tokens": 1422,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0166",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 648,
+      "completion_tokens": 62,
+      "total_tokens": 710,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 418,
+    "majority_vote_total_tokens": 1250,
+    "scrd_total_tokens": 16974,
+    "scrd_prompt_tokens": 14614,
+    "scrd_completion_tokens": 2360,
+    "agent_total_tokens": 9771,
+    "recorder_total_tokens": 5010,
+    "evaluator_total_tokens": 2193,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

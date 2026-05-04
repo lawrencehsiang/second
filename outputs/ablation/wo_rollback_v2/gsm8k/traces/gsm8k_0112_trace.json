@@ -1,0 +1,204 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total cost and subtract from initial amount.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculate total cost, subtract from $15.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Calculated total expenses and subtracted from initial amount.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial amount = $15",
+        "Total cost = 8 + 6 + 6",
+        "Final amount = 15 - 20"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4",
+        "8",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate total cost and subtract from initial amount.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total cost recalculated to $9, leaving $6.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B claims total cost is $7, but Agent C recalculates it as $9.",
+          "why_still_open": "Different items and costs were considered in the calculations.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial amount = $15",
+        "Total cost = 2 + 3 + 4",
+        "Money left = 15 - 9"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0112",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 361,
+      "completion_tokens": 33,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0112",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 348,
+      "completion_tokens": 31,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0112",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 359,
+      "completion_tokens": 35,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0112",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 575,
+      "completion_tokens": 179,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0112",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 618,
+      "completion_tokens": 97,
+      "total_tokens": 715,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0112",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 615,
+      "completion_tokens": 55,
+      "total_tokens": 670,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0112",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 629,
+      "completion_tokens": 85,
+      "total_tokens": 714,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0112",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 946,
+      "completion_tokens": 206,
+      "total_tokens": 1152,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0112",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 630,
+      "completion_tokens": 53,
+      "total_tokens": 683,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1167,
+    "scrd_total_tokens": 5855,
+    "scrd_prompt_tokens": 5081,
+    "scrd_completion_tokens": 774,
+    "agent_total_tokens": 3266,
+    "recorder_total_tokens": 1906,
+    "evaluator_total_tokens": 683,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

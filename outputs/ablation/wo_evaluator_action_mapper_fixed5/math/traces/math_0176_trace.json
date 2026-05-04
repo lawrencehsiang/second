@@ -1,0 +1,425 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "960",
+        "968",
+        "968"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substitute x=4 into the expression.",
+          "claim_type": "constraint",
+          "related_answer": "960"
+        },
+        {
+          "text": "Direct substitution of x=4 into the expression.",
+          "claim_type": "constraint",
+          "related_answer": "968"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x=4 substituted",
+        "expression evaluated at x=4"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "968",
+        "968",
+        "1004"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Direct substitution of x=4 into the expression x^5 - 5x yields 1024 - 20 = 1004.",
+          "claim_type": "constraint",
+          "related_answer": "1004"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A's recalculated value of 968 vs Agent C's calculated value of 1004.",
+          "why_still_open": "The discrepancy between 968 and 1004 has not been resolved.",
+          "involved_answers": [
+            "968",
+            "1004"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "expression evaluated at x=4",
+        "x=4 substituted"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "1004",
+        "1004",
+        "968"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verification of the expression \\(4^5 - 5 \times 4\\) yields 1004.",
+          "claim_type": "constraint",
+          "related_answer": "1004"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "expression evaluated at x=4",
+        "x=4 substituted"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "1004",
+        "1004",
+        "1004"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculation of \\(4^5 - 5 \times 4\\) confirms the value 1004.",
+          "claim_type": "rebuttal",
+          "related_answer": "1004"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "4^5 - 5 * 4 = 1024 - 20",
+        "value confirmed as 1004"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "1004",
+        "1004",
+        "1004"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Providing detailed steps for the calculation \\(4^5 - 5 \times 4\\).",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying the calculation step-by-step to ensure accuracy.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "No detailed calculation was initially provided to verify the value 1004.",
+          "why_still_open": "Although agents B and C have addressed the issue, there is still a need for explicit verification of the calculation steps.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "4^5 = 1024",
+        "1024 - 5 * 4 = 1024 - 20 = 1004",
+        "Verification needed for the calculation steps"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0176",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 332,
+      "completion_tokens": 35,
+      "total_tokens": 367,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 319,
+      "completion_tokens": 32,
+      "total_tokens": 351,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 330,
+      "completion_tokens": 36,
+      "total_tokens": 366,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 585,
+      "completion_tokens": 124,
+      "total_tokens": 709,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 594,
+      "completion_tokens": 108,
+      "total_tokens": 702,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 591,
+      "completion_tokens": 54,
+      "total_tokens": 645,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 605,
+      "completion_tokens": 60,
+      "total_tokens": 665,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 905,
+      "completion_tokens": 191,
+      "total_tokens": 1096,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 714,
+      "completion_tokens": 163,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 711,
+      "completion_tokens": 158,
+      "total_tokens": 869,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 726,
+      "completion_tokens": 109,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1174,
+      "completion_tokens": 104,
+      "total_tokens": 1278,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 835,
+      "completion_tokens": 133,
+      "total_tokens": 968,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 832,
+      "completion_tokens": 107,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 845,
+      "completion_tokens": 134,
+      "total_tokens": 979,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1045,
+      "completion_tokens": 125,
+      "total_tokens": 1170,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 720,
+      "completion_tokens": 45,
+      "total_tokens": 765,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 717,
+      "completion_tokens": 103,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 731,
+      "completion_tokens": 105,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 942,
+      "completion_tokens": 189,
+      "total_tokens": 1131,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0176",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 942,
+      "completion_tokens": 242,
+      "total_tokens": 1184,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 367,
+    "majority_vote_total_tokens": 1084,
+    "scrd_total_tokens": 17552,
+    "scrd_prompt_tokens": 15195,
+    "scrd_completion_tokens": 2357,
+    "agent_total_tokens": 10984,
+    "recorder_total_tokens": 6568,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

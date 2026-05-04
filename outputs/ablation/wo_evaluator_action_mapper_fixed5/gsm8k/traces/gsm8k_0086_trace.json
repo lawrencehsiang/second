@@ -1,0 +1,433 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jolyn's age difference from Leon is 5 months.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jolyn = Therese + 2",
+        "Leon = Aivo + 2",
+        "Therese = Aivo + 5",
+        "Jolyn - Leon = 5 months",
+        "Calculate step by step"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing individual age differences gives Jolyn 7 months older than Leon.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recomputing the age differences based on conditions gives Jolyn 7 months older than Leon.",
+          "claim_type": "explanation",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jolyn = Therese + 2",
+        "Leon = Aivo - 2",
+        "Therese = Aivo + 5",
+        "Jolyn = 7 months older than Leon",
+        "Sum differences: 2 + 5 - 2 = 5 months"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "9",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluating the relationships shows Jolyn is 9 months older than Leon.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The majority answer is 7 months, derived by summing individual differences.",
+          "claim_type": "explanation",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of 5 months remains unresolved.",
+          "why_still_open": "It incorrectly sums only some of the differences.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Jolyn = Therese + 2",
+        "Leon = Aivo - 2",
+        "Therese = Aivo + 5",
+        "Jolyn = 9 months older than Leon",
+        "Sum differences: 2 + 5 + (-2) = 5 months (minority)"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "7",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-calculated differences show Jolyn is 7 months older than Leon.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-calculated differences show Jolyn is 9 months older than Leon.",
+          "claim_type": "rebuttal",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jolyn = Therese + 2",
+        "Leon = Aivo - 2",
+        "Therese = Aivo + 5",
+        "Jolyn = 7 months older than Leon",
+        "Jolyn = 9 months older than Leon"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "9",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jolyn is 7 months older than Leon based on re-evaluation.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Mainstream support claims Jolyn is 9 months older, while rebuttal suggests 7 months.",
+          "why_still_open": "The re-evaluation needs to confirm the consistency between all relationships.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Jolyn = Therese + 2",
+        "Leon = Aivo - 2",
+        "Therese = Aivo + 5",
+        "Jolyn = 7 months older than Leon",
+        "Therese = Aivo + 5, Jolyn = Therese + 2 -> Jolyn = Aivo + 7"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 373,
+      "completion_tokens": 38,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 360,
+      "completion_tokens": 28,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 371,
+      "completion_tokens": 83,
+      "total_tokens": 454,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 628,
+      "completion_tokens": 127,
+      "total_tokens": 755,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 634,
+      "completion_tokens": 150,
+      "total_tokens": 784,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 631,
+      "completion_tokens": 103,
+      "total_tokens": 734,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 645,
+      "completion_tokens": 121,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1031,
+      "completion_tokens": 190,
+      "total_tokens": 1221,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 735,
+      "completion_tokens": 217,
+      "total_tokens": 952,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 732,
+      "completion_tokens": 141,
+      "total_tokens": 873,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 746,
+      "completion_tokens": 137,
+      "total_tokens": 883,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1223,
+      "completion_tokens": 242,
+      "total_tokens": 1465,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 834,
+      "completion_tokens": 151,
+      "total_tokens": 985,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 831,
+      "completion_tokens": 139,
+      "total_tokens": 970,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 845,
+      "completion_tokens": 193,
+      "total_tokens": 1038,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1276,
+      "completion_tokens": 183,
+      "total_tokens": 1459,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 832,
+      "completion_tokens": 117,
+      "total_tokens": 949,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 829,
+      "completion_tokens": 126,
+      "total_tokens": 955,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 843,
+      "completion_tokens": 162,
+      "total_tokens": 1005,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0086",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1126,
+      "completion_tokens": 223,
+      "total_tokens": 1349,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 411,
+    "majority_vote_total_tokens": 1253,
+    "scrd_total_tokens": 18396,
+    "scrd_prompt_tokens": 15525,
+    "scrd_completion_tokens": 2871,
+    "agent_total_tokens": 12147,
+    "recorder_total_tokens": 6249,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

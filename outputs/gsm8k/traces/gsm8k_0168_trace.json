@@ -1,0 +1,485 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4320",
+        "43200",
+        "1920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the length of the new movie, then its cost.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Calculate the cost per minute for the new movie, then determine its length and total cost.",
+          "claim_type": "support",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the sequence of steps to calculate the total cost.",
+          "why_still_open": "Different agents propose different sequences without resolving which is correct.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate length → cost/min → total cost",
+        "Cost/min → length → total cost",
+        "Total cost = 43200 min * 0.48",
+        "Length = 1920 min",
+        "Cost/min = 0.48"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "43200",
+        "86400",
+        "1920"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The sequence of calculating the total cost is agreed upon: determine the new movie's length, then its cost per minute, and finally the total cost.",
+          "claim_type": "rebuttal",
+          "related_answer": "A,B,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate length → cost/min → total cost",
+        "Total cost = 43200 min * 0.48",
+        "Length = 1920 min",
+        "Cost/min = 0.48",
+        "Total time in seconds = 86400"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "43200",
+        "86400",
+        "14400"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking calculations due to a minority answer of 1920.",
+          "claim_type": "rebuttal",
+          "related_answer": "A,B,C"
+        },
+        {
+          "text": "Updating the answer from 1920 to 14400 based on correct calculations.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Minority answer of 1920 vs. majority answer of 14400 for the movie length.",
+          "why_still_open": "Calculations have not fully resolved the discrepancy.",
+          "involved_answers": [
+            "1920",
+            "14400"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Rechecking calculations due to minority answer of 1920",
+        "New answer: Length = 14400 minutes",
+        "Total cost = 43200 min * 0.48",
+        "Cost/min = 0.48",
+        "Total time in seconds = 86400"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "86400",
+        "43200",
+        "86400"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Revising the answer to 86400 based on accurate calculations.",
+          "claim_type": "rebuttal",
+          "related_answer": "A,C"
+        },
+        {
+          "text": "Reevaluating the calculation path to address the minority answer of 43200.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 43200 remains unresolved despite recalculations.",
+          "why_still_open": "The minority answer persists, requiring further validation.",
+          "involved_answers": [
+            "43200"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Revising the answer based on correct calculations",
+        "Total cost = 86400 min * 0.48",
+        "Cost/min = 0.48",
+        "Total time in seconds = 86400",
+        "Recalculating the entire process"
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "86400",
+        "86400",
+        "86400"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Reaffirming the correctness of the answer 86400 by re-evaluating the calculation path.",
+          "claim_type": "rebuttal",
+          "related_answer": "B,C"
+        },
+        {
+          "text": "Highlighting the need to re-evaluate the minority answer of 43200 for potential misinterpretation.",
+          "claim_type": "explanation",
+          "related_answer": "A,C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "A minority answer of 43200 remains unresolved despite recalculations.",
+          "why_still_open": "Disagreement on the interpretation of the problem persists.",
+          "involved_answers": [
+            "43200"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Re-evaluating the minority answer of 43200",
+        "Total cost = 86400 min * 0.48",
+        "Cost/min = 0.48",
+        "Total time in seconds = 86400",
+        "Recalculating to ensure accuracy"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 5,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 379,
+      "completion_tokens": 44,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 366,
+      "completion_tokens": 40,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 377,
+      "completion_tokens": 39,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 612,
+      "completion_tokens": 236,
+      "total_tokens": 848,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 754,
+      "completion_tokens": 123,
+      "total_tokens": 877,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 752,
+      "completion_tokens": 116,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 765,
+      "completion_tokens": 114,
+      "total_tokens": 879,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1154,
+      "completion_tokens": 160,
+      "total_tokens": 1314,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 640,
+      "completion_tokens": 46,
+      "total_tokens": 686,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 871,
+      "completion_tokens": 100,
+      "total_tokens": 971,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 868,
+      "completion_tokens": 105,
+      "total_tokens": 973,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 881,
+      "completion_tokens": 112,
+      "total_tokens": 993,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1022,
+      "completion_tokens": 273,
+      "total_tokens": 1295,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 691,
+      "completion_tokens": 57,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 862,
+      "completion_tokens": 112,
+      "total_tokens": 974,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 859,
+      "completion_tokens": 137,
+      "total_tokens": 996,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 873,
+      "completion_tokens": 117,
+      "total_tokens": 990,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1198,
+      "completion_tokens": 254,
+      "total_tokens": 1452,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 712,
+      "completion_tokens": 52,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 861,
+      "completion_tokens": 102,
+      "total_tokens": 963,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 858,
+      "completion_tokens": 147,
+      "total_tokens": 1005,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 872,
+      "completion_tokens": 110,
+      "total_tokens": 982,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1175,
+      "completion_tokens": 274,
+      "total_tokens": 1449,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0168",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 696,
+      "completion_tokens": 53,
+      "total_tokens": 749,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 423,
+    "majority_vote_total_tokens": 1245,
+    "scrd_total_tokens": 22021,
+    "scrd_prompt_tokens": 19098,
+    "scrd_completion_tokens": 2923,
+    "agent_total_tokens": 12716,
+    "recorder_total_tokens": 6358,
+    "evaluator_total_tokens": 2947,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}

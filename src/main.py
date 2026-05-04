@@ -1,5 +1,5 @@
 from __future__ import annotations
-
+import argparse
 import inspect
 import json
 import os
@@ -66,7 +66,7 @@ AGENT_ROLES: dict[str, str] = {
     "C": "verifier",
 }
 
-MAX_ROUND = 7
+MAX_ROUND = 5
 
 # 强制禁用代理，直连国内网络
 os.environ["HTTP_PROXY"] = ""
@@ -362,7 +362,7 @@ def run_normal_mode(
         recorder=recorder,
         evaluator=evaluator,
         action_mapper=ActionMapper(),
-        rollback_controller=RollbackController(max_rollbacks=2),
+        rollback_controller=RollbackController(max_rollbacks=1),
     )
 
     debate_orchestrator = DebateOrchestrator(
@@ -573,12 +573,30 @@ if __name__ == "__main__":
 
     llm_client = build_llm_client()
 
-    DATASET_NAME = "gsm8k"
-    OUTPUT_DIR = f"outputs/sensitivity/rollback_2/{DATASET_NAME}"
+    # DATASET_NAME = "gsm8k"
+    # OUTPUT_DIR = f"outputs/sensitivity/max_round_7/{DATASET_NAME}"
+
+    # writer = ResultWriter(output_dir=OUTPUT_DIR)
+
+    # samples = load_samples(DATASET_NAME, limit=200)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dataset", type=str, required=True)
+    parser.add_argument("--limit", type=int, default=200)
+    parser.add_argument("--output-dir", type=str, default=None)
+    parser.add_argument("--max-round", type=int, default=5)
+    args = parser.parse_args()
+
+    DATASET_NAME = args.dataset
+    MAX_ROUND = args.max_round
+
+    if args.output_dir is None:
+        OUTPUT_DIR = f"outputs/{DATASET_NAME}"
+    else:
+        OUTPUT_DIR = args.output_dir
 
     writer = ResultWriter(output_dir=OUTPUT_DIR)
 
-    samples = load_samples(DATASET_NAME, limit=80)
+    samples = load_samples(DATASET_NAME, limit=args.limit)
     completed_sample_ids = writer.load_completed_sample_ids()
 
     if completed_sample_ids:

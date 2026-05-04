@@ -6,7 +6,7 @@ Only samples whose reference Full SCRD run stopped by rollback are rerun. All ot
 
 | Dataset | N | Rerun | Reference Acc | w/o Rollback Acc | Δ Acc | Full wins | Ablation wins | Net Full-Ablation | Ref tokens | w/o tokens |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| math | 80 | 22 | 63.75% | 62.50% | -1.25 pp | 2 | 1 | 1 | 10078.2 | 7883.2 |
-| gsm8k | 80 | 22 | 72.50% | 63.75% | -8.75 pp | 8 | 1 | 7 | 9381.3 | 7720.8 |
-| multiarith | 80 | 10 | 93.75% | 93.75% | 0.00 pp | 1 | 1 | 0 | 6411.1 | 5834.3 |
-| OVERALL | 240 | 54 | 76.67% | 73.33% | -3.33 pp | 11 | 3 | 8 | 8623.5 | 7146.1 |
+| math | 197 | 75 | 55.33% | 51.78% | -3.55 pp | 12 | 5 | 7 | 11441.8 | 8572.0 |
+| gsm8k | 200 | 88 | 57.00% | 52.50% | -4.50 pp | 23 | 14 | 9 | 11896.2 | 8144.2 |
+| multiarith | 200 | 31 | 89.00% | 89.50% | 0.50 pp | 5 | 6 | -1 | 8140.9 | 7036.4 |
+| OVERALL | 597 | 194 | 67.17% | 64.66% | -2.51 pp | 40 | 25 | 15 | 10488.2 | 7914.2 |

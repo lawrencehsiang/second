@@ -1,0 +1,422 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jeff's skips are calculated from Sam's skips.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jeff's skips = 16 * 12 / 60",
+        "Average skips = 12",
+        "Sam skips = 16"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "13.5",
+        "10",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jeff's skips in the third round are 20.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Sam's skips are used to calculate Jeff's skips vs. Jeff's skips varying based on conditions.",
+          "why_still_open": "Different conditions for Jeff's skips lead to varying results, conflicting with the use of Sam's skips.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Jeff's skips = 16 * 12 / 60",
+        "Average skips = 12",
+        "Sam skips = 16",
+        "Third round: Jeff skips = Sam skips + 4 = 20",
+        "Last round: Jeff skips = Sam skips / 2 = 8"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "12",
+        "11.5",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Consistent use of Sam's skips resolves the calculation of Jeff's skips.",
+          "claim_type": "explanation",
+          "related_answer": "A,B,C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jeff's skips = 16 * 12 / 60",
+        "Average skips = 12",
+        "Sam skips = 16",
+        "Third round: Jeff skips = Sam skips + 4 = 20",
+        "Last round: Jeff skips = Sam skips / 2 = 8"
+      ]
+    },
+    {
+      "round_id": 4,
+      "current_answers": [
+        "10",
+        "10",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Jeff's skips should vary based on specific conditions rather than using Sam's fixed value of 16 skips per round.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Sam's consistent skips are used as a reference point for calculating Jeff's varying skips.",
+          "claim_type": "explanation",
+          "related_answer": "B,C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Sam's skips are used to calculate Jeff's skips vs. Jeff's skips varying based on conditions.",
+          "why_still_open": "Different agents have differing interpretations on whether to use Sam's fixed skips or adjust Jeff's skips based on varying conditions.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Jeff's skips vary based on specific conditions, not Sam's fixed value.",
+        "Sam's skips are consistent at 16 per round.",
+        "Adjust Jeff's skips according to the given conditions.",
+        "Calculate Jeff's skips based on varying conditions provided.",
+        "Use Sam's consistent skips as a reference."
+      ]
+    },
+    {
+      "round_id": 5,
+      "current_answers": [
+        "12",
+        "12",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer of 10 has been resolved and should be disregarded.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jeff's skips are calculated based on specific conditions.",
+        "The minority answer of 10 has been resolved.",
+        "Mainstream answer of 12 adheres to provided conditions.",
+        "Revising answer based on specific conditions for each round.",
+        "Disregard the minority answer of 10."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 4,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    },
+    {
+      "type": "fixed_max_round_reached",
+      "round_id": 5,
+      "mode": "normal",
+      "ablation": "wo_evaluator_action_mapper_fixed_round"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 409,
+      "completion_tokens": 46,
+      "total_tokens": 455,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 396,
+      "completion_tokens": 32,
+      "total_tokens": 428,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 407,
+      "completion_tokens": 44,
+      "total_tokens": 451,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 601,
+      "completion_tokens": 106,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 669,
+      "completion_tokens": 118,
+      "total_tokens": 787,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 666,
+      "completion_tokens": 149,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 680,
+      "completion_tokens": 144,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1063,
+      "completion_tokens": 215,
+      "total_tokens": 1278,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 791,
+      "completion_tokens": 119,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 786,
+      "completion_tokens": 120,
+      "total_tokens": 906,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 800,
+      "completion_tokens": 96,
+      "total_tokens": 896,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1111,
+      "completion_tokens": 149,
+      "total_tokens": 1260,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 792,
+      "completion_tokens": 118,
+      "total_tokens": 910,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 791,
+      "completion_tokens": 116,
+      "total_tokens": 907,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 803,
+      "completion_tokens": 142,
+      "total_tokens": 945,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 4,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1079,
+      "completion_tokens": 274,
+      "total_tokens": 1353,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 880,
+      "completion_tokens": 112,
+      "total_tokens": 992,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 877,
+      "completion_tokens": 103,
+      "total_tokens": 980,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 891,
+      "completion_tokens": 141,
+      "total_tokens": 1032,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0082",
+      "round_id": 5,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1180,
+      "completion_tokens": 145,
+      "total_tokens": 1325,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 455,
+    "majority_vote_total_tokens": 1334,
+    "scrd_total_tokens": 18161,
+    "scrd_prompt_tokens": 15672,
+    "scrd_completion_tokens": 2489,
+    "agent_total_tokens": 12238,
+    "recorder_total_tokens": 5923,
+    "evaluator_total_tokens": 0,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation_name": "wo_evaluator_action_mapper_fixed_round",
+  "fixed_rounds": 5,
+  "evaluator_disabled": true,
+  "action_mapper_disabled": true,
+  "rollback_disabled": true,
+  "repair_disabled": true,
+  "early_stop_disabled": true,
+  "finalizer": "last_effective_round_majority_vote"
+}

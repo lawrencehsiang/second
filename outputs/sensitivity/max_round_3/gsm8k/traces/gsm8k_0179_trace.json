@@ -1,0 +1,208 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "13.75",
+        "16.5",
+        "17.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total cost, apply discount, and subtract from $50.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C have different answers: 13.75, 16.5, and 17.5.",
+          "why_still_open": "Discrepancy in calculation methods or assumptions.",
+          "involved_answers": [
+            "13.75",
+            "16.5",
+            "17.5"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost * 0.9 = $50 - change",
+        "Total cost = $50 / 0.9",
+        "Change = $50 - Total cost * 0.9"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "16.5",
+        "16.5",
+        "13.75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate calculations with consistent application of discounts.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Review and ensure correct method for calculating total cost and discount.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify calculations step-by-step to ensure accuracy.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents have different answers: 13.75, 16.5, and 16.5.",
+          "why_still_open": "Discrepancy in calculation methods or assumptions despite partial resolution.",
+          "involved_answers": [
+            "13.75",
+            "16.5"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost * 0.9 = $50 - change",
+        "Total cost = $50 / 0.9",
+        "Change = $50 - Total cost * 0.9",
+        "Ensure consistent application of 10% discount",
+        "Step-by-step verification of calculations"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 403,
+      "completion_tokens": 44,
+      "total_tokens": 447,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 390,
+      "completion_tokens": 40,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 401,
+      "completion_tokens": 43,
+      "total_tokens": 444,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 613,
+      "completion_tokens": 207,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 791,
+      "completion_tokens": 131,
+      "total_tokens": 922,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 787,
+      "completion_tokens": 124,
+      "total_tokens": 911,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 801,
+      "completion_tokens": 121,
+      "total_tokens": 922,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1155,
+      "completion_tokens": 303,
+      "total_tokens": 1458,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0179",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 737,
+      "completion_tokens": 59,
+      "total_tokens": 796,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 447,
+    "majority_vote_total_tokens": 1321,
+    "scrd_total_tokens": 7150,
+    "scrd_prompt_tokens": 6078,
+    "scrd_completion_tokens": 1072,
+    "agent_total_tokens": 4076,
+    "recorder_total_tokens": 2278,
+    "evaluator_total_tokens": 796,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  }
+}
