@@ -1,0 +1,200 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "28",
+        "52",
+        "27"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum all segments' distances for total travel.",
+          "claim_type": "explanation",
+          "related_answer": "28"
+        },
+        {
+          "text": "Total distance equals sum of all movements.",
+          "claim_type": "explanation",
+          "related_answer": "52"
+        },
+        {
+          "text": "Aggregate individual bounce distances for overall travel.",
+          "claim_type": "explanation",
+          "related_answer": "27"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods for calculating total distance.",
+          "why_still_open": "Each agent uses a distinct summation approach.",
+          "involved_answers": [
+            "28",
+            "52",
+            "27"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Sum all segments' distances for total travel.",
+        "Total distance equals sum of all movements.",
+        "Aggregate individual bounce distances for overall travel."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "52",
+        "52",
+        "52"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Use geometric series formula for accurate total distance calculation.",
+          "claim_type": "rebuttal",
+          "related_answer": "52"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total distance equals sum of all movements.",
+        "Using the geometric series formula ensures accuracy without conflicting with previous answers.",
+        "The correct method involves summing the distances traveled during each bounce up and down until the third high point."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 377,
+      "completion_tokens": 34,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 364,
+      "completion_tokens": 33,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 375,
+      "completion_tokens": 43,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 226,
+      "total_tokens": 818,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 729,
+      "completion_tokens": 100,
+      "total_tokens": 829,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 726,
+      "completion_tokens": 89,
+      "total_tokens": 815,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 740,
+      "completion_tokens": 82,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1047,
+      "completion_tokens": 121,
+      "total_tokens": 1168,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0154",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 62,
+      "total_tokens": 658,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 411,
+    "majority_vote_total_tokens": 1226,
+    "scrd_total_tokens": 6336,
+    "scrd_prompt_tokens": 5546,
+    "scrd_completion_tokens": 790,
+    "agent_total_tokens": 3692,
+    "recorder_total_tokens": 1986,
+    "evaluator_total_tokens": 658,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

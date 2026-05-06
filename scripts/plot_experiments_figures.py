@@ -2,583 +2,748 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 from pathlib import Path
 from typing import Any
 
-import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
+
+# ============================================================
+# Config
+# ============================================================
 
 DATASETS = ["addsub", "asdiv", "gsm8k", "math", "multiarith", "singleeq", "svamp"]
 ROLLBACK_DATASETS = ["math", "gsm8k", "multiarith"]
 
+METHOD_ORDER = ["Single", "MV@R1", "MV@R3", "MV@R5", "SCRD"]
+
+METHOD_MAP = {
+    "Single Agent R1-A": "Single",
+    "MV@Round1": "MV@R1",
+    "MV@Round3": "MV@R3",
+    "MV@Round5": "MV@R5",
+    "SCRD Last-Round MV": "SCRD",
+}
+
+COLORS = {
+    "scrd": "#C00000",
+    "frontier": "#1F77B4",
+    "dominated": "#9E9E9E",
+    "bar_main": "#4C78A8",
+    "bar_alt": "#F58518",
+    "line": "#C00000",
+    "positive": "#2CA02C",
+    "negative": "#D62728",
+    "light_blue": "#DCEAF7",
+    "light_red": "#F9D6D5",
+    "grid": "#BFBFBF",
+}
+
 
 # ============================================================
-# Basic IO
+# IO helpers
 # ============================================================
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
-    rows = []
     if not path.exists():
-        raise FileNotFoundError(f"File not found: {path}")
+        raise FileNotFoundError(f"Missing file: {path}")
 
+    rows = []
     with path.open("r", encoding="utf-8") as f:
-        for line_no, line in enumerate(f, 1):
+        for line_no, line in enumerate(f, start=1):
             line = line.strip()
             if not line:
                 continue
             try:
                 rows.append(json.loads(line))
-            except json.JSONDecodeError as e:
-                raise ValueError(f"JSON decode error in {path}, line {line_no}: {e}") from e
+            except json.JSONDecodeError as exc:
+                raise ValueError(f"Invalid JSONL at {path}:{line_no}: {exc}") from exc
     return rows
 
 
-def find_existing_file(root: Path, candidates: list[str]) -> Path:
-    for c in candidates:
-        p = root / c
-        if p.exists():
-            return p
-    raise FileNotFoundError(
-        "Cannot find any of these files:\n" + "\n".join(str(root / c) for c in candidates)
-    )
+def find_existing(root: Path, candidates: list[str]) -> Path:
+    for rel in candidates:
+        path = root / rel
+        if path.exists():
+            return path
 
-
-def ensure_out_dir(path: Path) -> None:
-    path.mkdir(parents=True, exist_ok=True)
+    msg = "\n".join(str(root / c) for c in candidates)
+    raise FileNotFoundError(f"Cannot find any of these files:\n{msg}")
 
 
 def save_fig(fig: plt.Figure, out_dir: Path, name: str) -> None:
-    png_path = out_dir / f"{name}.png"
-    pdf_path = out_dir / f"{name}.pdf"
-    fig.savefig(png_path, dpi=300, bbox_inches="tight")
-    fig.savefig(pdf_path, bbox_inches="tight")
-    print(f"Saved: {png_path}")
-    print(f"Saved: {pdf_path}")
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    png = out_dir / f"{name}.png"
+    pdf = out_dir / f"{name}.pdf"
+
+    fig.savefig(png, dpi=450, bbox_inches="tight")
+    fig.savefig(pdf, bbox_inches="tight")
+
+    print(f"[saved] {png}")
+    print(f"[saved] {pdf}")
+
+
+def set_paper_style() -> None:
+    plt.rcParams.update({
+        "font.family": "DejaVu Sans",
+        "font.size": 11,
+        "axes.titlesize": 13,
+        "axes.labelsize": 11,
+        "xtick.labelsize": 10,
+        "ytick.labelsize": 10,
+        "legend.fontsize": 9,
+        "figure.titlesize": 14,
+        "axes.spines.top": False,
+        "axes.spines.right": False,
+        "axes.grid": True,
+        "grid.linestyle": "--",
+        "grid.linewidth": 0.6,
+        "grid.alpha": 0.45,
+    })
 
 
 # ============================================================
-# Math correctness helpers
-# Used only when a correctness field is missing.
+# Data builders
 # ============================================================
 
-def normalize_text(text: Any) -> str:
-    if text is None:
-        return ""
-    text = str(text).strip().lower()
-    text = text.replace(",", "")
-    text = text.replace("$", "")
-    text = text.replace("dollars", "")
-    text = text.replace("dollar", "")
-    text = re.sub(r"\s+", " ", text).strip()
-    return text
-
-
-def extract_last_number(text: Any) -> float | None:
-    if text is None:
-        return None
-    text = normalize_text(text)
-    nums = re.findall(r"-?\d+(?:\.\d+)?", text)
-    if not nums:
-        return None
-    try:
-        return float(nums[-1])
-    except ValueError:
-        return None
-
-
-def is_correct_math_style(pred: Any, gold: Any) -> bool:
-    pred_num = extract_last_number(pred)
-    gold_num = extract_last_number(gold)
-    if pred_num is None or gold_num is None:
-        return False
-    return int(round(pred_num)) == int(round(gold_num))
-
-
-# ============================================================
-# Figure 1: Accuracy–Token Trade-off
-# ============================================================
-
-def build_tradeoff_from_long_csv(root: Path, scrd_jsonl_path: Path | None) -> pd.DataFrame:
+def build_tradeoff_table(root: Path) -> pd.DataFrame:
     """
-    Preferred input:
-    comparison_200_sample_method_level.csv
+    Sources:
+    - comparison_experiments_anlysis/comparison_200_sample_method_level.csv
+    - outputs_with_last_round_majority_vote/sample_level_results.jsonl
 
-    Expected columns:
-    dataset, method, n, correct, accuracy, avg_total_tokens
+    The comparison CSV may not contain SCRD token, so SCRD token is filled from
+    sample_level_results.jsonl.
     """
-    csv_path = find_existing_file(root, [
-        "comparison_200_sample_method_level.csv",
+    comparison_path = find_existing(root, [
+        "comparison_experiments_anlysis/comparison_200_sample_method_level.csv",
+        "comparison_experiment_analysis/comparison_200_sample_method_level.csv",
         "analysis_outputs/comparison_200_sample_method_level.csv",
-        "analysis_outputs/comparison/comparison_200_sample_method_level.csv",
     ])
 
-    df = pd.read_csv(csv_path)
+    scrd_sample_path = find_existing(root, [
+        "outputs_with_last_round_majority_vote/sample_level_results.jsonl",
+    ])
 
-    required = {"method", "n", "correct", "accuracy", "avg_total_tokens"}
-    missing = required - set(df.columns)
-    if missing:
-        raise ValueError(f"{csv_path} missing columns: {missing}")
+    df = pd.read_csv(comparison_path)
+    df["method_short"] = df["method"].map(METHOD_MAP)
 
-    method_name_map = {
-        "Single Agent R1-A": "Single",
-        "MV@Round1": "MV@R1",
-        "MV@Round3": "MV@R3",
-        "MV@Round5": "MV@R5",
-        "SCRD Last-Round MV": "SCRD",
-    }
+    records = []
 
-    df["method_short"] = df["method"].map(method_name_map).fillna(df["method"])
+    for method in METHOD_ORDER:
+        g = df[df["method_short"] == method].copy()
 
-    rows = []
-    for method, g in df.groupby("method_short"):
-        n = g["n"].sum()
-        correct = g["correct"].sum()
+        if g.empty:
+            raise ValueError(f"Method not found in comparison CSV: {method}")
+
+        n = int(g["n"].sum())
+        correct = int(g["correct"].sum())
         acc = 100 * correct / n
 
         token_g = g.dropna(subset=["avg_total_tokens"])
-        if len(token_g) > 0:
-            avg_tok = (token_g["avg_total_tokens"] * token_g["n"]).sum() / token_g["n"].sum()
+        if len(token_g):
+            avg_tokens = float((token_g["avg_total_tokens"] * token_g["n"]).sum() / token_g["n"].sum())
         else:
-            avg_tok = None
+            avg_tokens = np.nan
 
-        rows.append({
+        records.append({
             "method": method,
             "n": n,
             "correct": correct,
             "accuracy_percent": acc,
-            "avg_total_tokens": avg_tok,
+            "avg_total_tokens": avg_tokens,
         })
 
-    out = pd.DataFrame(rows)
+    out = pd.DataFrame(records)
 
-    # If SCRD token is missing in the long CSV, fill it from sample_level_results.jsonl
-    if "SCRD" in set(out["method"]):
-        scrd_idx = out.index[out["method"] == "SCRD"][0]
-        if pd.isna(out.loc[scrd_idx, "avg_total_tokens"]) and scrd_jsonl_path is not None:
-            scrd_rows = load_jsonl(scrd_jsonl_path)
-            scrd_tokens = [float(r["scrd_total_tokens"]) for r in scrd_rows if r.get("scrd_total_tokens") is not None]
-            if scrd_tokens:
-                out.loc[scrd_idx, "avg_total_tokens"] = sum(scrd_tokens) / len(scrd_tokens)
+    # Fill SCRD token from sample-level results.
+    scrd_rows = load_jsonl(scrd_sample_path)
+    scrd_tokens = [
+        float(r["scrd_total_tokens"])
+        for r in scrd_rows
+        if r.get("scrd_total_tokens") is not None
+    ]
+    if scrd_tokens:
+        out.loc[out["method"] == "SCRD", "avg_total_tokens"] = sum(scrd_tokens) / len(scrd_tokens)
 
     return out
 
 
-def build_tradeoff_from_wide_csv(root: Path) -> pd.DataFrame:
-    """
-    Fallback input:
-    paper_main_comparison_table_200_with_scrd_tokens.csv
-
-    Expected Overall row with columns like:
-    Single Acc/Tok, MV@R1 Acc/Tok, MV@R3 Acc/Tok, MV@R5 Acc/Tok, SCRD Acc/Tok
-    """
-    csv_path = find_existing_file(root, [
-        "paper_main_comparison_table_200_with_scrd_tokens.csv",
-        "analysis_outputs/paper_main_comparison_table_200_with_scrd_tokens.csv",
-        "analysis_outputs/comparison/paper_main_comparison_table_200_with_scrd_tokens.csv",
-    ])
-
-    df = pd.read_csv(csv_path)
-
-    dataset_col = None
-    for c in df.columns:
-        if c.lower() in {"dataset", "指标"}:
-            dataset_col = c
-            break
-    if dataset_col is None:
-        raise ValueError(f"Cannot identify dataset column in {csv_path}")
-
-    overall = df[df[dataset_col].astype(str).str.lower().eq("overall")]
-    if overall.empty:
-        raise ValueError(f"No Overall row found in {csv_path}")
-
-    overall = overall.iloc[0]
-
-    col_map = {
-        "Single Acc/Tok": "Single",
-        "MV@R1 Acc/Tok": "MV@R1",
-        "MV@R3 Acc/Tok": "MV@R3",
-        "MV@R5 Acc/Tok": "MV@R5",
-        "SCRD Acc/Tok": "SCRD",
-    }
-
-    rows = []
-    for col, method in col_map.items():
-        if col not in df.columns:
-            continue
-        raw = str(overall[col])
-        if "/" not in raw:
-            continue
-        acc_str, tok_str = raw.split("/", 1)
-        rows.append({
-            "method": method,
-            "accuracy_percent": float(acc_str.strip()),
-            "avg_total_tokens": float(tok_str.strip().replace(",", "")),
-            "n": None,
-            "correct": None,
-        })
-
-    if not rows:
-        raise ValueError(f"No Acc/Tok columns parsed from {csv_path}")
-
-    return pd.DataFrame(rows)
-
-
-def build_tradeoff_table(root: Path) -> pd.DataFrame:
-    scrd_jsonl_path = None
-    possible_scrd = root / "outputs_with_last_round_majority_vote" / "sample_level_results.jsonl"
-    if possible_scrd.exists():
-        scrd_jsonl_path = possible_scrd
-
-    try:
-        df = build_tradeoff_from_long_csv(root, scrd_jsonl_path)
-    except FileNotFoundError:
-        df = build_tradeoff_from_wide_csv(root)
-
-    order = ["Single", "MV@R1", "MV@R3", "MV@R5", "SCRD"]
-    df["order"] = df["method"].map({m: i for i, m in enumerate(order)})
-    df = df.sort_values("order").drop(columns=["order"])
-    return df
-
-
-def plot_accuracy_token_tradeoff(tradeoff_df: pd.DataFrame, out_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(6.8, 4.6))
-
-    ax.scatter(
-        tradeoff_df["avg_total_tokens"],
-        tradeoff_df["accuracy_percent"],
-        s=80,
-    )
-
-    for _, row in tradeoff_df.iterrows():
-        ax.annotate(
-            row["method"],
-            (row["avg_total_tokens"], row["accuracy_percent"]),
-            textcoords="offset points",
-            xytext=(6, 6),
-            fontsize=10,
-        )
-
-    ax.set_xlabel("Average total tokens per sample")
-    ax.set_ylabel("Overall accuracy (%)")
-    ax.set_title("Accuracy–Token Trade-off")
-    ax.grid(True, linestyle="--", linewidth=0.6, alpha=0.6)
-
-    save_fig(fig, out_dir, "fig1_accuracy_token_tradeoff")
-    plt.close(fig)
-
-
-# ============================================================
-# Figure 2: Sensitivity Token Cost
-# ============================================================
-
-def read_sensitivity_full_tables(root: Path) -> tuple[pd.DataFrame, pd.DataFrame]:
-    max_path = find_existing_file(root, [
-        "sensitivity_max_round_table_full.csv",
+def build_sensitivity_tables(root: Path) -> tuple[pd.DataFrame, pd.DataFrame]:
+    max_path = find_existing(root, [
         "analysis_outputs/sensitivity/sensitivity_max_round_table_full.csv",
+        "sensitivity_max_round_table_full.csv",
     ])
-    rollback_path = find_existing_file(root, [
-        "sensitivity_rollback_table_full.csv",
+
+    rb_path = find_existing(root, [
         "analysis_outputs/sensitivity/sensitivity_rollback_table_full.csv",
+        "sensitivity_rollback_table_full.csv",
     ])
 
-    max_df = pd.read_csv(max_path)
-    rollback_df = pd.read_csv(rollback_path)
+    max_df = pd.read_csv(max_path).sort_values("setting_value")
+    rb_df = pd.read_csv(rb_path).sort_values("setting_value")
 
-    return max_df, rollback_df
-
-
-def get_col(df: pd.DataFrame, candidates: list[str]) -> str:
-    for c in candidates:
-        if c in df.columns:
-            return c
-    raise ValueError(f"Cannot find any of these columns: {candidates}. Existing columns: {list(df.columns)}")
+    return max_df, rb_df
 
 
-def plot_sensitivity_token_cost(max_df: pd.DataFrame, rollback_df: pd.DataFrame, out_dir: Path) -> None:
-    setting_col_max = get_col(max_df, ["setting_value", "Max Round", "max_round"])
-    token_col_max = get_col(max_df, ["avg_total_tokens", "Avg Total Tokens"])
+def build_rollback_effect_table(root: Path) -> pd.DataFrame:
+    """
+    Prefer corrected v3 results.
 
-    setting_col_rb = get_col(rollback_df, ["setting_value", "Rollback Limit", "rollback_limit"])
-    token_col_rb = get_col(rollback_df, ["avg_total_tokens", "Avg Total Tokens"])
-
-    fig, axes = plt.subplots(1, 2, figsize=(10.5, 4.2))
-
-    axes[0].plot(
-        max_df[setting_col_max],
-        max_df[token_col_max],
-        marker="o",
-        linewidth=2,
-    )
-    axes[0].set_xlabel("Max round")
-    axes[0].set_ylabel("Average total tokens")
-    axes[0].set_title("(a) Max round")
-    axes[0].grid(True, linestyle="--", linewidth=0.6, alpha=0.6)
-
-    axes[1].plot(
-        rollback_df[setting_col_rb],
-        rollback_df[token_col_rb],
-        marker="o",
-        linewidth=2,
-    )
-    axes[1].set_xlabel("Rollback limit")
-    axes[1].set_ylabel("Average total tokens")
-    axes[1].set_title("(b) Rollback limit")
-    axes[1].grid(True, linestyle="--", linewidth=0.6, alpha=0.6)
-
-    fig.suptitle("Token Cost under Sensitivity Settings")
-    fig.tight_layout()
-
-    save_fig(fig, out_dir, "fig2_sensitivity_token_cost")
-    plt.close(fig)
-
-
-# ============================================================
-# Figure 3: Rollback Paired Outcome Analysis
-# ============================================================
-
-def build_rollback_paired_table(root: Path) -> pd.DataFrame:
-    path = find_existing_file(root, [
+    Required fields:
+    - reference_full_scrd_correct
+    - wo_rollback_correct
+    - rerun_required
+    """
+    sample_path = find_existing(root, [
+        "outputs/ablation/wo_rollback_v3/sample_level_results.jsonl",
         "outputs/ablation/wo_rollback_v2/sample_level_results.jsonl",
-        "outputs/ablation/wo_rollback_v2/gsm8k/sample_level_results.jsonl",
-        "wo_rollback_v2_sample_level_results.jsonl",
     ])
 
-    rows = load_jsonl(path)
+    rows = load_jsonl(sample_path)
 
     records = []
 
     for ds in ROLLBACK_DATASETS:
         ds_rows = [r for r in rows if r.get("dataset_name") == ds]
+        if not ds_rows:
+            raise ValueError(f"No rows found for dataset={ds} in {sample_path}")
 
-        both_correct = 0
-        both_wrong = 0
-        rollback_gain = 0
-        rollback_loss = 0
+        triggered_rows = [r for r in ds_rows if bool(r.get("rerun_required"))]
 
-        for r in ds_rows:
-            if "reference_full_scrd_correct" in r:
-                full_ok = bool(r["reference_full_scrd_correct"])
-            elif "last_round_majority_correct" in r:
-                full_ok = bool(r["last_round_majority_correct"])
-            else:
-                full_ok = bool(r.get("scrd_correct", False))
+        full_correct = sum(bool(r.get("reference_full_scrd_correct")) for r in ds_rows)
+        wo_correct = sum(bool(r.get("wo_rollback_correct")) for r in ds_rows)
 
-            wo_ok = bool(r.get("wo_rollback_correct", False))
+        trig_full_correct = sum(bool(r.get("reference_full_scrd_correct")) for r in triggered_rows)
+        trig_wo_correct = sum(bool(r.get("wo_rollback_correct")) for r in triggered_rows)
 
-            if full_ok and wo_ok:
-                both_correct += 1
-            elif (not full_ok) and (not wo_ok):
-                both_wrong += 1
-            elif full_ok and (not wo_ok):
-                rollback_gain += 1
-            elif (not full_ok) and wo_ok:
-                rollback_loss += 1
-
-        n = len(ds_rows)
         records.append({
             "dataset": ds,
-            "n": n,
-            "both_correct": both_correct,
-            "both_wrong": both_wrong,
-            "rollback_gain": rollback_gain,
-            "rollback_loss": rollback_loss,
-            "net_gain": rollback_gain - rollback_loss,
+            "n": len(ds_rows),
+            "triggered_n": len(triggered_rows),
+
+            "full_overall_correct": full_correct,
+            "wo_overall_correct": wo_correct,
+            "full_overall_acc": 100 * full_correct / len(ds_rows),
+            "wo_overall_acc": 100 * wo_correct / len(ds_rows),
+
+            "full_triggered_correct": trig_full_correct,
+            "wo_triggered_correct": trig_wo_correct,
+            "full_triggered_acc": 100 * trig_full_correct / len(triggered_rows) if triggered_rows else np.nan,
+            "wo_triggered_acc": 100 * trig_wo_correct / len(triggered_rows) if triggered_rows else np.nan,
+
+            "overall_gain_pp": 100 * (full_correct - wo_correct) / len(ds_rows),
+            "triggered_gain_pp": (
+                100 * (trig_full_correct - trig_wo_correct) / len(triggered_rows)
+                if triggered_rows else np.nan
+            ),
         })
 
-    overall = {
+    total_n = sum(r["n"] for r in records)
+    total_triggered_n = sum(r["triggered_n"] for r in records)
+
+    total_full = sum(r["full_overall_correct"] for r in records)
+    total_wo = sum(r["wo_overall_correct"] for r in records)
+    total_trig_full = sum(r["full_triggered_correct"] for r in records)
+    total_trig_wo = sum(r["wo_triggered_correct"] for r in records)
+
+    records.append({
         "dataset": "overall",
-        "n": sum(r["n"] for r in records),
-        "both_correct": sum(r["both_correct"] for r in records),
-        "both_wrong": sum(r["both_wrong"] for r in records),
-        "rollback_gain": sum(r["rollback_gain"] for r in records),
-        "rollback_loss": sum(r["rollback_loss"] for r in records),
-    }
-    overall["net_gain"] = overall["rollback_gain"] - overall["rollback_loss"]
-    records.append(overall)
+        "n": total_n,
+        "triggered_n": total_triggered_n,
 
-    return pd.DataFrame(records)
+        "full_overall_correct": total_full,
+        "wo_overall_correct": total_wo,
+        "full_overall_acc": 100 * total_full / total_n,
+        "wo_overall_acc": 100 * total_wo / total_n,
 
+        "full_triggered_correct": total_trig_full,
+        "wo_triggered_correct": total_trig_wo,
+        "full_triggered_acc": 100 * total_trig_full / total_triggered_n,
+        "wo_triggered_acc": 100 * total_trig_wo / total_triggered_n,
 
-def plot_rollback_paired_outcome(rb_df: pd.DataFrame, out_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(7.2, 4.6))
+        "overall_gain_pp": 100 * (total_full - total_wo) / total_n,
+        "triggered_gain_pp": 100 * (total_trig_full - total_trig_wo) / total_triggered_n,
+    })
 
-    x = range(len(rb_df))
-    labels = rb_df["dataset"].tolist()
+    out = pd.DataFrame(records)
 
-    ax.bar(
-        x,
-        rb_df["rollback_gain"],
-        label="Rollback gain: Full correct, w/o rollback wrong",
-    )
-    ax.bar(
-        x,
-        -rb_df["rollback_loss"],
-        label="Rollback loss: Full wrong, w/o rollback correct",
-    )
+    # Check whether the file is corrected.
+    if "reference_correct_source" in rows[0]:
+        bad_sources = [
+            r.get("reference_correct_source")
+            for r in rows
+            if str(r.get("reference_correct_source", "")).startswith("FALLBACK")
+        ]
+        if bad_sources:
+            print("[warning] Some rows use fallback reference fields. Please verify reference correctness.")
 
-    for i, row in rb_df.iterrows():
-        ax.annotate(
-            f"net={int(row['net_gain'])}",
-            (i, row["rollback_gain"] if row["net_gain"] >= 0 else -row["rollback_loss"]),
-            textcoords="offset points",
-            xytext=(0, 8 if row["net_gain"] >= 0 else -14),
-            ha="center",
-            fontsize=9,
-        )
-
-    ax.axhline(0, linewidth=1)
-    ax.set_xticks(list(x))
-    ax.set_xticklabels(labels)
-    ax.set_ylabel("Number of samples")
-    ax.set_title("Rollback Paired Outcome Analysis")
-    ax.legend(fontsize=8, loc="best")
-    ax.grid(True, axis="y", linestyle="--", linewidth=0.6, alpha=0.6)
-
-    save_fig(fig, out_dir, "fig3_rollback_paired_outcome")
-    plt.close(fig)
+    return out
 
 
-# ============================================================
-# Figure 4: First-round MV -> Final SCRD Transition
-# ============================================================
+def build_correction_degradation_table(root: Path) -> pd.DataFrame:
+    """
+    Compare first-round majority vote vs final SCRD last-round majority vote.
 
-def build_first_to_final_transition(root: Path) -> pd.DataFrame:
-    path = find_existing_file(root, [
+    We only keep:
+    - W->C: first wrong, final correct
+    - C->W: first correct, final wrong
+    """
+    sample_path = find_existing(root, [
         "outputs_with_last_round_majority_vote/sample_level_results.jsonl",
-        "sample_level_results.jsonl",
     ])
 
-    rows = load_jsonl(path)
+    rows = load_jsonl(sample_path)
 
     records = []
+
     for ds in DATASETS:
         ds_rows = [r for r in rows if r.get("dataset_name") == ds]
+        if not ds_rows:
+            raise ValueError(f"No rows found for dataset={ds} in {sample_path}")
 
-        cc = 0  # first correct -> final correct
-        cw = 0  # first correct -> final wrong
-        wc = 0  # first wrong -> final correct
-        ww = 0  # first wrong -> final wrong
+        w_to_c = 0
+        c_to_w = 0
+        c_to_c = 0
+        w_to_w = 0
 
         for r in ds_rows:
-            if "majority_voting_correct" in r:
-                first_ok = bool(r["majority_voting_correct"])
-            else:
-                first_ok = is_correct_math_style(
-                    r.get("majority_voting_baseline_answer"),
-                    r.get("gold_answer"),
-                )
-
-            if "last_round_majority_correct" in r:
-                final_ok = bool(r["last_round_majority_correct"])
-            else:
-                final_ok = bool(r.get("scrd_correct", False))
+            first_ok = bool(r.get("majority_voting_correct"))
+            final_ok = bool(r.get("last_round_majority_correct"))
 
             if first_ok and final_ok:
-                cc += 1
-            elif first_ok and (not final_ok):
-                cw += 1
-            elif (not first_ok) and final_ok:
-                wc += 1
-            elif (not first_ok) and (not final_ok):
-                ww += 1
+                c_to_c += 1
+            elif first_ok and not final_ok:
+                c_to_w += 1
+            elif not first_ok and final_ok:
+                w_to_c += 1
+            else:
+                w_to_w += 1
 
         n = len(ds_rows)
+
         records.append({
             "dataset": ds,
             "n": n,
-            "C_to_C": cc,
-            "C_to_W": cw,
-            "W_to_C": wc,
-            "W_to_W": ww,
-            "net_correction": wc - cw,
+            "W_to_C": w_to_c,
+            "C_to_W": c_to_w,
+            "C_to_C": c_to_c,
+            "W_to_W": w_to_w,
+            "W_to_C_rate": 100 * w_to_c / n,
+            "C_to_W_rate": 100 * c_to_w / n,
+            "net_correction": w_to_c - c_to_w,
+            "net_correction_rate": 100 * (w_to_c - c_to_w) / n,
         })
 
-    overall = {
+    total_n = sum(r["n"] for r in records)
+    total_w_to_c = sum(r["W_to_C"] for r in records)
+    total_c_to_w = sum(r["C_to_W"] for r in records)
+    total_c_to_c = sum(r["C_to_C"] for r in records)
+    total_w_to_w = sum(r["W_to_W"] for r in records)
+
+    records.append({
         "dataset": "overall",
-        "n": sum(r["n"] for r in records),
-        "C_to_C": sum(r["C_to_C"] for r in records),
-        "C_to_W": sum(r["C_to_W"] for r in records),
-        "W_to_C": sum(r["W_to_C"] for r in records),
-        "W_to_W": sum(r["W_to_W"] for r in records),
-    }
-    overall["net_correction"] = overall["W_to_C"] - overall["C_to_W"]
-    records.append(overall)
+        "n": total_n,
+        "W_to_C": total_w_to_c,
+        "C_to_W": total_c_to_w,
+        "C_to_C": total_c_to_c,
+        "W_to_W": total_w_to_w,
+        "W_to_C_rate": 100 * total_w_to_c / total_n,
+        "C_to_W_rate": 100 * total_c_to_w / total_n,
+        "net_correction": total_w_to_c - total_c_to_w,
+        "net_correction_rate": 100 * (total_w_to_c - total_c_to_w) / total_n,
+    })
 
     return pd.DataFrame(records)
 
 
-def plot_first_to_final_transition(trans_df: pd.DataFrame, out_dir: Path) -> None:
-    """
-    Stacked bar chart by dataset.
-    Shows how samples move from first-round majority vote to final SCRD.
-    """
-    plot_df = trans_df.copy()
+# ============================================================
+# Figure 1: Efficiency frontier
+# ============================================================
 
-    categories = ["C_to_C", "W_to_C", "C_to_W", "W_to_W"]
-    labels = {
-        "C_to_C": "C→C",
-        "W_to_C": "W→C",
-        "C_to_W": "C→W",
-        "W_to_W": "W→W",
+def is_dominated(df: pd.DataFrame, method: str) -> bool:
+    row = df[df["method"] == method].iloc[0]
+    for _, other in df.iterrows():
+        if other["method"] == method:
+            continue
+        if (
+            other["avg_total_tokens"] <= row["avg_total_tokens"]
+            and other["accuracy_percent"] >= row["accuracy_percent"]
+            and (
+                other["avg_total_tokens"] < row["avg_total_tokens"]
+                or other["accuracy_percent"] > row["accuracy_percent"]
+            )
+        ):
+            return True
+    return False
+
+
+def plot_efficiency_frontier(df: pd.DataFrame, out_dir: Path) -> None:
+    df = df.copy()
+    df["dominated"] = df["method"].apply(lambda m: is_dominated(df, m))
+
+    frontier = df[~df["dominated"]].sort_values("avg_total_tokens")
+    dominated = df[df["dominated"]]
+
+    fig, ax = plt.subplots(figsize=(7.2, 4.9))
+
+    # Dominated methods: grey, hollow.
+    if not dominated.empty:
+        ax.scatter(
+            dominated["avg_total_tokens"],
+            dominated["accuracy_percent"],
+            s=95,
+            facecolors="white",
+            edgecolors=COLORS["dominated"],
+            linewidths=2.0,
+            label="Dominated vanilla setting",
+            zorder=3,
+        )
+
+    # Frontier methods.
+    ax.scatter(
+        frontier["avg_total_tokens"],
+        frontier["accuracy_percent"],
+        s=115,
+        color=COLORS["frontier"],
+        label="Efficiency frontier",
+        zorder=4,
+    )
+
+    # SCRD highlight.
+    scrd = df[df["method"] == "SCRD"].iloc[0]
+    ax.scatter(
+        [scrd["avg_total_tokens"]],
+        [scrd["accuracy_percent"]],
+        s=155,
+        color=COLORS["scrd"],
+        edgecolors="black",
+        linewidths=0.8,
+        label="SCRD",
+        zorder=5,
+    )
+
+    # Frontier line.
+    ax.plot(
+        frontier["avg_total_tokens"],
+        frontier["accuracy_percent"],
+        color=COLORS["frontier"],
+        linewidth=2.0,
+        alpha=0.75,
+        zorder=2,
+    )
+
+    # Labels.
+    offsets = {
+        "Single": (8, -10),
+        "MV@R1": (8, 6),
+        "MV@R3": (8, 6),
+        "MV@R5": (8, -14),
+        "SCRD": (8, 8),
     }
 
-    x = range(len(plot_df))
-    bottom = [0] * len(plot_df)
-
-    fig, ax = plt.subplots(figsize=(9.5, 4.8))
-
-    for cat in categories:
-        values = plot_df[cat].tolist()
-        ax.bar(
-            x,
-            values,
-            bottom=bottom,
-            label=labels[cat],
-        )
-        bottom = [b + v for b, v in zip(bottom, values)]
-
-    for i, row in plot_df.iterrows():
+    for _, r in df.iterrows():
+        dx, dy = offsets.get(r["method"], (6, 6))
         ax.annotate(
-            f"net={int(row['net_correction'])}",
-            (i, row["n"]),
+            r["method"],
+            (r["avg_total_tokens"], r["accuracy_percent"]),
             textcoords="offset points",
-            xytext=(0, 5),
-            ha="center",
-            fontsize=8,
+            xytext=(dx, dy),
+            fontsize=10,
+            weight="bold" if r["method"] == "SCRD" else "normal",
         )
 
-    ax.set_xticks(list(x))
-    ax.set_xticklabels(plot_df["dataset"].tolist(), rotation=25, ha="right")
-    ax.set_ylabel("Number of samples")
-    ax.set_title("Correctness Transition from First-round MV to Final SCRD")
-    ax.legend(title="Transition", fontsize=8, title_fontsize=9, ncol=4, loc="upper center", bbox_to_anchor=(0.5, -0.18))
-    ax.grid(True, axis="y", linestyle="--", linewidth=0.6, alpha=0.6)
+    # Show dominance relation for vanilla multi-round.
+    ax.annotate(
+        "More tokens but lower accuracy\nthan earlier vanilla baselines",
+        xy=(df.loc[df["method"] == "MV@R5", "avg_total_tokens"].iloc[0],
+            df.loc[df["method"] == "MV@R5", "accuracy_percent"].iloc[0]),
+        xytext=(3800, 70.3),
+        arrowprops=dict(arrowstyle="->", linewidth=1.2, color="black"),
+        fontsize=9,
+        bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="#AAAAAA", alpha=0.9),
+    )
+
+    ax.set_xscale("log")
+    ax.set_xlabel("Average total tokens per sample, log scale")
+    ax.set_ylabel("Overall accuracy (%)")
+    ax.set_title("Accuracy–Cost Efficiency Frontier")
+
+    ax.set_ylim(66.5, 82.4)
+    ax.legend(loc="lower left", frameon=True)
+    ax.grid(True, which="both", linestyle="--", linewidth=0.6, alpha=0.45)
 
     fig.tight_layout()
-
-    save_fig(fig, out_dir, "fig4_first_round_to_final_transition")
+    save_fig(fig, out_dir, "fig1_accuracy_cost_efficiency_frontier")
     plt.close(fig)
 
 
 # ============================================================
-# Save source data for checking
+# Figure 2: Sensitivity accuracy + token
 # ============================================================
 
-def save_source_tables(
-    out_dir: Path,
-    tradeoff_df: pd.DataFrame,
-    max_df: pd.DataFrame,
-    rollback_sens_df: pd.DataFrame,
-    rollback_paired_df: pd.DataFrame,
-    transition_df: pd.DataFrame,
-) -> None:
-    tradeoff_df.to_csv(out_dir / "source_fig1_accuracy_token_tradeoff.csv", index=False, encoding="utf-8-sig")
-    max_df.to_csv(out_dir / "source_fig2_max_round_token_cost.csv", index=False, encoding="utf-8-sig")
-    rollback_sens_df.to_csv(out_dir / "source_fig2_rollback_token_cost.csv", index=False, encoding="utf-8-sig")
-    rollback_paired_df.to_csv(out_dir / "source_fig3_rollback_paired_outcome.csv", index=False, encoding="utf-8-sig")
-    transition_df.to_csv(out_dir / "source_fig4_first_to_final_transition.csv", index=False, encoding="utf-8-sig")
+def plot_sensitivity_accuracy_token(max_df: pd.DataFrame, rb_df: pd.DataFrame, out_dir: Path) -> None:
+    fig, axes = plt.subplots(1, 2, figsize=(10.8, 4.6))
+
+    panels = [
+        (axes[0], max_df, "Max round", "(a) Maximum reasoning rounds", 5),
+        (axes[1], rb_df, "Rollback limit", "(b) Rollback limit", 1),
+    ]
+
+    for ax, df, xlabel, title, best_value in panels:
+        x = np.arange(len(df))
+        settings = df["setting_value"].astype(int).tolist()
+        acc = df["accuracy_percent"].astype(float).tolist()
+        tokens = df["avg_total_tokens"].astype(float).tolist()
+
+        bar_colors = [
+            COLORS["scrd"] if s == best_value else COLORS["bar_main"]
+            for s in settings
+        ]
+
+        bars = ax.bar(
+            x,
+            acc,
+            color=bar_colors,
+            width=0.58,
+            alpha=0.9,
+            label="Accuracy",
+            zorder=3,
+        )
+
+        ax2 = ax.twinx()
+        ax2.plot(
+            x,
+            tokens,
+            color=COLORS["line"],
+            marker="o",
+            linewidth=2.2,
+            markersize=6,
+            label="Avg tokens",
+            zorder=4,
+        )
+
+        for i, (b, a) in enumerate(zip(bars, acc)):
+            ax.text(
+                b.get_x() + b.get_width() / 2,
+                b.get_height() + 0.7,
+                f"{a:.1f}",
+                ha="center",
+                va="bottom",
+                fontsize=9,
+            )
+
+        for i, t in enumerate(tokens):
+            ax2.text(
+                i,
+                t + max(tokens) * 0.025,
+                f"{t/1000:.1f}k",
+                ha="center",
+                va="bottom",
+                fontsize=9,
+                color=COLORS["line"],
+            )
+
+        ax.set_xticks(x)
+        ax.set_xticklabels(settings)
+        ax.set_xlabel(xlabel)
+        ax.set_ylabel("Accuracy (%)")
+        ax2.set_ylabel("Average total tokens")
+
+        ax.set_title(title)
+
+        # Accuracy y-limits set to make differences visible but not deceptive.
+        ymin = max(0, min(acc) - 6)
+        ymax = max(acc) + 7
+        ax.set_ylim(ymin, ymax)
+
+        ax2.set_ylim(0, max(tokens) * 1.22)
+
+        ax.grid(True, axis="y", linestyle="--", linewidth=0.6, alpha=0.45)
+        ax2.grid(False)
+
+        # Merge legends.
+        h1, l1 = ax.get_legend_handles_labels()
+        h2, l2 = ax2.get_legend_handles_labels()
+        ax.legend(h1 + h2, l1 + l2, loc="lower right", frameon=True, fontsize=8)
+
+        ax.axvline(
+            settings.index(best_value),
+            color="#333333",
+            linestyle=":",
+            linewidth=1.0,
+            alpha=0.7,
+        )
+
+    fig.suptitle("Sensitivity Analysis: Accuracy and Token Cost", y=1.02)
+    fig.tight_layout()
+    save_fig(fig, out_dir, "fig2_sensitivity_accuracy_token")
+    plt.close(fig)
+
+
+# ============================================================
+# Figure 3: Rollback effect
+# ============================================================
+
+def plot_rollback_effect(df: pd.DataFrame, out_dir: Path) -> None:
+    fig, axes = plt.subplots(1, 2, figsize=(11.2, 4.8), sharey=False)
+
+    labels = df["dataset"].tolist()
+    x = np.arange(len(labels))
+    width = 0.34
+
+    # Panel A: overall.
+    ax = axes[0]
+    ax.bar(
+        x - width / 2,
+        df["wo_overall_acc"],
+        width,
+        color=COLORS["bar_alt"],
+        label="w/o Rollback",
+    )
+    ax.bar(
+        x + width / 2,
+        df["full_overall_acc"],
+        width,
+        color=COLORS["scrd"],
+        label="Full SCRD",
+    )
+
+    for i, r in df.iterrows():
+        gain = r["overall_gain_pp"]
+        ax.text(
+            i,
+            max(r["wo_overall_acc"], r["full_overall_acc"]) + 1.0,
+            f"{gain:+.1f} pp",
+            ha="center",
+            va="bottom",
+            fontsize=9,
+            color=COLORS["positive"] if gain >= 0 else COLORS["negative"],
+            weight="bold",
+        )
+
+    ax.set_title("(a) Overall samples")
+    ax.set_ylabel("Accuracy (%)")
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.set_ylim(45, 95)
+    ax.legend(frameon=True, loc="lower right")
+    ax.grid(True, axis="y", linestyle="--", linewidth=0.6, alpha=0.45)
+
+    # Panel B: triggered subset.
+    ax = axes[1]
+    ax.bar(
+        x - width / 2,
+        df["wo_triggered_acc"],
+        width,
+        color=COLORS["bar_alt"],
+        label="w/o Rollback",
+    )
+    ax.bar(
+        x + width / 2,
+        df["full_triggered_acc"],
+        width,
+        color=COLORS["scrd"],
+        label="Full SCRD",
+    )
+
+    for i, r in df.iterrows():
+        gain = r["triggered_gain_pp"]
+        ax.text(
+            i,
+            max(r["wo_triggered_acc"], r["full_triggered_acc"]) + 2.0,
+            f"{gain:+.1f} pp\nn={int(r['triggered_n'])}",
+            ha="center",
+            va="bottom",
+            fontsize=9,
+            color=COLORS["positive"] if gain >= 0 else COLORS["negative"],
+            weight="bold",
+        )
+
+    ax.set_title("(b) Rollback-triggered subset")
+    ax.set_ylabel("Accuracy (%)")
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.set_ylim(20, 90)
+    ax.legend(frameon=True, loc="lower right")
+    ax.grid(True, axis="y", linestyle="--", linewidth=0.6, alpha=0.45)
+
+    fig.suptitle("Effect of Rollback: Overall vs. Triggered Samples", y=1.02)
+    fig.tight_layout()
+    save_fig(fig, out_dir, "fig3_rollback_effect_overall_triggered")
+    plt.close(fig)
+
+
+# ============================================================
+# Figure 4: Correction vs degradation
+# ============================================================
+
+def plot_correction_degradation(df: pd.DataFrame, out_dir: Path) -> None:
+    fig, ax = plt.subplots(figsize=(9.6, 4.9))
+
+    labels = df["dataset"].tolist()
+    x = np.arange(len(labels))
+
+    pos = df["W_to_C_rate"].astype(float).to_numpy()
+    neg = -df["C_to_W_rate"].astype(float).to_numpy()
+
+    ax.bar(
+        x,
+        pos,
+        color=COLORS["positive"],
+        width=0.62,
+        label="Corrected: first-round MV wrong → final SCRD correct",
+        zorder=3,
+    )
+    ax.bar(
+        x,
+        neg,
+        color=COLORS["negative"],
+        width=0.62,
+        label="Degraded: first-round MV correct → final SCRD wrong",
+        zorder=3,
+    )
+
+    ax.axhline(0, color="black", linewidth=0.9)
+
+    for i, r in df.iterrows():
+        net = r["net_correction_rate"]
+        y = pos[i] + 0.45 if net >= 0 else neg[i] - 0.75
+        ax.text(
+            i,
+            y,
+            f"net {net:+.1f} pp\n({int(r['net_correction']):+d})",
+            ha="center",
+            va="bottom" if net >= 0 else "top",
+            fontsize=8.5,
+            color=COLORS["positive"] if net >= 0 else COLORS["negative"],
+            weight="bold",
+        )
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=20, ha="right")
+    ax.set_ylabel("Sample rate (%)")
+    ax.set_title("Correction vs. Degradation from First-round MV to Final SCRD")
+
+    ymax = max(pos) + 3
+    ymin = min(neg) - 3
+    ax.set_ylim(ymin, ymax)
+
+    ax.legend(
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.18),
+        ncol=1,
+        frameon=True,
+        fontsize=9,
+    )
+    ax.grid(True, axis="y", linestyle="--", linewidth=0.6, alpha=0.45)
+
+    fig.tight_layout()
+    save_fig(fig, out_dir, "fig4_correction_vs_degradation")
+    plt.close(fig)
 
 
 # ============================================================
@@ -587,56 +752,44 @@ def save_source_tables(
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--root",
-        type=str,
-        default=".",
-        help="Repository root directory.",
-    )
-    parser.add_argument(
-        "--out_dir",
-        type=str,
-        default="analysis_outputs/figures",
-        help="Output directory for figures.",
-    )
+    parser.add_argument("--root", type=Path, default=Path("."))
+    parser.add_argument("--out-dir", type=Path, default=Path("analysis_outputs/paper_figures_v2"))
     args = parser.parse_args()
 
-    root = Path(args.root).resolve()
-    out_dir = root / args.out_dir
-    ensure_out_dir(out_dir)
+    root = args.root.resolve()
+    out_dir = (root / args.out_dir).resolve()
+    out_dir.mkdir(parents=True, exist_ok=True)
 
-    print("Building Figure 1 data...")
+    set_paper_style()
+
+    print("[1/4] Building accuracy-cost frontier...")
     tradeoff_df = build_tradeoff_table(root)
+    tradeoff_df.to_csv(out_dir / "source_fig1_accuracy_cost_frontier.csv", index=False, encoding="utf-8-sig")
     print(tradeoff_df)
+    plot_efficiency_frontier(tradeoff_df, out_dir)
 
-    print("\nBuilding Figure 2 data...")
-    max_df, rollback_sens_df = read_sensitivity_full_tables(root)
+    print("\n[2/4] Building sensitivity accuracy-token figure...")
+    max_df, rb_df = build_sensitivity_tables(root)
+    max_df.to_csv(out_dir / "source_fig2_max_round.csv", index=False, encoding="utf-8-sig")
+    rb_df.to_csv(out_dir / "source_fig2_rollback_limit.csv", index=False, encoding="utf-8-sig")
+    print(max_df[["setting_value", "accuracy_percent", "avg_total_tokens"]])
+    print(rb_df[["setting_value", "accuracy_percent", "avg_total_tokens"]])
+    plot_sensitivity_accuracy_token(max_df, rb_df, out_dir)
 
-    print("\nBuilding Figure 3 data...")
-    rollback_paired_df = build_rollback_paired_table(root)
-    print(rollback_paired_df)
+    print("\n[3/4] Building rollback effect figure...")
+    rollback_df = build_rollback_effect_table(root)
+    rollback_df.to_csv(out_dir / "source_fig3_rollback_effect.csv", index=False, encoding="utf-8-sig")
+    print(rollback_df)
+    plot_rollback_effect(rollback_df, out_dir)
 
-    print("\nBuilding Figure 4 data...")
-    transition_df = build_first_to_final_transition(root)
-    print(transition_df)
-
-    print("\nPlotting figures...")
-    plot_accuracy_token_tradeoff(tradeoff_df, out_dir)
-    plot_sensitivity_token_cost(max_df, rollback_sens_df, out_dir)
-    plot_rollback_paired_outcome(rollback_paired_df, out_dir)
-    plot_first_to_final_transition(transition_df, out_dir)
-
-    save_source_tables(
-        out_dir=out_dir,
-        tradeoff_df=tradeoff_df,
-        max_df=max_df,
-        rollback_sens_df=rollback_sens_df,
-        rollback_paired_df=rollback_paired_df,
-        transition_df=transition_df,
-    )
+    print("\n[4/4] Building correction vs degradation figure...")
+    transition_df = build_correction_degradation_table(root)
+    transition_df.to_csv(out_dir / "source_fig4_correction_degradation.csv", index=False, encoding="utf-8-sig")
+    print(transition_df[["dataset", "n", "W_to_C", "C_to_W", "net_correction", "net_correction_rate"]])
+    plot_correction_degradation(transition_df, out_dir)
 
     print("\nDone.")
-    print(f"Figures and source tables saved to: {out_dir}")
+    print(f"Figures saved to: {out_dir}")
 
 
 if __name__ == "__main__":

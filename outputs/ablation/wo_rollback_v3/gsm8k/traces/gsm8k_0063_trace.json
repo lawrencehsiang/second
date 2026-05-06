@@ -1,0 +1,217 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "15",
+        "10",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total oil in remaining cans, then divide by number of those cans.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "First find total oil in full cans, then divide by remaining cans.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and Agent C provide different methods to calculate oil per can.",
+          "why_still_open": "Both methods seem valid but lead to different answers.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total oil = 290L",
+        "10 cans * 8L/can = 80L",
+        "Remaining oil = 290L - 80L = 210L",
+        "Remaining cans = 24 - 10 = 14",
+        "Oil per can = 210L / 14 cans = 15L/can"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "11",
+        "15",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total oil and the number of cans to ensure the correct calculation method is used.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Agent B's method is more coherent as it directly calculates the amount of oil per can after accounting for the known quantities.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify both methods to ensure accuracy and consistency with problem conditions.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and Agent C provide different methods to calculate oil per can.",
+          "why_still_open": "Agent B claims their method is more coherent, but Agent C is rechecking both methods.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total oil = 290L",
+        "10 cans * 8L/can = 80L",
+        "Remaining oil = 290L - 80L = 210L",
+        "Remaining cans = 24 - 10 = 14",
+        "Oil per can = 210L / 14 cans = 15L/can"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 350,
+      "completion_tokens": 104,
+      "total_tokens": 454,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 337,
+      "completion_tokens": 40,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 348,
+      "completion_tokens": 39,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 662,
+      "completion_tokens": 263,
+      "total_tokens": 925,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 717,
+      "completion_tokens": 106,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 714,
+      "completion_tokens": 109,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 728,
+      "completion_tokens": 98,
+      "total_tokens": 826,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1133,
+      "completion_tokens": 325,
+      "total_tokens": 1458,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0063",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 684,
+      "completion_tokens": 54,
+      "total_tokens": 738,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 454,
+    "majority_vote_total_tokens": 1218,
+    "scrd_total_tokens": 6811,
+    "scrd_prompt_tokens": 5673,
+    "scrd_completion_tokens": 1138,
+    "agent_total_tokens": 3690,
+    "recorder_total_tokens": 2383,
+    "evaluator_total_tokens": 738,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,198 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "40",
+        "30",
+        "40"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total cupcakes = Initial + Made - Sold",
+          "claim_type": "constraint",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Initial 19, sold 6, made 27 -> 40",
+        "Total = 19 + 27 - 6"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "36",
+        "40",
+        "36"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The initial number of cupcakes is 19.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct formula for calculating total cupcakes is Total = Initial + Made - Sold.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verification of the calculation is needed.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The correct number of cupcakes after applying the formula.",
+          "why_still_open": "Different agents have proposed 36 and 40, but no consensus has been reached.",
+          "involved_answers": [
+            "36",
+            "40"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Initial 19, sold 6, made 27 -> 36",
+        "Total = 19 + 27 - 6",
+        "30 was incorrect"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0147",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 344,
+      "completion_tokens": 44,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0147",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 331,
+      "completion_tokens": 33,
+      "total_tokens": 364,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0147",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 342,
+      "completion_tokens": 42,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0147",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 598,
+      "completion_tokens": 104,
+      "total_tokens": 702,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0147",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 603,
+      "completion_tokens": 134,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0147",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 600,
+      "completion_tokens": 120,
+      "total_tokens": 720,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0147",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 614,
+      "completion_tokens": 86,
+      "total_tokens": 700,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0147",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 980,
+      "completion_tokens": 249,
+      "total_tokens": 1229,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0147",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 651,
+      "completion_tokens": 54,
+      "total_tokens": 705,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 388,
+    "majority_vote_total_tokens": 1136,
+    "scrd_total_tokens": 5929,
+    "scrd_prompt_tokens": 5063,
+    "scrd_completion_tokens": 866,
+    "agent_total_tokens": 3293,
+    "recorder_total_tokens": 1931,
+    "evaluator_total_tokens": 705,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

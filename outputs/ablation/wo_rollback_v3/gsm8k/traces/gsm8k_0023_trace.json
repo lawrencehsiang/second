@@ -1,0 +1,208 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "3",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Bobbie's last name length = 8",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "Samantha's last name length = 5",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Jamie's last name length = 4",
+        "Bobbie's last name length = 8",
+        "Samantha's last name length = 5",
+        "Bobbie's last name length = Jamie's last name length + 2",
+        "Samantha's last name length = Bobbie's last name length - 3"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "7",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Bobbie's last name length = 10",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Bobbie's last name length = 8",
+          "claim_type": "support",
+          "related_answer": "C"
+        },
+        {
+          "text": "Mainstream support is more reliable for numerical values",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Bobbie's last name length being both 8 and 10",
+          "why_still_open": "Resolution between conflicting claims is pending.",
+          "involved_answers": [
+            "C",
+            "A"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Jamie's last name length = 4",
+        "Bobbie's last name length = 8",
+        "Bobbie's last name length = 10",
+        "Bobbie's last name length = Jamie's last name length * 2",
+        "Mainstream support = 7"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0023",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 369,
+      "completion_tokens": 79,
+      "total_tokens": 448,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0023",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 356,
+      "completion_tokens": 67,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0023",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 367,
+      "completion_tokens": 82,
+      "total_tokens": 449,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0023",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 704,
+      "completion_tokens": 183,
+      "total_tokens": 887,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0023",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 628,
+      "completion_tokens": 145,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0023",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 625,
+      "completion_tokens": 118,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0023",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 639,
+      "completion_tokens": 137,
+      "total_tokens": 776,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0023",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1105,
+      "completion_tokens": 265,
+      "total_tokens": 1370,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0023",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 674,
+      "completion_tokens": 48,
+      "total_tokens": 722,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 448,
+    "majority_vote_total_tokens": 1320,
+    "scrd_total_tokens": 6591,
+    "scrd_prompt_tokens": 5467,
+    "scrd_completion_tokens": 1124,
+    "agent_total_tokens": 3612,
+    "recorder_total_tokens": 2257,
+    "evaluator_total_tokens": 722,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

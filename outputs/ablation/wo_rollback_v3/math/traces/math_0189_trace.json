@@ -1,0 +1,184 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "98",
+        "145",
+        "205"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The smallest sum of two perfect squares with a difference of 133 is 205.",
+          "claim_type": "support",
+          "related_answer": "205"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x^2 - y^2 = 133",
+        "(x+y)(x-y) = 133",
+        "Factors of 133 are 7*19",
+        "To minimize x+y, set x+y=19 and x-y=7",
+        "Sum = 13^2 + 6^2"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "205",
+        "205",
+        "205"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The smallest sum of two perfect squares with a difference of 133 is 205.",
+          "claim_type": "support",
+          "related_answer": "205"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x^2 - y^2 = 133",
+        "(x+y)(x-y) = 133",
+        "Factors of 133 are 7*19",
+        "To minimize x+y, set x+y=19 and x-y=7",
+        "Sum = 13^2 + 6^2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0189",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 335,
+      "completion_tokens": 38,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0189",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 322,
+      "completion_tokens": 94,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0189",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 333,
+      "completion_tokens": 116,
+      "total_tokens": 449,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0189",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 729,
+      "completion_tokens": 161,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0189",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 606,
+      "completion_tokens": 124,
+      "total_tokens": 730,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0189",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 604,
+      "completion_tokens": 113,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0189",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 618,
+      "completion_tokens": 106,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0189",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1045,
+      "completion_tokens": 161,
+      "total_tokens": 1206,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0189",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 561,
+      "completion_tokens": 51,
+      "total_tokens": 612,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 373,
+    "majority_vote_total_tokens": 1238,
+    "scrd_total_tokens": 6117,
+    "scrd_prompt_tokens": 5153,
+    "scrd_completion_tokens": 964,
+    "agent_total_tokens": 3409,
+    "recorder_total_tokens": 2096,
+    "evaluator_total_tokens": 612,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

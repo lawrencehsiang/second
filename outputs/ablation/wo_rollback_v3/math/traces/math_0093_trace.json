@@ -1,0 +1,188 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4/3",
+        "1",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve for x in f(x) = 4.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "f(x) = 4",
+        "x = 4/3",
+        "x = 1"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "1",
+        "1",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve for x in f(x) = 4.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The target_answer in the history_units is '1', but the question asks for $f^{-1}(x) = 4$. There is a mismatch between the target and the question condition.",
+          "why_still_open": "The conflict was about the interpretation of the function inverse and the equation given. It was resolved, but the original confusion remains recorded.",
+          "involved_answers": [
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "f(x) = 4",
+        "x = 1",
+        "3x^3 = 2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 343,
+      "completion_tokens": 37,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 330,
+      "completion_tokens": 36,
+      "total_tokens": 366,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 341,
+      "completion_tokens": 49,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 597,
+      "completion_tokens": 97,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 605,
+      "completion_tokens": 168,
+      "total_tokens": 773,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 600,
+      "completion_tokens": 91,
+      "total_tokens": 691,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 614,
+      "completion_tokens": 92,
+      "total_tokens": 706,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 980,
+      "completion_tokens": 192,
+      "total_tokens": 1172,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 48,
+      "total_tokens": 640,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 380,
+    "majority_vote_total_tokens": 1136,
+    "scrd_total_tokens": 5812,
+    "scrd_prompt_tokens": 5002,
+    "scrd_completion_tokens": 810,
+    "agent_total_tokens": 3306,
+    "recorder_total_tokens": 1866,
+    "evaluator_total_tokens": 640,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

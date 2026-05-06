@@ -1,0 +1,286 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recognize sqrt(9*9^t) as 3*3^t.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "sqrt(9*9^t) = 3*3^t",
+        "factor out 3^(t+1)",
+        "solve the exponential equation"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2",
+        "1",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solving 6 * 3^t = 18 yields t = 1.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "t = 1 is consistent with the simplified equation.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "6 * 3^t = 18",
+        "t = 1",
+        "verify t = 1"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "1",
+        "2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substituting t = 1 into the equation verifies its correctness.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The simplified equation $3^{t+1} + 3^{t+1} = 18$ leads to t = 2.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verifying the minority answer of t = 1 against the original equation is necessary.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The minority answer of t = 1 remains unverified.",
+          "why_still_open": "Further verification against the original equation is required to resolve the conflict.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "3 \\cdot 3^1 + \\sqrt{9 \\cdot 9^1} = 18",
+        "3^{t+1} + 3^{t+1} = 18",
+        "t = 1",
+        "t = 2"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 341,
+      "completion_tokens": 32,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 328,
+      "completion_tokens": 34,
+      "total_tokens": 362,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 339,
+      "completion_tokens": 57,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 599,
+      "completion_tokens": 114,
+      "total_tokens": 713,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 607,
+      "completion_tokens": 117,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 604,
+      "completion_tokens": 74,
+      "total_tokens": 678,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 618,
+      "completion_tokens": 198,
+      "total_tokens": 816,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1033,
+      "completion_tokens": 144,
+      "total_tokens": 1177,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 593,
+      "completion_tokens": 42,
+      "total_tokens": 635,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 698,
+      "completion_tokens": 177,
+      "total_tokens": 875,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 695,
+      "completion_tokens": 125,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 709,
+      "completion_tokens": 104,
+      "total_tokens": 813,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1096,
+      "completion_tokens": 289,
+      "total_tokens": 1385,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0098",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 671,
+      "completion_tokens": 52,
+      "total_tokens": 723,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 373,
+    "majority_vote_total_tokens": 1131,
+    "scrd_total_tokens": 10490,
+    "scrd_prompt_tokens": 8931,
+    "scrd_completion_tokens": 1559,
+    "agent_total_tokens": 5857,
+    "recorder_total_tokens": 3275,
+    "evaluator_total_tokens": 1358,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

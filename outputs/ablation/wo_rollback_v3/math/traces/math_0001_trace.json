@@ -1,0 +1,198 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-8",
+        "-7",
+        "-7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Ensure continuity at x=2 and x=-2.",
+          "claim_type": "constraint",
+          "related_answer": "null"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Ensure continuity at x=2 and x=-2."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-7",
+        "6",
+        "-2.5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the continuity conditions at x=2 and x=-2.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Solving the continuity equations yields a=2 and b=4, thus a+b=6.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Continuity leads to 2a + 3 = 2 and 2(-2) - b = -2, solving to a = -0.5 and b = -2, hence a + b = -2.5.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between A's previous answer of -8 and B's updated answer of -7.",
+          "why_still_open": "Further clarification on the continuity condition evaluation is required.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Ensure continuity at x=2 and x=-2.",
+        "Re-evaluate the continuity conditions at x=2 and x=-2.",
+        "Solving the continuity equations yields a=2 and b=4, thus a+b=6.",
+        "Continuity leads to 2a + 3 = 2 and 2(-2) - b = -2, solving to a = -0.5 and b = -2, hence a + b = -2.5."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0001",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 422,
+      "completion_tokens": 32,
+      "total_tokens": 454,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0001",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 409,
+      "completion_tokens": 40,
+      "total_tokens": 449,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0001",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 420,
+      "completion_tokens": 38,
+      "total_tokens": 458,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0001",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 84,
+      "total_tokens": 673,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0001",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 681,
+      "completion_tokens": 111,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0001",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 678,
+      "completion_tokens": 59,
+      "total_tokens": 737,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0001",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 692,
+      "completion_tokens": 91,
+      "total_tokens": 783,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0001",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 893,
+      "completion_tokens": 362,
+      "total_tokens": 1255,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0001",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 779,
+      "completion_tokens": 45,
+      "total_tokens": 824,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 454,
+    "majority_vote_total_tokens": 1361,
+    "scrd_total_tokens": 6425,
+    "scrd_prompt_tokens": 5563,
+    "scrd_completion_tokens": 862,
+    "agent_total_tokens": 3673,
+    "recorder_total_tokens": 1928,
+    "evaluator_total_tokens": 824,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

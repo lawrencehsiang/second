@@ -1,0 +1,186 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4",
+        "7",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "t = 7 or t = 5",
+          "claim_type": "constraint",
+          "related_answer": "5"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "t = 7 or t = 5",
+        "= 77",
+        "50 + 12t - t²"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "4",
+        "7",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "t = 4 satisfies the equation",
+          "claim_type": "constraint",
+          "related_answer": "4"
+        },
+        {
+          "text": "t = 7 is the largest solution",
+          "claim_type": "constraint",
+          "related_answer": "7"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "t = 7 or t = 5",
+        "-t² + 12t + 50 = 77",
+        "t = 4 satisfies the equation",
+        "t = 7 is the largest solution"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0070",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 369,
+      "completion_tokens": 36,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 356,
+      "completion_tokens": 36,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 367,
+      "completion_tokens": 51,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 101,
+      "total_tokens": 695,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 627,
+      "completion_tokens": 144,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 624,
+      "completion_tokens": 109,
+      "total_tokens": 733,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 638,
+      "completion_tokens": 169,
+      "total_tokens": 807,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1045,
+      "completion_tokens": 153,
+      "total_tokens": 1198,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0070",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 609,
+      "completion_tokens": 45,
+      "total_tokens": 654,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 405,
+    "majority_vote_total_tokens": 1215,
+    "scrd_total_tokens": 6073,
+    "scrd_prompt_tokens": 5229,
+    "scrd_completion_tokens": 844,
+    "agent_total_tokens": 3526,
+    "recorder_total_tokens": 1893,
+    "evaluator_total_tokens": 654,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

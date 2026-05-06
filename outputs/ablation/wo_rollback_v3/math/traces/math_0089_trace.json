@@ -1,0 +1,200 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "20",
+        "20"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Find intersection by equating functions and solving for x.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Intersecting points are scaled accordingly.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "y = h(2x) and y = 2j(x)",
+        "intersection points are scaled",
+        "solve for x by equating functions"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "20",
+        "20",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the transformations and find specific points.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Intersection points are recalculated by substituting the original points into transformed functions.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Intersection method vs. transformation recalculations.",
+          "why_still_open": "Different approaches yield different answers; need to confirm which is correct.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Intersection points recalculated by substituting original points into transformed functions.",
+        "Sum of coordinates at intersection is 16.",
+        "Previous intersection based on equating functions."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0089",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 388,
+      "completion_tokens": 42,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0089",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 375,
+      "completion_tokens": 36,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0089",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 386,
+      "completion_tokens": 33,
+      "total_tokens": 419,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0089",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 590,
+      "completion_tokens": 138,
+      "total_tokens": 728,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0089",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 649,
+      "completion_tokens": 104,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0089",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 646,
+      "completion_tokens": 48,
+      "total_tokens": 694,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0089",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 660,
+      "completion_tokens": 86,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0089",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 912,
+      "completion_tokens": 206,
+      "total_tokens": 1118,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0089",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 655,
+      "completion_tokens": 48,
+      "total_tokens": 703,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 430,
+    "majority_vote_total_tokens": 1260,
+    "scrd_total_tokens": 6002,
+    "scrd_prompt_tokens": 5261,
+    "scrd_completion_tokens": 741,
+    "agent_total_tokens": 3453,
+    "recorder_total_tokens": 1846,
+    "evaluator_total_tokens": 703,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

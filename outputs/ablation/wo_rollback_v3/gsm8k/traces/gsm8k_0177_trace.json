@@ -1,0 +1,296 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "20",
+        "0.2",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Convert grams to kilograms by dividing by 1000.",
+          "claim_type": "constraint",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "20 kg = 20 * 1000 g",
+        "0.2 kg = 0.2 * 1000 g",
+        "2 kg = 2 * 1000 g",
+        "grams to kg: divide by 1000",
+        "kg to grams: multiply by 1000"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2",
+        "4",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correcting the previous answer from 20 to 2 due to conversion error.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculating total grams and converting to kilograms for accuracy.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verification that 2000 grams is indeed 2 kilograms.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B's approach versus Agent A's update.",
+          "why_still_open": "Agent B suggests calculating total grams first before converting, while Agent A directly updates the answer.",
+          "involved_answers": [
+            "B",
+            "A"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "20 packets * 100 g/packet = 2000 g",
+        "2000 g / 1000 = 2 kg",
+        "previous incorrect: 20 kg",
+        "convert grams to kg: divide by 1000",
+        "total grams: 20 * 100 = 2000"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "2",
+        "4",
+        "2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Adopting Agent B's method of calculating total grams first before converting.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ensuring accuracy through initial gram calculation before conversion.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Agreement on the reliability of Agent B's approach.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "calculate total grams: 20 * 100 = 2000 g",
+        "convert grams to kg: 2000 g / 1000 = 2 kg",
+        "previously incorrect: 20 kg",
+        "verify: 2000 g = 2 kg",
+        "Agent B's method confirmed accurate"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 37,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 36,
+      "total_tokens": 362,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 37,
+      "total_tokens": 374,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 589,
+      "completion_tokens": 151,
+      "total_tokens": 740,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 602,
+      "completion_tokens": 56,
+      "total_tokens": 658,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 600,
+      "completion_tokens": 59,
+      "total_tokens": 659,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 612,
+      "completion_tokens": 62,
+      "total_tokens": 674,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 853,
+      "completion_tokens": 299,
+      "total_tokens": 1152,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 652,
+      "completion_tokens": 55,
+      "total_tokens": 707,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 803,
+      "completion_tokens": 92,
+      "total_tokens": 895,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 800,
+      "completion_tokens": 90,
+      "total_tokens": 890,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 814,
+      "completion_tokens": 95,
+      "total_tokens": 909,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1127,
+      "completion_tokens": 230,
+      "total_tokens": 1357,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0177",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 643,
+      "completion_tokens": 54,
+      "total_tokens": 697,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 376,
+    "majority_vote_total_tokens": 1112,
+    "scrd_total_tokens": 10450,
+    "scrd_prompt_tokens": 9097,
+    "scrd_completion_tokens": 1353,
+    "agent_total_tokens": 5797,
+    "recorder_total_tokens": 3249,
+    "evaluator_total_tokens": 1404,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

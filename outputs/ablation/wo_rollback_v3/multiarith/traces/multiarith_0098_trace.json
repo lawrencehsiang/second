@@ -1,0 +1,209 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "12",
+        "32",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total apples - Students who wanted fruit = Extra apples",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Total apples - Apples eaten = Extra apples",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total apples ordered minus students who wanted fruit equals extra apples.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total apples - Students who wanted fruit = Extra apples",
+        "Total apples - Apples eaten = Extra apples",
+        "Total apples ordered - Students who wanted fruit = Extra apples"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "32",
+        "12",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total apples ordered minus students who wanted fruit equals extra apples.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream support of 12 is correct.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "25 red apples + 17 green apples = 42 total apples.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "32 extra apples vs. 12 extra apples",
+          "why_still_open": "Different calculations lead to conflicting answers.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total apples ordered - Students who wanted fruit = Extra apples",
+        "Mainstream support of 12 is correct",
+        "25 red apples + 17 green apples = 42 total apples"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 350,
+      "completion_tokens": 36,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 337,
+      "completion_tokens": 32,
+      "total_tokens": 369,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 348,
+      "completion_tokens": 37,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 584,
+      "completion_tokens": 182,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 611,
+      "completion_tokens": 151,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 608,
+      "completion_tokens": 127,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 622,
+      "completion_tokens": 126,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1122,
+      "completion_tokens": 248,
+      "total_tokens": 1370,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0098",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 665,
+      "completion_tokens": 59,
+      "total_tokens": 724,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 386,
+    "majority_vote_total_tokens": 1140,
+    "scrd_total_tokens": 6245,
+    "scrd_prompt_tokens": 5247,
+    "scrd_completion_tokens": 998,
+    "agent_total_tokens": 3385,
+    "recorder_total_tokens": 2136,
+    "evaluator_total_tokens": 724,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

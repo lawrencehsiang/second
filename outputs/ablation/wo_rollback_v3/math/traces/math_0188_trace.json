@@ -1,0 +1,220 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "8",
+        "8",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Apply the given operation definition.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Z(a, b) = b + 10a - a^2 with a=2, b=6 yields 8.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Substitute values into the given formula.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents provide different explanations for arriving at the answer 8 without resolving which one is correct.",
+          "why_still_open": "Insufficient evidence to determine the validity of each explanation.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Z(2, 6) = 6 + 10*2 - 2^2 = 8",
+        "Apply operation: Z(a, b) = b + 10a - a^2",
+        "Answer: 8"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "8",
+        "22",
+        "18"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the operation definition and apply it correctly.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Ensure all steps are correctly applied in the operation definition.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Correctly apply the formula to get the right result.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the correct result of the operation Z(2, 6).",
+          "why_still_open": "Disagreement on the final answer despite resolution attempts.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Z(2, 6) = 6 + 10*2 - 2^2 = 22",
+        "Operation: Z(a, b) = b + 10a - a^2",
+        "Correct result: 22"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 30,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 54,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 34,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 591,
+      "completion_tokens": 277,
+      "total_tokens": 868,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 815,
+      "completion_tokens": 114,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 812,
+      "completion_tokens": 141,
+      "total_tokens": 953,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 826,
+      "completion_tokens": 220,
+      "total_tokens": 1046,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1298,
+      "completion_tokens": 274,
+      "total_tokens": 1572,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0188",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 679,
+      "completion_tokens": 46,
+      "total_tokens": 725,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 376,
+    "majority_vote_total_tokens": 1141,
+    "scrd_total_tokens": 7234,
+    "scrd_prompt_tokens": 6044,
+    "scrd_completion_tokens": 1190,
+    "agent_total_tokens": 4069,
+    "recorder_total_tokens": 2440,
+    "evaluator_total_tokens": 725,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

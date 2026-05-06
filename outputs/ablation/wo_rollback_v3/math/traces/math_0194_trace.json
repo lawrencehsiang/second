@@ -1,0 +1,190 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Janet's age is 3 times Brenda's age.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        },
+        {
+          "text": "Since Addison and Janet are twins, their ages are equal.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Brenda's age is x, Addison's age is 3x, Janet's age is x+6.",
+        "3x = x + 6",
+        "Solving gives x = 3"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "6",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Addison and Janet are twins, thus their ages are equal.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Janet's age is six years more than Brenda's age.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Addison and Janet are twins, so their ages are equal.",
+        "Janet's age is 6 years more than Brenda's age.",
+        "Solving 3x = x + 6 gives x = 3"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 340,
+      "completion_tokens": 61,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 327,
+      "completion_tokens": 64,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 338,
+      "completion_tokens": 84,
+      "total_tokens": 422,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 685,
+      "completion_tokens": 155,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 600,
+      "completion_tokens": 155,
+      "total_tokens": 755,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 597,
+      "completion_tokens": 104,
+      "total_tokens": 701,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 611,
+      "completion_tokens": 119,
+      "total_tokens": 730,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1055,
+      "completion_tokens": 160,
+      "total_tokens": 1215,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0194",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 588,
+      "completion_tokens": 56,
+      "total_tokens": 644,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 401,
+    "majority_vote_total_tokens": 1214,
+    "scrd_total_tokens": 6099,
+    "scrd_prompt_tokens": 5141,
+    "scrd_completion_tokens": 958,
+    "agent_total_tokens": 3400,
+    "recorder_total_tokens": 2055,
+    "evaluator_total_tokens": 644,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

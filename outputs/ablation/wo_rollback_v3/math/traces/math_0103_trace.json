@@ -1,0 +1,296 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "5",
+        "5",
+        "5"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Find q(4) and substitute into p(x) to solve for b.",
+          "claim_type": "explanation",
+          "related_answer": "A, B, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "q(4) = 5",
+        "p(x) = x^2 + bx + 5",
+        "Substitute q(4) into p(x)",
+        "Solve for b",
+        "b = -5"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "5",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Updated answers reflect recomputation of function values.",
+          "claim_type": "explanation",
+          "related_answer": "A, C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C updated their answers to 6 and 8 respectively, while B keeps the previous value of 5.",
+          "why_still_open": "Divergent recomputation results due to different interpretations of function values.",
+          "involved_answers": [
+            "6",
+            "5",
+            "8"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recomputed values based on functions provided",
+        "Agent B maintains previous value of 5",
+        "Agent A updated to 6",
+        "Agent C updated to 8",
+        "Different recomputations lead to conflicting answers"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "8",
+        "6",
+        "8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recomputing p(q(4)) with correct function definitions.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Recompute the function values step-by-step for accuracy.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify proposed answers by recomputing function values.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and C updated their answers to 6 and 8 respectively, while B keeps the previous value of 6.",
+          "why_still_open": "Divergent recomputation results persist despite efforts to verify and compute accurately.",
+          "involved_answers": [
+            "8",
+            "6"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Recompute p(q(4)) with accurate function definitions",
+        "Agent B updates to 6",
+        "Agent A updates to 8",
+        "Agent C keeps 8",
+        "Step-by-step recomputation for accuracy"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 41,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 40,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 40,
+      "total_tokens": 391,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 132,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 617,
+      "completion_tokens": 34,
+      "total_tokens": 651,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 614,
+      "completion_tokens": 39,
+      "total_tokens": 653,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 628,
+      "completion_tokens": 38,
+      "total_tokens": 666,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 781,
+      "completion_tokens": 196,
+      "total_tokens": 977,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 585,
+      "completion_tokens": 36,
+      "total_tokens": 621,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 727,
+      "completion_tokens": 114,
+      "total_tokens": 841,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 724,
+      "completion_tokens": 100,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 738,
+      "completion_tokens": 102,
+      "total_tokens": 840,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1056,
+      "completion_tokens": 285,
+      "total_tokens": 1341,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0103",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 670,
+      "completion_tokens": 49,
+      "total_tokens": 719,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1165,
+    "scrd_total_tokens": 10024,
+    "scrd_prompt_tokens": 8778,
+    "scrd_completion_tokens": 1246,
+    "agent_total_tokens": 5640,
+    "recorder_total_tokens": 3044,
+    "evaluator_total_tokens": 1340,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

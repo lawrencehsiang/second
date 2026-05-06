@@ -1,0 +1,204 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3",
+        "3",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Convert total minutes to hours by dividing by 60.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Sum individual show times before converting to hours.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Total time in minutes divided by 60 equals total hours.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50 min / 60 = 0.83 hours",
+        "Show A: 30 min, Show B: 20 min, total: 50 min",
+        "Total shows = 3, each = 16.67 min, total = 50 min"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2",
+        "3",
+        "1"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the total time spent watching TV by summing all episode durations.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Convert the total time from minutes to hours for consistency.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A's claim to re-evaluate the total time versus Agent C's need to convert minutes to hours.",
+          "why_still_open": "Both actions are necessary but need to be coordinated.",
+          "involved_answers": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Show A: 30 min, Show B: 20 min, total: 50 min",
+        "50 min / 60 = 0.83 hours",
+        "Total shows = 2, each = 25 min, total = 50 min"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 355,
+      "completion_tokens": 38,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 342,
+      "completion_tokens": 35,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 353,
+      "completion_tokens": 35,
+      "total_tokens": 388,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 584,
+      "completion_tokens": 214,
+      "total_tokens": 798,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 615,
+      "completion_tokens": 111,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 612,
+      "completion_tokens": 34,
+      "total_tokens": 646,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 626,
+      "completion_tokens": 36,
+      "total_tokens": 662,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 933,
+      "completion_tokens": 243,
+      "total_tokens": 1176,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0146",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 631,
+      "completion_tokens": 42,
+      "total_tokens": 673,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 393,
+    "majority_vote_total_tokens": 1158,
+    "scrd_total_tokens": 5839,
+    "scrd_prompt_tokens": 5051,
+    "scrd_completion_tokens": 788,
+    "agent_total_tokens": 3192,
+    "recorder_total_tokens": 1974,
+    "evaluator_total_tokens": 673,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,218 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-23.2",
+        "35.2",
+        "35.8"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "All agents agreed on substituting x = -8.4 into the equations.",
+          "claim_type": "constraint",
+          "related_answer": null
+        },
+        {
+          "text": "The answers differ by small margins (-23.2, 35.2, 35.8).",
+          "claim_type": "rebuttal",
+          "related_answer": null
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Divergent numerical results from different agents.",
+          "why_still_open": "Insufficient information to determine which, if any, answer is correct.",
+          "involved_answers": [
+            "-23.2",
+            "35.2",
+            "35.8"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x = -8.4",
+        "k = -23.2",
+        "k = 35.2",
+        "k = 35.8",
+        "substitute and solve"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "35.8",
+        "35.8",
+        "35.2"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Agent B re-evaluated the equations and found the answer to be 35.8.",
+          "claim_type": "support",
+          "related_answer": "35.8"
+        },
+        {
+          "text": "Agent C verified their calculations and found the answer to be 35.2.",
+          "claim_type": "support",
+          "related_answer": "35.2"
+        },
+        {
+          "text": "Re-checking the substitution of x = -8.4 ensures the correct answer.",
+          "claim_type": "constraint",
+          "related_answer": "35.8"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Divergent numerical results from different agents.",
+          "why_still_open": "Agents A and C have different answers (35.8 vs 35.2) despite re-evaluation.",
+          "involved_answers": [
+            "35.8",
+            "35.2"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x = -8.4",
+        "k = 35.8",
+        "k = 35.2",
+        "re-evaluate equations",
+        "verify calculations"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 353,
+      "completion_tokens": 43,
+      "total_tokens": 396,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 340,
+      "completion_tokens": 42,
+      "total_tokens": 382,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 351,
+      "completion_tokens": 43,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0086",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 610,
+      "completion_tokens": 240,
+      "total_tokens": 850,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 831,
+      "completion_tokens": 98,
+      "total_tokens": 929,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 828,
+      "completion_tokens": 91,
+      "total_tokens": 919,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 842,
+      "completion_tokens": 94,
+      "total_tokens": 936,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1092,
+      "completion_tokens": 285,
+      "total_tokens": 1377,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0086",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 669,
+      "completion_tokens": 55,
+      "total_tokens": 724,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 396,
+    "majority_vote_total_tokens": 1172,
+    "scrd_total_tokens": 6907,
+    "scrd_prompt_tokens": 5916,
+    "scrd_completion_tokens": 991,
+    "agent_total_tokens": 3956,
+    "recorder_total_tokens": 2227,
+    "evaluator_total_tokens": 724,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

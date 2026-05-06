@@ -1,0 +1,193 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "13",
+        "13",
+        "13"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Progression by 2 each week starting from 3 objects for 5 weeks.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Week 0: 3 objects",
+        "Week 1: 5 objects",
+        "Week 2: 7 objects",
+        "Week 3: 9 objects",
+        "Week 4: 11 objects"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "13",
+        "13",
+        "11"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The final number of objects juggled is 11.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A and B support the progression leading to 13 objects, while C calculates it to be 11.",
+          "why_still_open": "Disagreement on the final number of objects juggled after 5 weeks.",
+          "involved_answers": [
+            "13",
+            "11"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Week 0: 3 objects",
+        "Week 1: 5 objects",
+        "Week 2: 7 objects",
+        "Week 4: 11 objects",
+        "Progression formula: 3 + 2*(week-1)"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 357,
+      "completion_tokens": 42,
+      "total_tokens": 399,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 344,
+      "completion_tokens": 39,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 355,
+      "completion_tokens": 42,
+      "total_tokens": 397,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 602,
+      "completion_tokens": 139,
+      "total_tokens": 741,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 624,
+      "completion_tokens": 54,
+      "total_tokens": 678,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 621,
+      "completion_tokens": 49,
+      "total_tokens": 670,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 635,
+      "completion_tokens": 81,
+      "total_tokens": 716,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 840,
+      "completion_tokens": 203,
+      "total_tokens": 1043,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0119",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 595,
+      "completion_tokens": 60,
+      "total_tokens": 655,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 399,
+    "majority_vote_total_tokens": 1179,
+    "scrd_total_tokens": 5682,
+    "scrd_prompt_tokens": 4973,
+    "scrd_completion_tokens": 709,
+    "agent_total_tokens": 3243,
+    "recorder_total_tokens": 1784,
+    "evaluator_total_tokens": 655,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

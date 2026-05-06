@@ -1,0 +1,213 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3280",
+        "2652",
+        "1755"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate daily savings, then annual savings for both Sally and Bob.",
+          "claim_type": "support",
+          "related_answer": "3280"
+        },
+        {
+          "text": "Calculate daily savings, then annual savings for both.",
+          "claim_type": "support",
+          "related_answer": "2652"
+        },
+        {
+          "text": "Total days in a year is 365, multiply daily earnings by days, halve for savings, then sum.",
+          "claim_type": "support",
+          "related_answer": "1755"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "Daily savings, then annualize",
+        "365 days * daily earnings / 2 = annual savings"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "3480",
+        "3280",
+        "3280"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correcting the previous answer due to an incorrect number of days in a year.",
+          "claim_type": "rebuttal",
+          "related_answer": "3480"
+        },
+        {
+          "text": "Reviewing the calculation method to ensure accuracy, following mainstream support.",
+          "claim_type": "explanation",
+          "related_answer": "3280"
+        },
+        {
+          "text": "Updating the answer to include both Sally and Bob's savings.",
+          "claim_type": "constraint",
+          "related_answer": "3280"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Divergence between the mainstream support's answer of 3280 and the previous answer of 1755.",
+          "why_still_open": "The previous answer did not account for both individuals' contributions.",
+          "involved_answers": [
+            "1755",
+            "3280"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50/60*12=10",
+        "50 min < 1 hr -> pay < $12",
+        "Daily savings, then annualize",
+        "365 days * daily earnings / 2 = annual savings",
+        "Apr=48, May=24, Total=72"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 379,
+      "completion_tokens": 37,
+      "total_tokens": 416,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 366,
+      "completion_tokens": 34,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 377,
+      "completion_tokens": 53,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0093",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 612,
+      "completion_tokens": 239,
+      "total_tokens": 851,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 646,
+      "completion_tokens": 126,
+      "total_tokens": 772,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 643,
+      "completion_tokens": 110,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 657,
+      "completion_tokens": 160,
+      "total_tokens": 817,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1183,
+      "completion_tokens": 311,
+      "total_tokens": 1494,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0093",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 698,
+      "completion_tokens": 58,
+      "total_tokens": 756,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 416,
+    "majority_vote_total_tokens": 1246,
+    "scrd_total_tokens": 6689,
+    "scrd_prompt_tokens": 5561,
+    "scrd_completion_tokens": 1128,
+    "agent_total_tokens": 3588,
+    "recorder_total_tokens": 2345,
+    "evaluator_total_tokens": 756,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

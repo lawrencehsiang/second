@@ -1,0 +1,208 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "2",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve for x in (3+x)/(5+x) = 5/6.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Add x to both the numerator and denominator.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "The equation leads to solving for x.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x = 3",
+        "(3+3)/(5+3) = 6/8 = 5/6",
+        "Add 3 to both sides of the equation.",
+        "Solve for x in the equation.",
+        "Result: x = 3"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "9",
+        "not 9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Verify if x=9 solves the equation (3+x)/(5+x) = 5/6.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Adding 9 to both parts of 3/5 does not yield 5/6.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Answer 9 vs not 9.",
+          "why_still_open": "Verification of x=9 is pending.",
+          "involved_answers": [
+            "9",
+            "not 9"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Solving (3+x)/(5+x) = 5/6 yields x = 9.",
+        "Check if x=9 satisfies (3+x)/(5+x) = 5/6.",
+        "(3+9)/(5+9) = 12/14 ≠ 5/6",
+        "Previous answer of 2 was incorrect.",
+        "Verify correctness of x=9."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 348,
+      "completion_tokens": 45,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 335,
+      "completion_tokens": 38,
+      "total_tokens": 373,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 346,
+      "completion_tokens": 33,
+      "total_tokens": 379,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 592,
+      "completion_tokens": 205,
+      "total_tokens": 797,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 614,
+      "completion_tokens": 122,
+      "total_tokens": 736,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 611,
+      "completion_tokens": 106,
+      "total_tokens": 717,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 625,
+      "completion_tokens": 143,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1108,
+      "completion_tokens": 262,
+      "total_tokens": 1370,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0130",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 623,
+      "completion_tokens": 48,
+      "total_tokens": 671,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 393,
+    "majority_vote_total_tokens": 1145,
+    "scrd_total_tokens": 6204,
+    "scrd_prompt_tokens": 5202,
+    "scrd_completion_tokens": 1002,
+    "agent_total_tokens": 3366,
+    "recorder_total_tokens": 2167,
+    "evaluator_total_tokens": 671,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

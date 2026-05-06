@@ -1,0 +1,195 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "140",
+        "75",
+        "65"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Summing individual flower counts gives the total.",
+          "claim_type": "constraint",
+          "related_answer": "140"
+        },
+        {
+          "text": "Separate calculations for purple and green flowers before summing.",
+          "claim_type": "explanation",
+          "related_answer": "75"
+        },
+        {
+          "text": "Use percentages to calculate the number of purple and green flowers.",
+          "claim_type": "support",
+          "related_answer": "65"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Purple + Green = Total",
+        "Calculate by percentage",
+        "Sum separate results"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "145",
+        "140",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Correctly calculate by considering separate proportions of purple and green flowers.",
+          "claim_type": "support",
+          "related_answer": "145"
+        },
+        {
+          "text": "Update the mainstream support to include proper calculations.",
+          "claim_type": "rebuttal",
+          "related_answer": "75"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Purple and green separately + yellow = Total",
+        "Proper proportions used",
+        "Sum after separate calculations"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 42,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 31,
+      "total_tokens": 393,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 40,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 168,
+      "total_tokens": 764,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 638,
+      "completion_tokens": 124,
+      "total_tokens": 762,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 634,
+      "completion_tokens": 119,
+      "total_tokens": 753,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 648,
+      "completion_tokens": 129,
+      "total_tokens": 777,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1071,
+      "completion_tokens": 137,
+      "total_tokens": 1208,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 632,
+      "completion_tokens": 57,
+      "total_tokens": 689,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 417,
+    "majority_vote_total_tokens": 1223,
+    "scrd_total_tokens": 6176,
+    "scrd_prompt_tokens": 5329,
+    "scrd_completion_tokens": 847,
+    "agent_total_tokens": 3515,
+    "recorder_total_tokens": 1972,
+    "evaluator_total_tokens": 689,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

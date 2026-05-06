@@ -1,0 +1,190 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "380",
+        "280",
+        "280"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Paddington has 180 goats.",
+          "claim_type": "support",
+          "related_answer": "280"
+        },
+        {
+          "text": "Washington has 140 goats.",
+          "claim_type": "support",
+          "related_answer": "280"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Paddington's goats = 40 + 140 = 180",
+        "Washington's goats = 140",
+        "Total goats = 180 + 140 = 320"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "280",
+        "320",
+        "320"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Paddington has 180 goats, which is 40 more than Washington's 140 goats.",
+          "claim_type": "support",
+          "related_answer": "280"
+        },
+        {
+          "text": "The total number of goats in both places is 320.",
+          "claim_type": "support",
+          "related_answer": "320"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Paddington's goats = 140 + 40 = 180",
+        "Washington's goats = 140",
+        "Total goats = 180 + 140 = 320"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 39,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 49,
+      "total_tokens": 375,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 49,
+      "total_tokens": 386,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 616,
+      "completion_tokens": 158,
+      "total_tokens": 774,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 600,
+      "completion_tokens": 135,
+      "total_tokens": 735,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 597,
+      "completion_tokens": 115,
+      "total_tokens": 712,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 611,
+      "completion_tokens": 171,
+      "total_tokens": 782,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1129,
+      "completion_tokens": 179,
+      "total_tokens": 1308,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0106",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 616,
+      "completion_tokens": 47,
+      "total_tokens": 663,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 378,
+    "majority_vote_total_tokens": 1139,
+    "scrd_total_tokens": 6113,
+    "scrd_prompt_tokens": 5171,
+    "scrd_completion_tokens": 942,
+    "agent_total_tokens": 3368,
+    "recorder_total_tokens": 2082,
+    "evaluator_total_tokens": 663,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

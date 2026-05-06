@@ -1,0 +1,196 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "180",
+        "210",
+        "210"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate each person's spending separately then sum.",
+          "claim_type": "explanation",
+          "related_answer": "180"
+        },
+        {
+          "text": "Calculate Lisa's spending first, then Carly's, and sum them up.",
+          "claim_type": "support",
+          "related_answer": "210"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each person's spending is calculated separately then summed.",
+        "Lisa's and Carly's spending are calculated first, then summed.",
+        "Total spending is 210."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "210",
+        "255",
+        "210"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking calculations to ensure accuracy.",
+          "claim_type": "explanation",
+          "related_answer": "255"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The mainstream support's answer of $210 differs from the agents' answers of $210 and $255.",
+          "why_still_open": "Further verification is needed to reconcile the differing answers.",
+          "involved_answers": [
+            "210",
+            "255"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total spending is recalculated for verification.",
+        "Lisa and Carly's individual spending is being calculated.",
+        "Mainstream support suggests a total of $210.",
+        "Agent B's answer is $255, requiring recheck.",
+        "Summing individual expenditures to verify accuracy."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 385,
+      "completion_tokens": 32,
+      "total_tokens": 417,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 372,
+      "completion_tokens": 38,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 383,
+      "completion_tokens": 41,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 151,
+      "total_tokens": 747,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 652,
+      "completion_tokens": 116,
+      "total_tokens": 768,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 649,
+      "completion_tokens": 101,
+      "total_tokens": 750,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 663,
+      "completion_tokens": 117,
+      "total_tokens": 780,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1019,
+      "completion_tokens": 205,
+      "total_tokens": 1224,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0183",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 629,
+      "completion_tokens": 57,
+      "total_tokens": 686,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 417,
+    "majority_vote_total_tokens": 1251,
+    "scrd_total_tokens": 6206,
+    "scrd_prompt_tokens": 5348,
+    "scrd_completion_tokens": 858,
+    "agent_total_tokens": 3549,
+    "recorder_total_tokens": 1971,
+    "evaluator_total_tokens": 686,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

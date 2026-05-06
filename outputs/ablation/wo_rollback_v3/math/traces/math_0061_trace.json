@@ -1,0 +1,210 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "67",
+        "293",
+        "67"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Using (x-y)^2 formula to derive x^2 + y^2.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Square the first equation and subtract 2*xy to get the second equation.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Apply (x^2 + y^2) = (x - y)^2 + 2xy to solve.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods to derive x^2 + y^2.",
+          "why_still_open": "Agents used different identities but both claim to solve the problem.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Using (x-y)^2 = x^2 + y^2 - 2xy",
+        "Square first eq and subtract 2*xy",
+        "(x^2 + y^2) = (x - y)^2 + 2xy"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "67",
+        "293",
+        "67"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Both methods should yield the same result for x^2 + y^2.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods to derive x^2 + y^2.",
+          "why_still_open": "Agents resolved their methods but have not directly compared results.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "(x-y)^2 = x^2 + y^2 - 2xy",
+        "Square first equation and subtract 2*xy",
+        "Using (x-y)^2 = x^2 + y^2 - 2xy"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 338,
+      "completion_tokens": 57,
+      "total_tokens": 395,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 325,
+      "completion_tokens": 34,
+      "total_tokens": 359,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 336,
+      "completion_tokens": 49,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 620,
+      "completion_tokens": 283,
+      "total_tokens": 903,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 802,
+      "completion_tokens": 96,
+      "total_tokens": 898,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 800,
+      "completion_tokens": 105,
+      "total_tokens": 905,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 813,
+      "completion_tokens": 126,
+      "total_tokens": 939,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1162,
+      "completion_tokens": 192,
+      "total_tokens": 1354,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0061",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 570,
+      "completion_tokens": 52,
+      "total_tokens": 622,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 395,
+    "majority_vote_total_tokens": 1139,
+    "scrd_total_tokens": 6760,
+    "scrd_prompt_tokens": 5766,
+    "scrd_completion_tokens": 994,
+    "agent_total_tokens": 3881,
+    "recorder_total_tokens": 2257,
+    "evaluator_total_tokens": 622,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

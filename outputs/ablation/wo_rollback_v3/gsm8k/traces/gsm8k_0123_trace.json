@@ -1,0 +1,301 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "32",
+        "96",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each of the 40 chairs can seat 2 people.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Unoccupied chairs amount to 24 out of 80 total seats.",
+          "claim_type": "support",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent B and C's answer of 96 does not align with A's and C's explanation of 32.",
+          "why_still_open": "Different calculations leading to conflicting results.",
+          "involved_answers": [
+            "96",
+            "32"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "40 chairs * 2 people/chair = 80 total seats",
+        "2/5 unoccupied chairs = 24 empty chairs",
+        "80 total seats - 24 empty chairs = 56 occupied chairs",
+        "56 occupied chairs * 2 people/chair = 112 total attendees",
+        "2/5 unoccupied -> 3/5 occupied"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "32",
+        "32",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct number of board members attending is 32.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Calculating based on occupied chairs leads to 32 attendees.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "40 chairs * 2 people/chair = 80 total seats",
+        "2/5 unoccupied chairs = 24 empty chairs",
+        "64 occupied chairs * 2 people/chair = 128 total attendees (corrected)",
+        "3/5 occupied -> 64 occupied chairs",
+        "Correct answer: 32 attendees"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "32",
+        "48",
+        "32"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The correct number of board members attending is 48, calculated as 3/5 of 40 chairs times 2 people per chair.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The previous answer of 32 was incorrect because it did not account for the full number of occupied chairs.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A's answer of 32 does not align with the corrected calculations by Agents B and C.",
+          "why_still_open": "Agent A is re-evaluating the problem but has not yet updated the answer.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "40 chairs * 2 people/chair = 80 total seats",
+        "2/5 unoccupied chairs = 24 empty chairs",
+        "3/5 occupied chairs = 64 chairs",
+        "64 chairs * 2 people/chair = 128 total attendees (incorrect)",
+        "Correct answer: 48 attendees"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 386,
+      "completion_tokens": 74,
+      "total_tokens": 460,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 373,
+      "completion_tokens": 32,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 384,
+      "completion_tokens": 40,
+      "total_tokens": 424,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 628,
+      "completion_tokens": 267,
+      "total_tokens": 895,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 762,
+      "completion_tokens": 184,
+      "total_tokens": 946,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 759,
+      "completion_tokens": 123,
+      "total_tokens": 882,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 773,
+      "completion_tokens": 165,
+      "total_tokens": 938,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1296,
+      "completion_tokens": 190,
+      "total_tokens": 1486,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 669,
+      "completion_tokens": 56,
+      "total_tokens": 725,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 758,
+      "completion_tokens": 112,
+      "total_tokens": 870,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 755,
+      "completion_tokens": 178,
+      "total_tokens": 933,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 769,
+      "completion_tokens": 96,
+      "total_tokens": 865,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1120,
+      "completion_tokens": 289,
+      "total_tokens": 1409,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0123",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 692,
+      "completion_tokens": 46,
+      "total_tokens": 738,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 460,
+    "majority_vote_total_tokens": 1289,
+    "scrd_total_tokens": 11976,
+    "scrd_prompt_tokens": 10124,
+    "scrd_completion_tokens": 1852,
+    "agent_total_tokens": 6723,
+    "recorder_total_tokens": 3790,
+    "evaluator_total_tokens": 1463,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

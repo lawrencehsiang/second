@@ -1,0 +1,213 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "3.0",
+        "4",
+        "3"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Substituting x=2 and y=5 into the formula gives 3.0.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The result of substituting x and y is 4.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Direct substitution yields 3.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents provide different results: 3.0, 4, and 3.",
+          "why_still_open": "Insufficient agreement on the correct computation.",
+          "involved_answers": [
+            "3.0",
+            "4",
+            "3"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x=2, y=5 -> 3.0",
+        "x, y -> 4",
+        "x, y -> 3"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "11",
+        "3.0",
+        "3.0"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The substitution of x=2 and y=5 into the formula \\(\\frac{x^4 + 2y^2}{6}\\) yields 11.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The correct value based on the formula is 3.0, derived from substituting x=2 and y=5.",
+          "claim_type": "support",
+          "related_answer": "B, C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents disagree on the correct value: 11 vs 3.0.",
+          "why_still_open": "Disagreement on the accuracy of the calculated value.",
+          "involved_answers": [
+            "11",
+            "3.0"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x=2, y=5 -> 11",
+        "x=2, y=5 -> 3.0"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 346,
+      "completion_tokens": 39,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 333,
+      "completion_tokens": 33,
+      "total_tokens": 366,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 344,
+      "completion_tokens": 32,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 579,
+      "completion_tokens": 243,
+      "total_tokens": 822,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 719,
+      "completion_tokens": 196,
+      "total_tokens": 915,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 714,
+      "completion_tokens": 139,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 728,
+      "completion_tokens": 127,
+      "total_tokens": 855,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1264,
+      "completion_tokens": 238,
+      "total_tokens": 1502,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0006",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 678,
+      "completion_tokens": 56,
+      "total_tokens": 734,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 385,
+    "majority_vote_total_tokens": 1127,
+    "scrd_total_tokens": 6808,
+    "scrd_prompt_tokens": 5705,
+    "scrd_completion_tokens": 1103,
+    "agent_total_tokens": 3750,
+    "recorder_total_tokens": 2324,
+    "evaluator_total_tokens": 734,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,209 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "4194",
+        "1920",
+        "960"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate cost for each category and sum.",
+          "claim_type": "support",
+          "related_answer": "4194"
+        },
+        {
+          "text": "Calculate cost for each group and sum.",
+          "claim_type": "support",
+          "related_answer": "1920"
+        },
+        {
+          "text": "Cost breakdown: 80 games at $12, 50% of remaining at $7, and the rest at $3.",
+          "claim_type": "support",
+          "related_answer": "960"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total cost = 4194 + 1920 + 960",
+        "Cost per game: $12 for 80, $7 for 50% of remainder, $3 for the rest",
+        "Summing up costs from different categories/groups"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "2694",
+        "960",
+        "2290"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking the quantities and calculations reveals the correct total cost.",
+          "claim_type": "rebuttal",
+          "related_answer": "2694"
+        },
+        {
+          "text": "The mainstream support correctly breaks down the costs.",
+          "claim_type": "support",
+          "related_answer": "960"
+        },
+        {
+          "text": "Breaking down the costs again: 80 games at $12, half of the remaining at $7, and the rest at $3, resulting in a total of $2290.",
+          "claim_type": "explanation",
+          "related_answer": "2290"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "There is a disagreement on the correct total cost between 960 and 2290.",
+          "why_still_open": "The conflicting answers have not been reconciled yet.",
+          "involved_answers": [
+            "960",
+            "2290"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost recalculated as 2290",
+        "80 games at $12 each, half of the remaining at $7, and the rest at $3",
+        "Previous mainstream support answer of 960 is correct"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0163",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 373,
+      "completion_tokens": 32,
+      "total_tokens": 405,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0163",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 360,
+      "completion_tokens": 32,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0163",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 371,
+      "completion_tokens": 58,
+      "total_tokens": 429,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0163",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 609,
+      "completion_tokens": 226,
+      "total_tokens": 835,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0163",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 655,
+      "completion_tokens": 172,
+      "total_tokens": 827,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0163",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 652,
+      "completion_tokens": 133,
+      "total_tokens": 785,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0163",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 665,
+      "completion_tokens": 160,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0163",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1245,
+      "completion_tokens": 304,
+      "total_tokens": 1549,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0163",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 738,
+      "completion_tokens": 41,
+      "total_tokens": 779,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 405,
+    "majority_vote_total_tokens": 1226,
+    "scrd_total_tokens": 6826,
+    "scrd_prompt_tokens": 5668,
+    "scrd_completion_tokens": 1158,
+    "agent_total_tokens": 3663,
+    "recorder_total_tokens": 2384,
+    "evaluator_total_tokens": 779,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

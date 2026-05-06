@@ -1,0 +1,311 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "7",
+        "7",
+        "6"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate movies per day by converting total time to minutes.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Add Tuesday and Wednesday movie counts.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Double Tuesday's movie count for Wednesday.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different methods to calculate the number of movies.",
+          "why_still_open": "Agents used different approaches leading to conflicting answers.",
+          "involved_answers": [
+            "7",
+            "6"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "7 movies/day * 2 days = 14 movies"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "6",
+        "9",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Selecting the correct method to calculate the number of movies based on total time.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Mainstream approach calculates movies per day correctly.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Doubling Tuesday's count for Wednesday ensures accurate total.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "7 movies/day * 2 days = 14 movies"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "13",
+        "14",
+        "7"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The maximum number of movies over two days totals 13.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "The mainstream support accurately calculates the number of movies per day.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "The minority objection incorrectly suggests 6 movies instead of the correct 7.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "The mainstream support calculates 13 movies, while the key rebuttal suggests 14 movies.",
+          "why_still_open": "The rebuttal's suggestion of 14 movies is not supported by the evidence provided.",
+          "involved_answers": [
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "50 min < 1 hr -> pay < $12",
+        "Apr=48, May=24, Total=72",
+        "7 movies/day * 2 days = 14 movies",
+        "4.5 + 9 = 13.5 movies -> max integer value is 13",
+        "Mainstream support: 7 movies per day"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 401,
+      "completion_tokens": 36,
+      "total_tokens": 437,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 388,
+      "completion_tokens": 39,
+      "total_tokens": 427,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 399,
+      "completion_tokens": 40,
+      "total_tokens": 439,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 242,
+      "total_tokens": 836,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 842,
+      "completion_tokens": 128,
+      "total_tokens": 970,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 839,
+      "completion_tokens": 104,
+      "total_tokens": 943,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 853,
+      "completion_tokens": 118,
+      "total_tokens": 971,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1132,
+      "completion_tokens": 195,
+      "total_tokens": 1327,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 704,
+      "completion_tokens": 45,
+      "total_tokens": 749,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 842,
+      "completion_tokens": 184,
+      "total_tokens": 1026,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 839,
+      "completion_tokens": 149,
+      "total_tokens": 988,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 853,
+      "completion_tokens": 135,
+      "total_tokens": 988,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1195,
+      "completion_tokens": 306,
+      "total_tokens": 1501,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0167",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 721,
+      "completion_tokens": 51,
+      "total_tokens": 772,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 437,
+    "majority_vote_total_tokens": 1303,
+    "scrd_total_tokens": 12374,
+    "scrd_prompt_tokens": 10602,
+    "scrd_completion_tokens": 1772,
+    "agent_total_tokens": 7189,
+    "recorder_total_tokens": 3664,
+    "evaluator_total_tokens": 1521,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

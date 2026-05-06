@@ -1,0 +1,182 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "51",
+        "51",
+        "51"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Total apples ordered minus students wanting fruit equals extra apples.",
+          "claim_type": "support",
+          "related_answer": "A, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "51 apples total",
+        "students want 0 fruits",
+        "51-0=51 extra apples"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "73",
+        "71",
+        "73"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The total number of apples ordered is 75, and 2 students wanted fruit, leading to 73 extra apples.",
+          "claim_type": "support",
+          "related_answer": "A, C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "75 apples total",
+        "2 students wanted fruit",
+        "75 - 2 = 73 extra apples",
+        "43 red + 32 green = 75 apples",
+        "2 students took apples"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 349,
+      "completion_tokens": 36,
+      "total_tokens": 385,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 336,
+      "completion_tokens": 31,
+      "total_tokens": 367,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 347,
+      "completion_tokens": 36,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 582,
+      "completion_tokens": 100,
+      "total_tokens": 682,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 610,
+      "completion_tokens": 156,
+      "total_tokens": 766,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 607,
+      "completion_tokens": 90,
+      "total_tokens": 697,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 621,
+      "completion_tokens": 150,
+      "total_tokens": 771,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1032,
+      "completion_tokens": 139,
+      "total_tokens": 1171,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0029",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 575,
+      "completion_tokens": 39,
+      "total_tokens": 614,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 385,
+    "majority_vote_total_tokens": 1135,
+    "scrd_total_tokens": 5836,
+    "scrd_prompt_tokens": 5059,
+    "scrd_completion_tokens": 777,
+    "agent_total_tokens": 3369,
+    "recorder_total_tokens": 1853,
+    "evaluator_total_tokens": 614,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

@@ -1,0 +1,194 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "6",
+        "18",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Solve the equation using cross-multiplication.",
+          "claim_type": "constraint",
+          "related_answer": "B"
+        },
+        {
+          "text": "The solution involves simplification after cross-multiplication.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x = 6",
+        "18",
+        "x = 9"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "9",
+        "9",
+        "9"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Premature simplification leads to incorrect solutions.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Previous answers (6 and 9) are contradictory.",
+          "why_still_open": "The equation needs to be solved to determine the correct value of x.",
+          "involved_answers": [
+            "6",
+            "9"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "x = 9",
+        "The previous answers (6 and 9) are conflicting",
+        "Premature simplification leads to incorrect solutions."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 349,
+      "completion_tokens": 31,
+      "total_tokens": 380,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 336,
+      "completion_tokens": 32,
+      "total_tokens": 368,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 347,
+      "completion_tokens": 36,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 576,
+      "completion_tokens": 125,
+      "total_tokens": 701,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 607,
+      "completion_tokens": 105,
+      "total_tokens": 712,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 605,
+      "completion_tokens": 117,
+      "total_tokens": 722,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 618,
+      "completion_tokens": 49,
+      "total_tokens": 667,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 927,
+      "completion_tokens": 160,
+      "total_tokens": 1087,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0159",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 564,
+      "completion_tokens": 52,
+      "total_tokens": 616,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 380,
+    "majority_vote_total_tokens": 1131,
+    "scrd_total_tokens": 5636,
+    "scrd_prompt_tokens": 4929,
+    "scrd_completion_tokens": 707,
+    "agent_total_tokens": 3232,
+    "recorder_total_tokens": 1788,
+    "evaluator_total_tokens": 616,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

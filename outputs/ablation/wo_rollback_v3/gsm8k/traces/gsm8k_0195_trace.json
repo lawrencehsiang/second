@@ -1,0 +1,199 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "242",
+        "254",
+        "214"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total cost before rebate, then subtract the rebate.",
+          "claim_type": "support",
+          "related_answer": "242, 214"
+        },
+        {
+          "text": "Calculate total cost of items, then subtract rebate.",
+          "claim_type": "support",
+          "related_answer": "254"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate total cost before rebate, then subtract the rebate.",
+        "Total cost - rebate = final price."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "254",
+        "254",
+        "242"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation for the total cost before the rebate is correct.",
+          "claim_type": "support",
+          "related_answer": "242"
+        },
+        {
+          "text": "The mainstream support's approach is correct: calculate total cost of items and then subtract the rebate.",
+          "claim_type": "support",
+          "related_answer": "254"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between the mainstream support's answer of $254 and the previous answer of $242.",
+          "why_still_open": "Recalculation is needed to resolve the difference.",
+          "involved_answers": [
+            "254",
+            "242"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total cost - rebate = final price.",
+        "Calculate total cost before rebate, then subtract the rebate.",
+        "3 polo shirts at $26 each + 2 necklaces at $83 each + 1 computer game at $90 = $254.",
+        "$254 - $12 rebate = $242."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0195",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 387,
+      "completion_tokens": 34,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0195",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 374,
+      "completion_tokens": 33,
+      "total_tokens": 407,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0195",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 385,
+      "completion_tokens": 36,
+      "total_tokens": 421,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0195",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 588,
+      "completion_tokens": 138,
+      "total_tokens": 726,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0195",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 649,
+      "completion_tokens": 120,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0195",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 646,
+      "completion_tokens": 52,
+      "total_tokens": 698,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0195",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 660,
+      "completion_tokens": 164,
+      "total_tokens": 824,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0195",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1008,
+      "completion_tokens": 265,
+      "total_tokens": 1273,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0195",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 686,
+      "completion_tokens": 43,
+      "total_tokens": 729,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 421,
+    "majority_vote_total_tokens": 1249,
+    "scrd_total_tokens": 6268,
+    "scrd_prompt_tokens": 5383,
+    "scrd_completion_tokens": 885,
+    "agent_total_tokens": 3540,
+    "recorder_total_tokens": 1999,
+    "evaluator_total_tokens": 729,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

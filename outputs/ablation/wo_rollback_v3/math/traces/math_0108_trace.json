@@ -1,0 +1,204 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "15",
+        "18",
+        "15"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate total points from successful three-point and two-point shots.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Total points = 3*3 + 2*6 = 15",
+        "Points per shot type: 3-point = 3, 2-point = 2",
+        "Number of successful shots: 3-point = 3, 2-point = 6",
+        "Total shots = 3 + 6 = 9",
+        "50% of shots were 2-pointers"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "24",
+        "15",
+        "12"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate the total points based on updated success rates and shot attempts.",
+          "claim_type": "constraint",
+          "related_answer": "A"
+        },
+        {
+          "text": "Re-evaluate the number of successful shots contributing to the total points.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the correctness of the mainstream support's answer of 15 points.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different agents have proposed answers of 24, 15, and 12 points.",
+          "why_still_open": "No agreement on the correct calculation method or values for successful shots.",
+          "involved_answers": [
+            "24",
+            "15",
+            "12"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Total points = 3*4 + 2*6 = 24",
+        "Points per shot type: 3-point = 3, 2-point = 2",
+        "Number of successful shots: 3-point = 4, 2-point = 6",
+        "Previous mainstream answer: Total points = 3*3 + 2*6 = 15",
+        "Verification needed: Check the correctness of the mainstream answer."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 375,
+      "completion_tokens": 33,
+      "total_tokens": 408,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 362,
+      "completion_tokens": 30,
+      "total_tokens": 392,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 373,
+      "completion_tokens": 38,
+      "total_tokens": 411,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 583,
+      "completion_tokens": 160,
+      "total_tokens": 743,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 637,
+      "completion_tokens": 117,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 634,
+      "completion_tokens": 104,
+      "total_tokens": 738,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 648,
+      "completion_tokens": 100,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1009,
+      "completion_tokens": 324,
+      "total_tokens": 1333,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 702,
+      "completion_tokens": 50,
+      "total_tokens": 752,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 408,
+    "majority_vote_total_tokens": 1211,
+    "scrd_total_tokens": 6279,
+    "scrd_prompt_tokens": 5323,
+    "scrd_completion_tokens": 956,
+    "agent_total_tokens": 3451,
+    "recorder_total_tokens": 2076,
+    "evaluator_total_tokens": 752,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

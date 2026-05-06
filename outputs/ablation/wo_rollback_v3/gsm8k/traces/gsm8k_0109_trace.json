@@ -1,0 +1,199 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "63",
+        "378",
+        "63"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate the cost of each type of pill separately, then sum the totals.",
+          "claim_type": "support",
+          "related_answer": "63"
+        },
+        {
+          "text": "Calculate total cost for each type of pill then sum them up.",
+          "claim_type": "support",
+          "related_answer": "378"
+        },
+        {
+          "text": "Calculated total cost of both types of pills separately then summed.",
+          "claim_type": "support",
+          "related_answer": "63"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate the cost of each type of pill separately, then sum the totals.",
+        "Calculate total cost for each type of pill then sum them up.",
+        "Calculated total cost of both types of pills separately then summed."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "105",
+        "63",
+        "63"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The previous answer of 63 was recalculated using the correct pricing and confirmed to be accurate.",
+          "claim_type": "support",
+          "related_answer": "63"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent A suggested updating to 105, while Agents B and C maintained the correctness of 63.",
+          "why_still_open": "Agents B and C provided detailed calculations supporting 63, but Agent A's suggestion was based on perceived discrepancies in pricing.",
+          "involved_answers": [
+            "105",
+            "63"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "The previous answer of 63 was recalculated using the correct pricing and confirmed to be accurate.",
+        "The mainstream support approach correctly calculates the cost of each type of pill separately and sums them up.",
+        "(4 pills * $1.50) + (5 pills * ($1.50 + $5.50)) = $63."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 364,
+      "completion_tokens": 37,
+      "total_tokens": 401,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 351,
+      "completion_tokens": 36,
+      "total_tokens": 387,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 362,
+      "completion_tokens": 38,
+      "total_tokens": 400,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 594,
+      "completion_tokens": 202,
+      "total_tokens": 796,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 629,
+      "completion_tokens": 51,
+      "total_tokens": 680,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 627,
+      "completion_tokens": 60,
+      "total_tokens": 687,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 640,
+      "completion_tokens": 84,
+      "total_tokens": 724,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 927,
+      "completion_tokens": 240,
+      "total_tokens": 1167,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0109",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 612,
+      "completion_tokens": 40,
+      "total_tokens": 652,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 401,
+    "majority_vote_total_tokens": 1188,
+    "scrd_total_tokens": 5894,
+    "scrd_prompt_tokens": 5106,
+    "scrd_completion_tokens": 788,
+    "agent_total_tokens": 3279,
+    "recorder_total_tokens": 1963,
+    "evaluator_total_tokens": 652,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

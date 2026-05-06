@@ -1,0 +1,194 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "137",
+        "148",
+        "97"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Calculate daily car traffic and sum them up.",
+          "claim_type": "support",
+          "related_answer": "137"
+        },
+        {
+          "text": "Sum daily car counts from Monday to Sunday.",
+          "claim_type": "support",
+          "related_answer": "148"
+        },
+        {
+          "text": "Calculated daily totals and summed them.",
+          "claim_type": "support",
+          "related_answer": "97"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate daily car traffic and sum them up.",
+        "Sum daily car counts from Monday to Sunday.",
+        "Calculated daily totals and summed them."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "137",
+        "97",
+        "97"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The detailed breakdown of the cars sums up to 137.",
+          "claim_type": "support",
+          "related_answer": "137"
+        },
+        {
+          "text": "The previous answer of 148 was incorrect.",
+          "claim_type": "rebuttal",
+          "related_answer": "148"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "The detailed breakdown of the cars sums up to 137.",
+        "The previous answer of 148 was incorrect."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 399,
+      "completion_tokens": 32,
+      "total_tokens": 431,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 386,
+      "completion_tokens": 32,
+      "total_tokens": 418,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 397,
+      "completion_tokens": 33,
+      "total_tokens": 430,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 581,
+      "completion_tokens": 173,
+      "total_tokens": 754,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 658,
+      "completion_tokens": 128,
+      "total_tokens": 786,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 655,
+      "completion_tokens": 114,
+      "total_tokens": 769,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 668,
+      "completion_tokens": 34,
+      "total_tokens": 702,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 996,
+      "completion_tokens": 145,
+      "total_tokens": 1141,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0108",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 660,
+      "completion_tokens": 51,
+      "total_tokens": 711,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 431,
+    "majority_vote_total_tokens": 1279,
+    "scrd_total_tokens": 6142,
+    "scrd_prompt_tokens": 5400,
+    "scrd_completion_tokens": 742,
+    "agent_total_tokens": 3536,
+    "recorder_total_tokens": 1895,
+    "evaluator_total_tokens": 711,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

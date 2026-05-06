@@ -1,0 +1,315 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "60",
+        "60",
+        "55"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Each cat's meows per minute summed over 5 minutes.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C provide different answers.",
+          "why_still_open": "The calculation methods differ among agents.",
+          "involved_answers": [
+            "60",
+            "55"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "3 meows/min + 6 meows/min + 2 meows/min = 11 meows/min",
+        "11 meows/min * 5 min = 55 meows",
+        "55 meows",
+        "60 meows"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "120",
+        "90",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the frequency of each cat's meows and calculate the total over 5 minutes.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revised the calculation method to match the given frequencies more accurately.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Rechecking the frequency calculations and ensuring unit consistency.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C provide different answers.",
+          "why_still_open": "Disagreement on the correct method for evaluating the frequency of meows.",
+          "involved_answers": [
+            "120",
+            "90",
+            "100"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "3 meows/min + 6 meows/min + 2 meows/min = 11 meows/min",
+        "11 meows/min * 5 min = 55 meows",
+        "55 meows",
+        "120 meows",
+        "100 meows"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "55",
+        "60",
+        "75"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recalculate based on the given frequencies of meows per minute.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "Adjust the calculation method to better fit the provided frequencies.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Verify the frequency calculations and ensure unit consistency.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agents A, B, and C provide different answers.",
+          "why_still_open": "Disagreement on the correct total number of meows over 5 minutes.",
+          "involved_answers": [
+            "55",
+            "60",
+            "75"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "First cat = 3 meows/min, Second cat = 6 meows/min, Third cat = 2 meows/min.",
+        "Total per minute = 11 meows.",
+        "Over 5 minutes = 55 meows.",
+        "Total meows in 5 minutes: (3+6+2)*5=75.",
+        "11 meows/min * 5 min = 55 meows."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 385,
+      "completion_tokens": 38,
+      "total_tokens": 423,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 372,
+      "completion_tokens": 38,
+      "total_tokens": 410,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 383,
+      "completion_tokens": 78,
+      "total_tokens": 461,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 636,
+      "completion_tokens": 194,
+      "total_tokens": 830,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 744,
+      "completion_tokens": 95,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 741,
+      "completion_tokens": 84,
+      "total_tokens": 825,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 755,
+      "completion_tokens": 88,
+      "total_tokens": 843,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1009,
+      "completion_tokens": 295,
+      "total_tokens": 1304,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 705,
+      "completion_tokens": 41,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 844,
+      "completion_tokens": 152,
+      "total_tokens": 996,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 840,
+      "completion_tokens": 101,
+      "total_tokens": 941,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 855,
+      "completion_tokens": 143,
+      "total_tokens": 998,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1229,
+      "completion_tokens": 311,
+      "total_tokens": 1540,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0128",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 695,
+      "completion_tokens": 48,
+      "total_tokens": 743,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 423,
+    "majority_vote_total_tokens": 1294,
+    "scrd_total_tokens": 11899,
+    "scrd_prompt_tokens": 10193,
+    "scrd_completion_tokens": 1706,
+    "agent_total_tokens": 6736,
+    "recorder_total_tokens": 3674,
+    "evaluator_total_tokens": 1489,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

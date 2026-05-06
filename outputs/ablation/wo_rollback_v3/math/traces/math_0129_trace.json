@@ -1,0 +1,180 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "10",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum of a geometric series where each term is half the previous.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each bounce halves the height.",
+        "Height after n bounces: 1000 * (1/2)^n.",
+        "Sum until total height < 1 ft."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "10",
+        "10",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute using the formula for the sum of a geometric series.",
+          "claim_type": "constraint",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Each bounce halves the height.",
+        "Height after n bounces: 1000 * (1/2)^n.",
+        "Sum until total height < 1 ft."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 354,
+      "completion_tokens": 52,
+      "total_tokens": 406,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 341,
+      "completion_tokens": 43,
+      "total_tokens": 384,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 352,
+      "completion_tokens": 61,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 635,
+      "completion_tokens": 113,
+      "total_tokens": 748,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 617,
+      "completion_tokens": 43,
+      "total_tokens": 660,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 614,
+      "completion_tokens": 47,
+      "total_tokens": 661,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 628,
+      "completion_tokens": 131,
+      "total_tokens": 759,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 878,
+      "completion_tokens": 113,
+      "total_tokens": 991,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0129",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 565,
+      "completion_tokens": 60,
+      "total_tokens": 625,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 406,
+    "majority_vote_total_tokens": 1203,
+    "scrd_total_tokens": 5647,
+    "scrd_prompt_tokens": 4984,
+    "scrd_completion_tokens": 663,
+    "agent_total_tokens": 3283,
+    "recorder_total_tokens": 1739,
+    "evaluator_total_tokens": 625,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

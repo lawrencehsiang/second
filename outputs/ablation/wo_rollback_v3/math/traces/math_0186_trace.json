@@ -1,0 +1,210 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-9",
+        "7",
+        "10"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Factorizing the quadratic expression yields solutions for A and B.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "The factorized form provides a clear path to solving for A and B.",
+          "claim_type": "explanation",
+          "related_answer": "B"
+        },
+        {
+          "text": "Direct calculation from the factored form gives the answer.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Factorize the quadratic expression and solve for A and B.",
+        "The factored form of the quadratic expression.",
+        "Direct calculation from the factored form."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "48",
+        "12",
+        "16"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Factorization of the quadratic expression results in A = 6 and B = 7.",
+          "claim_type": "explanation",
+          "related_answer": "A"
+        },
+        {
+          "text": "Revised factorization leads to A = 3 and B = 2, resulting in AB + A = 12.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        },
+        {
+          "text": "Correct factorization yields A = 4 and B = 3, leading to AB + A = 16.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different factorizations lead to different answers for A and B.",
+          "why_still_open": "The factorization method is still debated among agents.",
+          "involved_answers": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Factorize the quadratic expression to find A = 6 and B = 7.",
+        "Revised factorization gives A = 3 and B = 2.",
+        "Correct factorization yields A = 4 and B = 3."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0186",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 359,
+      "completion_tokens": 35,
+      "total_tokens": 394,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 346,
+      "completion_tokens": 32,
+      "total_tokens": 378,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 357,
+      "completion_tokens": 33,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 577,
+      "completion_tokens": 186,
+      "total_tokens": 763,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 619,
+      "completion_tokens": 127,
+      "total_tokens": 746,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 616,
+      "completion_tokens": 63,
+      "total_tokens": 679,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 631,
+      "completion_tokens": 159,
+      "total_tokens": 790,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1077,
+      "completion_tokens": 290,
+      "total_tokens": 1367,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0186",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 701,
+      "completion_tokens": 42,
+      "total_tokens": 743,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 394,
+    "majority_vote_total_tokens": 1162,
+    "scrd_total_tokens": 6250,
+    "scrd_prompt_tokens": 5283,
+    "scrd_completion_tokens": 967,
+    "agent_total_tokens": 3377,
+    "recorder_total_tokens": 2130,
+    "evaluator_total_tokens": 743,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

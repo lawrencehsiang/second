@@ -1,0 +1,286 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "-7a + 3b",
+        "-14",
+        "-25"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "-7a + 3b",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "-25",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Different contributions to x^2 term.",
+          "why_still_open": "Agents A and C provided different values for the x^2 term coefficient.",
+          "involved_answers": [
+            "-7a + 3b",
+            "-25"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Terms contributing to x^2: ax^3 * (-7x) and 3x^2 * bx^2",
+        "Terms contributing to x^2: ax^3 * (-7x) and 3x^2 * (-4)",
+        "-14 (calculated from multiplying terms)"
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "-7a + 3b",
+        "-14",
+        "14 + 3b"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The x^2 term arises from the product of -2x and -7x, which gives 14x^2, and the product of 3x^2 and b, which gives 3bx^2. Summing these contributions yields 14 + 3b.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Terms contributing to x^2: -2x * -7x and 3x^2 * b",
+        "Summing contributions: 14x^2 + 3bx^2 = 14 + 3b",
+        "-14 (calculated from multiplying terms)"
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "14 + 3b",
+        "14 + 3b",
+        "14 + 3b"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The minority answer -14 is incorrect as it does not align with the contributions from -2x * -7x and 3x^2 * b.",
+          "claim_type": "rebuttal",
+          "related_answer": "B"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "x^2 term contributions: -2x * -7x and 3x^2 * b",
+        "Sum: 14x^2 + 3bx^2 = 14 + 3b",
+        "Minority answer -14 is incorrect"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 354,
+      "completion_tokens": 66,
+      "total_tokens": 420,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 341,
+      "completion_tokens": 36,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 352,
+      "completion_tokens": 57,
+      "total_tokens": 409,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 639,
+      "completion_tokens": 293,
+      "total_tokens": 932,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 639,
+      "completion_tokens": 223,
+      "total_tokens": 862,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 720,
+      "completion_tokens": 119,
+      "total_tokens": 839,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 713,
+      "completion_tokens": 110,
+      "total_tokens": 823,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 727,
+      "completion_tokens": 149,
+      "total_tokens": 876,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1169,
+      "completion_tokens": 183,
+      "total_tokens": 1352,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 636,
+      "completion_tokens": 54,
+      "total_tokens": 690,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 874,
+      "completion_tokens": 156,
+      "total_tokens": 1030,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 867,
+      "completion_tokens": 242,
+      "total_tokens": 1109,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 885,
+      "completion_tokens": 190,
+      "total_tokens": 1075,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1313,
+      "completion_tokens": 155,
+      "total_tokens": 1468,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0014",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 605,
+      "completion_tokens": 45,
+      "total_tokens": 650,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 420,
+    "majority_vote_total_tokens": 1206,
+    "scrd_total_tokens": 12912,
+    "scrd_prompt_tokens": 10834,
+    "scrd_completion_tokens": 2078,
+    "agent_total_tokens": 6958,
+    "recorder_total_tokens": 4614,
+    "evaluator_total_tokens": 1340,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

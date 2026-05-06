@@ -1,0 +1,198 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "86",
+        "88",
+        "86"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Sum the number of kids allowed from each school.",
+          "claim_type": "constraint",
+          "related_answer": "88"
+        },
+        {
+          "text": "Calculate the number of kids allowed at each school and sum them.",
+          "claim_type": "explanation",
+          "related_answer": "86"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Calculate the number of kids from each school who were allowed in and sum them up.",
+        "Calculate the number of kids allowed from each school and sum them up."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "89",
+        "86",
+        "74"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Recompute the number of kids allowed at each school and sum them.",
+          "claim_type": "rebuttal",
+          "related_answer": "89"
+        },
+        {
+          "text": "The previous answer of 88 does not align with the mainstream support's answer of 86; a recheck is needed.",
+          "claim_type": "rebuttal",
+          "related_answer": "86"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Discrepancy between answers 86 and 88 regarding the number of kids allowed into the movie.",
+          "why_still_open": "A recheck is needed but details on how to reconcile the difference are unclear.",
+          "involved_answers": [
+            "86",
+            "88"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Calculate the number of kids from each school who were allowed in and sum them up.",
+        "Recompute the number of kids allowed at each school and sum them.",
+        "The previous answer of 88 does not align with the mainstream support's answer of 86."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "gsm8k_0141",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 376,
+      "completion_tokens": 39,
+      "total_tokens": 415,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0141",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 363,
+      "completion_tokens": 39,
+      "total_tokens": 402,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0141",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 374,
+      "completion_tokens": 39,
+      "total_tokens": 413,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0141",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 146,
+      "total_tokens": 742,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0141",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 639,
+      "completion_tokens": 113,
+      "total_tokens": 752,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0141",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 636,
+      "completion_tokens": 143,
+      "total_tokens": 779,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0141",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 650,
+      "completion_tokens": 56,
+      "total_tokens": 706,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0141",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 986,
+      "completion_tokens": 263,
+      "total_tokens": 1249,
+      "extra": {}
+    },
+    {
+      "sample_id": "gsm8k_0141",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 674,
+      "completion_tokens": 45,
+      "total_tokens": 719,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 415,
+    "majority_vote_total_tokens": 1230,
+    "scrd_total_tokens": 6177,
+    "scrd_prompt_tokens": 5294,
+    "scrd_completion_tokens": 883,
+    "agent_total_tokens": 3467,
+    "recorder_total_tokens": 1991,
+    "evaluator_total_tokens": 719,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

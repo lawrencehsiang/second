@@ -1,0 +1,296 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "27",
+        "27",
+        "17"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Initial count of 34, subtract 20, then add 13 results in 27.",
+          "claim_type": "support",
+          "related_answer": "A, B"
+        },
+        {
+          "text": "Count starts at 34, reduce by 20, and increase by 13 to get 27.",
+          "claim_type": "support",
+          "related_answer": "A, B"
+        },
+        {
+          "text": "Starting with 34, removing 20, and adding 13 equals 27.",
+          "claim_type": "support",
+          "related_answer": "A, B"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Agent C proposes 17 as the answer.",
+          "why_still_open": "The method used by A and B does not match C's approach.",
+          "involved_answers": [
+            "17",
+            "27"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "34-20+13=27",
+        "Count starts with 34, subtract 20, then add 13.",
+        "Initial count minus 20, then add 13.",
+        "Agent C's method differs from A and B.",
+        "34 oranges, throw away 20, add 13."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "27",
+        "27",
+        "27"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "The calculation is 34 - 20 + 13 = 27, which is correct.",
+          "claim_type": "support",
+          "related_answer": "A, B"
+        },
+        {
+          "text": "Agent C's method led to 17, but recalculating shows 27.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "34-20+13=27",
+        "Agent C's recalculation shows 34-20=14, then 14+13=27.",
+        "Agent C's original calculation was 34-20=14, +13=27.",
+        "Initial count of 34, subtract 20, add 13 to get 27.",
+        "Agent C's proposal of 17 is incorrect."
+      ]
+    },
+    {
+      "round_id": 3,
+      "current_answers": [
+        "27",
+        "27",
+        "27"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Rechecking confirms 34 - 20 + 13 = 27.",
+          "claim_type": "support",
+          "related_answer": "A, B, C"
+        },
+        {
+          "text": "Agent C initially proposed 17 but agreed upon recalculating that the correct answer is 27.",
+          "claim_type": "rebuttal",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "34-20+13=27",
+        "Rechecking confirms 34-20+13=27",
+        "Agent C's initial calculation was 17, but rechecking shows 27.",
+        "Mainstream support and rebuttals confirm 27 as the correct answer.",
+        "Correct calculation: 34-20+13=27"
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 3,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 3,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 350,
+      "completion_tokens": 40,
+      "total_tokens": 390,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 337,
+      "completion_tokens": 39,
+      "total_tokens": 376,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 348,
+      "completion_tokens": 35,
+      "total_tokens": 383,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 596,
+      "completion_tokens": 325,
+      "total_tokens": 921,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 725,
+      "completion_tokens": 128,
+      "total_tokens": 853,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 722,
+      "completion_tokens": 98,
+      "total_tokens": 820,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 736,
+      "completion_tokens": 124,
+      "total_tokens": 860,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1228,
+      "completion_tokens": 237,
+      "total_tokens": 1465,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 637,
+      "completion_tokens": 45,
+      "total_tokens": 682,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 823,
+      "completion_tokens": 141,
+      "total_tokens": 964,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 820,
+      "completion_tokens": 111,
+      "total_tokens": 931,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 834,
+      "completion_tokens": 175,
+      "total_tokens": 1009,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1200,
+      "completion_tokens": 220,
+      "total_tokens": 1420,
+      "extra": {}
+    },
+    {
+      "sample_id": "multiarith_0114",
+      "round_id": 3,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 624,
+      "completion_tokens": 45,
+      "total_tokens": 669,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 390,
+    "majority_vote_total_tokens": 1149,
+    "scrd_total_tokens": 11743,
+    "scrd_prompt_tokens": 9980,
+    "scrd_completion_tokens": 1763,
+    "agent_total_tokens": 6586,
+    "recorder_total_tokens": 3806,
+    "evaluator_total_tokens": 1351,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}

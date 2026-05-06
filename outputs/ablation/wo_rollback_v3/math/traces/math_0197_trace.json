@@ -1,0 +1,204 @@
+{
+  "final_trace": [
+    {
+      "round_id": 1,
+      "current_answers": [
+        "400",
+        "400",
+        "400"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Maximize area with fixed perimeter by forming a square.",
+          "claim_type": "support",
+          "related_answer": "A"
+        },
+        {
+          "text": "Area maximization under perimeter constraint leads to a square shape.",
+          "claim_type": "support",
+          "related_answer": "B"
+        },
+        {
+          "text": "Square provides maximum area for given perimeter.",
+          "claim_type": "support",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [],
+      "key_raw_snippets": [
+        "Maximize area with fixed perimeter using symmetry (square).",
+        "Maximize area with perimeter constraint.",
+        "Square provides maximum area for given perimeter."
+      ]
+    },
+    {
+      "round_id": 2,
+      "current_answers": [
+        "100",
+        "400",
+        "100"
+      ],
+      "newly_added_claims": [
+        {
+          "text": "Re-evaluate the maximum area for a rectangle with a fixed perimeter of 40 feet.",
+          "claim_type": "rebuttal",
+          "related_answer": "A"
+        },
+        {
+          "text": "A square with a side length of 10 feet results in an area of 100 square feet.",
+          "claim_type": "explanation",
+          "related_answer": "C"
+        }
+      ],
+      "unresolved_conflicts": [
+        {
+          "conflict": "Square vs. Rectangle Maximization",
+          "why_still_open": "Disagreement on whether a square or a rectangle with a given perimeter yields the maximum area.",
+          "involved_answers": [
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "key_raw_snippets": [
+        "Square provides maximum area for given perimeter.",
+        "Maximize area with fixed perimeter using symmetry (square).",
+        "A square with a side length of 10 feet results in an area of 100 square feet."
+      ]
+    }
+  ],
+  "execution_events": [
+    {
+      "type": "normal_round_executed",
+      "round_id": 1,
+      "mode": "normal"
+    },
+    {
+      "type": "normal_round_executed",
+      "round_id": 2,
+      "mode": "normal"
+    },
+    {
+      "type": "early_stop_triggered",
+      "round_id": 2,
+      "mode": "normal"
+    }
+  ],
+  "usage_records": [
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "A",
+      "prompt_tokens": 339,
+      "completion_tokens": 38,
+      "total_tokens": 377,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "B",
+      "prompt_tokens": 326,
+      "completion_tokens": 30,
+      "total_tokens": 356,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "agent_round_1",
+      "agent_id": "C",
+      "prompt_tokens": 337,
+      "completion_tokens": 33,
+      "total_tokens": 370,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 1,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 583,
+      "completion_tokens": 174,
+      "total_tokens": 757,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "A",
+      "prompt_tokens": 602,
+      "completion_tokens": 140,
+      "total_tokens": 742,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "B",
+      "prompt_tokens": 599,
+      "completion_tokens": 63,
+      "total_tokens": 662,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "agent_normal",
+      "agent_id": "C",
+      "prompt_tokens": 613,
+      "completion_tokens": 179,
+      "total_tokens": 792,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "recorder",
+      "agent_id": null,
+      "prompt_tokens": 1090,
+      "completion_tokens": 237,
+      "total_tokens": 1327,
+      "extra": {}
+    },
+    {
+      "sample_id": "math_0197",
+      "round_id": 2,
+      "mode": "normal",
+      "component": "evaluator",
+      "agent_id": null,
+      "prompt_tokens": 627,
+      "completion_tokens": 43,
+      "total_tokens": 670,
+      "extra": {}
+    }
+  ],
+  "usage_summary": {
+    "single_agent_total_tokens": 377,
+    "majority_vote_total_tokens": 1103,
+    "scrd_total_tokens": 6053,
+    "scrd_prompt_tokens": 5116,
+    "scrd_completion_tokens": 937,
+    "agent_total_tokens": 3299,
+    "recorder_total_tokens": 2084,
+    "evaluator_total_tokens": 670,
+    "repair_brief_total_tokens": 0,
+    "repair_evaluator_total_tokens": 0,
+    "repair_agent_total_tokens": 0
+  },
+  "ablation": "wo_rollback",
+  "ablation_policy": "rollback_disabled_degraded_to_early_stop",
+  "finalizer": "last_effective_round_majority_vote"
+}
